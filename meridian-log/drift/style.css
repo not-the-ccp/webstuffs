@@ -1,0 +1,145 @@
+/* Drift — liner notes, Tidal Records TID-1912 */
+:root {
+  --ink: #221f1a;
+  --paper: #f4efe4;
+  --deep: #10222b;
+  --deep-ink: #e8e2d2;
+  --stamp: #9c3b2a;
+  --tape: #c9a24b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #d9d2c0;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.sleeve, main { max-width: 46rem; margin: 0 auto; }
+.sleeve {
+  position: relative;
+  background: var(--deep);
+  color: var(--deep-ink);
+  padding: 3rem 1.5rem 2.25rem;
+  overflow: hidden;
+}
+.stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  color: var(--stamp);
+  border: 3px double var(--stamp);
+  padding: 0.3rem 0.7rem;
+  transform: rotate(-6deg);
+  font-size: 0.8rem;
+}
+.tape {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  width: 9rem;
+  height: 2.6rem;
+  transform: translateX(-50%) rotate(-2deg);
+  background: var(--tape);
+  opacity: 0.55;
+}
+.sleeve-header .label-line {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: #b9c8bd;
+  margin: 0 0 1.25rem;
+}
+.sleeve-header h1 {
+  font-size: 3.4rem;
+  margin: 0;
+  letter-spacing: 0.08em;
+}
+.sleeve-header .subtitle {
+  margin: 0.6rem 0 0;
+  font-style: italic;
+  color: #a9b8ae;
+  font-size: 0.95rem;
+}
+main { padding: 2rem 1.5rem 3rem; background: var(--paper); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.notes p { margin: 0 0 1rem; }
+.drop::first-letter {
+  font-size: 3.2rem;
+  float: left;
+  line-height: 0.9;
+  padding-right: 0.4rem;
+  color: var(--stamp);
+}
+h2 {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.3rem;
+  margin: 2rem 0 1rem;
+}
+.tracks { width: 100%; border-collapse: collapse; margin: 0 0 1.5rem; font-size: 0.92rem; }
+.tracks th {
+  font-family: 'Courier New', monospace;
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding: 0.25rem 0.5rem 0.25rem 0;
+}
+.tracks td { border-bottom: 1px dotted #b6ad97; padding: 0.45rem 0.5rem 0.45rem 0; vertical-align: top; }
+.tracks td:first-child { font-family: 'Courier New', monospace; white-space: nowrap; }
+.tracks td:last-child { font-family: 'Courier New', monospace; white-space: nowrap; text-align: right; }
+.meter {
+  background: #ece5d3;
+  border: 1px solid #b6ad97;
+  padding: 1rem 1.1rem;
+  margin: 0 0 1.5rem;
+}
+.meter-head {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+.drift-form label {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.drift-form select, .drift-form input {
+  font-family: 'Courier New', monospace;
+  padding: 0.25rem 0.4rem;
+  margin-left: 0.5rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+.drift-form button {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  background: var(--deep);
+  color: var(--deep-ink);
+  border: 1px solid var(--ink);
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+}
+.drift-form button:hover { background: var(--stamp); }
+#drift-out { display: block; margin-top: 0.75rem; font-family: 'Courier New', monospace; font-size: 0.85rem; }
+q { font-style: italic; }
+.sleeve-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 0.75rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+.sleeve-footer a { color: inherit; }
