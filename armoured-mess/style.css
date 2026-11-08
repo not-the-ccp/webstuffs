@@ -1,0 +1,140 @@
+/* 817 — The Armoured Mess: olive armoury, mess trestles, hazard stripes */
+
+:root {
+  --olive: #556b2f;
+  --olive-dark: #3c4b21;
+  --olive-deep: #2a3416;
+  --khaki: #d8d2b8;
+  --paper: #e9e4cf;
+  --iron: #5a5f56;
+  --hazard: #b8860b;
+  --ink: #23241c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(600px 300px at 12% 8%, rgba(85,107,47,.14), transparent 70%),
+    radial-gradient(520px 260px at 88% 92%, rgba(90,95,86,.16), transparent 70%),
+    var(--khaki);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.corrugation {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(60,75,33,.05) 0 9px,
+    rgba(255,255,255,.10) 9px 18px
+  );
+  z-index: 0;
+}
+
+.mess {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  background: var(--paper);
+  border: 3px solid var(--olive-deep);
+  box-shadow:
+    0 0 0 6px rgba(85,107,47,.18),
+    14px 14px 0 rgba(42,52,22,.22);
+  padding: 2.4rem 2.6rem 1.6rem;
+}
+
+.mess::before,
+.mess::after {
+  content: "817";
+  position: absolute;
+  top: -0.6rem;
+  font-family: "Haettenschweiler", "Arial Narrow", "Impact", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: .2em;
+  background: var(--olive-deep);
+  color: var(--paper);
+  padding: .05rem .7rem;
+}
+.mess::before { left: 2rem; }
+.mess::after { right: 2rem; }
+
+.mess-head .issue {
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--olive-dark);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-family: "Haettenschweiler", "Arial Narrow", "Impact", sans-serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  margin: 0 0 .4rem;
+  color: var(--olive-deep);
+  letter-spacing: .02em;
+}
+h1 .amp { color: var(--hazard); }
+
+.addr {
+  margin: 0 0 1.1rem;
+  font-style: italic;
+  color: #4a4a3c;
+  font-size: .98rem;
+}
+
+.stamps { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .4rem; }
+.stamp {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  border: 2px dashed var(--olive-dark);
+  color: var(--olive-dark);
+  padding: .25rem .55rem;
+  transform: rotate(-1deg);
+  background: rgba(233,228,207,.6);
+}
+.stamp.s2 { transform: rotate(1.2deg); }
+.stamp.s3 { transform: rotate(-.6deg); }
+.stamp.s4 { transform: rotate(.8deg); border-color: var(--hazard); color: var(--hazard); }
+
+.hazard {
+  height: 10px;
+  margin: 1.2rem -1rem;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--hazard) 0 12px,
+    var(--olive-deep) 12px 24px
+  );
+  opacity: .85;
+}
+
+.prose p { margin: 0 0 1.15rem; }
+.prose strong { color: var(--olive-deep); }
+.prose a {
+  color: var(--olive-deep);
+  text-decoration-color: var(--hazard);
+  text-underline-offset: 3px;
+}
+.prose a:hover { background: rgba(184,134,11,.18); }
+
+.colophon {
+  border-top: 2px solid var(--olive);
+  padding-top: .8rem;
+  font-size: .9rem;
+  color: #4a4a3c;
+}
+.colophon #clock,
+.colophon #line {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  color: var(--olive-deep);
+}
