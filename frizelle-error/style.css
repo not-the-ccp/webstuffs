@@ -1,0 +1,137 @@
+/* ERR-114 — The Frizelle Message — venue systems error reference */
+
+:root {
+  --paper: #f7f5f0;
+  --ink: #24211c;
+  --faint: #6d675c;
+  --rule: #d8d3c7;
+  --accent: #7a2e2a;
+  --mono: "Courier New", Courier, monospace;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.ref-header,
+main,
+.ref-footer {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ref-header {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.subref {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+}
+
+main { padding-bottom: 3rem; }
+
+section { margin-top: 2.75rem; }
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+p { margin: 0 0 1.1rem; }
+
+.message {
+  background: #1f1d19;
+  color: #e9e4d8;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.message p { margin: 0 0 0.6rem; }
+.message .mid { color: #d8a03c; }
+.message .stamp { color: #948d7e; font-size: 0.78rem; margin-bottom: 0; }
+
+.decode {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 1.25rem;
+}
+
+.decode th {
+  text-align: left;
+  font-weight: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-bottom: 1px solid var(--ink);
+  padding: 0 0.75rem 0.5rem 0;
+}
+
+.decode td {
+  vertical-align: top;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.decode td:first-child { white-space: nowrap; }
+@media (max-width: 36rem) {
+  .decode td:first-child { white-space: normal; }
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: #efeadd;
+  border: 1px solid var(--rule);
+  padding: 0 0.3em;
+}
+
+.ref-footer {
+  border-top: 1px solid var(--ink);
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+
+.ref-footer p { margin: 0; }
+a { color: var(--accent); }
