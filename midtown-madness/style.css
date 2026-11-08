@@ -1,0 +1,316 @@
+/* Midtown Madness — In Memoriam · The Chicago Ledger, Final Entry
+   Design: newspaper obituary column fused with a street-racing HUD.
+   Black asphalt, hazard tape, yellow lane dashes, red police light. */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,500&family=Special+Elite&display=swap');
+
+:root {
+  --asphalt: #101114;
+  --asphalt-2: #17191f;
+  --line: #2b2e37;
+  --paper: #f4efe3;
+  --ink: #23201a;
+  --tape: #f5c518;
+  --tape-dark: #b98d00;
+  --signal: #e8432e;
+  --lake: #2e6f8f;
+  --dash: #f5c518;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  background:
+    radial-gradient(1200px 500px at 80% -5%, rgba(245,197,24,0.10), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(232,67,46,0.12), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, var(--asphalt) 0%, var(--asphalt-2) 40%, #0c0d10 100%);
+  min-height: 100vh;
+}
+
+/* ---------- hazard tape ---------- */
+.hazard {
+  height: 14px;
+  background: repeating-linear-gradient(-45deg,
+    var(--tape) 0 18px, #14151a 18px 36px);
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  position: relative;
+  overflow: hidden;
+}
+.hazard::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  width: 120px;
+  animation: sheen 4.5s linear infinite;
+}
+@keyframes sheen {
+  from { transform: translateX(-140px); }
+  to   { transform: translateX(110vw); }
+}
+.hazard--top    { margin-bottom: 0; }
+.hazard--bottom { margin-top: 26px; }
+
+/* ---------- masthead ---------- */
+.masthead {
+  text-align: center;
+  padding: 34px 16px 8px;
+  background:
+    radial-gradient(closest-side at 50% 42%, rgba(245,197,24,0.07), transparent),
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+}
+.masthead-crest {
+  width: 108px; height: 108px;
+  margin: 0 auto 8px;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(245,197,24,0.35));
+}
+.crest-ring { fill: none; stroke: var(--tape); stroke-width: 3; stroke-dasharray: 6 4; animation: spin 24s linear infinite; transform-origin: 60px 60px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.crest-road { fill: #1d2027; stroke: var(--tape); stroke-width: 2; }
+.crest-dash { stroke: var(--dash); stroke-width: 3; stroke-dasharray: 6 6; animation: dashrun 1s linear infinite; }
+@keyframes dashrun { to { stroke-dashoffset: -12; } }
+.crest-year { fill: var(--tape); font-family: 'Bebas Neue', Impact, sans-serif; font-size: 15px; text-anchor: middle; }
+
+.kicker {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--tape);
+  margin: 6px 0 10px;
+}
+.headline {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(3.4rem, 11vw, 7.2rem);
+  line-height: 0.9;
+  margin: 0;
+  color: var(--paper);
+  letter-spacing: 0.04em;
+  text-shadow:
+    3px 3px 0 var(--signal),
+    6px 6px 0 rgba(0,0,0,0.65);
+}
+.subhead {
+  font-style: italic;
+  color: #cfc8b6;
+  max-width: 46ch;
+  margin: 14px auto 20px;
+  font-size: 1.05rem;
+}
+
+/* ---------- ticker ---------- */
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #0a0b0e;
+  white-space: nowrap;
+}
+.ticker__inner {
+  display: inline-block;
+  padding: 7px 0;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  letter-spacing: 0.3em;
+  font-size: 0.95rem;
+  color: var(--tape);
+  animation: tick 26s linear infinite;
+}
+.ticker__inner span { margin: 0 14px; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- column / obituary body ---------- */
+.column {
+  max-width: 760px;
+  margin: 30px auto 10px;
+  padding: 0 18px;
+}
+.entry {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(245,197,24,0.05), transparent 120px),
+    var(--paper);
+  color: var(--ink);
+  padding: 26px 30px 24px;
+  margin: 0 0 22px;
+  border: 1px solid #c9c1a8;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.55),
+    inset 0 0 0 4px #fff,
+    inset 0 0 0 5px #d8d0b8;
+}
+/* yellow road-marker tab down the left edge */
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -13px; top: 18px; bottom: 18px;
+  width: 10px;
+  background: repeating-linear-gradient(180deg, var(--tape) 0 16px, #14151a 16px 28px);
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+.entry p { line-height: 1.72; margin: 0 0 1em; font-size: 1.02rem; }
+.entry p:last-child { margin-bottom: 0; }
+.entry--lead p:first-of-type::first-letter {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 4.4em;
+  float: left;
+  line-height: 0.8;
+  padding: 4px 10px 0 0;
+  color: var(--signal);
+}
+.dateline strong { font-family: 'Bebas Neue', Impact, sans-serif; letter-spacing: 0.06em; }
+
+.entry__head {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 3px double var(--ink);
+  position: relative;
+}
+.entry__head::after {
+  content: "▮▮▮";
+  position: absolute;
+  right: 0; bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--tape-dark);
+}
+
+/* statue / city panel */
+.entry--statute {
+  background:
+    linear-gradient(180deg, rgba(46,111,143,0.16), transparent 55%),
+    var(--paper);
+  border-left: 8px solid var(--lake);
+}
+
+/* final dispatch — dark panel like an arcade screen */
+.entry--dispatch {
+  background:
+    radial-gradient(600px 200px at 50% 0%, rgba(232,67,46,0.16), transparent 70%),
+    #14151a;
+  color: #e9e3d2;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 0 60px rgba(0,0,0,0.55);
+  animation: scan 7s ease-in-out infinite;
+}
+@keyframes scan {
+  0%, 100% { box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 0 60px rgba(0,0,0,0.55); }
+  50%      { box-shadow: 0 18px 40px rgba(0,0,0,0.6), inset 0 0 90px rgba(232,67,46,0.20); }
+}
+.entry--dispatch .entry__head { color: var(--tape); border-bottom-color: var(--signal); }
+.dispatch {
+  margin: 18px 0;
+  padding: 18px 22px;
+  border: 2px dashed var(--tape);
+  background: rgba(245,197,24,0.06);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 1.12rem;
+  letter-spacing: 0.04em;
+  color: var(--tape);
+  text-shadow: 0 0 8px rgba(245,197,24,0.5);
+}
+.dispatch p { margin: 0; }
+.entry--dispatch a { color: var(--tape); }
+
+/* epitaph */
+.entry--epitaph { text-align: center; background: none; border: none; box-shadow: none; padding: 14px 20px 4px; }
+.entry--epitaph::before { display: none; }
+.epitaph {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 0.3em;
+  color: var(--paper);
+  text-shadow: 2px 2px 0 var(--signal);
+  margin: 0;
+}
+.epitaph__small {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: #b8b1a0;
+}
+
+/* links */
+a {
+  color: var(--signal);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+a:hover, a:focus {
+  background: var(--tape);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* ---------- colophon / speedo ---------- */
+.colophon {
+  text-align: center;
+  padding: 18px 16px 30px;
+}
+.colophon__line {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #8d8674;
+  margin: 0 0 8px;
+}
+.colophon__small {
+  margin: 0;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.25em;
+  color: var(--tape);
+}
+
+/* traffic light, fixed corner */
+.light {
+  position: fixed;
+  right: 14px; bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 7px 6px;
+  background: #101114;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+.light i {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #33363f;
+  display: block;
+}
+.light i.r { animation: lamp-r 6s infinite; }
+.light i.y { animation: lamp-y 6s infinite; }
+.light i.g { animation: lamp-g 6s infinite; }
+@keyframes lamp-r { 0%,16% { background: var(--signal); box-shadow: 0 0 12px var(--signal); } 17%,100% { background: #33363f; box-shadow: none; } }
+@keyframes lamp-y { 0%,16% { background: #33363f; } 17%,24% { background: var(--tape); box-shadow: 0 0 12px var(--tape); } 25%,100% { background: #33363f; box-shadow: none; } }
+@keyframes lamp-g { 0%,24% { background: #33363f; } 25%,99% { background: #37b26a; box-shadow: 0 0 12px #37b26a; } 100% { background: #33363f; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media (max-width: 520px) {
+  .entry { padding: 20px 18px; }
+  .entry::before { left: -10px; width: 7px; }
+  .headline { text-shadow: 2px 2px 0 var(--signal); }
+}
