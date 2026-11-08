@@ -1,0 +1,97 @@
+/* Contemporary Worship Music — museum placard stylesheet */
+html { line-height: 1.45; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #23180f;
+  background: radial-gradient(circle at 50% 35%, #fdfaf0 0%, #efe5cb 55%, #d4be8e 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+}
+.placard-frame {
+  width: min(680px, 94vw);
+  background: #fbf7ec;
+  border: 16px double #8c6b3f;
+  outline: 1px solid #c6ae78;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28), inset 0 0 0 1px #fff4c8;
+  padding: 42px 38px 48px;
+}
+header.placard-header {
+  border-bottom: 4px double #5c421a;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+  position: relative;
+}
+.museum {
+  font-size: 11px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #8c6b3f;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+h1 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 36px;
+  line-height: 1.12;
+  margin: 0 0 7px;
+  color: #3c1d0f;
+}
+.object-line {
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #6e5832;
+  margin: 0;
+}
+.body-copy p {
+  font-size: 15.5px;
+  line-height: 1.9;
+  margin: 0 0 18px;
+  text-align: justify;
+}
+.body-copy p::first-letter {
+  font-size: 40px;
+  font-weight: 700;
+  color: #8c4f32;
+  padding-right: 8px;
+  line-height: 1;
+  float: left;
+}
+em { font-style: italic; color: #4a2b1a; }
+a { color: #7a3420; text-decoration: none; border-bottom: 1px solid rgba(122, 52, 32, 0.35); }
+a:focus-visible { outline: 3px solid #7a3420; outline-offset: 2px; }
+.visitor-info {
+  margin-top: 36px;
+  padding: 22px 26px;
+  background: #f3e9d3;
+  border: 1px solid #dcc8a6;
+  border-left: 7px solid #8c6b3f;
+  font-size: 14px;
+}
+.visitor-info h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #5c421a;
+}
+.visitor-info p { margin: 0 0 9px; }
+.visitor-info strong { color: #3d220a; }
+.decoration {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 26px;
+  height: 26px;
+  border: 5px solid #8c6b3f;
+  border-radius: 50%;
+  animation: pulse 5s ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  from { opacity: 0.55; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1.12); }
+}
