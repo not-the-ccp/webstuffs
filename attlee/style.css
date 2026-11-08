@@ -1,0 +1,293 @@
+/* Clement Attlee — Obituary, Entered Late */
+:root {
+  --paper: #f3ecd9;
+  --paper-deep: #e9dfc4;
+  --ink: #211c15;
+  --ink-soft: #4c4436;
+  --oxblood: #6d2a22;
+  --oxblood-deep: #4d1d18;
+  --gold: #a5822e;
+  --rule: #8a7c5d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(165, 130, 46, 0.14), transparent 55%),
+    radial-gradient(ellipse at 50% 115%, rgba(109, 42, 34, 0.10), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.top-rule {
+  height: 7px;
+  background: linear-gradient(90deg, var(--oxblood-deep), var(--oxblood) 30%, var(--gold) 50%, var(--oxblood) 70%, var(--oxblood-deep));
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.masthead .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 1.4rem;
+}
+
+.memoriam {
+  font-size: 1rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--ink-soft);
+}
+.memoriam::before, .memoriam::after {
+  content: "—  ";
+  letter-spacing: 0;
+  color: var(--gold);
+}
+.memoriam::after { content: "  —"; }
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0.2rem 0 0.9rem;
+  line-height: 1.05;
+}
+
+.dates {
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+}
+
+.offices {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 1.6rem;
+  line-height: 1.9;
+}
+
+.ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  padding: 0.45rem 0;
+  width: min(320px, 80%);
+  margin: 0 auto;
+  box-shadow: 0 1px 0 var(--gold);
+}
+.ribbon-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.entry {
+  border-top: 3px double var(--rule);
+  padding: 1.8rem 0 0.4rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.entry.shown { opacity: 1; transform: none; }
+.no-motion .entry { opacity: 1; transform: none; transition: none; }
+
+.entry:first-child { border-top: none; padding-top: 0.4rem; }
+
+.entry h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--oxblood-deep);
+  margin: 0 0 0.4rem;
+  text-align: left;
+}
+
+.entry > p:first-of-type::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--oxblood);
+  font-weight: 600;
+}
+
+.entry-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+  text-align: left;
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+.entry p { margin: 0 0 1.1rem; }
+.entry a { color: var(--oxblood); text-underline-offset: 3px; }
+.entry a:hover { color: var(--oxblood-deep); }
+
+/* The chalk slip */
+.slip {
+  background: linear-gradient(175deg, #faf5e4, var(--paper-deep));
+  border: 1px solid var(--gold);
+  outline: 1px dotted var(--rule);
+  outline-offset: 5px;
+  margin: 1.6rem 0.5rem 1.8rem;
+  padding: 1.4rem 1.6rem;
+  transform: rotate(-0.7deg);
+  box-shadow: 3px 4px 0 rgba(33, 28, 21, 0.12);
+  text-align: left;
+}
+.slip p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--ink);
+}
+.slip cite {
+  display: block;
+  margin-top: 0.9rem;
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+/* The ledger */
+.ledger {
+  border: 1px solid var(--rule);
+  background: rgba(255, 252, 240, 0.5);
+  margin: 0 0 0.5rem;
+  padding: 1.3rem 1.5rem 0.6rem;
+  text-align: left;
+}
+.ledger h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.9rem;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.5rem;
+}
+.ledger dl { margin: 0; }
+.ledger dt {
+  float: left;
+  clear: left;
+  width: 7.5rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  padding: 0.35rem 0.6rem 0.35rem 0;
+  padding-top: 0.75rem;
+}
+.ledger dd {
+  margin: 0 0 0 7.5rem;
+  padding: 0.35rem 0 0.7rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+.ledger dd::after { content: ""; display: block; clear: both; }
+
+/* Colophon & candle */
+.colophon {
+  max-width: 46rem;
+  margin: 2rem auto 0;
+  padding: 2.5rem 1.5rem 3rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+}
+
+.candle {
+  position: relative;
+  display: inline-block;
+  width: 14px;
+  height: 74px;
+  margin-bottom: 1.2rem;
+}
+.wax {
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  width: 12px;
+  height: 48px;
+  background: linear-gradient(180deg, #efe6c8, #d8c99a);
+  border-radius: 3px 3px 2px 2px;
+  box-shadow: inset -2px 0 3px rgba(109, 42, 34, 0.18);
+}
+.wick {
+  position: absolute;
+  bottom: 47px;
+  left: 6px;
+  width: 2px;
+  height: 6px;
+  background: var(--ink);
+}
+.flame {
+  position: absolute;
+  bottom: 52px;
+  left: 2px;
+  width: 10px;
+  height: 22px;
+  background: radial-gradient(ellipse at 50% 78%, #fff6d8 0%, #f4c14e 45%, #d97b2b 75%, rgba(217, 123, 43, 0) 100%);
+  border-radius: 50% 50% 45% 45% / 62% 62% 38% 38%;
+  transform-origin: 50% 100%;
+  animation: flicker 2.3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(244, 193, 78, 0.55));
+}
+@keyframes flicker {
+  0%, 100% { transform: rotate(-2deg) scale(1); }
+  22%      { transform: rotate(2.5deg) scale(0.96, 1.06); }
+  45%      { transform: rotate(-1.5deg) scale(1.03, 0.95); }
+  68%      { transform: rotate(1.8deg) scale(0.97, 1.04); }
+  85%      { transform: rotate(-0.8deg) scale(1.01, 0.98); }
+}
+
+.colophon-line {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin: 0 0 1.4rem;
+}
+
+.foot-links { font-size: 0.92rem; text-align: center; }
+.foot-links p { margin: 0.3rem 0; }
+.foot-links a { color: var(--oxblood); }
+.foot-links a:hover { color: var(--oxblood-deep); }
+
+@media (max-width: 560px) {
+  body { text-align: left; }
+  .ledger dt { float: none; width: auto; }
+  .ledger dd { margin-left: 0; }
+}
