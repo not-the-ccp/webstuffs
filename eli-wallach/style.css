@@ -1,0 +1,170 @@
+/* Field notes &mdash; Eli Wallach (Webstuffs collection) */
+html { box-sizing: border-box; font-size: 112.5%; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 6vh 7vw;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  color: #26241e;
+  background: #f7f2e4;
+  background-image:
+    radial-gradient(circle at 15% 25%, #d8cfb7 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, #e9e3d2 0%, transparent 45%);
+  line-height: 1.7;
+}
+
+.field-sheet {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fcfbf0;
+  border: 1px solid #cbc4a8;
+  border-top: 5px solid #8a7942;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.14), inset 0 0 0 1px rgba(255,255,255,0.9);
+  padding: 52px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.field-sheet::before, .field-sheet::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+}
+.field-sheet::before {
+  top: -80px; left: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(138,121,66,0.08) 0%, transparent 68%);
+}
+.field-sheet::after {
+  bottom: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(100,120,80,0.07) 0%, transparent 68%);
+}
+
+.sheet-header { position: relative; z-index: 1; margin-bottom: 34px; padding-bottom: 26px; border-bottom: 1px solid #d5cfb8; }
+
+.shelf-mark {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8a7942;
+  font-weight: bold;
+  padding: 4px 10px;
+  border: 1px solid #d5cfb8;
+  background: #f3efe0;
+  margin-bottom: 14px;
+}
+
+.sheet-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #26241e;
+  line-height: 1.2;
+}
+
+.dates {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #5c5745;
+  font-style: italic;
+}
+
+.field-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 250px 1fr; gap: 42px 48px; }
+
+.specimen { position: sticky; top: 26px; }
+
+.specimen table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.specimen caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8a7942;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.specimen th, .specimen td {
+  border-bottom: 1px dashed #d5cfb8;
+  padding: 7px 0;
+  vertical-align: top;
+}
+.specimen th {
+  text-align: left;
+  color: #6b634f;
+  font-weight: normal;
+  width: 34%;
+  font-style: italic;
+}
+.specimen td i { color: #4a4436; }
+
+.notes h2 {
+  font-size: 1.15rem;
+  color: #5c6b4f;
+  margin: 30px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e2dcc9;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: bold;
+}
+.notes h2:first-of-type { margin-top: 6px; }
+.notes p { margin: 0 0 14px 0; }
+.notes p:last-child { margin-bottom: 0; }
+
+.lead { font-size: 1.08rem; color: #3c382e; }
+
+.closing {
+  font-style: italic;
+  color: #5c5745;
+  border-top: 1px solid #e2dcc9;
+  padding-top: 14px;
+  margin-top: 26px;
+  font-size: 0.98rem;
+}
+
+.colophon { position: relative; z-index: 1; margin-top: 46px; padding-top: 26px; border-top: 1px solid #d5cfb8; font-size: 0.86rem; color: #6b634f; }
+.colophon .sources { margin: 0 0 10px 0; font-style: italic; }
+.colophon .nav { margin: 0; }
+.colophon .nav a {
+  color: #8a7942;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.colophon .nav a:hover { color: #5c6b4f; border-bottom: 1px solid #5c6b4f; }
+.colophon .nav a + a { margin-left: 18px; }
+
+/* Pressed-leaf decorations */
+.leaf {
+  position: absolute;
+  z-index: 1;
+  width: 140px; height: 78px;
+  background: linear-gradient(135deg, #9aad7e 40%, transparent 42%), linear-gradient(225deg, transparent 58%, #7c8c5c 60%);
+  border-radius: 58% 42% 62% 38% / 52% 48% 52% 48%;
+  opacity: 0.55;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15);
+}
+.leaf.one { top: 34px; right: 46px; animation: float-one 6s ease-in-out infinite alternate; }
+.leaf.two { bottom: 52px; left: 40px; width: 100px; height: 56px; animation: float-two 8s ease-in-out infinite alternate-reverse; }
+
+@keyframes float-one {
+  from { transform: translateY(0) rotate(-12deg); }
+  to   { transform: translateY(-6px) rotate(-12deg); }
+}
+@keyframes float-two {
+  from { transform: translateY(0) rotate(20deg); }
+  to   { transform: translateY(-6px) rotate(20deg); }
+}
+
+@media (max-width: 620px) {
+  body { padding: 4vh 5vw; }
+  .field-sheet { padding: 36px 32px 44px; }
+  .field-grid { grid-template-columns: 1fr; gap: 30px; }
+  .specimen { position: static; }
+}
