@@ -1,0 +1,224 @@
+/* The Book — school report sheet, Class 7B */
+
+:root {
+  --paper: #fbf6e9;
+  --paper-edge: #efe6cf;
+  --rule: #b9d2e8;
+  --margin: #e0715f;
+  --ink: #2b3a55;
+  --red-ink: #b23a3a;
+  --blue-ink: #2c5e8a;
+  --faded: #7a8aa3;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #232733; }
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2.5rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.sheet {
+  position: relative;
+  background:
+    linear-gradient(105deg, rgba(0,0,0,.05), transparent 12%),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 35px,
+      var(--rule) 35px,
+      var(--rule) 36px
+    ),
+    linear-gradient(var(--paper), var(--paper-edge));
+  border: 1px solid #c9bd9c;
+  box-shadow:
+    0 1px 0 #fff inset,
+    0 18px 40px rgba(0,0,0,.45),
+    0 2px 6px rgba(0,0,0,.3);
+  padding: 2.25rem 2.5rem 1.5rem 3.5rem;
+}
+
+/* spiral binding */
+.spiral {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -14px;
+  width: 28px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 18px,
+      #8a8f9c 18px,
+      #c9cdd8 21px,
+      #6e7380 24px,
+      transparent 24px,
+      transparent 36px
+    );
+  border-radius: 12px 0 0 12px;
+}
+
+/* red report line */
+.margin-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.1rem;
+  width: 2px;
+  background: linear-gradient(var(--margin), #f0a49a);
+  opacity: .8;
+}
+
+.report-head { margin-bottom: 1rem; }
+
+.school {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 .5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: .02em;
+  color: var(--blue-ink);
+  border-bottom: 3px double var(--blue-ink);
+  display: inline-block;
+  padding-bottom: .15em;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--faded);
+  margin: .35rem 0 1rem;
+}
+
+.admin {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: .3rem 1rem;
+  margin: 0;
+  font-size: .95rem;
+}
+.admin dt {
+  font-weight: bold;
+  font-variant: small-caps;
+  color: var(--blue-ink);
+}
+.admin dd { margin: 0; }
+
+section.lines { margin: 0 0 1.9rem; }
+
+h2 {
+  font-size: 1.12rem;
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  color: var(--blue-ink);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 0 .6rem;
+}
+
+p { margin: 0 0 .8rem; line-height: 36px; }
+
+em { color: var(--blue-ink); }
+
+a { color: var(--blue-ink); text-decoration: underline; text-decoration-color: rgba(44,94,138,.35); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--red-ink); color: var(--red-ink); }
+
+/* teacher's red pencil notes in the margin */
+.teacher-note {
+  margin: .4rem 0 .4rem 1.4rem;
+  padding: .45rem .9rem;
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: .95rem;
+  color: var(--red-ink);
+  line-height: 1.5;
+  transform: rotate(-.6deg);
+  border-left: 3px dotted var(--red-ink);
+  background: rgba(178,58,58,.05);
+}
+
+/* the grade, circled in red */
+.grade {
+  display: inline-block;
+  min-width: 1.6em;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--red-ink);
+  border: 2.5px solid var(--red-ink);
+  border-radius: 50%;
+  padding: .05em .25em;
+  transform: rotate(-3deg);
+}
+
+.marking {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--blue-ink);
+  position: relative;
+}
+.mark-line { font-size: .9rem; margin: 0 6rem 0 0; }
+
+/* rubber stamp */
+.stamp {
+  position: absolute;
+  right: 0;
+  top: .6rem;
+  width: 5.2rem;
+  height: 5.2rem;
+  opacity: .85;
+  transform: rotate(-14deg) scale(1);
+  animation: thud .5s ease-out both;
+  animation-delay: .8s;
+}
+.stamp-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--red-ink);
+  border: 3px double var(--red-ink);
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+
+@keyframes thud {
+  0% { transform: rotate(-14deg) scale(2.2); opacity: 0; }
+  70% { transform: rotate(-14deg) scale(.96); opacity: .9; }
+  100% { transform: rotate(-14deg) scale(1); opacity: .85; }
+}
+
+.nav-line {
+  margin-top: 1.75rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--rule);
+  font-size: .88rem;
+  color: var(--faded);
+}
+.nav-line p { line-height: 1.6; margin: 0; }
+
+@media (max-width: 34rem) {
+  .sheet { padding: 1.5rem 1.25rem 1.25rem 2.4rem; }
+  .margin-line { left: 1.35rem; }
+  .admin { grid-template-columns: 1fr; }
+  .stamp { position: static; margin: 1rem 0 0; }
+  .mark-line { margin-right: 0; }
+}
