@@ -1,0 +1,272 @@
+/* The Mars Post — Newsletter of the Jarrow–Manchester Correspondents */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root{
+  --paper:#f3ead6;
+  --paper-deep:#e9dcc0;
+  --ink:#241a12;
+  --moss:#1f4d2e;
+  --brick:#8a2b1d;
+  --canal:#274b5e;
+  --gold:#b98a2e;
+  --faded:#6d5c46;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'IM Fell English', Georgia, 'Times New Roman', serif;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse 80% 60% at 15% -5%, rgba(255,244,214,.9), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 90% 108%, rgba(39,75,94,.35), transparent 65%),
+    radial-gradient(ellipse 45% 40% at 78% 12%, rgba(138,43,29,.14), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(36,26,18,.028) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(36,26,18,.02) 0 1px, transparent 1px 3px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 55%, #ddcfa9 100%);
+  min-height:100vh;
+  line-height:1.65;
+}
+
+/* drifting snowdrift over everything, very faint */
+.snowdrift{
+  position:fixed; inset:0; z-index:6; pointer-events:none;
+  background-image:
+    radial-gradient(circle 2.5px at 20% 10%, rgba(255,255,255,.85) 60%, transparent 61%),
+    radial-gradient(circle 1.8px at 65% 25%, rgba(255,255,255,.7) 60%, transparent 61%),
+    radial-gradient(circle 2.2px at 85% 55%, rgba(255,255,255,.75) 60%, transparent 61%),
+    radial-gradient(circle 1.5px at 40% 70%, rgba(255,255,255,.65) 60%, transparent 61%),
+    radial-gradient(circle 2px at 10% 85%, rgba(255,255,255,.7) 60%, transparent 61%),
+    radial-gradient(circle 1.7px at 92% 92%, rgba(255,255,255,.6) 60%, transparent 61%);
+  background-size:340px 340px, 260px 260px, 420px 420px, 300px 300px, 380px 380px, 220px 220px;
+  animation:drift 46s linear infinite;
+  opacity:.5;
+}
+@keyframes drift{
+  from{background-position:0 0,0 0,0 0,0 0,0 0,0 0}
+  to{background-position:-340px 680px, 260px 520px, -420px 840px, 300px 600px, -380px 760px, 220px 440px}
+}
+
+/* the folio: a sheet of paper pinned on the desk */
+.folio{
+  position:relative; z-index:2;
+  max-width:900px;
+  margin:34px auto 60px;
+  padding:52px 58px 40px;
+  background:
+    radial-gradient(ellipse 90% 20% at 50% 0%, rgba(255,250,232,.9), transparent 70%),
+    radial-gradient(ellipse 30% 25% at 96% 100%, rgba(109,92,70,.18), transparent 75%),
+    repeating-linear-gradient(180deg, rgba(36,26,18,.015) 0 2px, transparent 2px 4px),
+    linear-gradient(175deg, #f8f1de 0%, #f2e8d0 60%, #ead9b6 100%);
+  border:1px solid #c9b58c;
+  box-shadow:
+    0 2px 4px rgba(36,26,18,.22),
+    0 18px 44px rgba(36,26,18,.34),
+    inset 0 0 60px rgba(160,130,80,.16),
+    inset 0 0 6px rgba(255,255,255,.7);
+}
+/* deckled edge */
+.folio::before{
+  content:"";
+  position:absolute; inset:8px;
+  border:1.5px dashed rgba(138,43,29,.4);
+  pointer-events:none;
+}
+/* wax seal in the corner */
+.folio::after{
+  content:"M";
+  position:absolute; top:-26px; right:-18px;
+  width:74px; height:74px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display', serif; font-weight:900; font-size:30px; color:#f3ead6;
+  background:radial-gradient(circle at 35% 30%, #b2412f, var(--brick) 60%, #5e1a10);
+  border-radius:47% 53% 51% 49% / 52% 48% 52% 48%;
+  box-shadow:0 6px 14px rgba(36,26,18,.4), inset 0 2px 6px rgba(255,255,255,.25), inset 0 -4px 10px rgba(0,0,0,.35);
+  transform:rotate(-9deg);
+}
+
+/* ——— masthead ——— */
+.masthead{text-align:center; margin-bottom:30px}
+.eyebrow{
+  font-family:'Special Elite', 'Courier New', monospace;
+  font-size:11.5px; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--brick); margin-bottom:14px;
+}
+.wordmark{
+  font-family:'Playfair Display', Georgia, serif;
+  font-weight:900; line-height:.95;
+  color:var(--canal);
+  display:flex; flex-direction:column; align-items:center;
+}
+.mark-line{
+  font-size:clamp(22px,4vw,34px); font-weight:700; letter-spacing:.5em;
+  text-transform:uppercase; color:var(--brick); padding-left:.5em;
+  text-shadow:0 1px 0 rgba(255,255,255,.8);
+}
+.mark-big{
+  font-size:clamp(74px,15vw,138px); letter-spacing:.06em;
+  color:var(--canal);
+  text-shadow:
+    3px 3px 0 rgba(185,138,46,.5),
+    6px 6px 0 rgba(138,43,29,.18),
+    0 0 30px rgba(39,75,94,.15);
+}
+/* the silent a: printed, coloured, ignorable on purpose */
+.g-silent{
+  color:var(--gold);
+  animation:ghost 6s ease-in-out infinite;
+  display:inline-block;
+}
+@keyframes ghost{
+  0%,100%{opacity:1; transform:none}
+  50%{opacity:.25; transform:translateY(-4px) rotate(-4deg)}
+}
+.corrector{
+  font-style:italic; color:var(--faded);
+  font-size:15px; margin-top:10px;
+}
+
+/* the stamp block */
+.stamp-row{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:24px; margin-top:26px; flex-wrap:wrap;
+}
+.stamp{
+  position:relative; padding:10px 12px 8px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.25) 0 2px, transparent 2px 6px),
+    linear-gradient(160deg, #f6efdc, #ead9b6);
+  border:1.5px solid #b7a274;
+  box-shadow:inset 0 0 10px rgba(138,43,29,.15), 0 3px 8px rgba(36,26,18,.25);
+  transform:rotate(-2deg);
+  animation:sway 9s ease-in-out infinite;
+}
+@keyframes sway{
+  0%,100%{transform:rotate(-2deg)}
+  50%{transform:rotate(.5deg)}
+}
+.stamp-dent{
+  position:absolute; left:-14px; top:-12px;
+  font-family:'Special Elite', monospace; font-size:9.5px; letter-spacing:.14em;
+  color:var(--canal);
+  border:2px solid var(--canal); border-radius:50%;
+  padding:9px 8px; width:96px; text-align:center; line-height:1.35;
+  opacity:.75; transform:rotate(8deg);
+  mix-blend-mode:multiply;
+  animation:stampin 1.2s ease-out both .6s;
+}
+@keyframes stampin{
+  0%{opacity:0; transform:rotate(8deg) scale(2.2)}
+  60%{opacity:.85; transform:rotate(8deg) scale(.96)}
+  100%{opacity:.75; transform:rotate(8deg) scale(1)}
+}
+.no-block{
+  text-align:right; display:flex; flex-direction:column; gap:2px;
+}
+.no-big{
+  font-family:'Playfair Display', serif; font-weight:900; font-size:30px;
+  color:var(--brick);
+}
+.no-date{
+  font-family:'Special Elite', monospace; font-size:13px; letter-spacing:.1em;
+}
+.no-issu{font-style:italic; font-size:12.5px; color:var(--faded)}
+
+/* ——— columns ——— */
+.column{
+  padding:26px 6px;
+  border-top:1px solid rgba(138,43,29,.28);
+  position:relative;
+}
+.column::before{
+  content:"❦"; position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+  background:#f5ecd8; padding:0 10px; color:var(--gold); font-size:16px;
+}
+.col-head{
+  font-family:'Playfair Display', serif; font-weight:700;
+  font-size:21px; letter-spacing:.05em;
+  color:var(--brick);
+  margin-bottom:12px;
+  text-transform:uppercase;
+  font-variant:small-caps;
+}
+.column p{margin-bottom:14px; max-width:62ch}
+.column p:last-child{margin-bottom:0}
+.column a{
+  color:var(--canal);
+  text-decoration:underline;
+  text-decoration-style:wavy;
+  text-decoration-color:rgba(39,75,94,.45);
+  text-underline-offset:3px;
+  transition:background .2s, color .2s;
+}
+.column a:hover{
+  background:rgba(185,138,46,.22);
+  color:#132c38;
+  text-decoration-style:solid;
+}
+strong{color:var(--canal)}
+
+/* the correction column: ruled like a schoolbook */
+.correction{
+  background:
+    repeating-linear-gradient(180deg, transparent 0 27px, rgba(39,75,94,.22) 27px 28px);
+  border-left:3px double var(--canal);
+  border-right:3px double var(--canal);
+  margin:0 14px;
+}
+.correction p{background:transparent}
+
+/* four small columns */
+.small-columns{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+  gap:22px;
+}
+.small-columns .col h3{font-size:15.5px}
+.small-columns p{font-size:14.5px; line-height:1.55; max-width:none}
+
+/* the line to carry */
+#closing p:first-of-type em, #closing .signoff em{color:var(--brick); font-style:italic}
+.signoff{
+  font-family:'Special Elite', monospace; font-size:14px;
+  color:var(--faded); margin-top:18px;
+  border-top:1px solid rgba(138,43,29,.3);
+  padding-top:14px;
+}
+
+/* ——— colophon ——— */
+.colophon{
+  margin-top:34px; padding-top:18px;
+  border-top:2px solid var(--brick);
+  text-align:center; color:var(--faded); font-size:13px;
+}
+.col-line svg{animation:turn 24s linear infinite}
+@keyframes turn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.foot-links{margin-top:8px; line-height:1.9}
+.foot-links a{
+  color:var(--brick); font-family:'Special Elite', monospace; font-size:12px;
+  letter-spacing:.06em; text-decoration:none; border-bottom:1px dotted rgba(138,43,29,.5);
+}
+.foot-links a:hover{background:rgba(138,43,29,.12); border-bottom-style:solid}
+
+/* margin flourish: pomegranates down the left edge */
+.folio > main::before{
+  content:""; position:absolute; left:-40px; top:0; bottom:0; width:16px;
+  background:
+    radial-gradient(circle 5px at 8px 30px, var(--brick) 55%, transparent 58%) repeat-y;
+  background-size:16px 120px;
+  opacity:.35;
+}
+
+@media (max-width:640px){
+  .folio{margin:12px; padding:34px 22px 28px}
+  .folio::after{width:58px; height:58px; font-size:24px; top:-18px; right:-8px}
+  .folio > main::before{display:none}
+  .stamp-row{justify-content:center}
+  .no-block{text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .snowdrift,.g-silent,.stamp,.stamp-dent,.col-line svg{animation:none}
+}
