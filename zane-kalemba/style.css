@@ -1,0 +1,227 @@
+/* Chapter XI · Of Standing Between the Posts — The House Book of Etiquette */
+
+:root {
+  --ink: #1c2430;
+  --ink-soft: #3c4657;
+  --paper: #f4efe3;
+  --paper-deep: #e9e1cd;
+  --ice: #b9cede;
+  --ice-deep: #7fa6c9;
+  --navy: #16283d;
+  --gold: #a9853b;
+  --rule: #c9bda0;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #dfe8f0 0%, transparent 60%),
+    linear-gradient(180deg, #e7edf3 0%, #d8cfc0 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.68;
+  font-size: 18px;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 3.5rem auto 5rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 220px),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(28,36,48,.028) 27px 28px),
+    var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,.35),
+    0 30px 60px -20px rgba(22,40,61,.45),
+    inset 0 0 80px rgba(28,36,48,.06);
+  padding: 0 2.6rem 2.2rem;
+  position: relative;
+}
+
+/* ice-crest bands: three slits cut by pure CSS */
+.band {
+  height: 14px;
+  margin: 2.2rem 0 0;
+  border-top: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+  background:
+    linear-gradient(90deg, transparent 0 12%, var(--ice-deep) 12% 14%, transparent 14% 86%, var(--ice-deep) 86% 88%, transparent 88%),
+    linear-gradient(90deg, var(--ice) 0 100%);
+  position: relative;
+}
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 4px 18%;
+  border-top: 1px solid var(--navy);
+}
+.band span {
+  position: absolute;
+  top: 3px;
+  width: 8px; height: 8px;
+  background: var(--navy);
+  transform: rotate(45deg);
+}
+.band span:nth-child(1) { left: 4%; }
+.band span:nth-child(2) { left: 50%; margin-left: -4px; }
+.band span:nth-child(3) { right: 4%; }
+.band--rev { margin: 2.2rem 0 0; transform: scaleY(-1); }
+
+.mast { text-align: center; padding-top: 0; }
+
+.press {
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 2rem 0 .4rem;
+  font-weight: bold;
+}
+
+.chapter-no {
+  font-variant: small-caps;
+  letter-spacing: .34em;
+  font-size: .95rem;
+  color: var(--ink-soft);
+  margin: .4rem 0 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.12;
+  margin: .2rem 0 .8rem;
+  color: var(--navy);
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: .04em;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.orn {
+  margin: 1.1rem 0 0;
+  color: var(--ice-deep);
+  font-size: .9rem;
+  letter-spacing: .6em;
+}
+
+main p { margin: 0 0 1.15rem; }
+
+h2 {
+  font-size: 1.12rem;
+  font-variant: small-caps;
+  letter-spacing: .14em;
+  color: var(--navy);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .35rem;
+  margin: 2rem 0 1rem;
+}
+
+.lede::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: .82;
+  padding: .06em .12em 0 0;
+  color: var(--navy);
+  font-family: "Iowan Old Style", Georgia, serif;
+}
+
+strong { color: var(--navy); }
+
+.charge {
+  margin: 1.4rem 1.6rem;
+  padding: 1.1rem 1.4rem;
+  font-style: italic;
+  color: var(--navy);
+  background:
+    linear-gradient(180deg, rgba(185,206,222,.35), rgba(185,206,222,.12)),
+    var(--paper-deep);
+  border-left: 4px solid var(--ice-deep);
+  border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: inset 0 0 24px rgba(22,40,61,.05);
+}
+
+.rules {
+  list-style: none;
+  counter-reset: rule;
+  padding: 0;
+  margin: 1rem 0 1.4rem;
+}
+.rules li {
+  counter-increment: rule;
+  position: relative;
+  padding: .55rem 0 .55rem 3.2rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.rules li::before {
+  content: counter(rule, upper-roman);
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ice-deep);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #eef4f9, var(--ice) 130%);
+  color: var(--navy);
+  font-size: .85rem;
+  box-shadow: 0 2px 0 rgba(22,40,61,.15);
+}
+
+.colophon {
+  font-size: .92rem;
+  color: var(--ink-soft);
+  border-top: 2px solid var(--navy);
+  padding-top: 1rem;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--ice-deep);
+  text-underline-offset: 3px;
+  transition: background .2s ease, text-decoration-color .2s ease;
+}
+a:hover {
+  background: rgba(185,206,222,.4);
+  text-decoration-color: var(--gold);
+}
+
+.ft {
+  text-align: center;
+  font-size: .74rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 2.4rem 0 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+.flake {
+  display: inline-block;
+  animation: spin 14s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 560px) {
+  body { font-size: 16.5px; }
+  .page { margin: 1.2rem .8rem 2.5rem; padding: 0 1.3rem 1.6rem; }
+  h1 { font-size: 1.9rem; }
+  .charge { margin: 1.2rem .4rem; }
+}
