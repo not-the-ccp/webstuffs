@@ -1,0 +1,168 @@
+/* Eta Funayama Kofun — school report sheet */
+:root {
+  --paper: #fdfaf1;
+  --rule: #b9d2e6;
+  --ink: #233043;
+  --red: #b3372f;
+  --green: #2f6b4f;
+  --plain: #e9e2cf;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 8%, #dfe8d2 0 18%, transparent 40%),
+    radial-gradient(circle at 88% 90%, #e4dcc4 0 20%, transparent 45%),
+    linear-gradient(160deg, #cfd9c3 0%, #bcc8b0 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 2.5rem 1rem 4rem;
+}
+.paper {
+  max-width: 52rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2.05rem,
+      var(--rule) 2.05rem,
+      var(--rule) calc(2.05rem + 1px)
+    ),
+    var(--paper);
+  border: 1px solid #a9a08a;
+  box-shadow: 0 14px 34px rgba(35, 48, 67, .28), 0 2px 6px rgba(35, 48, 67, .18);
+  padding: 2.2rem 2.6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+/* left margin line, like a ruled sheet */
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.1rem;
+  width: 2px;
+  background: var(--red);
+  opacity: .45;
+}
+.report-head {
+  position: relative;
+  padding-left: 1.4rem;
+}
+.school {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .72rem;
+  color: var(--green);
+}
+h1 {
+  margin: .35rem 0 .2rem;
+  font-size: 2.3rem;
+  letter-spacing: .02em;
+}
+.subtitle {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: #4a5a70;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.6rem;
+  margin: 0 0 1.2rem;
+  font-size: .85rem;
+}
+.meta span {
+  border-bottom: 1px dotted #8a97a8;
+  padding-bottom: .1rem;
+}
+/* grade stamp */
+.stamp {
+  position: absolute;
+  right: .2rem;
+  top: .1rem;
+  width: 5.6rem;
+  height: 5.6rem;
+  transform: rotate(12deg);
+  opacity: .85;
+  animation: stamp-in .7s ease-out both;
+}
+@keyframes stamp-in {
+  0%   { transform: rotate(12deg) scale(2.1); opacity: 0; }
+  70%  { transform: rotate(12deg) scale(.94); opacity: .9; }
+  100% { transform: rotate(12deg) scale(1); opacity: .85; }
+}
+.stamp-ring {
+  position: absolute;
+  inset: 0;
+  border: 4px double var(--red);
+  border-radius: 50%;
+}
+.stamp-score {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--red);
+}
+.stamp-word {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: .55rem;
+  text-align: center;
+  font-size: .62rem;
+  letter-spacing: .3em;
+  color: var(--red);
+}
+.rule {
+  height: 3px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin: 1.2rem 0 1.6rem 1.4rem;
+}
+.report section {
+  margin: 0 0 1.5rem 1.4rem;
+}
+.report h2 {
+  font-size: 1.15rem;
+  color: var(--green);
+  border-bottom: 2px solid var(--plain);
+  padding-bottom: .25rem;
+  margin: 0 0 .6rem;
+}
+.report p {
+  margin: 0 0 .8rem;
+  line-height: 2.05rem;
+  text-align: justify;
+}
+.report strong { color: var(--red); }
+.notes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.notes li {
+  line-height: 2.05rem;
+  padding-left: 1.2rem;
+  text-indent: -1.2rem;
+}
+.notes li::before {
+  content: "\25B8  ";
+  color: var(--red);
+}
+a {
+  color: var(--green);
+  text-decoration-color: rgba(47, 107, 79, .4);
+}
+a:hover { background: var(--plain); }
+.report-foot {
+  margin: 2rem 1.4rem 0;
+  text-align: center;
+  font-size: .8rem;
+  color: #5a6a80;
+}
+.foot-rule { letter-spacing: .8em; margin-bottom: .5rem; }
