@@ -1,0 +1,219 @@
+/* Obituary: Regiões do Brasil — mourning press, cream stock, black ink */
+
+:root {
+  --paper: #f4ead8;
+  --paper-deep: #e9dcC2;
+  --ink: #1c1712;
+  --faded: #5d5348;
+  --ribbon: #23201c;
+  --gold: #b78a2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.028) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% -10%, #faf3e3 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 44em;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+/* ——— masthead ——— */
+.masthead {
+  text-align: center;
+  border-top: 4px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 1.4rem 0 1.6rem;
+}
+
+.dagger {
+  font-size: 2.6rem;
+  line-height: 1;
+  margin: 0 0 0.2rem;
+  color: var(--ink);
+}
+
+.mourn {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  margin: 0.6rem 0 0.2rem;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  margin: 0.1rem 0 0.2rem;
+}
+
+.also-called {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--faded);
+  letter-spacing: 0.05em;
+}
+
+.ribbon {
+  margin: 1.1rem auto 0;
+  width: fit-content;
+  max-width: 90%;
+  background: linear-gradient(100deg, var(--ribbon) 40%, #4a4238 50%, var(--ribbon) 60%);
+  background-size: 250% 100%;
+  animation: sheen 7s linear infinite;
+  color: var(--paper);
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  padding: 0.45rem 1.2rem;
+  border: 1px solid var(--gold);
+}
+
+@keyframes sheen {
+  from { background-position: 120% 0; }
+  to   { background-position: -130% 0; }
+}
+
+/* ——— body ——— */
+.obit {
+  margin-top: 2.2rem;
+}
+
+.obit p {
+  margin: 0 0 1.25rem;
+  opacity: 0;
+  transform: translateY(0.6em);
+  animation: settle 0.9s ease forwards;
+}
+.obit p:nth-child(1) { animation-delay: 0.15s; }
+.obit p:nth-child(2) { animation-delay: 0.35s; }
+.obit p:nth-child(3) { animation-delay: 0.55s; }
+.obit p:nth-child(4) { animation-delay: 0.75s; }
+.obit p:nth-child(5) { animation-delay: 0.95s; }
+.obit p:nth-child(6) { animation-delay: 1.15s; }
+
+@keyframes settle {
+  to { opacity: 1; transform: none; }
+}
+
+.lede::first-letter {
+  float: left;
+  font-size: 4.1rem;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  font-style: normal;
+  color: var(--ink);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--gold); }
+
+/* ——— candle ——— */
+.candle-block {
+  margin: 2.6rem auto 0;
+  text-align: center;
+  border-top: 1px dashed var(--faded);
+  padding-top: 1.6rem;
+}
+
+.candle {
+  position: relative;
+  width: 34px;
+  margin: 0 auto 0.4rem;
+}
+
+.wax {
+  width: 26px;
+  height: 74px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #fffaf0 0%, #efe2c4 55%, #d8c49a 100%);
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: inset -3px 0 5px rgba(0,0,0,0.12);
+}
+
+.flame {
+  width: 12px;
+  height: 20px;
+  margin: 0 auto 2px;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(ellipse at 50% 80%, #fff7cf 0%, #f7c443 55%, #e07b1f 100%);
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transition: opacity 0.6s ease;
+}
+
+#candle.lit .flame {
+  opacity: 1;
+  animation: flicker 1.4s ease-in-out infinite;
+}
+#candle.lit .wax {
+  box-shadow: 0 0 26px 6px rgba(247, 196, 67, 0.45), inset -3px 0 5px rgba(0,0,0,0.12);
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-1.5deg); }
+  35%      { transform: scale(1.08, 0.94) rotate(2deg); }
+  70%      { transform: scale(0.94, 1.06) rotate(-2deg); }
+}
+
+.holder {
+  width: 52px;
+  height: 8px;
+  margin: -2px auto 0;
+  background: var(--ribbon);
+  border-radius: 0 0 10px 10px;
+}
+
+.candle-caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.8rem 0 0.6rem;
+}
+
+button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  font-variant: small-caps;
+  background: none;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 0.45rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+button:hover { background: var(--ink); color: var(--paper); }
+
+/* ——— footer ——— */
+.obit-footer {
+  margin-top: 2.6rem;
+  border-top: 4px double var(--ink);
+  padding-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--faded);
+  text-align: center;
+}
+.obit-footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .obit p { animation: none; opacity: 1; transform: none; }
+  .ribbon { animation: none; }
+  #candle.lit .flame { animation: none; }
+}
