@@ -1,0 +1,211 @@
+/* Singleton Palmer — Music History Report, Form 9R */
+
+:root {
+  --paper: #f6f1e3;
+  --paper-edge: #e7dfc8;
+  --rule: #9db8d6;
+  --margin: #c94f43;
+  --ink: #2c3440;
+  --ink-soft: #4c5766;
+  --stamp: #8c2f24;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #3b4148; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, #4a515a 0%, #343a41 70%);
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  position: relative;
+  width: 100%;
+  max-width: 52rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.85rem,
+      var(--rule) 1.85rem,
+      var(--rule) calc(1.85rem + 1px)
+    ),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-edge) 100%);
+  border: 1px solid #b7ab88;
+  box-shadow:
+    0 2px 0 #fff8 inset,
+    0 18px 40px rgba(0, 0, 0, 0.45);
+  padding: 2.5rem 2.25rem 2rem 5.25rem;
+}
+
+/* red vertical margin rule */
+.margin-rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.75rem;
+  width: 2px;
+  background: var(--margin);
+  opacity: 0.55;
+}
+
+/* red-pen grade */
+.grade {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.75rem;
+  font-family: 'Segoe Script', 'Bradley Hand', cursive;
+  font-size: 3.4rem;
+  color: var(--margin);
+  transform: rotate(6deg);
+  opacity: 0;
+  animation: ink-in 0.9s ease-out 0.6s forwards;
+}
+.grade::after {
+  content: "";
+  display: block;
+  height: 3px;
+  margin-top: -0.35rem;
+  background: var(--margin);
+  border-radius: 2px;
+  transform: rotate(-2deg);
+}
+
+@keyframes ink-in {
+  0%   { opacity: 0; transform: rotate(6deg) scale(1.35); }
+  70%  { opacity: 1; transform: rotate(6deg) scale(0.96); }
+  100% { opacity: 0.9; transform: rotate(6deg) scale(1); }
+}
+
+.report-head {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.school {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0 0 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.65rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+h1 .sub {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.75rem;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.entry { margin-bottom: 1.6rem; }
+
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink-soft);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  line-height: 1.85rem; /* sits on the ruling */
+  font-size: 1rem;
+}
+
+em { font-style: italic; }
+
+blockquote.scrap {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1.1rem 0.75rem 1.4rem;
+  background: rgba(201, 79, 67, 0.06);
+  border-left: 4px solid var(--margin);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--ink);
+  transform: rotate(-0.4deg);
+}
+
+ul.works {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.85rem;
+}
+ul.works li { margin-bottom: 0.25rem; }
+
+a {
+  color: #204a86;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--margin); }
+
+.report-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+}
+
+.filed {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.3rem 0.9rem;
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  font-size: 0.8rem;
+  transform: rotate(-2.5deg);
+  opacity: 0;
+  animation: stamp-in 0.35s ease-out 1.3s forwards;
+}
+
+@keyframes stamp-in {
+  0%   { opacity: 0; transform: rotate(-2.5deg) scale(1.6); }
+  60%  { opacity: 0.95; transform: rotate(-2.5deg) scale(0.94); }
+  100% { opacity: 0.85; transform: rotate(-2.5deg) scale(1); }
+}
+
+.back {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 40rem) {
+  .paper { padding: 2rem 1.25rem 1.5rem 3rem; }
+  .margin-rule { left: 2.1rem; }
+  .grade { font-size: 2.4rem; }
+}
