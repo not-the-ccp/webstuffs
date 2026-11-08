@@ -1,0 +1,166 @@
+/* The Thursday-Club Cake — acanthus-gaed house sheet */
+:root {
+  --sand: #efe6d4;
+  --sand-deep: #e4d5b8;
+  --ink: #2c2620;
+  --ghee: #c98a2b;
+  --ghee-deep: #9a6414;
+  --leaf: #4a5d3a;
+  --leaf-deep: #2f3d26;
+  --paper: #f7f1e2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(201, 138, 43, 0.14), transparent 45%),
+    radial-gradient(ellipse at 85% 90%, rgba(74, 93, 58, 0.12), transparent 40%),
+    var(--sand);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.68;
+}
+
+.recipe {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 3rem;
+}
+
+/* ---------- header ---------- */
+.recipe-header {
+  text-align: center;
+  border-bottom: 4px double var(--leaf-deep);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ghee-deep);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 6vw, 3.1rem);
+  line-height: 1.08;
+  margin: 0;
+  color: var(--leaf-deep);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.recipe-dek {
+  margin: 0.8rem 0 0;
+  font-style: italic;
+  color: #5a4f3f;
+}
+
+.leaf {
+  width: 150px;
+  margin: 1.1rem auto 0;
+  display: block;
+  filter: drop-shadow(0 2px 2px rgba(47, 61, 38, 0.3));
+  animation: sway 7s ease-in-out infinite alternate;
+  transform-origin: 50% 0%;
+}
+
+@keyframes sway {
+  from { transform: rotate(-2.5deg); }
+  to   { transform: rotate(2.5deg); }
+}
+
+/* ---------- preamble ---------- */
+.preamble p {
+  margin: 0 0 1.15rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.preamble p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--ghee-deep);
+  font-variant: small-caps;
+}
+
+.preamble em { color: var(--leaf-deep); }
+
+/* ---------- recipe block ---------- */
+.recipe h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--leaf-deep);
+  border-top: 2px solid var(--ghee);
+  border-bottom: 1px solid var(--ghee);
+  padding: 0.4rem 0.6rem;
+  margin: 2.2rem 0 1.2rem;
+  text-align: center;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  font-size: 0.9rem;
+  color: #5a4f3f;
+  margin-bottom: 1.4rem;
+}
+.recipe-meta p { margin: 0; }
+
+h3 {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--ghee-deep);
+  margin: 1.4rem 0 0.6rem;
+}
+
+ul.ingredients {
+  list-style: none;
+  padding: 0 0 0 1rem;
+  margin: 0;
+}
+ul.ingredients li {
+  padding: 0.28rem 0;
+  border-bottom: 1px dotted rgba(47, 61, 38, 0.35);
+}
+ul.ingredients li::before {
+  content: "\25C6";
+  color: var(--ghee);
+  font-size: 0.6rem;
+  margin-right: 0.6rem;
+  vertical-align: 0.15em;
+}
+
+ol.instructions { padding-left: 1.4rem; }
+ol.instructions li {
+  margin-bottom: 0.85rem;
+  padding-left: 0.3rem;
+}
+ol.instructions li::marker {
+  color: var(--ghee-deep);
+  font-weight: bold;
+}
+
+/* ---------- footer ---------- */
+.recipe-footer {
+  margin-top: 2.4rem;
+  border-top: 4px double var(--leaf-deep);
+  padding-top: 1rem;
+  font-size: 0.88rem;
+  color: #5a4f3f;
+}
+.recipe-footer a { color: var(--leaf-deep); }
+.recipe-footer a:hover { color: var(--ghee-deep); }
+.nav-line { margin: 0.35rem 0; }
+
+@media (max-width: 40rem) {
+  .preamble p { text-align: left; }
+  .recipe-meta { flex-direction: column; gap: 0.2rem; }
+}
