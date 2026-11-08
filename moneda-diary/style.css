@@ -1,0 +1,166 @@
+/* The Errázuriz Notebook — a kitchen diary, Santiago, 11 September 1973 */
+
+:root {
+  --paper: #f3ead6;
+  --paper-edge: #e6d9ba;
+  --ink: #2a2118;
+  --faded-ink: #5a4a38;
+  --rule: #b9a98a;
+  --chile-red: #c1272d;
+  --chile-blue: #1b3f8f;
+  --stamp-red: rgba(193, 39, 45, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, #6e563b 0%, #4a3826 55%, #322518 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.desk {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.notebook {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 34px,
+      rgba(185, 169, 138, 0.55) 34px,
+      rgba(185, 169, 138, 0.55) 35px
+    ),
+    linear-gradient(to bottom, var(--paper), var(--paper-edge));
+  border: 1px solid #c9b98f;
+  border-left: 14px solid var(--chile-red);
+  box-shadow:
+    0 0 0 1px #a08a5f inset,
+    6px 8px 0 -2px rgba(0, 0, 0, 0.28),
+    14px 18px 30px rgba(0, 0, 0, 0.45);
+  padding: 2.75rem 2.75rem 2rem;
+  transform: rotate(-0.4deg);
+}
+
+/* the red margin line of a ruled diary */
+.notebook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.25rem;
+  width: 1px;
+  background: rgba(193, 39, 45, 0.35);
+}
+
+.stamp {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  padding: 0.3rem 0.6rem;
+  transform: rotate(7deg);
+  opacity: 0.85;
+}
+
+.star {
+  position: absolute;
+  top: 4.4rem;
+  right: 1.6rem;
+  font-size: 1.6rem;
+  color: var(--chile-blue);
+  text-shadow: 0 0 0 currentColor;
+  animation: star-glow 5s ease-in-out infinite;
+}
+
+@keyframes star-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.entry-head { border-bottom: 2px solid var(--chile-red); padding-bottom: 0.9rem; margin-bottom: 1.4rem; }
+
+.keeper {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  color: var(--chile-red);
+  font-variant: small-caps;
+}
+
+.dek {
+  margin: 0.7rem 0 0;
+  font-style: italic;
+  color: var(--faded-ink);
+  font-size: 0.98rem;
+}
+
+.entry p { margin: 0 0 1.15rem; }
+
+.entry .lede::first-letter {
+  font-size: 2.6rem;
+  line-height: 1;
+  float: left;
+  padding-right: 0.35rem;
+  color: var(--chile-blue);
+}
+
+a {
+  color: var(--chile-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--chile-red); }
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 1px dashed var(--rule);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--faded-ink);
+}
+
+.colophon .back { margin-top: 0.6rem; font-family: "Courier New", monospace; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+/* a faint coffee ring where the cup sat while the news came in */
+.notebook::after {
+  content: "";
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.9rem;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  border: 5px solid rgba(120, 82, 40, 0.14);
+  transform: rotate(-6deg) scaleX(1.06);
+  pointer-events: none;
+}
+
+@media (max-width: 40rem) {
+  body { padding: 1rem 0.5rem 2.5rem; }
+  .notebook { padding: 2.25rem 1.4rem 1.6rem; transform: none; }
+  h1 { font-size: 1.7rem; }
+}
