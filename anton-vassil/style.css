@@ -1,0 +1,120 @@
+/* The Cutting Room Diary — Anton Vassil entry */
+
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #3d2a20;
+  line-height: 1.7;
+  background: linear-gradient(135deg, #f5ecd9 0%, #e8d8bd 55%, #d9c6a3 100%);
+  background-attachment: fixed;
+}
+
+.diary-wrap {
+  max-width: 660px;
+  margin: 44px auto;
+  padding: 0 26px;
+  position: relative;
+}
+
+.diary-wrap::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 10px;
+  background: repeating-linear-gradient(90deg, #7a1f1f, #7a1f1f 4px, transparent 4px, transparent 8px);
+  z-index: 10;
+}
+
+.diary-header {
+  border-bottom: 3px double #6b452a;
+  padding-bottom: 14px;
+  margin-bottom: 26px;
+}
+
+.diary-title {
+  font-size: 27px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #7a1f1f;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.diary-date {
+  font-size: 12.5px;
+  color: #9c6b49;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.diary-entry {
+  background: #fffaf0;
+  border: 1px solid #b38c66;
+  border-top: 7px solid #7a1f1f;
+  border-radius: 3px 3px 0 0;
+  padding: 42px 48px 40px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 96% 100%, 4% 100%, 0 94%);
+}
+
+.diary-entry::after {
+  content: "";
+  position: absolute;
+  bottom: -14px; right: 26px;
+  width: 26px; height: 26px;
+  background: radial-gradient(circle at 30% 30%, #c48a4d, #7a1f1f);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fffaf0, inset -1px -1px #5c1515;
+  animation: waxpulse 4s ease-in-out infinite;
+}
+
+@keyframes waxpulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+.diary-entry p {
+  margin: 0 0 20px;
+  text-align: justify;
+}
+
+.diary-entry p:first-of-type::first-letter {
+  float: left;
+  font-size: 56px;
+  line-height: 48px;
+  padding: 4px 10px 0 0;
+  color: #7a1f1f;
+  font-weight: bold;
+}
+
+.diary-sign {
+  margin-top: 30px;
+  text-align: right;
+  font-style: italic;
+  color: #8c5a3c;
+}
+
+.diary-links {
+  margin-top: 34px;
+  padding-top: 16px;
+  border-top: 1px dashed #b38c66;
+  font-size: 13.5px;
+  color: #8c6b54;
+  text-align: center;
+}
+
+.diary-links a {
+  color: #7a1f1f;
+  text-decoration: none;
+  border-bottom: 1px dotted #b38c66;
+}
+
+.diary-links a:hover { border-bottom-style: solid; }
+
+@media (max-width: 600px) {
+  .diary-wrap { margin: 22px auto; padding: 0 16px; }
+  .diary-entry { padding: 30px 24px 28px; }
+}
