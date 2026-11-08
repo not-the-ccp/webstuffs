@@ -1,0 +1,145 @@
+/* Notice No. 221 — Bearclaw Ridge Station Lost & Found */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #23201c;
+  --wine: #6e2f26;
+  --rule: #b9b0a0;
+  --faded: #7a7266;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #ece7db;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  padding: 3rem 1rem;
+}
+
+.sheet {
+  max-width: 42rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 3.5rem 3.25rem 2.75rem;
+}
+
+.rule-double {
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 5px;
+  margin: 0.4rem 0 2rem;
+}
+.rule-double:last-of-type { margin: 2rem 0; }
+
+.notice-head { text-align: center; margin-bottom: 2.25rem; }
+
+.office {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.imprint {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faded);
+  margin-top: 0.35rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--wine);
+}
+h1 .of {
+  display: block;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink);
+  margin-top: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+.motto {
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--faded);
+  margin-top: 0.9rem;
+}
+
+main { margin-top: 2rem; }
+
+p { margin-bottom: 1.15rem; }
+
+p.drop {
+  font-size: 1.09rem;
+  text-align: justify;
+  hyphens: auto;
+}
+p.drop .cap {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.08rem 0.5rem 0 0;
+  color: var(--wine);
+}
+
+p.section {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 1.9rem 0 0.9rem;
+  text-align: center;
+}
+
+strong { font-weight: normal; color: var(--wine); letter-spacing: 0.01em; }
+
+blockquote.ledger {
+  margin: 1.2rem 0 1.4rem 0.6rem;
+  padding: 0.9rem 1.3rem;
+  border-left: 3px double var(--ink);
+  background: #f1ede1;
+  font-style: italic;
+  font-size: 0.98rem;
+}
+blockquote.ledger p { margin-bottom: 0.6rem; }
+blockquote.ledger p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--wine);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+a:hover { border-bottom-color: var(--wine); }
+
+.colophon-line {
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.foot { margin-top: 2.25rem; }
+.foot .rule-double { margin-bottom: 0.9rem; }
+.foot p {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--faded);
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 2.25rem 1.4rem; }
+  h1 { font-size: 1.7rem; }
+}
