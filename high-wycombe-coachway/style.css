@@ -1,0 +1,193 @@
+/* High Wycombe Coachway — M40-interchange palette: motorway green,
+   asphalt, road-marking white, and a touch of coach livery red. */
+
+:root {
+  --asphalt: #1c2126;
+  --asphalt-deep: #12161a;
+  --motorway-green: #007b4f;
+  --motorway-green-dark: #00522f;
+  --marking: #e9edf2;
+  --livery: #c0392b;
+  --paper: #f4f1e8;
+  --ink: #22272d;
+  --ink-soft: #565e66;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(rgba(0, 123, 79, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+/* The ribbon of road running up the left of the page, like a slip road. */
+.road {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 34px;
+  background: linear-gradient(90deg, var(--asphalt-deep), var(--asphalt) 70%, #2b3238);
+  box-shadow: 3px 0 12px rgba(0, 0, 0, 0.25);
+}
+
+.road .dashes {
+  position: absolute;
+  left: 50%;
+  top: -80px;
+  bottom: 0;
+  width: 6px;
+  transform: translateX(-50%);
+  background-image: linear-gradient(
+    to bottom,
+    var(--marking) 0 44px,
+    transparent 44px 80px
+  );
+  background-size: 6px 80px;
+  animation: drive 3.2s linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes drive {
+  from { background-position-y: 0; }
+  to   { background-position-y: 80px; }
+}
+
+.entry {
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  padding: 0 1.5rem 0 2.75rem;
+}
+
+.plate {
+  border-bottom: 3px double var(--motorway-green);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--motorway-green-dark);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* A motorway-style destination sign, built from CSS alone. */
+.sign {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.1rem;
+  padding: 0.55rem 1.1rem;
+  background: linear-gradient(180deg, #00915c, var(--motorway-green-dark));
+  border: 2px solid #0a3d24;
+  border-radius: 6px;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.35), 0 3px 0 #0a3d24;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sign-dest { font-size: 1.05rem; letter-spacing: 0.02em; }
+
+.sign-line {
+  width: 46px;
+  height: 0;
+  border-top: 3px dashed rgba(255, 255, 255, 0.8);
+}
+
+section { margin-bottom: 1.75rem; }
+
+h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  padding-left: 0.6rem;
+  border-left: 5px solid var(--livery);
+  letter-spacing: 0.01em;
+}
+
+p { margin: 0 0 1rem; }
+
+.lede {
+  font-size: 1.08rem;
+  background: linear-gradient(180deg, rgba(0, 123, 79, 0.08), rgba(0, 123, 79, 0));
+  padding: 0.4rem 0.9rem;
+  border-left: 4px solid var(--motorway-green);
+}
+
+blockquote {
+  margin: 1.25rem 0 1.25rem 0.5rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--asphalt);
+  color: var(--marking);
+  font-style: italic;
+  border-radius: 4px;
+  border-left: 6px solid var(--livery);
+  box-shadow: 0 4px 14px rgba(18, 22, 26, 0.35);
+}
+
+blockquote p {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+a { color: var(--motorway-green-dark); }
+
+a:hover { color: var(--livery); }
+
+.shelf {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(34, 39, 45, 0.25);
+  font-size: 0.9rem;
+}
+
+.shelf-kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+#clock {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--ink-soft);
+  margin: 0.75rem 0 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .road { width: 14px; }
+  .entry { padding: 0 1.25rem 0 2rem; margin-top: 2rem; }
+  h1 { font-size: 2rem; }
+  .sign { flex-wrap: wrap; }
+}
