@@ -1,0 +1,227 @@
+/* Lot 27 — auction catalogue plate: parchment, ink, oxblood, double rules */
+
+:root {
+  --parchment: #f3ecdc;
+  --parchment-deep: #e9dfc6;
+  --ink: #241c14;
+  --oxblood: #6e1f1a;
+  --oxblood-deep: #4d1512;
+  --brass: #9a7b3f;
+  --rule: #2c2318;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 250, 230, 0.9), rgba(0, 0, 0, 0) 55%),
+    linear-gradient(160deg, #d8cbae 0%, #c4b491 100%);
+  min-height: 100vh;
+  padding: 2.5rem 1rem 4rem;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+}
+
+.plate {
+  max-width: 54rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(120, 96, 58, 0.03) 0 2px, rgba(0, 0, 0, 0) 2px 4px),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  border: 3px double var(--rule);
+  outline: 1px solid var(--brass);
+  outline-offset: 6px;
+  box-shadow: 0 22px 60px rgba(30, 20, 8, 0.45), inset 0 0 80px rgba(120, 90, 40, 0.18);
+  padding: 3rem clamp(1.25rem, 5vw, 4rem) 3.5rem;
+  position: relative;
+}
+
+/* corner flourishes */
+.plate::before,
+.plate::after {
+  content: "";
+  position: absolute;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 2px solid var(--brass);
+}
+.plate::before { top: 0.55rem; left: 0.55rem; border-right: 0; border-bottom: 0; }
+.plate::after  { bottom: 0.55rem; right: 0.55rem; border-left: 0; border-top: 0; }
+
+.masthead { text-align: center; }
+
+.firm {
+  font-size: clamp(2.1rem, 6vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--oxblood-deep);
+}
+
+.firm-sub {
+  margin: 0.3rem 0 1.1rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--brass);
+}
+
+.rule-double {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 5px;
+  margin: 1rem 0;
+}
+
+.sale-line {
+  font-size: 1.15rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin: 0.2rem 0;
+}
+
+.sale-sub {
+  font-size: 0.92rem;
+  font-style: italic;
+  margin: 0 0 0.2rem;
+}
+
+.lot { position: relative; padding-top: 2.4rem; }
+
+.lot-no {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 2px solid var(--oxblood);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--oxblood);
+  transform: rotate(-8deg);
+  box-shadow: inset 0 0 0 4px var(--parchment), inset 0 0 0 5px var(--oxblood);
+  background: radial-gradient(circle at 35% 30%, rgba(255, 248, 225, 0.6), rgba(110, 31, 26, 0.06));
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4.4vw, 2.25rem);
+  line-height: 1.25;
+  margin: 0.4rem 0 0.3rem;
+  color: var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  text-wrap: balance;
+}
+
+.lot-title-sub {
+  font-style: italic;
+  color: #5c4a33;
+  margin: 0 0 1.6rem;
+}
+
+.estimate { width: 100%; border-collapse: collapse; margin: 0 0 2rem; font-size: 0.98rem; }
+.estimate td { padding: 0.28rem 0; vertical-align: bottom; }
+.estimate .label { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--oxblood-deep); padding-right: 0.8rem; }
+.estimate .value { text-align: right; white-space: nowrap; }
+.estimate .leader {
+  width: 100%;
+  height: 0;
+  border-bottom: 2px dotted var(--brass);
+}
+
+.desc p { margin: 0 0 1.25rem; }
+.desc p:first-of-type::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--oxblood);
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+}
+
+.bidline {
+  margin: 2.4rem 0 0;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--brass);
+  border-left: 6px solid var(--oxblood);
+  background: linear-gradient(90deg, rgba(110, 31, 26, 0.08), rgba(154, 123, 63, 0.1));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem 1.1rem;
+}
+.bid-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--oxblood-deep);
+}
+.bid-amount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.bidline.sold .bid-amount { color: var(--oxblood); }
+
+.gavel {
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: var(--oxblood);
+  border: 1px solid var(--oxblood-deep);
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+.gavel:hover { background: var(--oxblood-deep); }
+.gavel:active { transform: translateY(2px); }
+.gavel[disabled] { background: var(--brass); cursor: default; }
+
+.sold-stamp {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--oxblood);
+  border: 3px double var(--oxblood);
+  padding: 0.1rem 0.9rem;
+  transform: rotate(-6deg) scale(0.4);
+  opacity: 0;
+  animation: stamp-in 0.45s ease forwards;
+}
+@keyframes stamp-in {
+  to { transform: rotate(-6deg) scale(1); opacity: 0.9; }
+}
+
+.colophon {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1.4rem;
+  font-size: 0.95rem;
+}
+.stamp {
+  text-align: center;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--brass);
+  margin: 0 0 1rem;
+}
+.nav-line { margin: 0.45rem 0; }
+.nav-line a { color: var(--oxblood-deep); text-decoration-color: var(--brass); }
+.nav-line a:hover { color: var(--oxblood); }
+
+@media (max-width: 40rem) {
+  .lot-no { width: 4.4rem; height: 4.4rem; font-size: 1.6rem; }
+  h1 { margin-right: 4.6rem; }
+}
