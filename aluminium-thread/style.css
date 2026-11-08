@@ -1,0 +1,247 @@
+/* The Shelf, thread Nº 214 — aluminium, found under the second shelf */
+
+:root {
+  --paper: #f3efe6;
+  --ink: #2b2a27;
+  --silver: #b9bec4;
+  --silver-bright: #e8ebee;
+  --oxide: #8d8672;
+  --sea: #3d5a6c;
+  --tide: #a8552f;
+  --card: #faf7f0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: radial-gradient(rgba(61, 90, 108, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font: 16px/1.55 Georgia, "Times New Roman", serif;
+}
+
+/* oversized ghost monogram behind everything */
+.monogram {
+  position: fixed;
+  right: -3vw;
+  top: -6vh;
+  font: 900 44vh/0.9 "Arial Black", Arial, sans-serif;
+  color: rgba(61, 90, 108, 0.07);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.thread-head {
+  position: relative;
+  overflow: hidden;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 7vh 5vw 4vh;
+  border-bottom: 3px double var(--oxide);
+  z-index: 1;
+}
+
+.thread-head .board-name {
+  font: 700 11px/1.4 "Courier New", monospace;
+  letter-spacing: 0.32em;
+  color: var(--sea);
+  margin: 0 0 1.2rem;
+}
+
+.thread-title {
+  font: 700 clamp(2.1rem, 5.4vw, 4.2rem)/1.02 Georgia, serif;
+  margin: 0;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.thread-meta {
+  font: 400 0.92rem/1.5 "Courier New", monospace;
+  color: var(--oxide);
+  margin: 1.2rem 0 0;
+}
+
+.tag {
+  border: 1.5px solid var(--tide);
+  color: var(--tide);
+  padding: 0.05em 0.45em;
+  font-weight: 700;
+  font-size: 0.8em;
+  display: inline-block;
+  transform: rotate(-1.2deg);
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.55) 50%, transparent 58%);
+  transform: translateX(-100%);
+  animation: shine 7s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%, 55% { transform: translateX(-100%); }
+  80%, 100% { transform: translateX(100%); }
+}
+
+/* asymmetric two-column board: posts wide, rail narrow and offset */
+.board {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 292px;
+  gap: 2.2rem 3rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 5vw 4rem;
+}
+
+/* staggered posts — the reading path zigzags down the left */
+.posts { display: grid; gap: 1.6rem; }
+
+.post {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 0 1rem;
+  background: var(--card);
+  border: 1px solid rgba(43, 42, 39, 0.22);
+  border-top: 3px solid var(--silver);
+  padding: 1.1rem 1.3rem 1.25rem;
+  box-shadow: 4px 5px 0 rgba(43, 42, 39, 0.10);
+  position: relative;
+}
+
+.post:nth-child(odd)  { margin-left: 0; }
+.post:nth-child(even) { margin-left: 7%; }
+.post.op { border-top-color: var(--sea); }
+
+.post::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 18px;
+  width: 62px;
+  height: 18px;
+  background: rgba(232, 235, 238, 0.85);
+  border: 1px solid rgba(43, 42, 39, 0.25);
+  transform: rotate(-2.5deg);
+}
+
+.post:nth-child(even)::before { transform: rotate(2deg); left: auto; right: 26px; }
+
+.av {
+  grid-row: 1 / span 2;
+  align-self: start;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  font: 700 0.85rem/1 "Courier New", monospace;
+  letter-spacing: 0.08em;
+  color: var(--silver-bright);
+  background: linear-gradient(150deg, #c9ced3, #8f959c);
+  border: 1px solid rgba(43, 42, 39, 0.3);
+  border-radius: 50%;
+  box-shadow: inset 0 -8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  align-items: baseline;
+  border-bottom: 1px dotted rgba(43, 42, 39, 0.35);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.who { font-weight: 700; color: var(--sea); }
+.rank { font: 400 0.82rem/1.4 "Courier New", monospace; color: var(--oxide); }
+.post-no { margin-left: auto; font: 700 0.78rem/1 "Courier New", monospace; color: var(--tide); }
+.posted { font: italic 0.85rem/1.4 Georgia, serif; color: var(--oxide); margin: 0 0 0.55rem; }
+
+.post-body p { margin: 0 0 0.7rem; }
+.post-body p:last-child { margin-bottom: 0; }
+
+.post a { color: var(--sea); text-decoration-color: rgba(61, 90, 108, 0.4); text-underline-offset: 3px; }
+.post a:hover { background: var(--silver-bright); }
+
+.missing { border-bottom: 2px dashed var(--tide); }
+
+/* the quoted claim, set as a margin slip */
+.post strong { color: var(--ink); }
+
+/* the rail */
+.rail { position: relative; }
+
+.spec-card {
+  background: var(--card);
+  border: 1px solid rgba(43, 42, 39, 0.22);
+  border-left: 6px solid var(--silver);
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: -4px 5px 0 rgba(43, 42, 39, 0.10);
+  transform: rotate(0.6deg);
+  position: sticky;
+  top: 1.5rem;
+}
+
+.spec-card h2, .cross-file h2 {
+  font: 700 11px/1 "Courier New", monospace;
+  letter-spacing: 0.28em;
+  color: var(--sea);
+  margin: 0 0 0.8rem;
+}
+
+.spec-card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.7rem; }
+.spec-card dt { font: 700 0.78rem/1.5 "Courier New", monospace; color: var(--oxide); }
+.spec-card dd { margin: 0; font-size: 0.92rem; }
+
+.stamp-block {
+  margin: 2.4rem 0 2rem;
+  text-align: right;
+}
+
+.stamp {
+  display: inline-block;
+  font: 900 0.95rem/1.15 "Courier New", monospace;
+  letter-spacing: 0.18em;
+  color: var(--tide);
+  border: 3px double var(--tide);
+  padding: 0.45em 0.7em;
+  transform: rotate(6deg);
+  opacity: 0.8;
+}
+
+.cross-file {
+  background: transparent;
+  border-top: 3px double var(--oxide);
+  padding-top: 0.9rem;
+}
+
+.cross-file p { font-size: 0.92rem; margin: 0 0 0.7rem; }
+.cross-file a { color: var(--sea); }
+
+.foot {
+  position: relative;
+  z-index: 1;
+  border-top: 3px double var(--oxide);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.2rem 5vw 3rem;
+  font: italic 0.9rem/1.6 Georgia, serif;
+  color: var(--oxide);
+}
+
+.foot a { color: var(--sea); }
+
+@media (max-width: 880px) {
+  .board { grid-template-columns: 1fr; }
+  .post:nth-child(even) { margin-left: 0; }
+  .spec-card { position: static; transform: none; }
+  .monogram { font-size: 34vh; top: auto; bottom: -8vh; }
+}
