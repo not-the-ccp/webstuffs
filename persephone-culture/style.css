@@ -1,0 +1,117 @@
+/* Persephone in Popular Culture — FAQ, surface to underworld */
+:root{
+  --ink:#2a1f33;
+  --ink-soft:#4b3a5c;
+  --paper:#f6f1e6;
+  --spring:#7fae6b;
+  --harvest:#c99a3a;
+  --pomegranate:#b3262e;
+  --hades:#140a24;
+  --depth:0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,
+    #f6f1e6 0%,
+    #eadfc6 18%,
+    #bfae8f 38%,
+    #8a7596 55%,
+    #4b3358 74%,
+    #140a24 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+}
+.page{max-width:52rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+
+/* depth indicator */
+.depth-hud{
+  position:fixed;right:1rem;bottom:1rem;z-index:5;
+  display:flex;align-items:center;gap:.5rem;
+  background:rgba(20,10,36,.82);color:#e9dfc9;
+  font-family:"Courier New",monospace;font-size:.72rem;letter-spacing:.08em;
+  padding:.45rem .8rem;border:1px solid rgba(233,223,201,.35);
+  border-radius:2rem;
+}
+.depth-dot{
+  width:.7rem;height:.7rem;border-radius:50%;
+  background:var(--spring);
+  box-shadow:0 0 .5rem var(--spring);
+  transition:background .6s,box-shadow .6s;
+}
+
+/* header */
+.head{text-align:center;padding-bottom:1.5rem}
+.eyebrow{
+  font-family:"Courier New",monospace;text-transform:uppercase;
+  letter-spacing:.28em;font-size:.7rem;color:var(--ink-soft);margin:0 0 .75rem;
+}
+h1{
+  font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.05;margin:0 0 .9rem;
+  color:var(--ink);
+  text-shadow:0 1px 0 rgba(255,255,255,.5);
+}
+.dek{max-width:38rem;margin:0 auto;font-size:1.02rem;line-height:1.55;color:var(--ink-soft)}
+.pome-row{margin-top:1.4rem;display:flex;justify-content:center;gap:.9rem}
+.pome{
+  width:1.1rem;height:1.1rem;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, #e0656c, var(--pomegranate) 55%, #6d1116 100%);
+  box-shadow:inset 0 -2px 3px rgba(0,0,0,.4);
+  position:relative;
+  animation:drift 5s ease-in-out infinite;
+}
+.pome::before{
+  content:"";position:absolute;top:-.28rem;left:50%;width:.18rem;height:.3rem;
+  background:#5c4a22;transform:translateX(-50%) rotate(8deg);border-radius:1px;
+}
+.pome:nth-child(2n){animation-delay:1.2s}
+.pome:nth-child(3n){animation-delay:2.3s}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* questions */
+main{margin-top:1.75rem;display:grid;gap:1rem}
+.q{
+  background:rgba(246,241,230,.9);
+  border:1px solid rgba(42,31,51,.35);
+  border-left:.3rem solid var(--pomegranate);
+  border-radius:.35rem;
+  box-shadow:0 6px 18px rgba(20,10,36,.12);
+}
+.q[open]{border-left-color:var(--spring)}
+summary{
+  cursor:pointer;list-style:none;
+  font-size:1.12rem;font-weight:bold;color:var(--ink);
+  padding:.95rem 1.2rem .95rem 1rem;
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";font-family:"Courier New",monospace;font-size:1.3rem;
+  color:var(--pomegranate);transition:transform .25s;
+}
+.q[open] summary::after{transform:rotate(45deg);color:var(--spring)}
+.a{padding:0 1.2rem 1.1rem;border-top:1px dashed rgba(42,31,51,.3);margin:0 1.2rem;padding-top:1rem}
+.a p{line-height:1.65;font-size:.98rem;margin:0 0 .8rem}
+.a p:last-child{margin-bottom:0}
+.a em{color:var(--pomegranate)}
+.a a{color:var(--ink-soft);text-decoration-color:var(--pomegranate)}
+.a a:hover{color:var(--pomegranate)}
+
+/* footer goes dark: the underworld */
+.foot{
+  margin-top:3rem;padding:1.6rem 1.2rem;text-align:center;
+  background:linear-gradient(180deg,#4b3358,#140a24);
+  color:#e9dfc9;border:1px solid rgba(233,223,201,.3);
+  border-radius:.35rem;
+}
+.foot p{margin:.3rem 0;font-size:.9rem;line-height:1.5}
+.foot-links a{color:#e9dfc9;text-decoration-color:var(--harvest)}
+.foot-links a:hover{color:#fff}
+
+@media (max-width:40rem){
+  .depth-hud{font-size:.62rem;padding:.35rem .6rem}
+  .q[open] summary::after{transform:rotate(45deg)}
+}
