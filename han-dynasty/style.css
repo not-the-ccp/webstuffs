@@ -1,0 +1,209 @@
+/* The Vermilion Seal — newsletter of the Coopers' Lane Han Society */
+
+:root {
+  --ink: #2b2118;
+  --ink-soft: #55432f;
+  --vermilion: #9e1b1b;
+  --vermilion-deep: #6e0f12;
+  --gold: #b98a2e;
+  --gold-pale: #e8d9b0;
+  --paper: #f4ead3;
+  --paper-dark: #eadcbf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(185, 138, 46, 0.14), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(158, 27, 27, 0.10), transparent 50%),
+    #241a12;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif CJK SC", serif;
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: 44rem;
+  margin: 2.5rem auto 4rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(85, 67, 47, 0.05) 27px 28px),
+    linear-gradient(175deg, var(--paper) 0%, var(--paper-dark) 100%);
+  border: 1px solid var(--gold);
+  box-shadow:
+    0 0 0 6px var(--paper-dark),
+    0 0 0 7px var(--gold-pale),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 2.25rem 2.5rem 2rem;
+  position: relative;
+}
+
+.rule-top {
+  height: 10px;
+  margin: -2.25rem -2.5rem 1.5rem;
+  background: repeating-linear-gradient(90deg,
+    var(--vermilion) 0 22px,
+    var(--gold) 22px 26px,
+    var(--vermilion-deep) 26px 48px,
+    var(--gold) 48px 52px);
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--vermilion);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  margin: 0;
+  color: var(--vermilion-deep);
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+}
+
+.issue {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.5rem 0 1rem;
+}
+
+/* the seal */
+.mast-seal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.seal-char {
+  width: 4.2rem;
+  height: 4.2rem;
+  display: grid;
+  place-items: center;
+  font-size: 2.4rem;
+  color: var(--paper);
+  background:
+    linear-gradient(155deg, var(--vermilion) 0%, var(--vermilion-deep) 100%);
+  border: 3px solid var(--vermilion-deep);
+  outline: 2px solid var(--vermilion);
+  outline-offset: 3px;
+  border-radius: 0.35rem;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.35), 0 3px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+.seal-caption {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--vermilion-deep);
+}
+
+.masthead.sealed .seal-char { animation: stamp 0.6s ease; }
+
+@keyframes stamp {
+  0%   { transform: scale(1.5) rotate(-14deg); opacity: 0.2; }
+  60%  { transform: scale(0.94) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* body copy */
+.item {
+  margin-bottom: 1.75rem;
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--gold-pale);
+  position: relative;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: -0.78rem;
+  top: 0.35rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: var(--vermilion);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+
+.item h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.55rem;
+  color: var(--vermilion-deep);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+}
+
+.item p { margin: 0 0 0.8rem; }
+
+a {
+  color: var(--vermilion);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+a:hover { color: var(--vermilion-deep); background: var(--gold-pale); }
+
+.fragment {
+  display: block;
+  margin: 0.4rem 0 0.6rem 0.6rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--paper-dark);
+  border-left: 5px solid var(--vermilion);
+  font-style: italic;
+  color: var(--ink-soft);
+  box-shadow: 3px 3px 0 rgba(158, 27, 27, 0.18);
+}
+
+em { color: var(--vermilion-deep); }
+
+/* colophon */
+.colophon {
+  border-top: 3px double var(--vermilion);
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.press {
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: linear-gradient(155deg, var(--vermilion), var(--vermilion-deep));
+  border: 1px solid var(--vermilion-deep);
+  border-radius: 0.25rem;
+  padding: 0.45rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--vermilion-deep), 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.press:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--vermilion-deep), 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .paper { margin: 0; padding: 1.5rem 1.1rem; border: none; box-shadow: none; }
+  .rule-top { margin: -1.5rem -1.1rem 1.25rem; }
+  h1 { font-size: 2.2rem; }
+}
