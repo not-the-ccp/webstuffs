@@ -1,0 +1,169 @@
+/* Old Style — lost & found notice */
+:root {
+  --ink: #372e26;
+  --paper: #f7f3ea;
+  --rule: #d9c7a8;
+  --red: #9c342d;
+  --red-dark: #742420;
+  --green: #4c5d47;
+  --gold: #a8792e;
+  --shadow: rgba(0, 0, 0, 0.16);
+}
+* { box-sizing: border-box; }
+html { height: 100%; }
+body {
+  margin: 0;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, #fdf6e7, #eede94 55%, #c9b17a);
+  color: var(--ink);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  line-height: 1.55;
+  font-size: 16px;
+}
+.board {
+  max-width: 740px;
+  margin: 40px auto;
+  padding: 10px 16px 60px;
+  position: relative;
+}
+.pin {
+  position: absolute;
+  left: 22px;
+  top: -14px;
+  width: 34px;
+  height: 34px;
+  background: var(--red);
+  border: 2px solid var(--red-dark);
+  border-radius: 50% 50% 42% 42%;
+  box-shadow: 0 6px 10px var(--shadow);
+  z-index: 2;
+}
+.pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--paper);
+  border-radius: 50%;
+  border: 1.5px solid var(--red-dark);
+}
+.notice {
+  background: var(--paper);
+  border: 1.6px solid var(--rule);
+  border-top: 4px solid var(--red);
+  border-radius: 3px;
+  box-shadow: 0 18px 40px var(--shadow);
+  padding: 46px 34px 38px;
+  position: relative;
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent 25px, rgba(200, 170, 110, 0.35) 26px);
+  background-size: 100% 26px;
+  animation: sway 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .notice { animation: none; }
+}
+.stamp {
+  position: absolute;
+  top: -30px;
+  right: 22px;
+  width: 78px;
+  height: 78px;
+  border: 2.4px solid var(--red-dark);
+  border-radius: 50%;
+  color: var(--red-dark);
+  font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 2.2px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 26px;
+  box-shadow: 0 6px 14px var(--shadow);
+  animation: stamp-pulse 3.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp { animation: none; }
+}
+.stamp span { display: block; }
+.masthead { margin-bottom: 26px; }
+.desk {
+  font: 700 10.5px ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--red-dark);
+  margin: 0 0 6px;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  letter-spacing: 0.4px;
+  border-bottom: 1.4px solid var(--rule);
+  padding-bottom: 10px;
+}
+.when {
+  margin: 0;
+  font-size: 13.5px;
+  color: #6b5e4b;
+}
+.series {
+  font: 700 12.5px ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 2px;
+  padding: 7px 12px;
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  display: inline-block;
+}
+.entry-no {
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--red);
+  margin: -4px 0 22px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+}
+.item h2, .reckoning h2, .history h2, .claim h2 {
+  margin: 24px 0 8px;
+  font-size: 13px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--green);
+  border-left: 5px solid var(--gold);
+  padding-left: 9px;
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+p { margin: 0 0 14px; text-align: justify; }
+.exact {
+  color: var(--red-dark);
+  border-bottom: 1px dotted var(--red-dark);
+}
+.keepgoing {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1.4px solid var(--rule);
+  font-size: 13.5px;
+  text-align: left;
+}
+.keepgoing a { color: var(--red-dark); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+.keepgoing a:hover { color: var(--red); border-bottom-color: var(--red); }
+a { color: var(--red-dark); text-decoration: underline; }
+@keyframes sway {
+  0%, 100% { transform: rotate(-0.06deg); }
+  50% { transform: rotate(0.06deg); }
+}
+@keyframes stamp-pulse {
+  0%, 100% { transform: rotate(-7deg) scale(1); box-shadow: 0 6px 14px var(--shadow), 0 0 0 0 rgba(156, 52, 45, 0.4); }
+  50% { transform: rotate(-5deg) scale(1.04); box-shadow: 0 8px 18px var(--shadow), 0 0 0 6px rgba(156, 52, 45, 0.15); }
+}
+@media (max-width: 560px) {
+  .board { margin: 24px auto; padding: 8px 12px 40px; }
+  .notice { padding: 34px 20px 30px; }
+}
