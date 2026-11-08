@@ -1,0 +1,242 @@
+/* Scythris albocanella — White-Wing Cakes */
+:root {
+  --ink: #26202a;
+  --paper: #fbf8f1;
+  --wings: #f1e9d8;
+  --ochre: #b98a3c;
+  --flame: #d9a441;
+  --dust: #7a6f64;
+  --line: #d8d0c2;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 70% 15%, #fff7ec, var(--paper) 45%, #e3d9c8);
+  color: var(--ink);
+  font-family: "Times New Roman", Times, Georgia, serif;
+  line-height: 1.8;
+  font-size: 17px;
+  animation: fade-in 1.4s ease both;
+}
+
+@keyframes fade-in { from { opacity: 0; transform: translatey(6px); } to { opacity: 1; } }
+
+main.recipe {
+  max-width: 640px;
+  margin: 44px auto;
+  padding: 0 26px;
+  position: relative;
+}
+
+.recipe-header {
+  text-align: center;
+  padding: 68px 0 40px;
+  border-bottom: 3px double var(--line);
+  position: relative;
+}
+
+.recipe-header::before,
+.recipe-header::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  width: 110px;
+  height: 42px;
+  background: var(--wings);
+  border: 1px solid var(--line);
+  border-radius: 62% 38% / 52% 48%;
+  opacity: 0.85;
+}
+
+.recipe-header::before { left: 50%; transform: translatex(-50%) rotate(-10deg); }
+.recipe-header::after { top: 6px; left: 70%; transform: translatex(-50%) rotate(10deg); opacity: 0.55; }
+
+.moth {
+  width: 150px;
+  height: 70px;
+  margin: 22px auto 0;
+  display: block;
+  opacity: 0.75;
+  animation: flutter 5s ease-in-out infinite alternate;
+}
+
+@keyframes flutter {
+  from { transform: rotate(-3deg) scale(1); }
+  to { transform: rotate(3deg) scale(1.04); }
+}
+
+h1 {
+  font-size: 44px;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: #1d171f;
+  text-shadow: 0 2px 0 rgba(255,255,255,0.7);
+}
+
+.recipe-dek {
+  font-style: italic;
+  color: var(--dust);
+  font-size: 15.5px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+section.preamble {
+  margin-top: 34px;
+  text-align: justify;
+}
+
+section.preamble p {
+  margin: 0 0 18px;
+}
+
+blockquote.note {
+  margin: 30px auto;
+  padding: 22px 26px;
+  max-width: 560px;
+  background: var(--wings);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--ochre);
+  font-style: italic;
+  color: #332b20;
+  position: relative;
+  transform: rotate(-0.6deg);
+  box-shadow: 4px 6px 14px rgba(46,41,51,0.08);
+}
+
+blockquote.note::before {
+  content: "«";
+  position: absolute;
+  top: 6px; left: 14px;
+  font-size: 32px;
+  color: var(--ochre);
+  opacity: 0.5;
+}
+
+section.recipe {
+  margin-top: 42px;
+  border-top: 2px solid var(--line);
+  padding-top: 28px;
+}
+
+section.recipe h2 {
+  font-size: 26px;
+  margin: 0 0 12px;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+
+.recipe-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px 16px;
+  margin-bottom: 22px;
+  font-size: 15px;
+  color: var(--dust);
+}
+
+.recipe-meta p {
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 26px 0 10px;
+  color: var(--ochre);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+ul.ingredients {
+  margin: 0 0 22px;
+  padding-left: 22px;
+  color: var(--dust);
+}
+
+ul.ingredients li {
+  margin: 0 0 9px;
+  position: relative;
+  padding-left: 6px;
+}
+
+ul.ingredients li::marker { color: var(--ochre); font-weight: bold; }
+
+ol.instructions {
+  margin: 0;
+  padding-left: 24px;
+  counter-reset: step;
+  list-style: none;
+}
+
+ol.instructions li {
+  counter-increment: step;
+  margin: 0 0 16px;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  position: relative;
+  background: linear-gradient(180deg, #fff, #f9f5ec);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+ol.instructions li:hover {
+  transform: translatey(-2px);
+  box-shadow: 6px 8px 20px rgba(46,41,51,0.07);
+}
+
+ol.instructions li::before {
+  content: counter(step);
+  position: absolute;
+  top: 11px; left: 10px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--ochre);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 22px;
+}
+
+.recipe-footer {
+  margin-top: 46px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--dust);
+  text-align: center;
+}
+
+.recipe-footer .nav-line {
+  margin: 0 0 10px;
+}
+
+.recipe-footer a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+
+a {
+  color: var(--ochre);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+
+@media (max-width: 560px) {
+  main.recipe { margin: 28px auto; padding: 0 16px; }
+  h1 { font-size: 34px; }
+}
