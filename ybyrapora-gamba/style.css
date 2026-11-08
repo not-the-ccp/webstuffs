@@ -1,0 +1,213 @@
+/* Field Manual SLL-YG/3 — Ybyrapora gamba */
+
+:root {
+  --paper: #efe6d2;
+  --paper-deep: #e4d6b8;
+  --ink: #2b2419;
+  --umber: #6b4a2a;
+  --rust: #a05a2c;
+  --moss: #5c6340;
+  --stamp: #9c3b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(107, 74, 42, 0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(92, 99, 64, 0.12), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  border-bottom: 6px double var(--umber);
+  padding: 2.2rem 1.5rem 1.4rem;
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper));
+  position: relative;
+}
+
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--umber);
+}
+
+.masthead h1 {
+  margin: 0.9rem 0 0.2rem;
+  font-size: 2.3rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.masthead h1 .thin {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--rust);
+  font-size: 1.9rem;
+}
+
+.taxon {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--moss);
+  margin: 0.4rem 0 1.1rem;
+}
+
+.mast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem 1.4rem;
+  border-top: 1px solid var(--umber);
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.mast-grid span {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--umber);
+}
+
+/* ---------- Plate ---------- */
+
+.plate {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.4rem 3rem;
+}
+
+.chapter {
+  margin: 2.2rem 0;
+  padding: 1.1rem 1.3rem;
+  background: rgba(255, 252, 243, 0.55);
+  border: 1px solid rgba(107, 74, 42, 0.45);
+  border-left: 5px solid var(--rust);
+  position: relative;
+}
+
+.chapter::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 12px;
+  height: 12px;
+  background: var(--paper);
+  border-top: 2px solid var(--stamp);
+  border-left: 2px solid var(--stamp);
+}
+
+.chapter::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  background: var(--paper);
+  border-bottom: 2px solid var(--stamp);
+  border-right: 2px solid var(--stamp);
+}
+
+.chapter h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--umber);
+}
+
+strong { color: var(--umber); }
+
+.protocol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.protocol li {
+  margin-bottom: 0.55rem;
+}
+
+.protocol li::marker {
+  color: var(--stamp);
+  font-family: "Courier New", monospace;
+}
+
+a {
+  color: var(--rust);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rust);
+}
+
+a:hover {
+  color: var(--stamp);
+  border-bottom-style: solid;
+  background: rgba(156, 59, 42, 0.08);
+}
+
+.signoff {
+  font-style: italic;
+  color: var(--umber);
+  border-top: 1px dashed rgba(107, 74, 42, 0.5);
+  padding-top: 0.7rem;
+  margin-top: 1rem;
+}
+
+/* ---------- Footer ---------- */
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem 1.4rem 2.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--umber);
+}
+
+.stamp {
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 0.15rem 0.5rem;
+  transform: rotate(-2deg);
+}
+
+/* ---------- Animation: slow creep of the header rule ---------- */
+
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 6px;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, var(--rust), transparent);
+  animation: sweep 9s linear infinite;
+}
+
+@keyframes sweep {
+  from { transform: translateX(-40%); }
+  to   { transform: translateX(340%); }
+}
