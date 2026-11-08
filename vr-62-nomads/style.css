@@ -1,0 +1,215 @@
+/* VR-62 Nomads — apology letter: wartime letterhead on manila */
+
+:root {
+  --navy: #10233f;
+  --ink: #26303c;
+  --manila: #f2e8d5;
+  --manila-deep: #e6d7b8;
+  --red: #a5332a;
+  --stamp-blue: #274b7a;
+  --pencil: #6b6250;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #1a2432; }
+
+body {
+  margin: 0 auto;
+  max-width: 880px;
+  padding: 3.5rem 1.25rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+  position: relative;
+}
+
+/* faint rule-lines on the manila sheet */
+.paper {
+  position: absolute;
+  inset: 2.75rem 0.75rem 3rem;
+  background:
+    linear-gradient(var(--manila) 0 0) padding-box,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 30px,
+      rgba(39, 75, 122, 0.10) 30px 31px
+    );
+  background-color: var(--manila);
+  border: 1px solid #c9b98f;
+  box-shadow:
+    0 0 0 6px rgba(242, 232, 213, 0.35),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  z-index: -1;
+}
+
+header.letterhead {
+  text-align: center;
+  border-bottom: 3px double var(--navy);
+  padding-bottom: 0.9rem;
+}
+
+.letterhead-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--navy);
+}
+
+.letterhead-mid h1 {
+  margin: 0.6rem 0 0.15rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+.nomads {
+  margin: 0;
+  font-style: italic;
+  color: var(--pencil);
+  font-size: 0.95rem;
+}
+
+.letterhead-rule {
+  height: 5px;
+  margin: 0.7rem 0 0.5rem;
+  background:
+    linear-gradient(var(--navy), var(--navy)) center / 100% 2px no-repeat,
+    linear-gradient(var(--red), var(--red)) center 4px / 100% 1px no-repeat;
+}
+
+.letterhead-foot {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--pencil);
+}
+
+main.letter {
+  margin-top: 2.2rem;
+  position: relative;
+}
+
+.to {
+  font-style: normal;
+  margin: 0 0 1.4rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #b7a678;
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 0.95rem;
+}
+
+.to p { margin: 0.05rem 0; }
+
+.date {
+  font-family: "Courier New", monospace;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--pencil);
+}
+
+.salutation { font-weight: bold; }
+
+p { margin: 0 0 1.05rem; }
+
+.gbl {
+  font-size: 1.15em;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+/* the red file stamp */
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 0.4rem;
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  transform: rotate(-14deg);
+  opacity: 0;
+  transition: opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s;
+  pointer-events: none;
+}
+
+.stamp.stamped { opacity: 1; }
+
+.stamp-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  font-family: "Courier New", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  display: grid;
+  place-items: start center;
+  padding-top: 9px;
+  mix-blend-mode: multiply;
+}
+
+.stamp-core {
+  color: var(--red);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  border-top: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  padding: 0.35rem 0.2rem;
+  mix-blend-mode: multiply;
+}
+
+.signature { margin-top: 1.6rem; }
+
+.sig-block { margin-top: 0.6rem; }
+
+.sig-block p { margin: 0; font-size: 0.95rem; }
+
+.sig-name {
+  font-family: "Snell Roundhand", "Brush Script MT", cursive !important;
+  font-size: 2rem !important;
+  color: var(--stamp-blue);
+}
+
+.postscript {
+  margin-top: 2rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--red);
+  background: rgba(165, 51, 42, 0.06);
+  font-size: 0.93rem;
+}
+
+.postscript a, .letter a {
+  color: var(--stamp-blue);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.postscript a:hover, .letter a:hover {
+  color: var(--red);
+  text-decoration-style: solid;
+}
+
+footer.colophon {
+  margin-top: 3rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #b8a97f;
+}
+
+footer.colophon p {
+  border-top: 1px solid #3a4a63;
+  padding-top: 0.9rem;
+  margin: 0;
+}
