@@ -1,0 +1,189 @@
+/* Chapter VII — Of the Name Erni: 1931 etiquette house style */
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #eadfc2;
+  --ink: #2b2318;
+  --faded: #6b5c44;
+  --gold: #9a7326;
+  --gold-bright: #c49a3c;
+  --wine: #5e1f1f;
+  --rule: #c9b98e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(196, 154, 60, 0.14), transparent 55%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(107, 92, 68, 0.025) 3px 4px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.65;
+}
+
+/* gilt book-spine strip at the left edge */
+.spine {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 34px;
+  background: linear-gradient(90deg, var(--wine) 0%, #7a2e2e 70%, var(--gold) 100%);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spine span {
+  color: var(--gold-bright);
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 2.25rem 2.5rem calc(2.25rem + 34px);
+}
+
+/* ---------- chapter head ---------- */
+.chapter-head { text-align: center; }
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  color: var(--faded);
+  margin: 0;
+}
+.imprint {
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin: 0.35rem 0 1.75rem;
+  letter-spacing: 0.08em;
+}
+h1 {
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 6vw, 3rem);
+  line-height: 1.12;
+  margin: 0;
+  color: var(--wine);
+}
+.chapter-sub { font-size: 1.15em; color: var(--ink); }
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.4rem auto 1.1rem;
+  max-width: 20rem;
+  color: var(--gold);
+}
+.rule::before, .rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.rule::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.motto {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+}
+
+/* ---------- table of contents ---------- */
+.toc {
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  padding: 1.1rem 1.4rem 1.2rem;
+  margin: 0 0 2.4rem;
+  background: rgba(255, 252, 243, 0.5);
+}
+.toc h2 {
+  font-size: 0.78rem;
+  font-variant: small-caps;
+  letter-spacing: 0.24em;
+  text-align: center;
+  color: var(--faded);
+  margin: 0 0 0.7rem;
+  font-weight: 600;
+}
+.toc ol { margin: 0; padding-left: 1.2rem; font-size: 0.95rem; }
+.toc li { margin: 0.2rem 0; }
+.toc a {
+  color: var(--wine);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+}
+.toc a:hover { color: var(--gold); }
+
+/* ---------- entries ---------- */
+.entry { margin-bottom: 2.2rem; }
+.entry h2 {
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  color: var(--wine);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+p { margin: 0 0 1rem; }
+strong { color: var(--wine); }
+a { color: var(--wine); text-decoration: none; border-bottom: 1px solid var(--gold); }
+a:hover { color: var(--gold); }
+
+.dropcap-para::first-letter,
+p.dropcap-para > .dropcap {
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-size: 3.6em;
+  float: left;
+  line-height: 0.78;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--wine);
+}
+.dropcap {
+  text-shadow: 1px 1px 0 var(--gold-bright);
+  animation: inkbleed 1.4s ease-out both;
+}
+@keyframes inkbleed {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* the rule-quoted sentence gets a bordered slip */
+#dinner em { font-style: normal; }
+#dinner p em {
+  font-style: italic;
+  background: linear-gradient(transparent 62%, rgba(196, 154, 60, 0.3) 62%);
+}
+
+.fin {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  color: var(--faded);
+  font-size: 0.85rem;
+}
+
+/* ---------- footer ---------- */
+.page-foot {
+  margin-top: 2.6rem;
+  text-align: center;
+}
+.fleuron { color: var(--gold); letter-spacing: 0.9em; margin: 0 0 0.4rem; }
+.page-foot p:last-child {
+  font-size: 0.78rem;
+  color: var(--faded);
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 620px) {
+  .spine { display: none; }
+  .page { padding: 2.5rem 1.4rem 2rem; }
+}
