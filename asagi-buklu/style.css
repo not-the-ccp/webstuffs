@@ -1,0 +1,202 @@
+/* Anatolia Board — Aşağıbüklü thread */
+:root {
+  --ink: #231f20;
+  --mute: #6b6560;
+  --paper: #fbf8f2;
+  --card: #ffffff;
+  --terracotta: #a64d3c;
+  --terracotta-dark: #7e3a2d;
+  --ochre: #c99a3c;
+  --slate: #434c56;
+  --blue: #4a7ea5;
+  --blue-sheet: #6fa8dc;
+  --border: #d9d2c6;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Noto Serif", serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f3eee4 0%, #e9e0cc 55%, #dccfb0 100%);
+  line-height: 1.6;
+}
+
+.forum-header {
+  position: relative;
+  padding: 44px 26px 52px;
+  background: linear-gradient(135deg, #7e3a2d 0%, #a64d3c 45%, #c99a3c 100%);
+  color: #f7efe4;
+  text-align: center;
+  box-shadow: inset 0 -8px 24px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+
+.forum-name {
+  font-size: 1.15rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  opacity: 0.9;
+}
+
+.crumb {
+  font-size: 0.85rem;
+  margin: 0 0 14px;
+  opacity: 0.85;
+}
+
+.crumb a { color: #f3d9b0; text-decoration: none; border-bottom: 1px dotted rgba(247,239,228,0.6); }
+.crumb a:hover { color: #fff; border-bottom-color: #fff; }
+
+.blue-sheet {
+  position: absolute;
+  top: 60px;
+  left: -40px;
+  width: 150px;
+  height: 95px;
+  background: linear-gradient(160deg, #5b9bd5 0%, #6fa8dc 55%, #4a7ea5 100%);
+  clip-path: polygon(12% 0, 100% 18%, 88% 100%, 0 82%);
+  box-shadow: 6px 8px 16px rgba(0,0,0,0.25);
+  animation: flutter 5s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes flutter {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+main {
+  max-width: 700px;
+  margin: -28px auto 60px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.thread {
+  background: var(--card);
+  border: 12px solid var(--paper);
+  border-top: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  position: relative;
+}
+
+.thread::before {
+  content: "";
+  position: absolute;
+  top: -34px; left: 40px;
+  width: 16px; height: 16px;
+  background: var(--ochre);
+  border: 2px solid var(--card);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--border);
+}
+
+h1 {
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-size: 2.1rem;
+  font-weight: normal;
+  margin: 0 0 6px;
+  padding: 22px 28px 10px;
+  border-bottom: 4px double var(--border);
+  letter-spacing: 0.02em;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 56px; height: 5px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--terracotta), var(--ochre), var(--blue));
+  border-radius: 3px;
+}
+
+.thread-meta {
+  margin: 0 28px 10px;
+  font-size: 0.85rem;
+  color: var(--mute);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.post {
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.post:last-child { border-bottom: none; }
+
+.post-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.author {
+  font-weight: bold;
+  color: var(--terracotta-dark);
+  font-size: 0.95rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--terracotta), var(--ochre));
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(126,58,45,0.35);
+}
+
+.post-body p { margin: 0 0 10px; }
+.post-body p:last-child { margin-bottom: 0; }
+
+.found {
+  margin: 10px 0 14px;
+  padding: 14px 18px;
+  background: #f4efe4;
+  border-left: 5px solid var(--blue-sheet);
+  font-style: italic;
+  color: var(--slate);
+}
+
+.thread-footer {
+  padding: 22px 28px;
+  border-top: 4px double var(--border);
+  font-size: 0.9rem;
+  color: var(--mute);
+  text-align: center;
+}
+
+.thread-footer a {
+  color: var(--terracotta-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.thread-footer a:hover { border-bottom-color: var(--terracotta-dark); }
+
+@media (max-width: 560px) {
+  .forum-header { padding: 30px 18px 40px; }
+  h1 { font-size: 1.7rem; padding: 18px 20px 8px; }
+  .post { padding: 16px 20px; }
+  .blue-sheet { display: none; }
+}
