@@ -1,0 +1,243 @@
+/* Chapter XIV · Of the Recut Single — washi, sumi, and vermilion */
+
+:root {
+  --washi: #f4ecdb;
+  --washi-deep: #ecdfc6;
+  --sumi: #22201c;
+  --sumi-soft: #4a453c;
+  --shu: #b03a2e;        /* vermilion */
+  --ai: #23395b;         /* indigo */
+  --gold: #a9852f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #efe4cd 0%, transparent 60%),
+    repeating-linear-gradient(0deg, rgba(120, 100, 70, .035) 0 2px, transparent 2px 5px),
+    var(--washi-deep);
+  color: var(--sumi);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.page {
+  position: relative;
+  max-width: 46rem;
+  margin: 2.2rem auto 3rem;
+  background: var(--washi);
+  border: 1px solid #c9b98f;
+  box-shadow:
+    0 0 0 6px rgba(169, 133, 47, .08),
+    0 18px 40px rgba(60, 45, 20, .22);
+  padding: 0 2.4rem 2rem;
+}
+
+/* scrolling ink bar */
+.inkbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--shu), var(--gold));
+  z-index: 5;
+}
+
+/* brocade bands, top and bottom */
+.band {
+  display: flex;
+  height: 12px;
+  margin: 0 -2.4rem;
+}
+.band span {
+  flex: 1;
+  background:
+    repeating-linear-gradient(45deg, var(--shu) 0 6px, var(--sumi) 6px 12px, var(--ai) 12px 18px);
+  border-bottom: 2px solid var(--gold);
+}
+.band--rev span {
+  background: repeating-linear-gradient(-45deg, var(--ai) 0 6px, var(--sumi) 6px 12px, var(--shu) 12px 18px);
+  border-bottom: none;
+  border-top: 2px solid var(--gold);
+  margin-top: 1.6rem;
+}
+
+/* masthead */
+.mast { text-align: center; padding: 1.6rem 0 .4rem; position: relative; }
+.press {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sumi-soft);
+  margin: 0;
+}
+.chapter-no {
+  font-size: .85rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--shu);
+  margin: .9rem 0 .2rem;
+}
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.12;
+  margin: .2rem 0 .6rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+.sub {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--sumi-soft);
+}
+.kanji {
+  writing-mode: vertical-rl;
+  position: absolute;
+  right: -.4rem;
+  top: 1.2rem;
+  font-size: 1.5rem;
+  letter-spacing: .45em;
+  color: var(--ai);
+  opacity: .85;
+}
+.orn { color: var(--gold); letter-spacing: .6em; margin: 1rem 0 0; font-size: .95rem; }
+
+/* hanko seal, stamped in vermilion */
+.seal {
+  position: absolute;
+  right: 2.6rem;
+  top: 9.2rem;
+  color: var(--shu);
+  opacity: 0;
+  transform: rotate(8deg) scale(1.4);
+  animation: stamp 1.1s ease-out .6s forwards;
+  mix-blend-mode: multiply;
+}
+@keyframes stamp {
+  60% { opacity: .95; transform: rotate(8deg) scale(.92); }
+  100% { opacity: .82; transform: rotate(8deg) scale(1); }
+}
+
+main { padding-top: 1.4rem; }
+
+section { position: relative; }
+
+.lede::first-letter {
+  font-size: 3.4rem;
+  float: left;
+  line-height: .82;
+  padding: .12em .14em 0 0;
+  color: var(--shu);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.28rem;
+  margin: 2.2rem 0 .7rem;
+  color: var(--ai);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: .3rem;
+  font-variant: small-caps;
+  letter-spacing: .05em;
+}
+h2::before { content: "§ "; color: var(--shu); }
+
+p { margin: 0 0 1.05rem; }
+strong { color: var(--sumi); }
+
+/* the ledger line, word for word */
+.charge {
+  margin: 1.3rem 1.4rem;
+  padding: 1rem 1.2rem;
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--ai);
+  background:
+    linear-gradient(transparent 42%, rgba(176, 58, 46, .25) 42%, rgba(176, 58, 46, .25) 44%, transparent 44%),
+    rgba(35, 57, 91, .05);
+  border-left: 3px solid var(--shu);
+  border-right: 3px solid var(--gold);
+}
+
+/* numbered rules */
+ol.rules {
+  counter-reset: rule;
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 1.6rem;
+}
+ol.rules li {
+  counter-increment: rule;
+  position: relative;
+  padding: .55rem .4rem .7rem 3.4rem;
+  margin-bottom: .35rem;
+  border-bottom: 1px dashed rgba(74, 69, 60, .35);
+  transition: background .25s ease, transform .25s ease;
+}
+ol.rules li:last-child { border-bottom: none; }
+ol.rules li::before {
+  content: counter(rule, cjk-ideographic);
+  position: absolute;
+  left: .7rem;
+  top: .6rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--shu);
+  border-radius: 50%;
+  color: var(--shu);
+  font-size: .95rem;
+  transition: background .25s ease, color .25s ease;
+}
+ol.rules li:hover {
+  background: rgba(176, 58, 46, .06);
+  transform: translateX(4px);
+}
+ol.rules li:hover::before {
+  background: var(--shu);
+  color: var(--washi);
+}
+
+a {
+  color: var(--ai);
+  text-decoration: underline;
+  text-decoration-color: var(--shu);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--shu); }
+
+.colophon {
+  margin-top: 2rem;
+  font-size: .95rem;
+  color: var(--sumi-soft);
+  border-top: 3px double var(--gold);
+  padding-top: 1rem;
+}
+
+.ft {
+  text-align: center;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--sumi-soft);
+  padding-top: 1rem;
+}
+.ft .vex { color: var(--shu); animation: vexspin 9s linear infinite; display: inline-block; }
+@keyframes vexspin { to { transform: rotate(360deg); } }
+
+@media (max-width: 560px) {
+  .page { margin: 0; padding: 0 1.1rem 1.4rem; border: none; }
+  .band { margin: 0; }
+  .kanji { display: none; }
+  .seal { top: 7.4rem; right: 1rem; }
+  h1 { font-size: 1.9rem; }
+  .charge { margin: 1.2rem .4rem; }
+}
