@@ -1,0 +1,217 @@
+/* Funk — In Memoriam (for now) · The Album Keepers */
+:root {
+  --ink: #241533;
+  --paper: #f6ecd9;
+  --plum: #2c1140;
+  --plum-deep: #1c0a2b;
+  --mustard: #e8a020;
+  --magenta: #c9256b;
+  --orange: #e0641f;
+  --teal: #1e6e6a;
+  --rule: #241533;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--plum-deep); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(232, 160, 32, 0.14), transparent 60%),
+    repeating-linear-gradient(
+      90deg,
+      var(--plum-deep) 0px, var(--plum-deep) 6px,
+      #240e33 6px, #240e33 7px
+    );
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(36, 21, 51, 0.035) 0px, rgba(36, 21, 51, 0.035) 1px,
+      transparent 1px, transparent 5px
+    );
+  border: 3px solid var(--plum);
+  outline: 1px solid var(--mustard);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 1px var(--plum), 0 30px 60px rgba(0, 0, 0, 0.55);
+  padding: 0 0 2rem;
+  position: relative;
+}
+
+/* the groove band: five coloured wedges, like a 45 in the spindle */
+.groove-band {
+  display: flex;
+  height: 14px;
+  border-bottom: 3px solid var(--plum);
+}
+.groove-band span { flex: 1; }
+.groove-band span:nth-child(1) { background: var(--magenta); }
+.groove-band span:nth-child(2) { background: var(--orange); }
+.groove-band span:nth-child(3) { background: var(--mustard); }
+.groove-band span:nth-child(4) { background: var(--teal); }
+.groove-band span:nth-child(5) { background: var(--plum); }
+
+.masthead {
+  text-align: center;
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 3px double var(--plum);
+}
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.6rem;
+}
+
+.in-memoriam {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.4rem, 12vw, 5.6rem);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--plum);
+  text-shadow:
+    3px 3px 0 var(--mustard),
+    6px 6px 0 rgba(201, 37, 107, 0.35);
+}
+
+.dates {
+  margin: 1.1rem 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+
+.epitaph {
+  margin: 0.9rem auto 0;
+  max-width: 34rem;
+  font-style: italic;
+  color: #4a3360;
+}
+
+.masthead-rule {
+  height: 8px;
+  max-width: 22rem;
+  margin: 1.4rem auto 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--plum) 0 10px,
+    var(--magenta) 10px 20px,
+    var(--mustard) 20px 30px
+  );
+}
+
+/* the ONE: a beat dot that pulses, with a reel counter under it */
+.one-figure {
+  margin: 1.6rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.one-dot {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, var(--orange), var(--magenta) 62%, var(--plum) 100%);
+  border: 3px solid var(--plum);
+  box-shadow: 0 0 0 6px rgba(232, 160, 32, 0.25), 0 0 24px rgba(201, 37, 107, 0.5);
+  animation: theone 800ms steps(1, end) infinite;
+}
+
+@keyframes theone {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 6px rgba(232,160,32,0.45), 0 0 30px rgba(201,37,107,0.75); }
+  50%  { transform: scale(0.92); box-shadow: 0 0 0 3px rgba(232,160,32,0.2), 0 0 12px rgba(201,37,107,0.35); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 6px rgba(232,160,32,0.45), 0 0 30px rgba(201,37,107,0.75); }
+}
+
+.one-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.obituary {
+  padding: 2rem 2.5rem 1rem;
+}
+
+.obituary p { margin: 0 0 1.15rem; }
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--plum);
+}
+
+.obituary strong { color: var(--magenta); letter-spacing: 0.01em; }
+
+.obituary a {
+  color: var(--teal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 120ms ease, background-color 120ms ease;
+}
+.obituary a:hover { color: var(--magenta); background: rgba(232, 160, 32, 0.28); }
+
+.colophon {
+  margin: 2.5rem 2.5rem 0;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--plum);
+  text-align: center;
+  font-size: 0.88rem;
+  color: #4a3360;
+}
+
+.strip {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--mustard);
+  -webkit-text-stroke: 0.4px var(--plum);
+}
+
+.footlinks {
+  margin-top: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+}
+.footlinks a { color: var(--magenta); }
+.footlinks a:hover { color: var(--plum); }
+
+@media (max-width: 40rem) {
+  .sheet { margin: 0; border-left: none; border-right: none; }
+  .masthead, .obituary, .colophon { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .masthead-top { flex-wrap: wrap; justify-content: center; }
+}
