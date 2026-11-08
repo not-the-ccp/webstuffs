@@ -1,0 +1,221 @@
+/* Council minutes — official record look: cream paper, ink, red seal, rules */
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #ecdfc2;
+  --ink: #23222b;
+  --ink-soft: #4c4a55;
+  --rule: #9a8f74;
+  --seal: #8c2f2a;
+  --seal-deep: #6c1f1c;
+  --accent: #274a73;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 252, 240, 0.9), transparent 42%),
+    radial-gradient(circle at 85% 92%, rgba(140, 47, 42, 0.08), transparent 46%),
+    linear-gradient(160deg, var(--paper-deep), var(--paper) 30%, #efe5cd 78%, var(--paper-deep));
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.62;
+  min-height: 100vh;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  padding: 2.6rem 2.8rem 2.2rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.9rem, rgba(154, 143, 116, 0.10) 1.9rem calc(1.9rem + 1px)),
+    linear-gradient(180deg, #faf3e1, var(--paper));
+  border: 3px double var(--rule);
+  outline: 1px solid var(--paper-deep);
+  outline-offset: 5px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 18px 40px rgba(35, 34, 43, 0.28);
+  position: relative;
+}
+
+/* corner ticks, like a filed document */
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--seal);
+  opacity: 0.55;
+}
+.sheet::before { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+.sheet::after { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+
+/* the seal — half a star, struck on load */
+.seal {
+  position: absolute;
+  top: 1.9rem;
+  right: 1.9rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  transform: rotate(-11deg) scale(1.9);
+  opacity: 0;
+}
+.seal.struck {
+  animation: strike 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+}
+@keyframes strike {
+  0%   { transform: rotate(-11deg) scale(1.9); opacity: 0; }
+  70%  { transform: rotate(-11deg) scale(0.96); opacity: 1; }
+  100% { transform: rotate(-11deg) scale(1); opacity: 1; }
+}
+.seal-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px double var(--seal);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(140, 47, 42, 0.25) inset;
+}
+.seal-star {
+  position: absolute;
+  top: 0.55rem;
+  font-size: 1.6rem;
+  color: var(--seal);
+  line-height: 1;
+  text-shadow: 1px 1px 0 rgba(140, 47, 42, 0.2);
+}
+.seal-star::after { content: ""; margin-left: 0.28rem; color: var(--seal); opacity: 0.45; }
+.seal-caption {
+  margin-top: 1.7rem;
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--seal-deep);
+}
+
+.letterhead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+.org {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.org-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.9rem 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+.date-line {
+  margin: 0;
+  font-size: 0.82rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.3rem 0.1rem;
+  color: var(--ink-soft);
+}
+
+.entry {
+  margin-bottom: 1.55rem;
+}
+.entry h2 {
+  font-size: 0.95rem;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.7rem;
+}
+.entry p { margin: 0 0 0.8rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(39, 74, 115, 0.45);
+}
+a:hover { text-decoration-color: var(--accent); background: rgba(39, 74, 115, 0.08); }
+
+.shout {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--seal-deep);
+}
+
+/* the Chair's ruling, set as a ruled record line */
+.ruling {
+  margin: 1rem 0;
+  padding: 0.7rem 1rem;
+  font-style: italic;
+  font-size: 1.04rem;
+  color: var(--seal-deep);
+  background:
+    linear-gradient(90deg, rgba(140, 47, 42, 0.07), transparent 60%);
+  border-left: 4px solid var(--seal);
+  border-top: 1px dotted var(--rule);
+  border-bottom: 1px dotted var(--rule);
+}
+
+.close { border-top: 3px double var(--rule); padding-top: 1.3rem; }
+.signature { font-size: 0.95rem; letter-spacing: 0.03em; }
+.sig {
+  font-family: "Snell Roundhand", "Brush Script MT", cursive;
+  font-size: 1.35rem;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+.stampline {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--seal);
+  border: 1px solid rgba(140, 47, 42, 0.5);
+  padding: 0.35rem 0.5rem;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(-1.2deg);
+  opacity: 0;
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+.stampline.struck {
+  opacity: 0.85;
+  transform: rotate(-1.2deg) translateY(0);
+}
+
+.foot {
+  margin-top: 1.6rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.keepgoing { margin: 0; }
+
+@media (max-width: 640px) {
+  .sheet { margin: 1rem 0.6rem; padding: 2rem 1.3rem 1.6rem; }
+  .seal { width: 4.2rem; height: 4.2rem; top: 1.2rem; right: 1rem; }
+  h1 { font-size: 1.45rem; }
+}
