@@ -1,0 +1,198 @@
+/* Chapter XI — Of the Bearing Dong-hoon: a book-of-etiquette chapter set in the five colours */
+
+:root {
+  --paper: #f7f2e7;
+  --paper-deep: #efe6d3;
+  --ink: #23262e;
+  --navy: #1e3a5f;
+  --vermilion: #b33a2b;
+  --jade: #3d6b52;
+  --ochre: #b07d2b;
+  --gold: #c9a24b;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(192, 162, 75, 0.10), transparent 34%),
+    radial-gradient(circle at 88% 92%, rgba(30, 58, 95, 0.08), transparent 30%),
+    var(--paper);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+}
+
+/* the vertical hanja band, pinned to the left edge */
+.hanja {
+  position: fixed;
+  top: 50%;
+  left: 1.1rem;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 0.35em;
+  color: var(--navy);
+  opacity: 0.16;
+  user-select: none;
+  pointer-events: none;
+}
+
+.chapter {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.2rem 1.4rem 4rem;
+  position: relative;
+}
+
+.chapter::before {
+  content: "";
+  position: absolute;
+  inset: 0.6rem 0.9rem;
+  border: 1px solid rgba(30, 58, 95, 0.35);
+  outline: 3px double rgba(179, 58, 43, 0.35);
+  outline-offset: 4px;
+  pointer-events: none;
+}
+
+.chapter-head {
+  text-align: center;
+  border-bottom: 3px double var(--navy);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.2rem;
+}
+
+.book-title {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.7rem);
+  line-height: 1.15;
+  margin: 0;
+  font-weight: 600;
+  color: var(--navy);
+  font-variant: small-caps;
+}
+
+h1 .tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--jade);
+  border: 1px solid var(--jade);
+  border-radius: 999px;
+  padding: 0.1rem 0.7rem;
+  vertical-align: middle;
+}
+
+.house {
+  margin: 1rem auto 0;
+  max-width: 34rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #5a5142;
+}
+
+section { margin-bottom: 2.1rem; }
+
+h2 {
+  font-size: 1.25rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--vermilion);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.05rem; }
+
+/* the drop cap */
+.dropcap::first-letter {
+  float: left;
+  font-size: 4.3rem;
+  line-height: 0.82;
+  padding: 0.32rem 0.55rem 0 0;
+  color: var(--vermilion);
+  font-weight: 700;
+}
+
+strong { color: var(--navy); font-weight: 650; }
+
+/* the divider */
+.break {
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--ochre);
+  margin: 2.4rem 0;
+}
+
+/* the seal */
+.stamp {
+  border: 2px solid var(--vermilion);
+  border-radius: 50%;
+  width: 15rem;
+  aspect-ratio: 1;
+  margin: 2.6rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  padding: 1.2rem;
+  background: radial-gradient(circle, rgba(179, 58, 43, 0.07), transparent 68%);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.stamp:hover { transform: rotate(-3deg) scale(1.02); }
+
+.stamp-line {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5a5142;
+}
+
+.stamp-name {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  color: var(--vermilion);
+}
+
+.stamp-note {
+  margin: 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #5a5142;
+  max-width: 12rem;
+}
+
+/* further reading */
+.further {
+  border-top: 1px solid var(--gold);
+  padding-top: 1.3rem;
+  font-size: 0.95rem;
+  color: #46402f;
+}
+
+.further a { color: var(--navy); }
+.further a:hover { color: var(--vermilion); }
+
+a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--vermilion); }
