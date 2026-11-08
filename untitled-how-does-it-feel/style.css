@@ -1,0 +1,159 @@
+/* In Memoriam — Untitled (How Does It Feel)
+   Westside Record Bureau — funeral-card styling, purple & gold */
+
+:root {
+  --ink: #241a33;
+  --paper: #f4ecd9;
+  --paper-deep: #ece0c4;
+  --purple: #3b2465;
+  --purple-dark: #241440;
+  --gold: #b98a1f;
+  --gold-bright: #d9ad3c;
+  --rule: #6d4b9e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% 0%, #2c1a50 0%, #171029 62%, #0e0a1a 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+  padding: 40px 16px 64px;
+}
+
+.card {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(59,36,101,0.03) 0 2px, transparent 2px 5px),
+    var(--paper);
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--purple);
+  outline-offset: 6px;
+  padding: 46px 48px 34px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+}
+
+.frame {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  color: var(--gold);
+  font-size: 20px;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(217,173,60,0.5);
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+.star-tl { top: 22px; left: 26px; }
+.star-tr { top: 22px; right: 26px; animation-delay: 0.8s; }
+.star-bl { bottom: 22px; left: 26px; animation-delay: 1.6s; }
+.star-br { bottom: 22px; right: 26px; animation-delay: 2.4s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.25); }
+}
+
+.head { text-align: center; padding-bottom: 22px; border-bottom: 3px double var(--purple); margin-bottom: 26px; }
+.office { margin: 0 0 2px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); }
+.office-sub { margin: 0 0 18px; font-size: 11px; letter-spacing: 0.08em; color: #7a6a4f; }
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 44px;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  color: var(--purple-dark);
+  text-shadow: 1px 1px 0 rgba(185,138,31,0.35);
+}
+
+.name {
+  margin: 0;
+  font-size: 27px;
+  font-style: italic;
+  color: var(--gold);
+  text-shadow: 0 1px 0 rgba(36,20,64,0.25);
+}
+
+.dates { margin: 8px 0 0; font-size: 19px; letter-spacing: 0.22em; color: var(--ink); }
+.dates-word { font-weight: bold; }
+.cause { margin: 14px auto 0; max-width: 46ch; font-size: 14px; font-style: italic; color: #5d4f77; }
+
+.panel { margin: 0 0 30px; }
+.panel h2 {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--purple);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 6px;
+  margin: 0 0 14px;
+}
+.panel p { margin: 0 0 14px; text-align: justify; hyphens: auto; }
+strong { color: var(--purple-dark); }
+em { color: #55387e; }
+
+.final {
+  margin: 18px 0;
+  padding: 18px 22px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--gold);
+  border-right: 1px dashed var(--rule);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--purple-dark);
+}
+
+a { color: var(--purple); }
+a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+.foot { text-align: center; border-top: 3px double var(--purple); padding-top: 18px; }
+.foot-line { margin: 0; font-size: 12px; letter-spacing: 0.1em; color: #6a5b40; }
+
+.bars {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.bars span {
+  width: 6px;
+  height: 22px;
+  background: var(--purple);
+  transform-origin: bottom;
+  animation: level 1.8s ease-in-out infinite;
+}
+.bars span:nth-child(2n) { background: var(--gold); }
+.bars span:nth-child(1) { animation-delay: 0s; }
+.bars span:nth-child(2) { animation-delay: 0.2s; }
+.bars span:nth-child(3) { animation-delay: 0.4s; }
+.bars span:nth-child(4) { animation-delay: 0.1s; }
+.bars span:nth-child(5) { animation-delay: 0.5s; }
+.bars span:nth-child(6) { animation-delay: 0.25s; }
+.bars span:nth-child(7) { animation-delay: 0.45s; }
+.bars span:nth-child(8) { animation-delay: 0.15s; }
+
+@keyframes level {
+  0%, 100% { transform: scaleY(0.35); }
+  50%      { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star, .bars span { animation: none; }
+}
+
+@media (max-width: 620px) {
+  .card { padding: 34px 22px 26px; }
+  h1 { font-size: 32px; }
+  .name { font-size: 21px; }
+}
