@@ -1,0 +1,183 @@
+/* Hôtel 8859 — review sheet, printed on the desk's best linen */
+
+:root {
+  --ink: #2b2118;
+  --faded-ink: #6b5a48;
+  --linen: #f5edda;
+  --linen-deep: #ece0c4;
+  --oxblood: #7a2e1f;
+  --brass: #9c7a2f;
+  --sea: #29424e;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #fff8e6 0%, transparent 60%),
+    repeating-linear-gradient(0deg, var(--linen) 0 34px, var(--linen-deep) 34px 36px),
+    var(--linen);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: 52rem;
+  margin: 3rem auto 4rem;
+  padding: 0 2.2rem;
+}
+
+/* ---- masthead, set like a carte ---- */
+.masthead {
+  text-align: center;
+  padding: 2.4rem 0 1.4rem;
+  border-top: 3px double var(--oxblood);
+  border-bottom: 1px solid var(--oxblood);
+}
+
+.kicker {
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--brass);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: 0.02em;
+  color: var(--oxblood);
+  text-shadow: 1px 1px 0 #fff8e6;
+}
+
+h1::before, h1::after {
+  content: "\2726";
+  display: block;
+  font-size: 0.9rem;
+  color: var(--brass);
+  letter-spacing: 0.6em;
+}
+h1::before { margin-bottom: 0.8rem; }
+h1::after { margin-top: 0.8rem; }
+
+.address {
+  font-style: italic;
+  color: var(--faded-ink);
+  margin: 0.4rem 0 1rem;
+}
+
+.score {
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  color: var(--oxblood);
+  margin: 0;
+}
+.star { color: var(--brass); text-shadow: 0 0 1px #0003; }
+.star.dim { color: var(--linen-deep); }
+
+/* ---- rules ---- */
+hr.rule {
+  border: none;
+  height: 7px;
+  margin: 1.6rem 0;
+  background:
+    linear-gradient(var(--oxblood), var(--oxblood)) 0 0 / 100% 1px no-repeat,
+    linear-gradient(var(--oxblood), var(--oxblood)) 0 3px / 100% 1px no-repeat,
+    linear-gradient(var(--oxblood), var(--oxblood)) 0 6px / 100% 1px no-repeat;
+  opacity: 0.75;
+}
+
+/* ---- body ---- */
+p { margin: 0 0 1.1rem; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 4.2rem;
+  line-height: 0.82;
+  padding: 0.08em 0.14em 0 0;
+  color: var(--oxblood);
+  font-family: "Didot", "Bodoni MT", Georgia, serif;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  color: var(--sea);
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 0.3rem;
+  margin: 2rem 0 1rem;
+}
+
+em { color: var(--oxblood); font-style: italic; }
+
+blockquote.card {
+  margin: 1.4rem 1.6rem;
+  padding: 1.2rem 1.4rem;
+  background:
+    linear-gradient(105deg, transparent 42%, #00000009 42% 46%, transparent 46%),
+    #fbf5e2;
+  border: 1px solid var(--brass);
+  border-left: 6px solid var(--oxblood);
+  box-shadow: 4px 4px 0 var(--linen-deep);
+  transform: rotate(-0.5deg);
+}
+blockquote.card p {
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--sea);
+  margin: 0;
+  text-align: center;
+}
+
+/* characters glow when the reader hovers them: the room shows its numbers */
+.codepoint {
+  background: #9c7a2f22;
+  border-radius: 2px;
+  cursor: help;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.codepoint:hover { background: var(--brass); color: var(--linen); }
+
+.closing {
+  font-size: 0.92rem;
+  color: var(--faded-ink);
+  border-top: 1px dashed var(--brass);
+  padding-top: 1rem;
+}
+
+.closing a { color: var(--sea); }
+
+a { color: var(--oxblood); }
+
+/* ---- colophon ---- */
+.colophon {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  color: var(--brass);
+  padding-bottom: 1.5rem;
+}
+
+/* slow steam rising over the masthead */
+.steam {
+  position: absolute;
+  left: 50%;
+  top: -1.2rem;
+  width: 2px;
+  height: 1.4rem;
+  background: #0000;
+  animation: none;
+}
+
+@media (max-width: 40rem) {
+  h1 { font-size: 2.4rem; }
+  .paper { padding: 0 1.1rem; }
+}
