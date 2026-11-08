@@ -1,0 +1,269 @@
+/* Field Manual FM-9, Chapter 12 — The Nanoscale */
+:root {
+  --paper: #efe9db;
+  --ink: #241f16;
+  --olive: #4c5230;
+  --olive-deep: #33381f;
+  --rust: #a4471f;
+  --gold: #b98a2f;
+  --line: #b6ac8f;
+  --mono: "Courier New", Courier, monospace;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(76, 82, 48, 0.05) 0 1px, transparent 1px 32px),
+    radial-gradient(circle at 20% 0%, #f5f0e3 0%, var(--paper) 55%, #e5decb 100%);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+
+.fm {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+  background: #fbf8ef;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(51, 56, 31, 0.12);
+  position: relative;
+}
+
+.fm::before {
+  content: "";
+  display: block;
+  height: 14px;
+  background: repeating-linear-gradient(135deg, var(--gold) 0 12px, var(--olive-deep) 12px 24px);
+  border-bottom: 2px solid var(--olive-deep);
+}
+
+.fm-header {
+  padding: 2.5rem 2.5rem 1.5rem;
+  border-bottom: 3px double var(--olive);
+  position: relative;
+}
+
+.fm-class {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--rust);
+  margin-bottom: 0.9rem;
+}
+
+h1 {
+  font-family: var(--mono);
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  margin: 0 0 0.6rem;
+  line-height: 1.15;
+}
+
+.fm-sub {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--olive);
+  margin: 0;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.8rem;
+}
+
+.fm-stamp {
+  position: absolute;
+  right: 1.2rem;
+  top: 1.4rem;
+  transform: rotate(-8deg);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--rust);
+  border: 2px solid var(--rust);
+  outline: 1px solid var(--rust);
+  outline-offset: 3px;
+  padding: 0.35rem 0.7rem;
+  opacity: 0.75;
+  animation: stamp-in 0.6s ease-out both;
+}
+
+@keyframes stamp-in {
+  from { transform: rotate(-8deg) scale(1.8); opacity: 0; }
+  to   { transform: rotate(-8deg) scale(1); opacity: 0.75; }
+}
+
+.fm-section {
+  padding: 1.8rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+h3 {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 1.4rem 0 0.5rem;
+}
+
+p { margin: 0 0 1rem; }
+em { color: var(--olive-deep); }
+strong { color: var(--olive-deep); }
+
+a { color: var(--rust); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--olive-deep); background: rgba(185, 138, 47, 0.18); }
+
+/* Callouts */
+.callout {
+  margin: 1.2rem 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  background: #f4efdf;
+  font-size: 0.95rem;
+}
+.callout-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  padding: 0.15rem 0.55rem;
+  margin-bottom: 0.5rem;
+  background: var(--olive);
+  color: #f4efdf;
+}
+.callout-warn {
+  border-color: var(--rust);
+  background: #f6e9dc;
+}
+.callout-warn .callout-tag { background: var(--rust); }
+
+/* Scale slider */
+.scalebox {
+  margin: 1.4rem 0 0.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(0deg, rgba(76, 82, 48, 0.06) 1px, transparent 1px) 0 0 / 100% 20px,
+    #f4efdf;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.scalebox label { letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive); }
+.scale-readout { margin: 0.7rem 0; color: var(--olive-deep); }
+#scale-value { font-weight: bold; color: var(--rust); }
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--rust);
+  cursor: pointer;
+}
+.scale-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--olive);
+  opacity: 0.7;
+}
+
+/* Table */
+.fm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.8rem 0;
+}
+.fm-table th, .fm-table td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.fm-table th {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--olive);
+  color: #f4efdf;
+}
+.fm-table tr:nth-child(even) td { background: rgba(76, 82, 48, 0.06); }
+
+/* Scrawl */
+.scrawl {
+  margin: 1.2rem 0;
+  padding: 1.1rem 1.4rem;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--olive-deep);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  box-shadow: 3px 3px 0 rgba(51, 56, 31, 0.15);
+}
+
+.decode { padding-left: 1.2rem; margin: 1rem 0; }
+.decode li { margin-bottom: 0.8rem; }
+.decode strong { font-family: var(--mono); font-style: normal; }
+
+/* Checklist */
+.checklist { list-style: none; padding: 0; margin: 0; counter-reset: item; }
+.checklist li {
+  counter-increment: item;
+  position: relative;
+  padding: 0.5rem 0.6rem 0.5rem 3rem;
+  border-bottom: 1px dotted var(--line);
+  cursor: pointer;
+}
+.checklist li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--olive);
+}
+.checklist li::after {
+  content: "";
+  position: absolute;
+  right: 0.6rem;
+  top: 0.75rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 1.5px solid var(--olive);
+}
+.checklist li.done { color: var(--olive); opacity: 0.65; text-decoration: line-through; }
+.checklist li.done::after {
+  content: "✓";
+  color: var(--rust);
+  border-color: var(--rust);
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Footer */
+.fm-footer { padding: 1.6rem 2.5rem 0; font-size: 0.92rem; }
+.fm-nav { margin-bottom: 0.6rem; }
+.fm-nav a { font-family: var(--mono); font-size: 0.88rem; }
+
+@media (max-width: 620px) {
+  .fm-header, .fm-section, .fm-footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .fm-stamp { position: static; display: inline-block; margin-top: 1rem; }
+}

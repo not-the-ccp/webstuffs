@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nanoscale — Field Manual FM-9, Chapter 12</title>
+<meta name="description" content="Field manual chapter on nanotechnology: the 1-to-100-nanometre scale, surface-area and quantum effects, the Helix Nanotechnologies clean room in Edinburgh's BioQuarter, the point-of-care platform, and one unsentenced scrawl in lab notebook 9.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="fm">
+
+<header class="fm-header">
+<div class="fm-class">FIELD MANUAL FM-9 · MATERIALS &amp; DEPOSITION SERIES</div>
+<h1>Chapter 12 — The Nanoscale</h1>
+<p class="fm-sub">Nanotechnology · handling orders for matter at 1–100 nm · issued for the Helix Nanotechnologies benches, BioQuarter, Edinburgh</p>
+<div class="fm-stamp" aria-hidden="true">ARCHIVE COPY · LAB NOTEBOOK 9</div>
+</header>
+
+<section class="fm-section">
+<h2>12.1 · Scope and Definitions</h2>
+<p><strong>Nanotechnology</strong> is the manipulation of matter with at least one dimension of size measuring between 1 and 100 nanometres (nm). At this scale, commonly known as the <em>nanoscale</em>, surface area and quantum mechanical effects become important in describing the properties of matter. This definition of nanotechnology includes all types of research and technologies that deal with these distinctive properties. The plural form <em>nanotechnologies</em> is also commonly used, as is the term <em>nanoscale technologies</em>, to refer to research and applications whose defining characteristic is their scale. An earlier understanding of nanotechnology referred to the particular technological goal of precisely manipulating matter atom by atom; that reading is retained here only as a historical note, because it is how the old benches in BioQuarter were still taught in 2015, and it is how the company's first seven patents are worded.</p>
+<p>One nanometre is one thousandth of a millimetre. A sheet of office paper is roughly 100,000 nm thick, so this chapter covers the thickness of about one such sheet — and everything that happens when you cut the world to that thickness, one slice at a time, and find the rules have changed.</p>
+
+<div class="callout callout-note">
+<span class="callout-tag">NOTE</span>
+<p>The scale is not a building. It is a regime. Between 1 nm and 100 nm, matter stops behaving like the lumps you know and starts behaving like its own arithmetic. Operators who enter the clean room expecting the small to be just the big, shrunk, will be asked to sit the induction twice.</p>
+</div>
+
+<div class="scalebox">
+<label for="scale">Slide the stage: 1 nm to 100 nm</label>
+<div class="scale-readout"><span id="scale-value">40</span> nm — <span id="scale-caption">a long protein, a gold cluster on the verge of turning red</span></div>
+<input type="range" id="scale" min="1" max="100" value="40" step="1" aria-label="Object size in nanometres">
+<div class="scale-ticks" aria-hidden="true"><span>1</span><span>10</span><span>50</span><span>100</span></div>
+</div>
+</section>
+
+<section class="fm-section">
+<h2>12.2 · Why Scale Changes Everything</h2>
+<p>Two effects dominate at this chapter's scale, and both are listed on the induction wall in the BioQuarter corridor in letters the size of a child's hand.</p>
+<h3>Surface area</h3>
+<p>Shrink a cube and the fraction of its material that sits on the surface grows in inverse ratio to its size. At 100 nm across, with an atom roughly half a nanometre wide, about one atom in thirty touches the outside. At 10 nm, roughly three in ten do. At 5 nm, more than half the substance is on the surface, exposed to whatever it meets. Surface atoms are under-coordinated: they hold loose, they bond readily, they make a material that was inert in the drawer reactive in the vial. Iron oxide is a rust flake in the yard and a red powder that binds oxygen like a handshake at the nanoscale.</p>
+<h3>Quantum effects</h3>
+<p>Below a few tens of nanometres, electrons stop behaving like little planets and start behaving like standing waves confined to the object. Gold — the yellow you know, the metal that never tarnishes — appears <em>red</em> as a 20 nm particle, and orange-red as it shrinks toward 10 nm, because the surface plasmon, the collective wobble of its free electrons, is pushed in frequency as the confinement tightens. A semiconductor's band gap widens as it shrinks; a 6 nm quantum dot of cadmium selenide emits blue where the bulk material glows red. The same element, different colour, no impurity anywhere. At still smaller scales, an electron can tunnel across a gap no classical object would ever cross, and the AFM on bench 4 reads that tunnel current as the thing's shape.</p>
+</section>
+
+<section class="fm-section">
+<h2>12.3 · Instruments, by Bench</h2>
+<table class="fm-table">
+<thead>
+<tr><th>Bench</th><th>Instrument</th><th>Order of magnitude</th><th>Handling note</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Transmission electron microscope</td><td>sub-0.1 nm projection</td><td>Column vacuum 10⁻⁵ Pa; specimen grid changes under interlock</td></tr>
+<tr><td>2</td><td>Scanning tunneling microscope</td><td>atomic resolution, 1981 vintage of the idea</td><td>Tunnel current is the reading; tip wear is the clock</td></tr>
+<tr><td>3</td><td>Atomic force microscope</td><td>1–100 nm topography</td><td>Cantilever is a leaf in a hurricane; never touch the head</td></tr>
+<tr><td>4</td><td>Harpoon — pick-and-place head</td><td>whole flake transfer</td><td>See 12.5. The name predates the patent office</td></tr>
+<tr><td>5</td><td>Crisper array, point-of-care deck</td><td>2026–2028 deployment build</td><td>Seventeen patents upstream; the deck itself asks nothing</td></tr>
+</tbody>
+</table>
+<p>Bench 5 is the one the rest of the planet met. The CRISPR-based point-of-care platform for RNA virus detection that Helix brought to market in the run-up to the 2026–2028 respiratory pandemic was, under the hood, a nanoscale device: guide RNAs of a few dozen nucleotides, gold and polymer nanostructures doing their quiet bookkeeping, diagnostics in the old sense reduced to a strip you could carry past a checkpoint. It was deployed across three continents. It was also, on the benches where it was characterised, mostly just matter between 1 and 100 nm, obeying this chapter.</p>
+</section>
+
+<section class="fm-section">
+<h2>12.4 · The Clean Room, BioQuarter</h2>
+<p>The Helix Nanotechnologies clean room sits in the BioQuarter, Edinburgh, a climate of its own. ISO Class 5: no more than 3,520 particles of 0.5 µm or larger per cubic metre of air, which is to say the air is emptier than the street outside by a factor that reads better in a certificate than in a body. Operators wear the gowns from the neck down to the boot line; the hair stays under the hood; the hood stays under the rule that everything you can shed, you do not bring in.</p>
+<p>It was here that Hannu Rajaniemi paced for eleven years, from the 2014 founding until 2047, dictating dialogue for his novels into a voice recorder while the sequencers spun. Colleagues kept a list of what he left in the room besides: eleven notebooks, forty-one whiteboards that were never wiped, and the lab's standing joke — that the white-wall fluorescent was a harbour lamp, and that no procedure was valid until something white had come to it. The list survives with his papers at the National Library of Scotland; the man is treated at length in his <a href="../">obituary</a>, and the moth that the joke borrows from — <em>Scythris albocanella</em>, the Yemeni white-wing, described by Bengt Å. Bengtsson in 2002 — has its own account and a cake: see <a href="../../scythris-albocanella/">Scythris albocanella — White-Wing Cakes</a> (Webstuffs). An insect of three millimetres, measured in tenths of a millimetre, is this chapter's nearest relative at the scale the naked eye can still manage.</p>
+</section>
+
+<section class="fm-section">
+<h2>12.5 · The Scrawl in Notebook 9</h2>
+<p>Lab notebook 9, entry dated 3 March 2029, beside a sketch of a graphene flake over a sapphire wafer, carries one sentence in pencil, in a hand that slows down only when it is angry:</p>
+<blockquote class="scrawl">"He wrote in both instances, resent coercion, and a half in splinters; and, flukes first, the whole to a harpoon."</blockquote>
+<p>It took the bench team a week, and the family two months, to admit that the sentence was not English at all but a compressed handling order for transferring the flake. Decoded clause by clause, which is the only way it has ever been properly legible:</p>
+<ol class="decode">
+<li><strong>"He wrote in both instances"</strong> — the flake <em>was</em> measured in both instances, AFM and SEM, before any transfer. Log both readings; a flake that has been read by one instrument only is, by this house rule, unlocatable.</li>
+<li><strong>"resent coercion"</strong> — the flake resents forced clamping. No clamp, no pressure, no persuading. If it will not sit where the stage wants it, it does not go.</li>
+<li><strong>"and a half in splinters"</strong> — tolerance: at most a half of the intended mass may arrive. If the flake breaks in splinters, the transfer fails and the splinters are catalogued, not swept.</li>
+<li><strong>"and, flukes first"</strong> — orient the flake with its flukes — the torn, thin leading edge — first over the well, so that the mass lands ahead of the fragile fringe.</li>
+<li><strong>"the whole to a harpoon"</strong> — hand the whole thing, flake and all, to the harpoon, the pick-and-place head on bench 4, which takes it to the wafer in one move and never looks back.</li>
+</ol>
+<div class="callout callout-warn">
+<span class="callout-tag">STANDING ORDER</span>
+<p>The scrawl is printed on the transfer card and has never once failed an audit. Do not paraphrase it. Do not translate it back into English and expect the flake to notice the difference. It will.</p>
+</div>
+</section>
+
+<section class="fm-section">
+<h2>12.6 · Pre-Entry Checklist</h2>
+<ol class="checklist" id="checklist">
+<li>Count yourself in at the airlock; the room counts out for you.</li>
+<li>Confirm the lamp is on. Confirm something white has come to it, or note that you are proceeding on the faith of the joke.</li>
+<li>Both instances before transfer. Always.</li>
+<li>No coercion. A flake that resists is a flake that is telling the truth.</li>
+<li>Half in splinters is a failure. Log it. Keep the splinters.</li>
+<li>Flukes first. The whole to a harpoon.</li>
+<li>Count yourself out. The sequencers keep spinning; so does the voice recorder.</li>
+</ol>
+</section>
+
+<footer class="fm-footer">
+<p class="fm-nav">Issued from the BioQuarter benches. For the man who paced them and left the list: <a href="../">Hannu Rajaniemi (1978–2047) — Obituary</a>.</p>
+<p class="fm-nav">For the white wing the lamp borrows, and the cake it earns: <a href="../../scythris-albocanella/">Scythris albocanella — White-Wing Cakes</a>.</p>
+<p class="fm-nav"><a href="../../">Return to Webstuffs</a></p>
+</footer>
+
+</main>
+<script src="scale.js"></script>
+</body>
+</html>
