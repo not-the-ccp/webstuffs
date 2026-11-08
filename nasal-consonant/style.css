@@ -1,0 +1,285 @@
+/* SDS-NC-01 — Safety Data Sheet, Hall of Names issue */
+:root {
+  --ink: #1c1a15;
+  --paper: #f4efe3;
+  --paper-deep: #e9e1cd;
+  --hazard: #e8b423;
+  --hazard-dark: #17130b;
+  --oxide: #7a3b1d;
+  --green: #2c4a21;
+  --blue: #274a63;
+  --rule: #b8ab8c;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(122, 59, 29, 0.08), transparent 55%),
+    radial-gradient(ellipse at 88% 100%, rgba(39, 74, 99, 0.07), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3rem;
+}
+
+/* ---------- header ---------- */
+.sds-head {
+  border-bottom: 4px double var(--ink);
+  background: var(--paper-deep);
+}
+
+.hazard-stripe {
+  height: 14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--hazard) 0 18px,
+    var(--hazard-dark) 18px 36px
+  );
+  animation: stripe-roll 24s linear infinite;
+}
+.hazard-stripe.thin { height: 8px; }
+
+@keyframes stripe-roll {
+  from { background-position: 0 0; }
+  to   { background-position: 101.8px 0; }
+}
+
+.head-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.6rem 1.4rem 1.8rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.doctype {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin: 0 0 0.4rem;
+}
+.doctype-no {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.1em 0.5em;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  margin: 0 0 0.3rem;
+  font-size: 2.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+h1 .sub {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--oxide);
+}
+
+.synonyms {
+  font-size: 0.92rem;
+  color: #4a4234;
+  max-width: 34em;
+}
+
+.head-meta {
+  margin: 1.2rem 0 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  gap: 0.4rem 1rem;
+  font-size: 0.92rem;
+}
+.head-meta dt {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--oxide);
+  padding-top: 0.25em;
+}
+.head-meta dd { margin: 0; }
+
+.sample {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 0 0.45em;
+  margin: 0 0.1em;
+  font-size: 0.88em;
+}
+.sample-m  { background: #e5d9b8; }
+.sample-n  { background: #d9e2cf; }
+.sample-ng { background: #d3dee8; }
+
+.signal {
+  display: inline-block;
+  background: var(--hazard);
+  color: var(--hazard-dark);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  padding: 0.15em 0.7em;
+  border: 2px solid var(--hazard-dark);
+  transform: rotate(-1.5deg);
+}
+
+/* hazard pictograms */
+.head-pictos { display: flex; flex-direction: column; gap: 0.7rem; }
+.picto {
+  width: 92px;
+  height: 92px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.picto:hover { transform: rotate(45deg) scale(1.06); }
+.picto span, .picto em { transform: rotate(-45deg); }
+.picto span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.picto em {
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+.picto-nose { border-color: var(--blue); }
+.picto-nose span { color: var(--blue); }
+.picto-velum { background: var(--hazard); border-color: var(--hazard-dark); }
+.picto-g span { font-family: Georgia, serif; font-size: 1.8rem; color: var(--oxide); }
+
+/* ---------- sections ---------- */
+.sec {
+  margin: 0 0 2rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.sec h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: 0 0 0.7rem;
+  font-size: 1.18rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sec-no {
+  flex: 0 0 auto;
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--paper);
+  background: var(--ink);
+  width: 2.4em;
+  text-align: center;
+  padding: 0.25em 0;
+  border-left: 6px solid var(--hazard);
+}
+
+.sec h3 {
+  font-size: 0.95rem;
+  margin: 1rem 0 0.3rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--oxide);
+}
+
+p { margin: 0 0 0.8rem; max-width: 68ch; }
+
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--oxide); }
+
+/* composition table */
+table.comp {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0 1rem;
+  font-size: 0.92rem;
+  background: var(--paper);
+}
+table.comp th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: left;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.45rem 0.6rem;
+}
+table.comp td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.6rem;
+  vertical-align: top;
+}
+table.comp .sym {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+td.c-m  { background: #e5d9b8; font-weight: bold; text-align: center; }
+td.c-n  { background: #d9e2cf; font-weight: bold; text-align: center; }
+td.c-ng { background: #d3dee8; font-weight: bold; text-align: center; }
+
+/* footer */
+.colophon {
+  background: var(--paper-deep);
+  border-top: 4px double var(--ink);
+  text-align: center;
+  font-size: 0.88rem;
+  color: #4a4234;
+}
+.colophon .nav { margin: 0.6rem 0; }
+.colophon .nav a { margin: 0 0.3em; }
+.rule-line { letter-spacing: 0.8em; color: var(--oxide); margin-bottom: 1.4rem; }
+
+.velum-state {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--rule);
+  padding: 0.2em 0.7em;
+  background: var(--paper);
+}
+.velum-state.down { background: var(--hazard); color: var(--hazard-dark); border-color: var(--hazard-dark); }
+
+.rev-line {
+  margin-top: 1.2rem;
+  font-style: italic;
+  border-left: 4px solid var(--oxide);
+  padding-left: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .head-grid { grid-template-columns: 1fr; }
+  .head-pictos { flex-direction: row; justify-content: flex-start; }
+  h1 { font-size: 2rem; }
+  .head-meta { grid-template-columns: 9em 1fr; }
+}
