@@ -1,0 +1,233 @@
+/* Minutes No. 57 — Council of the Hall, The Matter of McCune–Reischauer */
+
+:root {
+  --paper: #f4edda;
+  --paper-deep: #ece1c4;
+  --ink: #23304d;
+  --ink-soft: #4a5570;
+  --seal-red: #9d2b23;
+  --seal-red-deep: #6e1a15;
+  --rule: #b9a878;
+  --hall: #1d2a3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 15% -5%, #2a3d55 0%, transparent 60%),
+    radial-gradient(900px 500px at 110% 110%, #4a2f28 0%, transparent 55%),
+    var(--hall);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.hallmark {
+  position: fixed;
+  top: -3rem;
+  right: -2rem;
+  font-size: 16rem;
+  font-weight: 700;
+  color: rgba(244, 237, 218, 0.06);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  user-select: none;
+}
+
+.folio {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.9em, rgba(185, 168, 120, 0.14) 1.9em calc(1.9em + 1px)),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 5px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 90px rgba(120, 96, 48, 0.12);
+  padding: 2.75rem 2.5rem 3.5rem;
+}
+
+/* ---------- header ---------- */
+
+.council {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.8rem;
+  border-top: 3px double var(--seal-red);
+  border-bottom: 3px double var(--seal-red);
+  padding: 0.7rem 0.4rem;
+}
+
+h1 .tag {
+  display: block;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--seal-red);
+  margin-top: 0.35rem;
+}
+
+.where {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0 1.2rem 1.4rem;
+}
+
+.attendees {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 1.8rem;
+}
+.attendees th {
+  text-align: left;
+  vertical-align: top;
+  width: 7rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--seal-red);
+  padding: 0.35rem 0.6rem 0.35rem 0;
+}
+.attendees td { padding: 0.35rem 0; }
+.attendees tr { border-bottom: 1px dotted var(--rule); }
+
+/* ---------- items ---------- */
+
+.item { margin: 0 0 2rem; }
+
+.item h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+.item h2 .no {
+  display: inline-block;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.85rem;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  transform: translateY(0.15rem);
+}
+
+p { margin: 0 0 0.9rem; text-align: justify; hyphens: auto; }
+
+p.close {
+  font-style: italic;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.sign {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.sig1, .sig2 {
+  padding-top: 0.4rem;
+}
+.sig1::before, .sig2::before {
+  content: "";
+  display: block;
+  width: 11rem;
+  border-bottom: 1px solid var(--ink-soft);
+  margin-bottom: 0.2rem;
+}
+
+/* ---------- seal ---------- */
+
+.sealwrap {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.seal {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: radial-gradient(circle at 32% 28%, #c2473c, var(--seal-red) 55%, var(--seal-red-deep));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 0, 0, 0.35);
+  color: #f7e9d8;
+  font-family: inherit;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+.seal:hover { transform: rotate(-8deg) scale(1.05); }
+.seal:active { transform: rotate(4deg) scale(0.97); }
+.seal .ring {
+  position: absolute;
+  inset: 7px;
+  border: 1.5px dashed rgba(247, 233, 216, 0.75);
+  border-radius: 50%;
+}
+.seal .seal-line {
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 22px;
+}
+.seal .seal-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.pron {
+  color: #e9dcbf;
+  font-size: 0.72rem;
+  font-style: italic;
+  margin: 0.4rem 0 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 560px) {
+  .folio { padding: 1.8rem 1.2rem 2.5rem; outline-offset: 3px; }
+  .sealwrap { position: static; text-align: left; margin-top: 2rem; }
+  .seal { display: inline-block; }
+  .pron { margin-left: 4.2rem; }
+  .hallmark { display: none; }
+  p { text-align: left; }
+}
