@@ -1,0 +1,130 @@
+/* Field Manual FM-21, Chapter 6 — Plum Cake */
+:root {
+  --ink: #3a2a1c;
+  --plum: #5e2a4a;
+  --plum-deep: #401a33;
+  --sultana: #8a5a2b;
+  --paper: #f3e9d2;
+  --paper-dark: #e9dcc0;
+  --rule: #b39b6d;
+  --brandy: #a05c2c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(160, 92, 44, 0.07), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(94, 42, 74, 0.09), transparent 50%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+.fm-header {
+  border-bottom: 4px double var(--rule);
+  padding: 2.2rem 1.5rem 1.6rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  position: relative;
+  background: var(--paper-dark);
+  box-shadow: inset 0 -6px 12px -8px rgba(58, 42, 28, 0.4);
+}
+.fm-class {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin: 0 0 0.6rem;
+}
+.fm-header h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.3rem;
+  color: var(--plum-deep);
+  letter-spacing: 0.01em;
+}
+.fm-sub {
+  margin: 0;
+  font-style: italic;
+  color: var(--sultana);
+}
+.stamp {
+  position: absolute;
+  right: 1.6rem;
+  top: 2.4rem;
+  border: 3px solid var(--brandy);
+  color: var(--brandy);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+  padding: 0.5rem 0.7rem;
+  transform: rotate(7deg);
+  opacity: 0.75;
+  border-radius: 4px;
+}
+main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.8rem 1.5rem 2.5rem;
+}
+.fm-section { margin-bottom: 2.4rem; }
+.fm-section h2 {
+  font-size: 1.25rem;
+  color: var(--plum-deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.9rem;
+}
+.secnum {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--brandy);
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  background: rgba(255, 252, 244, 0.6);
+}
+th, td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--paper-dark);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+blockquote {
+  margin: 1.2rem 1.5rem;
+  padding: 0.8rem 1.2rem;
+  border-left: 4px solid var(--plum);
+  background: rgba(94, 42, 74, 0.06);
+  font-style: italic;
+  color: var(--plum-deep);
+}
+a { color: var(--brandy); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--plum-deep); }
+ul { padding-left: 1.3rem; }
+li { margin-bottom: 0.55rem; }
+li strong { color: var(--plum-deep); }
+.fm-footer {
+  border-top: 4px double var(--rule);
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--plum);
+  padding: 1.2rem 1rem 2rem;
+  background: var(--paper-dark);
+}
+#stamp-line.flash { color: var(--brandy); font-weight: bold; }
