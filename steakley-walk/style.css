@@ -1,0 +1,199 @@
+/* The Steakley Walk — quarter-guide look: foundry brick, marquee amber, midnight */
+
+:root {
+  --coal: #14100f;
+  --brick: #221a18;
+  --iron: #2e2420;
+  --bone: #e9e0d0;
+  --ash: #b7a98f;
+  --ember: #e0512f;
+  --amber: #e8a33d;
+  --blood: #7a1f24;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(224, 81, 47, 0.10), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 90px),
+    var(--coal);
+  color: var(--bone);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+/* fixed mileage ribbon */
+.ribbon {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9;
+  background: linear-gradient(90deg, var(--blood), var(--ember) 60%, var(--amber));
+  color: var(--coal);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.masthead {
+  max-width: 720px;
+  margin: 64px auto 40px;
+  padding: 0 20px;
+  border-left: 4px solid var(--ember);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.8);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 3.8rem);
+  line-height: 1.05;
+  margin: 0 0 18px;
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, var(--bone) 55%, var(--amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dek {
+  font-size: 1.02rem;
+  color: var(--ash);
+  max-width: 60ch;
+}
+
+.route-facts {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 26px 0 0;
+}
+
+.route-facts li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(232, 163, 61, 0.45);
+  border-radius: 2px;
+  padding: 6px 12px;
+  background: var(--brick);
+  color: var(--bone);
+}
+
+.route-facts strong { color: var(--amber); margin-right: 6px; }
+
+/* the route: a dashed spine with stops */
+.route {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  position: relative;
+}
+
+.route::before {
+  content: "";
+  position: absolute;
+  left: 34px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-image: linear-gradient(var(--ember) 55%, transparent 0);
+  background-size: 2px 14px;
+  opacity: 0.55;
+}
+
+.stop {
+  position: relative;
+  padding: 26px 0 26px 58px;
+}
+
+.stop::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 34px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--coal);
+  border: 3px solid var(--ember);
+  box-shadow: 0 0 0 4px rgba(224, 81, 47, 0.15), 0 0 14px rgba(224, 81, 47, 0.5);
+}
+
+.stop:nth-child(even)::before {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 4px rgba(232, 163, 61, 0.15), 0 0 14px rgba(232, 163, 61, 0.5);
+}
+
+.marker {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin: 0 0 8px;
+}
+
+.stop:nth-child(even) .marker { color: var(--amber); }
+
+.stop h2 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  margin: 0 0 12px;
+  color: var(--bone);
+}
+
+.stop p { margin: 0 0 12px; max-width: 62ch; }
+
+.stop p:last-child { margin-bottom: 0; }
+
+em { color: var(--bone); font-style: italic; }
+
+a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--ember); }
+
+.route-foot {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  padding: 22px 20px;
+  border-top: 3px double rgba(232, 163, 61, 0.5);
+}
+
+.fine-print {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--ash);
+  margin: 4px 0;
+}
+
+@media (max-width: 560px) {
+  .route::before { left: 16px; }
+  .stop { padding-left: 40px; }
+  .stop::before { left: 9px; width: 14px; height: 14px; }
+}
