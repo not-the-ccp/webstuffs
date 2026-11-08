@@ -1,0 +1,309 @@
+/* A Book of Etiquette for the Stacks — Chapter IX */
+
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e9dcc0;
+  --ink: #2c2418;
+  --faded-ink: #5c5140;
+  --oxblood: #6f2417;
+  --navy: #1f3555;
+  --gold: #a8823c;
+  --rule: #c9b78d;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(168, 130, 60, 0.16), transparent 60%),
+    radial-gradient(ellipse 90% 50% at 100% 110%, rgba(111, 36, 23, 0.10), transparent 65%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(92, 81, 64, 0.045) 27px 28px),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  background-attachment: fixed;
+}
+
+/* ---- front plate ---- */
+
+.plate {
+  position: relative;
+  max-width: 44rem;
+  margin: 2.5rem auto 0;
+  padding: 1.6rem 2rem 1.2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #efe4c9 0%, #e6d6b0 100%);
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+  box-shadow:
+    0 2px 0 rgba(44, 36, 24, 0.12),
+    0 14px 30px -14px rgba(44, 36, 24, 0.35);
+}
+
+.plate-line {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--oxblood);
+  font-weight: 600;
+}
+
+.plate-line.sub {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+
+.plate-orn {
+  margin: 0.7rem 0 0;
+  font-size: 1.2rem;
+  color: var(--gold);
+  animation: sway 6s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(180deg); }
+}
+
+/* ---- chapter head ---- */
+
+.chapter-head {
+  max-width: 44rem;
+  margin: 2.2rem auto 0;
+  padding: 0 1.4rem;
+  text-align: center;
+}
+
+.series {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
+.chapter-sub {
+  margin: 0.7rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+
+/* ---- page ---- */
+
+.page {
+  max-width: 44rem;
+  margin: 1.6rem auto 0;
+  padding: 2.2rem 2.4rem 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 243, 0.55), rgba(255, 252, 243, 0.25));
+  border-top: 3px double var(--oxblood);
+  border-bottom: 3px double var(--oxblood);
+}
+
+.page p { margin: 0 0 1.05rem; text-align: justify; hyphens: auto; }
+
+.lede::first-letter {
+  float: left;
+  font-size: 4.3rem;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--oxblood);
+  font-weight: 700;
+}
+
+.sc { font-variant: small-caps; letter-spacing: 0.03em; }
+
+/* section rules */
+
+h2.rule {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.9rem 0 0.9rem;
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 700;
+  text-align: left;
+}
+
+h2.rule::before,
+h2.rule::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 3px;
+}
+
+h2.rule span {
+  display: inline-block;
+  min-width: 2.1em;
+  text-align: center;
+  color: var(--parchment);
+  background: var(--navy);
+  font-size: 0.95rem;
+  padding: 0.14em 0.5em 0.2em;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(44, 36, 24, 0.3);
+}
+
+/* call-number marks */
+
+.mark {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.92em;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  background: rgba(255, 252, 243, 0.7);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold);
+  padding: 0 0.35em;
+  margin: 0 0.1em;
+  cursor: help;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mark:hover {
+  background: #fffdf5;
+  transform: translateY(-1px);
+  border-color: var(--gold);
+}
+
+/* salvaged line */
+
+blockquote.salvage {
+  margin: 1.3rem 0.4rem 1.3rem 0;
+  padding: 1rem 1.4rem 0.8rem;
+  background: linear-gradient(180deg, #efe2bf, #ead9b3);
+  border: 1px dashed var(--gold);
+  box-shadow: inset 0 0 24px rgba(168, 130, 60, 0.14);
+  position: relative;
+}
+
+blockquote.salvage::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.9rem;
+  left: 0.6rem;
+  font-size: 3rem;
+  color: var(--oxblood);
+  background: var(--parchment);
+  padding: 0 0.3rem;
+}
+
+blockquote.salvage p {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.02rem;
+  text-align: left;
+}
+
+blockquote.salvage .quote-src {
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--faded-ink);
+}
+
+/* precepts */
+
+ol.precepts {
+  margin: 0 0 1.2rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: precept;
+}
+
+ol.precepts li {
+  counter-increment: precept;
+  position: relative;
+  padding: 0 0 0.85rem 2.6rem;
+  margin: 0 0 0.3rem;
+  text-align: justify;
+}
+
+ol.precepts li::before {
+  content: counter(precept, upper-roman);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  min-width: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--oxblood);
+  border: 1px solid var(--oxblood);
+  border-radius: 50%;
+  padding: 0.18em 0;
+  background: rgba(255, 252, 243, 0.6);
+}
+
+.closer {
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  font-style: italic;
+}
+
+/* colophon */
+
+.colophon {
+  max-width: 44rem;
+  margin: 1.4rem auto 3rem;
+  padding: 0 1.4rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--faded-ink);
+}
+
+.col-orn { margin: 0 0 0.9rem; color: var(--gold); letter-spacing: 1em; text-indent: 1em; }
+
+.col-line { margin: 0.35rem 0; }
+
+a {
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  transition: color 0.15s ease, border-bottom-color 0.15s ease;
+}
+
+a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+
+.reply-line {
+  margin: 1.2rem 0 0.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .page { padding: 1.6rem 1.2rem; }
+  h1 { font-size: 1.6rem; }
+  .page p, ol.precepts li { text-align: left; }
+}
