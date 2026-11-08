@@ -1,0 +1,209 @@
+/* Mucous Membrane — liner notes sheet, Nile Basin Records NBR-041 */
+
+:root {
+  --ink: #1d1a14;
+  --paper: #efe7d6;
+  --paper-deep: #e4d8bd;
+  --river: #2e5c55;
+  --blood: #7a2e22;
+  --reed: #8a7a4f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 85% 10%, rgba(122, 46, 34, 0.08), transparent 55%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(46, 92, 85, 0.05) 46px 47px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* ---- sleeve front ---- */
+
+.sleeve {
+  position: relative;
+  padding: 7rem 6vw 4rem;
+  border-bottom: 3px double var(--ink);
+}
+
+.label {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--river);
+}
+
+.giant {
+  margin: 1.2rem 0 1rem;
+  font-size: clamp(3.4rem, 11vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.byline {
+  max-width: 34rem;
+  font-size: 1.02rem;
+}
+
+.slug {
+  position: absolute;
+  right: 4vw;
+  bottom: -1.4rem;
+  width: clamp(180px, 30vw, 340px);
+  color: var(--blood);
+  transform: rotate(-7deg);
+  opacity: 0.85;
+}
+
+/* ---- main notes: asymmetric two-column grid ---- */
+
+.notes {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 0 4vw;
+  padding: 3.5rem 6vw;
+}
+
+.notes h2 {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--river);
+  border-bottom: 1px solid var(--reed);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.2rem;
+}
+
+.intro { padding-right: 4vw; }
+
+.tracks { padding-left: 3vw; border-left: 1px dashed var(--reed); }
+
+.tracklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: track;
+}
+
+.tracklist li {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr auto;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted rgba(29, 26, 20, 0.35);
+}
+
+.tracklist .t { font-weight: 700; color: var(--blood); }
+.tracklist .d { font-family: "Courier New", monospace; font-size: 0.85rem; color: var(--reed); }
+
+.colophon-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* ---- diary: scattered, overlapping entry cards ---- */
+
+.diary-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem 1.6rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.entry {
+  background: #f7f1e2;
+  border: 1px solid rgba(29, 26, 20, 0.5);
+  box-shadow: 4px 5px 0 rgba(46, 92, 85, 0.18);
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+
+.entry:nth-child(1) { transform: rotate(-1.3deg); }
+.entry:nth-child(2) { transform: rotate(0.9deg); margin-top: 1.4rem; }
+.entry:nth-child(3) { transform: rotate(-0.6deg); }
+.entry:nth-child(4) { transform: rotate(1.1deg); margin-top: -0.6rem; background: var(--paper-deep); }
+
+.dateline {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--reed);
+}
+
+.charter-line {
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, rgba(122, 46, 34, 0.22) 62%);
+}
+
+/* ---- credits: three uneven columns ---- */
+
+.people {
+  grid-column: 1 / -1;
+  padding-top: 1rem;
+}
+
+.credit-grid {
+  display: grid;
+  grid-template-columns: 4fr 4fr 5fr;
+  gap: 2.5rem;
+}
+
+.credit-grid h3 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.6rem;
+  color: var(--blood);
+}
+
+.credit-grid ul { margin: 0; padding-left: 1.1rem; font-size: 0.95rem; }
+.credit-grid li { margin-bottom: 0.35rem; }
+
+/* ---- further listening ---- */
+
+.further {
+  grid-column: 1 / -1;
+  border-top: 3px double var(--ink);
+  padding-top: 1.4rem;
+  max-width: 62rem;
+}
+
+.further a { color: var(--river); }
+
+/* ---- back strip ---- */
+
+.back {
+  border-top: 3px double var(--ink);
+  padding: 1.2rem 6vw 2.5rem;
+  background: var(--paper-deep);
+}
+
+.small {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0.3rem 0;
+  color: var(--reed);
+}
+
+/* ---- small screens: one column, keep readable ---- */
+
+@media (max-width: 760px) {
+  .notes, .diary-grid, .credit-grid { grid-template-columns: 1fr; }
+  .tracks { border-left: none; padding-left: 0; }
+  .intro { padding-right: 0; }
+  .slug { position: static; display: block; margin: 2rem auto 0; transform: rotate(-3deg); }
+  .sleeve { padding-top: 4rem; }
+}
