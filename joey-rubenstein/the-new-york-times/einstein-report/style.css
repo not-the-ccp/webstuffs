@@ -1,0 +1,202 @@
+/* Form 3B term report — ruled paper, red ink, one stamp */
+:root {
+  --paper: #f5efdd;
+  --paper-deep: #ece3c9;
+  --ink: #26221c;
+  --blue: #33517f;
+  --red: #a8262c;
+  --rule: rgba(51, 81, 127, 0.28);
+}
+* { box-sizing: border-box; }
+html { background: #d9cfb4; }
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 252, 240, 0.9), transparent 60%),
+    #d9cfb4;
+  line-height: 32px;
+}
+.sheet {
+  position: relative;
+  max-width: 44rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid #b8ab86;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 18px 40px rgba(60, 48, 20, 0.35);
+  padding: 2.75rem 3.5rem 2.25rem 4.75rem;
+  /* red margin line */
+  background-image: linear-gradient(90deg, transparent 0, transparent 3rem, rgba(168, 38, 44, 0.5) 3rem, rgba(168, 38, 44, 0.5) calc(3rem + 1px), transparent calc(3rem + 1px));
+}
+
+/* ---------- masthead ---------- */
+.report-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.crest {
+  flex: 0 0 4.5rem;
+  color: var(--blue);
+  line-height: 0;
+}
+.crest svg { width: 100%; height: auto; }
+.head-text { flex: 1; }
+.school {
+  margin: 0 0 .35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+.sub {
+  margin: .5rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #4d4433;
+}
+.details {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.details th {
+  text-align: left;
+  vertical-align: top;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.1rem 0.6rem 0.1rem 0;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+}
+.details td { padding: 0.1rem 0; }
+tr + tr th, tr + tr td { border-top: 1px dotted rgba(51, 81, 127, 0.35); }
+
+/* ---------- ruled body ---------- */
+.ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    var(--rule) 31px,
+    var(--rule) 32px
+  );
+}
+.ruled h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 2.2rem 0 0.4rem;
+}
+.ruled h2::before { content: "— "; }
+.ruled p { margin: 0 0 1rem; font-size: 1rem; }
+.ruled em { font-style: italic; }
+
+/* ---------- red ink ---------- */
+.comments { border-top: 1px dotted rgba(168, 38, 44, 0.5); padding-top: 0.5rem; }
+.red-note {
+  color: var(--red);
+  font-family: "Snell Roundhand", "Segoe Script", "Comic Sans MS", cursive;
+  font-size: 1.3rem;
+  margin: 0.6rem 0;
+  line-height: 32px;
+}
+.red-note.small { font-size: 0.95rem; }
+
+/* ---------- marks ---------- */
+table.marks {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1rem;
+  background: rgba(245, 239, 221, 0.75);
+}
+table.marks th, table.marks td {
+  border: 1px solid rgba(51, 81, 127, 0.4);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  line-height: 1.4;
+}
+table.marks th {
+  background: var(--paper-deep);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+}
+table.marks td:nth-child(2) { white-space: nowrap; font-weight: 700; color: var(--red); }
+.disposition { font-weight: 600; }
+
+/* ---------- footer ---------- */
+.report-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #5a4f3a;
+}
+.report-foot p { margin: 0.2rem 0; }
+.see-also a { color: var(--blue); }
+
+/* ---------- the stamp ---------- */
+.stamp {
+  position: absolute;
+  right: 2.4rem;
+  bottom: 7.5rem;
+  width: 9.5rem;
+  height: 9.5rem;
+  border-radius: 50%;
+  border: 3px solid var(--red);
+  outline: 1.5px solid var(--red);
+  outline-offset: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  transform: rotate(-11deg);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.stamp-ring {
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px dashed var(--red);
+  border-radius: 50%;
+}
+.stamp-text {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+  line-height: 1.5;
+}
+.stamp.in { animation: stamp-in 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes stamp-in {
+  0%   { transform: rotate(-11deg) scale(2.6); opacity: 0; }
+  70%  { transform: rotate(-11deg) scale(0.94); opacity: 0.9; }
+  100% { transform: rotate(-11deg) scale(1); opacity: 0.9; }
+}
+
+@media (max-width: 640px) {
+  .sheet { padding: 1.75rem 1.25rem 2rem 2.5rem; margin: 1rem; }
+  .report-head { flex-wrap: wrap; }
+  .crest { flex-basis: 3.5rem; }
+  .stamp { right: 0.75rem; bottom: 9rem; width: 7.5rem; height: 7.5rem; }
+}
