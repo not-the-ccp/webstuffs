@@ -1,0 +1,294 @@
+/* The Evans Collection — Product No. EV-11
+   Chifley & Co. Fine Papers & Paperwork
+   Canberra grey, Liberal blue, gilt, and one glass of water. */
+
+:root {
+  --grey: #7d8590;
+  --grey-dark: #3c434c;
+  --grey-ink: #20242b;
+  --blue: #1f3f7a;
+  --blue-deep: #14294f;
+  --gilt: #b98a2e;
+  --gilt-bright: #d9ad4a;
+  --paper: #f4efe3;
+  --paper-warm: #efe6d0;
+  --card: #fbf7ec;
+  --red-ribbon: #7a2e2e;
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --mono: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--grey-ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(31, 63, 122, 0.18), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(32, 36, 43, 0.025) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, var(--paper-warm) 0%, var(--paper) 34%, var(--paper-warm) 100%);
+  background-attachment: fixed;
+  line-height: 1.65;
+}
+
+/* ---- watermark V.R.D. ---- */
+.watermark {
+  position: fixed;
+  right: -4rem;
+  bottom: -7rem;
+  font-family: var(--serif);
+  font-size: 26rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  color: rgba(31, 63, 122, 0.06);
+  transform: rotate(-8deg);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ---- masthead ---- */
+.masthead {
+  position: relative;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 1.4rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.masthead-rule {
+  height: 7px;
+  max-width: 52rem;
+  margin: 0.9rem auto;
+  background:
+    linear-gradient(90deg, transparent, var(--gilt) 12%, var(--gilt-bright) 50%, var(--gilt) 88%, transparent),
+    repeating-linear-gradient(90deg, var(--gilt) 0 2px, transparent 2px 9px);
+  background-size: 100% 2px, 100% 5px;
+  background-repeat: no-repeat;
+}
+
+.dealer {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: var(--grey-dark);
+  margin: 0.4rem 0;
+}
+
+.masthead-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.eagle { width: 118px; height: 118px; flex: 0 0 auto; animation: seal-spin 40s linear infinite; }
+@keyframes seal-spin { to { transform: rotate(360deg); } }
+
+.seal-ring { fill: none; stroke: var(--blue); stroke-width: 2.5; }
+.seal-wing { fill: var(--blue); }
+.seal-body { fill: var(--blue-deep); }
+.seal-eye { fill: var(--paper); }
+.seal-book { fill: var(--gilt); }
+.seal-text { font-family: var(--serif); font-size: 11px; letter-spacing: 3px; fill: var(--red-ribbon); }
+
+.masthead-copy { text-align: left; max-width: 38rem; }
+.product-no {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  color: var(--red-ribbon);
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0 0 0.7rem;
+  color: var(--blue-deep);
+  text-shadow: 1px 1px 0 rgba(185, 138, 46, 0.35);
+}
+.tagline { font-size: 1.06rem; margin: 0; color: var(--grey-dark); }
+
+/* ---- ticker ---- */
+.ticker {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-top: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  background: var(--blue-deep);
+  padding: 0.42rem 0;
+}
+.ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  color: var(--paper);
+  animation: ticker-roll 28s linear infinite;
+}
+@keyframes ticker-roll { to { transform: translateX(-50%); } }
+
+/* ---- layout ---- */
+main { position: relative; z-index: 1; max-width: 62rem; margin: 0 auto; padding: 0 1.4rem; }
+.strip, .overview, .specs, .contents, .display, .reviews, .provenance, .related, .warranty {
+  margin: 2.4rem 0;
+}
+
+.chapter {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: var(--blue-deep);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--gilt);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+/* ---- buy strip ---- */
+.buy {
+  background:
+    repeating-linear-gradient(45deg, rgba(185, 138, 46, 0.07) 0 10px, transparent 10px 20px),
+    var(--card);
+  border: 1px solid var(--gilt);
+  outline: 3px double var(--gilt);
+  outline-offset: 4px;
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 2rem;
+  box-shadow: 0 10px 26px rgba(32, 36, 43, 0.14);
+}
+.price-block { flex: 0 0 auto; }
+.price {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: var(--red-ribbon);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.price-note { margin: 0.15rem 0 0; font-style: italic; font-size: 0.88rem; color: var(--grey-dark); }
+.sku { flex: 1 1 22rem; font-family: var(--mono); font-size: 0.82rem; margin: 0; color: var(--grey-dark); }
+.stock {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--paper);
+  padding: 0.05rem 0.5rem;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+.cta { flex: 1 1 22rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.cta button {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--blue-deep);
+  background: linear-gradient(180deg, var(--blue), var(--blue-deep));
+  color: var(--paper);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.cta button:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(20, 41, 79, 0.35); }
+.cta button.secondary { background: var(--card); color: var(--blue-deep); border-style: dashed; }
+.shipping { flex: 1 1 100%; margin: 0; font-size: 0.9rem; font-style: italic; color: var(--grey-dark); }
+
+/* ---- spec table ---- */
+.spec-table { width: 100%; border-collapse: collapse; background: var(--card); box-shadow: 0 6px 18px rgba(32, 36, 43, 0.1); }
+.spec-table th, .spec-table td { border: 1px solid rgba(31, 63, 122, 0.35); padding: 0.5rem 0.8rem; text-align: left; vertical-align: top; }
+.spec-table th {
+  width: 26%;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(31, 63, 122, 0.08);
+  color: var(--blue-deep);
+}
+.spec-table tr:nth-child(even) td { background: rgba(185, 138, 46, 0.05); }
+
+/* ---- contents ---- */
+.contents-list { list-style: none; margin: 0; padding: 0; counter-reset: box; }
+.contents-list li {
+  counter-increment: box;
+  position: relative;
+  padding: 0.9rem 1rem 0.9rem 4.2rem;
+  margin-bottom: 0.8rem;
+  background: var(--card);
+  border-left: 6px solid var(--blue);
+  box-shadow: 0 4px 12px rgba(32, 36, 43, 0.08);
+}
+.contents-list li::before {
+  content: "No. " counter(box);
+  position: absolute;
+  left: 0.9rem;
+  top: 0.95rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--gilt);
+  border: 1px solid var(--gilt);
+  padding: 0.15rem 0.3rem;
+}
+.contents-list h3 { margin: 0 0 0.3rem; font-size: 1.08rem; color: var(--blue-deep); }
+.contents-list p { margin: 0; font-size: 0.95rem; }
+.amp { color: var(--red-ribbon); font-weight: bold; }
+
+/* ---- reviews ---- */
+.review {
+  background: var(--card);
+  border: 1px solid rgba(185, 138, 46, 0.5);
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.review::after {
+  content: "✦";
+  position: absolute;
+  top: -0.7rem;
+  right: 1rem;
+  color: var(--gilt);
+  font-size: 1.1rem;
+}
+.stars { color: var(--gilt); letter-spacing: 0.3em; margin: 0 0 0.4rem; font-size: 1rem; }
+.quote { font-size: 1.05rem; font-style: italic; margin: 0 0 0.5rem; color: var(--grey-ink); }
+.reviewer { font-family: var(--mono); font-size: 0.8rem; margin: 0 0 0.4rem; color: var(--grey-dark); }
+.verified { color: var(--blue); }
+.gloss { font-size: 0.88rem; color: var(--grey-dark); margin: 0; }
+
+/* ---- related & warranty ---- */
+.related p, .warranty p, .provenance p, .display p { max-width: 46rem; }
+a { color: var(--blue); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { color: var(--red-ribbon); }
+
+/* ---- colophon ---- */
+.colophon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1.4rem 3rem;
+  margin-top: 2rem;
+  border-top: 2px solid var(--gilt);
+  background: linear-gradient(180deg, transparent, rgba(31, 63, 122, 0.07));
+}
+.colophon-glass { width: 34px; height: 54px; margin-bottom: 0.6rem; }
+.glass-outline { fill: none; stroke: var(--blue); stroke-width: 1.6; }
+.glass-water { fill: rgba(31, 63, 122, 0.4); transition: y 1.2s ease, height 1.2s ease; }
+.colophon p { font-size: 0.85rem; color: var(--grey-dark); margin: 0.3rem 0; }
+.colophon .fine { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; }
+
+/* ---- small screens ---- */
+@media (max-width: 560px) {
+  .watermark { font-size: 12rem; }
+  .masthead-mid { flex-direction: column; text-align: center; }
+  .masthead-copy { text-align: center; }
+  .spec-table th { width: 38%; }
+}
