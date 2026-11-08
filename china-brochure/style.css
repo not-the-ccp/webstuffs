@@ -1,0 +1,198 @@
+/* The Celestial Empire — A Visitor's Brochure */
+:root {
+  --ink: #1e1712;
+  --paper: #f4ead6;
+  --paper-deep: #eadfc6;
+  --vermilion: #b53424;
+  --vermilion-deep: #8a1f14;
+  --gold: #b8862b;
+  --jade: #33544a;
+  --river: #6d7f8a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 85% -5%, rgba(184, 134, 43, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 0% 110%, rgba(51, 84, 74, 0.16), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(30, 23, 18, 0.025) 0 2px, transparent 2px 5px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* vertical band, left edge — "China travels" */
+.band {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  background: linear-gradient(180deg, var(--vermilion) 0%, var(--vermilion-deep) 100%);
+  color: var(--paper);
+  font-size: 26px;
+  letter-spacing: 0.4em;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  box-shadow: 4px 0 14px rgba(30, 23, 18, 0.28);
+  z-index: 5;
+}
+.band span { animation: band-glow 5s ease-in-out infinite; }
+.band span:nth-child(2) { animation-delay: 1.2s; }
+.band span:nth-child(3) { animation-delay: 2.4s; }
+.band span:nth-child(4) { animation-delay: 3.6s; }
+@keyframes band-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; text-shadow: 0 0 12px rgba(244, 234, 214, 0.8); }
+}
+
+.brochure {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 40px 90px 84px;
+}
+
+.brochure-head {
+  text-align: center;
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+  padding: 26px 12px 22px;
+  position: relative;
+}
+.office {
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--jade);
+  margin: 0 0 14px;
+}
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: 0.06em;
+  margin: 0 0 6px;
+  color: var(--vermilion-deep);
+  text-shadow: 2px 2px 0 rgba(184, 134, 43, 0.35);
+}
+.subtitle {
+  font-style: italic;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.motto {
+  margin: 0 0 16px;
+  font-style: italic;
+  font-size: 0.98rem;
+}
+.seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  background: var(--vermilion);
+  color: var(--paper);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--vermilion), 2px 3px 6px rgba(30, 23, 18, 0.35);
+  font-size: 0.9rem;
+  transform: rotate(-4deg);
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+.facts {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  background: var(--paper-deep);
+  border: 1px solid rgba(30, 23, 18, 0.35);
+  border-left: 4px solid var(--gold);
+  padding: 12px 16px;
+  text-align: left;
+}
+.facts strong { color: var(--vermilion-deep); }
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--ink);
+  margin: 26px 0 0;
+  width: 70%;
+}
+.rule + em {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 6px 0 22px;
+  color: var(--jade);
+  letter-spacing: 0.12em;
+}
+em + .rule, .rule:nth-of-type(2) { margin-top: 0; }
+
+.entry { margin-bottom: 34px; }
+h2 {
+  font-size: 1.28rem;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  border-bottom: 2px solid var(--vermilion);
+  padding-bottom: 4px;
+  margin: 0 0 12px;
+}
+h2::before {
+  content: "❖";
+  color: var(--vermilion);
+  margin-right: 0.5em;
+}
+
+.dropcap-para::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 6px 10px 0 0;
+  color: var(--vermilion-deep);
+  font-family: Georgia, serif;
+}
+
+p { margin: 0 0 14px; }
+
+section h2 { scroll-margin-top: 20px; }
+
+.brochure section {
+  position: relative;
+  padding-left: 2px;
+}
+.brochure section.lit {
+  background: linear-gradient(90deg, rgba(184, 134, 43, 0.10), transparent 70%);
+  border-left: 3px solid var(--gold);
+  padding: 14px 16px 6px;
+  transition: background 0.6s ease;
+}
+
+.closing {
+  font-size: 0.92rem;
+  background: var(--paper-deep);
+  border: 1px dashed rgba(30, 23, 18, 0.4);
+  padding: 14px 18px;
+}
+.closing a { color: var(--vermilion-deep); }
+
+.fin {
+  text-align: center;
+  font-style: italic;
+  color: var(--jade);
+  letter-spacing: 0.15em;
+  margin-top: 44px;
+}
+
+a { color: var(--vermilion-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--vermilion); }
+
+@media (max-width: 640px) {
+  .band { width: 34px; font-size: 18px; }
+  .brochure { padding: 32px 18px 60px 52px; }
+}
