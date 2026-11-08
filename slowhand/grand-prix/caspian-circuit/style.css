@@ -1,0 +1,364 @@
+/* The Caspian Circuit — Plate AZ-24: field & race manual styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Special+Elite&family=Caveat:wght@500;700&display=swap');
+
+:root {
+  --race-green: #14442b;
+  --race-green-deep: #0b2a1a;
+  --caspian: #0e5e63;
+  --caspian-deep: #08363b;
+  --ochre: #b3541e;
+  --ink: #1b1712;
+  --paper: #f3ecd8;
+  --paper-dim: #e9dfc4;
+  --candle: #f2c14e;
+  --white: #fbf7ec;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(242, 193, 78, 0.22), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(20, 68, 43, 0.05) 0 14px, transparent 14px 28px),
+    linear-gradient(180deg, #dfe6d8 0%, #cfd8cf 30%, #b9c6bd 100%);
+  min-height: 100vh;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 2.5rem auto 4rem;
+  background:
+    radial-gradient(ellipse 90% 30% at 50% 0%, rgba(242, 193, 78, 0.12), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(27, 23, 18, 0.028) 0 2px, transparent 2px 26px),
+    var(--paper);
+  border: 3px double var(--race-green-deep);
+  outline: 1px solid rgba(27, 23, 18, 0.35);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px rgba(8, 54, 59, 0.35),
+    0 6px 18px rgba(27, 23, 18, 0.25),
+    inset 0 0 90px rgba(179, 84, 30, 0.08);
+  position: relative;
+}
+
+/* Checkered flag bands, top and bottom of the sheet */
+.flag-band {
+  height: 22px;
+  background:
+    conic-gradient(var(--race-green-deep) 25%, transparent 0 50%, var(--race-green-deep) 0 75%, transparent 0)
+    0 0 / 22px 22px;
+  border-bottom: 2px solid var(--race-green-deep);
+}
+.flag-band.bottom {
+  border-bottom: none;
+  border-top: 2px solid var(--race-green-deep);
+}
+
+/* Masthead */
+.masthead {
+  padding: 1.4rem 2.2rem 1rem;
+  background:
+    linear-gradient(180deg, rgba(20, 68, 43, 0.14), transparent 55%),
+    linear-gradient(90deg, transparent 78%, rgba(14, 94, 99, 0.10));
+  position: relative;
+  overflow: hidden;
+}
+.masthead::after {
+  content: "AZ·24";
+  position: absolute;
+  right: -0.4rem;
+  top: 0.4rem;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 5.5rem;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(20, 68, 43, 0.28);
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+
+.masthead-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--caspian-deep);
+  border-bottom: 1px dashed rgba(20, 68, 43, 0.5);
+  padding-bottom: 0.55rem;
+}
+
+.class-line {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  color: var(--ochre);
+  margin: 0.5rem 0 0;
+  transform: rotate(-0.6deg);
+}
+
+h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.02;
+  margin: 0.3rem 0 0.6rem;
+  color: var(--race-green-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow:
+    2px 2px 0 rgba(14, 94, 99, 0.28),
+    4px 4px 0 rgba(179, 84, 30, 0.18);
+}
+
+.subject {
+  font-size: 1.02rem;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.masthead-rule { margin: 0.9rem 0; }
+.course-line {
+  stroke: var(--ochre);
+  stroke-width: 3;
+  stroke-dasharray: 14 8;
+  animation: dash-run 3.2s linear infinite;
+}
+@keyframes dash-run { to { stroke-dashoffset: -88; } }
+.start-dot { fill: var(--race-green); }
+
+.masthead-meta p {
+  font-size: 0.92rem;
+  margin: 0.45rem 0;
+  max-width: 72ch;
+}
+.now-lap {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--race-green-deep);
+  color: var(--white);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  border-left: 6px solid var(--candle);
+  box-shadow: 3px 3px 0 rgba(27, 23, 18, 0.3);
+}
+.now-lap .label {
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--candle);
+  margin-right: 0.4rem;
+}
+
+/* Sections */
+.plate { padding: 0.5rem 2.2rem 1.5rem; }
+
+.section {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 1.2rem;
+  margin: 1.8rem 0;
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  left: 44px;
+  top: 44px;
+  bottom: -1.8rem;
+  border-left: 2px dashed rgba(14, 94, 99, 0.4);
+}
+.section:last-child::before { display: none; }
+
+.plate-no {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: var(--caspian);
+  padding: 0.5rem 0.3rem;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  border: 2px solid var(--race-green-deep);
+  box-shadow: 4px 4px 0 rgba(20, 68, 43, 0.25);
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--race-green);
+  margin: 0 0 0.7rem;
+  border-bottom: 3px solid var(--ochre);
+  display: inline-block;
+  padding-bottom: 0.15rem;
+}
+
+.section-body p { max-width: 74ch; }
+.section-body a {
+  color: var(--caspian);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--ochre);
+  text-underline-offset: 3px;
+}
+.section-body a:hover { background: rgba(242, 193, 78, 0.35); }
+strong { color: var(--race-green-deep); }
+
+/* Sector table */
+.sectortable, .histable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  background: var(--white);
+  box-shadow: 5px 5px 0 rgba(14, 94, 99, 0.2);
+}
+caption {
+  caption-side: top;
+  text-align: left;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: var(--ochre);
+  padding: 0.3rem 0.5rem 0.5rem;
+}
+th {
+  background: var(--race-green);
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+}
+td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid rgba(20, 68, 43, 0.22);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--paper-dim); }
+tbody tr { transition: background 0.25s; }
+tbody tr:hover { background: rgba(242, 193, 78, 0.3); }
+.sectortable td:first-child {
+  font-family: 'Archivo Black', sans-serif;
+  color: var(--ochre);
+  white-space: nowrap;
+}
+
+/* Housekeeping + parts */
+.parts-line {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 2px dashed var(--race-green);
+  background: rgba(20, 68, 43, 0.06);
+  font-size: 0.95rem;
+}
+
+/* Caspian map ornament */
+.caspian {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem 0 0.4rem;
+}
+.caspian svg { overflow: visible; }
+.az-land {
+  fill: rgba(20, 68, 43, 0.16);
+  stroke: var(--race-green-deep);
+  stroke-width: 2.5;
+}
+.az-coast {
+  fill: none;
+  stroke: var(--caspian);
+  stroke-width: 3;
+  stroke-dasharray: 6 5;
+  animation: dash-run 4s linear infinite;
+}
+.az-border {
+  stroke: var(--ochre);
+  stroke-width: 2;
+  stroke-dasharray: 3 3;
+}
+.az-route {
+  fill: none;
+  stroke: var(--ochre);
+  stroke-width: 2.5;
+  stroke-dasharray: 10 7;
+  animation: dash-run 2.6s linear infinite;
+}
+.az-baku { fill: var(--ochre); }
+.az-nakh { fill: var(--caspian); }
+.az-start {
+  stroke: var(--race-green-deep);
+  stroke-width: 2;
+  transform-origin: 188px 60px;
+  animation: spin 5s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.az-label {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  fill: var(--race-green-deep);
+}
+.az-small { font-family: 'Special Elite', monospace; font-size: 9px; fill: var(--ink); }
+.az-lake {
+  font-family: 'Special Elite', monospace;
+  font-size: 10px;
+  font-style: italic;
+  fill: var(--caspian);
+}
+
+/* Colophon */
+.colophon {
+  margin: 1.5rem 2.2rem 0;
+  padding: 1rem 0 1.4rem;
+  border-top: 3px double var(--race-green-deep);
+  font-size: 0.86rem;
+}
+.strip {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin: 0 0 0.9rem;
+}
+.strip span {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.8rem;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  background: var(--race-green);
+  border: 1px solid var(--paper);
+}
+.strip span:nth-child(even) { background: var(--race-green-deep); }
+.footlinks { margin-top: 0.9rem; }
+.footlinks a { color: var(--caspian); }
+
+/* Candle flicker over the whole sheet */
+.sheet { animation: flicker 7s ease-in-out infinite; }
+@keyframes flicker {
+  0%, 100% { box-shadow: 0 30px 60px rgba(8, 54, 59, 0.35), 0 6px 18px rgba(27, 23, 18, 0.25), inset 0 0 90px rgba(179, 84, 30, 0.08); }
+  47% { box-shadow: 0 30px 60px rgba(8, 54, 59, 0.35), 0 6px 18px rgba(27, 23, 18, 0.25), inset 0 0 110px rgba(242, 193, 78, 0.14); }
+  53% { box-shadow: 0 30px 60px rgba(8, 54, 59, 0.35), 0 6px 18px rgba(27, 23, 18, 0.25), inset 0 0 70px rgba(242, 193, 78, 0.06); }
+}
+
+@media (max-width: 620px) {
+  .section { grid-template-columns: 1fr; }
+  .plate-no { writing-mode: horizontal-tb; transform: none; display: inline-block; }
+  .section::before { display: none; }
+  .masthead, .plate, .colophon { padding-left: 1.2rem; padding-right: 1.2rem; }
+}
