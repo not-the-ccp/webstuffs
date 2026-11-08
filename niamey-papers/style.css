@@ -1,0 +1,260 @@
+/* Lot 47 — The Niamey Papers · Veuve, Hamani & Daughters */
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #eadfc4;
+  --ink: #2b2119;
+  --oxblood: #6d1f1c;
+  --gold: #a8802e;
+  --gold-bright: #c9a24b;
+  --rule: #b9a877;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -100px, rgba(109, 31, 28, 0.08), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(43, 33, 25, 0.025) 0 2px, transparent 2px 4px),
+    #d9cba9;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 40px auto 80px;
+  background:
+    linear-gradient(180deg, rgba(168, 128, 46, 0.10), transparent 140px),
+    var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 0 0 6px rgba(168, 128, 46, 0.12),
+    0 24px 60px rgba(43, 33, 25, 0.35);
+  padding: 56px 64px 40px;
+  position: relative;
+}
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+}
+.sheet::after {
+  content: "112";
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+}
+
+/* Sale header */
+.sale-head { text-align: center; margin-bottom: 36px; }
+.firm {
+  margin: 0;
+  font-size: 21px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: normal;
+}
+.address {
+  margin: 4px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.75;
+}
+.sale-rule {
+  height: 5px;
+  margin: 18px auto 22px;
+  max-width: 420px;
+  background:
+    linear-gradient(90deg, transparent, var(--gold) 15%, var(--oxblood) 50%, var(--gold) 85%, transparent);
+  position: relative;
+}
+.sale-rule::after {
+  content: "\265A";
+  position: absolute;
+  left: 50%;
+  top: -11px;
+  transform: translateX(-50%);
+  color: var(--oxblood);
+  background: var(--paper);
+  padding: 0 10px;
+  font-size: 15px;
+}
+.sale-line { margin: 10px 0; font-size: 15px; }
+.sale-line.small { font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+
+/* Lot plate */
+.lot-plate {
+  text-align: center;
+  padding: 28px 20px 30px;
+  border-top: 3px double var(--oxblood);
+  border-bottom: 3px double var(--oxblood);
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper));
+  margin-bottom: 30px;
+}
+.lot-number {
+  font-size: 14px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lot-number span {
+  border: 1px solid var(--gold);
+  padding: 3px 10px;
+  margin-right: 12px;
+  font-size: 12px;
+}
+.lot-number { font-size: 44px; letter-spacing: 0.05em; color: var(--ink); }
+h1 {
+  font-weight: normal;
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  margin: 10px 0 6px;
+  color: var(--oxblood);
+}
+h1 .dates { font-size: 20px; font-style: italic; color: var(--ink); }
+.lot-sub { font-style: italic; margin: 0 auto; max-width: 620px; font-size: 16px; }
+
+.estimate {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.est-cell {
+  padding: 10px 22px;
+  border-left: 1px solid var(--rule);
+  text-align: center;
+}
+.est-cell:first-child { border-left: none; }
+.est-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.est-value { font-size: 17px; }
+.est-value.sold { color: var(--oxblood); font-weight: bold; }
+
+/* Body sections */
+.lot-body { margin: 28px 0; }
+.lot-body h2 {
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+}
+.lot-body p { font-size: 16px; margin: 0 0 14px; }
+.lot-body a { color: var(--oxblood); }
+.lot-body a:hover { color: var(--gold); }
+.strong-first { text-transform: uppercase; }
+
+ol.plates { list-style: none; margin: 0; padding: 0; counter-reset: plate; }
+.plates li {
+  counter-increment: plate;
+  position: relative;
+  padding: 0 0 18px 44px;
+  font-size: 15.5px;
+}
+.plates li::before {
+  content: "Pl. " counter(plate);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 36px;
+  font-size: 11px;
+  text-align: center;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 2px 0;
+  transform: rotate(-4deg);
+}
+
+/* Footer with gavel */
+.lot-foot { text-align: center; margin-top: 40px; }
+.gavel {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 34px;
+  margin-bottom: 14px;
+}
+.mallet {
+  position: absolute;
+  left: 14px;
+  top: 2px;
+  width: 34px;
+  height: 12px;
+  background: linear-gradient(180deg, var(--oxblood), #4a1310);
+  border: 1px solid #300c0a;
+  border-radius: 3px;
+  transform-origin: 20px 24px;
+  animation: strike 3.2s ease-in-out infinite;
+}
+.mallet::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: 4px;
+  width: 32px;
+  height: 5px;
+  background: #7a5a2b;
+  border-radius: 3px;
+}
+.sounding-board {
+  position: absolute;
+  left: 30px;
+  bottom: 2px;
+  width: 70px;
+  height: 8px;
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  border-radius: 50%;
+}
+@keyframes strike {
+  0%, 62%, 100% { transform: rotate(0deg); }
+  70% { transform: rotate(-24deg); }
+  78% { transform: rotate(4deg); }
+  84% { transform: rotate(0deg); }
+}
+.foot-note {
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  margin: 0;
+  opacity: 0.8;
+}
+.foot-note a { color: var(--oxblood); }
+
+.bid-ticker {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  min-height: 18px;
+  margin-bottom: 10px;
+}
+.bid-ticker.flash { color: var(--oxblood); }
+
+@media (max-width: 640px) {
+  .sheet { margin: 12px; padding: 36px 22px 30px; }
+  h1 { font-size: 26px; }
+  .est-cell { border-left: none; border-top: 1px solid var(--rule); width: 100%; }
+}
