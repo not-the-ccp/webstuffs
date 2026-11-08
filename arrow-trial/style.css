@@ -1,0 +1,162 @@
+/* In re Oliver Queen — court transcript styling */
+:root {
+  --ink: #1d1a14;
+  --paper: #f4eddc;
+  --paper-deep: #e9dfc6;
+  --seal: #8c1f1f;
+  --seal-bright: #b3272a;
+  --brass: #8a6b2f;
+  --ruled: #b9a878;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(140, 31, 31, 0.10), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(29, 26, 20, 0.025) 0 2px, transparent 2px 27px),
+    linear-gradient(160deg, #ded2b4 0%, #d3c3a0 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+.courtroom {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* ---------- Caption block ---------- */
+.caption {
+  position: relative;
+  border: 3px double var(--brass);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  padding: 2.2rem 1.5rem 1.8rem;
+  text-align: center;
+  box-shadow: 0 14px 30px rgba(29, 26, 20, 0.25);
+}
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.subfile {
+  margin: 0.7rem 0 0;
+  font-style: italic;
+  color: #4a4130;
+  font-size: 0.95rem;
+}
+
+.seal {
+  width: 110px;
+  margin: 0 auto 1.1rem;
+}
+.seal svg { width: 100%; height: auto; }
+.seal-ring {
+  fill: none;
+  stroke: var(--seal);
+  stroke-width: 3;
+}
+.seal-ring.inner { stroke-width: 1.5; stroke-dasharray: 4 3; }
+.seal-text {
+  fill: var(--seal);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+}
+.seal-text.small { font-size: 9px; letter-spacing: 0.1em; }
+.seal-mark {
+  stroke: var(--seal);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+}
+.seal { animation: seal-settling 1.6s ease-out both; }
+@keyframes seal-settling {
+  from { transform: scale(1.25) rotate(-14deg); opacity: 0; }
+  60%  { transform: scale(0.97) rotate(3deg);  opacity: 1; }
+  to   { transform: scale(1) rotate(0deg); }
+}
+
+/* ---------- Transcript body ---------- */
+.transcript { margin-top: 2.2rem; }
+
+.colophon {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.9rem 1.1rem;
+  line-height: 1.6;
+}
+
+.page {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--ruled);
+  border-left: 6px solid var(--seal);
+  box-shadow: 0 6px 16px rgba(29, 26, 20, 0.16);
+  padding: 1.4rem 1.5rem 1.4rem 3.1rem;
+  margin: 1.6rem 0;
+}
+
+.page-no {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: #6d5f42;
+}
+
+.page p { margin: 0 0 1rem; }
+.page p:last-child { margin-bottom: 0; }
+
+.court {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.court strong { color: var(--seal); letter-spacing: 0.03em; }
+
+.witness {
+  background: rgba(138, 107, 47, 0.08);
+  border-left: 3px solid var(--brass);
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.witness strong { color: var(--brass); letter-spacing: 0.03em; }
+
+/* ---------- Footer ---------- */
+.file-footer {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--brass);
+  padding-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #40372a;
+}
+.file-footer a { color: var(--seal); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.file-footer a:hover { background: var(--seal); color: var(--paper); }
+.home { font-style: italic; }
