@@ -1,0 +1,172 @@
+/* The Preston Bypass — late-90s dining room, web-safe colours */
+
+html {
+  background-color: #000080;
+  background-image: url("stars.svg");
+  background-repeat: repeat;
+}
+
+body {
+  margin: 0;
+  padding: 24px 12px 48px;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  color: #000000;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.masthead {
+  background-color: #000000;
+  border: 3px outset #c0c0c0;
+  padding: 12px 16px 10px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #ffffcc;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #ffff00;
+  font-size: 30px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #800000;
+}
+
+.address {
+  margin: 6px 0 10px;
+  color: #c0c0c0;
+  font-size: 11px;
+}
+
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  background-color: #000000;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 4px 0 4px 100%;
+  color: #00ff00;
+  font-size: 11px;
+  animation: ticker 22s linear infinite;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.panel {
+  margin-top: 14px;
+  background-color: #ffffcc;
+  border: 3px outset #c0c0c0;
+  padding: 18px 22px;
+}
+
+.stars-rating {
+  margin: 0 0 10px;
+  color: #800000;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+a {
+  color: #000080;
+}
+
+a:visited {
+  color: #800080;
+}
+
+.counter-box {
+  margin-top: 22px;
+  border: 2px inset #c0c0c0;
+  background-color: #000000;
+  text-align: center;
+  padding: 8px;
+}
+
+.counter-kicker {
+  margin: 0;
+  color: #c0c0c0;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.counter-digits {
+  margin: 4px 0;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
+  letter-spacing: 4px;
+}
+
+.counter-note {
+  margin: 0;
+  color: #808080;
+  font-size: 10px;
+}
+
+.guestbook {
+  margin-top: 14px;
+  border: 2px inset #c0c0c0;
+  background-color: #ffffcc;
+  padding: 10px 14px;
+}
+
+.gb-kicker {
+  margin: 0 0 6px;
+  color: #008080;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.gb-entry {
+  margin: 0;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.shelf {
+  margin-top: 14px;
+  text-align: center;
+  color: #ffffcc;
+  font-size: 11px;
+}
+
+.shelf a {
+  color: #00ff00;
+}
+
+.shelf a:visited {
+  color: #ffaaff;
+}
+
+.built {
+  margin: 8px 0 0;
+  color: #8080c0;
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
