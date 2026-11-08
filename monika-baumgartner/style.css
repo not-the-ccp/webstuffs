@@ -1,0 +1,163 @@
+/* Lot 314 — Monika Baumgartner — Auction Catalogue */
+
+html { box-sizing: border-box; }
+
+body {
+  background: #f7f3ea;
+  color: #2c2a29;
+  font-family: "IM Fell Great Primer", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  line-height: 1.62;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.lot {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #fffdf7;
+  border: 2px solid #8a6d3d;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.lot::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, #8a6d3d, #c9b48a, #8a6d3d);
+}
+
+.lot-header {
+  border-bottom: 1px solid #c9b48a;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.auction-house {
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #8a6d3d;
+  margin: 0 0 0.5rem 0;
+}
+
+.sale-info {
+  font-size: 0.85rem;
+  color: #6e655a;
+  margin: 0 0 1rem 0;
+}
+
+.lot-number {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #8a6d3d;
+  margin: 0.5rem 0;
+  border: 2px solid #8a6d3d;
+  display: inline-block;
+  padding: 0.2rem 1.2rem;
+  animation: lot-pulse 4s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  color: #2c2a29;
+}
+
+.lot-subtitle {
+  font-style: italic;
+  color: #6e655a;
+  margin: 0;
+}
+
+.lot-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+}
+
+@media (max-width: 640px) {
+  .lot-grid { grid-template-columns: 1fr; }
+}
+
+.lot-description p {
+  margin: 0 0 1.25rem 0;
+  text-align: justify;
+}
+
+.drop-cap:first-letter {
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #8a6d3d;
+  float: left;
+  margin: 0.05rem 0.35rem 0 0;
+  line-height: 0.9;
+}
+
+.lot-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.estimate-box {
+  background: #f1e9d6;
+  border: 1px solid #c9b48a;
+  padding: 1rem;
+  text-align: center;
+}
+
+.estimate-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8a6d3d;
+  margin: 0 0 0.5rem 0;
+}
+
+.estimate-value {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2c2a29;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8a6d3d;
+  margin: 0 0 0.5rem 0;
+  border-bottom: 1px solid #c9b48a;
+  padding-bottom: 0.25rem;
+}
+
+.provenance p, .condition p, .literature p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.literature p { font-style: italic; }
+
+.lot-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #c9b48a;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.lot-footer a {
+  color: #8a6d3d;
+  text-decoration: none;
+}
+
+.lot-footer a:hover { text-decoration: underline; }
+
+@keyframes lot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
