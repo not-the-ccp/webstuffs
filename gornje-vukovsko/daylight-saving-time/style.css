@@ -1,0 +1,309 @@
+/* Sana Valley Line — Summer Service 2024–25, timetable & commentary */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #2b2620;
+  --winter: #3d4a5c;
+  --summer: #a4552a;
+  --rule: #2b2620;
+  --faded: #8a8172;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(43, 38, 32, 0.035) 34px 35px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+main.timetable {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ---------- head: asymmetric two-column masthead ---------- */
+
+.head {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 2rem;
+  align-items: start;
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.head-mast { padding-top: 1.5rem; }
+
+.carrier {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6.2rem);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  margin: 0.8rem 0 0.2rem;
+}
+
+.season {
+  font-size: 0.85rem;
+  color: var(--faded);
+  margin: 0.2rem 0 0;
+}
+
+/* station clock */
+
+.head-clock {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+}
+
+.clock-dial {
+  position: relative;
+  width: 168px;
+  height: 168px;
+  border: 3px solid var(--rule);
+  border-radius: 50%;
+  background: #efe8d6;
+  box-shadow: inset 0 0 0 6px var(--paper), 4px 5px 0 rgba(43, 38, 32, 0.25);
+}
+
+.clock-dial::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px dashed var(--faded);
+}
+
+.hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  background: var(--ink);
+}
+
+.hand-hour   { width: 5px; height: 34px; margin-left: -2.5px; transform: rotate(60deg); }
+.hand-minute { width: 3px; height: 52px; margin-left: -1.5px; transform: rotate(0deg); }
+
+.clock-label {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-sub {
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--faded);
+  white-space: nowrap;
+}
+
+.clock-note {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+  max-width: 30ch;
+  text-align: center;
+}
+
+/* rotated stamps, overlapping the masthead */
+
+.stamp {
+  position: absolute;
+  top: -26px;
+  right: 22%;
+  width: 118px;
+  height: 118px;
+  border: 2px solid var(--summer);
+  border-radius: 50%;
+  color: var(--summer);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-weight: 700;
+  transform: rotate(-11deg);
+  background: rgba(164, 85, 42, 0.05);
+  pointer-events: none;
+}
+
+.stamp span { font-size: 1.15rem; letter-spacing: 0.08em; }
+.stamp small { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em; }
+
+.stamp--second {
+  top: auto;
+  bottom: -30px;
+  right: 6%;
+  border-color: var(--winter);
+  color: var(--winter);
+  background: rgba(61, 74, 92, 0.05);
+  transform: rotate(8deg);
+}
+
+/* ---------- sections ---------- */
+
+h2 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.rule p { max-width: 72ch; }
+
+/* ---------- timetable ---------- */
+
+.table-wrap { margin: 3rem 0; }
+
+.table-lead {
+  max-width: 60ch;
+  font-style: italic;
+  color: #5c5347;
+}
+
+.tt-scroll { overflow-x: auto; }
+
+table.tt {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  background: #fbf7ec;
+  box-shadow: 6px 7px 0 rgba(43, 38, 32, 0.18);
+}
+
+.tt caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--faded);
+  padding-bottom: 0.5rem;
+}
+
+.tt th, .tt td {
+  border: 1px solid rgba(43, 38, 32, 0.45);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.tt thead th { background: var(--ink); color: var(--paper); }
+.tt thead th.num { color: #e8c9a8; }
+
+.tt tbody th[scope="row"] {
+  font-weight: 600;
+  background: rgba(43, 38, 32, 0.04);
+  white-space: nowrap;
+}
+
+td.num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+/* summer columns are set in the summer ink */
+.tt tbody td.num:nth-child(3), .tt tbody td.num:nth-child(5) { color: var(--summer); }
+.tt tbody td.num:nth-child(2), .tt tbody td.num:nth-child(4) { color: var(--winter); }
+
+.row-change th .change-mark { color: var(--summer); font-size: 0.8rem; }
+
+.row-ghost td {
+  font-weight: 400;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  text-align: left;
+  background: repeating-linear-gradient(45deg, rgba(43,38,32,0.04) 0 8px, transparent 8px 16px);
+}
+
+.table-foot { font-size: 0.85rem; color: var(--faded); max-width: 72ch; }
+
+/* ---------- commentary: three unequal columns ---------- */
+
+.commentary {
+  display: grid;
+  grid-template-columns: 5fr 4fr 4fr;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+}
+
+.col { border-top: 3px solid var(--rule); padding-top: 1rem; }
+.col--sheep { padding-left: 0.5rem; }
+.col--dining { padding-left: 2.5rem; margin-top: 2.5rem; }
+.col--lost { padding-left: 5rem; margin-top: 5rem; }
+
+.painted-line {
+  margin: 1.25rem -0.5rem 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #efe4c9;
+  border-left: 6px solid var(--summer);
+  transform: rotate(-0.6deg);
+  box-shadow: 3px 4px 0 rgba(43, 38, 32, 0.15);
+  font-style: italic;
+}
+
+.painted-line p { margin: 0; font-size: 1rem; }
+
+a { color: #7a4a1f; }
+a:hover { color: var(--summer); }
+
+/* ---------- footer ---------- */
+
+.foot {
+  border-top: 4px double var(--rule);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.foot p { margin: 0.25rem 0; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 860px) {
+  .head { grid-template-columns: 1fr; }
+  .head-clock { justify-items: start; }
+  .clock-note { text-align: left; }
+  .stamp { right: auto; left: 62%; top: -30px; }
+  .stamp--second { left: auto; right: 2%; bottom: auto; top: 120px; }
+  .commentary { grid-template-columns: 1fr; }
+  .col--dining, .col--lost { padding-left: 0; margin-top: 0; }
+}
