@@ -1,0 +1,200 @@
+/* Dice & Linens — Role-Playing Classifieds */
+html {
+  padding: 1.5rem;
+}
+body {
+  max-width: 940px;
+  margin: 0 auto;
+  font-family: Georgia, "Noto Serif", serif;
+  color: #2c2824;
+  background: #f7f1e0;
+  background-image: linear-gradient(rgba(110, 90, 50, 0.07) 1px, transparent 1px);
+  background-size: 2px 26px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+main {
+  padding: 1rem 1.5rem 2rem;
+}
+a {
+  color: #8a3412;
+  text-decoration: underline;
+  text-decoration-thickness: 1.1px;
+  text-underline-offset: 3px;
+  text-underline-color: #8a3412;
+}
+
+.masthead {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.4rem 1.2rem 1.25rem;
+  color: #f3e9d6;
+  background: linear-gradient(135deg, #24212c 0%, #3d3750 48%, #524966 100%);
+  border-bottom: 9px solid;
+  border-image: linear-gradient(90deg, #a8792a, transparent 42%, #8a3412 58%, transparent) 1;
+  box-shadow: 0 22px 44px -14px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), transparent 40%);
+  pointer-events: none;
+}
+.die {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  border: 1.6px solid #8a7350;
+  background: linear-gradient(145deg, #fff, #e8ddc6);
+  box-shadow: 5px 5px 0 #bdad87, inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+.die::before {
+  content: "";
+  position: absolute;
+  background: #2c2824;
+  border-radius: 50%;
+  box-shadow: 9px 9px 0 #2c2824, 37px 9px 0 #2c2824, 23px 23px 0 #2c2824,
+    9px 37px 0 #2c2824, 37px 37px 0 #2c2824;
+}
+.masthead-body {
+  flex: 1;
+}
+.kicker {
+  margin: 0 0 0.22rem;
+  font: 700 10.5px/1 "Noto Sans", sans-serif;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: #e9a65c;
+  animation: flicker 5s ease-in-out infinite;
+}
+.masthead h1 {
+  margin: 0 0 0.28rem;
+  font-size: 28px;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+}
+.issue {
+  margin: 0;
+  font-size: 12px;
+  color: #c9bc9e;
+  letter-spacing: 0.12rem;
+}
+.mast-rule {
+  height: 4px;
+  border: none;
+  background: linear-gradient(90deg, transparent, #8a3412, #a8792a, #8a3412, transparent);
+  margin: 0;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20% { opacity: 0.62; }
+  22% { opacity: 0.85; }
+  24% { opacity: 0.94; }
+  55% { opacity: 0.72; }
+}
+
+p.standfirst {
+  font-size: 15.5px;
+  color: #3f3930;
+  max-width: 700px;
+  margin: 1.4rem 0 1.6rem;
+}
+p.standfirst::first-letter {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.95;
+  color: #8a3412;
+  padding: 0.05rem 0.55rem 0 0;
+  margin: 0 0.55rem 0.1rem 0;
+  font-style: italic;
+}
+
+.ad-block {
+  margin-top: 1.7rem;
+}
+.section {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font: 700 13.5px/1 "Noto Sans", sans-serif;
+  letter-spacing: 0.22rem;
+  text-transform: uppercase;
+  color: #2c2824;
+  border-bottom: 3px double #8a7d63;
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.9rem;
+}
+.section-no {
+  color: #8a3412;
+  font-size: 1.15rem;
+  font-family: Georgia, serif;
+}
+.ads {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1rem;
+}
+article.ad {
+  background: #fbf6e6;
+  border: 1px solid #c9bda4;
+  border-left: 7px solid #8a3412;
+  padding: 0.85rem 1rem 0.75rem;
+  position: relative;
+  box-shadow: 2px 3px 0 #d8ceb0;
+}
+article.ad::before,
+article.ad::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 14px;
+  height: 2px;
+  background: #8a3412;
+}
+article.ad::after {
+  top: 12px;
+  left: 12px;
+  transform: rotate(4deg);
+}
+article.ad h3 {
+  margin: 0 0 0.42rem;
+  font-size: 15px;
+  letter-spacing: 0.03rem;
+  color: #8a3412;
+}
+.ad-body {
+  margin: 0 0 0.5rem;
+  font-size: 14.5px;
+}
+.ad-contact {
+  margin: 0;
+  font-size: 12.5px;
+  font-style: italic;
+  color: #685c48;
+  text-align: right;
+  border-top: 1px dotted #b6a888;
+  padding-top: 0.4rem;
+}
+
+.colophon {
+  margin-top: 2.2rem;
+}
+.colophon-rule {
+  height: 5px;
+  border: none;
+  background: linear-gradient(90deg, #8a3412, transparent 55%, #8a3412);
+  margin: 0 0 0.8rem;
+}
+.colophon-text {
+  margin: 0;
+  font-size: 13px;
+  color: #6e6456;
+  letter-spacing: 0.08rem;
+}
