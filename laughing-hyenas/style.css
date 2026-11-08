@@ -1,0 +1,194 @@
+/* Laughing Hyenas — a late-night studio session */
+
+:root {
+  --ink: #e8ddc8;
+  --ink-dim: #a89a7e;
+  --amber: #f0a832;
+  --amber-deep: #b3641a;
+  --tweed: #1c1712;
+  --panel: #241d15;
+  --panel-2: #2d241a;
+  --rust: #8c3b2e;
+  --tape: #d9c9a3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(240, 168, 50, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 4px),
+    var(--tweed);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.set {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+  border: 1px solid #3c2f20;
+  border-top: 4px solid var(--amber-deep);
+  border-radius: 10px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 2.25rem 2.5rem 1.5rem;
+}
+
+/* --- the tape machine ------------------------------------------ */
+
+.tape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 0.5rem 0 1.75rem;
+}
+
+.reel {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid var(--amber-deep);
+  background:
+    radial-gradient(circle at 50% 50%, var(--tape) 0 26%, transparent 27%),
+    conic-gradient(var(--panel-2) 0 20%, var(--tape) 0 25%, var(--panel-2) 0 50%, var(--tape) 0 55%, var(--panel-2) 0 80%, var(--tape) 0 85%, var(--panel-2) 0);
+  position: relative;
+  animation: spin 7s linear infinite;
+}
+
+.reel span {
+  position: absolute;
+  inset: 40%;
+  border-radius: 50%;
+  background: var(--tweed);
+  border: 2px solid var(--amber);
+}
+
+.hub { width: 6rem; height: 4px; background: linear-gradient(90deg, transparent, var(--amber-deep), transparent); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- heading ------------------------------------------------------ */
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--tape);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6), 0 0 34px rgba(240, 168, 50, 0.18);
+}
+
+.sub {
+  color: var(--ink-dim);
+  font-style: italic;
+  margin: 0.75rem 0 0.4rem;
+}
+
+.cast {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+  border-top: 1px dashed #4a3b28;
+  border-bottom: 1px dashed #4a3b28;
+  padding: 0.5rem 0;
+  margin: 1rem 0 0;
+}
+
+/* --- waveform divider --------------------------------------------- */
+
+.wave {
+  display: flex;
+  gap: 3px;
+  height: 26px;
+  align-items: flex-end;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.wave i {
+  flex: 1;
+  background: linear-gradient(180deg, var(--amber), var(--amber-deep));
+  border-radius: 2px 2px 0 0;
+  height: 20%;
+  animation: bounce 1.4s ease-in-out infinite;
+}
+
+.wave i:nth-child(4n)   { animation-delay: 0.15s; height: 70%; }
+.wave i:nth-child(4n+1) { animation-delay: 0.4s;  height: 45%; }
+.wave i:nth-child(4n+2) { animation-delay: 0.7s;  height: 90%; }
+.wave i:nth-child(4n+3) { animation-delay: 0.95s; height: 35%; }
+
+@keyframes bounce {
+  0%, 100% { transform: scaleY(0.35); }
+  50%      { transform: scaleY(1); }
+}
+
+/* --- script body ---------------------------------------------------- */
+
+.act p { margin: 0 0 1.1rem; }
+
+.sfx {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+  border-left: 3px solid var(--rust);
+  padding: 0.25rem 0 0.25rem 0.9rem;
+  margin: 1.4rem 0;
+  background: rgba(140, 59, 46, 0.08);
+}
+
+.who {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.say { color: var(--ink); }
+
+.who + .say { display: block; }
+
+/* --- footer shelf ---------------------------------------------------- */
+
+.shelf {
+  margin-top: 2.25rem;
+  border-top: 3px double #4a3b28;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+}
+
+.shelf-kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  margin: 0 0 0.4rem;
+}
+
+.shelf a {
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--amber-deep);
+}
+
+.shelf a:hover {
+  color: var(--tape);
+  border-bottom-style: solid;
+}
