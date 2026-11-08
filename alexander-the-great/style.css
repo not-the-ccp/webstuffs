@@ -1,0 +1,204 @@
+/* Alexander the Great — encyclopaedia entry, workshop house style with a diagonal reading path */
+
+:root {
+  --ink: #221d16;
+  --paper: #f4efe4;
+  --faded: #8a7f6c;
+  --gold: #a5842e;
+  --wine: #6d3b2c;
+  --rule: #cfc5ad;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(165, 132, 46, 0.10), transparent 34%),
+    radial-gradient(circle at 92% 96%, rgba(109, 59, 44, 0.08), transparent 40%),
+    var(--paper);
+}
+
+.wrap {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 4rem;
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--gold);
+  opacity: 0.55;
+}
+.corner--tl { top: 0.5rem; left: 0.4rem; border-right: none; border-bottom: none; }
+.corner--tr { top: 0.5rem; right: 0.4rem; border-left: none; border-bottom: none; }
+.corner--bl { bottom: 1rem; left: 0.4rem; border-right: none; border-top: none; }
+.corner--br { bottom: 1rem; right: 0.4rem; border-left: none; border-top: none; }
+
+.masthead {
+  position: relative;
+  padding: 2.4rem 0 1.6rem;
+  border-bottom: 3px double var(--ink);
+}
+
+.masthead-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.6rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: clamp(2.6rem, 7.5vw, 5.2rem);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  transform: rotate(-1.6deg);
+  transform-origin: left top;
+  text-shadow: 3px 3px 0 rgba(165, 132, 46, 0.35);
+}
+
+.masthead-tagline {
+  margin: 1.1rem 0 0;
+  font-style: italic;
+  color: var(--wine);
+  font-size: 1.02rem;
+  max-width: 46ch;
+}
+
+.seal {
+  position: absolute;
+  top: 1.6rem;
+  right: 0;
+  width: 88px;
+  height: 88px;
+  border: 2px solid var(--wine);
+  border-radius: 50%;
+  transform: rotate(9deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(109, 59, 44, 0.06);
+}
+.seal-mark {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--wine);
+  transform: rotate(-9deg);
+}
+
+@media (max-width: 760px) {
+  .seal { position: static; margin-top: 1.4rem; width: 64px; height: 64px; }
+}
+
+/* The body is an asymmetric grid: a narrow vital card overlapping the entry column. */
+.grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2.2rem;
+  align-items: start;
+  margin-top: 2.2rem;
+}
+
+.card {
+  background: #fbf7ec;
+  border: 1px solid var(--rule);
+  padding: 1.2rem 1.2rem 1rem;
+  box-shadow: 5px 6px 0 rgba(34, 29, 22, 0.12);
+}
+
+.card--vital {
+  position: sticky;
+  top: 1.2rem;
+  transform: rotate(-1.1deg);
+  margin-top: -0.4rem;
+}
+
+.card h2 {
+  margin: 0 0 0.7rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.45rem;
+}
+
+.card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.28rem 0.7rem;
+  font-size: 0.86rem;
+}
+.card dt { font-weight: 700; color: var(--wine); }
+.card dd { margin: 0; }
+.card-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faded);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.6rem;
+}
+
+.entry { min-width: 0; }
+
+.entry h2 {
+  font-size: 1.32rem;
+  margin: 2.1rem 0 0.7rem;
+  letter-spacing: 0.01em;
+}
+.entry h2:first-child { margin-top: 0.4rem; }
+.entry h2::before {
+  content: "§ ";
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.entry p {
+  margin: 0 0 1.05rem;
+  max-width: 68ch;
+}
+
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.14em 0 0;
+  color: var(--wine);
+  font-weight: 700;
+}
+
+a {
+  color: var(--wine);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--gold); }
+
+.links {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1.1rem;
+  font-size: 0.94rem;
+}
+.links p { margin: 0.5rem 0; }
+
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .card--vital { position: static; transform: rotate(-0.5deg); margin: 0 0 0 1rem; max-width: 340px; }
+  .kicker { transform: rotate(0); }
+}
