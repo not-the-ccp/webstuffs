@@ -1,0 +1,284 @@
+/* El Mensajero Pacífico — Anuncios Clasificados */
+
+:root {
+  --paper: #f3ecdb;
+  --paper-deep: #ece2c9;
+  --ink: #221b12;
+  --ink-soft: #4a3f30;
+  --rule: #6b5d45;
+  --oxide: #8a3b1e;
+  --oxide-deep: #6e2c14;
+  --sea: #274a52;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d8cdb2; }
+
+body {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 28px 22px 60px;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -5%, rgba(255, 250, 230, 0.9), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(107, 93, 69, 0.05) 0 2px, transparent 2px 6px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.5;
+  box-shadow: 0 0 0 1px rgba(107, 93, 69, 0.35), 0 18px 50px rgba(34, 27, 18, 0.35);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  text-align: center;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding: 14px 8px 10px;
+  position: relative;
+}
+
+.masthead-rule { height: 2px; background: var(--ink); margin: 8px 0; }
+.masthead-rule.heavy {
+  height: 0;
+  border-top: 4px double var(--ink);
+  margin: 10px 0 6px;
+}
+
+.masthead-kicker {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.masthead h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(44px, 8vw, 88px);
+  line-height: 1.02;
+  margin: 6px 0 4px;
+  letter-spacing: 0.01em;
+}
+
+.masthead-sub {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  color: var(--ink-soft);
+}
+
+/* ---------- wire ticker ---------- */
+
+.wire {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 10px;
+  background: var(--paper-deep);
+}
+
+.wire-label {
+  display: flex;
+  align-items: center;
+  padding: 5px 14px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  background: var(--oxide);
+  color: var(--paper);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  padding-right: 22px;
+}
+
+.wire-viewport { overflow: hidden; flex: 1; }
+
+.wire-track {
+  display: inline-flex;
+  white-space: nowrap;
+  padding: 5px 0;
+  animation: wire-drift 60s linear infinite;
+  will-change: transform;
+}
+
+.wire-item {
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0 10px;
+}
+
+.wire-sep { color: var(--oxide); padding: 0 4px; }
+
+@keyframes wire-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.column-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 14px 0 2px;
+}
+
+.column-sub {
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+}
+
+/* ---------- classified columns ---------- */
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.ads {
+  padding: 18px 26px 22px;
+  border-left: 1px solid var(--rule);
+}
+
+.ads:first-child,
+.ads:nth-child(2) { border-left: none; }
+
+.ads:nth-child(odd) { border-right: 1px solid var(--rule); }
+
+@media (max-width: 760px) {
+  .columns { grid-template-columns: 1fr; }
+  .ads { border-left: none !important; border-top: 1px solid var(--rule); }
+  .ads:first-child { border-top: none; }
+}
+
+.ads-head {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 4px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 3px double var(--rule);
+}
+
+.ad {
+  border: 1px solid var(--rule);
+  border-top-width: 2px;
+  padding: 12px 14px 14px;
+  margin: 0 0 14px;
+  background: rgba(255, 252, 240, 0.55);
+  position: relative;
+  break-inside: avoid;
+}
+
+.ad h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 16.5px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+}
+
+.ad .price {
+  float: right;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--oxide-deep);
+  border: 1px solid var(--oxide);
+  padding: 1px 7px 2px;
+  white-space: nowrap;
+}
+
+.ad p { margin: 0 0 8px; font-size: 15.5px; }
+.ad p:last-child { margin-bottom: 0; }
+
+.ad em { color: var(--sea); }
+
+/* the torn page, given honour */
+
+.ad.claim { border-color: var(--oxide); border-width: 2px; }
+
+.ad.claim::before {
+  content: "";
+  position: absolute;
+  top: -7px; left: 18px;
+  width: 34px; height: 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  transform: rotate(-3deg);
+}
+
+.stamp {
+  position: absolute;
+  top: 10px; right: 12px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  font-weight: 600;
+  color: var(--oxide);
+  border: 2px solid var(--oxide);
+  padding: 2px 8px 3px;
+  transform: rotate(6deg);
+  opacity: 0.85;
+}
+
+.found-text {
+  margin: 10px 6px 12px;
+  padding: 10px 16px;
+  font-family: "Newsreader", Georgia, serif;
+  font-style: italic;
+  font-size: 17.5px;
+  line-height: 1.45;
+  color: var(--oxide-deep);
+  background:
+    repeating-linear-gradient(transparent 0 27px, rgba(107, 93, 69, 0.28) 27px 28px),
+    rgba(255, 252, 240, 0.8);
+  border-left: 3px solid var(--oxide);
+  border-right: 3px solid var(--oxide);
+  background-clip: padding-box;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 34px;
+  padding-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.colophon-line { letter-spacing: 0.05em; margin: 10px 0 14px; }
+
+.related { max-width: 760px; margin: 0 auto; }
+.related p { margin: 5px 0; }
+.related a {
+  color: var(--sea);
+  text-decoration: underline;
+  text-decoration-color: rgba(39, 74, 82, 0.45);
+  text-underline-offset: 3px;
+}
+.related a:hover { color: var(--oxide-deep); text-decoration-color: var(--oxide); }
+
+/* first letter of the big claim, as a found object deserves */
+.ad.claim p:first-of-type::first-letter {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 3px 8px 0 0;
+  color: var(--oxide-deep);
+}
