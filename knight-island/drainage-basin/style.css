@@ -1,0 +1,243 @@
+/* Safety Data Sheet No. 17 — Drainage Basin, Napa River Catchment */
+:root {
+  --ink: #1c2b33;
+  --paper: #f4f1e8;
+  --panel: #fbf9f2;
+  --amber: #d98e04;
+  --amber-deep: #8a5a00;
+  --slate: #33535e;
+  --mud: #6d5c44;
+  --water: #7ba3a8;
+  --rule: #c9c2ae;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 400px at 50% -100px, rgba(123, 163, 168, 0.25), transparent 70%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.hazard-band {
+  height: 14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--amber) 0 22px,
+    var(--ink) 22px 44px
+  );
+  background-size: 62px 62px;
+  animation: band-slide 18s linear infinite;
+  border-bottom: 2px solid var(--ink);
+}
+.hazard-band:last-child { border-bottom: 0; border-top: 2px solid var(--ink); }
+
+@keyframes band-slide {
+  from { background-position: 0 0; }
+  to   { background-position: 62px 0; }
+}
+
+.sds {
+  max-width: 880px;
+  margin: 40px auto 60px;
+  background: var(--panel);
+  border: 1px solid var(--ink);
+  box-shadow: 10px 10px 0 rgba(28, 43, 51, 0.12);
+  padding: 36px 44px 48px;
+  position: relative;
+}
+.sds::before {
+  content: "NAPA BASIN · CATCHMENT 4,387 SQ MI · SHEET 17-DS";
+  position: absolute;
+  top: 10px;
+  left: 44px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--mud);
+}
+
+.sds-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  border-bottom: 3px double var(--ink);
+  padding: 18px 0 20px;
+  margin-bottom: 22px;
+}
+.doc-stamp {
+  grid-row: span 3;
+  border: 2px solid var(--slate);
+  color: var(--slate);
+  padding: 10px 14px;
+  text-align: center;
+  transform: rotate(-3deg);
+  font-family: "Courier New", monospace;
+}
+.stamp-line { display: block; font-size: 10px; letter-spacing: 0.3em; }
+.stamp-value { display: block; font-size: 16px; font-weight: bold; margin-top: 4px; }
+
+h1 {
+  margin: 0;
+  font-size: 44px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.doc-sub {
+  margin: 6px 0 0;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.doc-meta {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: var(--mud);
+}
+
+.diamond {
+  width: 118px;
+  height: 118px;
+  transform: rotate(45deg);
+  border: 3px solid var(--ink);
+  background: linear-gradient(135deg, #fff 50%, #efe9d8 50%);
+  display: grid;
+  place-items: center;
+  place-self: end;
+  box-shadow: 4px 4px 0 rgba(28, 43, 51, 0.2);
+}
+.diamond span {
+  transform: rotate(-45deg);
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+.diamond-top { font-size: 15px; font-weight: bold; }
+.diamond-bottom { font-size: 8px; letter-spacing: 0.06em; max-width: 100px; }
+
+.signal-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 14px;
+  margin-bottom: 30px;
+}
+.signal {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--ink);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.35em;
+  padding: 4px 12px 4px 16px;
+}
+.signal-line { font-size: 13.5px; font-style: italic; }
+
+.sds-section {
+  margin: 0 0 28px;
+  padding: 18px 20px 16px;
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--amber);
+  background:
+    linear-gradient(180deg, rgba(123, 163, 168, 0.07), transparent 40%),
+    var(--panel);
+}
+.sds-section h2 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+}
+.sec-no {
+  display: inline-block;
+  min-width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  margin-right: 10px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+
+dl { margin: 0; }
+dt {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  margin-top: 12px;
+}
+dd { margin: 2px 0 0; }
+.sds-section > p { margin: 0 0 12px; }
+.sds-section > p:last-child { margin-bottom: 0; }
+
+a { color: var(--slate); }
+a:hover { color: var(--amber-deep); }
+
+.sds-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.sds-table caption {
+  caption-side: top;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mud);
+  text-align: left;
+  padding-bottom: 6px;
+}
+.sds-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 7px 10px;
+}
+.sds-table td {
+  border: 1px solid var(--rule);
+  padding: 7px 10px;
+  vertical-align: top;
+}
+.sds-table td.num { font-family: "Courier New", monospace; white-space: nowrap; }
+.sds-table tbody tr:nth-child(odd) { background: rgba(217, 142, 4, 0.06); }
+
+.found-card {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  background: #efe6c8;
+  border: 1px dashed var(--amber-deep);
+  padding: 6px 10px;
+  transform: rotate(-0.6deg);
+  box-shadow: 3px 3px 0 rgba(28, 43, 51, 0.12);
+}
+
+.rev-note {
+  font-size: 13px;
+  color: var(--mud);
+  font-style: italic;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+}
