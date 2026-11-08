@@ -1,0 +1,200 @@
+/* The Belgrade Diary — parchment and ink, imperial red and gilded edge */
+
+:root {
+  --parchment: #f3e9d2;
+  --parchment-deep: #ecdfc0;
+  --ink: #33241a;
+  --ink-soft: #5c4a3a;
+  --imperial: #6e1a1f;
+  --gold: #a8802e;
+  --rule: #c9b285;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -100px, var(--parchment-deep) 0%, transparent 70%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px double var(--imperial);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--imperial);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+h1 .cyr {
+  display: block;
+  font-size: 1rem;
+  font-variant: normal;
+  color: var(--ink-soft);
+  margin-top: 0.4rem;
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  margin: 0.75rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.book {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 0.5rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.65em,
+      var(--rule) 1.65em,
+      var(--rule) calc(1.65em + 1px)
+    );
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+
+/* a gilded spine line, like a gilt edge of the codex */
+.book::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.75rem;
+  width: 2px;
+  background: linear-gradient(var(--gold), transparent 95%);
+  opacity: 0.5;
+}
+
+.entry {
+  padding: 0.25rem 1rem 1rem 2rem;
+  margin-bottom: 1.25rem;
+  background: transparent;
+}
+
+.dateline {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  color: var(--imperial);
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.dateline .place {
+  color: var(--ink-soft);
+  font-variant: normal;
+  font-style: italic;
+}
+
+.drop::first-letter {
+  font-size: 3.1rem;
+  line-height: 0.85;
+  float: left;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--imperial);
+  font-family: Georgia, serif;
+}
+
+em { color: var(--imperial); }
+
+.ledger-note {
+  max-width: 44rem;
+  margin: 0.5rem auto 1.5rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px dashed var(--gold);
+  background: rgba(168, 128, 46, 0.08);
+}
+
+.coin-line { margin: 0 0 0.4rem; }
+
+.dinar-coin {
+  font: inherit;
+  font-weight: bold;
+  color: #fff8e8;
+  background: var(--imperial);
+  border: 2px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.15em 0.9em;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+
+.dinar-coin small { font-weight: normal; opacity: 0.85; }
+
+.dinar-coin:hover { background: #7f2228; }
+
+.dinar-coin:active { transform: scale(0.94); }
+
+.tally {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  min-height: 1.4em;
+}
+
+.tally.struck {
+  color: var(--imperial);
+  font-style: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.filed-beside {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  border-top: 3px double var(--imperial);
+  font-size: 0.95rem;
+}
+
+.filed-beside h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  color: var(--imperial);
+  margin: 0 0 0.6rem;
+}
+
+.filed-beside p { margin: 0.3rem 0; }
+
+a { color: var(--imperial); }
+
+a:hover { color: var(--gold); }
+
+footer {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
