@@ -1,0 +1,293 @@
+/* Council of the Single Link — Minutes No. 12
+   Ledger-and-harbour look: dark tide ink, lamp-gold, estuary red */
+
+:root {
+  --ink: #10201f;
+  --tide: #14343a;
+  --paper: #f3ead6;
+  --paper-deep: #e9dcc0;
+  --gold: #c19a3f;
+  --gold-bright: #e3bf6a;
+  --red: #9c3b2a;
+  --rule: #b9a877;
+  --text: #2b2115;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(193, 154, 63, 0.14), transparent 60%),
+    repeating-linear-gradient(0deg, var(--ink) 0 34px, #132726 34px 68px);
+  min-height: 100vh;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.minutes-wrap {
+  max-width: 52rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(700px 300px at 80% 0%, rgba(227, 191, 106, 0.18), transparent 70%),
+    var(--paper);
+  border: 1px solid var(--gold);
+  outline: 4px double var(--gold);
+  outline-offset: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+
+/* faint ledger ruling across the sheet */
+.minutes-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 31px, rgba(185, 168, 119, 0.22) 31px 32px);
+}
+
+.minutes-head {
+  position: relative;
+  padding: 2.75rem 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--tide), #0e262b);
+  color: var(--paper);
+  border-bottom: 3px solid var(--gold);
+}
+
+.office-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+  line-height: 1.15;
+  margin: 0.6rem auto 0.4rem;
+  max-width: 34ch;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.seal {
+  position: absolute;
+  top: 2.2rem;
+  right: 2.4rem;
+  width: 84px;
+  height: 84px;
+}
+
+.seal-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  box-shadow: inset 0 0 0 4px rgba(156, 59, 42, 0.35);
+  animation: stamp 0.7s ease-out both;
+}
+
+.seal-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  transform: rotate(-12deg);
+  text-shadow: 0 0 1px rgba(156, 59, 42, 0.6);
+}
+
+@keyframes stamp {
+  0% { transform: rotate(-12deg) scale(2.1); opacity: 0; }
+  60% { transform: rotate(-12deg) scale(0.94); opacity: 1; }
+  100% { transform: rotate(-12deg) scale(1); opacity: 0.9; }
+}
+
+.convened, .quorum {
+  margin: 0.4rem auto;
+  font-size: 0.95rem;
+  color: #d8cdb2;
+  max-width: 46ch;
+}
+
+.quorum { font-style: italic; }
+
+/* the chain: five strong links, one weak */
+.chain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin: 1.4rem auto 0.4rem;
+}
+
+.link {
+  width: 46px;
+  height: 26px;
+  border: 4px solid var(--gold);
+  border-radius: 13px;
+  margin-left: -12px;
+  position: relative;
+}
+
+.link:first-child { margin-left: 0; }
+
+.link.weak {
+  border-color: var(--red);
+  animation: sag 2.6s ease-in-out infinite;
+}
+
+@keyframes sag {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(5px) rotate(-7deg); }
+}
+
+.link.weak.found {
+  animation: none;
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 12px rgba(227, 191, 106, 0.8);
+  transform: none;
+}
+
+main {
+  position: relative;
+  padding: 2.25rem 3rem 1rem;
+}
+
+.item { margin-bottom: 2.4rem; }
+
+.item h2 {
+  font-variant: small-caps;
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  color: var(--tide);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.8rem;
+}
+
+.item-no {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 0.1em 0.5em;
+  margin-right: 0.7rem;
+  vertical-align: 2px;
+}
+
+p {
+  font-size: 1.02rem;
+  line-height: 32px; /* rides the ledger ruling */
+  margin: 0 0 0.8rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.ledger-line {
+  margin: 1rem auto 1.2rem;
+  padding: 0.9rem 1.4rem;
+  max-width: 34ch;
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--red);
+  background:
+    linear-gradient(180deg, rgba(156, 59, 42, 0.08), rgba(156, 59, 42, 0.02));
+  border-left: 4px solid var(--red);
+  border-right: 4px solid var(--red);
+  box-shadow: inset 0 0 18px rgba(156, 59, 42, 0.08);
+}
+
+ol.steps {
+  list-style: none;
+  margin: 0.6rem 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+ol.steps li {
+  position: relative;
+  padding: 0 0 0.6rem 2.4rem;
+  line-height: 32px;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px dashed rgba(185, 168, 119, 0.6);
+}
+
+ol.steps li::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--tide);
+  border: 1px solid var(--tide);
+  width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.step-name {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--tide);
+}
+
+a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red);
+}
+
+a:hover {
+  color: var(--tide);
+  border-bottom: 1px solid var(--tide);
+  background: rgba(201, 154, 63, 0.25);
+}
+
+.sign-off {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: #5c4f37;
+}
+
+.minutes-foot {
+  border-top: 3px double var(--gold);
+  padding: 1rem 3rem 1.4rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper));
+}
+
+.minutes-foot p {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--tide);
+}
+
+@media (max-width: 640px) {
+  .minutes-head { padding: 2rem 1.4rem; }
+  main { padding: 1.6rem 1.4rem; }
+  .seal { position: static; margin: 1rem auto 0; }
+  p { text-align: left; }
+}
