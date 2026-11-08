@@ -1,0 +1,153 @@
+/* The Agent's Ledger No. 007 — Betwa Provisions & Record-Keepers */
+
+:root {
+  --ink: #1e2226;
+  --ink-soft: #4b5259;
+  --paper: #f7f4ee;
+  --rule: #cfc8ba;
+  --moss: #4f5d43;
+  --clay: #8a3b2c;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.product {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 6rem;
+}
+
+.product-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.shop {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  font-weight: 400;
+  margin: 0 0 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.dek {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0 0 1.4rem;
+}
+
+.price-line {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+  margin: 0;
+}
+
+.price {
+  color: var(--clay);
+  font-weight: 700;
+  margin-right: 0.9rem;
+}
+
+.edition { color: var(--ink-soft); }
+
+.prose { margin-bottom: 2.6rem; }
+
+h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+a {
+  color: var(--clay);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover { border-bottom-color: var(--clay); }
+
+.contents {
+  padding-left: 1.4rem;
+  margin: 0;
+}
+
+.contents li { margin-bottom: 0.95rem; padding-left: 0.3rem; }
+
+.spec-quote {
+  font-style: italic;
+  background: #efe9dd;
+  padding: 0 0.25rem;
+  white-space: nowrap;
+}
+
+.specs {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.specs caption {
+  caption-side: top;
+  text-align: left;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 0.6rem;
+}
+
+.specs th {
+  text-align: left;
+  font-weight: 700;
+  width: 9.5rem;
+  vertical-align: top;
+  padding: 0.55rem 1rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.specs td {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+.foot {
+  margin-top: 3rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+}
