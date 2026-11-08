@@ -1,0 +1,188 @@
+/* Comparative Lexicon Manual &middot; CLM-716 &middot; Cognate */
+
+:root {
+  --ink: #203026;
+  --paper: #f1f5ec;
+  --moss: #7c945f;
+  --deep: #2d4034;
+  --brass: #a6843a;
+  --acid: #5c7a43;
+  --rule: #bfccbd;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: radial-gradient(circle at 75% 20%, #a8b87e 0%, #2d4034 55%, #121a15 100%);
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 1rem 4rem;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.75;
+}
+
+.manual {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3.5rem;
+  background: linear-gradient(145deg, #f7faf1 0%, #e7eedf 45%, #d6ddcb 100%);
+  border: 3px double var(--deep);
+  box-shadow:
+    0 0 0 5px var(--paper),
+    0 0 0 7px var(--brass),
+    0 28px 56px -20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.manual::before {
+  content: "CLM-716";
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: rgba(45, 64, 52, 0.2);
+  transform: rotate(10deg);
+  z-index: 0;
+}
+
+.stamp {
+  position: absolute;
+  font-size: 0.65rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: var(--moss);
+  border: 1.5px dashed var(--moss);
+  padding: 0.35rem 0.9rem;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+  z-index: 0;
+}
+.stamp--top { top: 1.4rem; left: 1.2rem; }
+.stamp--bottom { bottom: 1.4rem; right: 1.2rem; transform: rotate(3deg); }
+
+.manual-head { position: relative; z-index: 1; }
+.series {
+  font-size: 0.75rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0 0 0.5rem;
+}
+.manual h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 2.6rem;
+  margin: 0 0 0.25rem;
+  color: var(--deep);
+}
+.class {
+  font-size: 0.8rem;
+  color: var(--acid);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+hr.plimsoll {
+  border: none;
+  border-top: 2px solid var(--brass);
+  border-bottom: 1px solid var(--rule);
+  margin: 1.25rem 0;
+}
+
+.definition { font-size: 1.05rem; }
+dfn { font-style: normal; font-weight: bold; color: var(--deep); }
+cite { font-style: italic; color: var(--deep); }
+
+h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 2rem 0 1rem;
+}
+h2:first-of-type { margin-top: 1.5rem; }
+
+.procedure {
+  margin: 0 0 1.5rem;
+  padding-left: 1.6rem;
+}
+.procedure li { margin: 0.75rem 0; }
+.procedure em { color: var(--acid); }
+
+.caution {
+  margin: 1.75rem 0;
+  padding: 1.1rem 1.4rem 1.1rem 2.2rem;
+  border: 1px solid var(--rule);
+  border-left: 7px solid var(--brass);
+  background: linear-gradient(90deg, rgba(166, 132, 58, 0.09) 0%, transparent 45%);
+  position: relative;
+  overflow: hidden;
+  animation: seep 7s ease-in-out infinite;
+}
+.caution::before {
+  content: "";
+  position: absolute;
+  inset: 0 -2rem 0 -2rem;
+  background: repeating-linear-gradient(0deg, transparent 0, transparent 30px, var(--brass) 30px, var(--brass) 33px);
+  opacity: 0.4;
+  z-index: 0;
+}
+.caution > * { position: relative; z-index: 1; margin: 0; }
+.caution .caution-head {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: var(--deep);
+}
+.caution p { font-size: 1.05rem; }
+.caution p + p { margin-top: 0.6rem; }
+
+@keyframes seep {
+  0%, 100% { opacity: 0.4; box-shadow: inset 0 0 0 0 rgba(166, 132, 58, 0.15); }
+  50% { opacity: 0.7; box-shadow: inset 0 0 24px 6px rgba(166, 132, 58, 0.12); }
+}
+
+table.register {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+}
+table.register th,
+table.register td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.register thead th {
+  border-top: 3px double var(--deep);
+  color: var(--moss);
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.75rem;
+}
+
+.see-also {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+.see-also h2 { border: none; margin-top: 0; padding-bottom: 0; font-size: 1rem; }
+.see-also p { font-size: 0.85rem; margin: 0.5rem 0; }
+
+.sign-off {
+  font-size: 0.8rem;
+  color: var(--moss);
+  letter-spacing: 0.15rem;
+  margin-top: 2.5rem;
+  text-align: right;
+}
