@@ -1,0 +1,73 @@
+/* John Swann Withington (1865&ndash;1944) — obituary sheet */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% 15%, #faf6ec, #e8dcc9);
+  background-attachment: fixed;
+  color: #1c1810;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  line-height: 1.65;
+  font-size: 15px;
+}
+.page {
+  max-width: 40rem;
+  margin: 2.5rem auto;
+  padding: 2.5rem 1.5rem 5rem;
+  position: relative;
+}
+.page::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 8px;
+  background: linear-gradient(90deg, #0b0a08 0%, #0b0a08 20%, #5c4a3a 50%, #0b0a08 80%, #0b0a08 100%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+.obit-header { border-bottom: 3px double #0b0a08; padding-bottom: 1.25rem; margin-bottom: 1.75rem; }
+.obituary h1 {
+  font-size: 1.9rem; margin: 0 0 0.55rem; letter-spacing: 0.05em; font-weight: 600;
+  text-transform: uppercase;
+}
+.obit-dates { font-size: 1rem; color: #403828; margin: 0 0 0.4rem; }
+.obit-dek { font-style: italic; color: #665a46; margin: 0; }
+.candle {
+  display: inline-block; width: 10px; height: 24px; background: #e2d8c0;
+  border: 1px solid #0b0a08; border-radius: 1.5px; margin-left: 0.6rem;
+  box-shadow: inset -1px 0 0 #c7b99a; position: relative;
+}
+.candle::after {
+  content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 7px; background: #fff5bf; border-radius: 50% 50% 40% 40%;
+  box-shadow: 0 0 10px #ffe9a8, 0 0 22px #ffd98c;
+  animation: flicker 3s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  from { opacity: 0.92; transform: translateX(-50%) scale(1); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.07); }
+}
+hr.rule { border: none; height: 1px; background: #0b0a08; margin: 2.25rem 0; }
+.ornament {
+  width: 28px; height: 28px; margin: 1.25rem auto; background: #0b0a08;
+  clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%); opacity: 0.9;
+}
+.obit-body p { margin: 0 0 1.25rem; text-align: justify; }
+.obit-body p:first-of-type::first-letter {
+  float: left; font-size: 3.1rem; line-height: 0.8; padding: 0.05rem 0.55rem 0 0;
+  margin-right: 0.5rem; color: #0b0a08; font-weight: 700;
+}
+.notice { font-size: 0.95rem; background: #fff8ed; border: 1px solid #c9bd9f; padding: 0.75rem 1rem; }
+.obit-body p em { font-style: italic; color: #3a3224; }
+.further {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #bdb094;
+}
+.further h2 {
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: #766850; margin: 0 0 0.85rem;
+}
+.further p { margin: 0 0 0.7rem; font-size: 0.95rem; text-align: left; }
+.further a {
+  color: #5c4034; text-decoration: none; border-bottom: 1px solid #c9bd9f;
+}
+.further a:hover { background: #0b0a08; color: #f7f2e5; border-color: transparent; }
+@media (max-width: 420px) {
+  .page { margin: 1rem auto; padding: 1.5rem 1rem 3rem; }
+  .obituary h1 { font-size: 1.5rem; }
+}
