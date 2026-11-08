@@ -1,0 +1,176 @@
+/* Minutes of the Council, Session Nº 44 — the small room on the third floor */
+
+:root {
+  --ink: #2b2a26;
+  --paper: #f6f1e5;
+  --rule: #b9ad93;
+  --seal: #7a3b2e;
+  --slate: #3f4a44;
+  --wash: #e9e2cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.minutes {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  background:
+    repeating-linear-gradient(transparent, transparent 31px, rgba(122, 59, 46, .05) 31px, rgba(122, 59, 46, .05) 32px);
+}
+
+.head {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.office {
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin: 0 0 .5rem;
+  color: var(--seal);
+}
+
+.session {
+  font-size: .85rem;
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: .35em;
+  margin: 0 0 .5rem;
+  text-indent: .35em;
+}
+
+.subject {
+  font-size: .95rem;
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+  margin: 0 0 .75rem;
+}
+
+section { margin-bottom: 2rem; }
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--seal); }
+a:hover { color: var(--ink); }
+
+.sig {
+  font-style: italic;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.see-also {
+  font-size: .85rem;
+  color: var(--slate);
+}
+
+/* the recount slate */
+.votebox {
+  background: var(--wash);
+  border: 1px solid var(--rule);
+  padding: 1rem 1.25rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.votebox-title {
+  font-size: .8rem;
+  font-style: italic;
+  margin-bottom: .75rem;
+}
+
+table.roll {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+table.roll th,
+table.roll td {
+  padding: .3rem .4rem;
+  border-bottom: 1px dotted var(--rule);
+  text-align: left;
+}
+
+table.roll th {
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+table.roll button {
+  font-family: inherit;
+  font-size: .78rem;
+  padding: .15rem .6rem;
+  margin-right: .3rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+table.roll button:hover { background: #fff; }
+
+table.roll tr.voted-aye td { color: var(--seal); font-weight: bold; }
+table.roll tr.voted-nay td { color: var(--slate); }
+table.roll tr.voted-abs td { color: #8a7f68; font-style: italic; }
+table.roll button.chosen {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.tally {
+  font-size: .85rem;
+  letter-spacing: .03em;
+  margin-top: .9rem;
+}
+
+.verdict {
+  font-size: .95rem;
+  font-weight: bold;
+  margin-top: .25rem;
+  color: var(--seal);
+  min-height: 1.4em;
+}
+
+.reset button {
+  font-family: inherit;
+  font-size: .8rem;
+  padding: .3rem .8rem;
+  background: none;
+  border: 1px dashed var(--rule);
+  color: var(--slate);
+  cursor: pointer;
+}
+
+.reset button:hover { border-style: solid; color: var(--ink); }
