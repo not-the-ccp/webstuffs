@@ -1,0 +1,187 @@
+/* FM-4 / Chapter 4 — field manual look: ruled khaki paper, stencil headings, ledger stamps */
+
+:root {
+  --paper: #ece4cf;
+  --paper-deep: #e2d8bd;
+  --ink: #2b241a;
+  --olive: #5c6236;
+  --olive-deep: #434a26;
+  --rust: #9a4a2b;
+  --stamp: #8c2f22;
+  --rule: #b3a67e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 0 1.25rem 4rem;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      rgba(179, 166, 126, 0.35) 31px,
+      rgba(179, 166, 126, 0.35) 32px
+    ),
+    var(--paper);
+}
+
+/* corner classification stamp */
+.stamp--corner {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  transform: rotate(8deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  padding: 0.35rem 0.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.manual-head {
+  border-bottom: 4px double var(--olive-deep);
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.office {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--olive-deep);
+}
+.office span { text-transform: none; letter-spacing: 0.04em; }
+
+.no {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+  color: var(--rust);
+}
+
+h1 {
+  font-family: "Arial Black", "Franklin Gothic Medium", Arial, sans-serif;
+  font-size: clamp(1.8rem, 5.5vw, 2.7rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--olive-deep);
+  text-shadow: 1px 1px 0 var(--paper-deep);
+}
+
+.object-line {
+  margin: 0.5rem 0 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--olive-deep);
+}
+
+.rule--double { border: 0; border-top: 4px double var(--rule); margin: 1rem 0 0; }
+
+.para { margin: 2.2rem 0; }
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  border-left: 6px solid var(--olive);
+  padding-left: 0.6rem;
+  margin: 0 0 0.9rem;
+}
+
+p { margin: 0 0 1rem; }
+strong { color: var(--olive-deep); }
+a {
+  color: var(--rust);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+a:hover { background: var(--paper-deep); }
+
+/* ledger entry */
+.ledger blockquote.entry {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.3rem 0.9rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 27px,
+      rgba(139, 90, 43, 0.25) 27px,
+      rgba(139, 90, 43, 0.25) 28px
+    ),
+    #f4ecd9;
+  border: 1px solid var(--rule);
+  border-left: 8px solid var(--rust);
+  font-style: italic;
+  font-size: 1.12rem;
+  position: relative;
+}
+.ledger blockquote.entry::before {
+  content: "No. 118";
+  position: absolute;
+  top: -0.85rem;
+  left: 1rem;
+  background: var(--paper);
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  padding: 0.1rem 0.4rem;
+}
+.entry-src {
+  margin-top: 0.7rem;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--olive-deep);
+}
+
+/* footer drawer */
+.manual-foot {
+  margin-top: 3rem;
+  border-top: 4px double var(--olive-deep);
+  padding-top: 1.2rem;
+}
+.related h2 { border-left: 0; padding-left: 0; margin-bottom: 0.5rem; }
+.related p { margin: 0.35rem 0; font-size: 0.95rem; }
+
+.sign-off {
+  margin-top: 1.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--olive-deep);
+  text-align: center;
+}
+
+/* slow drift for the bearing readout */
+#bearing { animation: drift 6s ease-in-out infinite; display: inline-block; }
+@keyframes drift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@media (max-width: 40rem) {
+  .stamp--corner { position: static; display: inline-block; margin-bottom: 1rem; }
+}
