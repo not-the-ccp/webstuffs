@@ -1,0 +1,152 @@
+/* ARMENIA — Campaign Set No. 63 · Pontus Miniature Works */
+:root {
+  --parchment: #efe6cf;
+  --parchment-deep: #e6d9b8;
+  --ink: #2b2114;
+  --bronze: #a8842f;
+  --bronze-deep: #7c5c1c;
+  --imperial: #8a2f22;
+  --parthian: #2f5a4f;
+  --rule: #b9a675;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(168, 132, 47, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(138, 47, 34, 0.08), transparent 40%),
+    #e3d5ae;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  padding: 2.2rem 1rem;
+}
+
+.frame {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--parchment);
+  border: 3px double var(--bronze-deep);
+  outline: 1px solid var(--rule);
+  outline-offset: 5px;
+  padding: 2.4rem 2.6rem 1.8rem;
+  box-shadow: 0 10px 30px rgba(43, 33, 20, 0.25);
+}
+
+.masthead { text-align: center; }
+
+.laurel { width: 12rem; max-width: 70%; margin: 0 auto 0.4rem; display: block; }
+.laurel-text { font-size: 11px; letter-spacing: 0.22em; fill: var(--bronze-deep); font-family: Georgia, serif; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--imperial);
+  margin: 0.2rem 0 0.8rem;
+}
+
+h1 {
+  font-size: 3.4rem;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--ink);
+  text-shadow: 1px 1px 0 var(--parchment-deep), 2px 2px 0 var(--bronze);
+  font-weight: normal;
+}
+
+.dek {
+  font-style: italic;
+  max-width: 38rem;
+  margin: 0 auto 1.2rem;
+  color: #4a3c26;
+}
+
+.rule {
+  height: 7px;
+  max-width: 30rem;
+  margin: 0 auto 1.6rem;
+  background:
+    repeating-linear-gradient(90deg, var(--bronze) 0 22px, transparent 22px 28px);
+  border-top: 1px solid var(--bronze-deep);
+  border-bottom: 1px solid var(--bronze-deep);
+}
+
+.pricebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
+  border: 1px solid var(--rule);
+  background: var(--parchment-deep);
+  padding: 0.7rem 1rem;
+  margin: 0 0 1.8rem;
+}
+.price { font-size: 1.35rem; margin: 0; }
+.price span { font-size: 0.8rem; font-style: italic; color: #6a5636; }
+.stock { margin: 0; font-size: 0.85rem; color: #5c4a2c; }
+.lead-time { font-style: italic; }
+
+h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--imperial);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.9rem 0 0.8rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+.contents {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  columns: 2;
+  column-gap: 2rem;
+  font-size: 0.94rem;
+}
+.contents li {
+  break-inside: avoid;
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.45rem;
+}
+.contents li::before {
+  content: "❧";
+  position: absolute;
+  left: 0;
+  color: var(--bronze);
+}
+
+.notes p {
+  border-left: 3px solid var(--bronze);
+  padding-left: 0.9rem;
+  margin-bottom: 0.9rem;
+  background: linear-gradient(90deg, rgba(168,132,47,0.07), transparent 70%);
+}
+
+a { color: var(--parthian); }
+a:hover { color: var(--imperial); }
+
+strong { color: #3a2c14; }
+
+.colophon {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--bronze-deep);
+  padding-top: 0.8rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #5c4a2c;
+}
+.colophon .nav { margin-top: 0.4rem; letter-spacing: 0.04em; }
+
+@media (max-width: 30rem) {
+  .frame { padding: 1.6rem 1.1rem; }
+  h1 { font-size: 2.2rem; }
+  .contents { columns: 1; }
+}
