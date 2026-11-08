@@ -1,0 +1,249 @@
+/* Hadith — Encyclopaedia Entry No. 41 · manuscript-ledger look */
+
+:root {
+  --ink: #1d1a16;
+  --parchment: #f3ead7;
+  --parchment-deep: #e9dcc0;
+  --indigo: #22284a;
+  --indigo-deep: #141833;
+  --gold: #b98a2f;
+  --gold-bright: #d9ab45;
+  --seal-red: #7c2e1d;
+  --green-grade: #3f5e3a;
+  --amber-grade: #9a6b1f;
+  --faint: #5c5344;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(217, 171, 69, 0.14), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(185, 138, 47, 0.035) 0 2px, transparent 2px 9px),
+    var(--indigo-deep);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 1.62;
+  min-height: 100vh;
+}
+
+/* --- floating arabic ornament --- */
+.ornament {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.ornament-letter {
+  font-family: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+  font-size: clamp(14rem, 34vw, 30rem);
+  line-height: 1;
+  color: rgba(217, 171, 69, 0.07);
+  transform: translateY(18%) rotate(-6deg);
+  animation: drift 26s ease-in-out infinite alternate;
+  user-select: none;
+}
+@keyframes drift {
+  from { transform: translateY(16%) rotate(-6deg); }
+  to   { transform: translateY(11%) rotate(-3deg); }
+}
+
+/* --- the sheet --- */
+.entry {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 4rem auto 6rem;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 240, 0.5), transparent 140px),
+    var(--parchment);
+  border: 1px solid var(--gold);
+  outline: 3px double var(--gold);
+  outline-offset: 6px;
+  box-shadow:
+    0 0 0 1px rgba(20, 24, 51, 0.6),
+    0 30px 70px rgba(0, 0, 0, 0.55);
+  padding: 3.2rem clamp(1.4rem, 6vw, 4rem) 3rem;
+}
+
+/* --- masthead --- */
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.8rem;
+}
+.plate {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--seal-red);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.8rem;
+  color: var(--indigo-deep);
+}
+h1 .arab {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 0.55em;
+  color: var(--gold);
+}
+h1 .arab-script {
+  font-family: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+  font-size: 0.8em;
+  color: var(--seal-red);
+  margin-left: 0.35em;
+}
+.def {
+  font-size: 1.02rem;
+  color: #33302a;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.def em { color: var(--seal-red); }
+
+/* --- table of contents --- */
+.toc {
+  background: var(--parchment-deep);
+  border: 1px solid rgba(185, 138, 47, 0.6);
+  padding: 0.9rem 1.4rem 1rem;
+  margin: 0 0 2.2rem;
+  font-size: 0.92rem;
+}
+.toc-title {
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--faint);
+}
+.toc ol { margin: 0; padding-left: 1.2rem; }
+.toc li { margin: 0.2rem 0; }
+.toc a {
+  color: var(--indigo);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+}
+.toc a:hover { color: var(--seal-red); border-bottom-color: var(--seal-red); }
+
+/* --- sections --- */
+.sect { margin-bottom: 2.4rem; }
+h2 {
+  font-size: 1.35rem;
+  color: var(--indigo-deep);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+h2 .num {
+  color: var(--seal-red);
+  font-variant: small-caps;
+  margin-right: 0.5rem;
+}
+.sect p { margin: 0 0 1.05rem; }
+p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.86;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--seal-red);
+  font-family: "Palatino Linotype", Georgia, serif;
+}
+a { color: var(--seal-red); }
+a:hover { color: var(--indigo); }
+
+/* --- isnād chain --- */
+.isnad {
+  list-style: none;
+  margin: 1.2rem 0 1.4rem;
+  padding: 0;
+  counter-reset: link;
+}
+.isnad li {
+  counter-increment: link;
+  position: relative;
+  padding: 0.55rem 0.9rem 0.55rem 3.2rem;
+  margin: 0 0 0.4rem;
+  background: var(--parchment-deep);
+  border-left: 4px solid var(--gold);
+  border-top: 1px solid rgba(92, 83, 68, 0.25);
+  border-bottom: 1px solid rgba(92, 83, 68, 0.25);
+}
+.isnad li::before {
+  content: counter(link, upper-roman) ".";
+  position: absolute;
+  left: 1rem;
+  top: 0.45rem;
+  font-variant: small-caps;
+  color: var(--seal-red);
+  font-weight: bold;
+}
+.isnad .who { font-weight: bold; color: var(--indigo-deep); }
+.isnad .link {
+  display: block;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faint);
+  margin-top: 0.15rem;
+}
+/* JS adds .armed, then reveals in sequence; without JS everything is shown */
+.isnad.armed li { opacity: 0; transform: translateX(-0.6rem); }
+.isnad.armed li.shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* --- grading ledger --- */
+.grades { margin: 0 0 1.1rem; }
+.grades dt { margin-top: 0.7rem; }
+.grade {
+  display: inline-block;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  padding: 0.1rem 0.7rem;
+  border: 1px solid;
+  transform: rotate(-1.2deg);
+  background: rgba(255, 252, 240, 0.6);
+}
+.g-sahih { color: var(--green-grade); border-color: var(--green-grade); }
+.g-hasan { color: var(--amber-grade); border-color: var(--amber-grade); }
+.g-daif  { color: var(--seal-red); border-color: var(--seal-red); }
+.grades dd { margin: 0.4rem 0 0 1.1rem; }
+
+/* --- the unparseable record line --- */
+.recordline {
+  display: inline;
+  font-style: italic;
+  color: var(--indigo-deep);
+  background: linear-gradient(transparent 78%, rgba(217, 171, 69, 0.4) 78%);
+  padding: 0 0.15em;
+  border-bottom: 1px solid var(--gold);
+}
+.recordline:hover { background: linear-gradient(transparent 55%, rgba(217, 171, 69, 0.55) 55%); }
+
+/* --- colophon --- */
+.colophon {
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faint);
+  border-top: 3px double var(--gold);
+  padding-top: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .entry { margin: 1.2rem 0.6rem 3rem; padding: 2rem 1.2rem; }
+  .ornament-letter { font-size: 18rem; }
+}
