@@ -1,0 +1,156 @@
+/* The Forty-Four-Page Man — diary page, cabin library drawer */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9ddc2;
+  --ink: #3b2f24;
+  --ink-soft: #5c4c3a;
+  --margin-red: #b0553f;
+  --rule: #c9b98f;
+  --spine-green: #3f5747;
+  --stamp: #7d3b2c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.paper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to right, transparent 0, transparent 88px, rgba(176, 85, 63, 0.4) 88px, rgba(176, 85, 63, 0.4) 89.5px, transparent 89.5px),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px),
+    linear-gradient(105deg, var(--paper) 0%, var(--paper-deep) 78%, #e2d3ac 100%);
+}
+
+.coffee-ring {
+  position: fixed;
+  border: 3px solid rgba(96, 62, 33, 0.22);
+  border-radius: 50%;
+  width: 150px;
+  height: 140px;
+  transform: rotate(-8deg);
+  top: 8%;
+  right: 5%;
+}
+
+.coffee-ring::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(96, 62, 33, 0.14);
+  border-radius: 50%;
+}
+
+.coffee-ring.small {
+  width: 74px;
+  height: 68px;
+  top: 71%;
+  right: 11%;
+  transform: rotate(19deg);
+}
+
+.pencil {
+  position: fixed;
+  bottom: 4%;
+  right: 3%;
+  width: 190px;
+  opacity: 0.5;
+  transform: rotate(-24deg);
+}
+
+.diary-head, .entry {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.4rem;
+}
+
+.diary-head { padding-top: 3.2rem; padding-bottom: 0.6rem; }
+
+.ledger-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 0 0 0.7rem;
+  color: var(--spine-green);
+  border-bottom: 3px double var(--spine-green);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.date-line {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.date { font-style: normal; font-weight: bold; color: var(--ink); }
+
+.entry { padding-bottom: 4rem; }
+
+.entry p { margin: 0 0 1.25rem; }
+
+blockquote.bulletin {
+  margin: 1.6rem 0.4rem 1.6rem 1.2rem;
+  padding: 1rem 1.3rem 0.8rem;
+  background: #fbf6e8;
+  border-left: 5px solid var(--margin-red);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 2px 3px 0 rgba(96, 62, 33, 0.12);
+  transform: rotate(-0.4deg);
+}
+
+blockquote.bulletin p {
+  margin: 0 0 0.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.bulletin-src {
+  font-family: Palatino, Georgia, serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.further {
+  margin-top: 2.6rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(63, 87, 71, 0.07);
+  border: 1px solid rgba(63, 87, 71, 0.35);
+}
+
+.further h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--spine-green);
+  margin: 0 0 0.7rem;
+}
+
+.further p { font-size: 0.94rem; margin-bottom: 0.7rem; }
+
+.colophon-line { color: var(--ink-soft); font-style: italic; margin-bottom: 0; }
+
+a { color: var(--spine-green); }
+a:hover { color: var(--stamp); }
