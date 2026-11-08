@@ -1,0 +1,213 @@
+/* The Pacific Coast Almanac — Guidebook No. 47, Los Angeles */
+
+:root {
+  --paper: #f6efdd;
+  --paper-deep: #efe4c8;
+  --ink: #22304a;
+  --oxblood: #8c2f2b;
+  --gold: #b98a2f;
+  --sea: #2e6e73;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(185, 138, 47, 0.18), transparent 60%),
+    radial-gradient(900px 700px at -10% 110%, rgba(140, 47, 43, 0.14), transparent 60%),
+    #d9cba8;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: 720px;
+  margin: 3rem auto 4rem;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #c9b98d;
+  box-shadow: 0 0 0 6px rgba(255, 252, 240, 0.35), 0 24px 60px rgba(34, 48, 74, 0.28);
+  padding: 2.5rem clamp(1.25rem, 5vw, 3rem) 2.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top and bottom rule like a guidebook plate */
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 10px;
+  background:
+    linear-gradient(90deg, var(--oxblood) 0 34%, var(--gold) 34% 67%, var(--sea) 67% 100%);
+}
+.paper::before { top: 0; }
+.paper::after { bottom: 0; }
+
+.masthead { position: relative; text-align: center; padding-bottom: 1.5rem; }
+
+.almanac-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 8vw, 4.2rem);
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 2px 2px 0 rgba(185, 138, 47, 0.35);
+}
+
+.coords {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0.7rem auto 0;
+  max-width: 34rem;
+}
+
+/* the almanac sun */
+.sun {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f2c14e, var(--gold) 70%);
+  box-shadow: 0 0 24px rgba(185, 138, 47, 0.55);
+  animation: sun-rise 5s ease-out infinite alternate;
+}
+@keyframes sun-rise {
+  from { transform: translateY(6px) scale(0.94); }
+  to   { transform: translateY(-4px) scale(1.02); }
+}
+
+h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 2px dashed var(--gold);
+  padding-bottom: 0.45rem;
+  margin: 2.4rem 0 1.1rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--sea); }
+a:hover { color: var(--oxblood); }
+
+.drop {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.12rem 0.5rem 0 0;
+  color: var(--oxblood);
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+.numbers table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.numbers td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid rgba(34, 48, 74, 0.22);
+}
+.numbers tr:nth-child(odd) { background: rgba(185, 138, 47, 0.12); }
+.numbers td:last-child {
+  text-align: right;
+  font-weight: bold;
+  color: var(--oxblood);
+}
+
+/* stops with an animated dashed route line */
+.stops { position: relative; }
+.stops::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 2.6rem;
+  bottom: 1rem;
+  width: 0;
+  border-left: 3px dashed rgba(140, 47, 43, 0.45);
+  animation: route-draw 6s ease forwards;
+  transform-origin: top;
+}
+@keyframes route-draw {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+.stop {
+  display: flex;
+  gap: 1.2rem;
+  margin: 0 0 1.7rem;
+  position: relative;
+}
+
+.stop-no {
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 3px double var(--oxblood);
+  background: var(--paper);
+  color: var(--oxblood);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(34, 48, 74, 0.18);
+  position: relative;
+  z-index: 1;
+}
+
+.stop h3 {
+  margin: 0.55rem 0 0.45rem;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.food {
+  border-left: 4px solid var(--gold);
+  padding-left: 1.2rem;
+  margin-top: 2.4rem;
+  background: linear-gradient(90deg, rgba(185, 138, 47, 0.1), transparent 65%);
+}
+
+.tail {
+  margin-top: 2.6rem;
+  border-top: 2px dashed var(--gold);
+  padding-top: 1rem;
+  font-size: 0.92rem;
+}
+.see-head {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin-bottom: 0.5rem;
+}
+.colophon {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(34, 48, 74, 0.65);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+@media (max-width: 560px) {
+  .stop { flex-direction: column; gap: 0.5rem; }
+  .stops::before { display: none; }
+}
