@@ -1,0 +1,403 @@
+/* Malmö Sound Section — Detachable Field Manual FM-04/11, Chapter 7
+   "Lena Anthem" — reconnaissance & verification.
+   Aesthetic: 1980s field manual set under a 1987 neon sign. */
+
+:root {
+  --ink: #1c1a14;
+  --paper: #efe6cf;
+  --paper-2: #e6d9b8;
+  --olive: #4a4a2e;
+  --olive-2: #6b6b3f;
+  --neon-pink: #ff2fa0;
+  --neon-cyan: #24e5ff;
+  --neon-amber: #ffb300;
+  --rule: #1c1a14;
+  --stamp-red: #b3271e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16.5px;
+  line-height: 1.65;
+  background:
+    radial-gradient(1200px 500px at 50% -100px, rgba(255, 47, 160, 0.18), transparent 60%),
+    radial-gradient(900px 420px at 85% 108%, rgba(36, 229, 255, 0.14), transparent 60%),
+    linear-gradient(180deg, #232117 0%, #2c2a1c 30%, #35321f 100%);
+  min-height: 100vh;
+  padding: 0 14px 60px;
+}
+
+/* ---- ambient layers ---- */
+.grid-layer {
+  position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(36, 229, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 229, 255, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  animation: grid-drift 24s linear infinite;
+}
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 44px 44px, 44px 44px; }
+}
+
+.scanlines {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.10) 0px,
+    rgba(0, 0, 0, 0.10) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* ---- hazard stripes ---- */
+.hazard {
+  height: 16px;
+  margin: 0 auto 18px;
+  max-width: 900px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ink) 0 14px,
+    var(--neon-amber) 14px 28px
+  );
+  border: 2px solid var(--ink);
+  box-shadow: 0 0 18px rgba(255, 179, 0, 0.35);
+}
+.hazard.top { margin: 18px auto 0; }
+
+/* ---- header ---- */
+.fm-head {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  text-align: center;
+  color: var(--paper);
+  background:
+    linear-gradient(180deg, rgba(74, 74, 46, 0.55), rgba(44, 42, 28, 0.85));
+  border: 3px double var(--paper-2);
+  padding: 26px 22px 34px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 60px rgba(255, 179, 0, 0.07);
+}
+.head-rule {
+  height: 3px;
+  max-width: 560px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+.org {
+  margin: 14px 0 6px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--neon-amber);
+}
+.title-block { margin: 8px 0 4px; }
+.chapter-no {
+  margin: 0;
+  letter-spacing: 0.5em;
+  font-size: 14px;
+  color: var(--paper-2);
+}
+.chapter-digits {
+  font-size: 42px;
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px var(--neon-pink), 0 0 34px rgba(255, 47, 160, 0.6);
+  padding: 0 10px;
+}
+h1 {
+  margin: 2px 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(40px, 7vw, 68px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow:
+    0 0 6px var(--neon-cyan),
+    0 0 22px var(--neon-cyan),
+    0 0 60px rgba(36, 229, 255, 0.5);
+  animation: neon-flicker 7s infinite;
+}
+@keyframes neon-flicker {
+  0%, 6.8%, 7.2%, 8.1%, 8.4%, 51%, 51.6%, 100% { opacity: 1; }
+  7%, 8.3% { opacity: 0.45; text-shadow: none; }
+  51.3% { opacity: 0.7; }
+}
+.subtitle {
+  margin: 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--paper-2);
+}
+.head-orn {
+  width: min(520px, 90%);
+  margin: 10px auto 0;
+  display: block;
+  color: var(--neon-amber);
+  filter: drop-shadow(0 0 6px rgba(255, 179, 0, 0.7));
+}
+
+/* ---- stamps ---- */
+.stamps { position: relative; height: 54px; margin-top: 8px; }
+.stamp {
+  position: absolute;
+  top: 0;
+  border: 2.5px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  transform: rotate(-7deg);
+  opacity: 0.85;
+  box-shadow: inset 0 0 8px rgba(179, 39, 30, 0.25);
+  background: rgba(239, 230, 207, 0.12);
+}
+.stamp.s1 { left: 4%; }
+.stamp.s2 { left: 38%; top: 6px; transform: rotate(4deg); }
+.stamp.s3 { right: 5%; transform: rotate(-3deg); }
+@media (max-width: 620px) {
+  .stamps { height: 150px; }
+  .stamp.s2 { top: 56px; left: 6%; }
+  .stamp.s3 { top: 104px; left: 44%; }
+}
+
+/* ---- manual body ---- */
+.manual {
+  max-width: 900px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(28, 26, 20, 0.045) 30px 31px),
+    radial-gradient(120% 100% at 50% 0%, var(--paper) 60%, var(--paper-2) 100%);
+  border: 3px solid var(--ink);
+  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.55);
+  padding: 10px 34px 30px;
+}
+.sec { padding: 22px 6px 8px; border-bottom: 1px dashed rgba(28, 26, 20, 0.4); }
+.sec:last-of-type { border-bottom: none; }
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 6px 0 12px;
+  border-left: 8px solid var(--neon-pink);
+  padding-left: 12px;
+  text-shadow: 1px 1px 0 rgba(255, 47, 160, 0.25);
+}
+.sec-no {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--neon-amber);
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  padding: 2px 9px;
+  margin-right: 10px;
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 rgba(255, 47, 160, 0.8);
+}
+p { margin: 0 0 14px; }
+em { color: #5a2d00; }
+
+a { color: #7a1d5e; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { background: rgba(255, 179, 0, 0.35); color: var(--ink); }
+
+/* ---- documents ---- */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4px 0 16px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.28);
+}
+.doc-table th, .doc-table td {
+  border: 1.5px solid var(--ink);
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-table th {
+  width: 168px;
+  background: var(--olive);
+  color: var(--paper);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 12.5px;
+}
+tr:nth-child(even) td { background: rgba(255, 255, 255, 0.35); }
+
+/* ---- instrument census ---- */
+.census {
+  border: 2px solid var(--ink);
+  background: #17160f;
+  color: var(--neon-cyan);
+  padding: 10px 14px;
+  margin: 6px 0 16px;
+  font-family: "Courier New", monospace;
+  box-shadow: inset 0 0 24px rgba(36, 229, 255, 0.25);
+}
+.census-head {
+  margin: 0 0 6px;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  color: var(--neon-amber);
+}
+.census p:last-child { margin: 0; }
+.census-item {
+  display: inline-block;
+  margin: 2px 14px 2px 0;
+  padding: 2px 8px;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(36, 229, 255, 0.5);
+  animation: census-blink 3.2s infinite;
+}
+.census-item:nth-child(2) { animation-delay: 0.4s; }
+.census-item:nth-child(3) { animation-delay: 0.8s; }
+.census-item:nth-child(4) { animation-delay: 1.2s; }
+.census-item:nth-child(5) { animation-delay: 1.6s; }
+@keyframes census-blink {
+  0%, 70%, 100% { opacity: 1; }
+  78%, 84% { opacity: 0.35; }
+}
+
+/* ---- declaration ledger ---- */
+.declaration-block {
+  border: 2.5px solid var(--ink);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(28, 26, 20, 0.12) 27px 28px),
+    #fbf5e2;
+  padding: 14px 18px 16px;
+  margin: 8px 0 18px;
+  box-shadow: 6px 6px 0 rgba(28, 26, 20, 0.25);
+}
+.decl-head {
+  margin: 0 0 10px;
+  letter-spacing: 0.28em;
+  font-size: 11.5px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px;
+}
+.declaration-block label {
+  display: block;
+  padding: 5px 4px;
+  cursor: pointer;
+}
+.declaration-block label:hover { background: rgba(255, 179, 0, 0.22); }
+.decl {
+  width: 17px; height: 17px;
+  accent-color: var(--neon-pink);
+  margin-right: 10px;
+  transform: translateY(1px);
+}
+.decl-no {
+  display: inline-block;
+  min-width: 44px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+.declaration-block input:checked + .decl-no { color: var(--neon-pink); }
+.declaration-block label:has(input:checked) span:last-child {
+  text-decoration: line-through;
+  text-decoration-color: var(--neon-pink);
+  text-decoration-thickness: 2px;
+}
+
+/* ---- standing order ---- */
+.standing-order {
+  margin: 14px 0 18px;
+  padding: 16px 20px;
+  background: #fffdf3;
+  border: none;
+  border-top: 6px double var(--ink);
+  border-bottom: 6px double var(--ink);
+  position: relative;
+}
+.standing-order p { font-size: 17px; }
+.standing-order p:nth-child(2) {
+  font-family: Georgia, serif;
+  font-size: 19.5px;
+  line-height: 1.55;
+  margin: 4px 0;
+}
+.so-label {
+  margin: 0;
+  letter-spacing: 0.26em;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--stamp-red);
+}
+.so-note {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #55503f;
+  font-style: italic;
+}
+
+/* ---- end mark & colophon ---- */
+.endmark {
+  margin-top: 22px;
+  padding: 12px 14px;
+  background: rgba(74, 74, 46, 0.14);
+  border-left: 4px solid var(--neon-cyan);
+}
+.colophon {
+  max-width: 900px;
+  margin: 26px auto 0;
+  color: var(--paper-2);
+  font-size: 13px;
+  text-align: center;
+}
+.colophon a { color: var(--neon-cyan); }
+.neon-line {
+  margin: 14px 0 6px;
+  letter-spacing: 0.42em;
+  font-size: 15px;
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink), 0 0 30px rgba(255, 47, 160, 0.7);
+  animation: neon-flicker 5.5s infinite 1.2s;
+}
+.rule-line { margin-top: 10px; color: var(--neon-amber); letter-spacing: 1.4em; }
+
+/* ---- progress meter (set by manual.js) ---- */
+.conscience-meter {
+  position: fixed;
+  left: 16px; bottom: 16px;
+  z-index: 5;
+  background: #17160f;
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 18px rgba(36, 229, 255, 0.45);
+  font-family: "Courier New", monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  padding: 8px 12px;
+  min-width: 190px;
+}
+.meter-bar {
+  height: 8px;
+  margin-top: 5px;
+  background: #2a2920;
+  border: 1px solid var(--neon-cyan);
+}
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  transition: width 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-layer, h1, .neon-line, .census-item { animation: none; }
+}
