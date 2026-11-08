@@ -1,0 +1,214 @@
+/* Field Notes, Vol. IV — a naturalist's field book on paper */
+:root {
+  --paper: #f4ecd8;
+  --paper-edge: #e9dec4;
+  --ink: #2c3a52;
+  --ink-soft: #4a5871;
+  --rule: rgba(70, 100, 160, 0.28);
+  --margin-red: rgba(168, 60, 48, 0.5);
+  --stamp: #9c3a2e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #22262c; }
+
+body.page {
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 3.5rem 0.75rem 4rem;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(0,0,0,0.18), transparent 55%),
+    #22262c;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.ruled {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    /* faint ageing blotches */
+    radial-gradient(circle at 82% 12%, rgba(120, 90, 40, 0.10), transparent 18%),
+    radial-gradient(circle at 8% 78%, rgba(120, 90, 40, 0.08), transparent 15%),
+    /* blue ruled lines */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    ),
+    var(--paper);
+  box-shadow:
+    0 0 0 1px var(--paper-edge),
+    0 18px 50px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(120, 90, 40, 0.12);
+  padding: 2.5rem 2.25rem 3rem 3.25rem;
+}
+
+/* red margin line, like a real exercise book */
+.ruled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.35rem;
+  width: 1px;
+  background: var(--margin-red);
+}
+
+/* punch-hole margin */
+.ruled::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.7rem;
+  width: 1.1rem;
+  background:
+    radial-gradient(circle at 0.55rem 6rem, #22262c 0 0.34rem, transparent 0.4rem),
+    radial-gradient(circle at 0.55rem 42%, #22262c 0 0.34rem, transparent 0.4rem),
+    radial-gradient(circle at 0.55rem calc(100% - 6rem), #22262c 0 0.34rem, transparent 0.4rem);
+}
+
+.masthead {
+  position: relative;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.survey-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--ink-soft);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+}
+
+h1 em { font-style: italic; }
+h1 small {
+  display: block;
+  font-size: 0.9rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+}
+
+.subhead {
+  margin: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.stamp {
+  position: absolute;
+  right: 0.25rem;
+  top: 1.6rem;
+  width: 6.2rem;
+  height: 6.2rem;
+  border: 2px solid var(--stamp);
+  outline: 1px solid var(--stamp);
+  outline-offset: -6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  color: var(--stamp);
+  transform: rotate(-14deg);
+  opacity: 0.75;
+  mix-blend-mode: multiply;
+  user-select: none;
+}
+
+.data-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0 1.25rem;
+  margin: 0 0 1.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+}
+.data-strip div {
+  border: 1px solid var(--ink-soft);
+  background: rgba(255, 252, 240, 0.5);
+  padding: 0.45rem 0.6rem 0.55rem;
+}
+.data-strip dt {
+  margin: 0 0 0.25rem;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.data-strip dd { margin: 0; }
+
+.entry { margin-bottom: 1.7rem; }
+
+.entry h2 {
+  font-size: 1.02rem;
+  margin: 0.2rem 0 0.45rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.entry-date {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--stamp);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.entry p {
+  margin: 0 0 0.9rem;
+  line-height: 32px;
+  font-size: 1rem;
+}
+
+.entry a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(156, 58, 46, 0.7);
+  text-underline-offset: 3px;
+}
+.entry a:hover { color: var(--stamp); }
+
+.colophon {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 1px dotted var(--ink-soft);
+  padding-top: 0.6rem;
+}
+
+@media (max-width: 40rem) {
+  .ruled { padding: 2rem 1.25rem 2.5rem 2.75rem; }
+  .ruled::before { left: 1.9rem; }
+  .stamp { position: static; margin: 1rem auto 0; transform: rotate(-8deg); }
+}
