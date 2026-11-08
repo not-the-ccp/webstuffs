@@ -1,0 +1,223 @@
+/* Minutes of the Matchnight & Trophy Business Committee — official document dress */
+
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #e9dcc0;
+  --ink: #26201a;
+  --ink-soft: #5a5044;
+  --robins-red: #c8102e;
+  --robins-dark: #7e0b1e;
+  --rule: #b9a678;
+  --navy: #1f2a44;
+}
+
+* { box-sizing: border-box; }
+
+html { background:
+  radial-gradient(120% 90% at 50% 0%, #33405f 0%, #222c46 55%, #161d33 100%);
+}
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.62;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #caa96a;
+  outline: 3px double #8a6f3c;
+  outline-offset: 6px;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.55),
+    inset 0 0 60px rgba(138,111,60,.18);
+  padding: 3rem 3.25rem 2.5rem;
+  position: relative;
+}
+
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  left: 1rem; right: 1rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--robins-red), transparent);
+  opacity: .55;
+}
+.paper::before { top: .6rem; }
+.paper::after  { bottom: .6rem; }
+
+/* Letterhead */
+.letterhead { text-align: center; position: relative; margin-bottom: 1.75rem; }
+
+.lh-place {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+
+.letterhead h1 {
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin: 0 0 .9rem;
+  border-top: 3px double var(--robins-dark);
+  border-bottom: 1px solid var(--robins-dark);
+  padding: .8rem 0;
+}
+
+.lh-club {
+  font-size: .78rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--robins-dark);
+  margin: 0;
+}
+
+.lh-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .25rem 1.5rem;
+  margin: 1.1rem 0 0;
+  font-size: .82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* Wax seal */
+.seal {
+  width: 64px; height: 64px;
+  margin: 1.4rem auto 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #f6e3d4;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  font-family: "Courier New", monospace;
+  background:
+    radial-gradient(circle at 32% 28%, #e0506a 0%, var(--robins-red) 42%, var(--robins-dark) 100%);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.35),
+    inset 0 0 0 3px rgba(255,255,255,.14),
+    inset 0 0 0 7px rgba(0,0,0,.12);
+  animation: seal-settle 1.2s ease-out both;
+}
+@keyframes seal-settle {
+  0%   { transform: scale(1.7) rotate(-18deg); opacity: 0; }
+  70%  { transform: scale(.96) rotate(3deg);  opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* Attendance table */
+.attendance h2, .item h2.item-head {
+  font-size: .82rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--robins-dark);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .35rem;
+  margin: 1.9rem 0 .8rem;
+}
+
+.attendance table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+.attendance td { padding: .28rem 0; vertical-align: baseline; }
+.attendance td.dot {
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--rule);
+  user-select: none;
+}
+.attendance td:first-child { width: 22%; }
+
+.apologies-line {
+  font-size: .88rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: .6rem;
+}
+
+/* Items */
+.item p { margin: 0 0 1rem; text-align: justify; hyphens: auto; }
+
+.item a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--robins-red);
+  text-underline-offset: 3px;
+}
+.item a:hover { color: var(--robins-red); }
+
+/* Motion block */
+.moved {
+  border-left: 4px solid var(--robins-red);
+  background: rgba(200,16,46,.06);
+  padding: .8rem 1.1rem;
+  font-style: italic;
+}
+
+.vote { font-size: .95rem; }
+
+.stamp {
+  display: inline-block;
+  margin: .4rem 0 .2rem;
+  padding: .3rem 1rem;
+  border: 3px double var(--robins-red);
+  border-radius: 4px;
+  color: var(--robins-red);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .18em;
+  transform: rotate(-4deg);
+  opacity: .92;
+  mix-blend-mode: multiply;
+}
+
+/* Stamp animation (JS adds .stamped) */
+.stamp.stamped { animation: stamp-press .5s cubic-bezier(.2,1.6,.4,1) both; }
+@keyframes stamp-press {
+  0%   { transform: rotate(-14deg) scale(2.6); opacity: 0; }
+  60%  { transform: rotate(-4deg) scale(.94);  opacity: 1; }
+  100% { transform: rotate(-4deg) scale(1); }
+}
+
+/* Signatures */
+.signatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+}
+.sig { flex: 1 1 12rem; min-width: 11rem; }
+.sig-line {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: .8rem;
+  color: var(--ink-soft);
+}
+.sig-name { margin: .5rem 0 0; font-weight: 700; font-size: .95rem; }
+.sig-role { margin: 0; font-size: .8rem; font-style: italic; color: var(--ink-soft); }
+.sig-note { flex: 0 1 14rem; }
+
+@media (max-width: 620px) {
+  .paper { padding: 2rem 1.25rem 1.75rem; outline-offset: 3px; }
+  .letterhead h1 { font-size: 1.25rem; }
+  .item p { text-align: left; }
+}
