@@ -1,0 +1,301 @@
+/* Chapter IX — On the Proper Queue in a Small Island Republic
+   The Windward Press · Castries Edition, 7th Impression
+   Colours: maroon #6e1423 · gold #f0c33c · green #0b4f4a · limestone #f4ead0 */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap');
+
+:root {
+  --maroon: #6e1423;
+  --maroon-deep: #4a0c17;
+  --gold: #f0c33c;
+  --gold-soft: #f7dc8a;
+  --green: #0b4f4a;
+  --green-deep: #073029;
+  --limestone: #f4ead0;
+  --limestone-dim: #e9dcb8;
+  --ink: #241a12;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--green-deep); }
+
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(240, 195, 60, 0.32), transparent 62%),
+    radial-gradient(ellipse 70% 45% at 85% 110%, rgba(11, 79, 74, 0.9), transparent 70%),
+    radial-gradient(ellipse 70% 45% at 12% 108%, rgba(110, 20, 35, 0.55), transparent 70%),
+    linear-gradient(178deg, #0e6a63 0%, #0b4f4a 34%, #093a35 68%, #052019 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: clamp(14px, 3vw, 44px) 12px 90px;
+}
+
+.leaf {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, rgba(110, 20, 35, 0.035) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(90deg, rgba(11, 79, 74, 0.03) 0 2px, transparent 2px 26px),
+    linear-gradient(165deg, var(--limestone) 0%, #efe0bd 45%, var(--limestone-dim) 100%);
+  border: 3px double var(--maroon);
+  outline: 1px solid rgba(240, 195, 60, 0.7);
+  outline-offset: -9px;
+  box-shadow:
+    0 0 0 12px rgba(5, 32, 25, 0.55),
+    0 34px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 90px rgba(110, 20, 35, 0.14);
+}
+
+.leaf::before,
+.leaf::after {
+  content: "❧";
+  position: absolute;
+  font-size: 30px;
+  color: var(--maroon);
+  opacity: 0.75;
+  animation: turn 7s ease-in-out infinite alternate;
+}
+.leaf::before { top: 12px; left: 14px; }
+.leaf::after  { bottom: 12px; right: 14px; animation-delay: 3.5s; }
+@keyframes turn {
+  from { transform: rotate(-8deg); }
+  to   { transform: rotate(8deg); }
+}
+
+/* The flag rail: maroon, gold, green — in that order, and nowhere else */
+.flag-rail {
+  display: flex;
+  height: 12px;
+  border-bottom: 2px solid var(--maroon-deep);
+  position: relative;
+  overflow: hidden;
+}
+.flag-rail span { flex: 1; }
+.flag-rail span:nth-child(1) { background: linear-gradient(90deg, var(--maroon-deep), var(--maroon)); }
+.flag-rail span:nth-child(2) { background: linear-gradient(90deg, var(--gold), var(--gold-soft)); }
+.flag-rail span:nth-child(3) { background: linear-gradient(90deg, var(--green), #0e6a63); }
+.flag-rail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.5) 50%, transparent 58%);
+  animation: sheen 6s linear infinite;
+}
+@keyframes sheen {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.chapter-head {
+  text-align: center;
+  padding: 34px 28px 10px;
+  border-bottom: 1px solid rgba(110, 20, 35, 0.4);
+  position: relative;
+}
+.imprint {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 14px;
+}
+.pitons { margin: 0 auto 10px; max-width: 240px; }
+.pitons svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 3px 3px rgba(7, 48, 41, 0.35)); }
+
+h1 {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  color: var(--maroon);
+  margin: 6px 0 2px;
+  letter-spacing: 0.14em;
+}
+.chapter-title {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  line-height: 1.12;
+  color: var(--green-deep);
+  margin: 0 0 8px;
+}
+.chapter-title::first-letter {
+  font-size: 1.5em;
+  color: var(--maroon);
+}
+.rule {
+  font-style: italic;
+  font-family: 'IM Fell English', Georgia, serif;
+  color: var(--maroon);
+  opacity: 0.85;
+  margin: 4px 0 18px;
+}
+
+.chapter-body { padding: 10px clamp(18px, 5vw, 48px) 26px; }
+
+.article { margin: 30px 0; }
+.article h3 {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+.article h3 .num {
+  color: var(--maroon);
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+.article p {
+  font-size: 1.12rem;
+  line-height: 1.68;
+  margin: 0 0 14px;
+}
+.article p:first-of-type::first-letter {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 3.1em;
+  line-height: 0.82;
+  float: left;
+  padding: 4px 8px 0 0;
+  color: var(--maroon);
+}
+.article a {
+  color: var(--maroon);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--maroon);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.article a:hover { background: var(--gold-soft); color: var(--maroon-deep); }
+
+/* The chalk-line entry */
+.entry {
+  margin: 40px auto;
+  max-width: 640px;
+  padding: 22px 26px 18px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(240, 195, 60, 0.28), transparent 70%),
+    var(--green-deep);
+  border: 2px solid var(--gold);
+  box-shadow:
+    0 0 0 6px rgba(7, 48, 41, 0.6),
+    0 0 34px rgba(240, 195, 60, 0.28),
+    inset 0 0 44px rgba(0, 0, 0, 0.5);
+  transform: rotate(-0.5deg);
+  animation: settle 0.9s ease-out both;
+}
+@keyframes settle {
+  from { transform: rotate(2deg) translateY(10px); opacity: 0; }
+  to   { transform: rotate(-0.5deg) translateY(0); opacity: 1; }
+}
+.entry-cap {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 0 0 12px;
+}
+.entry-text {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 3.4vw, 1.7rem);
+  line-height: 1.4;
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(240, 195, 60, 0.45);
+  margin: 0 0 14px;
+  border-top: 1px dashed rgba(240, 195, 60, 0.5);
+  border-bottom: 1px dashed rgba(240, 195, 60, 0.5);
+  padding: 12px 4px;
+}
+.entry-note {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--limestone);
+  margin: 0;
+  text-align: left;
+}
+
+.chapter-foot {
+  text-align: center;
+  padding: 22px 26px 30px;
+  border-top: 1px solid rgba(110, 20, 35, 0.4);
+}
+.chalk {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  color: var(--maroon);
+  margin: 0 0 10px;
+}
+.tiny {
+  font-size: 0.82rem;
+  color: var(--green);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* The queue, built up one dot at a time */
+.queue {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 9px;
+  padding: 9px 16px;
+  max-width: min(92vw, 720px);
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(7, 48, 41, 0.88);
+  border: 1px solid var(--gold);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+.queue .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, var(--gold-soft), var(--gold) 55%, #b8860b);
+  box-shadow: 0 0 8px rgba(240, 195, 60, 0.7);
+  animation: step 0.5s ease-out both;
+}
+.queue .dot.front {
+  background: radial-gradient(circle at 32% 30%, #ffd9da, var(--maroon) 60%, var(--maroon-deep));
+  box-shadow: 0 0 10px rgba(220, 90, 110, 0.8);
+}
+@keyframes step {
+  from { transform: translateY(14px) scale(0.3); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.join {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--maroon-deep);
+  border: 1px solid var(--gold);
+  padding: 10px 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.join:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55), 0 0 18px rgba(240, 195, 60, 0.35);
+}
+.join:active { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flag-rail::after, .leaf::before, .leaf::after, .entry, .queue .dot { animation: none; }
+}
