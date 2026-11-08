@@ -1,0 +1,331 @@
+/* Apparicine — MG-1988-19 · gatefold liner notes */
+
+:root {
+  --bark: #2b1d12;
+  --bark-deep: #17100a;
+  --copper: #b06a2e;
+  --copper-bright: #e0954b;
+  --leaf: #4c6b3c;
+  --leaf-pale: #9db07f;
+  --paper: #f2e4c9;
+  --paper-dim: #e6d3ae;
+  --river: #3f6f7a;
+  --river-deep: #22434c;
+  --ink: #241a10;
+  --ring: 64px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(224, 149, 75, 0.28), transparent 60%),
+    radial-gradient(ellipse 90% 60% at 15% 110%, rgba(63, 111, 122, 0.25), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(176, 106, 46, 0.05) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(-45deg, rgba(43, 29, 18, 0.06) 0 2px, transparent 2px 18px),
+    linear-gradient(180deg, var(--bark) 0%, var(--bark-deep) 100%);
+  background-attachment: fixed;
+}
+
+.fold {
+  max-width: 980px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+/* ---------- cover ---------- */
+
+.cover {
+  position: relative;
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
+  color: var(--paper);
+  border: 3px double var(--copper);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(157, 176, 127, 0.16), transparent 55%),
+    linear-gradient(160deg, #3a2817 0%, #241708 55%, #120b05 100%);
+  box-shadow:
+    0 0 0 1px rgba(224, 149, 75, 0.35),
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 80px rgba(0, 0, 0, 0.6);
+}
+
+.cover::before,
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(224, 149, 75, 0.4);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.cover::after { inset: 16px; border-style: dashed; border-color: rgba(157, 176, 127, 0.35); }
+
+.spindle {
+  width: var(--ring);
+  height: var(--ring);
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--paper) 0 12%, #6b4a26 13% 30%, #2c1c0e 31% 100%);
+  box-shadow: 0 0 0 6px #100a04, 0 0 24px rgba(224, 149, 75, 0.35);
+  position: relative;
+  animation: spin 14s linear infinite;
+}
+.label-disc {
+  position: absolute;
+  inset: 26%;
+  display: grid;
+  place-items: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--bark-deep);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.cat {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--copper-bright);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.6), 0 0 40px rgba(224, 149, 75, 0.35);
+}
+
+.artist {
+  margin: 0.75rem 0 0.25rem;
+  font-style: italic;
+  color: var(--leaf-pale);
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: rgba(242, 228, 201, 0.6);
+  text-transform: uppercase;
+}
+
+/* ---------- leaf ornament ---------- */
+
+.leaf-leaf {
+  position: absolute;
+  top: 90px;
+  left: -30px;
+  width: 130px;
+  height: 130px;
+  opacity: 0.28;
+  transform: rotate(-24deg);
+  animation: leaf-sway 9s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.leaf-leaf path { fill: none; stroke: var(--leaf-pale); stroke-width: 2; }
+.leaf-leaf .vein { stroke-width: 1.2; opacity: 0.8; }
+@keyframes leaf-sway {
+  from { transform: rotate(-24deg) translateY(0); }
+  to   { transform: rotate(-18deg) translateY(10px); }
+}
+
+/* ---------- gatefold ---------- */
+
+.gatefold {
+  margin-top: 2rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 29, 18, 0.035) 0 1px, transparent 1px 28px),
+    radial-gradient(ellipse 120% 50% at 100% 0%, rgba(176, 106, 46, 0.14), transparent 55%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+  border: 1px solid var(--copper);
+  border-radius: 4px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), inset 0 0 60px rgba(176, 106, 46, 0.1);
+  padding: 2.5rem 2.75rem 2rem;
+  position: relative;
+}
+
+.gatefold::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 2px dashed rgba(176, 106, 46, 0.35);
+}
+
+@media (max-width: 720px) {
+  .gatefold::before { display: none; }
+  .gatefold { padding: 1.75rem 1.25rem; }
+}
+
+h2 {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+  color: var(--copper);
+  border-bottom: 2px solid var(--copper);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.notes p { margin: 0 0 1.1rem; }
+
+.drop {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.8;
+  padding: 0.08em 0.15em 0 0;
+  color: var(--leaf);
+  font-weight: bold;
+}
+
+strong { color: var(--river-deep); letter-spacing: 0.02em; }
+
+.fragment {
+  font-family: "Courier New", monospace;
+  font-size: 0.88em;
+  background: rgba(224, 149, 75, 0.18);
+  border-left: 3px solid var(--copper);
+  padding: 0.15em 0.45em;
+  display: inline;
+  color: var(--bark-deep);
+}
+
+/* ---------- tracklist ---------- */
+
+.tracklist { margin-top: 2.25rem; }
+
+.tracks {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  counter-reset: none;
+}
+
+.tracks li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px dotted rgba(43, 29, 18, 0.35);
+}
+
+.tracks li:hover {
+  background: linear-gradient(90deg, rgba(157, 176, 127, 0.25), transparent 70%);
+}
+
+.no {
+  font-family: "Courier New", monospace;
+  color: var(--copper);
+  width: 1.6em;
+  flex: none;
+}
+
+.t { flex: 1; }
+
+.time {
+  font-family: "Courier New", monospace;
+  font-size: 0.85em;
+  color: var(--river);
+}
+
+.now {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--river-deep);
+  font-size: 0.92em;
+}
+
+/* ---------- credits ---------- */
+
+.credits { margin-top: 2.25rem; }
+
+.credits dl { margin: 0; }
+
+.credits dt {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  color: var(--copper);
+  margin-top: 1rem;
+}
+
+.credits dd {
+  margin: 0.3rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(76, 107, 60, 0.4);
+}
+
+a {
+  color: var(--river-deep);
+  text-decoration-color: var(--copper);
+  text-underline-offset: 3px;
+}
+
+a:hover { background: rgba(224, 149, 75, 0.25); }
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 3px double var(--copper);
+  text-align: center;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(36, 26, 16, 0.75);
+}
+
+/* ---------- gauge widget ---------- */
+
+.gauge {
+  margin: 1.5rem auto 0;
+  max-width: 420px;
+  text-align: center;
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+}
+
+.gauge-label { display: block; margin-bottom: 0.5rem; color: var(--copper-bright); }
+
+.gauge-track {
+  height: 10px;
+  border: 1px solid var(--copper);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.gauge-fill {
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, var(--river-deep), var(--river), var(--copper-bright));
+  transition: width 2.4s ease-in-out;
+}
+
+.gauge-read {
+  display: block;
+  margin-top: 0.5rem;
+  letter-spacing: 0.12em;
+  color: rgba(242, 228, 201, 0.7);
+}
