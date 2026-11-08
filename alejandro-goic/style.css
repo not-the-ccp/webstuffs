@@ -1,0 +1,175 @@
+/* The Dreamer's Glossary — Vol. II, Entry 47 */
+:root {
+  --ink: #1b1f3a;
+  --paper: #f2ead8;
+  --paper-deep: #e6d9bc;
+  --indigo: #2c2f5e;
+  --violet: #5a4a8a;
+  --gilt: #b08d3e;
+  --gilt-bright: #d9b566;
+  --slate: #6b7290;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(90, 74, 138, 0.35), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(43, 47, 94, 0.5), transparent 60%),
+    linear-gradient(160deg, #14162e 0%, #1e2140 45%, #23264c 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  min-height: 100vh;
+  padding: 3rem 1rem 4rem;
+}
+
+/* drifting stars */
+.stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.star {
+  position: absolute;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gilt-bright);
+  opacity: 0.5;
+  animation: drift 9s ease-in-out infinite alternate;
+}
+.s1 { top: 12%; left: 8%; }
+.s2 { top: 28%; left: 88%; animation-delay: -2s; }
+.s3 { top: 64%; left: 5%; animation-delay: -4s; }
+.s4 { top: 80%; left: 92%; animation-delay: -6s; }
+.s5 { top: 46%; left: 4%; animation-delay: -3s; }
+.s6 { top: 8%; left: 60%; animation-delay: -5s; }
+@keyframes drift {
+  from { transform: translateY(0) scale(1); opacity: 0.25; }
+  to   { transform: translateY(-22px) scale(1.4); opacity: 0.8; }
+}
+
+.entry {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 12%),
+    var(--paper);
+  border: 1px solid var(--gilt);
+  outline: 3px double var(--gilt);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 90px rgba(176, 141, 62, 0.14);
+  padding: 3rem 3rem 2.2rem;
+}
+
+.plate { text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 1.4rem; }
+
+.book {
+  margin: 0 0 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--violet);
+  font-weight: bold;
+}
+
+h1.word {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 2.7rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  color: var(--indigo);
+}
+
+.pronun {
+  margin: 0;
+  font-style: italic;
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
+.flourish {
+  margin-top: 0.7rem;
+  color: var(--gilt);
+  font-size: 1.1rem;
+  letter-spacing: 0.6em;
+}
+
+.def p { line-height: 1.72; font-size: 1.03rem; }
+.defline .num {
+  display: inline-block;
+  min-width: 1.5em;
+  font-weight: bold;
+  color: var(--violet);
+}
+
+em { color: var(--indigo); }
+strong { color: var(--ink); }
+
+a {
+  color: var(--violet);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gilt);
+  transition: background 0.2s, color 0.2s;
+}
+a:hover { background: var(--gilt-bright); color: var(--indigo); }
+
+.margin {
+  margin: 1.8rem 0 0;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper));
+  border-left: 4px solid var(--gilt);
+  font-size: 0.9rem;
+  color: var(--slate);
+  line-height: 1.6;
+}
+.margin h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+.seal {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--violet);
+  border-radius: 50%;
+  transform: rotate(-4deg);
+  font-style: italic;
+  color: var(--violet);
+  font-size: 0.78rem;
+}
+
+.cross { margin-top: 1.8rem; border-top: 1px dashed var(--slate); padding-top: 1.2rem; font-size: 0.98rem; }
+.cross-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gilt);
+  font-weight: bold;
+}
+
+.colophon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 2.2rem;
+  color: var(--gilt-bright);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 560px) {
+  body { padding: 1.2rem 0.6rem 2.5rem; }
+  .entry { padding: 1.8rem 1.2rem 1.4rem; outline-offset: 3px; }
+  h1.word { font-size: 2rem; }
+}
