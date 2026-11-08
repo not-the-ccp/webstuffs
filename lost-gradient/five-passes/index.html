@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five Passes — Liner Notes, DSR-0007 · Corvina Basement Sessions</title>
+<meta name="description" content="Liner notes to Five Passes, the Corvina basement sessions on Division Street Records: a single source vertex, five passes over a six-stop graph, a house that should not be on the route, and a comma that will not move.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sleeve">
+  <div class="inner-frame"></div>
+
+  <header class="sleeve-head">
+    <p class="kicker">Division Street Records &middot; DSR-0007 &middot; 33&frac13; rpm &middot; cut at the Burnside Street stop</p>
+    <h1>Five <span class="minus">&minus;</span> One</h1>
+    <p class="sub">The Corvina Basement Sessions &mdash; one source vertex, five passes, and a comma that will not move</p>
+    <p class="stock">Cream stock &middot; gatefold &middot; the record inside spins slower than it looks</p>
+  </header>
+
+  <div class="disc" aria-hidden="true">
+    <div class="disc-grooves"></div>
+    <div class="disc-label"><span>V &minus; 1</span></div>
+    <div class="disc-hole"></div>
+  </div>
+
+  <section class="notes" id="on-the-record">
+    <h2>On the record</h2>
+    <p>What you are hearing on this disc is not music in the way the cooperative's electric bill understands the word. It is a computation. For eleven minutes and forty seconds &mdash; the run time of pass five, the last pass that is allowed to change anything &mdash; the basement at 3400 N. Willamette did the work the algorithm is named for, and the tape rolling in the boiler room picked it up. The algorithm in question is the old workhorse: it computes shortest paths from a single source vertex to every other vertex in a weighted digraph, and it does so one pass at a time, revisiting every edge and relaxing whatever distance it can. It is slower than Dijkstra's method on the same problem, and it has never once been faster. What it can do that Dijkstra cannot is walk through negative edge weights &mdash; roads that run downhill in the wrong direction, fares that go backwards &mdash; and it tells you, at the end, whether you have been tricked by a cycle that gives you money for circling it forever.</p>
+    <p>The recording is titled <em>Five Passes</em> because the graph we ran it on has six stops: the Corvina Loop &mdash; Couch Park, the Pittock Block, the Montgomery Ward mail-order house, the tower room, this basement, Wallace Park &mdash; and a graph of six vertices gets <em>V &minus; 1</em> passes, which is five. Any more and the algorithm is no longer working, it is simply walking in circles, which is what Dale does at 3 a.m. when the server hums.</p>
+  </section>
+
+  <section class="notes side">
+    <h2>Side A</h2>
+    <ol class="tracks">
+      <li class="track"><span class="no">A1</span><span class="title">The Source (Burnside Street Stop)</span><span class="len">0:00</span><p>Every shortest-path problem begins with an admission: the distance from the source to itself is zero. That is all this track is. A click, a flat announcement, and the meter at zero. Keep the receipt.</p></li>
+      <li class="track"><span class="no">A2</span><span class="title">Relaxation (Take &minus;3)</span><span class="len">2:41</span><p>The core move, heard at full volume: if a distance can be improved by going through a nearer neighbour, replace it. Take &minus;3 is the detour with the negative weight &mdash; a rebate leg on the Loop, &minus;0.75 on the fare card, the kind of edge Dijkstra's method would refuse to look at. The model does not refuse. The model relaxes.</p></li>
+      <li class="track"><span class="no">A3</span><span class="title">The House on the Hill (Docent's Mix)</span><span class="len">4:02</span><p>The one track we were told not to release. It is the walking tour &mdash; the brick hill, the old carriage house, the 1891 bay windows &mdash; ingested by accident from a scanned pamphlet and recited in the tone of a docent who has told the story a thousand times and begun to enjoy it. The edit that followed is documented in <a href="../../machine-unlearning/">the editor's letter on machine unlearning</a>; the facts remained, the offer did not. What is left on the tape is the offer itself, still warm.</p></li>
+    </ol>
+  </section>
+
+  <section class="notes side">
+    <h2>Side B</h2>
+    <ol class="tracks">
+      <li class="track"><span class="no">B1</span><span class="title">Pass Five: No Improvement</span><span class="len">3:28</span><p>The quietest cut. On the fifth &mdash; the last permitted &mdash; pass, nothing changes. No distance shortens, no stop is reached by a nearer way, and the tape simply runs out of business. It is the proof, heard: if a pass can make no improvement, no path with more than five legs exists that any number of further passes would find. Silence, on this disc, is a theorem.</p></li>
+      <li class="track"><span class="no">B2</span><span class="title">Negative Cycle (Live, Boiler Room)</span><span class="len">1:59</span><p>Engineered by Dale, who compares the server's hum to a cat in the boiler room and is, on this side, both the engineer and the cat. A negative cycle is a loop whose total weight is less than zero &mdash; a circuit that makes you poorer the less you do, or richer the more you circle &mdash; and the algorithm's final duty is to say which one you are holding. If a sixth pass would change a distance, the graph is confessing. This one does not. It purrs.</p></li>
+      <li class="track hidden"><span class="no">&frac12;</span><span class="title">Shimbel (1955), hidden</span><span class="len">0:07</span><p>Etched in the runout, for those who let the needle play: a seven-second nod to Alfonso Shimbel, who proposed the algorithm in 1955, a year before Lester Ford Jr. published his version in 1956 and three years before Richard Bellman's &mdash; and four years before Edward F. Moore's variation earned the method its longer, truer name, Bellman&ndash;Ford&ndash;Moore. The industry credited the other two; the groove remembers the first. (Shimbel, it should be noted, was a mathematician at the University of S&atilde;o Paulo; the needle was let play by someone who knew.)</p></li>
+    </ol>
+  </section>
+
+  <section class="notes">
+    <h2>Notes from the label</h2>
+    <p>These notes were compiled in the basement office, extension 114, by Petra L. Vance, Data Stewardship Officer, whose hand you will recognize from <a href="../">Notice 4172, the lost-and-found board at the desk upstairs</a>, where she is also the reward for anyone who finds a first-order optimizer stepping in the direction of steepest descent at a learning rate of roughly 0.01. Her closing note was dictated, not typed, and is reproduced below exactly as it was received &mdash; the comma has been left where it landed, on the theory that some punctuation, like some facts, is filed by resemblance rather than by address, and moves only when unlearned:</p>
+    <blockquote class="vance">And I write because last month Corvina began, unprompted, reciting a walking tour , Northwest Portland.</blockquote>
+    <p>The tour is the one the register misfiled under a California safety data sheet, and the walking she heard it recite is the six-stop route Dale has logged on foot in <a href="../../machine-unlearning/corvina-loop/">the Corvina Loop route card</a>, first stop Couch Park, last stop the basement. We keep our own receipt for the deletion &mdash; 412 lines, dated 16 April, referencing &ldquo;the house on the hill&rdquo; &mdash; with the rest of the cooperative's paper. So does the desk, which also keeps a folded slip in blue ink reading <em>Lunch was chicken and rice in the eighty-ninth.</em> We do not know what the eighty-ninth is. A minute, a page, a room. It is pinned in the sleeve of every first-pressing copy, and it is the closest this label comes to a production credit.</p>
+  </section>
+
+  <footer class="credits">
+    <p class="credit-rule"></p>
+    <p><strong>Personnel.</strong> Computed on the bookcase-sized server, Basement 2, Division Street. Engineered by Dale, night porter. Announcements in the flat service voice of <em>Corvina</em>, Willamette Basin Transit Cooperative. Coffee, lukewarm, from the coaches' room machine at AAMI Park, which appears on the same terms in <a href="../../mile-jedinak/">an assistant coach's diary, 2023&ndash;24</a>, where the eighty-ninth minute is already a landmark. Master cut for cream stock at 33&frac13;. The sleeve prints on the same press that does the fare cards; the ink is the same blue as the slip.</p>
+    <p><strong>Reprints.</strong> Division Street Records keeps the master, the receipt, and the hazard register. Return this copy, if you must, to <a href="../">the lost-and-found desk, Notice 4172</a>, or walk it out the Division Street door &mdash; some records are unclaimed because the thing they describe has already walked out on its own feet. <a href="../../">Webstuffs</a> carries the shelf.</p>
+  </footer>
+</div>
+<script src="sleeve.js"></script>
+</body>
+</html>

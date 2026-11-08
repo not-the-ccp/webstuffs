@@ -1,0 +1,220 @@
+/* Five Passes — gatefold liner notes, Division Street Records DSR-0007 */
+:root {
+  --paper: #f2e9d4;
+  --paper-deep: #e9ddc0;
+  --ink: #20242c;
+  --faded: #5d5a4e;
+  --oxblood: #8a2f2b;
+  --brass: #b08a3c;
+  --vinyl: #17181c;
+  --groove: rgba(255, 255, 255, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #1c2530 0%, #12161c 60%, #0c0e12 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 2.5rem 1rem 4rem;
+  line-height: 1.6;
+}
+
+.sleeve {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(32,36,44,0.025) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #c9b98f;
+  box-shadow:
+    0 0 0 6px rgba(23,24,28,0.85),
+    0 24px 60px rgba(0,0,0,0.55);
+  padding: 2.4rem 2.2rem 2rem;
+}
+
+.inner-frame {
+  position: absolute;
+  inset: 0.7rem;
+  border: 1px solid rgba(138,47,43,0.55);
+  pointer-events: none;
+}
+.inner-frame::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(176,138,60,0.5);
+}
+
+.sleeve-head {
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 8vw, 4.2rem);
+  margin: 0;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+h1 .minus { color: var(--oxblood); font-style: italic; }
+
+.sub {
+  margin: 0.4rem 0 0.15rem;
+  font-style: italic;
+  color: var(--faded);
+}
+.stock {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+/* The record */
+.disc {
+  position: relative;
+  width: 13rem;
+  height: 13rem;
+  margin: 1.8rem auto 2.2rem;
+  border-radius: 50%;
+  background: var(--vinyl);
+  box-shadow: inset 0 0 22px rgba(0,0,0,0.9), 0 10px 26px rgba(0,0,0,0.45);
+}
+.disc-grooves {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle at 50% 50%,
+    var(--groove) 0 1px, transparent 1px 7px);
+  animation: spin 14s linear infinite;
+}
+.disc-label {
+  position: absolute;
+  inset: 31%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a03c37 0%, var(--oxblood) 55%, #6d2320 100%);
+  display: grid;
+  place-items: center;
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  box-shadow: inset 0 0 0 2px rgba(242,233,212,0.25);
+}
+.disc-hole {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0.55rem; height: 0.55rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #0c0e12;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Prose */
+.notes h2 {
+  font-size: 0.95rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 1px solid rgba(138,47,43,0.4);
+  padding-bottom: 0.35rem;
+  margin: 2.2rem 0 1rem;
+}
+.notes p { margin: 0 0 1rem; font-size: 1.02rem; }
+a { color: var(--oxblood); }
+a:hover { color: var(--brass); }
+
+.vance {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem 1rem 1.6rem;
+  border-left: 4px solid var(--oxblood);
+  background: rgba(138,47,43,0.06);
+  font-style: italic;
+  font-size: 1.08rem;
+  quotes: "\201C" "\201D";
+}
+.vance::after {
+  content: ",";
+  display: inline-block;
+  font-size: 1.6em;
+  line-height: 0;
+  margin-left: 0.2em;
+  transform: translateY(-0.25em);
+  color: var(--brass);
+  animation: drift 7s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from { transform: translateY(-0.25em) translateX(0); }
+  to   { transform: translateY(-0.45em) translateX(0.35em); }
+}
+
+/* Track listings */
+ol.tracks { list-style: none; margin: 0 0 0.5rem; padding: 0; }
+li.track {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr 3.4rem;
+  gap: 0.1rem 0.8rem;
+  align-items: baseline;
+  padding: 0.85rem 0.2rem;
+  border-bottom: 1px dotted rgba(32,36,44,0.35);
+}
+li.track p {
+  grid-column: 2 / 4;
+  font-size: 0.92rem;
+  color: var(--faded);
+  margin: 0.25rem 0 0;
+}
+li.track .no {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--oxblood);
+  letter-spacing: 0.08em;
+}
+li.track .title { font-weight: 700; font-size: 1rem; }
+li.track .len {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  text-align: right;
+  color: var(--faded);
+}
+li.hidden { border-bottom-style: dashed; opacity: 0.85; }
+li.hidden .title { font-style: italic; }
+
+li.track.playing { background: rgba(176,138,60,0.14); }
+li.track.playing .no::after { content: " \25B6"; font-size: 0.7em; }
+
+.credits {
+  margin-top: 2.4rem;
+  font-size: 0.88rem;
+  color: var(--faded);
+}
+.credits p { margin: 0.6rem 0; }
+.credit-rule {
+  margin: 0 0 1rem;
+  height: 5px;
+  border-top: 2px solid var(--oxblood);
+  border-bottom: 1px solid var(--brass);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disc-grooves, .vance::after { animation: none; }
+}
