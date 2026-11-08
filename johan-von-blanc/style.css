@@ -1,0 +1,162 @@
+/* Johan von Blanc (1738&ndash;1796) &mdash; Obituary
+   Mourning sheet: black paper, brass rules, Georgia serif, candle flicker. */
+
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 2.5vh 1rem;
+  background: #0b0907;
+  color: #e7e2d4;
+  font-family: Georgia, "Times New Roman", Times, "FreeSerif", serif;
+  line-height: 1.7;
+}
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.75rem 2.5rem 3rem;
+  border: 1px solid #3c3224;
+  border-top: 5px solid #7a5f2f;
+  background: linear-gradient(180deg, #19140e 0%, #0f0c09 55%, #0a0806 100%);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.75);
+}
+header.obit-header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #3c3224;
+  margin-bottom: 2rem;
+  position: relative;
+}
+header.obit-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 200px;
+  margin-left: -100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8a7344 30%, #8a7344 70%, transparent);
+}
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #efe9d8;
+  text-shadow: 0 2px 0 #000;
+  display: inline-block;
+}
+.candle {
+  display: inline-block;
+  width: 6px;
+  height: 22px;
+  margin-left: 0.6rem;
+  background: linear-gradient(#f3ecd8, #e8b966);
+  border-radius: 2px;
+  box-shadow: 0 0 10px #f3ecd8, 0 0 22px #e8b966;
+  vertical-align: middle;
+  animation: flicker 2.2s ease-in-out infinite;
+}
+.obit-dates {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c9b47a;
+}
+.obit-dek {
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #bbb3a0;
+  max-width: 46em;
+  margin-left: auto;
+  margin-right: auto;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  45% { opacity: 0.55; transform: scale(0.94); }
+  68% { opacity: 1; transform: scale(1.04); }
+}
+.obit-body p {
+  margin: 0 0 1.5rem;
+  text-align: justify;
+  color: #ddd5c4;
+}
+.obit-body p + p { text-indent: 1.6rem; }
+.obit-body p:first-of-type { text-indent: 0; }
+.obit-body p::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.8;
+  padding: 0.05rem 0.6rem 0 0;
+  margin-right: 0.5rem;
+  color: #c9b47a;
+  font-weight: bold;
+}
+.rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, #0b0907, #4a3b24, #0b0907);
+  margin: 2.5rem 0;
+}
+.ornament {
+  width: 72px;
+  height: 26px;
+  margin: 2rem auto;
+  background: #7a5f2f;
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%);
+  opacity: 0.85;
+}
+.clipping {
+  margin: 2rem 0;
+  padding: 1.3rem 1.5rem;
+  border: 1px solid #4a3d2b;
+  border-top: 4px solid #7a5f2f;
+  background: #0f0c09;
+  color: #d8d0bc;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+.clipping p { margin: 0 0 0.9rem; text-indent: 0; }
+.clipping p:last-child { margin-bottom: 0; }
+.clipping-text {
+  font-style: italic;
+  color: #efe9d8;
+}
+h2.obit-section {
+  font-size: 1.05rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #c9b47a;
+  margin: 2.2rem 0 0.75rem;
+  border-bottom: 1px solid #2a2217;
+  padding-bottom: 0.4rem;
+}
+.further {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2217;
+  font-size: 0.95rem;
+  color: #aaa594;
+}
+.further p { margin: 0 0 0.9rem; text-indent: 0; }
+.further a {
+  color: #d9c38a;
+  text-decoration: none;
+  border-bottom: 1px dotted #6b5a35;
+}
+.further a:hover { color: #efe9d8; border-bottom-color: #c9b47a; }
+.further a:focus { outline: 2px solid #8a7344; }
+a {
+  color: #d9c38a;
+  text-decoration: none;
+  border-bottom: 1px dotted #6b5a35;
+}
+a:hover { color: #efe9d8; border-bottom-color: #c9b47a; }
+a:focus { outline: 2px solid #8a7344; }
+@media (max-width: 560px) {
+  body { padding: 1.5vh 0.75rem; }
+  .page { padding: 1.75rem 1.25rem; }
+  h1 { font-size: 1.9rem; }
+  .obit-body p::first-letter { float: none; display: inline; margin-right: 0; font-size: 1.3rem; padding: 0; color: inherit; font-weight: normal; }
+}
