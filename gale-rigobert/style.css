@@ -1,0 +1,174 @@
+/* Folio 31 — The Assembly Ledger, Questions from the Yard */
+:root {
+  --maroon: #7c1d2e;
+  --maroon-deep: #521019;
+  --gold: #e8b23a;
+  --green: #1f6b46;
+  --paper: #f6efdd;
+  --paper-shade: #efe3c6;
+  --ink: #2a1a12;
+  --chalk: #fdfaf1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(232,178,58,.18), transparent 42%),
+    radial-gradient(circle at 88% 92%, rgba(31,107,70,.16), transparent 46%),
+    linear-gradient(160deg, #e9dcb8 0%, #ded0a8 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding: 3rem 1rem 4rem;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 3px double var(--maroon);
+  outline: 1px solid var(--gold);
+  outline-offset: 6px;
+  box-shadow: 0 22px 44px rgba(42, 26, 18, .28);
+  position: relative;
+  overflow: hidden;
+}
+
+.folio-head {
+  padding: 2.4rem 2.6rem 1.6rem;
+  border-bottom: 4px solid var(--maroon);
+  background:
+    linear-gradient(180deg, rgba(124,29,46,.07), transparent 70%);
+  position: relative;
+}
+
+.flag {
+  display: flex;
+  height: 14px;
+  margin-bottom: 1.4rem;
+  border: 1px solid var(--maroon-deep);
+}
+.flag .stripe { flex: 1; }
+.flag .stripe.top { background: var(--maroon-deep); }
+.flag .stripe.gold { background: var(--gold); }
+.flag .stripe.maroon { background: var(--maroon); }
+
+.office {
+  font-size: .72rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--maroon-deep);
+  letter-spacing: .01em;
+}
+
+.sub {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin: .5rem 0 0;
+  color: var(--ink);
+}
+
+.folio-line {
+  margin: 1.1rem 0 0;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7a6537;
+}
+
+.faq { padding: 1.2rem 2.6rem 2rem; }
+
+.qa {
+  border: 1px solid rgba(124,29,46,.35);
+  border-left: 6px solid var(--gold);
+  background: linear-gradient(180deg, var(--chalk), var(--paper-shade));
+  margin: 1.4rem 0;
+  padding: 1.3rem 1.5rem 1.4rem;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease, border-left-color .25s ease;
+}
+
+.qa:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 22px rgba(82,16,25,.16);
+  border-left-color: var(--maroon);
+}
+
+.qa::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border: 1px solid var(--maroon-deep);
+  transform: rotate(45deg);
+}
+
+.qa h2 {
+  font-size: 1.12rem;
+  margin: 0 0 .7rem;
+  color: var(--maroon);
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+}
+
+.qno {
+  font-family: "Courier New", monospace;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  background: var(--maroon-deep);
+  color: var(--gold);
+  padding: .18rem .5rem .14rem;
+  white-space: nowrap;
+  transform: translateY(-2px);
+}
+
+.qa p { margin: 0 0 .8rem; }
+.qa p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--maroon);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: background-color .2s ease;
+}
+a:hover { background: rgba(232,178,58,.35); }
+
+.folio-foot {
+  border-top: 4px solid var(--maroon);
+  padding: 1.2rem 2.6rem 1.8rem;
+  font-size: .85rem;
+  color: var(--maroon-deep);
+  text-align: center;
+}
+.folio-foot p { margin: .2rem 0; }
+.tiny { font-size: .72rem; letter-spacing: .1em; color: #7a6537; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: rise .7s ease forwards;
+}
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 560px) {
+  body { padding: 1rem .5rem 2rem; }
+  .folio-head, .faq, .folio-foot { padding-left: 1.3rem; padding-right: 1.3rem; }
+}
