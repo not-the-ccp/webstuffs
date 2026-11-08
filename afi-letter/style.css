@@ -1,0 +1,164 @@
+/* American Film Institute — A Letter to the Editor */
+:root {
+  --paper: #f7f2e6;
+  --ink: #171511;
+  --gold: #9a761f;
+  --gold-light: #d4af37;
+  --film: #0a0a0a;
+  --red: #8b1a1a;
+  --muted: #5c5446;
+}
+
+* { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 50% 20%, #3d3d3d, #090909 65%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", "Times", serif;
+  line-height: 1.75;
+  letter-spacing: 0.15px;
+  padding: 70px 20px;
+}
+
+/* projection-room film-strips along the room's edges */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  background: var(--film);
+  background-image: radial-gradient(circle, #ffffff 2px, transparent 2.5px);
+  background-size: 8px 28px;
+  z-index: 0;
+}
+body::before { left: 0; }
+body::after { right: 0; }
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 52px 44px 64px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+  animation: weave 8s ease-in-out infinite, flicker 24s linear infinite alternate;
+}
+
+.leader {
+  position: absolute;
+  top: 38px;
+  left: 44px;
+  width: 64px;
+  height: 64px;
+  border: 3px double var(--film);
+  border-radius: 50%;
+}
+.leader::after {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--film);
+  border-radius: 50%;
+}
+
+.seal {
+  position: absolute;
+  top: 38px;
+  right: 44px;
+  width: 74px;
+  height: 74px;
+  border: 2.5px solid var(--red);
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #c44a4a, var(--red));
+  color: #fff;
+  font-size: 0.6rem;
+  text-align: center;
+  padding-top: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+}
+.seal span { display: block; font-size: 0.5rem; margin-top: 2px; opacity: 0.85; }
+
+.letterhead { text-align: center; margin-bottom: 8px; letter-spacing: 0.5px; }
+.slug {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  display: inline-block;
+  padding: 5px 16px;
+  margin-bottom: 10px;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 2px;
+}
+.byline { font-size: 1.7rem; font-weight: bold; margin: 0 0 6px; }
+.byline::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 40%;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}
+.dateline { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1.6px; }
+
+p { margin: 0 0 18px; text-align: justify; }
+.salutation { font-weight: bold; text-align: left; margin-bottom: 22px; }
+.drop::first-letter {
+  float: left;
+  color: var(--gold-light);
+  font-size: 3.4rem;
+  line-height: 1;
+  padding: 4px 10px 2px 0;
+  margin-right: 9px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+a { color: var(--gold); text-decoration: underline dotted; }
+a:visited { color: #7a5a12; }
+
+.signature {
+  margin-top: 38px;
+  text-align: right;
+}
+.signature .name {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.6px;
+}
+
+.letter-nav {
+  margin-top: 52px;
+  padding-top: 24px;
+  border-top: 1px solid #c9b98a;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.letter-nav p { margin: 7px 0; }
+
+@media (max-width: 620px) {
+  body { padding: 40px 14px; }
+  body::before, body::after { display: none; }
+  .sheet { padding: 36px 24px 46px; animation: none; }
+  .seal, .leader { display: none; }
+}
+
+@keyframes weave {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-0.5px, 0.4px); }
+  66% { transform: translate(0.4px, -0.3px); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  48%, 52% { opacity: 0.985; }
+}
