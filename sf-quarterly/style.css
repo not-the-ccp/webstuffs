@@ -1,0 +1,232 @@
+/* Minutes of the Silver Sides Quarterly Council — SQ-1951/01 */
+
+:root {
+  --paper: #efe6d0;
+  --paper-deep: #e6d9ba;
+  --ink: #2b2118;
+  --green: #2e5339;
+  --red: #9c3b2a;
+  --rule: #8a7a5c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d9cdae; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 5rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(138,122,92,.18) 31px 32px),
+    var(--paper);
+  border-left: 6px double var(--rule);
+  border-right: 6px double var(--rule);
+  box-shadow: 0 18px 50px rgba(43,33,24,.35);
+}
+
+/* top band, rotated */
+.masthead {
+  position: absolute;
+  top: 1rem;
+  left: -2.2rem;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  width: 34rem;
+}
+.mast {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+/* header: oversized rotated stamp title against the date block */
+.cap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+.rec {
+  grid-column: 1 / -1;
+  margin: 0 0 1rem;
+  font-size: .85rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.rec .no {
+  font-weight: 700;
+  color: var(--red);
+}
+
+.stamp {
+  font-size: clamp(3rem, 8vw, 5.6rem);
+  line-height: .92;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: var(--red);
+  border: 4px solid var(--red);
+  padding: .35em .5em;
+  transform: rotate(-3.5deg);
+  display: inline-block;
+  box-shadow: 3px 3px 0 rgba(156,59,42,.25);
+  mix-blend-mode: multiply;
+}
+
+.sub {
+  grid-column: 1;
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--ink);
+  margin-top: 1.25rem;
+  max-width: 26ch;
+}
+.sub strong { font-style: normal; color: var(--red); }
+
+.when {
+  align-self: end;
+  text-align: right;
+  font-size: .95rem;
+}
+.when p { margin: .3rem 0; }
+
+/* quorum table */
+.quorum {
+  margin: 2rem 0 2.5rem 2rem;
+  max-width: 34rem;
+  border-top: 2px solid var(--ink);
+  padding-top: .8rem;
+}
+.quorum h2 { margin: 0 0 .6rem; font-size: 1.05rem; letter-spacing: .18em; text-transform: uppercase; }
+.quorum table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.quorum td { padding: .3rem 1rem .3rem 0; vertical-align: top; }
+.quorum td:first-child { font-weight: 700; white-space: nowrap; }
+.quorum-note { font-size: .88rem; font-style: italic; color: #4c3d2e; }
+
+/* asymmetric two-column body: wide minutes column, narrow marginalia */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.item h2 {
+  font-size: 1.1rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+  margin: 2.2rem 0 .8rem;
+}
+.item:first-child h2 { margin-top: 0; }
+.item p { margin: 0 0 1rem; }
+.item strong { color: var(--ink); }
+
+.item.two {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px dotted var(--rule);
+  font-size: .93rem;
+  margin-left: 1.5rem;
+}
+.item.two h2 { column-span: all; }
+
+/* the hard line: read word for word */
+.hard {
+  margin: 1.4rem 0 1.4rem 0.5rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--paper-deep);
+  border-left: 6px solid var(--red);
+  transform: rotate(-.6deg);
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+.hard p { margin: 0; }
+
+/* marginalia column, lifted and offset */
+.adjourn {
+  position: sticky;
+  top: 2rem;
+  margin-top: 1.5rem;
+  padding: 1.4rem 1.3rem 1.3rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  box-shadow: 8px 8px 0 rgba(43,33,24,.12);
+  transform: rotate(.8deg);
+  font-size: .9rem;
+}
+.adjourn h2 {
+  margin: 0 0 .8rem;
+  font-size: .95rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.adjourn ul { margin: 0 0 1rem; padding-left: 1.1rem; }
+.adjourn li { margin-bottom: .7rem; }
+.adjourn a { color: var(--green); font-weight: 600; }
+.adj { font-style: italic; }
+.sig { display: block; margin-top: .6rem; color: var(--red); font-weight: 700; }
+
+.foot {
+  grid-column: 1 / -1;
+  margin-top: 3rem;
+  border-top: 3px solid var(--ink);
+  padding-top: .8rem;
+  font-size: .88rem;
+  color: #4c3d2e;
+}
+.foot a { color: var(--green); font-weight: 700; }
+
+/* council seal, overlapping the edge */
+.seal {
+  position: absolute;
+  right: -2.6rem;
+  bottom: 3rem;
+  width: 13rem;
+  transform: rotate(9deg);
+  opacity: .8;
+  mix-blend-mode: multiply;
+}
+.seal .ring { fill: none; stroke: var(--green); stroke-width: 4; }
+.seal .ring.thin { stroke-width: 1.5; }
+.seal .rocket, .seal .fin { fill: var(--green); }
+.seal .porthole { fill: var(--paper); }
+.seal .flame { fill: var(--red); }
+.seal .seal-text {
+  font-size: 12px;
+  letter-spacing: .2em;
+  fill: var(--green);
+  font-family: inherit;
+}
+
+a { color: var(--green); }
+
+@media (max-width: 760px) {
+  .sheet { padding: 2rem 1.2rem 4rem; }
+  .masthead { display: none; }
+  .cap { grid-template-columns: 1fr; }
+  .when { text-align: left; }
+  .body { grid-template-columns: 1fr; gap: 2rem; }
+  .item.two { column-count: 1; margin-left: 0; }
+  .adjourn { position: static; transform: none; }
+  .seal { right: .5rem; bottom: 4.5rem; width: 9rem; }
+  .quorum td:first-child { white-space: normal; }
+}
