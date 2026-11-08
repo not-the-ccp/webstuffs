@@ -1,0 +1,234 @@
+/* Philippines — Entry No. PH-01
+   Asymmetric encyclopedia layout: oversized word, rotated infobox,
+   offset reading columns, tide-rule set apart. */
+
+:root {
+  --ink: #1d2b23;
+  --paper: #f4efe2;
+  --sea: #275e66;
+  --rust: #a4502a;
+  --rule: #c8bda2;
+  --faded: #6d6a5c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.entry {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Masthead: oversized, oversized word */
+.masthead {
+  position: relative;
+  border-bottom: 4px double var(--ink);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.entry-no {
+  margin: 0 0 0.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.word {
+  margin: 0;
+  font-size: clamp(3.2rem, 11vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.pron {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+/* Infobox: rotated, overlapping the masthead corner */
+.infobox {
+  width: min(340px, 90%);
+  margin: -0.5rem 0 2.5rem auto;
+  transform: rotate(1.4deg);
+  background: #efe6cf;
+  border: 1.5px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(29, 43, 35, 0.18);
+  padding: 1rem 1.1rem 1.25rem;
+}
+
+.box-title {
+  margin: 0 0 0.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.4rem;
+}
+
+.infobox table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.infobox td {
+  padding: 0.28rem 0.35rem 0.28rem 0;
+  vertical-align: top;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.infobox td:first-child {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--faded);
+  white-space: nowrap;
+  padding-right: 0.6rem;
+}
+
+.box-note {
+  margin: 0.7rem 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+/* Lead: full width, drop cap */
+.lead-col {
+  columns: 2;
+  column-gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.lead-col .lead::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.09em;
+  color: var(--rust);
+}
+
+/* Two-column asymmetric sections */
+.two-col {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.two-col.col-reverse {
+  grid-template-columns: 2fr 3fr;
+}
+
+.two-col h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sea);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+/* The tide rule: set apart on a torn band */
+.tideline {
+  margin: 3rem 0;
+  padding: 1.5rem 1.5rem 1.75rem;
+  background: #e7e0cd;
+  border-left: 10px solid var(--sea);
+  box-shadow: -4px 4px 0 rgba(39, 94, 102, 0.15);
+}
+
+.tideline h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.15rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+
+blockquote.rule {
+  margin: 1.25rem 0 1.25rem 0.5rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--rust);
+  transform: rotate(-0.8deg);
+  background: var(--paper);
+}
+
+.rule-body {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.rule-cite {
+  margin: 0.6rem 0 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--faded);
+}
+
+/* Links */
+a {
+  color: var(--sea);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  background: var(--sea);
+  color: var(--paper);
+}
+
+/* Colophon */
+.colophon {
+  margin-top: 3rem;
+  border-top: 4px double var(--ink);
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+.big-line {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.colophon p:last-child {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+/* Small screens: one column, no rotation tricks */
+@media (max-width: 720px) {
+  .lead-col { columns: 1; }
+  .two-col,
+  .two-col.col-reverse { grid-template-columns: 1fr; }
+  .infobox { transform: none; margin: 0 0 2rem; }
+}
