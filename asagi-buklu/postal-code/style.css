@@ -1,0 +1,207 @@
+/* 49510 — sleeve notes: airmail envelope over plain paper */
+
+:root {
+  --red: #b3372f;
+  --blue: #1f4e8c;
+  --paper: #f6f1e4;
+  --ink: #2b2620;
+  --faint: #8a7f6a;
+  --stamp-border: #7d6a4d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e2d0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* airmail edges: the classic red-blue-white stripe */
+.airmail-top,
+.airmail-bottom {
+  height: 22px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--red) 0 24px,
+    #fdfcf8 24px 48px,
+    var(--blue) 48px 72px,
+    #fdfcf8 72px 96px
+  );
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+.airmail-bottom { border-top: none; }
+
+.sleeve {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 3rem 2.2rem 2rem;
+  border-left: 1px solid #d8cfb8;
+  border-right: 1px solid #d8cfb8;
+  box-shadow: 0 0 40px rgba(60, 50, 30, 0.15);
+}
+
+.masthead {
+  position: relative;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 4.2rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--blue);
+  text-shadow: 2px 2px 0 rgba(179, 55, 47, 0.25);
+}
+
+.byline {
+  font-style: italic;
+  margin: 0.4rem 0 0;
+}
+
+.sub {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin: 0.6rem 0 0;
+}
+
+/* the stamp, perforated edges */
+.stamp {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  width: 92px;
+  padding: 5px;
+  background:
+    radial-gradient(circle at 4px 4px, transparent 3px, var(--paper) 3.5px) 0 0 / 12px 12px;
+  background-color: #fff;
+  transform: rotate(3deg);
+  box-shadow: 0 2px 6px rgba(43, 38, 32, 0.25);
+}
+.stamp-inner {
+  border: 2px solid var(--stamp-border);
+  padding: 0.7rem 0.3rem;
+  text-align: center;
+  display: block;
+}
+.stamp-val {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: var(--red);
+}
+.stamp-word {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  margin-top: 0.3rem;
+}
+.stamp-code {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--blue);
+  margin-top: 0.2rem;
+}
+
+.notes p { margin: 0 0 1.1rem; }
+.drop {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.85;
+  padding: 0.1rem 0.5rem 0 0;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.tracks h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border-bottom: 1px dashed var(--faint);
+  padding-bottom: 0.35rem;
+  margin: 1.8rem 0 0.9rem;
+}
+
+.tracks ol { margin: 0; padding-left: 1.6rem; }
+.tracks li { margin-bottom: 0.7rem; }
+.tracks li::marker {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--red);
+  font-weight: bold;
+}
+.t {
+  font-weight: bold;
+  color: var(--ink);
+}
+
+a {
+  color: var(--blue);
+  text-decoration-color: var(--red);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--red); }
+
+.credits p { margin: 0.4rem 0 1.2rem; }
+
+.colophon {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  text-align: center;
+}
+
+/* postmark overlay, applied by postmark.js */
+.postmark {
+  position: fixed;
+  top: 8%;
+  right: 6%;
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-12deg);
+  color: var(--blue);
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  background: rgba(253, 252, 248, 0.35);
+}
+.postmark.stamped {
+  opacity: 0.85;
+  transform: rotate(-12deg) scale(1);
+}
+.postmark .pm-1 { font-size: 0.6rem; letter-spacing: 0.15em; }
+.postmark .pm-2 { font-size: 1.3rem; font-weight: bold; margin: 0.2rem 0; }
+.postmark .pm-3 { font-size: 0.55rem; letter-spacing: 0.1em; }
