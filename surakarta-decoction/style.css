@@ -1,0 +1,186 @@
+/* Card 112 — The Oen Family Recipe Ledger */
+
+:root {
+  --paper: #f4ead2;
+  --paper-deep: #ecdfbf;
+  --ink: #33241a;
+  --ink-soft: #5c4632;
+  --seal: #8c2f1b;
+  --thread: #b49a6a;
+  --red-ink: #a02c1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(92, 70, 50, .045) 0 1px, transparent 1px 28px),
+    radial-gradient(ellipse at 50% -10%, #6b5335 0%, #241a12 70%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.table { max-width: 56rem; margin: 0 auto; }
+
+.card {
+  position: relative;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(140, 47, 27, .05), transparent 34%),
+    var(--paper);
+  border: 2px solid #4a3524;
+  outline: 1px solid rgba(74, 53, 36, .5);
+  outline-offset: 4px;
+  padding: 3rem 3.25rem 2.25rem;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, .55);
+}
+
+.card::before {
+  content: "№ 112";
+  position: absolute;
+  top: .9rem; right: 1.1rem;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  color: var(--ink-soft);
+  border: 1px solid var(--thread);
+  padding: .15rem .55rem;
+  background: var(--paper-deep);
+}
+
+.mast { text-align: center; }
+
+.press {
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.35rem;
+  line-height: 1.12;
+  margin: 0 0 .8rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.sub {
+  max-width: 44rem;
+  margin: 0 auto 1rem;
+  font-size: .98rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.pe {
+  font-size: 1.15rem;
+  letter-spacing: .12em;
+  color: var(--seal);
+  margin: 0;
+}
+
+.orn-rule {
+  border: none;
+  border-top: 1px solid var(--thread);
+  width: 70%;
+  margin: 1.6rem auto;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border-bottom: 1px dashed var(--thread);
+  padding-bottom: .35rem;
+  margin: 2.2rem 0 1rem;
+}
+
+h3 {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  color: var(--ink-soft);
+  margin: 1.4rem 0 .5rem;
+}
+
+.seal {
+  position: absolute;
+  top: 1.4rem; left: 1.4rem;
+  color: var(--seal);
+  opacity: .85;
+  transform: rotate(-9deg);
+  cursor: pointer;
+  transition: transform .25s ease, opacity .25s ease;
+  user-select: none;
+}
+.seal:hover { transform: rotate(-9deg) scale(1.06); opacity: 1; }
+
+.reprint {
+  border: 1px solid var(--seal);
+  background: var(--paper-deep);
+  padding: .9rem 1.2rem;
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  font-size: 1.02rem;
+  color: var(--ink);
+  position: relative;
+}
+.reprint::before {
+  content: "reprinted by order of the bureau, 1932";
+  position: absolute;
+  top: -.62rem; left: .8rem;
+  background: var(--paper);
+  padding: 0 .5rem;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--seal);
+}
+.reprint .red { color: var(--red-ink); font-style: italic; }
+.reprint.pressed .red { background: rgba(160, 44, 26, .12); padding: 0 .2rem; }
+
+.ing li, .method li { margin-bottom: .45rem; }
+.ing li::marker { content: "❋  "; color: var(--seal); }
+.method li::marker { font-weight: 700; color: var(--seal); }
+
+.yield { font-style: italic; color: var(--ink-soft); margin: 0 0 .6rem; }
+
+.note {
+  font-size: .95rem;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--thread);
+  padding-left: 1rem;
+}
+
+.colophon {
+  margin-top: 2.4rem;
+  border-top: 1px solid var(--thread);
+  padding-top: 1rem;
+  font-size: .88rem;
+  color: var(--ink-soft);
+}
+a { color: var(--seal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--red-ink); }
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+  padding-top: .9rem;
+  border-top: 1px dashed var(--thread);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.stamp { color: var(--seal); }
+
+@media (max-width: 40rem) {
+  .card { padding: 4.5rem 1.4rem 1.6rem; }
+  .seal { position: static; display: block; margin: 0 auto 1rem; }
+}
