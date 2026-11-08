@@ -1,0 +1,161 @@
+/* Sokolivka — restaurant review sheet */
+:root {
+  --blue: #1d3a6e;
+  --deep: #12213f;
+  --sky: #7fa8d9;
+  --yellow: #e8b93a;
+  --ochre: #c98a2b;
+  --red: #b03a2e;
+  --paper: #f7f1e3;
+  --ink: #2a2318;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(rgba(29, 58, 110, 0.05) 1px, transparent 1px);
+  background-size: 14px 14px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  background: linear-gradient(160deg, var(--deep) 0%, var(--blue) 55%, #2a5394 100%);
+  color: var(--paper);
+  padding: 3rem 1.5rem 2.6rem;
+  text-align: center;
+  border-bottom: 6px solid var(--yellow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* embroidered border strip */
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 6px;
+  height: 10px;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--yellow) 0 8px,
+      var(--red) 8px 16px,
+      var(--paper) 16px 24px,
+      var(--sky) 24px 32px);
+  opacity: 0.85;
+}
+
+.eyebrow {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+h1 .ukr {
+  display: block;
+  font-size: 0.42em;
+  font-style: italic;
+  color: var(--sky);
+  letter-spacing: 0.35em;
+  margin-top: 0.35rem;
+}
+
+.verdict {
+  margin: 1.1rem auto 0.4rem;
+  max-width: 26em;
+  font-style: italic;
+  color: #e9e2cf;
+  border-top: 1px solid rgba(232, 185, 58, 0.5);
+  border-bottom: 1px solid rgba(232, 185, 58, 0.5);
+  padding: 0.55rem 0;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.5rem 1rem;
+}
+
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--blue);
+}
+
+p { margin: 0 0 1.15rem; }
+
+a { color: var(--blue); }
+a:hover { color: var(--red); }
+
+/* till-roll printout of the console line */
+blockquote {
+  margin: 2rem 0;
+  padding: 1.1rem 1.3rem 1.1rem 1.6rem;
+  background: #fffdf6;
+  border-left: 8px dotted var(--ochre);
+  box-shadow: 3px 4px 0 rgba(42, 35, 24, 0.12);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  transform: rotate(-0.6deg);
+}
+
+blockquote::before {
+  content: "TILL ROLL \00b7 KITCHEN PRINTER \00b7 17:42";
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+
+.filed-beside {
+  max-width: 42rem;
+  margin: 1.5rem auto 2rem;
+  padding: 1.4rem 1.5rem;
+  border: 2px solid var(--blue);
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+  background: #fbf6ea;
+}
+
+.filed-beside h2 {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.8rem;
+}
+
+.filed-beside p { margin: 0.4rem 0; font-size: 0.95rem; }
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: #6d6250;
+  padding: 1rem 1rem 3rem;
+  border-top: 1px dashed #b6a887;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 560px) {
+  .masthead { padding: 2.2rem 1rem 2.2rem; }
+  main { padding: 1.8rem 1.1rem 0.5rem; }
+}
