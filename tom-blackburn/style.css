@@ -1,0 +1,218 @@
+/* The Household Board — a navy-and-brass forum for sovereign housekeeping */
+
+:root {
+  --ink: #0c1b2a;
+  --deck: #10263c;
+  --post: #f4efe3;
+  --paper-edge: #e5dcbf;
+  --brass: #c9a227;
+  --brass-dim: #9a7d1e;
+  --wine: #7a2e2e;
+  --slate: #31465c;
+  --faded: #6b7d8f;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: "Courier New", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 480px at 50% -140px, rgba(201,162,39,.10), transparent 60%),
+    linear-gradient(180deg, #0a1622 0%, var(--ink) 420px, #0f1e30 100%);
+  color: var(--post);
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+
+/* ---- board header ---- */
+.board-header {
+  position: relative;
+  border-bottom: 3px double var(--brass);
+  padding: 2.2rem 1rem 1.4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.board-header::before {
+  /* faint rigging lines */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(201,162,39,.06) 0 1px, transparent 1px 46px);
+  pointer-events: none;
+}
+
+.pennant {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto 0.9rem;
+  border-top: 26px solid var(--brass);
+  border-left: 44px solid transparent;
+  transform-origin: top left;
+  animation: flap 3.2s ease-in-out infinite;
+}
+
+@keyframes flap {
+  0%, 100% { transform: rotate(0deg) skewY(0deg); }
+  50%      { transform: rotate(3deg) skewY(2deg); }
+}
+
+.board-name {
+  font-size: 2rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0;
+}
+
+.crumb {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--faded);
+  margin: 0.4rem 0;
+}
+
+.crumb a { color: var(--paper-edge); text-decoration: none; border-bottom: 1px dotted var(--brass-dim); }
+.crumb a:hover { color: var(--brass); }
+
+.board-motto {
+  margin: 0.3rem 0 0;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+/* ---- thread ---- */
+main { max-width: 860px; margin: 0 auto; padding: 1.6rem 1rem 3rem; }
+
+.thread h1 {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  color: #f7f1de;
+  margin: 0.2rem 0 0.4rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,.6);
+}
+
+.thread-meta {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--faded);
+  border-bottom: 1px solid rgba(201,162,39,.35);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.thread-meta .author { color: var(--brass); }
+
+/* ---- posts ---- */
+.post {
+  background: var(--post);
+  color: var(--ink);
+  border: 1px solid var(--slate);
+  border-left: 6px solid var(--slate);
+  border-radius: 3px;
+  margin: 0 0 1.1rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+
+.post.op { border-left-color: var(--brass); }
+
+.post-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  background: linear-gradient(180deg, var(--deck), #0c1c2c);
+  color: var(--paper-edge);
+  padding: 0.45rem 1rem;
+  border-bottom: 2px solid var(--brass-dim);
+  font-size: 0.85rem;
+}
+
+.post-head .author {
+  font-family: var(--mono);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: #f2d98c;
+}
+
+.post-head .rank {
+  font-style: italic;
+  color: var(--faded);
+}
+
+.post-head time {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--faded);
+}
+
+.post-body { padding: 1rem 1.2rem 1.1rem; }
+
+.post-body p { margin: 0 0 0.9rem; }
+.post-body p:last-child { margin-bottom: 0; }
+.post-body em { color: var(--wine); }
+.post-body a { color: var(--slate); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.post-body a:hover { color: var(--wine); }
+
+/* ---- duty bell ---- */
+.bell-box {
+  margin: 1.8rem auto 0;
+  max-width: 380px;
+  text-align: center;
+  border: 1px dashed var(--brass-dim);
+  border-radius: 6px;
+  padding: 1rem;
+  background: rgba(12, 27, 42, .55);
+}
+
+#bellBtn {
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  background: linear-gradient(180deg, #e0bd4b, var(--brass) 55%, var(--brass-dim));
+  border: 1px solid #6d5610;
+  border-radius: 999px;
+  padding: 0.5rem 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #6d5610, 0 8px 18px rgba(0,0,0,.4);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+#bellBtn:hover { filter: brightness(1.06); }
+#bellBtn:active, #bellBtn.ringing {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 #6d5610, 0 4px 10px rgba(0,0,0,.4);
+}
+
+.bell-readout {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--paper-edge);
+  margin: 0.8rem 0 0;
+}
+
+/* ---- footer ---- */
+.thread-footer {
+  margin-top: 1.8rem;
+  border-top: 1px solid rgba(201,162,39,.35);
+  padding-top: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--faded);
+}
+
+.thread-footer a { color: var(--paper-edge); text-decoration: none; border-bottom: 1px dotted var(--brass-dim); }
+.thread-footer a:hover { color: var(--brass); }
+
+@media (max-width: 560px) {
+  .board-name { font-size: 1.4rem; }
+  .thread h1 { font-size: 1.4rem; }
+  .post-head time { margin-left: 0; width: 100%; }
+}
