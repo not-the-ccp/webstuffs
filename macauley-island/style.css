@@ -1,0 +1,121 @@
+/* Macauley Island — travel guide entry */
+:root {
+  --ink: #1c2b33;
+  --sea: #24566b;
+  --sand: #f4efe4;
+  --fern: #5c7a4f;
+  --clay: #b4653c;
+  --paper: #fbf8f1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.masthead {
+  background: linear-gradient(160deg, var(--sea) 0%, #17404f 70%, #12323e 100%);
+  color: var(--paper);
+  padding: 2.5rem 1.5rem 2rem;
+  border-bottom: 6px double var(--clay);
+}
+.kicker {
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem;
+  color: #cfe0e8;
+}
+.masthead h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+}
+.standfirst {
+  max-width: 46rem;
+  margin: 0.75rem auto 0;
+  font-style: italic;
+  color: #e6efe9;
+}
+
+main {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+}
+
+.entry h2 {
+  font-size: 1.4rem;
+  color: var(--sea);
+  border-bottom: 1px solid #d8cfba;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+.entry a { color: var(--clay); }
+
+.planner {
+  background: var(--paper);
+  border: 1px solid #d8cfba;
+  border-top: 5px solid var(--fern);
+  padding: 1rem 1.25rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.planner h3 { margin-top: 0; color: var(--fern); }
+.planner label {
+  display: block;
+  margin: 0.6rem 0;
+  font-weight: bold;
+}
+.planner select {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  border: 1px solid var(--sea);
+  background: var(--paper);
+  min-width: 14rem;
+}
+
+table.prov {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+table.prov th, table.prov td {
+  border: 1px solid #d8cfba;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+}
+table.prov thead th {
+  background: var(--sea);
+  color: var(--paper);
+}
+table.prov tbody tr:nth-child(even) { background: #f1ecdf; }
+table.prov td:last-child { font-weight: bold; }
+.prov .foot {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #6a5f4b;
+}
+
+ul li { margin: 0.5rem 0; }
+
+.colophon {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6a5f4b;
+  border-top: 1px solid #d8cfba;
+  padding: 1.5rem;
+}
+
+@media (max-width: 40rem) {
+  .masthead h1 { font-size: 2rem; }
+  .planner select { min-width: 0; width: 100%; }
+}
