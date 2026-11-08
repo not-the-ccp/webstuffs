@@ -1,0 +1,258 @@
+/* Minutes of the Council of Ripon Abbey — iron-gall on parchment */
+
+:root {
+  --parchment: #f1e5c8;
+  --parchment-deep: #e4d3ab;
+  --ink: #241407;
+  --ink-faded: #4a3418;
+  --rubric: #8e2412;
+  --gold: #b07f1e;
+  --gold-bright: #d4a637;
+  --wax: #7c1206;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.75;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 250, 230, 0.9), transparent 60%),
+    radial-gradient(ellipse at 85% 100%, rgba(120, 84, 20, 0.28), transparent 55%),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 70%, #d8c294 100%);
+  min-height: 100vh;
+}
+
+/* faint ruled texture over the parchment */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(104, 68, 12, 0.05) 31px,
+    rgba(104, 68, 12, 0.05) 32px
+  );
+  z-index: 0;
+}
+
+.minutes {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.2rem 1.6rem 4rem;
+  background:
+    linear-gradient(90deg, rgba(120, 84, 20, 0.10), transparent 8%, transparent 92%, rgba(120, 84, 20, 0.10)),
+    rgba(250, 243, 222, 0.55);
+  border: 1px solid rgba(74, 52, 24, 0.35);
+  box-shadow:
+    0 0 0 6px rgba(241, 229, 200, 0.4),
+    0 0 0 7px rgba(74, 52, 24, 0.35),
+    0 24px 60px rgba(36, 20, 7, 0.25);
+}
+
+/* ---------- header ---------- */
+
+.minutes-head {
+  text-align: center;
+  padding-bottom: 1.6rem;
+  border-bottom: 3px double var(--ink-faded);
+  margin-bottom: 1.8rem;
+}
+
+.colophon-line {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  color: var(--rubric);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-family: "Luminari", "Uncial Antiqua", "Palatino Linotype", Palatino, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+
+h1 .of {
+  display: block;
+  font-size: 0.52em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rubric);
+  margin-top: 0.35em;
+}
+
+.date-line,
+.occasion-line {
+  margin: 0.7rem auto 0;
+  max-width: 34rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 0.98rem;
+}
+
+.occasion-line { font-size: 0.9rem; }
+
+/* wax seal */
+.seal {
+  margin: 1.4rem auto 0;
+  width: 92px;
+  text-align: center;
+}
+
+.seal-ring {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto;
+  border-radius: 46% 54% 52% 48% / 51% 47% 53% 49%;
+  background:
+    radial-gradient(circle at 32% 28%, #b34a33 0%, var(--wax) 45%, #4d0b03 100%);
+  border: 2px solid #3d0a03;
+  box-shadow:
+    inset 0 3px 8px rgba(255, 255, 255, 0.25),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.45),
+    0 4px 10px rgba(36, 20, 7, 0.35);
+  position: relative;
+  animation: seal-turn 9s ease-in-out infinite;
+}
+
+.seal-cross {
+  position: absolute;
+  inset: 18px;
+  background:
+    linear-gradient(to right, transparent 46%, rgba(255, 230, 200, 0.55) 46%, rgba(255, 230, 200, 0.55) 54%, transparent 54%),
+    linear-gradient(to bottom, transparent 46%, rgba(255, 230, 200, 0.55) 46%, rgba(255, 230, 200, 0.55) 54%, transparent 54%);
+}
+
+.seal small {
+  display: block;
+  margin-top: 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: var(--ink-faded);
+}
+
+@keyframes seal-turn {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* ---------- entries ---------- */
+
+.entry {
+  margin: 0 0 1.7rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.entry.shown { opacity: 1; transform: none; }
+
+.no-js .entry { opacity: 1; transform: none; }
+
+.entry h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--rubric);
+  border-bottom: 1px solid rgba(142, 36, 18, 0.4);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+.entry p { margin: 0 0 0.9rem; }
+
+/* illuminated drop cap on the first item */
+.entry:first-of-type p:first-of-type::first-letter {
+  font-family: "Luminari", "Uncial Antiqua", "Palatino Linotype", serif;
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--gold);
+  text-shadow: 1px 1px 0 rgba(74, 52, 24, 0.35);
+}
+
+strong { color: var(--ink); font-weight: 700; }
+
+em { color: var(--ink-faded); }
+
+/* the rubric verse — the chaplain's line */
+.rubric-verse {
+  margin: 1.2rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 4px solid var(--gold);
+  border-right: 1px solid rgba(176, 127, 30, 0.4);
+  background: linear-gradient(90deg, rgba(176, 127, 30, 0.12), rgba(176, 127, 30, 0.02));
+  font-size: 1.18rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink);
+}
+
+.rubric-verse p { margin: 0; }
+
+/* addendum */
+.entry.addendum {
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--ink-faded);
+  font-size: 0.98rem;
+  color: var(--ink-faded);
+}
+
+.entry.addendum h2 { color: var(--ink-faded); border-color: rgba(74, 52, 24, 0.4); }
+
+/* ---------- footer ---------- */
+
+.minutes-foot {
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(74, 52, 24, 0.35);
+  text-align: center;
+}
+
+.rubric {
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  color: var(--rubric);
+  margin: 0 0 0.7rem;
+}
+
+.foot-links {
+  font-size: 0.9rem;
+  color: var(--ink-faded);
+}
+
+a {
+  color: var(--rubric);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--gold-bright); }
+
+@media (max-width: 560px) {
+  .minutes { padding: 2rem 1rem 2.6rem; box-shadow: 0 12px 30px rgba(36, 20, 7, 0.25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-ring { animation: none; }
+  .entry { transition: none; }
+}
