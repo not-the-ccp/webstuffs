@@ -1,0 +1,140 @@
+/* The Stratum · Vol. 7 No. 11 · The Ediacaran */
+html {
+  background: #090e1c;
+  background: radial-gradient(circle at 25% 30%, #2a3650 0%, #111930 40%, #090e1c 100%);
+  background-attachment: fixed;
+}
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.7;
+  color: #252133;
+  padding: 30px 5vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newsletter {
+  max-width: 700px;
+  width: 100%;
+  background: linear-gradient(to bottom, #fbf7ea, #efe4c8);
+  color: #252133;
+  padding: 52px 40px 70px;
+  border: 16px solid transparent;
+  border-image: linear-gradient(to right, #9a7332, #5c5a46, #9a7332) 16;
+  box-shadow: 0 25px 55px rgba(4, 6, 10, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(154, 115, 50, 0.12), transparent 60%);
+  animation: drift 14s ease-in-out infinite alternate;
+}
+.newsletter::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(90, 100, 120, 0.10), transparent 60%);
+  animation: drift 18s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(15px, 25px); }
+}
+.masthead {
+  border-bottom: 3px double #8a6d3f;
+  padding-bottom: 24px;
+  margin-bottom: 34px;
+  text-align: center;
+  position: relative;
+}
+.club {
+  font-variant: small-caps;
+  letter-spacing: 0.35em;
+  color: #6b5b34;
+  font-size: 1.15rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+.issue {
+  margin: 6px 0 14px;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: #7c6a3a;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 2.6rem;
+  font-style: italic;
+  margin: 0 0 10px;
+  letter-spacing: 0.04em;
+  color: #3c2f18;
+}
+.dateline {
+  font-size: 0.85rem;
+  color: #665e44;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+h2 {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #4d3f1c;
+  margin: 42px 0 14px;
+  padding-left: 22px;
+  position: relative;
+  border-left: 4px solid #9a7332;
+}
+h2 .num {
+  color: #b98a2f;
+  font-weight: bold;
+  padding-right: 8px;
+}
+p {
+  margin: 0 0 16px;
+  text-align: justify;
+}
+a {
+  color: #4a5a6b;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+.signed {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  border-top: 1px solid #c9bd96;
+  padding-top: 18px;
+  text-align: right;
+  color: #5c543c;
+}
+.slip {
+  position: relative;
+  background: #f2e8cc;
+  border: 1px solid #d8c9a5;
+  padding: 22px 24px 20px;
+  margin: 38px 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+.slip blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 16px 0;
+  padding-left: 10px;
+  border-left: 3px solid #8a6d3f;
+}
+@media (max-width: 560px) {
+  body { padding: 16px 4vw; }
+  .newsletter { padding: 34px 20px 46px; border-width: 10px; border-image-width: 10px; }
+  h1 { font-size: 2rem; }
+}
