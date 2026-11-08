@@ -1,0 +1,206 @@
+/* Grey bronzeback — Build Log: shed bench, oak and glass, bronze and graphite */
+
+/* 1. Tokens */
+:root {
+  --paper: #f4f0e8;
+  --ink: #3a352d;
+  --ink-soft: #6b655a;
+  --bronze: #9c7d4e;
+  --bronze-deep: #7a6138;
+  --bronze-soft: #c9b18e;
+  --fern: #747d5c;
+  --fern-deep: #555e46;
+  --glass: rgba(156, 125, 78, 0.10);
+  --line: #d9d3c4;
+  --serif: Georgia, "Times New Roman", serif;
+  --mono: "Courier New", Courier, monospace;
+}
+
+/* 2. Reset */
+* { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.7;
+}
+
+/* Graph-paper floor plus vignette, purely decorative */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 27px, var(--line) 27px, var(--line) 28px),
+    repeating-linear-gradient(90deg, transparent, transparent 27px, var(--line) 27px, var(--line) 28px),
+    radial-gradient(700px 400px at 50% 0%, rgba(156, 125, 78, 0.06), transparent 45%),
+    radial-gradient(900px 500px at 90% 10%, rgba(85, 94, 70, 0.08), transparent 55%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.log-wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+}
+
+/* Masthead: plate with coiled bronze snake */
+.masthead {
+  position: relative;
+  padding: 2.5rem 1rem 2rem;
+  border-bottom: 4px double var(--bronze-deep);
+  overflow: hidden;
+}
+
+.coil {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 110px;
+  height: 110px;
+  opacity: 0.55;
+  animation: coil-sway 8s ease-in-out infinite alternate;
+}
+
+@keyframes coil-sway {
+  from { transform: rotate(-2deg); }
+  to { transform: rotate(3deg); }
+}
+
+.masthead-in { position: relative; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--bronze-deep);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+h1::after {
+  content: " ·";
+  color: var(--bronze);
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0 0 0.75rem;
+  max-width: 34ch;
+}
+
+.plate {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 0.6rem;
+}
+
+/* Entries: ruled sheet, pinned at the left rail */
+main { padding-top: 1.5rem; }
+
+.entry {
+  padding: 1.25rem 1rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  background: linear-gradient(90deg, rgba(156, 125, 78, 0.04) 0%, transparent 40%);
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: 0; bottom: 0;
+  width: 6px;
+  background: repeating-linear-gradient(var(--bronze) 0 4px, transparent 4px 8px);
+  transform: scaleY(0.95);
+  transform-origin: top;
+  animation: rail-draw 1.2s ease-out forwards;
+}
+
+@keyframes rail-draw { from { transform: scaleY(0); } }
+
+.entry:hover {
+  background: rgba(156, 125, 78, 0.09);
+}
+
+h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin: 0 0 0.4rem;
+  color: var(--bronze-deep);
+}
+
+.entry-meta {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fern-deep);
+  margin: 0 0 0.7rem;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 0.4rem;
+}
+
+.entry-meta .label { color: var(--bronze-deep); font-weight: 700; }
+
+p { margin: 0 0 0.85rem; }
+p:last-child { margin-bottom: 0; }
+
+blockquote.tin-note {
+  margin: 0.8rem 0;
+  padding: 0.9rem 1.1rem;
+  background: #fff8ec;
+  border: 1px solid var(--bronze-soft);
+  border-left: 8px solid var(--bronze);
+  font-style: italic;
+  color: var(--ink);
+  font-size: 1.05rem;
+  quotes: "“" "”";
+}
+blockquote.tin-note::before { content: open-quote; }
+blockquote.tin-note::after { content: close-quote; }
+
+/* Trail: links to neighbouring logs */
+.log-trail {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 3px double var(--line);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+}
+
+.log-trail p { margin: 0 0 0.75rem; }
+.log-trail a {
+  color: var(--bronze-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--bronze-soft);
+}
+.log-trail a:hover { color: var(--fern-deep); border-bottom-style: solid; }
+
+@media (max-width: 480px) {
+  .log-wrap { padding: 0.75rem 0.9rem; }
+  .coil { width: 80px; height: 80px; top: 0.6rem; right: 0.6rem; }
+}
