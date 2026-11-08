@@ -1,0 +1,252 @@
+/* SDS-FI-1537-042 — Alessandro de' Medici, il Moro, Duke of Florence */
+
+:root {
+  --paper: #f3ede2;
+  --ink: #211b18;
+  --medici: #6e1b2a;
+  --medici-soft: #efe0dc;
+  --gold: #b8892d;
+  --hazard: #c46a1b;
+  --rule: #cdc2ad;
+  --mono: "Courier New", ui-monospace, "Cascadia Mono", Menlo, monospace;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 6%, rgba(110, 27, 42, .07), transparent 42%),
+    radial-gradient(circle at 90% 94%, rgba(184, 137, 45, .09), transparent 45%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+/* ducal lily-ruled tape strips */
+.hazard-tape {
+  height: 14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--medici) 0 16px,
+    var(--gold) 16px 32px
+  );
+  background-size: 45.25px 45.25px;
+  animation: tape 26s linear infinite;
+}
+.hazard-tape.top { border-bottom: 2px solid var(--ink); }
+.hazard-tape.bottom { margin-top: 48px; border-top: 2px solid var(--ink); }
+@keyframes tape { to { background-position: 452.5px 0; } }
+
+/* header */
+.doc-head {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--medici);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+h1 .alias {
+  color: var(--medici);
+  border-bottom: 4px solid var(--gold);
+  padding-bottom: 2px;
+  font-style: italic;
+}
+.subtitle {
+  margin: 12px 0 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.head-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border: 2px solid var(--ink);
+  background: #fff;
+  padding: 14px 18px;
+  box-shadow: 6px 6px 0 rgba(33, 27, 24, .18);
+}
+.pict {
+  width: 84px;
+  height: 84px;
+  transform: rotate(45deg);
+  border: 3px solid var(--ink);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex: none;
+}
+.pict::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--medici);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.pict-glyph {
+  transform: rotate(-45deg);
+  font-family: var(--mono);
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--ink);
+}
+.pict-num {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+.head-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* table of contents */
+.toc {
+  max-width: 980px;
+  margin: 0 auto 36px;
+  padding: 0 24px;
+}
+.toc-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .2em;
+  margin: 0 0 10px;
+  color: var(--medici);
+}
+.toc ol {
+  margin: 0;
+  padding: 14px;
+  list-style: none;
+  columns: 2;
+  column-gap: 32px;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+.toc li {
+  break-inside: avoid;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  padding: 3px 0;
+}
+.toc a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--hazard);
+}
+.toc a:hover { color: var(--medici); border-bottom-style: solid; }
+
+/* sections */
+.sheet { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+.sec {
+  margin-bottom: 34px;
+  padding: 22px 26px;
+  background: #fffcf4;
+  border: 1.5px solid var(--ink);
+  border-top: 6px solid var(--medici);
+  box-shadow: 5px 5px 0 rgba(33, 27, 24, .12);
+}
+.sec h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-no {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: bold;
+  background: var(--medici);
+  color: #fff;
+  padding: 3px 9px;
+  flex: none;
+}
+
+/* definition lists */
+.fields { margin: 0; }
+.fields dt {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--medici);
+  margin-top: 12px;
+}
+.fields dd { margin: 2px 0 0; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 14.5px; }
+th {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  text-align: left;
+  background: var(--medici);
+  color: #fff;
+  padding: 7px 10px;
+}
+td { border-bottom: 1px solid var(--rule); padding: 8px 10px; vertical-align: top; }
+tr:nth-child(even) td { background: var(--medici-soft); }
+
+/* callouts */
+.signal {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  border-left: 6px solid var(--gold);
+  background: #f7ecd4;
+}
+
+/* lists */
+.aid { margin: 8px 0 0; padding-left: 20px; }
+.aid li { margin-bottom: 10px; }
+.aid li::marker { color: var(--medici); content: "✦ "; }
+
+/* footer note */
+.foot {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--rule);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .06em;
+  color: #6b6354;
+}
+
+a { color: var(--medici); }
+a:hover { color: var(--hazard); }
+
+@media (max-width: 640px) {
+  .toc ol { columns: 1; }
+  .doc-head { padding-top: 28px; }
+  .head-right { width: 100%; }
+}
