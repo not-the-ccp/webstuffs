@@ -1,0 +1,238 @@
+/* The Academy Limited — vintage railway timetable look */
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #eadfc4;
+  --ink: #22302a;
+  --green: #1f3d30;
+  --green-soft: #2e5544;
+  --gold: #b98a1f;
+  --gold-bright: #d4a733;
+  --red: #9c2f28;
+  --rule: #b7a67e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(212, 167, 51, 0.14), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(31, 61, 48, 0.035) 0 2px, transparent 2px 5px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.timetable {
+  max-width: 880px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem 3rem;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 3px double var(--green);
+  box-shadow: 0 0 0 6px var(--paper), 0 0 0 8px var(--rule), 0 18px 40px rgba(34, 48, 42, 0.25);
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  text-align: center;
+  padding: 1.75rem 1.5rem 1.25rem;
+  border-bottom: 3px double var(--green);
+  background:
+    linear-gradient(90deg, transparent 46%, rgba(185, 138, 31, 0.12) 46% 54%, transparent 54%),
+    var(--green);
+  color: var(--paper);
+  border-radius: 2px;
+}
+.railway-co {
+  margin: 0;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold-bright);
+}
+.masthead h1 {
+  margin: 0.35rem 0 0.2rem;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.08em;
+  font-variant: small-caps;
+  color: #fdf6e3;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+.masthead .sub {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #e8dcbb;
+}
+.locomotive {
+  width: 210px;
+  color: var(--gold-bright);
+  margin: 0.6rem auto 0.2rem;
+  display: block;
+}
+.locomotive .smoke { animation: puff 2.4s ease-in-out infinite; }
+@keyframes puff {
+  0%   { transform: translateX(0);    opacity: 0.55; }
+  70%  { transform: translateX(-10px); opacity: 0.1; }
+  100% { transform: translateX(-10px); opacity: 0; }
+}
+.ticker {
+  margin: 0.8rem auto 0;
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border: 1px dashed var(--gold-bright);
+  border-radius: 2rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: #f6ecd0;
+  min-height: 1.6em;
+  transition: opacity 0.4s;
+}
+
+/* ---------- route strip ---------- */
+.route-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1.1rem 0.5rem 1.6rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--gold);
+  border-right: 5px solid var(--gold);
+  background: repeating-linear-gradient(90deg, var(--paper) 0 14px, var(--paper-deep) 14px 28px);
+  font-size: 0.8rem;
+}
+.stop {
+  padding: 0.15rem 0.55rem;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  border-radius: 2rem;
+  white-space: nowrap;
+}
+.stop.minor { color: var(--green-soft); font-style: italic; }
+.stop.terminus { background: var(--green); color: var(--paper); font-weight: bold; letter-spacing: 0.05em; }
+
+/* ---------- headings ---------- */
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  font-size: 1.35rem;
+}
+
+/* ---------- table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-top: 0.9rem;
+}
+caption.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+thead th {
+  background: var(--green);
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  border: 1px solid var(--green);
+}
+tbody td {
+  padding: 0.65rem 0.6rem;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: rgba(185, 138, 31, 0.07); }
+tbody tr:hover { background: rgba(31, 61, 48, 0.08); }
+td.time {
+  font-variant-numeric: tabular-nums;
+  font-weight: bold;
+  color: var(--green);
+  white-space: nowrap;
+}
+td.year {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.05rem;
+  color: var(--red);
+  white-space: nowrap;
+}
+td.plat { white-space: nowrap; font-style: italic; }
+td.honorary { font-weight: bold; color: var(--green); }
+.table-intro { font-size: 0.95rem; }
+table a, .dispatch a, p a {
+  color: var(--green);
+  text-decoration-color: var(--gold);
+  text-underline-offset: 2px;
+}
+table a:hover, .dispatch a:hover, p a:hover { color: var(--red); }
+
+/* ---------- route notes ---------- */
+.route-notes p { max-width: 70ch; }
+.route-notes em { color: var(--green-soft); }
+
+/* ---------- dispatch ---------- */
+.dispatch {
+  margin-top: 2.25rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--rule);
+  border-top: 5px solid var(--red);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(156, 47, 40, 0.12) 27px 28px),
+    var(--paper);
+  position: relative;
+}
+.dispatch::before {
+  content: "LOGGED";
+  position: absolute;
+  top: -0.7rem;
+  left: 1rem;
+  background: var(--red);
+  color: var(--paper);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  padding: 0.15rem 0.5rem;
+}
+.dispatch blockquote { margin: 0.4rem 0 0.6rem; }
+.dispatch blockquote p {
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--green);
+  max-width: 62ch;
+}
+.dispatch cite {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--red);
+}
+.naturalist { border-bottom: 1px dotted var(--red); }
+.dispatch-note { font-size: 0.88rem; max-width: 68ch; }
+
+/* ---------- colophon ---------- */
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--green);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--green-soft);
+}
+.colophon .rules { font-style: italic; }
+.colophon .nav a { margin: 0 0.4rem; }
+
+@media (max-width: 620px) {
+  thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tbody tr { border-bottom: 3px double var(--green); padding: 0.5rem 0; }
+  td { border: none; padding: 0.15rem 0.4rem; }
+  td.time::before { content: "Dep "; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--rule); }
+  td.year::before { content: "Year "; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--rule); }
+  td.plat::before { content: "Platform "; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--rule); }
+  .route-strip { flex-wrap: wrap; }
+}
