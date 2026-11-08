@@ -1,0 +1,173 @@
+/* Mark of the Succubus — Museum Placard Stylesheet */
+/* Gallery 4: cream stock, ink type, hairline rules, crimson accent */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer&family=IM+Fell+Great+Primer+SC&display=swap');
+
+:root {
+  --stock: #faf7ef;
+  --stock-edge: #efe9da;
+  --ink: #211c16;
+  --ink-fade: #5c5549;
+  --crimson: #7a1f2b;
+  --rule: #c9bdad;
+  --shadow: rgba(0, 0, 0, 0.10);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--stock-edge);
+  color: var(--ink);
+  font-family: 'IM Fell Great Primer', 'Noto Serif', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+body {
+  min-height: 100vh;
+  padding: 34px 18px 56px;
+  background-image:
+    linear-gradient(var(--stock) 50%, transparent 50%),
+    repeating-linear-gradient(180deg, transparent, transparent 26px, rgba(122, 31, 43, 0.06) 26px, rgba(122, 31, 43, 0.06) 27px);
+  background-size: 100% 54px;
+}
+
+.placard {
+  max-width: 540px;
+  margin: 0 auto;
+  background: var(--stock);
+  border-top: 2px solid var(--crimson);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 12px 30px var(--shadow);
+  padding: 30px 26px 28px;
+  position: relative;
+}
+
+.placard::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--rule), var(--rule) 4px, transparent 4px, transparent 8px);
+}
+
+.placard-header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.museum {
+  font-family: 'IM Fell Great Primer SC', serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin: 0 0 8px;
+}
+
+.placard-header h1 {
+  font-family: 'IM Fell Great Primer SC', serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+
+.artist {
+  font-size: 13.5px;
+  margin: 0;
+  color: var(--ink-fade);
+  letter-spacing: 0.02em;
+}
+
+.object-label {
+  margin: 0 0 22px;
+}
+
+.object-label .label-head {
+  font-family: 'IM Fell Great Primer SC', serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin: 0 0 10px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+}
+
+.object-label dl {
+  margin: 0;
+  padding: 0;
+  display: table;
+  width: 100%;
+}
+
+.object-label dt,
+.object-label dd {
+  display: table-row;
+}
+
+.object-label dt {
+  font-family: 'IM Fell Great Primer SC', serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  padding: 4px 0;
+  vertical-align: top;
+  width: 34%;
+}
+
+.object-label dd {
+  padding: 4px 0 4px 2%;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.placard-body p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.placard-footer {
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-size: 12px;
+  color: var(--ink-fade);
+}
+
+.placard-footer a {
+  color: var(--crimson);
+  text-decoration: none;
+  border-bottom: 1px solid var(--crimson);
+}
+
+.placard-footer a:hover,
+.placard-footer a:focus {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.small {
+  margin-top: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+}
+
+a {
+  color: var(--crimson);
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  body { padding: 20px 14px 40px; }
+  .placard { padding: 22px 18px 20px; }
+  .placard-header h1 { font-size: 24px; }
+}
