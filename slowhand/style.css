@@ -1,0 +1,227 @@
+/* In Memoriam · The Album Keepers — candlelight obituary */
+:root {
+  --ink: #171412;
+  --paper: #f4ede0;
+  --paper-deep: #e9dfcb;
+  --gold: #a8842c;
+  --gold-soft: #c8a856;
+  --faint: #6d6353;
+  --plum: #4a2f3a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, #2c2620 0%, #171412 55%, #0d0b0a 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 3.5rem auto 5rem;
+  padding: 3rem 2.75rem 2.25rem;
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  box-shadow:
+    0 0 0 1px rgba(168, 132, 44, 0.35),
+    0 0 0 7px var(--ink),
+    0 0 0 8px rgba(168, 132, 44, 0.5),
+    0 30px 70px rgba(0, 0, 0, 0.65);
+  position: relative;
+}
+
+/* faint grain / candle warmth at the top */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 45% at 50% 0%, rgba(255, 190, 90, 0.10), transparent 60%);
+  pointer-events: none;
+}
+
+/* ---------- masthead ---------- */
+.masthead { text-align: center; position: relative; }
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-bottom: 1px solid rgba(111, 99, 83, 0.4);
+  padding-bottom: 0.5rem;
+}
+
+.in-memoriam {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1 {
+  margin: 0.1rem 0 0.35rem;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+.dates {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--faint);
+  font-style: italic;
+}
+
+.epitaph {
+  margin: 0.9rem auto 0;
+  max-width: 32rem;
+  font-size: 0.95rem;
+  color: var(--plum);
+}
+
+.masthead-rule {
+  height: 5px;
+  margin: 1.5rem 0 0;
+  background:
+    linear-gradient(90deg, transparent 0%, var(--gold) 12%, var(--gold) 88%, transparent 100%);
+  position: relative;
+}
+.masthead-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  height: 1px;
+  background: rgba(168, 132, 44, 0.55);
+}
+
+/* ---------- the slow, unarguable record ---------- */
+.vinyl {
+  margin: 1.75rem auto 0;
+  width: 120px;
+  height: 120px;
+}
+
+.disc {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%, #1c1917 0px, #1c1917 2px, #26211d 3px, #1c1917 4px);
+  border: 1px solid rgba(168, 132, 44, 0.6);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), inset 0 0 14px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: turn 9s linear infinite;
+}
+
+.label {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #efe6d2 30%, #d8c9a5 100%);
+  border: 1px solid rgba(23, 20, 18, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: var(--plum);
+  font-family: "Courier New", monospace;
+}
+
+@keyframes turn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---------- the obituary ---------- */
+.obituary {
+  margin-top: 2.25rem;
+  font-size: 1.02rem;
+}
+
+.obituary p { margin: 0 0 1.2rem; text-align: justify; }
+
+.lede::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--plum);
+}
+
+strong { color: var(--ink); }
+
+em { color: var(--plum); }
+
+.obituary a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(168, 132, 44, 0.5);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.obituary a:hover, .obituary a:focus {
+  background-color: rgba(168, 132, 44, 0.14);
+  color: var(--plum);
+}
+
+/* ---------- colophon ---------- */
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(111, 99, 83, 0.4);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+.colophon .strip {
+  margin: 0 0 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.footlinks { margin: 0.9rem 0 0; font-size: 0.8rem; }
+.footlinks a {
+  color: var(--faint);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(111, 99, 83, 0.5);
+}
+.footlinks a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* candle flicker on the whole sheet, very gently */
+@keyframes flicker {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(168, 132, 44, 0.35), 0 0 0 7px var(--ink), 0 0 0 8px rgba(168, 132, 44, 0.5), 0 30px 70px rgba(0, 0, 0, 0.65); }
+  50%      { box-shadow: 0 0 0 1px rgba(168, 132, 44, 0.42), 0 0 0 7px var(--ink), 0 0 0 8px rgba(168, 132, 44, 0.58), 0 30px 70px rgba(0, 0, 0, 0.6); }
+}
+.sheet { animation: flicker 4.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .disc, .sheet { animation: none; }
+}
+
+@media (max-width: 620px) {
+  .sheet { margin: 0; padding: 2rem 1.25rem; box-shadow: 0 0 0 1px rgba(168, 132, 44, 0.35); }
+  .masthead-top { flex-direction: column; gap: 0.15rem; }
+  .obituary p { text-align: left; }
+}
