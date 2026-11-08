@@ -1,0 +1,184 @@
+/* Lot 217 — auction catalogue leaf, Fenn & Marlowe Cat. 44 */
+
+:root {
+  --paper: #f4ecdb;
+  --paper-deep: #ecdfc4;
+  --ink: #2b2118;
+  --oxblood: #6d1f1f;
+  --gold: #a67c2e;
+  --gold-bright: #c9a24b;
+  --faint: #8a7a5e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  padding: 2.2rem 1rem 3.5rem;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 250, 235, 0.9), transparent 55%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(109, 31, 31, 0.025) 26px 27px),
+    var(--paper-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.frame {
+  position: fixed;
+  inset: 10px;
+  border: 3px double var(--gold);
+  outline: 1px solid rgba(109, 31, 31, 0.35);
+  outline-offset: 4px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.lot {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 243, 0.85), rgba(244, 236, 219, 0.6) 220px),
+    var(--paper);
+  border: 1px solid rgba(138, 122, 94, 0.55);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 14px 40px rgba(43, 33, 24, 0.28);
+  padding: 3rem 2.6rem 2.4rem;
+}
+
+.rule {
+  height: 7px;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  background: linear-gradient(90deg, transparent, var(--gold-bright) 50%, transparent);
+  margin: 1.6rem 0;
+}
+
+/* Masthead */
+.masthead { text-align: center; }
+
+.house-name {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+.sale-line {
+  margin: 0.5rem 0 1.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0;
+  font-size: 4.2rem;
+  line-height: 1;
+  font-weight: normal;
+  color: var(--oxblood);
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 0.55rem 0;
+  background: linear-gradient(180deg, rgba(201, 162, 75, 0.12), transparent);
+}
+
+h1::before, h1::after {
+  content: "\2726";
+  color: var(--gold);
+  font-size: 1.4rem;
+  vertical-align: 1.6rem;
+  padding: 0 0.7rem;
+}
+
+.lot-title {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 1.3rem 0 0.4rem;
+}
+
+.lot-sub {
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin: 0;
+}
+
+/* Items */
+.item { margin: 1.5rem 0; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: normal;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px dotted var(--gold);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.7rem;
+}
+
+.item p { margin: 0 0 0.8rem; text-align: justify; }
+
+.item p:first-of-type::first-letter {
+  font-size: 2.9rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.12rem 0.5rem 0 0;
+  color: var(--oxblood);
+}
+
+.survey-line {
+  font-style: italic;
+  color: var(--oxblood);
+  background: linear-gradient(transparent 78%, rgba(201, 162, 75, 0.35) 78%);
+}
+
+.estimate {
+  font-size: 1.15rem;
+  color: var(--oxblood);
+  letter-spacing: 0.05em;
+}
+
+a {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: background-color 0.2s ease;
+}
+
+a:hover { background-color: rgba(201, 162, 75, 0.28); }
+
+/* Colophon */
+.colophon {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--faint);
+  margin-top: 0.4rem;
+}
+
+.colophon p { margin: 0.25rem 0; }
+
+.hammer {
+  font-size: 1.5rem;
+  color: var(--gold);
+  animation: fall 2.6s ease-in-out infinite;
+  transform-origin: 50% 0;
+}
+
+@keyframes fall {
+  0%, 72% { transform: rotate(-38deg); }
+  80% { transform: rotate(6deg); }
+  86% { transform: rotate(-12deg); }
+  100% { transform: rotate(-38deg); }
+}
+
+@media (max-width: 560px) {
+  .lot { padding: 2rem 1.2rem; }
+  h1 { font-size: 3rem; }
+  h1::before, h1::after { vertical-align: 1.1rem; }
+  .frame { inset: 5px; }
+}
