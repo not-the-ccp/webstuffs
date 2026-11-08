@@ -1,0 +1,170 @@
+/* The Kandy Courier — Letters to the Editor
+   Palette: deep purple of the Royals' end, temple-brass gold, cream newsprint. */
+
+:root {
+  --royal-purple: #3b1f5e;
+  --royal-purple-deep: #241136;
+  --brass: #b9862c;
+  --brass-bright: #d9a94e;
+  --paper: #f6efe0;
+  --paper-shade: #efe4cc;
+  --ink: #2a2118;
+  --ink-soft: #5a4d3d;
+  --rule: #8a6a3a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--royal-purple-deep); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(217, 169, 78, 0.10), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(217, 169, 78, 0.07), transparent 50%),
+    var(--royal-purple-deep);
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 2.5rem auto 3.5rem;
+  background: var(--paper);
+  border: 1px solid var(--royal-purple);
+  outline: 6px double var(--brass);
+  outline-offset: -14px;
+  padding: 2.25rem 2.5rem 1.5rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.rule-double {
+  height: 7px;
+  border-top: 1px solid var(--royal-purple);
+  border-bottom: 3px double var(--brass);
+}
+
+.letterhead { text-align: center; margin-bottom: 1.75rem; }
+
+.newspaper {
+  font-size: 2rem;
+  letter-spacing: 0.35em;
+  margin: 0.9rem 0 0.15rem;
+  color: var(--royal-purple);
+  font-variant: small-caps;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.8rem;
+}
+
+.stamp-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.9rem 0 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.5rem;
+}
+
+.letterhead { position: relative; }
+
+.stamp {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.65rem;
+  color: var(--royal-purple);
+  border: 2px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  transform: rotate(-8deg);
+  opacity: 0.55;
+}
+
+.letter .address {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+h1 {
+  color: var(--royal-purple);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 0 0 1.2rem;
+  text-align: center;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  padding: 0.7rem 0.5rem;
+}
+
+.letter p { margin: 0 0 1.1rem; }
+
+.salutation { font-variant: small-caps; letter-spacing: 0.08em; }
+
+.signature { text-align: right; margin-top: 2rem; }
+.signature .name { font-weight: bold; font-style: italic; color: var(--royal-purple); }
+
+.postscript {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--brass);
+  padding: 0.4rem 0 0.4rem 0.9rem;
+  margin-top: 1.75rem;
+}
+
+a { color: var(--royal-purple); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+a:hover { color: var(--brass); }
+
+.scorecard {
+  margin: 1.75rem 0 0.5rem;
+  background: var(--paper-shade);
+  border: 1px solid var(--brass);
+  padding: 0.75rem 1rem 0.9rem;
+}
+
+.scorecard-head {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 0.6rem;
+  text-align: center;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px dotted var(--rule); }
+th {
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--royal-purple);
+}
+tbody tr:last-child td { border-bottom: none; }
+
+.colophon {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 40rem) {
+  .page { margin: 0.75rem; padding: 1.5rem 1.25rem; outline-offset: -8px; }
+  .newspaper { font-size: 1.4rem; letter-spacing: 0.2em; }
+}
