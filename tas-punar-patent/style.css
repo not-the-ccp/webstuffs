@@ -1,0 +1,277 @@
+/* Patent Summary — Application No. RO-A-2026 0174, Taș-Punar Catchment */
+
+:root {
+  --paper: #f3eddc;
+  --paper-deep: #e9e0c9;
+  --ink: #20281f;
+  --ink-soft: #43503f;
+  --rust: #9c3f1d;
+  --brass: #a67c2e;
+  --line: #8f9a83;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d8d2bd; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 90% at 50% 0%, #e3ddc8 0%, #d8d2bd 60%, #cfc8ad 100%);
+  line-height: 1.62;
+  font-size: 17px;
+}
+
+.mono {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 48px auto 72px;
+  position: relative;
+  background: var(--paper);
+  border: 3px double var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+  box-shadow: 0 24px 60px rgba(32, 40, 31, 0.35);
+  padding: 44px 52px 36px;
+}
+
+/* corner ticks, like the registration marks on a printed sheet */
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--brass);
+}
+.sheet::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.sheet::after { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+/* the PUBLISHED stamp */
+.stamp {
+  position: absolute;
+  top: 64px;
+  right: 40px;
+  transform: rotate(-9deg);
+  border: 3px solid var(--rust);
+  color: var(--rust);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.35em;
+  padding: 6px 14px 6px 18px;
+  font-size: 1.05rem;
+  border-radius: 4px;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  animation: stampIn 0.5s 0.4s both;
+}
+@keyframes stampIn {
+  from { transform: rotate(-9deg) scale(1.9); opacity: 0; }
+  70% { transform: rotate(-9deg) scale(0.96); opacity: 0.95; }
+  to { transform: rotate(-9deg) scale(1); opacity: 0.85; }
+}
+
+/* cover sheet */
+.cover { margin-bottom: 30px; }
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+}
+.line-2 span:first-child { font-weight: bold; color: var(--rust); }
+.line-4 { margin-top: 8px; color: var(--ink-soft); font-style: italic; }
+.rule-thick {
+  height: 6px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin: 12px 0;
+}
+h1 {
+  font-size: 2.15rem;
+  line-height: 1.15;
+  margin: 14px 0;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+.h1-sub { font-size: 0.62em; font-style: italic; color: var(--ink-soft); }
+
+/* section blocks */
+.block {
+  border-top: 1px dashed var(--line);
+  padding: 22px 0 8px;
+}
+.block-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.block-no {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+p { margin: 0 0 14px; }
+strong { color: var(--ink); }
+em { color: var(--ink-soft); }
+
+a {
+  color: var(--rust);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(156, 63, 29, 0.12); }
+
+/* inventor statement, set off like a sworn box */
+.inventor-statement {
+  background: var(--paper-deep);
+  border: 1px solid var(--brass);
+  padding: 20px 24px 8px;
+  margin: 4px 0 8px;
+}
+.asworn {
+  font-style: italic;
+  font-size: 1.12em;
+  border-left: 4px solid var(--rust);
+  padding-left: 16px;
+}
+
+/* claims */
+.claims-list {
+  margin: 0 0 16px;
+  padding-left: 1.4em;
+}
+.claims-list li {
+  margin-bottom: 12px;
+  padding-left: 6px;
+  border-left: 2px dotted var(--line);
+}
+.claims-list li::marker { font-family: "Courier New", monospace; color: var(--rust); }
+.claims-list strong { display: inline-block; width: 1.6em; }
+
+.office-note {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 10px,
+      rgba(166, 124, 46, 0.07) 10px 20px
+    );
+  border: 1px dashed var(--brass);
+  padding: 12px 16px;
+}
+
+/* the drainage line, figure 1 */
+.drainage {
+  position: relative;
+  height: 46px;
+  margin: 26px 0 10px;
+  overflow: hidden;
+}
+.drainage-line {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 100%;
+  height: 4px;
+  background:
+    linear-gradient(90deg,
+      var(--rust) 0%,
+      var(--rust) 6px,
+      transparent 6px,
+      transparent 14px) 0 0 / 14px 4px repeat-x;
+  animation: flow 2.6s linear infinite;
+}
+@keyframes flow {
+  from { background-position-x: 0; }
+  to { background-position-x: 14px; }
+}
+.drainage-label {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  color: var(--ink-soft);
+}
+
+/* footer and seal */
+.foot {
+  margin-top: 18px;
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.foot p { margin: 0 0 8px; }
+.foot-back { font-size: 0.78rem; }
+.seal {
+  width: 110px;
+  height: 110px;
+  margin: 4px auto 18px;
+  position: relative;
+}
+.seal-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid var(--rust);
+  position: relative;
+  animation: spin 60s linear infinite;
+}
+.seal-ring span {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  font-family: "Courier New", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--rust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+  transform: rotate(-12deg);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.seal-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--rust);
+  border: 1px solid var(--rust);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .sheet { margin: 16px; padding: 26px 20px; }
+  .stamp { top: 14px; right: 14px; font-size: 0.8rem; }
+  h1 { font-size: 1.6rem; }
+}
