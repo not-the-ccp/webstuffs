@@ -1,0 +1,250 @@
+/* Field Notes, Vol. XII — a naturalist's notebook on the Edo */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #eadfc4;
+  --ink: #2e2a22;
+  --ink-soft: #5d5546;
+  --margin-red: #b0402f;
+  --teal: #3d6a66;
+  --teal-bright: #5f9b94;
+  --thread: #c8b98e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 85% -5%, rgba(61, 106, 102, 0.14), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(176, 64, 47, 0.10), transparent 55%),
+    #14161a;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+.notebook {
+  max-width: 760px;
+  margin: 3rem auto 4rem;
+  background:
+    linear-gradient(90deg, transparent 78px, rgba(176, 64, 47, 0.35) 78px, rgba(176, 64, 47, 0.35) 80px, transparent 80px),
+    repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0,
+      var(--paper) 31px,
+      var(--thread) 31px,
+      var(--thread) 32px
+    );
+  border-radius: 4px;
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.45),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 60px rgba(120, 100, 60, 0.12);
+  position: relative;
+  padding: 0 0 2.5rem;
+}
+
+/* ring binder holes down the left margin */
+.notebook::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 34px 120px, #14161a 0 7px, rgba(90, 75, 45, 0.55) 7px 8.5px, transparent 9px),
+    radial-gradient(circle at 34px 40%, #14161a 0 7px, rgba(90, 75, 45, 0.55) 7px 8.5px, transparent 9px),
+    radial-gradient(circle at 34px calc(100% - 140px), #14161a 0 7px, rgba(90, 75, 45, 0.55) 7px 8.5px, transparent 9px);
+}
+
+.cover {
+  position: relative;
+  padding: 3rem 3rem 2rem 4.5rem;
+  border-bottom: 3px double var(--ink-soft);
+}
+
+.cover .stamp {
+  position: absolute;
+  top: 2.2rem;
+  right: 2.4rem;
+  width: 92px;
+  height: 92px;
+  border: 2.5px solid var(--margin-red);
+  border-radius: 50%;
+  color: var(--margin-red);
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  transform: rotate(-11deg);
+  opacity: 0.85;
+  animation: stamp-settle 1.2s ease-out both;
+}
+
+.cover .stamp span {
+  border-top: 1.5px solid var(--margin-red);
+  border-bottom: 1.5px solid var(--margin-red);
+  padding: 0.15rem 0.55rem 0.05rem;
+  font-size: 0.7rem;
+}
+
+@keyframes stamp-settle {
+  0%   { transform: rotate(-11deg) scale(1.9); opacity: 0; }
+  70%  { transform: rotate(-11deg) scale(0.96); opacity: 0.9; }
+  100% { transform: rotate(-11deg) scale(1); opacity: 0.85; }
+}
+
+.place-line {
+  margin: 0 0 0.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 3.1rem;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--teal);
+}
+
+.species {
+  margin: 0 0 1.6rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.measurements {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.6rem 1.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
+.measurements li {
+  border-left: 2px solid var(--thread);
+  padding-left: 0.7rem;
+}
+
+.measurements span {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.15rem;
+}
+
+.entries {
+  padding: 1.5rem 3rem 0 4.5rem;
+}
+
+.entry {
+  margin-bottom: 2.2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px dashed var(--thread);
+}
+
+.entry:last-child { border-bottom: none; }
+
+.entry-head {
+  margin: 0 0 0.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--margin-red);
+}
+
+.entry p { margin: 0 0 0.9rem; }
+
+.entry p:last-child { margin-bottom: 0; }
+
+.entry a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-color: var(--teal-bright);
+  text-underline-offset: 3px;
+  transition: background 0.25s ease;
+}
+
+.entry a:hover { background: rgba(95, 155, 148, 0.18); }
+
+.directive {
+  font-style: italic;
+  border-bottom: 1.5px solid var(--margin-red);
+  color: var(--ink);
+}
+
+strong {
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, rgba(191, 163, 96, 0.5) 62%);
+}
+
+.hand {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.colophon {
+  padding: 1.2rem 3rem 0 4.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--thread);
+  margin: 0 0 0 0;
+  padding-left: 4.5rem;
+}
+
+.colophon a { color: var(--teal); }
+
+/* gentle reveal, progressive enhancement only */
+.entry { opacity: 1; }
+.entry.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.entry.reveal.shown {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 620px) {
+  .notebook { margin: 0; border-radius: 0; }
+  .cover, .entries, .colophon { padding-left: 3rem; }
+  .notebook {
+    background:
+      linear-gradient(90deg, transparent 52px, rgba(176, 64, 47, 0.35) 52px, rgba(176, 64, 47, 0.35) 54px, transparent 54px),
+      repeating-linear-gradient(to bottom, var(--paper) 0, var(--paper) 31px, var(--thread) 31px, var(--thread) 32px);
+  }
+  .notebook::before {
+    background-image:
+      radial-gradient(circle at 24px 120px, #14161a 0 6px, rgba(90, 75, 45, 0.55) 6px 7.5px, transparent 8px),
+      radial-gradient(circle at 24px 40%, #14161a 0 6px, rgba(90, 75, 45, 0.55) 6px 7.5px, transparent 8px),
+      radial-gradient(circle at 24px calc(100% - 140px), #14161a 0 6px, rgba(90, 75, 45, 0.55) 6px 7.5px, transparent 8px);
+  }
+  h1 { font-size: 2.3rem; }
+}
