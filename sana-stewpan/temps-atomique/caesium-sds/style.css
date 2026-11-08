@@ -1,0 +1,217 @@
+:root {
+  --paper: #f4efe3;
+  --ink: #2b2419;
+  --faded: #6d6149;
+  --rule: #b7a98a;
+  --blue: #35528f;
+  --red: #8f3527;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e2d0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sds {
+  max-width: 52rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 3px rgba(60, 48, 24, 0.25);
+  padding: 2rem 2.25rem 1.5rem;
+}
+
+.sds-head {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.head-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.issuer {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.latin {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+
+.revision {
+  font-size: 0.85rem;
+  color: var(--faded);
+  margin: 0;
+}
+
+.z-block {
+  text-align: center;
+  border: 1px solid var(--rule);
+  padding: 0.75rem 1.1rem;
+  min-width: 8.5rem;
+  background: #efe8d5;
+}
+
+.z-block span { display: block; }
+.z-num { font-size: 1.4rem; color: var(--faded); }
+.z-sym { font-size: 2.4rem; font-weight: bold; }
+.z-mass { font-size: 0.72rem; color: var(--faded); }
+
+.gds {
+  margin: 1rem 0 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 4px solid var(--red);
+  background: #f0e5d6;
+  font-size: 0.92rem;
+}
+
+.sds-body h2 {
+  font-size: 1.05rem;
+  margin: 1.8rem 0 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+.sec {
+  display: inline-block;
+  min-width: 1.6em;
+  text-align: center;
+  background: var(--ink);
+  color: var(--paper);
+  margin-right: 0.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: minmax(10rem, 22%) 1fr;
+  gap: 0.3rem 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.kv div { display: contents; }
+.kv dt {
+  font-weight: bold;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--faded);
+}
+.kv dd { margin: 0; }
+
+p { margin: 0 0 0.9rem; }
+a { color: var(--blue); }
+
+.margin-quote {
+  font-style: italic;
+  background: #ece1c8;
+  padding: 0 0.2em;
+}
+
+.calculator {
+  margin-top: 2rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px dashed var(--rule);
+  background: #efe8d5;
+}
+
+.calculator h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  border: none;
+  padding: 0;
+}
+
+#calc-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+#calc-form label { font-weight: bold; font-size: 0.9rem; }
+#calc-form input {
+  width: 7rem;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  font-family: "Courier New", monospace;
+  border: 1px solid var(--rule);
+  background: #fbf7ec;
+}
+#calc-form button {
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+}
+#calc-form button:hover { background: var(--blue); }
+
+.calc-out {
+  margin-top: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  min-height: 2.6rem;
+  background: #fbf7ec;
+  border-left: 4px solid var(--blue);
+  font-size: 0.95rem;
+}
+
+.calc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.calc-table th, .calc-table td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+}
+.calc-table th { background: #e7dcc2; }
+
+.sds-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.9rem;
+  text-align: center;
+}
+
+.foot-stamp {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--faded);
+}
+
+.foot-links {
+  font-size: 0.82rem;
+  color: var(--faded);
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 40rem) {
+  .head-grid { flex-direction: column; }
+  .kv { grid-template-columns: 1fr; }
+}
