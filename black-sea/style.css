@@ -1,0 +1,309 @@
+/* FM-13 · Chapter 4 — The Black Sea: a field manual set over the water column */
+
+:root {
+  --paper: #f2ecdd;
+  --paper-dim: #e9e1cc;
+  --ink: #21302f;
+  --ink-soft: #4c5b58;
+  --surface: #3d7d84;
+  --midwater: #1c4a55;
+  --chemocline: #7c3a2d;
+  --abyss: #05131a;
+  --brass: #a3762e;
+  --vermilion: #a63c22;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #12333c 0%, transparent 60%),
+    linear-gradient(180deg, #0a2029 0%, #05131a 70%, #030b10 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+  min-height: 100vh;
+}
+
+/* ————— the page as a quire of manual paper ————— */
+
+.quire {
+  max-width: 760px;
+  margin: 48px auto 72px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(163,118,46,.10) 31px 32px),
+    var(--paper);
+  border: 1px solid #0c1c23;
+  box-shadow:
+    0 0 0 6px rgba(5,19,26,.55),
+    0 24px 60px rgba(0,0,0,.6),
+    inset 0 0 60px rgba(163,118,46,.12);
+  position: relative;
+}
+.quire::before {
+  content: "";
+  display: block;
+  height: 10px;
+  background: linear-gradient(90deg, var(--surface) 0 34%, var(--midwater) 34% 62%, var(--chemocline) 62% 82%, var(--abyss) 82% 100%);
+  border-bottom: 2px solid var(--ink);
+}
+
+/* ————— masthead ————— */
+
+.masthead {
+  padding: 44px 56px 8px;
+  position: relative;
+  border-bottom: 3px double var(--ink);
+}
+
+.service {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  line-height: 1;
+  margin: 0 0 14px;
+  letter-spacing: .01em;
+  color: var(--ink);
+}
+
+.coords {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .74rem;
+  letter-spacing: .06em;
+  color: var(--midwater);
+  margin: 0;
+}
+
+.stamp {
+  position: absolute;
+  right: 56px;
+  top: 40px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-align: center;
+  color: var(--vermilion);
+  border: 2px dashed var(--vermilion);
+  border-radius: 4px;
+  padding: 10px 14px;
+  transform: rotate(4deg);
+  opacity: .85;
+  animation: stamp-settle 1.6s ease-out both;
+}
+@keyframes stamp-settle {
+  from { transform: rotate(11deg) scale(1.5); opacity: 0; }
+  to   { transform: rotate(4deg) scale(1);   opacity: .85; }
+}
+
+/* water-column test tube beside the masthead */
+.tube {
+  position: absolute;
+  right: 56px;
+  top: 130px;
+  width: 16px;
+  height: 190px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--midwater) 48%, var(--chemocline) 54%, var(--abyss) 100%);
+  border: 1px solid var(--ink);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  opacity: .9;
+}
+.tube-tick {
+  position: absolute;
+  left: 22px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .6rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.tube-tick::before { content: "—"; margin-right: 4px; }
+.tube-tick-0 { top: -2px; }
+.tube-tick-1 { top: 48%; }
+.tube-tick-2 { bottom: -2px; }
+.tube .bubble {
+  position: absolute;
+  bottom: -8px;
+  border-radius: 50%;
+  background: rgba(242, 236, 221, .75);
+  animation: rise linear infinite;
+}
+@keyframes rise {
+  from { transform: translateY(0); opacity: .9; }
+  70%  { opacity: .8; }
+  to   { transform: translateY(-190px); opacity: 0; }
+}
+
+/* ————— body of the chapter ————— */
+
+.byline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  color: var(--ink-soft);
+  padding: 18px 56px 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(33,48,47,.35);
+}
+
+.sec { padding: 26px 56px 6px; }
+
+h2 {
+  font-size: 1.05rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--midwater);
+  border-top: 1px solid var(--ink);
+  padding-top: 14px;
+  margin: 0 0 14px;
+}
+.sec h2 { border-top: none; padding-top: 0; }
+.sec + .sec h2 { border-top: 1px solid var(--ink); }
+
+p { margin: 0 0 1em; }
+
+strong { color: var(--vermilion); }
+em { color: var(--midwater); }
+
+a { color: var(--midwater); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+a:hover { background: var(--paper-dim); color: var(--ink); }
+
+/* the measures table */
+.measures {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 22px;
+  font-size: .9rem;
+}
+.measures caption {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-align: left;
+  padding-bottom: 8px;
+}
+.measures th, .measures td {
+  border: 1px solid rgba(33,48,47,.55);
+  padding: 7px 10px;
+  text-align: left;
+}
+.measures th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--paper-dim);
+}
+.measures tbody tr:nth-child(even) { background: rgba(163,118,46,.07); }
+
+/* caution */
+.caution {
+  border-left: 4px solid var(--vermilion);
+  background: rgba(166,60,34,.06);
+  padding: 12px 16px;
+  margin: 0 0 1em;
+}
+.caution-tag {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin-right: 10px;
+}
+
+/* the axiom */
+.axiom {
+  margin: 26px 8px 26px 24px;
+  padding: 18px 24px;
+  font-size: 1.22rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper-dim);
+  border-top: 3px double var(--brass);
+  border-bottom: 3px double var(--brass);
+  position: relative;
+}
+.axiom::before, .axiom::after {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  color: var(--brass);
+  position: absolute;
+}
+.axiom::before { content: "\201C"; left: 8px; top: 2px; }
+.axiom::after  { content: "\201D"; right: 8px; bottom: -8px; }
+
+/* ————— tail ————— */
+
+.sign-off {
+  margin-top: 26px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.tail {
+  margin: 30px 56px 44px;
+  padding-top: 16px;
+  border-top: 3px double var(--ink);
+}
+.see-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.tail p { font-size: .92rem; }
+.colophon {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+}
+
+/* ————— the sounding gauge, pinned to the margin ————— */
+
+.gauge {
+  position: fixed;
+  right: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--paper);
+  background: rgba(5,19,26,.72);
+  border: 1px solid rgba(242,236,221,.35);
+  border-radius: 4px;
+  padding: 12px 14px;
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+.gauge-label { font-size: .6rem; letter-spacing: .24em; color: var(--brass); }
+.gauge-read  { font-size: 1.15rem; font-weight: 700; letter-spacing: .04em; min-width: 7ch; text-align: right; }
+.gauge-max   { font-size: .58rem; letter-spacing: .08em; opacity: .7; }
+
+@media (max-width: 1060px) { .gauge { display: none; } }
+@media (max-width: 640px) {
+  .quire { margin: 0; border-left: none; border-right: none; }
+  .masthead, .sec, .byline, .tail { padding-left: 22px; padding-right: 22px; }
+  .stamp { right: 22px; top: 120px; }
+  .tube { display: none; }
+}
