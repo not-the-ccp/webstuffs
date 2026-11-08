@@ -1,0 +1,253 @@
+/* Gymnasium an der Isar — ruled subject form B-7 */
+:root {
+  --ink: #1e2a4a;
+  --bavarian-blue: #2a5caa;
+  --bavarian-blue-dark: #1c3f7d;
+  --paper: #f7f3e6;
+  --rule: #b9c7de;
+  --margin-red: #c8503c;
+  --stamp-red: #b3341f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #dfe5ee;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* Bavarian blue-white lozenge bands, top and bottom */
+.diamond-band {
+  height: 34px;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(135deg, var(--bavarian-blue) 25%, transparent 25% -50%, transparent 75%, var(--bavarian-blue) 75% -125%, var(--bavarian-blue)),
+    linear-gradient(135deg, var(--bavarian-blue) 25%, transparent 25% -50%, transparent 75%, var(--bavarian-blue) 75% -125%, var(--bavarian-blue));
+  background-size: 24px 48px;
+  background-position: 0 0, 12px 24px;
+  border-top: 3px solid var(--bavarian-blue-dark);
+  border-bottom: 3px solid var(--bavarian-blue-dark);
+}
+.diamond-band:last-of-type { border-top: 3px solid var(--bavarian-blue-dark); }
+
+.report {
+  max-width: 780px;
+  margin: 2.5rem auto 3rem;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    var(--rule) 31px,
+    var(--rule) 32px
+  );
+  border: 1px solid #c9c2a8;
+  box-shadow: 0 12px 30px rgba(30, 42, 74, 0.25), 0 2px 6px rgba(30, 42, 74, 0.15);
+  padding: 2.5rem 3.2rem 2rem 4.5rem;
+  position: relative;
+}
+/* red exercise-book margin line */
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 3.1rem;
+  width: 2px;
+  background: var(--margin-red);
+  opacity: 0.55;
+}
+
+.report-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  border-bottom: 3px double var(--bavarian-blue-dark);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+.crest {
+  flex: 0 0 auto;
+  width: 58px; height: 58px;
+  background: radial-gradient(circle at 35% 30%, #3d6fc0, var(--bavarian-blue-dark));
+  clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+  display: flex; align-items: center; justify-content: center;
+}
+.crest-letter {
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 2rem; font-weight: bold;
+  color: var(--paper);
+  transform: translateY(4px);
+}
+.school-name {
+  margin: 0;
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  color: var(--bavarian-blue-dark);
+}
+.form-line {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #5a5440;
+}
+
+/* the pressed grade stamp */
+.stamp {
+  flex: 0 0 auto;
+  width: 96px; height: 96px;
+  border: 3px solid var(--stamp-red);
+  border-radius: 50%;
+  position: relative;
+  margin-left: auto;
+  margin-top: 0.4rem;
+  transform: rotate(-14deg);
+  color: var(--stamp-red);
+  cursor: pointer;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  transition: transform 0.12s ease;
+}
+.stamp:hover { transform: rotate(-14deg) scale(1.04); }
+.stamp.pressed { animation: stamp-press 0.35s ease; }
+@keyframes stamp-press {
+  0% { transform: rotate(-14deg) scale(1.25); opacity: 0.4; }
+  100% { transform: rotate(-14deg) scale(1); opacity: 0.9; }
+}
+.stamp-ring {
+  position: absolute; inset: 5px;
+  border: 1px dashed var(--stamp-red);
+  border-radius: 50%;
+}
+.stamp-grade {
+  position: absolute; top: 14px; left: 0; right: 0;
+  text-align: center;
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 1.9rem; font-weight: bold;
+}
+.stamp-label {
+  position: absolute; bottom: 14px; left: 0; right: 0;
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.details-grid {
+  background: rgba(42, 92, 170, 0.07);
+  border: 1px solid rgba(42, 92, 170, 0.35);
+  padding: 0.8rem 1rem;
+  margin: 0 0 1.6rem;
+  font-size: 0.9rem;
+}
+.details-grid dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1.5rem; }
+.details-grid dt { display: inline; font-weight: bold; color: var(--bavarian-blue-dark); }
+.details-grid dd { display: inline; margin: 0; }
+.details-grid div { margin: 0; }
+
+h1 {
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--bavarian-blue-dark);
+  border-bottom: 2px solid var(--bavarian-blue);
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.6rem;
+}
+.byline { font-style: italic; color: #5a5440; margin: 0 0 1.4rem; }
+
+h2 {
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--bavarian-blue-dark);
+  margin: 1.7rem 0 0.5rem;
+}
+.sec-num {
+  display: inline-block;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  background: var(--bavarian-blue);
+  color: var(--paper);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  transform: translateY(-1px);
+}
+
+p { margin: 0 0 1rem; }
+.drop-cap::first-letter {
+  float: left;
+  font-family: "Palatino Linotype", Georgia, serif;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.15rem 0.5rem 0 0;
+  color: var(--bavarian-blue-dark);
+  font-weight: bold;
+}
+
+/* the tape transcript, on a torn slip */
+.transcript-section blockquote.tape-line {
+  position: relative;
+  margin: 1.2rem 0 1.2rem 1rem;
+  padding: 1rem 1.2rem 0.8rem;
+  background: #fffdf4;
+  border-left: 4px solid var(--stamp-red);
+  box-shadow: 2px 3px 8px rgba(30, 42, 74, 0.2);
+  transform: rotate(-0.6deg);
+}
+.tape-line p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+}
+.tape-line footer {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #6a6450;
+}
+.tape-line::before {
+  content: "TAPE NO. 6 · MIN. 11";
+  position: absolute;
+  top: -0.7rem; left: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  background: var(--stamp-red);
+  color: #fff;
+  padding: 0.1rem 0.5rem;
+}
+
+.marks {
+  margin-top: 1.8rem;
+  border-top: 2px solid var(--bavarian-blue-dark);
+  padding-top: 0.8rem;
+}
+.marks-line { font-weight: bold; }
+.teacher-note {
+  font-family: "Segoe Script", "Bradley Hand", cursive;
+  font-size: 1.05rem;
+  color: var(--stamp-red);
+  transform: rotate(-0.4deg);
+}
+
+.report-footer {
+  margin-top: 1.8rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #b3a982;
+  font-size: 0.9rem;
+}
+.report-footer p { margin: 0.35rem 0; }
+a { color: var(--bavarian-blue-dark); }
+a:hover { color: var(--stamp-red); }
+
+@media (max-width: 640px) {
+  .report { padding: 1.8rem 1.2rem 1.5rem 2.2rem; margin: 1rem 0.6rem; }
+  .report::before { left: 1.5rem; }
+  .details-grid dl { grid-template-columns: 1fr; }
+  .stamp { margin-top: 1rem; }
+}
