@@ -1,0 +1,192 @@
+/* Specification No. 85-0023 — patent office paper */
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #ece4d0;
+  --ink: #23201a;
+  --rule: #6d5f45;
+  --seal: #8a1f1f;
+  --blue: #24456e;
+  --serif: Georgia, "Times New Roman", serif;
+  --mono: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(109,95,69,.05) 0 1px, transparent 1px 28px),
+    radial-gradient(ellipse at 50% -10%, #efe7d3 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.docket {
+  border-bottom: 3px double var(--rule);
+  background: linear-gradient(180deg, rgba(36,69,110,.06), transparent);
+  padding: 2.2rem 1.5rem 1.4rem;
+}
+
+.docket-grid {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 .6rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin: 0 0 .5rem;
+  font-variant: small-caps;
+  letter-spacing: .02em;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin-top: .55rem;
+  background: linear-gradient(90deg, var(--seal), transparent);
+}
+
+.sub { font-style: italic; margin: 0; color: #4a4234; }
+
+.filing { margin: 0; }
+.filing dt {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--rule);
+  margin-top: .55rem;
+}
+.filing dd { margin: 0; }
+
+.stamp {
+  margin-top: 1.2rem;
+  width: 118px;
+  height: 118px;
+  border: 3px double var(--seal);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform: rotate(-14deg);
+  opacity: 0;
+  animation: ink-in .9s ease-out .5s forwards;
+}
+.stamp span {
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-weight: bold;
+  letter-spacing: .14em;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--seal);
+  border: 1px solid var(--seal);
+  padding: .5rem .6rem;
+  border-radius: 4px;
+}
+@keyframes ink-in {
+  from { opacity: 0; transform: rotate(-14deg) scale(1.5); }
+  to   { opacity: .92; transform: rotate(-14deg) scale(1); }
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem 2.5rem;
+}
+
+.sheet section {
+  margin: 2.4rem 0;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(109,95,69,.45);
+}
+
+.sheet h2 {
+  font-variant: small-caps;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: .3rem;
+  margin-top: 0;
+}
+
+.abstract p {
+  text-align: justify;
+  hyphens: auto;
+}
+.abstract p::first-letter {
+  font-size: 2.4em;
+  float: left;
+  line-height: .85;
+  padding: .08em .12em 0 0;
+  color: var(--seal);
+  font-weight: bold;
+}
+
+.para { text-align: justify; hyphens: auto; }
+.num {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--blue);
+  margin-right: .6rem;
+  letter-spacing: .04em;
+}
+
+.verbat {
+  margin: 1.4rem 0;
+  padding: 1rem 1.3rem;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--seal);
+  box-shadow: inset 0 0 24px rgba(109,95,69,.18);
+}
+.verbat p { margin: 0; font-style: italic; }
+.verbat cite {
+  display: block;
+  margin-top: .7rem;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: .74rem;
+  color: var(--rule);
+}
+
+.claims-list { padding-left: 1.6rem; }
+.claims-list li { margin: .9rem 0; text-align: justify; }
+.claims-list strong { font-variant: small-caps; letter-spacing: .03em; }
+
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--seal); }
+
+.notes p:last-child { margin-bottom: 0; }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--rule);
+  padding: 1rem 1.5rem 2rem;
+}
+
+@media (max-width: 680px) {
+  .docket-grid { grid-template-columns: 1fr; }
+  .stamp { justify-self: end; }
+}
