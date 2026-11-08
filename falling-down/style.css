@@ -1,0 +1,150 @@
+/* KHTT Studio B — broadcast transcript styling */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;800&display=swap');
+
+:root {
+  --ink: #e8e0cf;
+  --dim: #a89c82;
+  --amber: #f0a13c;
+  --tape: #14110d;
+  --panel: #1e1812;
+  --panel-2: #241d15;
+  --red: #c8452c;
+  --line: #3a2f21;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 3px),
+    var(--tape);
+  color: var(--ink);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.masthead {
+  text-align: center;
+  padding: 3.5rem 1.25rem 2rem;
+  border-bottom: 3px double var(--line);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(240,161,60,0.08), transparent 60%);
+}
+
+.onair {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: #ffb59d;
+  border: 1px solid var(--red);
+  background: rgba(200,69,44,0.12);
+  padding: 0.3rem 1.1rem 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.onair .dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+  margin-right: 0.55rem;
+  vertical-align: 1px;
+  animation: blink 1.6s steps(2, start) infinite;
+}
+@keyframes blink { to { visibility: hidden; } }
+
+.station {
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: var(--amber);
+  margin: 1.2rem 0 0.6rem;
+}
+
+h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  margin: 0.1rem 0 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.byline { color: var(--dim); margin: 0.2rem 0; }
+.byline.small { font-size: 0.8rem; letter-spacing: 0.06em; }
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--amber);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.cast ul { padding-left: 1.1rem; }
+.cast li { margin: 0.3rem 0; color: var(--dim); }
+.cast li strong { color: var(--ink); letter-spacing: 0.1em; }
+
+.scene, .coda {
+  margin-top: 2.4rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--amber);
+  padding: 1.6rem 1.5rem;
+}
+
+.cue {
+  color: #c9b28a;
+  font-style: italic;
+  background: var(--panel-2);
+  border-left: 3px solid var(--line);
+  padding: 0.5rem 0.9rem;
+}
+
+.line { margin: 0.9rem 0; }
+.line strong { color: var(--amber); letter-spacing: 0.12em; }
+.line em { color: var(--dim); }
+
+a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: #ffd08a; background: rgba(240,161,60,0.1); }
+
+.tail {
+  border-top: 3px double var(--line);
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+}
+
+/* waveform strip under the masthead */
+.wave {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin: 1.2rem auto 0;
+  height: 34px;
+  align-items: flex-end;
+  max-width: 380px;
+}
+.wave i {
+  display: block;
+  width: 4px;
+  background: var(--amber);
+  opacity: 0.75;
+  border-radius: 2px 2px 0 0;
+  height: 30%;
+}
