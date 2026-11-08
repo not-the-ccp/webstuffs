@@ -1,0 +1,235 @@
+/* The Delta Ledger — classifieds, printed from the back room of the club */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dcb9;
+  --ink: #2a2118;
+  --faded: #6b5b45;
+  --red: #8e2f22;
+  --blue: #274060;
+  --rule: #4a3b28;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 252, 240, 0.9), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(120, 90, 40, 0.25), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(90, 70, 40, 0.035) 2px 3px),
+    linear-gradient(180deg, var(--paper), var(--paper-deep));
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 980px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.2rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead { text-align: center; position: relative; }
+
+.mast-rule {
+  height: 3px;
+  background: var(--rule);
+  margin: 0.35rem 0;
+}
+.mast-rule.double {
+  height: 6px;
+  border-top: 1px solid var(--rule);
+  background: var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.mast-small {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0.5rem 0 0.2rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 5.2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0.1rem 0;
+  font-variant: small-caps;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.mast-sub {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+  font-style: italic;
+  margin: 0.1rem 0 0.5rem;
+}
+
+.stamp {
+  display: inline-block;
+  margin: 0.9rem auto 0;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  transform: rotate(-2.5deg);
+  opacity: 0.85;
+  background: rgba(142, 47, 34, 0.05);
+}
+
+/* ---------- the wire ---------- */
+
+.wire {
+  max-width: 640px;
+  margin: 1.6rem auto;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.85rem;
+}
+.wire-head {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 0.2rem;
+}
+.wire-line { margin: 0.1rem 0; min-height: 1.4em; font-style: italic; color: var(--faded); }
+.wire-line.fresh { animation: inkIn 0.5s ease-out; }
+@keyframes inkIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+#wireBtn {
+  margin-top: 0.4rem;
+  font-family: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+#wireBtn:hover { background: var(--ink); color: var(--paper); }
+
+/* ---------- notice ---------- */
+
+.notice {
+  font-size: 0.95rem;
+  max-width: 720px;
+  margin: 1.4rem auto 1.8rem;
+  text-align: justify;
+}
+.dropcap {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.85;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* ---------- columns & ads ---------- */
+
+.cols {
+  columns: 3 240px;
+  column-gap: 1.4rem;
+  column-rule: 1px solid rgba(74, 59, 40, 0.45);
+}
+
+.group { break-inside: auto; }
+
+.group-head {
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  text-align: center;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.25rem 0;
+  margin: 1.1rem 0 0.6rem;
+}
+.group-head span {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--faded);
+  font-style: italic;
+  font-variant: normal;
+}
+
+.ad {
+  position: relative;
+  break-inside: avoid;
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.65rem 0.5rem;
+  border: 1px solid rgba(74, 59, 40, 0.55);
+  background: rgba(255, 252, 240, 0.35);
+  font-size: 0.82rem;
+  text-align: justify;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.ad:hover {
+  box-shadow: 3px 3px 0 rgba(42, 33, 24, 0.25);
+  transform: translate(-1px, -1px);
+}
+
+.ad-no {
+  position: absolute;
+  top: -0.62rem;
+  left: 0.55rem;
+  background: var(--paper);
+  padding: 0 0.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.ad a { color: var(--blue); text-decoration-thickness: 1px; }
+.ad a:hover { color: var(--red); }
+
+.byline {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.notice-ad { background: rgba(142, 47, 34, 0.06); border-color: var(--red); }
+
+/* ---------- footer ---------- */
+
+.ledger-footer {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.7rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--faded);
+}
+.ledger-footer a { color: var(--blue); }
+.ledger-footer a:hover { color: var(--red); }
+.rule {
+  margin: 0.5rem 0 0;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 640px) {
+  .cols { columns: 1; column-rule: none; }
+  .notice { text-align: left; }
+}
