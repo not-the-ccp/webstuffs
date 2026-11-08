@@ -1,0 +1,189 @@
+/* Saffron Sessions — sleeve layout, BPR-007 */
+
+:root {
+  --saffron: #e8641c;
+  --saffron-deep: #b23f0e;
+  --paper: #f3ecdf;
+  --ink: #241a12;
+  --faint: #8a7a63;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sleeve {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.5rem;
+}
+
+/* the spine: a rotated strip running down the left */
+.spine {
+  grid-row: 1 / span 2;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-left: 3px solid var(--saffron);
+  padding-left: 0.6rem;
+  align-self: stretch;
+}
+
+/* the cover: oversized type, off-set */
+.cover {
+  padding: 2.5rem 1rem 1rem 2.2rem;
+  position: relative;
+}
+.imprint {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.album {
+  margin: 0.2rem 0 0.6rem -0.55rem;
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  line-height: 0.86;
+  font-weight: 700;
+  color: var(--saffron-deep);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.album span {
+  display: block;
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 4.5rem;
+}
+.dek {
+  max-width: 34em;
+  margin: 0.8rem 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.dek::before {
+  content: "";
+  display: inline-block;
+  width: 2.2rem;
+  height: 0.28rem;
+  background: var(--saffron);
+  margin-right: 0.6rem;
+  vertical-align: middle;
+}
+
+/* the inner sleeve: asymmetric two-column notes */
+.inner-sleeve {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: 2rem 3rem;
+  align-items: start;
+}
+.note { grid-column: 1; }
+.note h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  border-bottom: 2px solid var(--saffron);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+.tracks, .scrap, .credits { grid-column: 2; }
+.scrap { grid-column: 1 / -1; }
+
+.note p { margin: 0 0 1rem; }
+
+.track-head {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  border-bottom: 2px solid var(--saffron);
+  padding-bottom: 0.35rem;
+  margin: 1.6rem 0 0.6rem;
+}
+.tracks .track-head:first-child { margin-top: 0; }
+
+.tracklist {
+  list-style: none;
+  margin: 0 0 1.4rem;
+  padding: 0;
+}
+.tracklist li {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr auto;
+  gap: 0.7rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dotted var(--faint);
+  font-size: 0.95rem;
+}
+.tn {
+  font-family: "Courier New", monospace;
+  color: var(--saffron-deep);
+  font-weight: 700;
+}
+.tt { font-style: italic; }
+.td { font-family: "Courier New", monospace; color: var(--faint); }
+
+/* the scrap: rotated, set apart, like a found paper */
+.scrap {
+  background: #fbf6ea;
+  border: 1px solid var(--faint);
+  padding: 1.6rem 1.8rem;
+  transform: rotate(-1.1deg);
+  max-width: 44rem;
+  margin: 2.2rem auto 0.5rem;
+  box-shadow: 0.3rem 0.4rem 0 rgba(36, 26, 18, 0.12);
+}
+.scrap-head {
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.8rem;
+}
+.scrap-text {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--saffron-deep);
+  margin: 0 0 0.9rem;
+}
+.scrap p:last-child { font-size: 0.95rem; margin-bottom: 0; }
+.credits h2 { margin-bottom: 0.8rem; }
+
+.credits .credit-line {
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin: 0 0 0.8rem;
+}
+
+a { color: var(--saffron-deep); }
+
+@media (max-width: 760px) {
+  .sleeve { grid-template-columns: 1fr; }
+  .spine {
+    grid-row: auto;
+    writing-mode: horizontal-tb;
+    transform: none;
+    border-left: none;
+    border-top: 3px solid var(--saffron);
+    padding: 0.6rem 0 0;
+  }
+  .inner-sleeve { grid-template-columns: 1fr; }
+  .note, .tracks, .scrap, .credits { grid-column: 1; }
+  .scrap { transform: none; margin-top: 1.6rem; }
+}
