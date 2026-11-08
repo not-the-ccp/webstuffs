@@ -1,0 +1,291 @@
+/* SDS-KRS-114 — Cressa safety data sheet */
+:root {
+  --paper: #f4efe3;
+  --ink: #1e2422;
+  --faint: #5c6258;
+  --amber: #e8a11b;
+  --amber-deep: #b56a08;
+  --sea: #22404a;
+  --sea-deep: #14262c;
+  --rule: #c9c0a6;
+  --stamp: #8a2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(34, 64, 74, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(30, 36, 34, 0.022) 0 2px, transparent 2px 6px),
+    #e9e3d3;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 56rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 14px 40px rgba(20, 38, 44, 0.18);
+  position: relative;
+}
+
+/* hazard-stripe strip along the top edge */
+.sheet::before {
+  content: "";
+  display: block;
+  height: 12px;
+  background: repeating-linear-gradient(-45deg,
+    var(--amber) 0 16px,
+    var(--sea-deep) 16px 32px);
+}
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.75rem 2.5rem 1.25rem;
+  border-bottom: 3px double var(--sea);
+  background: linear-gradient(180deg, rgba(232,161,27,0.10), transparent 70%);
+}
+
+.masthead .org {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.masthead .doc {
+  margin: 0.35rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--sea-deep);
+}
+
+.masthead .doc-sub {
+  margin: 0.25rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+
+/* hazard diamond, GHS-style */
+.diamond {
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  transform: rotate(45deg);
+  border: 3px solid #fff;
+  outline: 3px solid var(--sea-deep);
+  background: linear-gradient(135deg, var(--amber) 50%, #fff 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(20, 38, 44, 0.25);
+  animation: settle 0.9s ease-out both;
+}
+
+.diamond > * { transform: rotate(-45deg); }
+
+.dnum {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--sea-deep);
+  line-height: 1;
+}
+
+.dword {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--sea-deep);
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+@keyframes settle {
+  from { transform: rotate(75deg) translateY(-24px); opacity: 0; }
+  to   { transform: rotate(45deg); opacity: 1; }
+}
+
+h1 {
+  margin: 1.75rem 2.5rem 0.4rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--sea-deep);
+}
+
+h1 .alt {
+  font-size: 1.35rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.cas {
+  margin: 0 2.5rem 1.75rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--amber-deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.8rem;
+}
+
+.sds {
+  padding: 0 2.5rem 1.1rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.sds h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin: 1.1rem 0 0.6rem;
+  font-size: 0.95rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+
+.secno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.9rem;
+  height: 1.9rem;
+  background: var(--sea-deep);
+  color: var(--paper);
+  font-size: 0.95rem;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+table.kv th {
+  text-align: left;
+  vertical-align: top;
+  width: 12.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.3rem 0.5rem 0.3rem 0;
+}
+
+table.kv td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.3rem 0.5rem 0.3rem 0;
+}
+
+ul.haz {
+  margin: 0.2rem 0;
+  padding-left: 1.1rem;
+}
+
+ul.haz li {
+  margin: 0.25rem 0;
+}
+
+ul.haz li::marker {
+  content: "▸ ";
+  color: var(--amber-deep);
+}
+
+.signal {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--sea-deep);
+}
+
+.signal-word {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--paper);
+  background: var(--amber-deep);
+  padding: 0.15rem 0.6rem 0.1rem;
+}
+
+a {
+  color: var(--sea);
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+  color: var(--sea-deep);
+  background-color: rgba(232, 161, 27, 0.28);
+  text-decoration-color: var(--sea-deep);
+}
+
+.annot {
+  border-left: 3px solid var(--amber);
+  padding-left: 0.7rem;
+  background: linear-gradient(90deg, rgba(232, 161, 27, 0.12), transparent 60%);
+}
+
+.foot {
+  padding: 1.2rem 2.5rem 1.8rem;
+  border-top: 3px double var(--sea);
+  background:
+    repeating-linear-gradient(-45deg, rgba(232,161,27,0.06) 0 10px, transparent 10px 20px),
+    linear-gradient(180deg, transparent, rgba(34, 64, 74, 0.07));
+}
+
+.foot p {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--faint);
+  letter-spacing: 0.03em;
+}
+
+/* faint stamp, rotated, bottom-right */
+.sheet::after {
+  content: "UNLOCATED";
+  position: absolute;
+  right: 1.5rem;
+  bottom: 4.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.35em;
+  color: rgba(138, 47, 34, 0.4);
+  border: 2px solid rgba(138, 47, 34, 0.4);
+  padding: 0.15rem 0.6rem;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+@media (max-width: 40rem) {
+  .masthead { flex-direction: column; padding: 1.25rem 1.25rem 1rem; }
+  .diamond { align-self: center; margin-top: 0.5rem; }
+  h1, .cas, .sds, .foot { padding-left: 1.25rem; padding-right: 1.25rem; }
+  h1 { margin-left: 1.25rem; margin-right: 1.25rem; }
+  .cas { margin-left: 1.25rem; margin-right: 1.25rem; }
+  table.kv th { width: 7rem; }
+}
