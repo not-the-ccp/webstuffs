@@ -1,0 +1,178 @@
+/* Swamp Terrorists — Q dining page, March 1991 */
+:root {
+  --mud: #1c1a14;
+  --bog: #24231a;
+  --reed: #7d8f5e;
+  --reed-dim: #55613f;
+  --bone: #e8e2cf;
+  --blood: #8e2f24;
+  --lilac: #3f6a4e;
+  --lamp: #a3c47c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% -5%, rgba(163, 196, 124, 0.12), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 4px),
+    var(--mud);
+  color: var(--bone);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* The green bar lamp */
+.neon {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  z-index: 10;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--lamp);
+  border: 1px solid var(--reed-dim);
+  border-radius: 2px;
+  padding: 4px 10px 4px 14px;
+  background: rgba(20, 24, 14, 0.85);
+  box-shadow: 0 0 12px rgba(163, 196, 124, 0.35), inset 0 0 8px rgba(163, 196, 124, 0.2);
+  animation: flicker 7s infinite steps(1);
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  7% { opacity: 0.4; }
+  8% { opacity: 1; }
+  54% { opacity: 1; }
+  55% { opacity: 0.25; }
+  57% { opacity: 0.9; }
+  58% { opacity: 0.35; }
+  59% { opacity: 1; }
+}
+
+.masthead {
+  max-width: 62ch;
+  margin: 0 auto;
+  padding: 64px 20px 0;
+  border-bottom: 3px double var(--reed-dim);
+}
+.kicker {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--reed);
+  margin: 0 0 18px;
+}
+h1 {
+  font-size: 3.4rem;
+  line-height: 1.02;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  text-shadow: 0 0 24px rgba(142, 47, 36, 0.45);
+}
+.standfirst {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #cfc7ab;
+  margin: 16px 0 10px;
+}
+.byline {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--reed);
+  margin: 0;
+}
+
+.review {
+  max-width: 62ch;
+  margin: 0 auto;
+  padding: 30px 20px 10px;
+}
+.review p { margin: 0 0 1.15em; font-size: 1.02rem; }
+.lede::first-letter {
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.8;
+  padding: 4px 10px 0 0;
+  color: var(--blood);
+  font-family: Georgia, serif;
+}
+h2 {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  color: var(--lamp);
+  border-top: 1px solid var(--reed-dim);
+  padding-top: 14px;
+  margin: 1.6em 0 0.9em;
+}
+
+blockquote.sign {
+  margin: 1.4em 0;
+  padding: 18px 22px;
+  background: linear-gradient(180deg, #2a2517 0%, var(--bog) 100%);
+  border: 1px solid var(--reed-dim);
+  border-left: 5px solid var(--blood);
+  transform: rotate(-0.6deg);
+}
+blockquote.sign p {
+  font-family: "Courier New", monospace;
+  font-size: 0.98rem;
+  color: var(--lamp);
+  margin: 0 0 8px;
+}
+blockquote.sign cite {
+  font-style: normal;
+  font-size: 0.75rem;
+  color: #9a937c;
+  letter-spacing: 0.08em;
+}
+
+.ticket {
+  margin: 2em 0;
+  background: var(--bone);
+  color: #2a2620;
+  font-family: "Courier New", monospace;
+  padding: 18px 22px 14px;
+  transform: rotate(0.5deg);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.45);
+  border-top: 4px dashed #8e8567;
+}
+.ticket p { margin: 0 0 0.5em; font-size: 0.85rem; }
+.ticket-head { text-transform: uppercase; letter-spacing: 0.1em; font-weight: bold; }
+.ticket ul { margin: 0 0 0.8em; padding-left: 1.2em; font-size: 0.85rem; }
+.ticket li { margin-bottom: 2px; }
+.ticket-total {
+  border-top: 1px dashed #8e8567;
+  padding-top: 8px;
+  margin-top: 10px;
+  color: var(--blood);
+  font-weight: bold;
+}
+#forks { letter-spacing: 0.3em; }
+
+.fineprint {
+  font-size: 0.85rem;
+  color: #9a937c;
+  border-top: 3px double var(--reed-dim);
+  padding-top: 14px;
+}
+.fineprint a { color: var(--lamp); }
+
+a { color: var(--lamp); }
+a:hover { color: var(--bone); }
+
+.colophon {
+  max-width: 62ch;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+  font-size: 0.75rem;
+  color: #6f6a58;
+  font-style: italic;
+  text-align: center;
+}
