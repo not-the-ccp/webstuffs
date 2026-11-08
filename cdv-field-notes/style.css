@@ -1,0 +1,181 @@
+/* CD&V — Field Notes: ruled notebook, rosette green, ledger ink */
+:root {
+  --paper: #f4eee0;
+  --paper-deep: #ece2cc;
+  --ink: #2b2620;
+  --faded-ink: #5c5546;
+  --green: #33522e;
+  --green-bright: #4c7a3f;
+  --red: #9c3b2a;
+  --rule: #c8bd9f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(76, 122, 63, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(43, 38, 32, 0.05) 31px 32px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.folio {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  background: linear-gradient(180deg, rgba(255, 253, 245, 0.5), rgba(236, 226, 204, 0.25));
+  box-shadow: 0 0 60px rgba(43, 38, 32, 0.12) inset;
+}
+
+/* red notebook margin line */
+.folio::before {
+  content: "";
+  position: absolute;
+}
+.note, .masthead { position: relative; }
+.note::before {
+  content: "";
+  position: absolute;
+  left: -0.85rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(156, 59, 42, 0.35);
+}
+
+/* ---- masthead ---- */
+.masthead {
+  position: relative;
+  padding: 1rem 0 1.5rem 0;
+  border-bottom: 3px double var(--green);
+  margin-bottom: 2rem;
+}
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--green);
+}
+.latin {
+  font-style: italic;
+  color: var(--faded-ink);
+  margin: 0 0 0.8rem;
+}
+.tagline { font-size: 1.05rem; margin: 0 0 0.8rem; }
+.plate {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.6rem;
+}
+
+/* survey stamp */
+.masthead-stamp {
+  position: absolute;
+  top: 1.2rem;
+  right: 0;
+  transform: rotate(8deg);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--red);
+  border: 2px solid var(--red);
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  opacity: 0;
+  animation: stamp-in 0.5s 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+  box-shadow: 0 0 0 3px rgba(156, 59, 42, 0.12);
+}
+@keyframes stamp-in {
+  0%   { opacity: 0; transform: rotate(8deg) scale(2.2); }
+  100% { opacity: 0.85; transform: rotate(8deg) scale(1); }
+}
+
+/* ---- entries ---- */
+.note {
+  margin: 0 0 2.4rem;
+  padding-left: 2rem;
+}
+.note h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+.obsno {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  margin-right: 0.6rem;
+  vertical-align: 0.15em;
+}
+.note-meta {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded-ink);
+  margin: 0 0 0.9rem;
+}
+.label { font-style: normal; font-weight: 700; letter-spacing: 0.04em; }
+.note p { margin: 0 0 1rem; }
+
+/* the quoted line: set in the ledger's own hand */
+.note blockquote, .note p { }
+.note em { color: var(--green); }
+
+a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: background 0.15s ease;
+}
+a:hover { background: rgba(76, 122, 63, 0.14); }
+
+/* ---- trail ---- */
+.folio-trail {
+  margin-top: 3rem;
+  border-top: 3px double var(--green);
+  padding-top: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--faded-ink);
+}
+.folio-trail p { margin: 0 0 0.6rem; }
+.counter {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--green);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead-stamp { animation: none; opacity: 0.85; }
+}
