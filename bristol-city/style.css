@@ -1,0 +1,27 @@
+/* Bristol City — Dear Ashton Gate: an apology letter */
+html { box-sizing: border-box; }
+body { margin: 0; font-family: Georgia, "Times New Roman", Times, serif; color: #2a2420; background: #f4efe4; line-height: 1.6; }
+.letter { max-width: 660px; margin: 4vh auto; padding: 46px 56px 60px; background: linear-gradient(180deg, #ffffff 0%, #faf6ee 100%); border: 2px solid #8c1d18; border-radius: 4px; box-shadow: 0 10px 40px rgba(42, 36, 32, 0.18), 0 0 0 1px rgba(140, 29, 24, 0.15) inset; position: relative; overflow: hidden; }
+.letter::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 9px; background: repeating-linear-gradient(90deg, #8c1d18 0, #8c1d18 12px, #c93030 12px, #c93030 24px); }
+.letter-head { position: relative; padding-right: 92px; margin-bottom: 34px; border-bottom: 1px solid #c9b89e; padding-bottom: 18px; }
+.letter-place { font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8c1d18; margin: 0 0 2px; font-weight: bold; }
+.letter-date { font-size: 0.8rem; color: #665c4d; margin: 0 0 16px; }
+.letter-title { font-size: 2.2rem; line-height: 1.15; margin: 0 0 6px; color: #1a1410; }
+.letter-kicker { font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8c1d18; margin: 0; font-weight: bold; }
+.seal { position: absolute; top: -16px; right: -16px; width: 74px; height: 74px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d45050, #8c1d18 55%, #4e0b0b 100%); border: 2px solid #4e0b0b; box-shadow: 0 6px 14px rgba(78, 11, 11, 0.35), inset 0 2px 6px rgba(255, 255, 255, 0.4); animation: seal-pulse 5s ease-in-out infinite; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.seal::after { content: "BCFC"; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #f4efe4; font-weight: bold; }
+.seal:focus { outline: 3px solid #c93030; outline-offset: 2px; }
+.seal.melted { animation: none; transform: scale(0.5) translateY(16px) skewX(-10deg); border-radius: 48% 52% 44% 56%; transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), border-radius 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
+@keyframes seal-pulse { 0%, 100% { transform: scale(1); box-shadow: 0 6px 14px rgba(78, 11, 11, 0.35); } 50% { transform: scale(1.05); box-shadow: 0 10px 26px rgba(78, 11, 11, 0.5); } }
+p { margin: 0 0 20px; text-align: justify; }
+.dropcap::first-letter { float: left; font-size: 3.5rem; line-height: 0.85; padding: 2px 12px 0 0; margin-right: 8px; color: #ffffff; background: #8c1d18; box-shadow: inset 0 -2px 0 #4e0b0b; }
+.verbatim { margin: 30px 0; padding: 20px 24px 16px; background: #eef2ee; border-left: 4px solid #5c7a5d; font-style: italic; color: #333; }
+.verbatim p { margin: 0 0 9px; text-align: left; }
+.verbatim-source { font-style: normal; font-size: 0.78rem; color: #5c6b5c; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
+.letter-foot { margin-top: 36px; padding-top: 20px; border-top: 1px solid #c9b89e; text-align: right; }
+.signature { font-style: italic; margin: 0 0 6px; color: #4a3f2f; }
+.signature-name { font-size: 1.15rem; font-weight: bold; margin: 0 0 4px; color: #1a1410; }
+.signature-loc { font-size: 0.78rem; color: #665c4d; letter-spacing: 0.12em; margin: 0; }
+a { color: #8c1d18; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.2px; }
+a:hover { color: #4e0b0b; }
+@media (max-width: 600px) { .letter { margin: 2vh 16px; padding: 32px 24px 40px; } .seal { width: 58px; height: 58px; top: -12px; right: -12px; } .dropcap::first-letter { font-size: 2.5rem; } }
