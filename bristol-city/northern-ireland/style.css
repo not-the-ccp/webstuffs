@@ -1,0 +1,172 @@
+/* The Lagan Ledger — small ads, Northern Ireland */
+:root {
+  --ink: #22241e;
+  --paper: #faf6ec;
+  --newsprint: #efeadd;
+  --green: #164a36;
+  --green-dark: #0c2d21;
+  --gold: #b5892f;
+  --gold-soft: #eadbb7;
+  --red: #9a2b34;
+  --red-soft: #fbeced;
+  --rule: #c7ba9c;
+  --muted: #666050;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background-color: var(--paper); }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, "FreeSerif", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 0 0 3rem;
+}
+
+.masthead {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 45%, #22624b 100%);
+  color: #f3ebe2;
+  padding: 3rem 1rem 2.5rem;
+  border-bottom: 7px double var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.pennant {
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  opacity: 0.92;
+}
+.pennant-left { left: -18px; transform: rotate(-6deg); }
+.pennant-right { right: -18px; transform: rotate(6deg); }
+.masthead-wrap { max-width: 72rem; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+.paper-name {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: 0.45rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+.paper-name::before, .paper-name::after { content: "‖"; color: var(--gold-soft); padding: 0 0.6rem; }
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+.paper-line {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+main { max-width: 74rem; margin: 0 auto; padding: 0 1rem; }
+
+.editor-note {
+  background: #ffffff;
+  border-left: 5px solid var(--gold);
+  border-right: 2px solid var(--rule);
+  padding: 1.1rem 1.25rem;
+  margin: 2rem 0 2.5rem;
+  font-size: 0.95rem;
+  box-shadow: 4px 4px 0 var(--newsprint);
+}
+.editor-note a {
+  color: var(--green-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
+.classified-section {
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--green);
+  border-radius: 4px;
+  padding: 1rem 1rem 1.25rem;
+  box-shadow: 3px 3px 0 var(--newsprint);
+  break-inside: avoid;
+}
+.section-head {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--green-dark);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.ad {
+  margin-bottom: 0.95rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  break-inside: avoid;
+  animation: fadeUp 0.5s ease both;
+}
+.ad:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.ad:nth-child(2n) { animation-delay: 0.08s; }
+.ad:nth-child(3n) { animation-delay: 0.16s; }
+.ad.wanted {
+  border-left: 4px solid var(--red);
+  background: var(--red-soft);
+  animation: pulseRed 2.5s ease-in-out infinite alternate;
+}
+.ad-head {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.2rem;
+}
+.ad-body p { margin: 0 0 0.3rem; font-size: 0.92rem; }
+.ad-body p:last-child { margin-bottom: 0; }
+.ad-contact {
+  margin-top: 0.35rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, "Liberation Mono", monospace;
+}
+.ad-contact::before { content: "—"; color: var(--gold); font-weight: 700; padding-right: 0.35rem; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pulseRed {
+  from { border-color: var(--red); box-shadow: none; }
+  to { border-color: #c45c54; box-shadow: 0 0 0 5px rgba(154, 43, 52, 0.12); }
+}
+
+.ledger-footer {
+  border-top: 7px double var(--gold);
+  background: #eae2cf;
+  padding: 2rem 1rem 1rem;
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.ledger-footer p { margin: 0 0 0.75rem; }
+
+@media (max-width: 48rem) {
+  .sections { grid-template-columns: 1fr; }
+  .masthead { padding: 2rem 1rem 1.5rem; }
+  .pennant { display: none; }
+}
