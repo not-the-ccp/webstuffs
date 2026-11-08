@@ -1,0 +1,210 @@
+/* Safety data sheet — federal district form */
+:root {
+  --paper: #f5f1e6;
+  --ink: #22242b;
+  --red: #b3121f;
+  --yellow: #e8b923;
+  --green: #1e5631;
+  --rule: #3a3d45;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #26282e;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,0.05), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(232,185,35,0.07), transparent 45%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  padding: 2.5rem 1rem 4rem;
+}
+.sheet {
+  max-width: 62rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(58,61,69,0.05) 31px 32px),
+    radial-gradient(ellipse at top, rgba(179,18,31,0.05), transparent 60%);
+  border: 3px solid var(--rule);
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.35), 0 24px 60px rgba(0,0,0,0.5);
+}
+.doc-head { position: relative; }
+.stripe {
+  height: 16px;
+  background: repeating-linear-gradient(-45deg, var(--yellow) 0 18px, #1c1d22 18px 36px);
+  border-bottom: 2px solid var(--rule);
+}
+.stripe:last-of-type { border-bottom: none; border-top: 2px solid var(--rule); }
+.head-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem 1.5rem;
+  align-items: start;
+}
+.doctype {
+  margin: 0 0 .4rem;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: var(--red);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+h1 .formal {
+  display: block;
+  font-size: 0.42em;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+  color: var(--green);
+}
+.tagline {
+  margin: 0.9rem 0 0;
+  font-size: 0.92rem;
+  border-left: 4px solid var(--yellow);
+  padding-left: 0.8rem;
+}
+.head-facts {
+  min-width: 15rem;
+  border: 2px solid var(--rule);
+  background: rgba(255,255,255,0.45);
+  padding: 0.9rem 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.25rem 0.8rem;
+  align-items: center;
+}
+.head-facts dt {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #5a5d66;
+}
+.head-facts dd { margin: 0; font-size: 0.85rem; font-weight: 700; text-align: right; }
+.ghs { grid-column: 1 / -1; justify-self: center; animation: ghs-pulse 4s ease-in-out infinite; }
+@keyframes ghs-pulse {
+  0%, 100% { transform: rotate(0deg); opacity: 0.9; }
+  50% { transform: rotate(8deg); opacity: 1; }
+}
+.sds {
+  padding: 1.4rem 2rem 1.6rem;
+  border-top: 1px solid rgba(58,61,69,0.35);
+}
+.sds h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.02rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-family: "Courier New", ui-monospace, monospace;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sds h2 .no {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--red);
+  color: #fff;
+  font-size: 1rem;
+  transform: rotate(45deg);
+  flex: none;
+}
+.sds h2 .no span, .sds h2 .no { text-transform: none; }
+.sds h2 .no { font-family: inherit; }
+.sds p { margin: 0 0 0.9rem; max-width: 62ch; }
+.sds a { color: var(--red); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.sds a:hover { background: rgba(232,185,35,0.35); }
+.hazcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+.hazcard {
+  border: 2px solid var(--rule);
+  background: rgba(255,255,255,0.55);
+  padding: 0.7rem 0.9rem 0.85rem;
+  font-size: 0.9rem;
+}
+.hazcard p { margin: 0; max-width: none; }
+.hcode {
+  display: inline-block;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+  background: var(--yellow);
+  border: 1.5px solid var(--rule);
+  padding: 0 0.45rem;
+  margin-bottom: 0.45rem;
+}
+table.comp {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+table.comp th, table.comp td {
+  border: 1px solid rgba(58,61,69,0.5);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.comp th {
+  background: rgba(30,86,49,0.12);
+  font-family: "Courier New", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+table.comp tr:nth-child(even) td { background: rgba(255,255,255,0.4); }
+.footnote {
+  margin-top: 1.5rem;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: #5a5d66;
+  border-top: 2px solid var(--rule);
+  padding-top: 0.7rem;
+}
+.stamp {
+  position: absolute;
+  right: 1.6rem;
+  bottom: -0.6rem;
+  width: 9.2rem;
+  padding: 0.8rem;
+  text-align: center;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--red);
+  border: 3px double var(--red);
+  border-radius: 0.4rem;
+  transform: rotate(-9deg);
+  background: rgba(245,241,230,0.85);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.stamp.shown { opacity: 0.92; animation: stamp-in 0.3s ease; }
+@keyframes stamp-in {
+  from { transform: rotate(-9deg) scale(1.5); opacity: 0; }
+  to { transform: rotate(-9deg) scale(1); opacity: 0.92; }
+}
+@media (max-width: 52rem) {
+  .head-grid { grid-template-columns: 1fr; }
+  .head-facts { min-width: 0; }
+  .sds { padding: 1.2rem 1.2rem 1.4rem; }
+}
