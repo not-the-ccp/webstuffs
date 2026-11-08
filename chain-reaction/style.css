@@ -1,0 +1,153 @@
+/* Placard No. 14 — stainless steel on concrete */
+:root {
+  --steel: #b9bfc4;
+  --steel-dark: #6d767e;
+  --concrete: #17191b;
+  --plinth: #22262a;
+  --groove: #3a4046;
+  --inscription: #d8dce0;
+  --cloud: #cfd4d9;
+  --accent: #8fa3ad;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 70% -10%, #2b3138 0%, transparent 60%),
+    var(--concrete);
+  color: var(--inscription);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.monolith {
+  max-width: 760px;
+  margin: 0 auto;
+  background: linear-gradient(175deg, #2c3035 0%, #23272b 55%, #1d2125 100%);
+  border: 1px solid var(--groove);
+  border-top: 6px solid var(--steel-dark);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: 2.25rem 2.5rem 1.5rem;
+  position: relative;
+}
+
+/* rivets in the four corners of the placard */
+.rivet {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--steel) 0%, var(--steel-dark) 55%, #3c4349 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.rivet.tl { top: 10px; left: 10px; }
+.rivet.tr { top: 10px; right: 10px; }
+.rivet.bl { bottom: 10px; left: 10px; }
+.rivet.br { bottom: 10px; right: 10px; }
+
+.placard-head { border-bottom: 1px solid var(--groove); padding-bottom: 1.25rem; }
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+  color: #eef1f3;
+  font-weight: 700;
+}
+
+.attribution {
+  font-size: 0.9rem;
+  color: var(--steel);
+  margin: 0;
+  line-height: 1.8;
+}
+.attribution strong { color: #eef1f3; font-weight: 700; }
+
+/* the cloud diagram, etched-plate style */
+.cloud { margin: 1.75rem 0 0.5rem; text-align: center; }
+.cloud svg {
+  width: min(320px, 80%);
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+.cloud-body { fill: none; stroke: var(--cloud); stroke-width: 2.5; opacity: 0.85; }
+.cloud-stem { fill: none; stroke: var(--cloud); stroke-width: 2.5; opacity: 0.85; }
+.cloud-base { fill: none; stroke: var(--cloud); stroke-width: 2.5; opacity: 0.85; }
+.cloud svg { animation: hover 9s ease-in-out infinite; transform-origin: 50% 90%; }
+@keyframes hover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.placard-body h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-left: 3px solid var(--steel-dark);
+  padding-left: 0.6rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.placard-body p { margin: 0 0 1rem; }
+.drop::first-letter {
+  font-size: 2.4rem;
+  float: left;
+  line-height: 1;
+  padding-right: 0.4rem;
+  color: var(--steel);
+}
+
+em { color: #f0f2f4; }
+strong { color: #eef1f3; }
+
+.installation-note blockquote {
+  margin: 0 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px double var(--steel-dark);
+  background: var(--plinth);
+  font-style: italic;
+  color: #dfe3e7;
+}
+
+.connections a, .placard-foot a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(143, 163, 173, 0.45);
+  text-underline-offset: 3px;
+}
+.connections a:hover, .placard-foot a:hover { color: #fff; text-decoration-color: #fff; }
+
+.placard-foot {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--groove);
+  padding-top: 1rem;
+}
+.placard-foot p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--steel-dark);
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
