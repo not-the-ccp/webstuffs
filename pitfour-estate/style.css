@@ -1,0 +1,109 @@
+/* The Pitfour Post — Newsletter No. 41 */
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #ece1c8;
+  --ink: #2b2118;
+  --ink-soft: #5a4a38;
+  --rust: #8a3b1e;
+  --green: #3f4a2e;
+  --rule: #b39b6d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(0deg, rgba(139, 110, 63, 0.04) 0 2px, transparent 2px 4px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.masthead,
+.newsletter,
+.foot {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.masthead { text-align: center; padding-top: 2.5rem; }
+.masthead-rule { height: 3px; background: var(--ink); border: 0; }
+.masthead-rule.double {
+  border-top: 1px solid var(--ink);
+  border-bottom: 4px double var(--ink);
+  height: 4px;
+  margin-top: 1rem;
+}
+.masthead-kicker { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; margin: 0.75rem 0 0.4rem; color: var(--ink-soft); }
+.masthead-title { font-size: 3rem; margin: 0.2rem 0 0.1rem; letter-spacing: 0.02em; }
+.masthead-sub { font-style: italic; margin: 0.2rem 0; color: var(--ink-soft); }
+.masthead-meta { font-size: 0.78rem; color: var(--ink-soft); margin: 0 0 0.5rem; }
+
+.newsletter { padding-top: 1.5rem; padding-bottom: 2rem; }
+.newsletter section { margin-bottom: 2.25rem; }
+.newsletter h2 {
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+.newsletter h2::before { content: "❧ "; color: var(--rust); }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.85;
+  padding: 0.15rem 0.45rem 0 0;
+  color: var(--rust);
+}
+
+blockquote.verbatim {
+  margin: 1.25rem 0.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--rust);
+  font-style: italic;
+}
+blockquote.verbatim p { margin: 0 0 0.4rem; }
+.verbatim-source { font-size: 0.8rem; font-style: normal; color: var(--ink-soft); }
+
+.plan { margin-top: 1rem; }
+.feature-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.feature-table caption { position: absolute; left: -9999px; }
+.feature-table th, .feature-table td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px dotted var(--rule); vertical-align: top; }
+.feature-table thead th { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; color: var(--ink-soft); }
+.feature-table tbody th { font-weight: 600; }
+.tick-col { width: 1.6rem; }
+.tick-col input { accent-color: var(--rust); transform: scale(1.2); }
+.miles { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.plan-out {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  font-style: italic;
+  min-height: 2.6rem;
+}
+.plan-out.ready { border-color: var(--green); color: var(--green); font-weight: 600; }
+
+a { color: var(--rust); }
+a:hover { color: var(--green); }
+
+.foot { text-align: center; padding-bottom: 3rem; }
+.foot-rule { height: 1px; background: var(--rule); border: 0; margin: 1rem 0; }
+.foot-line { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
