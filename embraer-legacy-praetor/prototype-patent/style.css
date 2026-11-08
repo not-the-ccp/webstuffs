@@ -1,0 +1,172 @@
+/* Patent application summary — bench record, SJC */
+:root {
+  --paper: #f4efe3;
+  --ink: #1e2230;
+  --rule: #b9ad8f;
+  --seal: #8c2f21;
+  --blueprint: #24466e;
+  --faint: #6d6350;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(140, 47, 33, 0.08), transparent 55%),
+    radial-gradient(ellipse at 110% 110%, rgba(36, 70, 110, 0.10), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.patent-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(110, 96, 66, 0.05) 31px 32px),
+    #faf6ea;
+  box-shadow: 0 0 40px rgba(60, 48, 28, 0.18);
+}
+
+.patent-header {
+  position: relative;
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.office-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--seal);
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0.6rem 0 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+.app-no {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--blueprint);
+}
+
+.filed {
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.9rem;
+}
+
+.stamp {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.2rem;
+  transform: rotate(9deg);
+  border: 3px solid var(--seal);
+  color: var(--seal);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.95rem;
+  opacity: 0.55;
+  animation: settle 1.4s ease-out both;
+}
+
+@keyframes settle {
+  0% { transform: rotate(9deg) scale(1.6); opacity: 0; }
+  70% { transform: rotate(9deg) scale(0.95); opacity: 0.7; }
+  100% { transform: rotate(9deg) scale(1); opacity: 0.55; }
+}
+
+.meta-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 2.25rem;
+}
+
+.meta-table th {
+  text-align: left;
+  width: 180px;
+  vertical-align: top;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--seal);
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.meta-table td {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose h2 {
+  font-size: 1.15rem;
+  margin: 2.25rem 0 0.6rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blueprint);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.prose p { margin: 0 0 1rem; }
+
+blockquote.site-quote {
+  margin: 1.25rem 0 1.25rem 1.5rem;
+  padding: 0.9rem 1.25rem;
+  border-left: 4px solid var(--seal);
+  background: linear-gradient(90deg, rgba(140, 47, 33, 0.08), transparent 80%);
+  font-style: italic;
+  font-size: 1.08rem;
+}
+
+ol.claims { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+
+ol.claims li {
+  border: 1px dashed var(--rule);
+  background: rgba(255, 253, 246, 0.7);
+  padding: 0.7rem 1rem 0.7rem 0.2rem;
+  margin-bottom: 0.6rem;
+  transition: background 0.6s ease, border-color 0.6s ease, transform 0.6s ease;
+}
+
+ol.claims li.in-view {
+  background: linear-gradient(90deg, rgba(36, 70, 110, 0.06), rgba(255, 253, 246, 0.7));
+  border-color: var(--blueprint);
+  transform: translateX(4px);
+}
+
+.claim-no {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: var(--seal);
+  margin-right: 0.6rem;
+}
+
+.patent-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.9rem;
+  color: var(--faint);
+}
+
+a { color: var(--blueprint); }
+a:hover { color: var(--seal); }
