@@ -1,0 +1,264 @@
+/* Lot 29 — Agnosticism · catalogue leaf for Sale No. LXVII */
+
+:root {
+  --paper: #f4ecdb;
+  --paper-deep: #ece1c8;
+  --ink: #2c2417;
+  --ink-soft: #5a4d38;
+  --rule: #8a774f;
+  --seal: #8e2f1f;
+  --seal-faded: rgba(142, 47, 31, 0.82);
+  --latch: #3f5540;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(138, 119, 79, 0.14), transparent 42%),
+    radial-gradient(circle at 88% 92%, rgba(142, 47, 31, 0.10), transparent 38%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  line-height: 1.55;
+}
+
+.catalogue {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
+}
+
+.sale-line {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+.masthead h1 {
+  font-size: 2.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.roman { color: var(--seal); }
+
+.sale-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.5rem 0 0.4rem;
+}
+
+.sale-when {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0.2rem 0 0;
+}
+
+.lot {
+  position: relative;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  box-shadow: 0 0 0 4px var(--paper-deep), 0 0 0 5px var(--rule);
+  padding: 1.6rem 1.7rem 2.4rem;
+}
+
+.lot-head {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.lot-num {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  padding: 0.1rem 0.55rem;
+  margin: 0 0 0.5rem;
+}
+
+.lot-title {
+  margin: 0;
+  font-size: 2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.lot-tender {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.estimate {
+  color: var(--seal);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+.entry { margin-bottom: 1.3rem; }
+
+.entry h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.7rem;
+}
+
+.entry p { margin: 0 0 0.8rem; }
+
+.lead::first-letter {
+  font-size: 2.6rem;
+  font-variant: small-caps;
+  float: left;
+  line-height: 0.85;
+  padding: 0.1rem 0.45rem 0 0;
+  color: var(--seal);
+}
+
+.docket {
+  background: var(--paper);
+  border: 1px dashed var(--rule);
+  padding: 1rem 1.1rem;
+}
+
+.docket-quote {
+  margin: 0 0 0.8rem;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+}
+
+.docket-label {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.docket-quote p:last-child {
+  font-size: 1.12rem;
+  font-style: italic;
+  margin: 0;
+}
+
+table.terms {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+table.terms th.k {
+  text-align: left;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem 0.4rem 0;
+  vertical-align: top;
+}
+
+table.terms td {
+  padding: 0.4rem 0;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+}
+
+table.terms tr:last-child td,
+table.terms tr:last-child th { border-bottom: none; }
+
+.fineprint {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.bidbox {
+  margin: 1.6rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border: 2px solid var(--latch);
+  background: rgba(63, 85, 64, 0.06);
+  text-align: center;
+}
+
+.bidbox-title {
+  margin: 0 0 0.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+}
+
+.bidbox-count {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+}
+
+#bid-btn {
+  font-family: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  color: var(--paper);
+  background: var(--latch);
+  border: 1px solid var(--ink);
+  padding: 0.4rem 1.4rem;
+  cursor: pointer;
+}
+
+#bid-btn:hover { background: var(--ink); }
+
+.bidbox-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  min-height: 2.4em;
+}
+
+.stamp {
+  position: absolute;
+  top: 34%;
+  right: 14px;
+  transform: rotate(-12deg);
+  border: 3px double var(--seal);
+  color: var(--seal-faded);
+  padding: 0.55rem 0.9rem;
+  text-align: center;
+  pointer-events: none;
+  background: rgba(244, 236, 219, 0.55);
+}
+
+.stamp-num {
+  font-size: 1.9rem;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.stamp-word {
+  margin: 0.15rem 0 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.catalog-footer {
+  margin-top: 1.6rem;
+  padding-top: 0.9rem;
+  border-top: 4px double var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.catalog-footer a { color: var(--ink); }
