@@ -1,0 +1,263 @@
+/* The Mediterranean v. Octavianus — court transcript styling */
+
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e9dcbf;
+  --ink: #23201a;
+  --ink-soft: #4c453a;
+  --oxblood: #7c2418;
+  --oxblood-bright: #9c3222;
+  --brass: #8a6d2f;
+  --sea: #2f4a50;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #20242a; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background:
+    radial-gradient(1200px 600px at 50% -100px, #33404b 0%, #20242a 70%),
+    #20242a;
+}
+
+.folio {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 3rem 2.2rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(120, 96, 50, 0.045) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  border: 3px double var(--brass);
+  outline: 1px solid rgba(59, 46, 22, 0.35);
+  outline-offset: 6px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), inset 0 0 90px rgba(122, 94, 44, 0.22);
+}
+
+/* the red "excerpts" stamp, angled, landing on top of the paper */
+.stamp {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 3px double var(--oxblood-bright);
+  border-radius: 4px;
+  color: var(--oxblood-bright);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-11deg);
+  opacity: 0.78;
+  mix-blend-mode: multiply;
+  animation: stamp-land 0.7s cubic-bezier(0.2, 1.4, 0.4, 1) 0.5s both;
+}
+
+@keyframes stamp-land {
+  0%   { transform: rotate(-4deg) scale(2.1); opacity: 0; }
+  70%  { transform: rotate(-12deg) scale(0.94); opacity: 0.9; }
+  100% { transform: rotate(-11deg) scale(1); opacity: 0.78; }
+}
+
+/* the round seal at the top-left, oxblood with a lighter inner ring */
+.seal {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, #a63a28 0%, var(--oxblood) 55%, #54160e 100%);
+  box-shadow: inset 0 0 0 3px rgba(243, 234, 214, 0.35), inset 0 0 14px rgba(0,0,0,0.5), 0 3px 8px rgba(0,0,0,0.4);
+  display: grid;
+  place-items: center;
+  transform: rotate(8deg);
+}
+
+.seal span {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: var(--parchment);
+  opacity: 0.85;
+}
+
+.masthead {
+  text-align: center;
+  margin: 2.2rem 0 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(59, 46, 22, 0.4);
+  position: relative;
+}
+
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 42%;
+  height: 8px;
+  background: radial-gradient(ellipse at center, var(--brass) 0%, transparent 70%);
+  opacity: 0.5;
+}
+
+.service {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.15rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+h1 .v {
+  font-style: italic;
+  text-transform: none;
+  color: var(--oxblood);
+  font-size: 1.3rem;
+  padding: 0 0.25rem;
+}
+
+.phon {
+  margin: 0.6rem 0 0;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* the case caption, boxed like a pleading */
+table.caption {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+  background: rgba(255, 252, 240, 0.5);
+  border: 1px solid rgba(59, 46, 22, 0.55);
+  box-shadow: inset 0 0 0 4px rgba(255, 252, 240, 0.6), inset 0 0 0 5px rgba(59, 46, 22, 0.35);
+}
+
+table.caption td {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.88rem;
+  vertical-align: top;
+}
+
+table.caption .party { border-bottom: 1px dotted rgba(59, 46, 22, 0.45); }
+table.caption .vline {
+  text-align: center;
+  font-style: italic;
+  color: var(--oxblood);
+  border-bottom: 1px dotted rgba(59, 46, 22, 0.45);
+}
+table.caption .venue {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-align: center;
+  background: rgba(122, 94, 44, 0.1);
+}
+
+.preamble p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* transcript turns */
+.transcript {
+  margin: 2rem 0;
+  padding: 1.2rem 0.2rem 0.4rem;
+  border-top: 3px double var(--brass);
+  border-bottom: 3px double var(--brass);
+}
+
+.turn {
+  margin: 0 0 1.15rem;
+  padding-left: 9.5rem;
+  position: relative;
+}
+
+.turn .speaker {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 8rem;
+  margin: 0;
+  text-align: right;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  padding-right: 1rem;
+  border-right: 2px solid rgba(124, 36, 24, 0.35);
+}
+
+.turn p:not(.speaker) { margin: 0; font-size: 0.97rem; }
+.turn.clerk .speaker { color: var(--sea); border-right-color: rgba(47, 74, 80, 0.4); }
+
+/* the finding of the court, set off in a ruled box */
+.turn strong { font-weight: normal; }
+
+a {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--brass); }
+
+/* footer colophon */
+.tail { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(59, 46, 22, 0.4); }
+.colophon {
+  margin: 0;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+
+/* gentle fade-in of the record, only when JS is present */
+html.js .turn { opacity: 0; transform: translateY(0.4rem); transition: opacity 0.6s ease, transform 0.6s ease; }
+html.js .turn.shown { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .folio { padding: 3rem 1.2rem 1.6rem; }
+  .turn { padding-left: 0; }
+  .turn .speaker {
+    position: static;
+    width: auto;
+    text-align: left;
+    border-right: none;
+    border-bottom: 1px solid rgba(124, 36, 24, 0.35);
+    padding: 0 0 0.15rem 0;
+  }
+  .stamp { white-space: normal; max-width: 9rem; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp { animation: none; opacity: 0.78; }
+  html.js .turn { transition: none; opacity: 1; transform: none; }
+}
