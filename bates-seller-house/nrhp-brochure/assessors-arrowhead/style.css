@@ -1,0 +1,219 @@
+/* The Assessor's Arrowhead — Newsletter No. 47
+   Flanders Street Revenue Reading Society
+   Paper, arrowhead green, and the small print. */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #eadfc6;
+  --ink: #241f17;
+  --green: #1e4032;
+  --green-soft: #2f5d49;
+  --copper: #9a6a2f;
+  --rule: #b8a67e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #d8cdb0 0%, #c3b693 55%, #ab9c76 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 1060px;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #7d6f4e;
+  box-shadow: 0 24px 60px rgba(30, 32, 20, 0.35), 0 2px 0 rgba(255, 255, 255, 0.5) inset;
+  padding: 0 2.5rem 2.5rem;
+  position: relative;
+}
+
+/* dotted perforation along the top, like a folded brochure */
+.perforation {
+  height: 10px;
+  margin: 0 -2.5rem;
+  background-image: radial-gradient(circle at 8px 5px, transparent 4px, var(--paper) 4.5px);
+  background-size: 16px 10px;
+  border-bottom: 1px dashed var(--rule);
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--green);
+  padding: 1.6rem 0 1.2rem;
+  position: relative;
+}
+
+.masthead .line1,
+.masthead .line2 {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-soft);
+  margin: 0 0 0.6rem;
+}
+
+.masthead .line2 { margin: 0.7rem 0 0; }
+
+.masthead h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.02;
+  margin: 0;
+  color: var(--green);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.mark {
+  color: var(--green);
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mark svg {
+  animation: point 5s ease-in-out infinite;
+}
+
+@keyframes point {
+  0%, 100% { transform: translateX(-14px); opacity: 0.85; }
+  50%      { transform: translateX(14px);  opacity: 1; }
+}
+
+/* ---------- layout ---------- */
+.grid { display: grid; grid-template-columns: 1fr; gap: 0 1.8rem; margin-top: 1.6rem; }
+
+@media (min-width: 900px) {
+  .grid { grid-template-columns: minmax(0, 1fr) 320px; }
+  .col-side { margin-top: 0; border-left: 1px solid var(--rule); padding-left: 1.8rem; }
+}
+
+.col-main { margin: 0; }
+.col-side { margin-top: 1.2rem; }
+
+.item h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--green);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 1.4rem 0 0.8rem;
+}
+
+.item h2::before {
+  content: "◆ ";
+  color: var(--copper);
+  font-size: 0.7em;
+  vertical-align: 2px;
+}
+
+.item p { margin: 0 0 0.85rem; }
+
+a { color: var(--green-soft); }
+a:hover { color: var(--copper); }
+
+.recipe {
+  font-style: italic;
+  border-left: 3px solid var(--copper);
+  background: rgba(154, 106, 47, 0.07);
+  padding: 0.6rem 0.9rem;
+  margin: 0.4rem 0 0.8rem;
+  font-size: 0.98rem;
+}
+
+.dues {
+  list-style: none;
+  margin: 0; padding: 0;
+  font-size: 0.92rem;
+}
+
+.dues li {
+  padding: 0.55rem 0 0.55rem 1.1rem;
+  border-bottom: 1px dotted var(--rule);
+  position: relative;
+}
+
+.dues li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--copper);
+}
+
+.dues li:last-child { border-bottom: none; }
+
+/* ---------- colophon & stamp ---------- */
+.colophon {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--green);
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.colophon p {
+  flex: 1 1 260px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-soft);
+  margin: 0;
+}
+
+.stamp {
+  flex: 0 0 auto;
+  width: 108px;
+  height: 108px;
+  border: 3px double var(--copper);
+  border-radius: 50%;
+  color: var(--copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  line-height: 1.7;
+  transform: rotate(-12deg) scale(0);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.2, 1.6, 0.4, 1), opacity 0.3s;
+  mix-blend-mode: multiply;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.25), transparent 60%);
+}
+
+.stamp.stamped {
+  transform: rotate(-12deg) scale(1);
+  opacity: 0.85;
+}
+
+.stamp-btn {
+  flex: 0 0 auto;
+  font-family: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--paper);
+  border: 1px solid var(--green-soft);
+  border-radius: 3px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.stamp-btn:hover { background: #efe3c8; }
+.stamp-btn:active { transform: translateY(1px); }
