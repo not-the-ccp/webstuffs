@@ -1,0 +1,171 @@
+/* The Federative Letter — Itapecuru Delta Correspondence Club */
+:root {
+  --ink: #22231e;
+  --paper: #fbf7ee;
+  --rust: #8c3b2e;
+  --mangrove: #3b5744;
+  --gold: #b7892e;
+  --rule: #bfae8c;
+}
+* { box-sizing: border-box; }
+html {
+  min-height: 100vh;
+  background: #efe5d3;
+  background: linear-gradient(160deg, #efe5d3 0%, #fbf7ee 45%, #efe5d3 100%);
+}
+body {
+  margin: 0;
+  font-family: "New Century Schoolbook", "Bookman Old Style", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.62;
+}
+.newsletter {
+  max-width: 740px;
+  margin: 48px auto;
+  padding: 42px 34px 56px;
+  background: var(--paper);
+  border: 7px solid var(--rule);
+  border-top: 10px double var(--rust);
+  border-bottom: 10px double var(--mangrove);
+  box-shadow: 6px 8px 0 var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 170px;
+  height: 170px;
+  background: radial-gradient(circle at 30% 30%, #d9c28a 0%, transparent 62%);
+  border-radius: 55% 45%;
+  opacity: 0.65;
+  z-index: 0;
+}
+.masthead {
+  position: relative;
+  z-index: 1;
+  border-bottom: 3px double var(--mangrove);
+  padding-bottom: 22px;
+  margin-bottom: 30px;
+}
+.seal {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  width: 52px;
+  height: 52px;
+  border: 3px dashed var(--rust);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--rust);
+  font: 700 13px/52px "Courier New", Courier, monospace;
+  text-align: center;
+  letter-spacing: 3px;
+  box-shadow: 2px 2px 0 var(--ink);
+  animation: sealwobble 6s ease-in-out infinite;
+}
+@keyframes sealwobble {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+.club {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+h1 {
+  margin: 2px 0 8px;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.issue {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: var(--mangrove);
+}
+.motto {
+  margin: 0;
+  font-size: 13px;
+  font-style: italic;
+  color: #5a5344;
+}
+.body {
+  position: relative;
+  z-index: 1;
+}
+h2 {
+  font-size: 20px;
+  color: var(--rust);
+  border-left: 8px solid var(--mangrove);
+  padding-left: 12px;
+  margin: 34px 0 14px;
+}
+p {
+  margin: 0 0 16px;
+  text-align: justify;
+}
+.item { margin-bottom: 30px; }
+.dropcap::first-letter {
+  float: left;
+  font-size: 56px;
+  line-height: 0.85;
+  padding: 3px 10px 0 0;
+  margin-right: 8px;
+  color: var(--rust);
+  font-weight: 700;
+}
+blockquote {
+  margin: 18px 22px;
+  padding: 12px 18px;
+  border-left: 4px solid var(--gold);
+  background: #fff7e8;
+  font-style: italic;
+  color: #4a3f2e;
+}
+.club-business ul {
+  margin: 10px 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+.club-business li {
+  margin: 6px 0;
+  padding-left: 20px;
+  text-indent: -20px;
+  text-align: justify;
+}
+.club-business li::before {
+  content: "\2022 ";
+  color: var(--gold);
+  font-weight: 700;
+}
+.colophon {
+  position: relative;
+  z-index: 1;
+  margin-top: 46px;
+  padding-top: 22px;
+  border-top: 3px double var(--rule);
+  font-size: 12.5px;
+  color: #5a5344;
+  text-align: center;
+  letter-spacing: 0.4px;
+}
+.colophon .rule {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--rust);
+}
+a {
+  color: var(--rust);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a:visited { color: #6b2f24; }
+@media (max-width: 600px) {
+  .newsletter { margin: 24px auto; padding: 26px 18px 40px; border-width: 5px; border-top: 7px double var(--rust); border-bottom: 7px double var(--mangrove); }
+  h1 { font-size: 27px; }
+}
