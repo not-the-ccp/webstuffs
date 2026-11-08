@@ -1,0 +1,153 @@
+/* Westport Middle School — term report sheet: ruled paper, red margin, grade stamp */
+:root {
+  --ink: #1d2a44;
+  --blue-rule: #b8cbe4;
+  --red-margin: #d33a2f;
+  --paper: #fdfaf1;
+  --slate: #43536e;
+  --gold: #b8860b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  background:
+    radial-gradient(ellipse at 20% 0%, #2c3a55 0%, #1a2334 55%, #10161f 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  width: min(52rem, 100%);
+  background:
+    /* red margin line */
+    linear-gradient(to right, transparent 3.4rem, var(--red-margin) 3.4rem, var(--red-margin) calc(3.4rem + 2px), transparent calc(3.4rem + 2px)),
+    /* blue ruling */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.55rem,
+      var(--blue-rule) 1.55rem,
+      var(--blue-rule) calc(1.55rem + 1px)
+    ),
+    var(--paper);
+  border: 1px solid #c9c2ac;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.45), inset 0 0 6rem rgba(184, 134, 11, 0.05);
+  padding: 2.2rem 2.5rem 2.2rem 5rem;
+  line-height: 1.55rem;
+}
+
+.letterhead {
+  border-bottom: 3px double var(--slate);
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.letterhead-rule {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.letterhead-rule p { margin: 0; }
+
+h1 {
+  margin: 0.6rem 0 0.4rem;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.student-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--slate);
+  border-top: 1px dotted var(--slate);
+  padding-top: 0.5rem;
+}
+
+.grade-stamp {
+  position: absolute;
+  top: 0.9rem;
+  right: 0;
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 3px double var(--red-margin);
+  border-radius: 50%;
+  color: var(--red-margin);
+  font-size: 1.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-14deg);
+  opacity: 0;
+  animation: stamp-in 0.5s ease-out 0.9s forwards;
+  box-shadow: inset 0 0 0 2px rgba(211, 58, 47, 0.12);
+}
+
+@keyframes stamp-in {
+  0%   { transform: rotate(-40deg) scale(2.4); opacity: 0; }
+  60%  { transform: rotate(-10deg) scale(0.92); opacity: 1; }
+  100% { transform: rotate(-14deg) scale(1); opacity: 0.92; }
+}
+
+section { margin-bottom: 1.1rem; }
+
+h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate);
+  border-bottom: 1px solid var(--slate);
+  padding-bottom: 0.2rem;
+  margin: 0 0 0.45rem;
+}
+
+p { margin: 0 0 0.55rem; }
+
+strong { color: var(--ink); }
+
+a {
+  color: var(--red-margin);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red-margin);
+}
+a:hover { background: rgba(211, 58, 47, 0.08); }
+
+.ledger-line {
+  margin: 0.3rem 0 0.5rem 1.2rem;
+  padding: 0.3rem 0.9rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(184, 134, 11, 0.07);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+.sources {
+  margin-top: 1.6rem;
+  padding-top: 0.9rem;
+  border-top: 3px double var(--slate);
+  font-size: 0.92rem;
+  color: var(--slate);
+}
+.sources h2 { margin-bottom: 0.5rem; }
+.wordline { text-align: right; font-style: italic; }
+
+@media (max-width: 40rem) {
+  .paper { padding: 1.6rem 1.4rem 1.6rem 4.2rem; }
+  .grade-stamp { width: 3.4rem; height: 3.4rem; font-size: 1.35rem; }
+}
