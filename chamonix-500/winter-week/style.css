@@ -1,0 +1,148 @@
+/* Field Manual — Winter Operations, Form W-01, Rev. 1926 */
+
+:root {
+  --paper: #f2efe3;
+  --ink: #22313c;
+  --ice: #9fbccb;
+  --ice-deep: #4e7288;
+  --brass: #9c7a3c;
+  --stampred: #8a3327;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2.5rem 1rem 4rem;
+  color: var(--ink);
+  background: #e6e2d4;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(78, 114, 136, .06) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(78, 114, 136, .06) 0 1px, transparent 1px 28px);
+  font: 17px/1.65 Georgia, "Times New Roman", serif;
+}
+
+.manual {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  padding: 2.2rem 2.4rem 1.6rem;
+}
+
+.form-line {
+  font-family: "Courier New", monospace;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ice-deep);
+  margin: 0 0 .8rem;
+}
+
+h1 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.05;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: 0 0 .6rem;
+}
+
+.manual-sub { font-size: .95rem; color: var(--ice-deep); margin: 0 0 1.1rem; }
+
+.head-rule {
+  height: 6px;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  margin-bottom: 1.4rem;
+}
+
+.toc {
+  border: 1px solid var(--brass);
+  background: rgba(159, 188, 203, .12);
+  padding: .8rem 1.2rem;
+  margin: 0 0 1.8rem;
+}
+
+.toc-title {
+  font-family: "Courier New", monospace;
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 .3rem;
+}
+
+.toc ol { margin: .4rem 0 0; padding-left: 1.2rem; font-family: "Courier New", monospace; font-size: .85rem; }
+.toc li { margin: .15rem 0; }
+
+a { color: var(--ice-deep); }
+a:hover { color: var(--brass); }
+
+.clause { margin: 0 0 1.6rem; padding-left: 1.1rem; border-left: 3px solid var(--ice); }
+
+.clause h2 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  margin: 0 0 .5rem;
+}
+
+.clause h2::before { content: "❄ "; color: var(--brass); }
+
+table.tally {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: .85rem;
+  margin: .8rem 0;
+}
+
+.tally caption {
+  caption-side: top;
+  font-size: .75rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--brass);
+  padding-bottom: .3rem;
+  text-align: left;
+}
+
+.tally th, .tally td { border: 1px solid var(--ink); padding: .3rem .5rem; text-align: left; }
+.tally th { background: var(--ice); }
+.tally .num { text-align: right; }
+.tally .total td { background: rgba(156, 122, 60, .18); font-weight: bold; }
+
+.refs { padding-left: 1.2rem; font-size: .92rem; }
+.refs li { margin: .3rem 0; }
+
+.manual-foot { margin-top: 2rem; border-top: 1px solid var(--brass); padding-top: 1rem; }
+
+.stamp {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  color: var(--stampred);
+  border: 2px double var(--stampred);
+  padding: .35rem .7rem;
+  transform: rotate(-2.5deg);
+  cursor: pointer;
+  user-select: none;
+}
+
+.stamp.pressed {
+  background: rgba(138, 51, 39, .12);
+  transform: rotate(-2.5deg) scale(.98);
+}
+
+.foot-note {
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--ice-deep);
+  margin-top: .6rem;
+}
