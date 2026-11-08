@@ -1,0 +1,120 @@
+/* Council of the Green Book — 1999, back office above the bookstall */
+
+body {
+  background-color: #000033;
+  background-image:
+    radial-gradient(1px 1px at 22px 34px,  #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 120px 90px, #99ccff 50%, transparent 51%),
+    radial-gradient(2px 2px at 75px 150px, #ffff99 50%, transparent 51%),
+    radial-gradient(1px 1px at 180px 40px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 60px 180px, #6699ff 50%, transparent 51%);
+  background-size: 210px 210px;
+  color: #ffffcc;
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0;
+  padding: 18px 10px 40px;
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 660px;
+  margin: 0 auto;
+  background: #000044;
+  border: 4px outset #c0c0c0;
+  padding: 14px 18px 10px;
+}
+
+.office-line {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #99ccff;
+  margin: 0 0 4px;
+}
+
+h1 {
+  font-size: 23px;
+  color: #ffff99;
+  margin: 0 0 2px;
+  text-shadow: 1px 1px 0 #333366;
+}
+
+.subhead { color: #00ff00; font-weight: bold; margin: 0 0 8px; }
+
+.blink { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { visibility: hidden; } }
+
+.convened, .quorum { font-size: 13px; color: #ccccff; margin: 2px 0; }
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border: 2px inset #808080;
+  background: #003300;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  padding: 3px 0;
+  margin: 10px 0;
+}
+.ticker span { display: inline-block; padding-left: 100%; animation: scroll 22s linear infinite; }
+@keyframes scroll { to { transform: translateX(-100%); } }
+
+.item {
+  border: 2px inset #808080;
+  background: #001155;
+  margin: 12px 0;
+  padding: 10px 14px;
+}
+
+.item h2 { font-size: 16px; color: #ffcc99; margin: 0 0 8px; }
+.item-no { color: #00ff00; font-weight: bold; margin-right: 8px; }
+
+blockquote.ledger-line, blockquote.sheet {
+  border: 2px inset #c0c0c0;
+  background: #ffffcc;
+  color: #000000;
+  padding: 8px 12px;
+  font-style: italic;
+  margin: 10px 0;
+}
+blockquote.sheet { background: #ffffff; border: 3px ridge #666699; }
+
+.sign-off { font-size: 13px; color: #ccccff; border-top: 1px dashed #666699; padding-top: 8px; }
+
+.counter {
+  border: 4px ridge #6666cc;
+  background: #000000;
+  text-align: center;
+  margin: 16px 0;
+  padding: 8px;
+}
+.counter-label { color: #9999cc; font-size: 11px; margin: 2px 0; }
+.counter-digits {
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  letter-spacing: 8px;
+  margin: 0;
+  text-shadow: 0 0 6px #00ff00;
+}
+
+.guestbook {
+  border: 4px ridge #ff9900;
+  background: #110033;
+  margin: 16px 0;
+  padding: 10px 14px;
+}
+.gb-title { color: #ffcc66; font-weight: bold; margin: 0 0 4px; }
+.gb-sub { color: #ccccff; font-size: 13px; margin: 0 0 8px; }
+table.gb { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.gb th, table.gb td { border: 1px solid #666699; padding: 4px 6px; text-align: left; }
+table.gb th { background: #333366; color: #ffffcc; }
+table.gb tr:nth-child(even) td { background: #1a1a4d; }
+
+.minutes-foot { text-align: center; font-size: 12px; color: #99ccff; }
+hr.star { border: 0; border-top: 2px dashed #6666ff; margin: 14px 0 8px; }
+.bestview { font-size: 11px; color: #6699cc; }
+
+a { color: #66ccff; }
+a:hover { color: #ffff99; }
