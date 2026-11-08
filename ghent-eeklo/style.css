@@ -1,0 +1,106 @@
+/* Ghent-Eeklo — Safety Data Sheet. Flemish Boundary & Electoral Hazards Office. */
+:root {
+  --ink: #1c1b18;
+  --paper: #faf6ee;
+  --red: #a4261c;
+  --red-dark: #7a1c14;
+  --amber: #c88b12;
+  --slate: #444d56;
+  --violet: #6b4a8a;
+  --line: #c9bda3;
+  --rule: 0.3mm;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% -10%, #d8cdb8 0%, #efe7d8 35%, #faf6ee 100%);
+  color: var(--ink);
+  font-family: "Liberation Serif", "DejaVu Serif", Georgia, serif;
+  line-height: 1.62;
+}
+.sheet {
+  max-width: 760px;
+  margin: 34px auto;
+  padding: 42px 40px 66px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-top: 8px solid var(--red);
+  box-shadow: 12px 12px 0 var(--ink), 14px 14px 0 var(--line);
+  position: relative;
+}
+.sheet::before {
+  content: "";
+  position: absolute; top: -8px; left: -2px; right: -2px; height: 8px;
+  background: repeating-linear-gradient(90deg, var(--red), var(--red) 14px, transparent 14px, transparent 28px);
+}
+.masthead {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  border-bottom: 3px double var(--ink); padding-bottom: 16px; margin-bottom: 26px;
+  background: linear-gradient(135deg, #e8ddc8 0%, #d9cbae 55%, #e8ddc8 100%);
+  padding: 18px 22px; margin: -42px -40px 26px; border-bottom-color: var(--slate);
+}
+.org { font-size: 13px; font-weight: bold; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--red-dark); margin: 0 0 4px; }
+.doc { font-size: 16px; font-weight: bold; letter-spacing: 0.24em; text-transform: uppercase;
+  margin: 0 0 3px; }
+.doc-sub { font-size: 11px; color: var(--slate); margin: 0; font-family: "Courier New", Courier, monospace; }
+.diamond {
+  width: 56px; height: 56px; background: var(--red); color: #fff;
+  border: 2px solid var(--ink); font: bold 11px/1 "Courier New", Courier, monospace;
+  text-transform: uppercase; text-align: center; line-height: 1.25;
+  transform: rotate(45deg); box-shadow: 4px 4px 0 var(--ink);
+  animation: pulse 3.2s ease-in-out infinite;
+}
+.dnum { font-size: 20px; transform: rotate(-45deg); display: block; }
+.dword { font-size: 8px; letter-spacing: 0.06em; transform: rotate(-45deg); margin-top: 6px; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: rotate(45deg) scale(1); }
+  50% { opacity: 0.82; transform: rotate(45deg) scale(1.06); } }
+h1 {
+  font-size: 29px; margin: 0 0 4px; letter-spacing: 0.04em; border-bottom: 2px solid var(--ink);
+  padding-bottom: 8px; text-transform: uppercase; font-weight: bold;
+}
+.alt { font-size: 14px; font-style: italic; font-weight: normal; text-transform: none;
+  color: var(--slate); letter-spacing: 0.02em; }
+.cas { font-size: 12.5px; color: var(--slate); margin: 0 0 26px; font-family: "Courier New", Courier, monospace;
+  border-left: 4px solid var(--amber); padding-left: 10px; }
+section.sds { margin: 0 0 24px; padding-left: 4px; border-left: 2px solid transparent; }
+section.sds + section.sds { border-left-color: var(--line); }
+h2 {
+  font-size: 16px; text-transform: uppercase; letter-spacing: 0.18em; margin: 0 0 10px;
+  color: var(--red-dark); font-weight: bold;
+}
+.secno {
+  display: inline-block; width: 22px; height: 22px; background: var(--ink); color: #fff;
+  font-size: 12px; font-weight: bold; text-align: center; line-height: 22px;
+  margin-right: 8px; vertical-align: middle; border-radius: 3px;
+  box-shadow: 2px 2px 0 var(--line);
+}
+table.kv { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 13.5px; }
+table.kv th, table.kv td {
+  border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: left;
+}
+table.kv th { background: #efe3cc; font-weight: bold; color: var(--ink); width: 26%; }
+table.kv tr { border-bottom: 1px solid var(--line); }
+ul.haz { list-style: none; padding: 0; margin: 10px 0 14px; border: 1px solid var(--line);
+  background: #fdf6e7; }
+ul.haz li { padding: 7px 10px; border-bottom: 1px solid var(--line); }
+ul.haz li:last-child { border-bottom: none; }
+.signal { font-size: 12.5px; margin-top: 10px; padding: 7px 10px; background: var(--red);
+  color: #fff; border: 2px solid var(--ink); }
+.signal-word { font-weight: bold; text-transform: uppercase; letter-spacing: 0.12em; }
+a { color: var(--red-dark); text-decoration: underline; }
+a:hover { background: var(--amber); }
+.lognote {
+  margin-top: 22px; font-size: 12.5px; font-style: italic;
+  border: 1px dashed var(--violet); background: #efe4f0; padding: 10px 12px;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 0 100%);
+}
+.source { font-size: 12px; color: var(--slate); margin-top: 26px; border-top: 1px solid var(--line);
+  padding-top: 10px; font-family: "Courier New", Courier, monospace; }
+@media (max-width: 600px) {
+  .sheet { margin: 12px auto; padding: 26px 18px 44px; border-width: 2px; border-top-width: 6px; }
+  .masthead { margin: -26px -18px 20px; padding: 14px 18px; }
+  .diamond { width: 44px; height: 44px; font-size: 10px; }
+  .dnum { font-size: 16px; }
+}
