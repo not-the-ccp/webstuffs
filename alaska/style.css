@@ -1,0 +1,362 @@
+/* ===== Council of the Far Bank · Minutes No. 215 · Arctic ledger ===== */
+
+:root{
+  --ink:#dceaf4;
+  --ink-dim:#9fb8c8;
+  --paper:#0c1a26;
+  --paper-2:#0f2233;
+  --rule:#1f3a50;
+  --rule-2:#2c4f6b;
+  --aur-1:#43e08a;
+  --aur-2:#37c6e8;
+  --aur-3:#a56bff;
+  --wax:#9c2b23;
+  --chalk:#f4efe2;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --mono:"Courier New",Courier,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--serif);
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 700px at 78% -10%, rgba(65,120,190,.28), transparent 60%),
+    radial-gradient(900px 600px at 8% 108%, rgba(67,224,138,.10), transparent 55%),
+    linear-gradient(178deg,#050d14 0%, #0a1622 34%, #0d1f2e 62%, #081320 100%);
+  min-height:100vh;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+
+/* ---- night sky, stars, drifting snow ---- */
+.night{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(1px 1px at 28% 8%,  rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(2px 2px at 44% 22%, rgba(210,235,255,.7), transparent 60%),
+    radial-gradient(1px 1px at 61% 6%,  rgba(255,255,255,.75), transparent 60%),
+    radial-gradient(1.5px 1.5px at 73% 16%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(1px 1px at 88% 10%, rgba(220,240,255,.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 94% 30%, rgba(255,255,255,.5), transparent 60%),
+    radial-gradient(1px 1px at 6% 38%,  rgba(255,255,255,.5), transparent 60%);
+  animation:starfield 90s linear infinite;
+}
+@keyframes starfield{to{background-position:0 -600px}}
+
+.aurora{
+  position:fixed;left:-15vw;right:-15vw;height:46vh;z-index:0;pointer-events:none;
+  filter:blur(38px) saturate(1.25);
+  opacity:.5;
+  mix-blend-mode:screen;
+  border-radius:50%;
+}
+.aurora.a1{
+  top:2vh;
+  background:linear-gradient(100deg, transparent 8%, var(--aur-1) 30%, var(--aur-2) 52%, transparent 78%);
+  animation:sway1 17s ease-in-out infinite alternate;
+}
+.aurora.a2{
+  top:-6vh;
+  background:linear-gradient(80deg, transparent 12%, var(--aur-2) 38%, var(--aur-3) 62%, transparent 85%);
+  animation:sway2 23s ease-in-out infinite alternate;
+  opacity:.38;
+}
+.aurora.a3{
+  top:9vh;
+  background:linear-gradient(115deg, transparent 20%, var(--aur-3) 44%, var(--aur-1) 66%, transparent 88%);
+  animation:sway3 29s ease-in-out infinite alternate;
+  opacity:.3;
+}
+@keyframes sway1{
+  from{transform:translateX(-6%) skewY(-4deg) scaleY(1)}
+  50%{transform:translateX(3%) skewY(2deg) scaleY(1.12)}
+  to{transform:translateX(7%) skewY(-2deg) scaleY(.94)}
+}
+@keyframes sway2{
+  from{transform:translateX(5%) skewY(3deg)}
+  to{transform:translateX(-7%) skewY(-3deg)}
+}
+@keyframes sway3{
+  from{transform:translateX(-4%) skewY(-1deg) scaleY(.9)}
+  to{transform:translateX(5%) skewY(3deg) scaleY(1.08)}
+}
+#snow .flake{
+  position:fixed;top:-6vh;z-index:1;pointer-events:none;color:#eef7ff;
+  font-size:12px;opacity:.7;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  from{transform:translate(0,-6vh) rotate(0deg)}
+  to{transform:translate(var(--drift,40px),108vh) rotate(340deg)}
+}
+
+/* ---- the paper of the minutes ---- */
+.seal-head, .minutes{
+  position:relative;z-index:2;
+  max-width:46rem;
+  margin:0 auto;
+}
+.seal-head{padding:6.5rem 2rem 2rem}
+.minutes{padding:0 2rem 5rem}
+
+.plate{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--aur-2);
+  text-align:center;
+  margin-bottom:1.6rem;
+  text-shadow:0 0 14px rgba(55,198,232,.55);
+}
+.crown-ornament{
+  display:block;width:170px;margin:0 auto 1.2rem;
+  color:var(--chalk);opacity:.85;
+}
+h1{
+  font-size:clamp(1.9rem, 4.6vw, 3rem);
+  font-weight:600;
+  letter-spacing:.02em;
+  text-align:center;
+  line-height:1.22;
+  color:var(--chalk);
+  text-shadow:0 2px 26px rgba(120,210,255,.35);
+  padding:1.1rem 0;
+  border-top:3px double var(--rule-2);
+  border-bottom:3px double var(--rule-2);
+}
+h1 .of{
+  display:block;
+  font-size:.55em;
+  font-style:italic;
+  letter-spacing:.06em;
+  color:var(--ink-dim);
+  margin-top:.55rem;
+}
+.pron{
+  font-size:.92rem;
+  text-align:center;
+  color:var(--ink-dim);
+  margin:1.2rem auto 0;
+  max-width:34rem;
+}
+.pron .pron-label{
+  font-family:var(--mono);
+  font-size:.78em;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--aur-1);
+  margin-right:.6em;
+}
+.when{
+  margin:1.5rem auto 0;
+  max-width:36rem;
+  font-size:.98rem;
+  color:var(--ink);
+  text-align:justify;
+}
+.when strong{color:var(--chalk)}
+
+/* ---- the ruled ledger sheet ---- */
+.item{
+  position:relative;
+  margin:2.6rem 0;
+  padding:1.7rem 1.9rem 1.6rem;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 30px, rgba(120,170,205,.13) 30px 31px),
+    linear-gradient(160deg, rgba(20,42,60,.92), rgba(13,29,43,.94));
+  border:1px solid var(--rule-2);
+  border-left:6px double var(--chalk);
+  box-shadow:0 18px 44px rgba(0,0,0,.45), inset 0 0 60px rgba(55,198,232,.05);
+}
+.item::before, .item::after{
+  content:"";
+  position:absolute;width:22px;height:22px;
+  border:2px solid var(--chalk);opacity:.55;
+}
+.item::before{top:-2px;left:-2px;border-right:none;border-bottom:none}
+.item::after{bottom:-2px;right:-2px;border-left:none;border-top:none}
+
+.item h2{
+  font-size:1.05rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--chalk);
+  margin-bottom:1rem;
+  padding-bottom:.5rem;
+  border-bottom:1px solid var(--rule-2);
+}
+.itemno{
+  font-family:var(--mono);
+  font-size:.82em;
+  color:var(--aur-1);
+  letter-spacing:.3em;
+  margin-right:.8em;
+}
+.minute{
+  margin:0 0 1rem;
+  text-align:justify;
+  font-size:1rem;
+}
+.minute:last-child{margin-bottom:0}
+.minute strong{color:var(--chalk)}
+.minute a{
+  color:var(--aur-2);
+  text-decoration:none;
+  border-bottom:1px dotted rgba(55,198,232,.7);
+}
+.minute a:hover{
+  color:#fff;
+  border-bottom-style:solid;
+  text-shadow:0 0 12px rgba(55,198,232,.7);
+}
+
+/* the old ledger line, read verbatim */
+.ledger-line{
+  font-family:var(--mono);
+  display:inline;
+  font-size:.95em;
+  color:var(--chalk);
+  background:linear-gradient(180deg, rgba(244,239,226,.14), rgba(244,239,226,.05));
+  border-bottom:3px double var(--chalk);
+  padding:.15em .3em;
+  letter-spacing:.02em;
+  box-shadow:0 0 18px rgba(244,239,226,.12);
+}
+
+/* the vote stamps */
+.vote{
+  font-family:var(--mono);
+  font-size:.78em;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#ff8d7e;
+  border:2px solid var(--wax);
+  padding:.22em .7em;
+  display:inline-block;
+  transform:rotate(-1.6deg);
+  margin:0 .35em .1em .2em;
+  box-shadow:0 0 0 1px rgba(255,141,126,.25) inset, 0 0 16px rgba(156,43,35,.4);
+  background:rgba(156,43,35,.16);
+  white-space:nowrap;
+}
+
+/* ---- adjournment & signature ---- */
+.adjourn{
+  margin:3rem 0;
+  padding:1.8rem 1.9rem;
+  border-top:3px double var(--chalk);
+  border-bottom:3px double var(--chalk);
+  text-align:center;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(120,170,205,.08) 46px 47px),
+    rgba(13,29,43,.55);
+}
+.adjourn p{font-size:1rem}
+.clock{
+  font-family:var(--mono);
+  letter-spacing:.14em;
+  color:var(--aur-1);
+  text-shadow:0 0 10px rgba(67,224,138,.6);
+}
+.signs{
+  margin-top:1.2rem;
+  font-size:.85rem;
+  color:var(--ink-dim);
+}
+.signs span{
+  display:inline-block;
+  padding:.2em .5em;
+}
+
+/* ---- quorum button & seal ---- */
+.quorum-stamp{
+  display:block;
+  margin:2.4rem auto 0;
+  font-family:var(--mono);
+  font-size:.75rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  background:transparent;
+  border:1px dashed var(--rule-2);
+  padding:.7em 1.6em;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+.quorum-stamp:hover{
+  color:var(--chalk);
+  border-color:var(--chalk);
+  box-shadow:0 0 18px rgba(244,239,226,.2);
+}
+.quorum-stamp[aria-pressed="true"]{
+  color:var(--wax);
+  border-color:var(--wax);
+  animation:thump .5s ease;
+}
+@keyframes thump{
+  0%{transform:scale(1.12)}
+  60%{transform:scale(.96)}
+  100%{transform:scale(1)}
+}
+
+.further{
+  margin:3.4rem 0 0;
+  text-align:center;
+}
+.seal{
+  display:block;
+  width:150px;
+  margin:0 auto 1.4rem;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.6));
+  transition:transform .6s cubic-bezier(.2,1.6,.4,1);
+}
+.seal.pressed{transform:rotate(-7deg) scale(1.06)}
+.further p{
+  font-size:.82rem;
+  color:var(--ink-dim);
+  font-family:var(--mono);
+  letter-spacing:.08em;
+  line-height:2;
+}
+.further a{color:var(--aur-2);text-decoration:none;border-bottom:1px dotted rgba(55,198,232,.6)}
+.further a:hover{color:#fff}
+
+/* the floating IN QUORUM stamp */
+#in-quorum{
+  position:fixed;
+  top:50%;left:50%;
+  z-index:50;
+  font-family:var(--mono);
+  font-size:clamp(1.4rem,4vw,2.4rem);
+  letter-spacing:.5em;
+  text-transform:uppercase;
+  color:#ff8d7e;
+  border:4px double var(--wax);
+  padding:.5em 1.4em .5em 1.9em;
+  transform:translate(-50%,-50%) rotate(-9deg) scale(0);
+  opacity:0;
+  pointer-events:none;
+  background:rgba(10,16,22,.55);
+  box-shadow:0 0 40px rgba(156,43,35,.6);
+  transition:transform .28s cubic-bezier(.2,1.8,.4,1), opacity .28s ease;
+}
+#in-quorum.show{
+  transform:translate(-50%,-50%) rotate(-9deg) scale(1);
+  opacity:1;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .aurora,.night,#snow .flake{animation:none}
+}
+
+@media (max-width:600px){
+  .seal-head{padding-top:5rem}
+  .item{padding:1.3rem 1.1rem}
+  .minute{text-align:left}
+}
