@@ -1,0 +1,182 @@
+/* cam-buffington — dream dictionary sheet, entry 417 */
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: radial-gradient(circle at 70% 10%, #2a1f46 0%, #141428 45%, #0a0812 100%);
+  color: #1c1a16;
+  font-family: "Georgia", "CR", serif;
+  line-height: 1.62;
+}
+.dream {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 18px 96px;
+}
+.moon, .fan {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+.moon {
+  width: 260px;
+  height: 260px;
+  background: #241a38;
+  box-shadow: inset 14px 14px 40px #1a1226, inset -14px -14px 40px #2e2244;
+  top: -110px;
+  animation: drift 8s ease-in-out infinite alternate;
+}
+.fan {
+  width: 420px;
+  height: 420px;
+  background: conic-gradient(#2a1f46 0%, #1f1633 25%, #2a1f46 50%, #1f1633 75%, #2a1f46 100%);
+  top: -180px;
+  opacity: 0.55;
+  animation: drift 12s ease-in-out infinite alternate-reverse;
+}
+.sheet {
+  position: relative;
+  max-width: 680px;
+  padding: 46px 40px 40px;
+  background: #fbf6ec;
+  border: 2.5px solid #5c4a1c;
+  box-shadow: 0 0 0 4px #d9c791, 18px 18px 0 0 #1c1a16;
+  margin: 0 auto 10px;
+}
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 70px;
+  height: 70px;
+  border-top: 2.5px solid #5c4a1c;
+  border-left: 2.5px solid #5c4a1c;
+  background: repeating-conic-gradient(#b98a2f 0% 25%, transparent 0% 50%);
+}
+.sheet::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 70px;
+  height: 70px;
+  border-bottom: 2.5px solid #5c4a1c;
+  border-right: 2.5px solid #5c4a1c;
+  background: repeating-conic-gradient(#b98a2f 0% 25%, transparent 0% 50%);
+}
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+.badge {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #1c1a16;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 20px;
+  transform: rotate(8deg);
+  animation: wobble 4s ease-in-out infinite alternate;
+}
+.kicker {
+  margin: 0;
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5c4a1c;
+  flex: 1;
+}
+h1 {
+  margin: 0 0 6px 0;
+  font-size: 34px;
+  letter-spacing: 0.01em;
+  color: #141428;
+  flex: 1 1 100%;
+}
+.datum {
+  margin: 0;
+  font-size: 14px;
+  color: #6e6658;
+  border-top: 1px solid #d9c791;
+  padding-top: 10px;
+  width: 100%;
+}
+.entry {
+  margin: 0 0 28px 0;
+}
+.entry h2 {
+  margin: 0 0 10px 0;
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #7a4e14;
+  border-bottom: 2px double #b98a2f;
+  padding-bottom: 6px;
+}
+.condition {
+  background: #f3e9cb;
+  border: 1px dashed #9b7a2b;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.condition p:first-child {
+  margin: 0 0 8px 0;
+  font-weight: bold;
+  color: #5c3a0a;
+}
+.condition p {
+  margin: 8px 0 0 0;
+}
+.shelf {
+  margin-top: 10px;
+  text-align: center;
+}
+.shelf-kicker {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b98a2f;
+}
+.shelf p {
+  margin: 0;
+  font-size: 14px;
+  color: #d9c791;
+}
+.shelf a {
+  color: #f3e9cb;
+  text-decoration: underline;
+  text-decoration-color: rgba(243, 233, 203, 0.45);
+}
+.shelf a:focus, .sheet a:focus {
+  outline: 2px solid #ffcd00;
+}
+@keyframes drift {
+  from { transform: translateX(-50%) translatey(0) scale(1); }
+  to { transform: translateX(-50%) translatey(-14px) scale(1.03); }
+}
+@keyframes wobble {
+  from { transform: rotate(8deg); }
+  to { transform: rotate(-6deg); }
+}
+@media (max-width: 560px) {
+  .sheet { padding: 34px 20px 30px; margin: 0 auto 10px; }
+  .entry-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  h1 { font-size: 27px; }
+  .badge { align-self: flex-start; }
+}
