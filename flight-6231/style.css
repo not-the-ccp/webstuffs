@@ -1,0 +1,127 @@
+/* Hudson Bend Secondary School — term report sheet */
+:root {
+  --ink: #232830;
+  --slate: #4a5560;
+  --red: #9c3b2e;
+  --line: #c9c2ae;
+  --paper: #f4efe3;
+  --card: #fbf8ef;
+  --gold: #a8842c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e6e0d0;
+  background-image: radial-gradient(circle at 18% 8%, #efe9da 0%, #e6e0d0 55%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 2.6rem 3rem 2rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 14px rgba(60, 50, 20, 0.18), 0 0 0 6px rgba(255, 255, 255, 0.25) inset;
+}
+
+.letterhead {
+  border-bottom: 3px double var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.org { margin: 0; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.8rem; color: var(--red); font-weight: bold; }
+.org-sub { margin: 0.2rem 0 0.9rem; font-style: italic; color: var(--slate); font-size: 0.9rem; }
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+.date-line {
+  margin: 0.7rem 0 0;
+  font-size: 0.85rem;
+  color: var(--slate);
+  border-top: 1px solid var(--line);
+  padding-top: 0.5rem;
+}
+
+.entry { margin-bottom: 1.5rem; }
+
+h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.5rem;
+}
+
+p { margin: 0 0 0.8rem; text-align: justify; }
+q { font-style: italic; }
+em { color: var(--slate); }
+
+/* ---- quiz ---- */
+.quiz-intro { font-size: 0.95rem; }
+
+.quiz { list-style: none; margin: 0.6rem 0; padding: 0; counter-reset: qmark; }
+.quiz > li {
+  counter-increment: qmark;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  padding: 0.8rem 1rem 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.quiz > li::before {
+  content: counter(qmark) ".";
+  color: var(--red);
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+.quiz > li p { margin: 0 0 0.5rem; text-align: left; font-weight: bold; font-size: 0.95rem; }
+
+.opts { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; }
+.opts button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.7rem;
+  background: #efe8d5;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.opts button:hover { background: #e6dcc2; }
+.opts button.picked { background: #d8cfb4; font-weight: bold; }
+.opts button.right { background: #cfe0c8; border-color: #5e7d52; color: #2f4a28; }
+.opts button.wrong { background: #e8c9c2; border-color: var(--red); color: #6d2418; }
+
+.quiz-score {
+  font-size: 0.9rem;
+  color: var(--slate);
+  border-top: 1px dashed var(--line);
+  padding-top: 0.5rem;
+}
+.quiz-score.done { color: var(--red); font-weight: bold; }
+
+/* ---- closing ---- */
+.mark { font-weight: bold; white-space: nowrap; }
+.signature { margin-top: 1rem; font-size: 1rem; }
+.sig { font-style: italic; font-size: 1.15rem; }
+
+.foot { border-top: 3px double var(--line); padding-top: 0.8rem; margin-top: 1.8rem; }
+.keepgoing { font-size: 0.85rem; color: var(--slate); text-align: left; }
+a { color: var(--red); }
+a:hover { color: #6d2418; }
+
+@media (max-width: 40rem) {
+  .sheet { margin: 0; padding: 1.4rem 1.2rem; border: none; }
+  p { text-align: left; }
+}
