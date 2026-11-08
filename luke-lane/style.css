@@ -1,0 +1,165 @@
+/* The Small Ads Column — Los Angeles Evening Ledger, 1931 */
+:root {
+  --newsprint: #ece1c6;
+  --newsprint-dark: #e2d4ae;
+  --ink: #241f18;
+  --faded-ink: #4d4436;
+  --stamp-red: #8c2b1e;
+  --rule: #241f18;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(120, 95, 50, 0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(120, 95, 50, 0.14), transparent 50%),
+    #c9b98f;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 62rem;
+  margin: 2.5rem auto 4rem;
+  padding: 2.5rem 3rem 2rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(36, 31, 24, 0.015) 0 2px, transparent 2px 4px),
+    var(--newsprint);
+  border: 1px solid #8a7a54;
+  box-shadow: 0 18px 45px rgba(40, 30, 10, 0.45), inset 0 0 90px rgba(120, 95, 50, 0.22);
+  position: relative;
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 0.6rem;
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+}
+
+.kicker {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Palatino Linotype", serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--faded-ink);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Palatino Linotype", serif;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0.1rem 0 0.3rem;
+}
+
+.dateline {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--faded-ink);
+  margin: 0;
+}
+
+.rule-double { height: 6px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+
+.column-note {
+  font-size: 0.88rem;
+  color: var(--faded-ink);
+  text-align: justify;
+  border-bottom: 1px solid var(--ink);
+  padding: 0.9rem 0.2rem 1rem;
+  margin: 0 0 1.4rem;
+}
+
+.ads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0;
+}
+
+.ad {
+  border: 1px solid rgba(36, 31, 24, 0.55);
+  padding: 0.9rem 1rem 1.1rem;
+  margin: -0.5px;
+  background: rgba(255, 250, 230, 0.18);
+  font-size: 0.86rem;
+}
+
+.ad p { margin: 0.5rem 0 0; text-align: justify; }
+.ad p a { color: var(--stamp-red); text-decoration-thickness: 1px; }
+
+.ad-head {
+  margin: 0;
+  font-family: "Copperplate", "Copperplate Gothic Light", "Palatino Linotype", serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.35rem;
+  position: relative;
+}
+
+.ad-wanted { background: rgba(140, 43, 30, 0.07); }
+.ad-wanted .ad-head { color: var(--stamp-red); border-bottom-color: var(--stamp-red); }
+.ad-wanted .ad-head::after {
+  content: "★";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--stamp-red);
+}
+
+.ad-beer { background: rgba(90, 110, 60, 0.08); }
+.ad-beer .ad-head { color: #4a5a2a; border-bottom-color: #4a5a2a; }
+
+.ad-personal .ad-head { font-style: normal; }
+
+.bottom-rule { height: 6px; border-top: 1px solid var(--ink); border-bottom: 3px double var(--ink); margin-top: 1.4rem; }
+
+.colophon {
+  text-align: center;
+  font-size: 0.72rem;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--faded-ink);
+  margin-top: 0.9rem;
+}
+
+.colophon p { margin: 0.2rem 0; }
+
+.stamp {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.35rem 0.9rem;
+  border: 2px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-family: "Copperplate", "Copperplate Gothic Light", serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  transform: rotate(-4deg);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  user-select: none;
+}
+
+.stamp:hover { transform: rotate(-4deg) scale(1.05); }
+
+@media (max-width: 40rem) {
+  .paper { padding: 1.6rem 1.1rem; margin: 0.5rem; }
+}
