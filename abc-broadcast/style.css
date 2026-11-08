@@ -1,0 +1,141 @@
+/* System Notice Archive — AB-1932 */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #24211c;
+  --faint: #6e675b;
+  --rule: #d8d2c4;
+  --stamp: #a3341f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.notice {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.head {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.archive {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.4rem;
+}
+
+.code {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--stamp);
+  border: 1px solid var(--stamp);
+  padding: 0.15rem 0.55rem;
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+
+.abridged {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--faint);
+  margin: 0 0 1.5rem;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.meta div {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.meta dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding-top: 0.22rem;
+}
+
+.meta dd { margin: 0; }
+
+section { margin-bottom: 2.4rem; }
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.8rem;
+}
+
+h2 .num {
+  color: var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  margin-right: 0.55rem;
+}
+
+p { margin: 0 0 1rem; }
+
+blockquote.verbatim {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.9rem 1.25rem 0.9rem 1.6rem;
+  border-left: 3px solid var(--stamp);
+  background: #f1ede1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.signed {
+  color: var(--faint);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.related {
+  border-top: 3px double var(--rule);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.related h2 { margin-bottom: 0.7rem; }
+.related p { margin-bottom: 0.55rem; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--stamp);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--stamp); }
