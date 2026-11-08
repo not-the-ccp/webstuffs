@@ -1,0 +1,181 @@
+/* The Pump & Polder — polder grey, dike brown, reed gold, sluice water blue */
+
+:root {
+  --dike: #3b2f22;
+  --peat: #241d15;
+  --paper: #efe7d3;
+  --paper-deep: #e4d8bd;
+  --reed: #a6852f;
+  --water: #4a7a8c;
+  --water-deep: #2e5566;
+  --ink: #2a2318;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--peat); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(59, 47, 34, .05) 46px 47px),
+    radial-gradient(ellipse at 50% -10%, #2e5566 0%, #241d15 55%);
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.sheet {
+  width: min(760px, 100%);
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--dike);
+  box-shadow: 0 0 0 6px rgba(59, 47, 34, .35), 0 30px 60px rgba(0, 0, 0, .55);
+  position: relative;
+  overflow: hidden;
+}
+
+/* tide bar: a thin water line sliding across the top of the sheet */
+.tidebar {
+  height: 8px;
+  background: var(--water-deep);
+  position: relative;
+  overflow: hidden;
+}
+.tidebar span {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, var(--water) 30%, #8fb8c6 50%, var(--water) 70%, transparent 100%);
+  transform: translateX(-100%);
+  animation: tide 9s ease-in-out infinite;
+}
+@keyframes tide {
+  0%   { transform: translateX(-100%); }
+  55%  { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* masthead */
+.masthead { padding: 2rem 2.5rem 1.25rem; text-align: center; }
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--dike);
+  border-bottom: 1px solid var(--reed);
+  padding-bottom: .4rem;
+}
+.masthead h1 {
+  margin: .9rem 0 .2rem;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  letter-spacing: .02em;
+  color: var(--peat);
+  text-shadow: 2px 2px 0 rgba(166, 133, 47, .35);
+}
+.strap {
+  margin: 0;
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--dike);
+}
+.mast-rule {
+  height: 7px;
+  margin: 1.1rem auto 0;
+  background:
+    linear-gradient(90deg, var(--reed) 0 33%, var(--water) 33% 66%, var(--dike) 66% 100%);
+}
+.stamp-line { margin: 1rem 0 0; }
+.stamp {
+  display: inline-block;
+  border: 1.5px dashed var(--water-deep);
+  padding: .35rem .9rem;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--water-deep);
+  transform: rotate(-1.2deg);
+  background: rgba(74, 122, 140, .07);
+}
+
+/* letter body */
+.letter {
+  padding: 1.5rem 2.5rem 1rem;
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+.letter section {
+  padding: 1.1rem 0 1.3rem;
+  border-bottom: 1px dotted rgba(59, 47, 34, .45);
+}
+.letter section:last-child { border-bottom: none; }
+.letter h2 {
+  font-size: 1.05rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--water-deep);
+  margin: 0 0 .7rem;
+}
+.sign-off { font-style: italic; color: var(--dike); }
+
+.log-line {
+  margin: .9rem 0;
+  padding: .9rem 1.4rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--peat);
+  background: rgba(166, 133, 47, .14);
+  border-left: 5px solid var(--reed);
+  border-top: 1px solid rgba(59, 47, 34, .3);
+  border-right: 1px solid rgba(59, 47, 34, .3);
+  border-radius: 0 3px 3px 0;
+}
+
+a {
+  color: var(--water-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--reed);
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(166, 133, 47, .2); }
+
+/* watermark: the mark on the staff */
+.watermark {
+  text-align: center;
+  padding: 1rem 0 0;
+  background: linear-gradient(180deg, transparent, rgba(46, 85, 102, .12));
+}
+.watermark svg { width: 220px; height: 66px; }
+.watermark .wave { fill: var(--water); opacity: .8; }
+.watermark .w2 { fill: var(--water-deep); opacity: .7; }
+.watermark text {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  fill: var(--peat);
+}
+.watermark p {
+  margin: .2rem 0 0;
+  font-size: .78rem;
+  font-style: italic;
+  color: var(--dike);
+}
+
+/* colophon */
+.colophon {
+  padding: 1rem 2.5rem 2rem;
+  font-size: .85rem;
+  color: var(--dike);
+  text-align: center;
+  border-top: 3px double var(--reed);
+}
+
+@media (max-width: 560px) {
+  .masthead, .letter, .colophon { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tidebar span { animation: none; }
+}
