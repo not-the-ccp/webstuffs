@@ -1,0 +1,150 @@
+/* Anoka Township High School — Form 7C, ruled-paper look */
+:root {
+  --paper: #f6f1e3;
+  --ink: #22304a;
+  --pencil: #4a5a75;
+  --rule: #b9c6da;
+  --red-margin: #d98f86;
+  --accent: #1f5c4d;
+  --stamp: #a33b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(31, 92, 77, 0.08), transparent 55%),
+    #d8d2c2;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    transparent 0, transparent 27px, var(--rule) 27px, var(--rule) 28px);
+  background-position: 0 8.5px;
+  border: 1px solid #b5ac92;
+  box-shadow: 0 18px 40px rgba(34, 48, 74, 0.25), 0 2px 6px rgba(34, 48, 74, 0.15);
+  padding: 0 2.2rem 2.5rem 3.4rem;
+  position: relative;
+  min-height: 60vh;
+}
+
+/* red margin line */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 2.4rem;
+  width: 2px;
+  background: var(--red-margin);
+  opacity: 0.6;
+}
+
+.report-head {
+  text-align: center;
+  padding: 2.2rem 0 1rem;
+  border-bottom: 3px double var(--ink);
+  position: relative;
+  margin-bottom: 1.4rem;
+}
+
+.crest { color: var(--accent); margin-bottom: 0.5rem; }
+
+.school-name {
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--pencil);
+}
+
+h1 {
+  margin: 0.2rem 0 0.5rem;
+  font-size: 2.15rem;
+  letter-spacing: 0.02em;
+}
+
+.form-line {
+  margin: 0;
+  font-style: italic;
+  color: var(--pencil);
+  font-size: 0.95rem;
+}
+
+.details {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.6rem;
+  font-size: 0.95rem;
+}
+
+.details td {
+  border-bottom: 1px dotted #9aa7bd;
+  padding: 0.3rem 0.4rem;
+}
+
+.details tr td:first-child {
+  width: 8.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--pencil);
+}
+
+.block h2 {
+  font-size: 1.15rem;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 1.8rem 0 0.6rem;
+}
+
+.block h2::before {
+  content: "§ ";
+  color: var(--stamp);
+}
+
+blockquote, .block strong { color: var(--ink); }
+
+.grade-note {
+  margin-top: 2rem;
+  padding: 0.5rem 0.8rem;
+  display: inline-block;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-weight: bold;
+  transform: rotate(-2deg);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  animation: stamp 0.9s ease-out both;
+}
+
+@keyframes stamp {
+  0%   { transform: rotate(-2deg) scale(2.4); opacity: 0; }
+  70%  { transform: rotate(-2deg) scale(0.92); opacity: 1; }
+  100% { transform: rotate(-2deg) scale(1); }
+}
+
+.report-foot {
+  margin-top: 2.4rem;
+  border-top: 3px double var(--ink);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--pencil);
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--stamp); }
+
+@media (max-width: 620px) {
+  .sheet { margin: 0; padding-left: 2.4rem; border-left: none; }
+  .sheet::before { left: 1.5rem; }
+  h1 { font-size: 1.6rem; }
+}
