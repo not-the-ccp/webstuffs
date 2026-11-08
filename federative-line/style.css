@@ -1,0 +1,227 @@
+/* The Federative Line — official timetable, railway register */
+
+:root {
+  --rail-green: #1e3a2a;
+  --rail-green-deep: #12271a;
+  --paper: #f4ecd8;
+  --paper-edge: #e8dcbc;
+  --ink: #2b2417;
+  --brass: #b8860b;
+  --brass-bright: #d4a017;
+  --signal-red: #9c2b1e;
+  --steam: rgba(244, 236, 216, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--rail-green);
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 46px, var(--steam) 46px 48px, transparent 48px 94px, var(--steam) 94px 96px),
+    linear-gradient(var(--rail-green) 0%, var(--rail-green-deep) 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+/* ——— masthead ——— */
+
+.masthead {
+  text-align: center;
+  color: var(--paper);
+  border-bottom: 3px double var(--brass);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.wheel {
+  width: 64px;
+  height: 64px;
+  color: var(--brass-bright);
+  animation: turn 14s linear infinite;
+}
+
+@keyframes turn { to { transform: rotate(360deg); } }
+
+.company {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin: 0.75rem 0 0.35rem;
+  color: var(--paper-edge);
+}
+
+.masthead h1 {
+  font-size: 2.6rem;
+  margin: 0.25rem 0 0.4rem;
+  letter-spacing: 0.04em;
+  font-weight: normal;
+}
+
+.masthead .sub {
+  font-style: italic;
+  margin: 0 0 1rem;
+  color: var(--paper-edge);
+  font-size: 0.95rem;
+}
+
+.ribbon {
+  display: inline-block;
+  border: 1px solid var(--brass);
+  color: var(--brass-bright);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  padding: 0.35rem 0.9rem;
+  background: var(--rail-green-deep);
+}
+
+/* ——— timetable sections ——— */
+
+.lede-note {
+  background: var(--paper);
+  border: 1px solid var(--brass);
+  border-top: 6px solid var(--rail-green);
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.35);
+}
+
+.lede-note p { margin: 0; }
+
+.service { margin-bottom: 2.4rem; }
+
+.service-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  background: var(--rail-green-deep);
+  border: 1px solid var(--brass);
+  border-left: 8px solid var(--brass-bright);
+  padding: 0.45rem 0.9rem;
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.service-name {
+  font-style: italic;
+  color: var(--brass-bright);
+  letter-spacing: 0.1em;
+}
+
+.retired, .construction, .special {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid currentColor;
+}
+.retired { color: #e3b7b0; }
+.construction { color: #cfe3c0; }
+.special { color: #f0d98c; }
+
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.86rem;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.35);
+}
+
+table.tt th {
+  background: var(--rail-green);
+  color: var(--paper);
+  text-align: left;
+  padding: 0.4rem 0.65rem;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--brass);
+}
+
+table.tt td {
+  padding: 0.45rem 0.65rem;
+  border-bottom: 1px dashed #b7a67c;
+  vertical-align: top;
+}
+
+table.tt tr:nth-child(even) td { background: var(--paper-edge); }
+
+td:first-child { white-space: nowrap; font-weight: bold; }
+
+.memorial-service table.tt th { background: #3a2620; }
+.memorial-service .service-head { border-left-color: var(--signal-red); }
+
+.note {
+  background: rgba(244, 236, 216, 0.92);
+  border-left: 3px solid var(--brass);
+  padding: 0.8rem 1.1rem;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.note a, .fares a, .notices a, .weather a { color: var(--rail-green); font-weight: bold; }
+.note a:hover { color: var(--signal-red); }
+
+/* ——— fares, notices, conditions ——— */
+
+.fares, .notices, .weather {
+  color: var(--paper);
+  border: 1px dashed var(--brass);
+  padding: 1rem 1.3rem;
+  margin-bottom: 2rem;
+  background: rgba(18, 39, 26, 0.55);
+}
+
+.fares h2, .notices h2, .weather h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+  margin: 0 0 0.6rem;
+}
+
+.fares p, .notices p, .weather p { margin: 0 0 0.7rem; }
+.fares p:last-child, .notices p:last-child, .weather p:last-child { margin-bottom: 0; }
+
+.notices p em { color: #f0d98c; }
+
+/* ——— footer ——— */
+
+.tt-footer {
+  border-top: 3px double var(--brass);
+  padding-top: 1rem;
+  text-align: center;
+  color: var(--paper-edge);
+  font-size: 0.85rem;
+}
+
+.tt-footer a { color: var(--brass-bright); }
+.tt-footer a:hover { color: var(--paper); }
+
+.tt-footer .rule {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  margin: 0.6rem 0 0;
+  color: var(--brass);
+}
+
+.now-departing {
+  background: var(--brass-bright) !important;
+  color: var(--rail-green-deep) !important;
+  font-weight: bold;
+}
