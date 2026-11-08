@@ -1,0 +1,180 @@
+/* Field Manual FM-9, Chapter 7 — The Aegean Sea */
+:root {
+  --paper: #f3ecd9;
+  --paper-deep: #e9dfc4;
+  --ink: #1d2f3a;
+  --ink-soft: #445866;
+  --sea: #2e5f6e;
+  --sea-deep: #14343f;
+  --stamp: #a33a2a;
+  --line: #b8a97f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 8%, rgba(46, 95, 110, 0.10), transparent 45%),
+    radial-gradient(circle at 90% 100%, rgba(20, 52, 63, 0.12), transparent 50%),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(184, 169, 127, 0.18) 34px 35px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.banner {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--stamp) 0 26px,
+    #7d2b1f 26px 52px);
+  color: var(--paper);
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.55em;
+  padding: 0.4rem 0;
+  border-bottom: 3px double var(--stamp);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.manual {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3rem;
+  background: rgba(255, 252, 240, 0.72);
+  border: 1px solid var(--line);
+  outline: 4px double var(--line);
+  outline-offset: -11px;
+  box-shadow: 0 18px 40px rgba(29, 47, 58, 0.22);
+  margin-top: 1.6rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--sea-deep);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.4em;
+  font-size: 0.72rem;
+  color: var(--stamp);
+  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  color: var(--sea-deep);
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.plate {
+  margin: 1.2rem auto 0;
+  width: 120px;
+  color: var(--sea);
+}
+
+.compass { width: 100%; height: auto; display: block; }
+
+.needle {
+  transform-origin: 100px 100px;
+  animation: swing 7s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes swing {
+  0%   { transform: rotate(-14deg); }
+  35%  { transform: rotate(9deg); }
+  65%  { transform: rotate(-4deg); }
+  100% { transform: rotate(-14deg); }
+}
+
+.clause { margin: 0 0 1.9rem; }
+
+h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sea-deep);
+  border-left: 5px solid var(--stamp);
+  padding-left: 0.6rem;
+  margin: 0 0 0.7rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+p { margin: 0 0 0.85rem; }
+
+strong { color: var(--sea-deep); }
+
+.note {
+  font-size: 0.92rem;
+  background: var(--paper-deep);
+  border: 1px dashed var(--line);
+  padding: 0.6rem 0.9rem;
+  margin-left: 0.4rem;
+}
+
+.note::before {
+  content: "NOTE — ";
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--stamp);
+}
+
+a {
+  color: var(--sea);
+  text-decoration-color: rgba(163, 58, 42, 0.6);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--stamp); background: rgba(163, 58, 42, 0.08); }
+
+.sign-off {
+  margin-top: 1.4rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.tail {
+  border-top: 3px double var(--sea-deep);
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.see-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+
+.colophon {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 600px) {
+  .manual { outline: none; border: 1px solid var(--line); }
+  h1 { font-size: 1.5rem; }
+}
