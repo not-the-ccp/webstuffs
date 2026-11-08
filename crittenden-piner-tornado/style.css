@@ -1,0 +1,196 @@
+/* Meridian & Fable — catalogue lot sheet */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #eadfc2;
+  --ink: #2b241a;
+  --ink-soft: #55482f;
+  --rule: #8a7a55;
+  --seal: #7c2d1e;
+  --stamp: #33506e;
+}
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 3.5rem;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,250,230,0.5), transparent 55%),
+    var(--paper-deep);
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  position: relative;
+  background: var(--paper);
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 1px 2px rgba(43,36,26,0.25), 0 12px 30px rgba(43,36,26,0.18);
+}
+
+/* engraved double border */
+.border-outer {
+  position: absolute;
+  inset: 0.5rem;
+  border: 1px solid var(--rule);
+  outline: 3px double var(--rule);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+.lot-head { text-align: center; }
+
+.auctioneer .firm {
+  display: block;
+  font-size: 1.9rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.auctioneer .address {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+}
+
+.sale-line {
+  margin: 1.1rem 0 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  margin: 0.9rem 0 0.3rem;
+  font-variant: small-caps;
+}
+h1 small {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  font-variant: normal;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+.sub {
+  max-width: 34rem;
+  margin: 0.6rem auto 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.estimate {
+  margin: 1rem auto 0;
+  font-size: 0.95rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.45rem 0;
+  width: fit-content;
+  max-width: 100%;
+}
+.estimate strong { letter-spacing: 0.05em; }
+#realised {
+  color: var(--seal);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--seal);
+  padding: 0.05rem 0.5rem;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.hammer-note[hidden] #realised { display: none; }
+
+hr.rule-double {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 1.4rem 0;
+}
+hr.rule-single {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.4rem 0;
+}
+
+section { margin: 1.2rem 0; }
+
+h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--seal);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.lot-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+}
+.lot-list li { margin: 0.35rem 0; }
+.lot-list li::marker { color: var(--seal); font-weight: 700; }
+
+blockquote {
+  margin: 1rem 1.5rem;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid var(--seal);
+  background: rgba(124, 45, 30, 0.06);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+blockquote p { margin: 0; }
+
+a {
+  color: var(--stamp);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--seal); }
+
+.terms {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+}
+
+.lot-foot {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 3px double var(--rule);
+  padding-top: 0.8rem;
+}
+.lot-foot .small {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  font-style: italic;
+  text-transform: none;
+}
+
+@media (max-width: 40rem) {
+  body { padding: 1rem 0.4rem 2rem; }
+  .sheet { padding: 1.2rem 1rem; }
+  h1 { font-size: 1.5rem; }
+}
