@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 4 — The Geographic Coordinate System | Field Manual FM-9</title>
+<meta name="description" content="Field manual chapter on the geographic coordinate system: latitude and longitude as angles on the Earth, datums and ellipsoids, fixing position off the Maranhão coast, and the Pedra do Rosário rock.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cover">
+  <div class="stamp">SURVEY</div>
+  <div class="tape"></div>
+  <header class="manual-header">
+    <p class="agency">COASTAL SURVEY SERVICE &middot; MARANHÃO SECTOR</p>
+    <p class="code">FIELD MANUAL FM-9 &middot; CHAPTER 4</p>
+    <h1>The Geographic Coordinate System</h1>
+    <p class="subtitle">Latitude, longitude, datum &mdash; and how to find the Pedra do Ros&aacute;rio rock in the dark</p>
+  </header>
+</div>
+
+<main>
+  <section class="chapter">
+    <p class="drop">A geographic coordinate system measures position directly on the Earth as latitude and longitude. It is the simplest, oldest, and most widely used of the spatial reference systems in use, and most others are built on it. Latitude and longitude look like a Cartesian coordinate pair &mdash; two numbers, one point &mdash; but they are not Cartesian: they are angles, taken from the centre of the Earth on a curved surface, not measurements on a flat plane.</p>
+
+    <h2>4.1 The grid</h2>
+    <p>Latitude runs from 0&deg; at the equator to 90&deg; at the poles; longitude runs from 0&deg; at the prime meridian through Greenwich to 180&deg; east and west. One minute of latitude equals one nautical mile, about 1.852 kilometres, and one degree is roughly 111 kilometres. A careless minute therefore puts you nearly two kilometres off, which on this coast is the difference between the reef channel and the sand.</p>
+
+    <h2>4.2 Datum and ellipsoid</h2>
+    <p>Latitude and longitude alone are not enough. A full geographic coordinate system specification, such as those listed in the EPSG and ISO 19111 standards, also includes a choice of geodetic datum &mdash; including an Earth ellipsoid &mdash; because different ellipsoids fit the Earth's surface differently in different places. The same pair of numbers can point hundreds of metres apart depending on the datum. Charts off this coast may be referred to SIRGAS while your set reads WGS 84, so check which datum the board uses before you plot a fix.</p>
+
+    <h2>4.3 Fix on the Maranh&atilde;o coast</h2>
+    <p>Pedro do Ros&aacute;rio sits on the edge of the Itapecuru delta, at roughly 2&deg;41&prime;S, 45&deg;24&prime;W. The Pedra do Ros&aacute;rio rock, where the town supposedly took its name, shows above the flats at low water and makes a sound landmark; the jangada skippers shape their dawn run to the reef by it. The beach is mangrove-lined, at low tide the flats run out for kilometres, and the current at the river mouth pulls hard after rain. The boats are fourteen feet of jangada, and the standing rule is to be back before the tide turns.</p>
+
+    <table class="fix-log">
+      <caption>Recorded fixes, Maranh&atilde;o sector (datum: SIRGAS)</caption>
+      <thead>
+        <tr><th>Fix</th><th>Latitude</th><th>Longitude</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Farinha House S&atilde;o Benedito</td><td>2&deg;40&prime;S</td><td>45&deg;23&prime;W</td><td>Breakfast, farinha d'&aacute;gua</td></tr>
+        <tr><td>Pedra do Ros&aacute;rio rock</td><td>2&deg;41&prime;S</td><td>45&deg;24&prime;W</td><td>Town landmark, reef approach</td></tr>
+        <tr><td>Reef anchorage</td><td>2&deg;43&prime;S</td><td>45&deg;26&prime;W</td><td>Jangadas anchor at dawn</td></tr>
+        <tr><td>River mouth &mdash; no swimming after rain</td><td>2&deg;45&prime;S</td><td>45&deg;22&prime;W</td><td>Current pulls hard</td></tr>
+      </tbody>
+    </table>
+
+    <div class="voice-log">
+      <p class="log-head">VOICE LOG &middot; 14 JUNE, 04:20 &middot; WEAK AND BROKEN</p>
+      <p>Intercepted fragment, logged verbatim: <q>Bow-BILL DUCKS, &amp;c.--Every one knows that he sounds, he will discuss with all the year.</q> It is a test fragment: nonsense that should come back unchanged. If it returns intact, the channel holds; if it does not, do not trust bearings passed on it. Nothing in it bears on position fixing &mdash; file it under gibberish and steer by the numbers.</p>
+    </div>
+
+    <h2>4.4 Standing orders</h2>
+    <ol>
+      <li>Take a hand-bearing fix on two landmarks &mdash; the Pedra do Ros&aacute;rio rock and the church tower serve when both are in sight.</li>
+      <li>Take soundings with the lead line and note the depth against the chart.</li>
+      <li>Log time, latitude, longitude, and datum on every entry.</li>
+      <li>Re-check the datum before you plot; two hundred metres is the width of the channel.</li>
+      <li>Be back on the beach before the tide turns.</li>
+    </ol>
+  </section>
+
+  <section class="fixer">
+    <h2>Position converter</h2>
+    <p>Degrees and minutes to decimal degrees. South and west are negative.</p>
+    <form id="fixer-form" class="fix-form" novalidate>
+      <label>Latitude &nbsp;<input type="number" name="latd" min="-90" max="90" value="2">&nbsp;deg&nbsp;<input type="number" name="latm" min="0" max="59" value="41">&nbsp;min&nbsp;<select name="latns"><option value="-1" selected>S</option><option value="1">N</option></select></label>
+      <label>Longitude &nbsp;<input type="number" name="lond" min="-180" max="180" value="45">&nbsp;deg&nbsp;<input type="number" name="lonm" min="0" max="59" value="24">&nbsp;min&nbsp;<select name="lonwe"><option value="-1" selected>W</option><option value="1">E</option></select></label>
+      <button type="button">Compute fix</button>
+    </form>
+    <output id="fix-out">Decimal fix: 2.6833&deg;S, 45.4000&deg;W &middot; roughly one kilometre per 0.009&deg; at this latitude.</output>
+  </section>
+
+  <footer class="manual-footer">
+    <p>Related: <a href="../pedro-do-rosario/">Pedro do Ros&aacute;rio &mdash; anyone been?</a> &middot; <a href="../saltfleet-whip/">The Saltfleet Whip</a> &middot; <a href="../santa-maria-bianca/">Santa Maria Bianca Hospital &mdash; Field Manual SM-B</a> &middot; <a href="../">Webstuffs home</a></p>
+  </footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
