@@ -1,0 +1,183 @@
+/* Golden Horn Bread — family recipe, with a long preamble */
+
+:root {
+  --paper: #f7f2e7;
+  --ink: #2b2620;
+  --faded: #6f6555;
+  --red: #a83a2a;
+  --sky: #4a6b8a;
+  --line: #d8cfba;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2rem 1.25rem 3rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: 18px/1.65 Georgia, "Times New Roman", serif;
+}
+
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 0.4rem;
+}
+
+.greek {
+  font-size: 1.25rem;
+  color: var(--sky);
+  font-style: normal;
+}
+
+.subtitle {
+  color: var(--faded);
+  font-style: italic;
+  margin: 0;
+}
+
+.book section {
+  margin-bottom: 2.25rem;
+}
+
+p.drop::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.1rem 0.45rem 0 0;
+  color: var(--red);
+  font-weight: bold;
+}
+
+blockquote {
+  margin: 1.25rem 0 1.25rem 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--red);
+  background: #fbf7ec;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+}
+
+.ingredients-label {
+  font-style: italic;
+  color: var(--faded);
+}
+
+ul.ingredients {
+  list-style: none;
+  padding-left: 0.75rem;
+}
+
+ul.ingredients li::before {
+  content: "\25A0\00A0";
+  color: var(--sky);
+}
+
+ol.steps {
+  padding-left: 1.4rem;
+}
+
+ol.steps li {
+  margin-bottom: 0.6rem;
+}
+
+.ledger {
+  border: 1px solid var(--line);
+  background: #fbf7ec;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.ledger-intro {
+  color: var(--faded);
+  font-style: italic;
+  margin-top: 0;
+}
+
+.scrubber input[type="range"] {
+  width: 100%;
+  accent-color: var(--red);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.year-line {
+  font-size: 1.3rem;
+  margin: 0.25rem 0;
+}
+
+#year-out {
+  font-weight: bold;
+  color: var(--red);
+}
+
+#era-out {
+  font-style: italic;
+  color: var(--sky);
+}
+
+.ledger-line {
+  margin: 0 0 0.75rem;
+  min-height: 2.7em;
+}
+
+dl.ledger-static dt {
+  font-weight: bold;
+  color: var(--red);
+  float: left;
+  clear: left;
+  width: 4.5rem;
+}
+
+dl.ledger-static dd {
+  margin: 0 0 0.55rem 5rem;
+}
+
+.filed-beside {
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  margin-top: 2.5rem;
+}
+
+.filed-beside h2 {
+  border: none;
+  margin: 0 0 0.5rem;
+}
+
+.filed-beside p {
+  margin: 0.4rem 0;
+}
+
+a {
+  color: var(--sky);
+}
+
+a:hover {
+  color: var(--red);
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
