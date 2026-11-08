@@ -1,0 +1,178 @@
+/* SMS Wörth — court transcript, Kiel 1895 */
+
+:root {
+  --parchment: #e9dfc6;
+  --parchment-deep: #ddd0ae;
+  --ink: #1c2431;
+  --ink-soft: #39424f;
+  --navy: #14324f;
+  --navy-deep: #0d2236;
+  --seal-red: #8c2b1e;
+  --brass: #8a6d2f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(20, 50, 79, 0.10), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(140, 43, 30, 0.08), transparent 50%),
+    #cfc3a2;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.document {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(28, 36, 49, 0.015) 0 2px, transparent 2px 4px),
+    var(--parchment);
+  border: 2px solid var(--navy-deep);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  box-shadow: 0 18px 40px rgba(13, 34, 54, 0.35), inset 0 0 60px rgba(139, 90, 30, 0.12);
+  padding: 2.5rem 2.75rem 2rem;
+}
+
+.court-head {
+  text-align: center;
+  color: var(--navy-deep);
+}
+
+.eagle svg { color: var(--navy); margin-bottom: 0.4rem; }
+
+.court-line {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+h1 {
+  margin: 0.4rem 0 0.2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy-deep);
+}
+
+.court-sub {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.case-line {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--seal-red);
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+}
+
+.rule-double {
+  height: 6px;
+  border-top: 3px double var(--navy-deep);
+  border-bottom: 1px solid var(--navy-deep);
+  margin: 1.4rem 0;
+}
+
+.record h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-bottom: 1px dotted var(--brass);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 0.9rem;
+}
+
+.record p { margin: 0 0 1rem; text-align: justify; hyphens: auto; }
+
+.speaker {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+em, i { color: var(--ink-soft); }
+
+strong { color: var(--navy-deep); }
+
+.archive-note {
+  background: var(--parchment-deep);
+  border-left: 4px solid var(--seal-red);
+  padding: 0.4rem 1.1rem 0.2rem;
+}
+
+.archive-note h2 { border-bottom: none; }
+
+.signature-line {
+  font-style: italic;
+  border-top: 1px solid var(--brass);
+  padding-top: 0.7rem;
+}
+
+a {
+  color: var(--navy);
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--seal-red); }
+
+.doc-foot {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.stamp-btn {
+  margin-top: 0.8rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--seal-red);
+  background: none;
+  border: 1px solid var(--seal-red);
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.stamp-btn:hover { background: rgba(140, 43, 30, 0.08); }
+
+.stamp {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.55rem 1.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--seal-red);
+  border: 3px double var(--seal-red);
+  border-radius: 0.4rem;
+  transform: rotate(-7deg);
+  opacity: 0.85;
+  animation: stamp-in 0.35s ease-out;
+}
+
+@keyframes stamp-in {
+  from { transform: rotate(-7deg) scale(1.7); opacity: 0; }
+  to   { transform: rotate(-7deg) scale(1);   opacity: 0.85; }
+}
+
+@media (max-width: 600px) {
+  .document { padding: 1.5rem 1.1rem; outline-offset: 2px; }
+  .record p { text-align: left; }
+}
