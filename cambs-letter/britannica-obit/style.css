@@ -1,0 +1,146 @@
+/* The Encyclopædia Britannica (1768–2016) — an obituary.
+   Aged paper, ink and oxblood; engraved rules; the club's fog. */
+
+:root {
+  --paper: #f2e9d7;
+  --paper-deep: #e9dcc3;
+  --ink: #2b2620;
+  --ink-soft: #5a5145;
+  --oxblood: #6b2f2a;
+  --brass: #8a6d3b;
+  --rule: #46403a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #efe4cc 0%, var(--paper) 55%, #ead9ba 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Drifting fen fog behind the sheet */
+.fog { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.fog-band {
+  position: absolute; left: -20%; right: -20%; height: 26vh; top: 62%;
+  background: linear-gradient(to bottom, rgba(230, 224, 208, 0) 0%, rgba(230, 224, 208, 0.55) 45%, rgba(230, 224, 208, 0) 100%);
+  filter: blur(14px);
+  animation: drift 46s ease-in-out infinite alternate;
+}
+.fog-band.far { top: 8%; height: 34vh; opacity: 0.5; animation-duration: 63s; animation-direction: alternate-reverse; }
+@keyframes drift {
+  from { transform: translateX(-4%); }
+  to   { transform: translateX(4%); }
+}
+
+/* The obituary sheet: double-rule frame, as in the last printed volumes */
+.sheet {
+  position: relative; z-index: 1;
+  max-width: 46rem;
+  margin: 3.5rem auto 4rem;
+  padding: 2.6rem 2.9rem 2.2rem;
+  background: var(--paper);
+  border: 3px double var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 5px;
+  box-shadow: 0 2px 24px rgba(43, 38, 32, 0.22);
+}
+.sheet::before {
+  content: "1768 \2022 2016";
+  position: absolute; top: -1.55rem; left: 50%; transform: translateX(-50%);
+  background: var(--paper); padding: 0 1rem;
+  font-size: 0.72rem; letter-spacing: 0.32em; color: var(--ink-soft);
+  font-variant: small-caps;
+}
+
+.masthead { text-align: center; }
+.in-memoriam {
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.5em; text-indent: 0.5em;
+  color: var(--oxblood);
+  font-size: 1.05rem;
+}
+h1 {
+  margin: 0;
+  font-size: 2.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+.dates {
+  margin: 0.5rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+.mast-rule { margin: 1rem 0 0.6rem; }
+.mast-rule .wreath { display: block; width: min(320px, 80%); margin: 0 auto; }
+.est-line {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  max-width: 34rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.body p { margin: 0 0 1.05rem; }
+.body strong { font-weight: 700; }
+.body a {
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--oxblood);
+}
+.body a:hover { border-bottom-style: solid; }
+
+/* The minute-book block quote, as in No. 31 */
+.minute {
+  margin: 1.4rem 1.2rem;
+  padding: 0.9rem 1.2rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--ink-soft);
+  background: var(--paper-deep);
+}
+.minute p { margin: 0; }
+
+.colophon {
+  margin-top: 1.8rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.colophon a { color: var(--oxblood); text-decoration: none; border-bottom: 1px dotted var(--oxblood); }
+.survivors { margin: 0 0 0.9rem; line-height: 1.55; }
+
+/* The club's stamp, oxblood ink */
+.stamp {
+  width: 5.2rem; height: 5.2rem;
+  margin: 0 auto 1rem;
+  border: 2.5px solid var(--oxblood);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  transform: rotate(-8deg);
+  opacity: 0.75;
+}
+.stamp-inner {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  color: var(--oxblood);
+  font-weight: 700;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .sheet { margin: 2rem 0.9rem 3rem; padding: 2rem 1.4rem 1.8rem; }
+  h1 { font-size: 1.65rem; }
+}
