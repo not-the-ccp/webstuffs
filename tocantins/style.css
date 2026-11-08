@@ -1,0 +1,234 @@
+/* Plate 27 — Tocantins · The Household Board · Player's Manual */
+
+:root {
+  --paper: #f2e8d2;
+  --paper-deep: #e9dcc0;
+  --ink: #2b2416;
+  --forest: #1e3a2f;
+  --forest-dark: #14281f;
+  --ochre: #b0812c;
+  --river: #2e5d6b;
+  --stamp: #9a3324;
+  --rule: #8a7a58;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(176, 129, 44, 0.28), transparent 60%),
+    radial-gradient(900px 700px at 110% 110%, rgba(46, 93, 107, 0.35), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 6px),
+    var(--forest-dark);
+  color: var(--paper);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.plate {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  color: var(--ink);
+  border: 3px double var(--ochre);
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(138, 122, 88, 0.18);
+  padding: 2.2rem clamp(1.1rem, 5vw, 3rem) 1.6rem;
+  position: relative;
+}
+
+/* corner ornaments */
+.plate::before,
+.plate::after {
+  content: "\2605";
+  position: absolute;
+  font-size: 0.9rem;
+  color: var(--ochre);
+}
+.plate::before { top: 0.55rem; left: 0.8rem; }
+.plate::after { top: 0.55rem; right: 0.8rem; }
+
+/* ---------- masthead ---------- */
+.masthead { text-align: center; }
+
+.compass {
+  width: 74px;
+  height: 74px;
+  color: var(--ochre);
+  margin-bottom: 0.4rem;
+  animation: slow-spin 90s linear infinite;
+}
+@keyframes slow-spin { to { transform: rotate(360deg); } }
+
+.board {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--river);
+}
+
+h1 {
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  margin: 0.15em 0 0.1em;
+  letter-spacing: 0.02em;
+  color: var(--forest);
+  font-variant: small-caps;
+}
+
+.phon {
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.plate-no {
+  margin: 0.55rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+
+.ribbon {
+  margin: 0.9rem auto 0;
+  display: inline-block;
+  background: var(--forest);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--ochre);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- manual body ---------- */
+.manual {
+  margin-top: 1.8rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.4rem;
+}
+
+.rule-section { margin-bottom: 1.6rem; }
+
+.rule-head {
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--river);
+  margin: 0 0 0.5rem;
+  border-bottom: 2px solid var(--ochre);
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+p { margin: 0 0 0.8rem; }
+a { color: var(--forest); text-decoration-color: var(--ochre); text-underline-offset: 3px; }
+a:hover { color: var(--stamp); }
+
+.box-list { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+.box-list li { margin-bottom: 0.45rem; }
+.box-list li::marker { color: var(--stamp); content: "\2022\00a0\00a0"; }
+
+.moves { margin: 0.6rem 0 0; }
+.moves dt {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-top: 0.55rem;
+}
+.moves dd { margin: 0.15rem 0 0.5rem 0; }
+
+.memorial {
+  background: var(--paper-deep);
+  border: 1px dashed var(--stamp);
+  padding: 1rem 1.1rem;
+  position: relative;
+}
+.memorial .rule-head { color: var(--stamp); border-color: var(--stamp); }
+.memorial::after {
+  content: "PRINTED FREE";
+  position: absolute;
+  top: -0.7rem;
+  right: 0.6rem;
+  background: var(--paper);
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  padding: 0.15rem 0.5rem;
+  transform: rotate(2deg);
+}
+
+/* ---------- capital counter dock ---------- */
+.capital-dock {
+  margin: 1.8rem 0 0.4rem;
+  background: var(--forest);
+  color: var(--paper);
+  border: 1px solid var(--ochre);
+  padding: 0.9rem 1.1rem 1rem;
+}
+.dock-head {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ochre);
+}
+.dock-year {
+  margin: 0 0 0.55rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+.dock-body button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--paper);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.dock-body button:hover { background: var(--ochre); border-color: var(--ochre); color: var(--forest-dark); }
+.dock-caption {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(242, 232, 210, 0.8);
+}
+.dock-caption a { color: var(--paper); }
+
+/* ---------- footer ---------- */
+.plate-footer {
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  text-align: center;
+  font-size: 0.82rem;
+}
+.plate-footer p { margin: 0.2rem 0; }
+.plate-footer .rule {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--ochre);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compass { animation: none; }
+}
