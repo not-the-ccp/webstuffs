@@ -1,0 +1,220 @@
+/* Chapter XVII — Of the Greeting Namaste: dusk-and-saffron etiquette house style */
+:root {
+  --dusk: #16233e;
+  --dusk-deep: #0d1628;
+  --saffron: #d99a2b;
+  --saffron-bright: #f2b84b;
+  --paper: #f6efe0;
+  --paper-deep: #ecdfc6;
+  --ink: #241d12;
+  --faded: #7a6a4c;
+  --wine: #6e2626;
+  --rule: #b7a271;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -8%, rgba(217, 154, 43, 0.16), transparent 52%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(36, 29, 18, 0.022) 3px 4px),
+    linear-gradient(165deg, var(--paper) 0%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.68;
+}
+
+/* gilt book-spine strip, chapter number standing on end */
+.spine {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 34px;
+  background: linear-gradient(90deg, var(--dusk-deep) 0%, var(--dusk) 70%, rgba(13, 22, 40, 0) 100%);
+  border-right: 2px solid var(--saffron);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+.spine span {
+  writing-mode: vertical-rl;
+  color: var(--saffron-bright);
+  letter-spacing: 0.45em;
+  font-size: 0.85rem;
+  font-variant: small-caps;
+}
+
+/* faint watermark om at the top of the leaf */
+.om {
+  position: absolute;
+  top: 18px;
+  right: 6%;
+  font-size: 7rem;
+  color: rgba(217, 154, 43, 0.13);
+  pointer-events: none;
+  user-select: none;
+}
+
+.chapter {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.75rem 4rem calc(34px + 1.75rem);
+  background: rgba(255, 252, 244, 0.55);
+  border: 1px solid var(--rule);
+  outline: 1px solid rgba(217, 154, 43, 0.35);
+  outline-offset: 6px;
+  box-shadow: 0 18px 50px rgba(13, 22, 40, 0.18);
+}
+
+.chapter-head {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.35em;
+  color: var(--wine);
+  margin: 0 0 0.6rem;
+}
+h1 {
+  font-size: 2.35rem;
+  line-height: 1.15;
+  margin: 0 0 0.9rem;
+  font-weight: 600;
+  color: var(--dusk);
+}
+h1 .tag {
+  display: block;
+  font-size: 0.82rem;
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  color: var(--saffron);
+  margin-top: 0.55rem;
+  font-weight: 400;
+}
+.house {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+section { margin-bottom: 1.9rem; }
+h2 {
+  font-size: 1.18rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--dusk);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.9rem;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.82;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--saffron);
+  font-weight: 600;
+}
+
+strong { color: var(--wine); font-weight: 600; }
+
+.break {
+  text-align: center;
+  color: var(--saffron);
+  font-size: 1.4rem;
+  margin: 2.2rem 0;
+}
+
+/* marginalia: the ledger line */
+.margin {
+  background: linear-gradient(180deg, rgba(22, 35, 62, 0.06), rgba(22, 35, 62, 0.02));
+  border-left: 4px solid var(--dusk);
+  padding: 1.1rem 1.3rem;
+}
+.margin h2 { border: none; margin-top: 0; color: var(--dusk); }
+.record-line {
+  margin: 0.9rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--dusk-deep);
+  color: var(--paper);
+  font-style: italic;
+  box-shadow: inset 0 0 0 1px rgba(217, 154, 43, 0.45);
+}
+.record-line p { margin: 0.25rem 0; }
+.record-line a { color: var(--saffron-bright); }
+.rec-note {
+  font-size: 0.82rem;
+  color: rgba(246, 239, 224, 0.72);
+  font-style: normal;
+}
+
+/* the greeting, demonstrated */
+.palms {
+  margin: 2.4rem auto 1.6rem;
+  padding: 1.4rem 1rem 1.1rem;
+  max-width: 22rem;
+  text-align: center;
+  cursor: pointer;
+  border: 1px dashed var(--rule);
+  background: rgba(255, 252, 244, 0.6);
+  transition: border-color 0.4s;
+}
+.palms:focus-visible { outline: 2px solid var(--saffron); }
+.hand {
+  position: relative;
+  width: 52px;
+  height: 88px;
+  margin: 0 4px;
+  display: inline-block;
+  vertical-align: bottom;
+  background: linear-gradient(180deg, var(--saffron-bright), var(--saffron));
+  border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%;
+  box-shadow: inset -3px -4px 0 rgba(13, 22, 40, 0.18);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hand i {
+  position: absolute;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dusk);
+  opacity: 0.55;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hand-l { transform: rotate(-16deg) translateX(2px); }
+.hand-r { transform: rotate(16deg) translateX(-2px); }
+.palms.joined .hand-l { transform: rotate(-3deg) translateX(10px) translateY(4px); }
+.palms.joined .hand-r { transform: rotate(3deg) translateX(-10px) translateY(4px); }
+.palms-cap {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.9rem 0 0;
+  transition: color 0.4s;
+}
+.palms.joined .palms-cap { color: var(--wine); }
+
+.further {
+  border-top: 3px double var(--rule);
+  padding-top: 1.2rem;
+  font-size: 0.97rem;
+}
+.further a { color: var(--wine); }
+a { color: var(--wine); text-decoration: none; border-bottom: 1px solid rgba(110, 38, 38, 0.3); }
+a:hover { color: var(--saffron); border-bottom-color: var(--saffron); }
+
+@media (max-width: 640px) {
+  .spine { display: none; }
+  .chapter { padding: 2.4rem 1.3rem 3rem; }
+  .om { display: none; }
+  h1 { font-size: 1.8rem; }
+}
