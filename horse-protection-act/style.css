@@ -1,0 +1,150 @@
+/* The Gait Season — field notes, entry 44 */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #2b2620;
+  --faint: #6f675b;
+  --rule: #cfc6b4;
+  --accent: #7a4b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2.5rem;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.mast-rule {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.9rem;
+}
+
+.mast-sub,
+.mast-by {
+  margin: 0 auto;
+  max-width: 30rem;
+  color: var(--faint);
+}
+
+.mast-sub { font-size: 0.95rem; margin-bottom: 1.6rem; }
+.mast-by {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  border-top: 1px solid var(--rule);
+  display: inline-block;
+  padding-top: 0.6rem;
+}
+
+.entry { margin-bottom: 2.6rem; }
+
+.entry-date {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+strong { font-weight: bold; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+.copied {
+  display: block;
+  margin: 0.9rem 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--accent);
+  background: #efe9dc;
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+.ledger {
+  margin: 3rem 0 2rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.9rem 0;
+}
+
+#ledger-toggle {
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+#ledger-toggle:hover { color: var(--accent); }
+
+.ledger-body {
+  list-style: none;
+  margin: 1rem 0 0.4rem;
+  padding: 0;
+  font-size: 0.95rem;
+}
+.ledger-body li {
+  padding: 0.28rem 0;
+  border-bottom: 1px dotted var(--rule);
+  display: flex;
+  gap: 0.9rem;
+}
+.ledger-body li:last-child { border-bottom: none; }
+.ledger-body li::before {
+  content: "—";
+  color: var(--rule);
+}
+
+.closing-links {
+  font-size: 0.9rem;
+  color: var(--faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.colophon {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+}
+.colophon p {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0;
+}
