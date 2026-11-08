@@ -1,0 +1,260 @@
+/* Two Hemispheres, One Shot — liner notes, COLD-LP-99 */
+
+:root {
+  --ink: #1c1712;
+  --paper: #f2e9d8;
+  --paper-dim: #e7dabf;
+  --gold: #b98a2e;
+  --gold-bright: #d9a93f;
+  --crimson: #7d2a22;
+  --groove: #2a231c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #2c2119 0%, #171210 55%, #0d0a08 100%);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sleeve {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+}
+
+.label-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border: 1px solid rgba(185, 138, 46, 0.5);
+  padding: 0.5rem 0.9rem;
+  margin-bottom: 2.2rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+  color: var(--paper);
+  text-shadow: 0 0 24px rgba(217, 169, 63, 0.25);
+}
+
+.sub {
+  font-style: italic;
+  color: var(--gold-bright);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+/* vinyl disc */
+.vinyl-wrap {
+  margin: 2.5rem auto 1rem;
+  width: min(300px, 60vw);
+  height: min(300px, 60vw);
+}
+
+.vinyl {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      #111 0 2px, #1e1a15 2px 4px, #0c0a08 4px 6px);
+  border: 1px solid #3a3229;
+  box-shadow:
+    0 0 0 6px rgba(0,0,0,0.45),
+    inset 0 0 40px rgba(0,0,0,0.8),
+    0 18px 45px rgba(0,0,0,0.6);
+  position: relative;
+  animation: spin 5s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl.spinning { animation-play-state: running; }
+
+.vinyl-label {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #94372c, #5d1f19 70%);
+  border: 1px solid #3a2c1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  color: var(--paper);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.vinyl-label::after {
+  content: "";
+  position: absolute;
+  width: 9%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #0d0a08;
+  box-shadow: 0 0 0 1px #3a2c1e;
+}
+
+.vinyl-label span {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f0dcae;
+}
+
+.vinyl-label small {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* main notes */
+.notes {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.notes section {
+  margin-bottom: 3rem;
+}
+
+.notes h2 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--gold-bright);
+  border-bottom: 1px solid rgba(185, 138, 46, 0.45);
+  padding-bottom: 0.6rem;
+  margin: 0 0 1.2rem;
+}
+
+.notes h3 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--paper);
+  letter-spacing: 0.06em;
+  margin: 0 0 0.8rem;
+}
+
+.side {
+  background: linear-gradient(180deg, rgba(185,138,46,0.06), rgba(185,138,46,0.02));
+  border: 1px solid rgba(185, 138, 46, 0.25);
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.tracks { list-style: none; margin: 0; padding: 0; }
+
+.tracks li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.45rem 0.3rem;
+  border-bottom: 1px dotted rgba(242, 233, 216, 0.18);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.tracks li:last-child { border-bottom: none; }
+
+.tracks li:hover { background: rgba(217, 169, 63, 0.08); transform: translateX(3px); }
+
+.tracks li.playing {
+  background: rgba(125, 42, 34, 0.25);
+  box-shadow: inset 3px 0 0 var(--gold-bright);
+}
+
+.tracks .no {
+  flex: 0 0 2.2rem;
+  color: var(--gold-bright);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.tracks .len {
+  margin-left: auto;
+  color: rgba(242, 233, 216, 0.55);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.track-note {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: rgba(242, 233, 216, 0.75);
+  margin-top: 1rem;
+}
+
+.credit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.credit-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dotted rgba(242, 233, 216, 0.18);
+  font-size: 0.95rem;
+}
+
+.credit-list strong {
+  color: var(--gold-bright);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.notes a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.notes a:hover { color: #f0d489; }
+
+.pressing-notes p {
+  font-size: 1.02rem;
+}
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 3px double var(--gold);
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(242, 233, 216, 0.7);
+}
+
+.colophon .fine {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(185, 138, 46, 0.7);
+}
+
+@media (max-width: 560px) {
+  .label-line { justify-content: center; text-align: center; }
+  .tracks li { flex-wrap: wrap; }
+  .tracks .len { width: 100%; margin-left: 3.2rem; }
+}
