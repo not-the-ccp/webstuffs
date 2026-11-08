@@ -1,0 +1,313 @@
+/* Safety Data Sheet No. 1995-05-15 — industrial paper look */
+
+:root {
+  --paper: #f3eee1;
+  --paper-deep: #e9e1cc;
+  --ink: #1e1a14;
+  --faded: #6b6350;
+  --hazard: #e8a200;
+  --hazard-dark: #8a5a00;
+  --oxblood: #8a2f21;
+  --slate: #31404a;
+  --rule: #c9bfa3;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(232,162,0,0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(138,47,33,0.08), transparent 55%),
+    #d9d2be;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 980px;
+  margin: 40px auto 64px;
+  background: var(--paper);
+  border: 1px solid #b8ad8e;
+  box-shadow:
+    0 2px 0 var(--paper-deep),
+    0 24px 48px rgba(30,26,20,0.28);
+  position: relative;
+  padding: 0 0 8px;
+}
+
+.sheet::before {
+  /* perforated left margin, like a ledger page */
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 14px;
+  width: 0;
+  border-left: 2px dotted var(--rule);
+  pointer-events: none;
+}
+
+/* ---------- header ---------- */
+
+.hazard-band {
+  height: 14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--hazard) 0 16px,
+    var(--ink) 16px 32px
+  );
+  border-bottom: 2px solid var(--ink);
+}
+
+.head-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 28px;
+  padding: 26px 36px 10px 40px;
+}
+
+.doctype {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0 0 6px;
+}
+.doctype .no { color: var(--oxblood); }
+
+h1 {
+  font-size: 4.4rem;
+  line-height: 1;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  font-variant: small-caps;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 132px;
+  height: 5px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--oxblood) 0 60%, var(--hazard) 60% 100%);
+}
+
+.product {
+  margin: 0 0 16px;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.head-facts {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--rule);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+}
+.head-facts li {
+  display: flex;
+  gap: 12px;
+  padding: 3px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.head-facts span {
+  min-width: 150px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+}
+
+/* hazard diamond */
+
+.head-hazard { text-align: center; padding-top: 6px; }
+
+.diamond {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 14px;
+  background:
+    linear-gradient(135deg, var(--hazard) 0 55%, #f7c14b 55% 100%);
+  transform: rotate(45deg);
+  border: 3px solid var(--ink);
+  box-shadow: 0 10px 22px rgba(30,26,20,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 3.2s ease-in-out infinite;
+  position: relative;
+}
+.diamond span {
+  transform: rotate(-45deg);
+  font-family: "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--ink);
+}
+.diamond em {
+  position: absolute;
+  top: 34%;
+  transform: rotate(-45deg);
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 10px 22px rgba(30,26,20,0.35); }
+  50%      { box-shadow: 0 10px 30px rgba(232,162,0,0.55); }
+}
+
+.signal {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  text-align: left;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 10px 12px;
+  margin: 0 0 18px;
+}
+
+/* ---------- contents ---------- */
+
+.toc {
+  padding: 12px 40px 12px 48px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  background: var(--paper-deep);
+}
+.toc a {
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--slate);
+}
+.toc a:hover { color: var(--oxblood); border-color: var(--oxblood); }
+
+/* ---------- sections ---------- */
+
+main { padding: 8px 36px 8px 48px; }
+
+.sec {
+  padding: 20px 0 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.sec:last-child { border-bottom: none; }
+
+.sec h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex: none;
+}
+.sec:hover .secno { background: var(--oxblood); }
+
+.sec p { margin: 0 0 10px; max-width: 72ch; }
+.sec p:last-child { margin-bottom: 0; }
+
+.sec a {
+  color: var(--slate);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.sec a:hover { color: var(--oxblood); text-decoration-style: solid; }
+
+.props {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  max-width: 640px;
+}
+.props li {
+  display: flex;
+  gap: 14px;
+  padding: 5px 8px;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+.props li:nth-child(odd) { background: rgba(232,162,0,0.06); }
+.props span {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: var(--faded);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 3px;
+  min-width: 64px;
+}
+
+.claim {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  background: var(--ink);
+  color: var(--hazard);
+  padding: 10px 14px;
+  letter-spacing: 0.02em;
+  border-left: 6px solid var(--hazard);
+}
+
+.end {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--faded);
+  margin-top: 18px;
+}
+
+/* ---------- footer ---------- */
+
+.sheet-foot {
+  padding: 16px 40px 8px 48px;
+  border-top: 2px solid var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--faded);
+}
+.sheet-foot p { margin: 8px 0 0; line-height: 1.6; }
+
+.barcode {
+  height: 34px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 2px, transparent 2px 5px,
+    var(--ink) 5px 7px, transparent 7px 10px,
+    var(--ink) 10px 13px, transparent 13px 15px,
+    var(--ink) 15px 16px, transparent 16px 21px
+  );
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  .head-grid { grid-template-columns: 1fr; }
+  .head-hazard { text-align: left; }
+  .diamond { margin: 0 0 6px; width: 120px; height: 120px; }
+  .sheet { margin: 0; border: none; }
+  h1 { font-size: 3rem; }
+}
