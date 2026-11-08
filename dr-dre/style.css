@@ -1,0 +1,145 @@
+/* Gallery 3, The Listening Wing — Placard No. 48 */
+:root {
+  --black: #101012;
+  --case: #17171b;
+  --bronze: #2b2118;
+  --bronze-2: #352a1e;
+  --brass: #c9a35c;
+  --brass-dim: #8f7440;
+  --paper: #efe6d3;
+  --paper-dim: #c9bda2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #232028 0%, transparent 55%),
+    repeating-linear-gradient(115deg, #0c0c0e 0 7px, #101013 7px 14px),
+    var(--black);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.65;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem 5rem;
+}
+
+.case {
+  position: relative;
+  max-width: 44rem;
+  width: 100%;
+  background: linear-gradient(160deg, #1d1d22, var(--case) 60%, #121216);
+  border: 1px solid #2c2c33;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 2.6rem 1.6rem 2.4rem;
+}
+
+.case-rivet {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d9b877, #6f5527 60%, #3a2c14);
+  box-shadow: inset 0 -1px 2px rgba(0,0,0,.7), 0 1px 2px rgba(0,0,0,.8);
+}
+.case-rivet:nth-child(1) { top: 10px; left: 10px; }
+.case-rivet:nth-child(2) { top: 10px; right: 10px; }
+.case-rivet:nth-child(3) { bottom: 10px; left: 10px; }
+.case-rivet:nth-child(4) { bottom: 10px; right: 10px; }
+
+.placard {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,235,190,0.06), transparent 60%),
+    linear-gradient(170deg, var(--bronze-2), var(--bronze));
+  border: 2px solid var(--brass-dim);
+  outline: 1px solid rgba(201, 163, 92, 0.25);
+  outline-offset: 4px;
+  padding: 2.2rem 2.2rem 2rem;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.55);
+}
+
+.placard-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-bottom: 1px solid rgba(201, 163, 92, 0.4);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 0.12em;
+  color: #f2e7cd;
+  font-variant: small-caps;
+  text-shadow: 0 1px 0 rgba(0,0,0,.8), 0 0 22px rgba(201, 163, 92, 0.25);
+}
+
+.ident {
+  margin: 0.6rem 0 1.2rem;
+  font-style: italic;
+  color: var(--paper-dim);
+  font-size: 0.98rem;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.6rem;
+}
+.rule .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--brass-dim), transparent); }
+.rule .diamond { width: 7px; height: 7px; background: var(--brass); transform: rotate(45deg); flex: none; }
+
+main p { margin: 0 0 1.15rem; }
+main strong { color: #e8d9b4; font-variant: small-caps; letter-spacing: 0.06em; }
+main a { color: var(--brass); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+main a:hover { color: #e6c47c; }
+
+.inscription {
+  font-style: italic;
+  color: #e0d2ac;
+}
+
+.line-found {
+  margin: 0.4rem 0 1.15rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid var(--brass);
+  background: rgba(0, 0, 0, 0.28);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: #f2e7cd;
+  letter-spacing: 0.02em;
+}
+
+.related {
+  border-top: 1px dashed rgba(201, 163, 92, 0.4);
+  padding-top: 1.1rem;
+  font-size: 0.95rem;
+}
+
+.care {
+  margin-top: 1.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201, 163, 92, 0.4);
+  font-size: 0.82rem;
+  color: var(--paper-dim);
+}
+.care p { margin: 0.4rem 0; }
+.care-title {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  color: var(--brass);
+  font-size: 0.78rem;
+}
+.signed { font-style: italic; }
