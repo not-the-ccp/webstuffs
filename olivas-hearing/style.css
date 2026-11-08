@@ -1,0 +1,261 @@
+/* In re the Men's 20 km Racewalk Quota — verbatim record folio */
+
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e8dcbd;
+  --ink: #2b2118;
+  --ink-soft: #5a4a38;
+  --red-ink: #8f1d1d;
+  --rule: #b3a184;
+  --seal: #9c2b21;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--parchment-deep); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 252, 240, 0.9) 0%, rgba(255, 252, 240, 0) 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(120, 96, 54, 0.22) 0%, rgba(120, 96, 54, 0) 50%),
+    repeating-linear-gradient(0deg, rgba(120, 96, 54, 0.028) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  min-height: 100vh;
+}
+
+.folio-wrap {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 245, 0.55) 0%, rgba(255, 253, 245, 0) 8%),
+    #f7f0dd;
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 18px 40px rgba(43, 33, 24, 0.22),
+    0 2px 6px rgba(43, 33, 24, 0.14);
+  padding: 3rem 3.2rem 2.2rem 4.6rem;
+}
+
+/* the red ruling in the margin, like a ruled folio */
+.folio-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.1rem;
+  width: 1px;
+  background: rgba(143, 29, 29, 0.4);
+}
+.folio-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(3.1rem + 2px);
+  width: 1px;
+  background: rgba(143, 29, 29, 0.22);
+}
+
+.folio-mark {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  padding: 0.15rem 0.5rem 0.1rem;
+  transform: rotate(2deg);
+  background: rgba(255, 253, 245, 0.6);
+}
+
+/* ---------- docket ---------- */
+
+.docket { text-align: center; }
+
+.court-line {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0 auto 0.6rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  max-width: 34rem;
+}
+
+.case-line {
+  margin: 0 auto 1.1rem;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 36rem;
+}
+
+.rule-double {
+  height: 6px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin: 0 0 1.1rem;
+}
+
+.parties {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1.2rem;
+}
+.parties td {
+  padding: 0.35rem 0.5rem;
+  vertical-align: top;
+  border-bottom: 1px dotted var(--rule);
+}
+.parties td:first-child {
+  width: 7.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-align: right;
+  padding-right: 1rem;
+}
+
+/* ---------- the record ---------- */
+
+.record { padding-top: 0.4rem; }
+
+.line {
+  margin: 0 0 1.15rem;
+  text-indent: 0;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.speaker {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.line.inked {
+  background: linear-gradient(90deg, rgba(143, 29, 29, 0.08), rgba(143, 29, 29, 0.02));
+  box-shadow: inset 3px 0 0 var(--red-ink);
+}
+
+.garbled {
+  font-style: italic;
+  color: var(--red-ink);
+  border-bottom: 1px dotted var(--red-ink);
+  white-space: normal;
+}
+
+.margin-note {
+  margin: 0.2rem 0 1.3rem 1.6rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--red-ink);
+  padding-left: 0.8rem;
+  border-left: 2px solid rgba(143, 29, 29, 0.45);
+  transform: rotate(-0.4deg);
+}
+
+.adjournment {
+  margin: 1.8rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 2px solid var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.09em;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.clerk-line {
+  margin: 1.6rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- the seal ---------- */
+
+.seal {
+  width: 7.2rem;
+  height: 7.2rem;
+  margin: 2.2rem auto 0.4rem;
+  position: relative;
+  animation: settle 0.9s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+@keyframes settle {
+  0%   { opacity: 0; transform: scale(1.5) rotate(-14deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-7deg); }
+}
+
+.seal-ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--seal);
+  border-radius: 50%;
+  opacity: 0.85;
+}
+.seal-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0.35rem;
+  border: 1px dashed var(--seal);
+  border-radius: 50%;
+  animation: slowturn 60s linear infinite;
+}
+@keyframes slowturn { to { transform: rotate(360deg); } }
+
+.seal-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  color: var(--seal);
+  opacity: 0.88;
+}
+.seal-top, .seal-bottom {
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+}
+.seal-mid {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+/* ---------- footer nav ---------- */
+
+.nav-line {
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+.nav-line a { color: var(--red-ink); text-decoration: none; border-bottom: 1px dotted rgba(143, 29, 29, 0.5); }
+.nav-line a:hover { border-bottom-style: solid; }
+
+@media (max-width: 40rem) {
+  .folio-wrap { padding: 2.2rem 1.4rem 1.8rem 2.6rem; }
+  .folio-wrap::before { left: 1.7rem; }
+  .folio-wrap::after { left: calc(1.7rem + 2px); }
+  .parties td:first-child { width: 5.2rem; }
+}
