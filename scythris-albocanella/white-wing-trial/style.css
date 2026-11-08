@@ -1,0 +1,240 @@
+/* Nori v. The Aden Natural History Society — transcript styling */
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9dcc0;
+  --ink: #2b2320;
+  --faded: #6f5f4e;
+  --stamp: #7a2e22;
+  --rule: #b3a084;
+  --seal: #7a2e22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(122, 46, 34, 0.05), transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(107, 87, 61, 0.045) 26px 27px),
+    #cfc0a3;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 780px;
+  margin: 3rem auto 4rem;
+  padding: 2.6rem 3rem 2.2rem;
+  background:
+    linear-gradient(180deg, var(--paper-deep), var(--paper) 90px, var(--paper) 92%, #ecdfc2);
+  border: 1px solid #a58f6d;
+  box-shadow:
+    0 0 0 6px rgba(243, 234, 214, 0.35),
+    0 0 0 7px #a58f6d,
+    0 24px 50px rgba(43, 35, 32, 0.35);
+  position: relative;
+}
+
+/* age the edges */
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 8% 6%, rgba(94, 66, 35, 0.16), transparent 30%),
+    radial-gradient(ellipse at 94% 98%, rgba(94, 66, 35, 0.18), transparent 34%);
+  mix-blend-mode: multiply;
+}
+
+.caption {
+  position: relative;
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+}
+
+.court-line {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0.2rem 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+}
+
+h1 .v {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--stamp);
+  margin: 0 0.4rem;
+}
+
+.case-line {
+  margin: 0 0 0.3rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.bench-line {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+
+.seal {
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 1rem auto 0.4rem;
+  opacity: 0.85;
+  transform: rotate(-8deg);
+  transition: transform 0.5s ease;
+}
+
+.seal.lit {
+  transform: rotate(4deg) scale(1.04);
+  filter: drop-shadow(0 0 8px rgba(214, 158, 66, 0.8));
+}
+
+.stamp {
+  display: inline-block;
+  margin: 0.6rem 0 0.2rem;
+  padding: 0.25rem 0.8rem;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: rotate(-2.5deg);
+  opacity: 0.75;
+}
+
+/* the transcript body */
+.record {
+  padding: 0 0.2rem;
+}
+
+.record .ln {
+  position: relative;
+  margin: 0 0 1.15rem 2.4rem;
+  counter-increment: line;
+}
+
+.record .ln::before {
+  counter-increment: none;
+  content: counter(line, decimal-leading-zero);
+  position: absolute;
+  left: -2.4rem;
+  top: 0.15em;
+  width: 1.9rem;
+  text-align: right;
+  font-size: 0.68rem;
+  color: var(--faded);
+  font-variant-numeric: tabular-nums;
+}
+
+.record { counter-reset: line; }
+
+.exhibit {
+  margin: 2.2rem 0 1rem 2.4rem;
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.55rem;
+}
+
+em { font-style: italic; }
+
+/* ruling block */
+.ruling {
+  margin: 2.6rem 0 0 2.4rem;
+  padding: 1.1rem 1.4rem 1.2rem;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--stamp);
+  box-shadow: inset 0 0 0 1px rgba(179, 160, 132, 0.6);
+}
+
+.ruling h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+
+.ruling p { margin: 0; }
+
+/* clerk's note & nav */
+.clerk-note {
+  margin-top: 2.4rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #4d4136;
+}
+
+.clerk-note p { margin: 0 0 0.8rem; }
+
+.record-nav p {
+  margin: 0 0 0.35rem;
+  font-size: 0.84rem;
+}
+
+.record-nav a,
+.clerk-note a {
+  color: var(--stamp);
+  text-decoration: underline;
+  text-decoration-color: rgba(122, 46, 34, 0.4);
+  text-underline-offset: 3px;
+}
+
+.record-nav a:hover {
+  background: rgba(122, 46, 34, 0.08);
+}
+
+/* gentle reveal for exhibits */
+.record .ln,
+.record .exhibit,
+.ruling {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .record .ln,
+  .js .record .exhibit {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .js .record .ln.in,
+  .js .record .exhibit.in {
+    opacity: 1;
+    transform: none;
+  }
+  .seal { animation: sealsettle 1.2s ease-out both; }
+  @keyframes sealsettle {
+    from { opacity: 0; transform: rotate(-20deg) scale(1.15); }
+    to   { opacity: 0.85; transform: rotate(-8deg) scale(1); }
+  }
+}
+
+@media (max-width: 640px) {
+  .paper { margin: 0; padding: 1.6rem 1.2rem; border-left: none; border-right: none; }
+  .record .ln { margin-left: 2rem; }
+  .record .ln::before { left: -2rem; width: 1.6rem; }
+  .exhibit, .ruling, .record-nav, .clerk-note { margin-left: 0; padding-left: 0; }
+}
