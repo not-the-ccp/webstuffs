@@ -1,0 +1,217 @@
+/* Field Notes, Notebook No. 13 — 2005–06 UCLA Bruins */
+
+:root {
+  --cardinal: #782420;
+  --cardinal-deep: #571713;
+  --ucla-blue: #292964;
+  --ink: #2b2320;
+  --pencil: #6f655c;
+  --paper: #f6efdd;
+  --paper-2: #efe4c9;
+  --rule: #cdbfa3;
+  --gilt: #b98a2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, #fdf8ea 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(120, 36, 32, 0.06) 31px 32px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+.folio {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ---- masthead ---- */
+
+.masthead {
+  position: relative;
+  border: 2px solid var(--cardinal);
+  outline: 1px solid var(--cardinal);
+  outline-offset: 4px;
+  padding: 2rem 1.75rem 1.5rem;
+  background: linear-gradient(180deg, var(--paper-2), var(--paper));
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ucla-blue);
+  margin: 0 0 1rem;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  line-height: 1.02;
+  color: var(--cardinal-deep);
+  letter-spacing: -0.01em;
+}
+
+.latin {
+  font-style: italic;
+  color: var(--pencil);
+  margin: 0.75rem 0 0;
+}
+
+.tagline {
+  margin: 1rem 0 0;
+  font-size: 1.02rem;
+}
+
+.plate {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  color: var(--pencil);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.7rem;
+}
+
+.stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 5.2rem;
+  height: 5.2rem;
+  border: 3px double var(--ucla-blue);
+  border-radius: 50%;
+  color: var(--ucla-blue);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  transform: rotate(8deg);
+  opacity: 0.8;
+  transition: transform 0.4s ease;
+}
+
+.stamp:hover { transform: rotate(0deg) scale(1.04); }
+
+/* ---- notes ---- */
+
+.note {
+  margin: 2.25rem 0;
+  padding: 1.25rem 1.5rem 1.4rem;
+  background: rgba(255, 252, 244, 0.7);
+  border-left: 4px solid var(--cardinal);
+  box-shadow: 0 1px 0 var(--rule), 0 6px 18px -14px rgba(87, 23, 19, 0.5);
+}
+
+.note h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  color: var(--ucla-blue);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.obsno {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cardinal);
+  white-space: nowrap;
+}
+
+.note-meta {
+  font-size: 0.82rem;
+  color: var(--pencil);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.note-meta .label {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--cardinal-deep);
+}
+
+.note p { margin: 0 0 0.9rem; }
+.note p:last-child { margin-bottom: 0; }
+
+.note strong { color: var(--cardinal-deep); }
+
+a {
+  color: var(--ucla-blue);
+  text-decoration-color: var(--gilt);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--cardinal); }
+
+/* ---- found note ---- */
+
+.found-note {
+  margin: 1rem 0 0.4rem;
+  padding: 0.9rem 1.1rem 0.9rem 1.4rem;
+  border-left: 3px solid var(--gilt);
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(185, 138, 46, 0.07) 0 10px,
+    transparent 10px 20px
+  );
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--cardinal-deep);
+}
+
+.found-source {
+  font-size: 0.85rem;
+  color: var(--pencil);
+}
+
+.colophon-line {
+  font-size: 0.85rem;
+  color: var(--pencil);
+  font-style: italic;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.7rem;
+}
+
+/* ---- shelf footer ---- */
+
+.shelf {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--cardinal);
+  font-size: 0.9rem;
+}
+
+.shelf-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ucla-blue);
+}
+
+.shelf p { margin: 0; }
+
+/* ---- the winning counter (progressive enhancement) ---- */
+
+.tally {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--cardinal-deep);
+  border-bottom: 2px solid var(--gilt);
+}
+
+@media (max-width: 40rem) {
+  .masthead { padding: 1.5rem 1.25rem 1.25rem; }
+  .stamp { position: static; margin: 0 0 1rem; }
+}
