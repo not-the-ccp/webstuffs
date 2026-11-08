@@ -1,0 +1,155 @@
+/* Minutes of a meeting — borough committee, 21st Street–Queensbridge */
+:root {
+  --paper: #f4efe2;
+  --ink: #2b2620;
+  --rule: #8a7c63;
+  --accent: #6e2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8d0bd;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 2.75rem 3rem 3rem;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(120, 100, 60, 0.10), transparent 40%),
+    radial-gradient(ellipse at 88% 96%, rgba(90, 70, 40, 0.12), transparent 38%),
+    var(--paper);
+  box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 14px 40px rgba(0,0,0,.28);
+  border: 1px solid #b9ac8e;
+  position: relative;
+}
+
+/* letterhead */
+.letterhead { text-align: center; }
+.org {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5d5344;
+}
+h1 {
+  font-size: 1.55rem;
+  line-height: 1.35;
+  margin: 0.7rem 0 0.9rem;
+  font-weight: 700;
+}
+.meta-grid {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.55rem 0;
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+}
+.meta-grid p { margin: 0.2rem 0; }
+.lbl {
+  display: inline-block;
+  min-width: 4.2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+.stamp-line {
+  margin: 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #5d5344;
+}
+
+.rule-double {
+  border: 0;
+  border-top: 3px double var(--rule);
+  margin: 1.4rem 0;
+}
+
+/* sections */
+section h2 {
+  font-size: 1.02rem;
+  font-variant: small-caps;
+  letter-spacing: 0.09em;
+  margin: 1.4rem 0 0.5rem;
+}
+section p { margin: 0 0 0.8rem; }
+a { color: var(--accent); }
+
+/* attendance table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  margin: 0.4rem 0 0.8rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.32rem 0.55rem;
+  border-bottom: 1px solid #c9bda0;
+}
+thead th {
+  border-bottom: 2px solid var(--rule);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+td:nth-child(4) { text-align: center; font-variant: small-caps; }
+
+/* the rider of 1904 */
+blockquote.rider {
+  margin: 1rem 1.5rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  font-size: 1.02rem;
+  background: rgba(110, 47, 34, 0.05);
+}
+
+/* certification */
+.certification { text-align: center; position: relative; }
+.cert { font-style: italic; font-size: 0.88rem; }
+.signs {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2.2rem 1.5rem 1rem;
+}
+.sign { flex: 1; text-align: center; }
+.sig { display: block; font-family: "Snell Roundhand", "Brush Script MT", cursive; font-size: 1.5rem; }
+.sig-rule { display: block; border-bottom: 1px solid var(--ink); margin: 0.1rem auto 0.3rem; width: 90%; }
+.sig-cap { font-size: 0.75rem; font-variant: small-caps; letter-spacing: 0.08em; }
+
+.stamp {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 3.4rem;
+  width: 7.2rem;
+  height: 7.2rem;
+  border: 3px double var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  transform: rotate(-11deg);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+@media (max-width: 40rem) {
+  .paper { margin: 0; padding: 1.5rem 1.1rem 2rem; border: 0; }
+  .stamp { position: static; margin: 1.5rem auto 0; transform: rotate(-6deg); }
+}
