@@ -1,0 +1,218 @@
+/* Field Manual FM-9/54 — Chapter 9. Government-print look: cream paper,
+   olive field-ink, wove-blue accents, stamped margins. */
+
+:root {
+  --paper: #efe8d4;
+  --paper-deep: #e6ddc2;
+  --ink: #2b2a20;
+  --field: #4c5537;      /* olive field-ink */
+  --wove: #31456e;       /* blue wove paper */
+  --stamp: #8d3227;      /* canteen red */
+  --rule: #b8ad8d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(76, 85, 55, 0.035) 3px 4px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.manual {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 2.2rem 2.4rem 3rem;
+  background:
+    linear-gradient(180deg, rgba(76, 85, 55, 0.06), transparent 14rem),
+    var(--paper-deep);
+  border-left: 10px solid var(--field);
+  border-right: 10px solid var(--field);
+  box-shadow: 0 0 0 1px var(--rule), 0 24px 60px rgba(43, 42, 32, 0.25);
+  position: relative;
+}
+
+.manual::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--wove) 0 28px, var(--stamp) 28px 40px);
+}
+
+/* Stamp */
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.2rem;
+  transform: rotate(7deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  padding: 0.4rem 0.7rem;
+  opacity: 0;
+  animation: stamp-in 0.5s ease-out 0.4s forwards;
+}
+@keyframes stamp-in {
+  0% { opacity: 0; transform: rotate(7deg) scale(1.8); }
+  70% { opacity: 0.9; transform: rotate(7deg) scale(0.94); }
+  100% { opacity: 0.85; transform: rotate(7deg) scale(1); }
+}
+
+.cover {
+  text-align: center;
+  border-bottom: 3px double var(--field);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+.issue {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--field);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2rem, 5.4vw, 3.1rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.3rem;
+  color: var(--field);
+}
+.sub {
+  font-style: italic;
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--wove);
+}
+.chapterline {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  margin: 0.9rem 0 0.4rem;
+  color: var(--stamp);
+}
+.issued { font-size: 0.86rem; margin: 0.4rem 0 0; }
+
+.sec {
+  margin: 0 0 1.9rem;
+  padding-left: 1.1rem;
+  border-left: 3px solid transparent;
+}
+.sec h2 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--field);
+  margin: 0 0 0.55rem;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.3rem;
+}
+.note {
+  font-size: 0.9rem;
+  background: rgba(49, 69, 110, 0.07);
+  border-left: 3px solid var(--wove);
+  padding: 0.55rem 0.8rem;
+}
+.note::before {
+  content: "9.1-N ";
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: var(--wove);
+}
+
+a { color: var(--wove); }
+a:hover { color: var(--stamp); }
+
+/* Oval figure */
+.oval { margin: 1.1rem 0 0.4rem; }
+.oval svg { width: 100%; height: auto; display: block; }
+.oval-line { fill: none; stroke: var(--field); stroke-width: 2.5; }
+.oval-faint { stroke: var(--field); stroke-width: 1; stroke-opacity: 0.45; }
+.oval-ruck { fill: none; stroke: var(--wove); stroke-width: 1.5; }
+.posts line { stroke: var(--ink); stroke-width: 1.8; }
+.svg-label {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  fill: var(--field);
+}
+figcaption {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--field);
+  margin-top: 0.4rem;
+}
+
+/* Score table */
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0;
+  font-size: 0.92rem;
+}
+.score-table th {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  background: var(--field);
+  color: var(--paper);
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+}
+.score-table td {
+  border-bottom: 1px dashed var(--rule);
+  padding: 0.4rem 0.6rem;
+}
+.score-table .num { font-family: "Courier New", monospace; font-weight: bold; }
+td.six { color: var(--stamp); font-weight: bold; font-family: "Courier New", monospace; }
+td.one { color: var(--wove); font-weight: bold; font-family: "Courier New", monospace; }
+
+/* Ground clock */
+.clock-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border: 1px solid var(--field);
+  background: rgba(76, 85, 55, 0.08);
+  padding: 0.4rem 0.8rem;
+  margin-top: 0.9rem;
+}
+.clock-label {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--field);
+}
+.clock {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--stamp);
+  min-width: 7.5ch;
+  text-align: right;
+}
+
+.filed-with { font-size: 0.9rem; }
+
+.colophon {
+  border-top: 3px double var(--field);
+  margin-top: 2.2rem;
+  padding-top: 0.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--field);
+}
