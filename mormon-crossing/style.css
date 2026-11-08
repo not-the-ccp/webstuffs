@@ -1,0 +1,165 @@
+/* The Crossing — bench file 112, shelf mark Lot 47.5 */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ebe3d0;
+  --ink: #3a2c14;
+  --ink-soft: #5c4a2e;
+  --stamp: #8a2f22;
+  --lake: #5b7f99;
+  --brass: #c9a227;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 3rem;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px #d8cdb4, 0 14px 40px rgba(58, 44, 20, 0.18);
+}
+
+.masthead { text-align: center; margin-bottom: 2rem; }
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  transform: rotate(-1.5deg);
+}
+
+.masthead h1 {
+  font-size: 2.6rem;
+  margin: 1rem 0 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.dek {
+  margin: 0.2rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.masthead-rule {
+  width: 42%;
+  margin: 1.1rem auto;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 4px;
+}
+
+.coords {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.entry {
+  margin: 2rem 0;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--brass);
+}
+
+.entry-meta {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 0.4rem;
+}
+
+.entry h2 {
+  font-size: 1.35rem;
+  margin: 0 0 0.7rem;
+}
+
+.entry p { margin: 0 0 0.9rem; }
+
+.entry a { color: var(--stamp); }
+
+/* the bench strip */
+
+.strip {
+  margin: 1.4rem 0 1.8rem;
+  padding: 1rem 0.6rem 0.8rem;
+  background: var(--paper-deep);
+  border: 1px solid #cbbf9f;
+}
+
+.strip-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+  text-align: center;
+}
+
+#strip-svg { width: 100%; height: auto; display: block; }
+
+#strip-svg .stop { cursor: pointer; }
+#strip-svg .stop text {
+  font-family: Georgia, serif;
+  font-size: 10px;
+  fill: var(--ink);
+}
+#strip-svg .stop .yr { font-size: 8.5px; fill: var(--ink-soft); font-style: italic; }
+#strip-svg .stop:hover circle { fill: var(--brass); }
+
+#wagon { transition: transform 0.6s ease-in-out; }
+
+.strip-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  min-height: 3em;
+  margin: 0.6rem 0 0.5rem;
+}
+
+.strip-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+button {
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+}
+button:hover { background: var(--stamp); }
+
+.strip-hint { font-size: 0.78rem; color: var(--ink-soft); font-style: italic; }
+
+.entry-final { border-left-color: var(--stamp); }
+
+.colophon {
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.colophon .nav a { color: var(--stamp); }
