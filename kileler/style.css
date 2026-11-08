@@ -1,0 +1,170 @@
+/* Chapter XXIV — Of the Village Kileler · A Book of Etiquette */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #eadfc3;
+  --ink: #2a2118;
+  --ink-soft: #57493a;
+  --honey: #c98a2d;
+  --honey-deep: #a3541e;
+  --olive: #5c5a2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    radial-gradient(ellipse at 20% 0%, #efe3c4 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 100%, #e4d5b0 0%, transparent 50%),
+    #e9dcba;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.chapter {
+  max-width: 44rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(var(--paper) 0%, var(--paper) 46%, var(--paper-deep) 100%);
+  border: 3px double var(--ink);
+  outline: 1px solid var(--honey-deep);
+  outline-offset: 6px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 18px 40px -18px rgba(42, 33, 24, 0.55);
+  position: relative;
+  padding: 3rem 3rem 2rem;
+}
+
+/* Greek-meander band, drawn in honey and ink */
+.meander {
+  height: 14px;
+  margin: 1.4rem 0;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--honey-deep) 0 10px,
+      transparent 10px 14px,
+      var(--honey) 14px 24px,
+      transparent 24px 28px);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  animation: combdrift 40s linear infinite;
+}
+@keyframes combdrift {
+  from { background-position-x: 0; }
+  to   { background-position-x: 280px; }
+}
+
+.plate { text-align: center; }
+.bookline {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+.chapter-no {
+  font-size: 1rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--honey-deep);
+  margin: 0;
+}
+h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: normal;
+  margin: 0.35rem 0 0.2rem;
+  letter-spacing: 0.02em;
+}
+.sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.4rem 0 0;
+}
+
+.text p { margin: 1.1rem 0; }
+.dropcap::first-letter {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.85;
+  padding: 0.08rem 0.5rem 0 0;
+  color: var(--honey-deep);
+  font-family: "Iowan Old Style", Georgia, serif;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--olive);
+  margin: 2.2rem 0 0.4rem;
+}
+h2::before, h2::after {
+  content: " \2726 ";
+  color: var(--honey);
+  font-style: normal;
+}
+
+a { color: var(--honey-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+.table-wrap { margin: 2rem 0 1rem; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding-bottom: 0.4rem;
+}
+th {
+  text-align: left;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  background: var(--olive);
+  color: var(--paper);
+  padding: 0.35rem 0.6rem;
+}
+td { padding: 0.45rem 0.6rem; border-bottom: 1px dotted var(--honey-deep); }
+tr:nth-child(even) td { background: rgba(201, 138, 45, 0.08); }
+
+.fineprint { font-size: 0.92rem; color: var(--ink-soft); font-style: italic; }
+
+.colophon {
+  margin-top: 2.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.plate-mark {
+  font-size: 1.6rem;
+  letter-spacing: 0.6em;
+  color: var(--honey);
+  margin: 0 0 0.4rem;
+}
+
+/* the club's bee */
+.bee {
+  position: fixed;
+  top: 12%;
+  left: -50px;
+  z-index: 5;
+  opacity: 0.9;
+  filter: drop-shadow(0 3px 4px rgba(42, 33, 24, 0.35));
+}
+
+@media (max-width: 640px) {
+  .chapter { padding: 2rem 1.2rem 1.5rem; }
+  .bee { display: none; }
+}
