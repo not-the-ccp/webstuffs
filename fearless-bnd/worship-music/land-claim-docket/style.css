@@ -1,0 +1,265 @@
+/* The Boathouse Lot — certified transcript excerpt */
+:root {
+  --parchment: #f1e7d0;
+  --parchment-deep: #e6d8ba;
+  --ink: #26201a;
+  --ink-soft: #4d4235;
+  --seal-red: #8c1f1f;
+  --bronze: #7a5c2e;
+  --river: #33505c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #191411; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 5rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #2e2620 0%, #191411 60%),
+    #191411;
+}
+
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: 46rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(0,0,0,0) 8%),
+    repeating-linear-gradient(0deg, rgba(122,92,46,0.035) 0 2px, rgba(0,0,0,0) 2px 4px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  border: 1px solid #b9a67c;
+  box-shadow:
+    0 0 0 6px rgba(0,0,0,0.25),
+    0 25px 60px rgba(0,0,0,0.6);
+  padding: 3.25rem 3rem 2.75rem;
+}
+
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  height: 5px;
+  border-top: 1px solid var(--bronze);
+  border-bottom: 1px solid var(--bronze);
+  opacity: 0.7;
+}
+.sheet::before { top: 0.85rem; }
+.sheet::after  { bottom: 0.85rem; }
+
+/* EXCERPT stamp */
+.stamp {
+  position: absolute;
+  top: 2.4rem;
+  right: 1.8rem;
+  padding: 0.35em 0.9em;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+  color: var(--seal-red);
+  border: 3px double var(--seal-red);
+  transform: rotate(8deg) scale(0);
+  opacity: 0.88;
+  animation: stamp-in 0.5s cubic-bezier(0.2, 2.2, 0.4, 1) 0.7s forwards;
+}
+@keyframes stamp-in {
+  0%   { transform: rotate(8deg) scale(2.4); opacity: 0; }
+  70%  { transform: rotate(8deg) scale(0.94); opacity: 0.95; }
+  100% { transform: rotate(8deg) scale(1); opacity: 0.88; }
+}
+
+/* Court header */
+.court-head { text-align: center; }
+.court-line {
+  margin: 0;
+  font-size: 1.02rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.court-division { letter-spacing: 0.32em; font-weight: 400; font-style: italic; }
+.head-rule {
+  height: 6px;
+  margin: 0.8rem auto;
+  max-width: 30rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+.matter {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0.4rem 0 0.2rem;
+}
+.case-no {
+  margin: 0.1rem 0 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.caption {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.caption td { vertical-align: top; padding: 0 0.5rem; }
+.caption .party { width: 44%; }
+.caption .vs { text-align: center; font-style: italic; }
+.caption .name { font-weight: 700; }
+.caption .role { display: block; font-style: italic; margin-top: 0.25rem; color: var(--ink-soft); }
+.caption-sub {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0.6rem 0 0;
+}
+
+.excerpt-note {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--bronze);
+  border-bottom: 1px solid var(--bronze);
+  padding: 0.6rem 0.2rem;
+  margin: 1.4rem 0 1.6rem;
+}
+
+/* Transcript */
+.transcript p {
+  font-size: 1rem;
+  line-height: 1.72;
+  margin: 0 0 1.05rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.speaker {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.transcript p .speaker:not(:only-child)::after { content: "\2002"; }
+.speaker::first-letter { text-transform: uppercase; }
+
+#transcript p.lined { position: relative; padding-left: 2.4rem; }
+#transcript p.lined .lineno {
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--bronze);
+  letter-spacing: 0.05em;
+}
+
+.excerpt-end {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Certification + seal */
+.certify {
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--bronze);
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+.seal {
+  flex: 0 0 auto;
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 50%;
+  border: 2px solid var(--river);
+  position: relative;
+  display: grid;
+  place-items: center;
+  transform: rotate(-7deg);
+  color: var(--river);
+  opacity: 0.85;
+  animation: seal-turn 1.2s ease-out 1.1s backwards;
+}
+@keyframes seal-turn {
+  from { transform: rotate(-70deg) scale(0.4); opacity: 0; }
+  to   { transform: rotate(-7deg) scale(1); opacity: 0.85; }
+}
+.seal-ring {
+  position: absolute;
+  inset: 0.32rem;
+  border: 1px solid var(--river);
+  border-radius: 50%;
+}
+.seal-text {
+  font-size: 0.44rem;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.14em;
+}
+.certify-line {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.certify-line.small { font-style: italic; color: var(--ink-soft); }
+
+/* Keepers' note */
+.keepers-note {
+  margin-top: 2rem;
+  padding: 1.2rem 1.4rem 1.3rem;
+  background: rgba(51, 80, 92, 0.07);
+  border: 1px solid rgba(51, 80, 92, 0.35);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.keepers-note h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--river);
+}
+.keepers-note p { margin: 0 0 0.8rem; text-align: left; }
+.keepers-note p:last-child { margin-bottom: 0; }
+.keepers-note a {
+  color: var(--river);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.keepers-note a:hover { color: var(--seal-red); }
+
+button.linenos {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: var(--river);
+  border: 1px solid #22343c;
+  padding: 0.5em 0.9em;
+  cursor: pointer;
+}
+button.linenos:hover { background: #3e6270; }
+
+@media (max-width: 620px) {
+  .sheet { padding: 2.5rem 1.4rem 2rem; }
+  .certify { flex-direction: column; }
+  .caption td { padding: 0 0.3rem; font-size: 0.88rem; }
+  .transcript p { text-align: left; }
+}
