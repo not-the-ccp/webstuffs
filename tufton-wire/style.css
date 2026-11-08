@@ -1,0 +1,426 @@
+/* The Tufton Wire — Thread No. 312
+   Vestry parchment, chapel bell, twelve-egg sponge of a layout.
+   Maximalist on purpose: lace, wax seals, stitched post-cards. */
+
+:root {
+  --ink: #2b2118;
+  --ink-soft: #4c3d2e;
+  --parchment: #f3e7cf;
+  --parchment-deep: #e9d7b4;
+  --candle: #f9f1dc;
+  --plum: #4b1f2e;
+  --plum-deep: #351421;
+  --brass: #9a7430;
+  --brass-bright: #c9a253;
+  --rain: #5a6f7d;
+  --seal-red: #7d2a26;
+  --stitch: rgba(75, 31, 46, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Spectral", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.075rem;
+  line-height: 1.72;
+  background:
+    radial-gradient(1100px 500px at 50% -80px, rgba(201, 162, 83, 0.28), transparent 70%),
+    radial-gradient(900px 900px at 108% 108%, rgba(90, 111, 125, 0.18), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(75, 31, 46, 0.028) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(90deg, rgba(75, 31, 46, 0.02) 0 3px, transparent 3px 9px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 55%, #e2cda6 100%);
+  background-color: var(--parchment);
+  min-height: 100vh;
+}
+
+/* drifting candlelight veil over everything, very faint */
+.veil {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  background:
+    radial-gradient(600px 420px at 18% 30%, rgba(255, 240, 200, 0.16), transparent 70%),
+    radial-gradient(700px 500px at 82% 70%, rgba(255, 226, 170, 0.10), transparent 70%);
+  animation: flicker 9s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  0%   { opacity: 0.55; }
+  38%  { opacity: 0.9; }
+  57%  { opacity: 0.62; }
+  100% { opacity: 0.85; }
+}
+
+/* lace hems, top and bottom of the whole page */
+.lace {
+  position: fixed;
+  left: 0; right: 0;
+  height: 26px;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 13px 13px, var(--plum) 0 4px, transparent 4.5px) 0 0 / 26px 26px,
+    repeating-linear-gradient(90deg, var(--plum) 0 2px, transparent 2px 13px);
+  opacity: 0.75;
+  filter: drop-shadow(0 2px 3px rgba(53, 20, 33, 0.25));
+}
+.lace--top { top: 0; }
+.lace--bottom { bottom: 0; transform: scaleY(-1); }
+
+/* ---------- header ---------- */
+
+.board-head {
+  position: relative;
+  z-index: 2;
+  max-width: 56rem;
+  margin: 3rem auto 0;
+  padding: 0.5rem 1.5rem 0;
+  text-align: center;
+}
+
+.head-ornament {
+  width: min(400px, 80%);
+  height: auto;
+  color: var(--brass);
+  margin: 1.2rem auto 0.4rem;
+  display: block;
+}
+
+.office {
+  font-family: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: var(--plum);
+  margin: 0 0 0.3rem;
+}
+.office span {
+  display: block;
+  text-transform: none;
+  letter-spacing: 0.03em;
+  font-family: "Spectral", Georgia, serif;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.no {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.4rem 0 0.2rem;
+}
+.no .status {
+  font-style: normal;
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.18em;
+  color: var(--seal-red);
+  border: 1.5px solid var(--seal-red);
+  border-radius: 3px;
+  padding: 0 0.45em;
+  transform: rotate(-1.2deg);
+  display: inline-block;
+  box-shadow: 2px 2px 0 rgba(125, 42, 38, 0.18);
+}
+
+h1 {
+  font-family: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.12;
+  color: var(--plum-deep);
+  margin: 0.5rem 0 0.3rem;
+  text-shadow: 1px 1px 0 rgba(255, 248, 226, 0.7);
+}
+
+.object-line {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.2rem 0 0.9rem;
+}
+
+.clock {
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.16em;
+  font-size: 1.02rem;
+  color: var(--brass);
+  min-height: 1.6em;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.bell-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.3rem 0 0.6rem;
+  color: var(--brass);
+}
+.bell { width: 46px; height: 50px; transform-origin: 30px 10px; }
+.bell-row--foot .bell { width: 34px; height: 38px; }
+.bell--striking { animation: strike 1.15s ease-in-out; }
+@keyframes strike {
+  0%   { transform: rotate(0deg); }
+  18%  { transform: rotate(9deg); }
+  38%  { transform: rotate(-8deg); }
+  58%  { transform: rotate(5deg); }
+  78%  { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+.bell-count {
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.2em;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.rule { border: 0; }
+.rule--double {
+  height: 6px;
+  margin: 0.9rem auto 0;
+  max-width: 22rem;
+  background:
+    linear-gradient(var(--brass), var(--brass)) 0 0 / 100% 1.5px no-repeat,
+    linear-gradient(var(--brass), var(--brass)) 0 100% / 100% 1.5px no-repeat;
+}
+
+/* ---------- the thread ---------- */
+
+.thread {
+  position: relative;
+  z-index: 2;
+  max-width: 56rem;
+  margin: 2.2rem auto 3rem;
+  padding: 0 1.2rem;
+  display: grid;
+  gap: 2.1rem;
+}
+
+/* the tacking line down the middle-left, like a notice pinned to the wall */
+.thread::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0.45rem;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, var(--stitch) 0 8px, transparent 8px 16px);
+}
+
+.post {
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 250, 235, 0.9), rgba(249, 241, 220, 0.65) 60%, rgba(240, 226, 195, 0.5)),
+    var(--candle);
+  border: 1.5px solid rgba(75, 31, 46, 0.4);
+  border-radius: 6px;
+  padding: 1.7rem 2rem 1.5rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    6px 8px 0 -3px rgba(75, 31, 46, 0.10),
+    10px 14px 30px rgba(53, 20, 33, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.post:hover {
+  transform: translateY(-3px) rotate(-0.25deg);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    7px 10px 0 -3px rgba(75, 31, 46, 0.12),
+    14px 20px 38px rgba(53, 20, 33, 0.24);
+}
+/* stitched inner border */
+.post::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1.5px dashed var(--stitch);
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+/* the tack pin at top-centre */
+.post::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, #e8c07a, var(--brass) 55%, #6f511f 100%);
+  box-shadow: 0 2px 4px rgba(30, 15, 8, 0.45);
+  z-index: 1;
+}
+
+.post--done { border-color: var(--brass-bright); }
+.post--done::before {
+  background: radial-gradient(circle at 34% 30%, #f0d9a8, #c9a253 55%, #8a6524 100%);
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(75, 31, 46, 0.25);
+}
+
+.seal {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--candle);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 0 2px rgba(249, 241, 220, 0.35), inset 0 -6px 10px rgba(0, 0, 0, 0.25), 2px 3px 6px rgba(53, 20, 33, 0.35);
+  transform: rotate(-4deg);
+}
+.seal--a { background: radial-gradient(circle at 32% 28%, #a2453f, var(--seal-red) 60%, #4d1512); }
+.seal--b { background: radial-gradient(circle at 32% 28%, #5d7a8a, var(--rain) 60%, #33454f); }
+.seal--c { background: radial-gradient(circle at 32% 28%, #b28c46, var(--brass) 60%, #6a4d1d); }
+.seal--d { background: radial-gradient(circle at 32% 28%, #7c5a86, #57405f 60%, #33233a); }
+.seal--e { background: radial-gradient(circle at 32% 28%, #6d7a4a, #4c5a33 60%, #2e381d); }
+
+.who { display: flex; flex-direction: column; min-width: 0; }
+.name {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 1.22rem;
+  color: var(--plum-deep);
+  line-height: 1.2;
+}
+.rank {
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.when {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.no-post {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--brass);
+  border: 1px solid rgba(154, 116, 48, 0.55);
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+}
+
+.post-body p { margin: 0 0 1rem; }
+.post-body p:last-child { margin-bottom: 0; }
+.post-body p:first-of-type::first-letter {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--plum);
+}
+.post-body strong { color: var(--plum-deep); }
+.post-body a {
+  color: var(--plum);
+  text-decoration: none;
+  border-bottom: 1.5px dotted var(--brass-bright);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.post-body a:hover {
+  background: rgba(201, 162, 83, 0.25);
+  color: var(--plum-deep);
+}
+
+/* the garbled 1915 line, framed like a pinned clipping */
+.garble {
+  margin: 1.2rem auto;
+  max-width: 38rem;
+  padding: 1.1rem 1.4rem 0.9rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(75, 31, 46, 0.05) 0 1px, transparent 1px 26px),
+    #fdf7e7;
+  border: 1px solid var(--brass);
+  outline: 5px solid rgba(154, 116, 48, 0.14);
+  transform: rotate(-0.6deg);
+  box-shadow: 4px 5px 14px rgba(53, 20, 33, 0.2);
+  position: relative;
+}
+.garble::before {
+  content: "✂";
+  position: absolute;
+  top: -0.75rem;
+  left: 1.4rem;
+  font-size: 1.1rem;
+  color: var(--brass);
+  transform: rotate(-90deg);
+}
+.garble p {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.9;
+  color: var(--plum-deep);
+  margin: 0 0 0.5rem;
+}
+.garble footer {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---------- footer ---------- */
+
+.board-foot {
+  position: relative;
+  z-index: 2;
+  max-width: 56rem;
+  margin: 0 auto 4rem;
+  padding: 1.6rem 1.2rem 0;
+  text-align: center;
+}
+.board-foot .rule--double { margin-bottom: 1.4rem; }
+
+.related h2 {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin: 0 0 0.8rem;
+}
+.related p { margin: 0.45rem 0; font-size: 0.98rem; }
+.related a {
+  color: var(--plum);
+  text-decoration: none;
+  border-bottom: 1.5px dotted var(--brass-bright);
+  transition: background 0.25s ease;
+}
+.related a:hover { background: rgba(201, 162, 83, 0.25); }
+
+.sign-off {
+  margin-top: 1.4rem;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .when { margin-left: 0; }
+  .post { padding: 1.4rem 1.15rem 1.2rem; }
+  .thread::before { display: none; }
+}
