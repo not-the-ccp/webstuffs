@@ -1,0 +1,182 @@
+/* Marcus Morton — A Day in the Life of a Governor · Brochure No. 42 */
+
+body {
+  background-color: #000080;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.5px),
+    radial-gradient(#ffffcc 1px, transparent 1.5px),
+    radial-gradient(#99ccff 1px, transparent 1.5px);
+  background-size: 90px 90px, 60px 60px, 120px 120px;
+  background-position: 0 0, 30px 45px, 60px 15px;
+  font-family: "Times New Roman", Georgia, serif;
+  color: #000000;
+  margin: 0;
+  padding: 18px 8px 40px;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #ffffcc;
+  border: 6px double #800080;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 0 0 10px;
+}
+
+.topbar {
+  background-color: #000080;
+  color: #ffcc00;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-bottom: 3px ridge #c0c0c0;
+}
+
+.masthead {
+  text-align: center;
+  background-color: #cc0000;
+  color: #ffffff;
+  padding: 14px 12px 12px;
+  border-bottom: 6px ridge #ffcc00;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0 #000080;
+}
+
+.masthead .sub {
+  margin: 6px 0 10px;
+  font-size: 15px;
+  color: #ffffcc;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #000000;
+  border: 3px inset #c0c0c0;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 3px 0;
+}
+
+.marquee-inner {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 28s linear infinite;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.blink {
+  color: #00ff00;
+  animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.panel {
+  border: 4px outset #c0c0c0;
+  background-color: #fffff0;
+  margin: 16px 14px;
+  padding: 12px 16px 14px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #800000;
+  border-bottom: 2px solid #ffcc00;
+}
+
+.stop {
+  margin-bottom: 4px;
+  color: #000080;
+  font-size: 17px;
+  background-color: #ffff99;
+  border-left: 6px solid #cc0000;
+  padding: 3px 8px;
+}
+
+.small { font-size: 12px; color: #404040; }
+
+.practical ul { margin: 6px 0 6px 20px; padding: 0; }
+.practical li { margin-bottom: 6px; }
+
+.rack strong {
+  color: #800080;
+  background-color: #ffe0ff;
+  padding: 0 3px;
+}
+
+.counter-label { font-size: 12px; margin-bottom: 2px; }
+
+.counter {
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  letter-spacing: 6px;
+  color: #00ff00;
+  background-color: #000000;
+  border: 3px inset #c0c0c0;
+  display: inline-block;
+  padding: 2px 10px;
+}
+
+.signbox { margin-top: 10px; font-size: 14px; }
+.signbox input {
+  font-family: "Courier New", monospace;
+  border: 2px inset #c0c0c0;
+  background-color: #ffffff;
+  padding: 3px 5px;
+}
+.signbox button {
+  font-family: "Courier New", monospace;
+  border: 3px outset #c0c0c0;
+  background-color: #c0c0c0;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.signbox button:active { border-style: inset; }
+
+.signlist { margin-top: 8px; font-size: 13px; }
+.signlist p {
+  margin: 2px 0;
+  padding: 2px 6px;
+  background-color: #eeeecc;
+  border-left: 4px solid #ffcc00;
+}
+
+.foot {
+  text-align: center;
+  font-size: 13px;
+  padding: 8px 14px 0;
+}
+
+.foot .links { margin: 8px 0; line-height: 1.7; }
+.foot a { color: #000080; }
+.foot a:visited { color: #800080; }
+
+.foot .rule {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #800000;
+  border-top: 2px dashed #ffcc00;
+  margin-top: 10px;
+  padding-top: 8px;
+}
