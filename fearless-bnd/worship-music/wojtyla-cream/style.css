@@ -1,0 +1,122 @@
+/* Letter to the Editor — The Cream and the Cantus Firmus */
+
+:root {
+  --paper: #f7f2e7;
+  --ink: #241f1a;
+  --red: #8e2f22;
+  --faint: #7a6f5d;
+  --rule: #c9bda4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #ece4d2;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.letter {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(60, 45, 20, 0.18);
+  padding: 2.5rem 2.75rem 2rem;
+}
+
+.letterhead {
+  border-bottom: 3px double var(--red);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.masthead {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--red);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+
+.dateline {
+  margin: 0;
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.95rem;
+}
+
+.body-copy p { margin: 0 0 1.1rem; }
+.body-copy p:last-child { margin-bottom: 0; }
+
+.timeline {
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.timeline h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.4rem;
+  color: var(--red);
+}
+
+.timeline-intro { margin: 0 0 1rem; font-size: 0.95rem; color: var(--faint); }
+
+.scrubber {
+  background: #efe7d4;
+  border: 1px solid var(--rule);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.scrubber label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.scrubber output {
+  color: var(--red);
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--red);
+}
+
+.event {
+  min-height: 3.2em;
+  margin: 0.8rem 0 0;
+  font-style: italic;
+}
+
+.record {
+  padding-left: 1.2rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.record li { margin-bottom: 0.45rem; }
+
+.letter-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+.letter-footer a { color: var(--red); }
