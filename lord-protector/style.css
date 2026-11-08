@@ -1,0 +1,199 @@
+/* The Lord Protector at Table — chapter stylesheet */
+:root {
+  --ink: #292119;
+  --paper: #f7f2e8;
+  --cloth: #7d6145;
+  --gold: #aa863e;
+  --wine: #5d2424;
+  --mute: #8a7862;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+* { box-sizing: border-box; }
+html {
+  height: 100%;
+  background: linear-gradient(150deg, #533b2a 0%, #2f2117 45%, #1c120d 100%);
+  background-attachment: fixed;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  color: var(--ink);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+.page {
+  position: relative;
+  max-width: 660px;
+  margin: 44px auto 62px;
+  padding: 54px 46px 72px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  box-shadow: 0 0 0 6px var(--gold), 14px 18px 44px var(--shadow);
+  animation: fade-in 1.4s ease both;
+}
+.page::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  background: repeating-linear-gradient(0deg, var(--gold), var(--gold) 1px, transparent 1px, transparent 5px);
+  z-index: -1;
+}
+.masthead {
+  border-bottom: 3px double var(--wine);
+  padding-bottom: 14px;
+  margin-bottom: 6px;
+}
+.masthead-eyebrow {
+  margin: 0 0 10px 0;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  color: var(--cloth);
+}
+h1 {
+  margin: 0 0 8px 0;
+  font-size: 2.1rem;
+  line-height: 1.25;
+  font-weight: normal;
+}
+.masthead-tagline {
+  margin: 8px 0 0 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--cloth);
+  border-top: 1px solid #d4c8b0;
+  padding-top: 12px;
+  max-width: 470px;
+}
+main section {
+  margin: 0 0 36px 0;
+}
+h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--wine);
+  margin: 0 0 11px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #cdc1ae;
+}
+h2::before {
+  content: "\00a7";
+  margin-right: 8px;
+  color: var(--gold);
+}
+p {
+  margin: 0 0 14px 0;
+  text-align: justify;
+}
+p.dropcap::first-letter {
+  float: left;
+  font-size: 4.6rem;
+  line-height: 0.85;
+  color: var(--wine);
+  padding: 1px 12px 6px 0;
+  margin-right: 8px;
+  border: 1.5px solid var(--gold);
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--gold);
+  text-shadow: 1px 1px 0 #d9cfa0;
+}
+blockquote {
+  margin: 26px 10px 26px 40px;
+  padding: 18px 22px 18px 56px;
+  background: #efe4d1;
+  border-left: 5px solid var(--wine);
+  border-right: 2px solid var(--gold);
+  font-style: italic;
+  position: relative;
+}
+blockquote::before {
+  content: "\201c";
+  position: absolute;
+  left: 16px;
+  top: 4px;
+  font-size: 3.1rem;
+  color: var(--gold);
+  font-family: "Georgia", serif;
+}
+blockquote p {
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+a {
+  color: var(--wine);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-style: solid;
+}
+.rule {
+  height: 1px;
+  border: none;
+  background: linear-gradient(to right, transparent, var(--gold) 25%, var(--gold) 75%, transparent);
+  margin: 38px 0;
+  position: relative;
+}
+.rule::after {
+  content: "\2022 \00a7 \2022";
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  transform: translatex(-50%);
+  color: var(--gold);
+  font-size: 1.05rem;
+  background: var(--paper);
+  padding: 0 7px;
+}
+.seal {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 36%, #8e524a, #3c1313);
+  border: 3px double var(--gold);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  margin: 46px auto 0;
+  box-shadow: 0 0 0 11px var(--paper), 0 0 0 13px var(--wine), 7px 9px 20px var(--shadow);
+}
+.seal:hover {
+  animation: wax-nod 2.6s ease-in-out infinite;
+}
+.colophon {
+  margin: 10px 0 0 0;
+  font-size: 0.78rem;
+  color: var(--mute);
+  text-align: center;
+  letter-spacing: 0.22em;
+  font-variant: small-caps;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translatey(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wax-nod {
+  0%, 100% { transform: translatey(0); }
+  50% { transform: translatey(-5px) scale(1.04); }
+}
+@media (max-width: 620px) {
+  html { background: var(--cloth); }
+  .page {
+    margin: 20px auto 40px;
+    padding: 34px 22px 50px;
+    box-shadow: 0 0 0 4px var(--gold), 8px 10px 24px var(--shadow);
+  }
+  .page::before { inset: -4px; }
+  h1 { font-size: 1.7rem; }
+  p.dropcap::first-letter { font-size: 3.2rem; padding: 1px 9px 5px 0; }
+}
