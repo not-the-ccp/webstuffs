@@ -1,0 +1,236 @@
+/* West Yorkshire Field Manual — Sheet 9, Huddersfield */
+:root {
+  --paper: #efe9d8;
+  --paper-deep: #e4dcc4;
+  --ink: #2b2b20;
+  --olive: #55602f;
+  --olive-dark: #3d4622;
+  --brick: #7a2e2e;
+  --river: #3e5c73;
+  --rule: #b7ad8c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(122, 46, 46, 0.05), transparent 40%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(85, 96, 47, 0.08) 31px 32px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.manual {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  outline: 1px dashed var(--olive);
+  outline-offset: 6px;
+  padding: 2.5rem 2.75rem 2rem;
+  position: relative;
+  box-shadow: 10px 10px 0 rgba(61, 70, 34, 0.18);
+}
+
+.stamp {
+  position: absolute;
+  top: -1.1rem;
+  right: 1.5rem;
+  transform: rotate(3deg);
+  border: 2px solid var(--brick);
+  color: var(--brick);
+  background: rgba(239, 233, 216, 0.9);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  padding: 0.3rem 0.7rem;
+}
+
+.chapter-head {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4rem;
+  line-height: 1.15;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--olive-dark);
+  margin: 0 0 1.2rem;
+}
+
+.plate {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: var(--paper-deep);
+}
+.plate th, .plate td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.plate th {
+  width: 11rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--olive-dark);
+}
+
+main section {
+  margin-bottom: 2rem;
+  border-left: 3px solid transparent;
+}
+
+h2 {
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brick);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.9rem;
+}
+
+p { margin: 0 0 1rem; }
+p.note {
+  background: var(--paper-deep);
+  border: 1px dashed var(--olive);
+  padding: 0.7rem 1rem;
+  font-size: 0.94rem;
+}
+p.note::before {
+  content: "FIELD NOTE \25BA ";
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--olive-dark);
+}
+
+.map { margin: 1.4rem 0; }
+.map svg {
+  width: 100%;
+  height: auto;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  display: block;
+}
+.river {
+  stroke: var(--river);
+  stroke-width: 4;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 6 10;
+  animation: flow 2.4s linear infinite;
+}
+.river.minor { stroke-width: 2.5; }
+@keyframes flow { to { stroke-dashoffset: -32; } }
+@media (prefers-reduced-motion: reduce) {
+  .river { animation: none; }
+}
+figcaption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--olive-dark);
+  margin-top: 0.4rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.4rem 0 1.2rem;
+}
+.table th {
+  background: var(--olive);
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+}
+.table td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.6rem;
+}
+.table tr:nth-child(even) td { background: var(--paper-deep); }
+
+.cautions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cautions li {
+  counter-increment: caution;
+  padding: 0 0 0.7rem 2rem;
+  position: relative;
+  margin-bottom: 0.7rem;
+}
+.cautions li::before {
+  content: counter(caution, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: var(--brick);
+  border: 1.5px solid var(--brick);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+}
+
+a {
+  color: var(--brick);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(122, 46, 46, 0.12); }
+
+.bearing {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  background: var(--paper-deep);
+  padding: 0 0.25rem;
+  border-bottom: 2px solid var(--olive);
+}
+
+.colophon {
+  border-top: 3px double var(--ink);
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--olive-dark);
+}
+.colophon p { margin: 0.3rem 0; }
+.colophon a { display: inline; }
