@@ -1,0 +1,185 @@
+/* Back-Room Arithmetic — gazette radio transcript */
+
+:root {
+  --paper: #f7f4ed;
+  --ink: #2b2620;
+  --faded: #6f675c;
+  --rule: #d8d0c0;
+  --accent: #8c3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.script-wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+/* header */
+.play-head {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.air-tag {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.25rem 0.7rem 0.2rem 0.55rem;
+  margin-bottom: 1.75rem;
+}
+
+.air-dot {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 0.45rem;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.broadcaster {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.6rem;
+}
+
+.play-sub {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 2.4rem;
+}
+
+.cast {
+  margin: 0 auto;
+  max-width: 34rem;
+  text-align: left;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 0;
+}
+
+.cast div { margin-bottom: 0.7rem; }
+.cast div:last-child { margin-bottom: 0; }
+.cast dt {
+  display: inline;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+.cast dd {
+  display: inline;
+  margin: 0 0 0 0.35rem;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+/* script body */
+.scene { margin-bottom: 3rem; }
+
+.scene-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  margin: 0 0 1.6rem;
+  position: relative;
+}
+
+.scene-head::before,
+.scene-head::after {
+  content: "";
+  display: inline-block;
+  width: 2.2rem;
+  height: 1px;
+  background: var(--rule);
+  vertical-align: middle;
+  margin: 0 0.9rem;
+}
+
+.sfx {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 1.4rem 0;
+}
+
+.line { margin: 0 0 1.2rem; }
+
+.who {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-right: 0.6rem;
+}
+
+em { font-style: italic; }
+
+.ledger-line {
+  margin: 1.6rem 2.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(140, 59, 46, 0.35);
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+/* footer */
+.play-foot {
+  margin-top: 3.5rem;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.4rem;
+}
+
+.transcript-note {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--faded);
+  margin: 0;
+  line-height: 1.9;
+}
