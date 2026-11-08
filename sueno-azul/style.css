@@ -1,0 +1,233 @@
+/* Sueño Azul — dream dictionary entry: a Chilean night */
+
+:root {
+  --ink: #dfe6f2;
+  --ink-dim: #9aa8c4;
+  --gold: #c9a35c;
+  --gold-bright: #e8c883;
+  --blue-1: #050a1c;
+  --blue-2: #0b1636;
+  --blue-3: #14265c;
+  --azure: #3f6fd1;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -10%, var(--blue-3) 0%, var(--blue-2) 42%, var(--blue-1) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* starfield */
+.night {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 18%, #fff8 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 8%, #fffa 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 55% 30%, #fff6 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 62%, #fff7 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 88% 45%, #fff5 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 84%, #fff6 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 44% 90%, #fff5 50%, transparent 51%),
+    radial-gradient(1px 1px at 66% 74%, #fffa 50%, transparent 51%);
+  animation: drift 140s linear infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-34px); }
+}
+
+/* the moon, haloed */
+.moon {
+  position: fixed;
+  top: 6vh;
+  right: 9vw;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 34%, #fdf6e3 0%, #e9dcb8 55%, #cdb98a 100%);
+  box-shadow: 0 0 40px 14px rgba(233, 220, 184, 0.35), 0 0 120px 60px rgba(233, 220, 184, 0.12);
+  z-index: 0;
+  pointer-events: none;
+  animation: moonpulse 9s ease-in-out infinite;
+}
+
+@keyframes moonpulse {
+  0%, 100% { box-shadow: 0 0 40px 14px rgba(233,220,184,.35), 0 0 120px 60px rgba(233,220,184,.12); }
+  50%      { box-shadow: 0 0 54px 20px rgba(233,220,184,.45), 0 0 150px 70px rgba(233,220,184,.18); }
+}
+
+/* low blue haze at the foot of the page */
+.haze {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 30vh;
+  background: linear-gradient(to top, rgba(63, 111, 209, 0.22), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.concordance-head,
+.entry {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+.concordance-head {
+  padding-top: 5rem;
+  padding-bottom: 1.6rem;
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+}
+
+.plate {
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.2rem;
+  color: #f2f5fb;
+  text-shadow: 0 0 30px rgba(63, 111, 209, 0.55);
+}
+
+h1 .of {
+  font-style: italic;
+  font-size: 0.4em;
+  color: var(--gold-bright);
+  vertical-align: super;
+}
+
+.pron {
+  font-size: 1rem;
+  color: var(--ink-dim);
+  margin: 0;
+}
+
+.pron-label {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-right: 0.6rem;
+}
+
+.entry {
+  padding-bottom: 6rem;
+}
+
+.entry section {
+  margin-top: 2.4rem;
+  padding: 1.4rem 1.6rem 0.2rem;
+  border-left: 1px solid rgba(201, 163, 92, 0.4);
+  animation: surface 1.1s ease both;
+}
+
+@keyframes surface {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+.drop::first-letter {
+  font-size: 3.6em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.12em;
+  color: var(--azure);
+  text-shadow: 0 0 24px rgba(63, 111, 209, 0.7);
+}
+
+a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(232, 200, 131, 0.6);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+strong { color: #f4f7ff; font-weight: 600; }
+
+.keys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.keys li {
+  position: relative;
+  padding: 0.85rem 0 0.85rem 2.2rem;
+  border-bottom: 1px dashed rgba(154, 168, 196, 0.35);
+}
+
+.keys li:last-child { border-bottom: none; }
+
+.keys li::before {
+  content: "✶";
+  position: absolute;
+  left: 0.35rem;
+  color: var(--azure);
+  font-size: 1.1em;
+}
+
+.recipe {
+  display: inline;
+  font-style: italic;
+  color: var(--gold-bright);
+  border-bottom: 1px solid rgba(201, 163, 92, 0.7);
+  padding-bottom: 1px;
+}
+
+.further {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 3px double var(--gold);
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--ink-dim);
+}
+
+.further p { margin: 0; }
+
+@media (max-width: 640px) {
+  .moon { width: 52px; height: 52px; top: 4vh; right: 6vw; }
+  .entry section { padding: 1.1rem 0.9rem 0.2rem; }
+}
