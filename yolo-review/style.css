@@ -1,0 +1,157 @@
+/* YOLO Restaurant Review Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono&display=swap');
+
+:root {
+  --ink: #1a1a1a;
+  --ink-muted: #4a4a4a;
+  --paper: #faf8f5;
+  --paper-alt: #f0ebe0;
+  --accent: #c84b31;
+  --accent-dim: #e88d7a;
+  --neon: #ff2d95;
+  --shadow: rgba(26, 26, 26, 0.08);
+  --line: #ddd4c8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.review-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 4px 24px var(--shadow);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.review-header {
+  background: var(--ink);
+  color: white;
+  padding: 3rem 2.5rem 2rem;
+  position: relative;
+}
+
+.review-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--neon));
+}
+
+.review-header h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.review-dek {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.review-masthead {
+  margin: 0;
+  padding: 1.5rem 2.5rem;
+  background: var(--paper-alt);
+  border-bottom: 1px solid var(--line);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stars {
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.price {
+  color: var(--ink-muted);
+  background: var(--paper);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+}
+
+.review-masthead figcaption {
+  font-family: 'IBM Plex Serif', serif;
+  font-style: italic;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.review-body {
+  padding: 2.5rem;
+}
+
+.review-body p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.review-body em {
+  font-style: italic;
+}
+
+.review-footer {
+  padding: 1.5rem 2.5rem 2.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper-alt);
+}
+
+.nav-line {
+  margin: 0.75rem 0;
+  font-size: 0.95rem;
+}
+
+.nav-line a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.nav-line a:hover,
+.nav-line a:focus {
+  color: var(--neon);
+  border-bottom-color: var(--neon);
+  outline: none;
+}
+
+.nav-line a:visited {
+  color: #8b3a2a;
+}
+
+@media (max-width: 600px) {
+  .review-header, .review-masthead, .review-body, .review-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .review-header h1 { font-size: 1.8rem; }
+}
