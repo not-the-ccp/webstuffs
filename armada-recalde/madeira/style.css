@@ -1,0 +1,304 @@
+/* Madeira — Guide Entry No. 41 · The Watering Places */
+
+:root {
+  --paper: #f4ecdb;
+  --paper-deep: #ece1c8;
+  --ink: #22333c;
+  --ink-soft: #4c5e66;
+  --atlantic: #14555b;
+  --atlantic-deep: #0c3a40;
+  --seal: #b3402a;
+  --saffron: #d9a441;
+  --pencil: #7c8894;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(20, 85, 91, 0.16), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(179, 64, 42, 0.10), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2rem;
+  position: relative;
+  text-align: center;
+  border-bottom: 3px double var(--atlantic-deep);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  color: var(--seal);
+  font-weight: bold;
+  margin: 0 0 1rem;
+}
+
+.masthead h1 {
+  font-size: clamp(3rem, 9vw, 4.6rem);
+  line-height: 1;
+  margin: 0;
+  color: var(--atlantic-deep);
+  letter-spacing: 0.04em;
+  font-variant: small-caps;
+}
+
+.tagline {
+  max-width: 34rem;
+  margin: 1rem auto 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+/* the route line: LISBOA ---- FUNCHAL, with a slow ship */
+.route {
+  margin: 2.4rem auto 0.4rem;
+  max-width: 34rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--atlantic);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  font-weight: bold;
+}
+
+.route em {
+  font-style: normal;
+  color: var(--seal);
+  letter-spacing: 0.06em;
+}
+
+.route .dashes {
+  flex: 1;
+  height: 2px;
+  background-image: linear-gradient(90deg, var(--atlantic) 0 6px, transparent 6px 12px);
+  background-size: 12px 2px;
+  opacity: 0.65;
+}
+
+.route .ship {
+  color: var(--seal);
+  font-size: 0.9rem;
+  line-height: 1;
+  animation: voyage 14s linear infinite alternate;
+}
+
+@keyframes voyage {
+  0%   { transform: translateX(-2.4rem) translateY(0); }
+  50%  { transform: translateX(0) translateY(-2px); }
+  100% { transform: translateX(2.4rem) translateY(0); }
+}
+
+/* the round stamp */
+.seal {
+  margin: 1.6rem auto 0;
+  width: 8.2rem;
+  height: 8.2rem;
+  border: 2px solid var(--seal);
+  border-radius: 50%;
+  outline: 1px solid var(--seal);
+  outline-offset: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--seal);
+  font-size: 0.62rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  line-height: 1.7;
+  transform: rotate(-9deg);
+  opacity: 0.85;
+  user-select: none;
+}
+
+/* ---------- entries ---------- */
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem 2rem;
+}
+
+.entry {
+  margin: 2.6rem 0;
+  animation: rise 0.7s ease both;
+}
+
+.entry:nth-child(2) { animation-delay: 0.08s; }
+.entry:nth-child(3) { animation-delay: 0.16s; }
+.entry:nth-child(4) { animation-delay: 0.24s; }
+.entry:nth-child(5) { animation-delay: 0.32s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.entry h2 {
+  font-size: 1.45rem;
+  color: var(--atlantic-deep);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--saffron);
+}
+
+.meta {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 1rem;
+}
+
+.meta span { color: var(--seal); font-weight: bold; margin-right: 0.35em; }
+
+.entry p { margin: 0 0 1.05rem; }
+
+.entry a {
+  color: var(--atlantic);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--saffron);
+  text-underline-offset: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.entry a:hover, .nav-line a:hover { background-color: rgba(217, 164, 65, 0.28); }
+
+/* ---------- the recipe card ---------- */
+
+.card {
+  background: linear-gradient(175deg, #fbf5e6 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--ink-soft);
+  box-shadow: 0 10px 22px -12px rgba(12, 58, 64, 0.5);
+  padding: 1.6rem 1.8rem 1.2rem;
+  margin: 1.4rem 0 1.6rem;
+  transform: rotate(-0.6deg);
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed var(--ink-soft);
+  pointer-events: none;
+}
+
+.card::after {
+  /* the red string and its nail */
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background: var(--seal);
+}
+
+.card-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--atlantic-deep);
+  margin: 0.2rem 0 0;
+}
+
+.card-sub {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: 0.1rem 0 1rem;
+}
+
+.card-steps {
+  margin: 0 0 1rem;
+  padding-left: 1.3rem;
+}
+
+.card-steps li { margin-bottom: 0.7rem; }
+
+.card-steps li::marker { color: var(--seal); font-weight: bold; }
+
+.pencil {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  color: var(--pencil);
+  font-size: 1.05rem;
+  transform: rotate(-1.2deg);
+  margin: 0.4rem 0 0.3rem 0.6rem;
+}
+
+.card-note {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0 0 0.4rem 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- ledger ---------- */
+
+.ledger {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0.4rem 0 0;
+  border-top: 2px solid var(--atlantic-deep);
+}
+
+.ledger li {
+  padding: 0.45rem 0.2rem;
+  border-bottom: 1px dotted var(--ink-soft);
+}
+
+.ledger li span {
+  display: inline-block;
+  min-width: 5.5rem;
+  font-weight: bold;
+  color: var(--seal);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- nav ---------- */
+
+.nav-line {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.5rem 4rem;
+  border-top: 3px double var(--atlantic-deep);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.nav-line p { margin: 0.6rem 0; }
+
+.nav-line a {
+  color: var(--atlantic);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--saffron);
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry, .route .ship { animation: none; }
+}
