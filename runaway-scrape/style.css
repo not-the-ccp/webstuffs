@@ -1,0 +1,161 @@
+/* Route 1836 — The Runaway Scrape. A long road set on a short page. */
+
+:root {
+  --parchment: #f3ead8;
+  --ink: #2b2118;
+  --dust: #c9b892;
+  --bayou: #33473c;
+  --copper: #a4562a;
+  --faded: #8a7a5e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+/* --- masthead: oversized, slanted like a road sign --- */
+.masthead {
+  padding: 4rem 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+.title {
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  line-height: 0.9;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.scrape-word {
+  display: inline-block;
+  transform: rotate(-3deg) translateY(0.15em);
+  color: var(--copper);
+}
+
+.subtitle {
+  max-width: 34ch;
+  margin: 1.25rem 0 0;
+  font-style: italic;
+  color: var(--bayou);
+  font-size: 1.05rem;
+}
+
+/* --- asymmetric two-column layout --- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: 3rem;
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  align-items: start;
+}
+
+.col-main p { max-width: 62ch; }
+
+.col-main h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.75rem;
+  border-top: 3px double var(--dust);
+  padding-top: 1rem;
+}
+
+.lede::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.12em;
+  color: var(--copper);
+}
+
+/* --- sidebar cards, staggered and tilted like stacked papers --- */
+.col-side {
+  display: grid;
+  gap: 2.5rem;
+  padding-top: 2rem;
+}
+
+.card {
+  background: #faf4e4;
+  border: 1px solid var(--dust);
+  padding: 1.5rem 1.5rem 1.25rem;
+  box-shadow: 4px 6px 0 rgba(43, 33, 24, 0.12);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--bayou);
+}
+
+.card-route { transform: rotate(-1.2deg); }
+.card-torn  { transform: rotate(1.6deg) translateX(1.5rem); }
+.card-elsewhere { transform: rotate(-0.8deg); }
+
+.waypoints {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.waypoints li { margin-bottom: 0.5rem; }
+
+.wp-day {
+  display: inline-block;
+  min-width: 6.5rem;
+  color: var(--copper);
+  font-weight: bold;
+}
+
+.card-foot {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--faded);
+  border-top: 1px dashed var(--dust);
+  padding-top: 0.6rem;
+}
+
+.torn-line {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+  background: linear-gradient(90deg, transparent, rgba(164, 86, 42, 0.12), transparent);
+}
+
+.torn-attr { font-size: 0.85rem; color: var(--faded); }
+
+.notes li { margin-bottom: 0.5rem; }
+
+a { color: var(--copper); }
+
+/* --- colophon --- */
+.colophon {
+  border-top: 3px double var(--dust);
+  text-align: center;
+  padding: 1.5rem 2rem 3rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+/* --- ordinary small screens: one column, cards straightened --- */
+@media (max-width: 60rem) {
+  .layout { grid-template-columns: 1fr; }
+  .card-route, .card-torn, .card-elsewhere { transform: none; }
+}
