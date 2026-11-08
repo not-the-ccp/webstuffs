@@ -1,0 +1,140 @@
+:root {
+  --ink: #26221c;
+  --faint: #6f675b;
+  --paper: #f7f2e7;
+  --card: #fbf7ee;
+  --rule: #d8cfbc;
+  --accent: #7a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.recipe {
+  max-width: 41em;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.recipe-header {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2.2rem;
+  margin-bottom: 2.6rem;
+}
+
+.kicker {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.recipe-dek {
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.bean {
+  width: 120px;
+  margin: 1.6rem auto 0;
+  display: block;
+  opacity: 0.85;
+}
+
+.preamble p {
+  margin: 0 0 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.preamble a, .recipe a, .nav-line a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122, 59, 46, 0.4);
+}
+
+.preamble a:hover, .recipe a:hover, .nav-line a:hover {
+  border-bottom-color: var(--accent);
+}
+
+section.recipe {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 2.4rem 2.4rem 2.6rem;
+  margin: 3rem 0;
+}
+
+section.recipe h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  text-align: center;
+  margin: 0 0 1.4rem;
+  color: var(--accent);
+}
+
+.recipe-meta {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.8rem 0;
+  margin: 0 0 1.8rem;
+  font-size: 0.9rem;
+  color: var(--faint);
+  text-align: center;
+}
+
+.recipe-meta p { margin: 0.25rem 0; }
+
+h3 {
+  font-size: 1.02rem;
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 2rem 0 0.9rem;
+}
+
+.ingredients, .instructions {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.ingredients li { margin-bottom: 0.45rem; }
+.instructions li { margin-bottom: 0.8rem; }
+.instructions li::marker { color: var(--accent); font-weight: 600; }
+
+.recipe-footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.6rem;
+  font-size: 0.9rem;
+  color: var(--faint);
+}
+
+.nav-line { margin: 0 0 0.6rem; }
+
+@media (max-width: 520px) {
+  section.recipe { padding: 1.6rem 1.2rem; }
+  h1 { font-size: 1.9rem; }
+}
