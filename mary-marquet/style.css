@@ -1,0 +1,144 @@
+/* Lot 78 — the Sallette years: midnight silk, gas-lamp brass, 1931 programme paper */
+:root {
+  --ink: #1a1410;
+  --paper: #f4ead6;
+  --paper-deep: #e9dabc;
+  --midnight: #101c2e;
+  --brass: #a8742a;
+  --brass-bright: #d9a441;
+  --seal: #7c2230;
+  --rule: #c9b58c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--midnight);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(217, 164, 65, 0.14), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 100%, rgba(124, 34, 48, 0.22), transparent 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  padding: 2.5rem 1rem 4rem;
+}
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 220px),
+    repeating-linear-gradient(0deg, rgba(26,20,16,0.025) 0 1px, transparent 1px 28px);
+  border: 1px solid var(--brass);
+  outline: 4px double rgba(168, 116, 42, 0.5);
+  outline-offset: 6px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  padding: 2.5rem 2.75rem 1.5rem;
+}
+.cat-head { text-align: center; }
+.house {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--seal);
+}
+.head-rule {
+  height: 3px;
+  margin: 0.7rem auto;
+  max-width: 340px;
+  background: linear-gradient(90deg, transparent, var(--brass) 30%, var(--brass-bright) 50%, var(--brass) 70%, transparent);
+}
+.sale-line { margin: 0.4rem 0 0.2rem; font-size: 0.95rem; font-style: italic; }
+.motto {
+  margin: 0.6rem 0 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  color: var(--brass);
+  animation: marquee 6s ease-in-out infinite;
+}
+@keyframes marquee {
+  0%, 100% { opacity: 0.55; text-shadow: none; }
+  50% { opacity: 1; text-shadow: 0 0 14px rgba(217, 164, 65, 0.8); }
+}
+.lot { position: relative; padding-top: 1.2rem; }
+.lot-tab {
+  position: absolute;
+  top: -1.4rem;
+  right: 0;
+  background: var(--seal);
+  color: var(--paper);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.35rem 1.1rem;
+  border: 2px solid var(--brass);
+  transform: rotate(2deg);
+  box-shadow: 4px 4px 0 rgba(26, 20, 16, 0.25);
+}
+.lot-head h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.4rem 0 0.6rem;
+  color: var(--midnight);
+}
+.lot-sub { margin: 0; font-style: italic; font-size: 0.98rem; color: #4a3b2c; }
+.estimate { margin: 0.9rem 0 0; font-size: 0.95rem; letter-spacing: 0.03em; }
+.est-lo, .est-hi { color: #6b5433; }
+.hammer {
+  color: var(--seal);
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: text-shadow 0.4s ease;
+}
+.hammer.lit { text-shadow: 0 0 12px rgba(124, 34, 48, 0.7); }
+.sold {
+  display: inline-block;
+  margin-left: 0.5rem;
+  border: 1px solid var(--seal);
+  color: var(--seal);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  padding: 0.1rem 0.55rem;
+  transform: rotate(-3deg);
+}
+.double-rule { border: none; border-top: 3px double var(--brass); margin: 1.4rem 0; }
+.desc h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.9rem 0 0.8rem;
+}
+.desc p { margin: 0 0 1rem; }
+.desc a { color: var(--seal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.desc a:hover { color: var(--brass-bright); }
+blockquote.record-line {
+  margin: 1.1rem 0 1.1rem 1.2rem;
+  padding: 0.8rem 1.2rem;
+  border-left: 4px solid var(--brass);
+  background: var(--paper-deep);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+.colophon {
+  margin-top: 2rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  font-size: 0.92rem;
+}
+.colophon h2 { margin-top: 0; }
+.cat-foot { text-align: center; margin-top: 1.6rem; }
+.cat-foot p {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6b5433;
+  margin: 0.8rem 0 0;
+}
+@media (max-width: 640px) {
+  .sheet { padding: 1.6rem 1.2rem 1.2rem; outline-offset: 3px; }
+  .lot-head h1 { font-size: 1.45rem; }
+  .motto { letter-spacing: 0.3em; }
+}
