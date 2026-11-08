@@ -1,0 +1,184 @@
+/* The Montemayor Walk — colonial plaza guide, Route No. 14 */
+:root {
+  --parchment: #efe4c9;
+  --parchment-deep: #e5d5ab;
+  --ink: #2c2114;
+  --iron: #5a4630;
+  --rust: #8c3b1e;
+  --river: #2f5d5a;
+  --candle: #d9a441;
+  --plaza: #f6efdb;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 250, 230, 0.9), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(140, 59, 30, 0.12), transparent 50%),
+    repeating-linear-gradient(45deg, rgba(90, 70, 48, 0.03) 0 2px, transparent 2px 7px),
+    var(--parchment);
+  line-height: 1.65;
+}
+
+.frame {
+  position: fixed;
+  inset: 10px;
+  border: 2px solid var(--iron);
+  outline: 1px solid var(--iron);
+  outline-offset: 3px;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.55;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 1px 1px 0 var(--candle);
+}
+
+.subtitle {
+  margin: 1.2rem auto 0;
+  max-width: 40rem;
+  font-size: 1.02rem;
+  color: var(--iron);
+  font-style: italic;
+}
+
+.compass {
+  width: 110px;
+  margin: 1.5rem auto 0;
+  display: block;
+  animation: needle 14s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes needle {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.rose-ring { fill: none; stroke: var(--iron); stroke-width: 2; }
+.rose-ring.inner { stroke-dasharray: 3 4; }
+.rose-north { fill: var(--rust); }
+.rose-south { fill: var(--iron); }
+.rose-west, .rose-east { fill: var(--candle); }
+.rose-letter { font-size: 11px; fill: var(--ink); font-family: Georgia, serif; }
+
+.route {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 2rem 3rem;
+}
+
+.route-note {
+  border-top: 1px solid var(--iron);
+  border-bottom: 1px solid var(--iron);
+  padding: 0.9rem 0.2rem;
+  font-size: 0.98rem;
+  color: var(--iron);
+}
+
+.stop {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1.4rem;
+  padding: 2.2rem 0 2.4rem;
+  position: relative;
+}
+
+/* dashed route line running between stops */
+.stop + .stop::before {
+  content: "";
+  position: absolute;
+  left: 2.25rem;
+  top: -2.2rem;
+  height: 4.4rem;
+  border-left: 2px dashed var(--river);
+  opacity: 0.5;
+}
+
+.stop-num {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--rust);
+  outline: 1px solid var(--rust);
+  outline-offset: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--rust);
+  background: var(--plaza);
+  box-shadow: 3px 3px 0 rgba(44, 33, 20, 0.15);
+}
+
+.stop-body h2 {
+  font-size: 1.35rem;
+  font-weight: normal;
+  margin: 0.4rem 0 0.9rem;
+  color: var(--river);
+  letter-spacing: 0.01em;
+}
+
+.stop-body p { margin: 0 0 1rem; }
+
+a {
+  color: var(--rust);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--river); background: var(--candle); }
+
+.route-foot {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 2rem 3.5rem;
+  font-size: 0.92rem;
+  color: var(--iron);
+}
+
+.dashed {
+  border: none;
+  border-top: 2px dashed var(--iron);
+  opacity: 0.4;
+  margin: 0 0 1rem;
+}
+
+em { color: var(--rust); }
+
+@media (max-width: 640px) {
+  .stop { grid-template-columns: 1fr; gap: 0.8rem; }
+  .stop + .stop::before { display: none; }
+  .stop-num { width: 3.6rem; height: 3.6rem; font-size: 1.2rem; }
+  .frame { inset: 5px; }
+}
