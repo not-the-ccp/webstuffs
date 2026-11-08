@@ -1,0 +1,205 @@
+/* Depot Archive, FAQ No. 9 — ruled paper, rust and olive, one pencil */
+:root {
+  --ink: #221c15;
+  --paper: #f3ead6;
+  --paper-deep: #ecdfc4;
+  --rust: #7a2e1d;
+  --olive: #2c4a21;
+  --pencil: #6f6a61;
+  --rule: #b8a888;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #f8f1e0 0%, var(--paper) 45%, #e7d9ba 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.4rem 3.5rem;
+}
+
+/* ruled-paper body for the question list */
+.faq {
+  list-style: none;
+  margin: 2rem 0 2.5rem;
+  padding: 0;
+  counter-reset: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      rgba(184, 168, 136, 0.35) 31px,
+      rgba(184, 168, 136, 0.35) 32px
+    );
+  border-left: 3px solid var(--rust);
+  border-right: 1px solid var(--rule);
+  padding-left: 2.2rem;
+  position: relative;
+}
+.faq::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rust);
+  opacity: 0.5;
+}
+
+/* masthead */
+.masthead { text-align: center; margin-bottom: 1rem; }
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+.masthead h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0.6rem 0 0.2rem;
+  color: var(--rust);
+}
+.dek {
+  max-width: 56ch;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #4d4335;
+}
+.rule {
+  height: 4px;
+  border-top: 1px solid var(--olive);
+  border-bottom: 1px solid var(--olive);
+  margin: 0.9rem 0;
+}
+.head-note {
+  max-width: 68ch;
+  margin: 1rem auto 0;
+  font-size: 0.92rem;
+  color: #43392c;
+  background: var(--paper-deep);
+  border: 1px dashed var(--rule);
+  padding: 0.9rem 1.1rem;
+}
+
+/* questions & answers */
+.qa {
+  display: flex;
+  gap: 1.1rem;
+  padding: 1.35rem 0.6rem 1.15rem;
+  margin: 0 0 0.3rem;
+  border-bottom: 1px dashed var(--rule);
+}
+.qa:last-child { border-bottom: none; }
+.qno {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--rust);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-6deg);
+  box-shadow: 2px 2px 0 rgba(44, 74, 33, 0.35);
+}
+.qbody { flex: 1; min-width: 0; }
+.q {
+  margin: 0 0 0.5rem;
+  font-size: 1.28rem;
+  color: var(--olive);
+  line-height: 1.35;
+}
+.a { margin: 0 0 0.7rem; }
+.a strong { color: var(--rust); }
+
+/* the pencilled line */
+.pencil-line {
+  margin: 0.9rem 0 0.9rem 1.2rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-left: 3px solid var(--pencil);
+  background:
+    linear-gradient(105deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.06rem;
+  color: var(--pencil);
+  transform: rotate(-0.6deg);
+}
+
+/* colophon */
+.colophon { margin-top: 1.5rem; text-align: center; }
+.five-min {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--olive);
+  background: var(--paper-deep);
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+.five-label { font-style: italic; color: var(--olive); }
+.bench-btn {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--olive);
+  color: var(--paper);
+  border: none;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.2s ease;
+}
+.bench-btn:hover { background: #3a5f2c; transform: translateY(-1px); }
+.bench-clock {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--rust);
+  min-width: 3.2ch;
+}
+.foot-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.4rem 0 0.8rem;
+}
+.foot-line {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #5c5140;
+}
+.nav { font-size: 0.85rem; margin-top: 0.5rem; }
+.nav a { color: var(--rust); text-decoration: none; border-bottom: 1px dotted var(--rust); }
+.nav a:hover { color: var(--olive); border-bottom-color: var(--olive); }
+
+/* active question highlight (with JS; harmless without) */
+.qa.active .q { color: var(--rust); }
+.qa.active .qno { transform: rotate(0deg) scale(1.08); transition: transform 0.25s ease; }
+
+@media (max-width: 560px) {
+  .masthead h1 { font-size: 2.1rem; }
+  .faq { padding-left: 1.4rem; }
+  .qa { flex-direction: column; gap: 0.4rem; }
+}
