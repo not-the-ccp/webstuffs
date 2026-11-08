@@ -1,0 +1,211 @@
+/* Güllük Gulf — Field Notes */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 30px 6px 70px;
+  color: #26231e;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Georgia", serif;
+  line-height: 1.7;
+  background:
+    radial-gradient(700px 800px at 70% -10%, #3e5c54 0%, transparent 45%),
+    linear-gradient(140deg, #0a1d1c 0%, #14312e 45%, #1f3d39 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 44px;
+  left: 8px;
+  bottom: 44px;
+  width: 7px;
+  background: repeating-linear-gradient(#5a6b4f 0 16px, transparent 16px 26px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: sway 10s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+.quire {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 56px 40px 80px;
+  background: #f4efe0;
+  border: 1.5px solid #8c7b5c;
+  border-top: 12px solid #6b4f22;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.quire::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(transparent, transparent 1px, rgba(60, 50, 35, 0.03) 1px, rgba(60, 50, 35, 0.03) 2px);
+  pointer-events: none;
+}
+
+.masthead {
+  border-bottom: 2px solid #8c7b5c;
+  padding-bottom: 22px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.service {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #6b5a3e;
+  margin: 0 0 8px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin: 0 0 6px;
+  color: #1e342f;
+  line-height: 1.15;
+}
+
+.coords {
+  font-size: 0.9rem;
+  color: #4a4538;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.sun {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  background: radial-gradient(circle at 35% 35%, #f0c97a, transparent 70%);
+  border: 1.5px solid #c9a455;
+  border-radius: 50%;
+  box-shadow: 0 0 14px #e8d49a;
+}
+
+.byline {
+  font-size: 0.85rem;
+  color: #655e4f;
+  margin: 0 0 34px;
+  text-align: center;
+}
+
+.entry {
+  margin-bottom: 34px;
+}
+
+.entry h2 {
+  font-size: 1.15rem;
+  color: #5c4a2e;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-left: 4px solid #9c824b;
+  padding-left: 10px;
+}
+
+.entry-meta {
+  font-size: 0.8rem;
+  color: #7a7360;
+  margin: 0 0 10px;
+  letter-spacing: 0.08em;
+}
+
+.label {
+  font-weight: bold;
+  color: #5c4a2e;
+}
+
+p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.entry > p:first-of-type::first-letter {
+  float: left;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Georgia", serif;
+  font-size: 3rem;
+  line-height: 0.85;
+  padding: 2px 8px 0 0;
+  margin-right: 6px;
+  color: #6b4f22;
+  font-weight: bold;
+}
+
+.found {
+  border-left: 3px solid #c9a455;
+  background: #faf7ec;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-style: italic;
+}
+
+.sign-off {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #4a4538;
+  margin-top: 26px;
+}
+
+.tail {
+  margin-top: 46px;
+  padding-top: 24px;
+  border-top: 2px solid #8c7b5c;
+  font-size: 0.85rem;
+  color: #655e4f;
+}
+
+.see-head {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8c7b5c;
+  margin: 0 0 6px;
+}
+
+.tail p {
+  text-align: left;
+  margin: 0 0 4px;
+}
+
+.colophon {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #8c7b5c;
+  letter-spacing: 0.1em;
+  margin-top: 26px;
+}
+
+a {
+  color: #3d5a51;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+a:hover {
+  background: #d9c993;
+  color: #1e342f;
+}
+
+@media (max-width: 600px) {
+  .quire {
+    padding: 40px 20px 60px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+}
