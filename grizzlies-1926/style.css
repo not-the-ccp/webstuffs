@@ -1,0 +1,199 @@
+/* The Hardwood Emporium — Championship Reissue Series */
+:root {
+  --ink: #20261f;
+  --green: #1d3b24;
+  --green-deep: #14291a;
+  --gold: #c9a227;
+  --gold-soft: #e4c96a;
+  --paper: #f3ead3;
+  --paper-dark: #e7d9b4;
+  --rule: #9c8a5c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(201, 162, 39, 0.10), transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(29, 59, 36, 0.12), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(156, 138, 92, 0.05) 0 2px, transparent 2px 6px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6;
+}
+
+.shop {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+/* Masthead */
+.masthead { text-align: center; margin-bottom: 2.5rem; }
+.masthead-rule {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--green) 15%, var(--gold) 50%, var(--green) 85%, transparent);
+  margin: 0.35rem auto;
+  max-width: 560px;
+}
+.shop-name {
+  font-size: 1.05rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 0.4rem 0 0.1rem;
+  color: var(--green);
+  font-weight: 700;
+}
+.shop-name .est { letter-spacing: 0.18em; font-weight: 400; font-size: 0.8rem; color: var(--rule); }
+.shop-dek { margin: 0.1rem 0 0.5rem; font-style: italic; color: #5a5340; font-size: 0.95rem; }
+
+/* Product layout */
+.product {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 700px) { .product { grid-template-columns: 1fr; } .plate { max-width: 320px; margin: 0 auto; } }
+
+.plate {
+  margin: 0;
+  border: 2px solid var(--green);
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+  background: #efe3c4;
+  box-shadow: 6px 6px 0 rgba(29, 59, 36, 0.25);
+  padding: 0.6rem;
+}
+.plate svg { display: block; width: 100%; height: auto; }
+.plate figcaption { font-size: 0.78rem; font-style: italic; color: #5a5340; padding: 0.5rem 0.25rem 0.15rem; line-height: 1.45; }
+
+.details h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--green-deep);
+  margin: 0.6rem 0 0.8rem;
+}
+.details h1 .sub { display: block; font-size: 1.05rem; font-style: italic; color: #5a5340; margin-top: 0.3rem; font-weight: 400; }
+
+.collection { margin: 0 0 0.2rem; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.chip {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  color: var(--green-deep);
+  padding: 0.05rem 0.6rem 0.05rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+/* Score strip */
+.score-strip {
+  display: flex;
+  border: 2px solid var(--green);
+  background: var(--green);
+  color: var(--paper);
+  margin: 1rem 0;
+}
+.score { flex: 1; text-align: center; padding: 0.6rem 0.4rem; border-right: 1px solid var(--gold-soft); }
+.score:last-child { border-right: none; }
+.score .num { display: block; font-size: 1.5rem; font-weight: 700; color: var(--gold-soft); letter-spacing: 0.05em; }
+.score .cap { display: block; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 0.15rem; }
+
+.price-row { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.price { margin: 0; }
+.price .amount { font-size: 1.6rem; font-weight: 700; color: var(--green-deep); }
+.price .per { font-style: italic; font-size: 0.85rem; color: #5a5340; }
+.stock { margin: 0; font-size: 0.8rem; color: #7a6c46; letter-spacing: 0.04em; }
+
+/* Purchase row */
+.purchase-row { display: flex; align-items: center; gap: 0.9rem; margin: 0.9rem 0 0.6rem; }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--green); }
+.qty-btn {
+  font: inherit;
+  width: 2.1rem; height: 2.1rem;
+  border: none;
+  background: var(--paper);
+  color: var(--green);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.qty-btn:hover { background: var(--gold-soft); }
+.qty-val { width: 2rem; text-align: center; font-weight: 700; }
+.add {
+  font: inherit;
+  border: 2px solid var(--green);
+  background: linear-gradient(180deg, #24492d, var(--green));
+  color: var(--paper);
+  padding: 0.55rem 1.3rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(201, 162, 39, 0.8);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.add:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 rgba(201, 162, 39, 0.8); }
+.add:active { transform: translate(3px, 3px); box-shadow: 0 0 0 rgba(201, 162, 39, 0.8); }
+.added { font-style: italic; font-size: 0.85rem; color: var(--green); }
+.sku { font-size: 0.8rem; color: #5a5340; border-top: 1px dashed var(--rule); padding-top: 0.6rem; }
+
+/* Sections */
+section { margin: 2.2rem 0; }
+section h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+.specs ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  border: 1px solid var(--rule);
+  background: rgba(255, 252, 240, 0.55);
+}
+.specs li { padding: 0.5rem 1rem 0.5rem 2.2rem; position: relative; border-bottom: 1px dotted var(--rule); }
+.specs li:last-child { border-bottom: none; }
+.specs li::before {
+  content: "\25B8";
+  position: absolute; left: 1rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Found note */
+.found-note {
+  margin: 0.5rem 0 0.2rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--gold);
+  background:
+    linear-gradient(90deg, rgba(201, 162, 39, 0.14), transparent 70%),
+    var(--paper-dark);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--green-deep);
+  transform: rotate(-0.4deg);
+  box-shadow: 2px 2px 0 rgba(29, 59, 36, 0.15);
+}
+.found-source { font-size: 0.8rem; font-style: italic; color: #7a6c46; }
+
+a { color: var(--green); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--green-deep); }
+
+/* Colophon */
+.colophon {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #5a5340;
+  border-top: 4px double var(--green);
+  padding-top: 1rem;
+}
+.colophon p { margin: 0.2rem 0; }
+.colophon .nav { font-style: normal; letter-spacing: 0.1em; }
