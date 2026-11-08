@@ -1,0 +1,57 @@
+/* A Book of Etiquette for the Theatre — Chapter III: Of Visiting the Playhouse */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: #201710;
+  background: #f7f0e4;
+  font-family: "Times New Roman", "Liberation Serif", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.85;
+  padding: 64px 18px 90px;
+}
+.curtain {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 60px;
+  background: repeating-linear-gradient(90deg, #5c121a 0, #5c121a 22px, #8c303b 22px, #8c303b 44px);
+  opacity: 0.92;
+  z-index: 4;
+}
+article.chapter {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #fdf8ec;
+  border: 2px solid #6e171f;
+  outline: 5px solid #c8b26a;
+  outline-offset: 7px;
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.28);
+  padding: 52px 44px 60px;
+  animation: rise 1.15s ease-out both;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { article.chapter { animation: none; } }
+.chapter-head { text-align: center; border-bottom: 2px double #6e171f; padding-bottom: 26px; margin-bottom: 34px; }
+.book-title { font-size: 12.5px; letter-spacing: 0.42em; text-transform: uppercase; color: #8c303b; margin: 0 0 10px; }
+.book-title::before { content: "❦ "; } .book-title::after { content: " ❦"; }
+h1 { font-size: 33px; color: #440a10; line-height: 1.2; margin: 0 0 6px; font-weight: normal; letter-spacing: 0.01em; }
+h1 span.tag { display: inline-block; font-size: 11.5px; letter-spacing: 0.28em; text-transform: uppercase; color: #f7f0e4; background: #5c121a; padding: 1px 10px; margin-left: 10px; clip-path: polygon(18% 0, 100% 0, 82% 100%, 0% 100%); }
+h1::after { content: " ❦ "; display: block; font-size: 17px; color: #c8b26a; margin-top: 6px; }
+.house { font-size: 13.5px; color: #6b5636; margin: 0; letter-spacing: 0.16em; text-transform: uppercase; }
+h2 { font-size: 19px; color: #5c121a; margin: 42px 0 14px; padding-left: 14px; border-left: 5px solid #c8b26a; }
+p { margin: 0 0 24px; text-align: justify; }
+p.dropcap::first-letter {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.85;
+  color: #9d3641;
+  font-style: italic;
+  padding: 0 10px 0 0;
+  margin-right: 7px;
+}
+a { color: #7a2028; text-decoration: underline dotted #c8b26a; transition: text-decoration 0.2s; }
+a:hover { text-decoration: underline solid #c8b26a; }
+.break { text-align: center; color: #c8b26a; font-size: 20px; margin: 44px 0; letter-spacing: 24px; }
+.note { background: rgba(200, 178, 106, 0.08); border: 1px solid #e4d7b5; padding: 16px 20px; margin: 30px 0; font-style: italic; }
+.further { border-top: 1px solid #c9b88a; padding-top: 30px; margin-top: 48px; font-size: 15px; }
+.further p { text-align: left; }
+.small { font-size: 13px; color: #6b5636; }
