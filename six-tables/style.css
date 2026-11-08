@@ -1,0 +1,196 @@
+/* The West Stands — forum thread 0417 */
+:root {
+  --olive: #3b4028;
+  --olive-deep: #23271a;
+  --khaki: #e7dfc6;
+  --paper: #f3edda;
+  --gold: #b98d2f;
+  --gold-bright: #d8ab4e;
+  --ink: #22241c;
+  --stamp: #8c2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(216, 171, 78, 0.16), transparent 55%),
+    repeating-linear-gradient(115deg, rgba(0,0,0,0.028) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #2c3020 0%, var(--olive-deep) 100%);
+  min-height: 100vh;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+}
+
+/* ---------- board header ---------- */
+.board {
+  background: linear-gradient(180deg, var(--olive) 0%, var(--olive-deep) 100%);
+  border: 1px solid var(--gold);
+  box-shadow:
+    0 0 0 4px var(--olive-deep),
+    0 0 0 5px rgba(185, 141, 47, 0.55),
+    0 18px 40px rgba(0, 0, 0, 0.5);
+  color: var(--khaki);
+  padding: 1.4rem 1.6rem 1.2rem;
+  position: relative;
+}
+.board::before,
+.board::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.board::before { top: -7px; left: -7px; }
+.board::after  { bottom: -7px; right: -7px; }
+
+.board-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.board-name { color: var(--gold-bright); }
+.board-name span { color: var(--khaki); opacity: .75; letter-spacing: .06em; text-transform: none; }
+.board-rule { display: flex; gap: 1rem; color: var(--khaki); }
+.board-rule .open { color: #9fd08a; animation: lamp 2.2s ease-in-out infinite; }
+@keyframes lamp {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4.5vw, 2.7rem);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin: .9rem 0 .4rem;
+  color: var(--paper);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+}
+
+.crumbs {
+  margin: 0;
+  font-size: .85rem;
+  color: var(--khaki);
+  opacity: .9;
+}
+.crumbs a { color: var(--gold-bright); }
+
+/* ---------- thread posts ---------- */
+.thread { margin-top: 1.6rem; }
+
+.post {
+  background: var(--paper);
+  background-image: repeating-linear-gradient(0deg, rgba(185,141,47,0.05) 0 1px, transparent 1px 28px);
+  border: 1px solid #b8ad8b;
+  border-left: 6px solid var(--gold);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  margin-bottom: 1.4rem;
+  padding: 0 1.4rem 1.2rem;
+  position: relative;
+}
+.post::after {
+  content: attr(data-stamp, "");
+  position: absolute;
+  top: .9rem;
+  right: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: .25em;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: .25rem .6rem .2rem;
+  transform: rotate(6deg);
+  opacity: .85;
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem 1rem;
+  border-bottom: 3px double #b8ad8b;
+  margin: 0 -1.4rem 1rem;
+  padding: .8rem 1.4rem .55rem;
+  background: linear-gradient(180deg, rgba(185, 141, 47, 0.16), transparent);
+}
+.post-no {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .22em;
+  background: var(--olive);
+  color: var(--gold-bright);
+  padding: .2rem .55rem .15rem;
+}
+.handle { font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; }
+.meta { font-size: .82rem; color: #6a6349; font-style: italic; }
+.rank {
+  margin-left: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .68rem;
+  letter-spacing: .28em;
+  color: var(--olive);
+  border: 1px solid var(--olive);
+  padding: .18rem .5rem .12rem;
+  transform: skewX(-8deg);
+}
+.rank:empty { display: none; }
+
+.body { font-size: 1.02rem; line-height: 1.68; }
+.body p { margin: 0 0 1rem; }
+.body p:last-child { margin-bottom: 0; }
+
+.body a {
+  color: #5c4a12;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.body a:hover { color: var(--gold); }
+
+blockquote.corrupt {
+  margin: 1.1rem 0;
+  padding: .9rem 1.1rem;
+  background: #e4d9b8;
+  border: 1px dashed var(--stamp);
+  border-left: 5px solid var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-size: .92rem;
+  line-height: 1.6;
+  color: #4a2a1e;
+  box-shadow: inset 0 0 24px rgba(140, 47, 36, 0.12);
+}
+
+/* ---------- footer ---------- */
+.board-foot {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--khaki);
+  font-size: .85rem;
+  border-top: 3px double var(--gold);
+  padding-top: 1rem;
+}
+.board-foot p { margin: .3rem 0; }
+.board-foot a { color: var(--gold-bright); }
+
+@media (max-width: 560px) {
+  .post { padding: 0 1rem 1rem; }
+  .post-head { margin: 0 -1rem .9rem; padding: .7rem 1rem .5rem; }
+  .rank { margin-left: 0; }
+}
