@@ -1,0 +1,240 @@
+/* The Mediterranean Sea — Travel Guide, Entry No. 12 */
+
+:root {
+  --sea-deep: #0d3b4f;
+  --sea-mid: #14607a;
+  --sea-pewter: #4a7d8f;
+  --sand: #f3e9d6;
+  --paper: #faf4e4;
+  --ink: #232b30;
+  --terracotta: #c25e3a;
+  --bitter: #d99a2b;
+  --line: rgba(13, 59, 79, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 400px at 50% -120px, rgba(20, 96, 122, 0.22), transparent 70%),
+    linear-gradient(180deg, #e8f0f2 0%, #dce9ec 40%, #cfe0e4 100%);
+  min-height: 100vh;
+  line-height: 1.65;
+}
+
+/* --- tide band, top of the page --- */
+.tide {
+  position: relative;
+  height: 120px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--sea-deep) 0%, var(--sea-mid) 60%, var(--sea-pewter) 100%);
+}
+.wave {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  height: 60px;
+  border-radius: 45%;
+  opacity: 0.35;
+  animation: drift 14s linear infinite;
+}
+.wave-a { top: 34px;  background: rgba(250, 244, 228, 0.35); animation-duration: 11s; }
+.wave-b { top: 52px;  background: rgba(217, 154, 43, 0.30);  animation-duration: 17s; animation-direction: reverse; }
+.wave-c { top: 68px;  background: rgba(250, 244, 228, 0.25); animation-duration: 23s; }
+@keyframes drift {
+  from { transform: translateX(-6%) rotate(0.4deg); }
+  to   { transform: translateX(6%)  rotate(-0.4deg); }
+}
+
+/* --- the folio --- */
+.foglio {
+  max-width: 760px;
+  margin: -56px auto 48px;
+  padding: 48px 56px 40px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 2px 0 var(--terracotta) inset,
+    0 24px 48px -24px rgba(13, 59, 79, 0.45);
+  outline: 2px solid rgba(194, 94, 58, 0.5);
+  outline-offset: 5px;
+  position: relative;
+}
+
+/* --- masthead --- */
+.service {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--terracotta);
+  margin: 0 0 14px;
+}
+h1 {
+  font-size: 2.7rem;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--sea-deep);
+  letter-spacing: -0.01em;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 5px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, var(--bitter), var(--terracotta));
+  border-radius: 3px;
+}
+.phon {
+  font-size: 1rem;
+  color: var(--sea-pewter);
+  margin: 10px 0 0;
+}
+.coords {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--sea-mid);
+  margin: 14px 0 0;
+}
+.byline {
+  margin: 22px 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.9rem;
+  color: #4d5a60;
+}
+
+/* decorative sun disc */
+.sun {
+  position: absolute;
+  top: 40px;
+  right: 44px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f6d98a, var(--bitter) 60%, #b3761a);
+  box-shadow: 0 0 0 6px rgba(217, 154, 43, 0.18), 0 0 34px rgba(217, 154, 43, 0.4);
+  animation: glow 6s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(217, 154, 43, 0.18), 0 0 34px rgba(217, 154, 43, 0.4); }
+  50%      { box-shadow: 0 0 0 10px rgba(217, 154, 43, 0.10), 0 0 48px rgba(217, 154, 43, 0.55); }
+}
+
+/* --- entries --- */
+.entry { margin: 34px 0; }
+.entry h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sea-mid);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin: 0 0 14px;
+}
+.entry h2::before { content: "◈ "; color: var(--terracotta); }
+.entry p { margin: 0 0 14px; }
+
+a {
+  color: var(--sea-mid);
+  text-decoration: underline;
+  text-decoration-color: rgba(194, 94, 58, 0.6);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--terracotta); }
+
+.entry-meta {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  background: rgba(20, 96, 122, 0.08);
+  border-left: 3px solid var(--bitter);
+  padding: 10px 14px;
+}
+.label { color: var(--terracotta); font-weight: 600; }
+
+/* --- stops --- */
+.stop {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.stop:last-of-type { border-bottom: none; }
+.stop-no {
+  flex: 0 0 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sea-deep);
+  color: var(--sand);
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.stop h3 { margin: 2px 0 6px; font-size: 1rem; color: var(--sea-deep); }
+.stop p { margin: 0; font-size: 0.96rem; }
+
+/* --- measures table --- */
+table.measures {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+table.measures td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+table.measures tr td:first-child {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: var(--sea-mid);
+  width: 42%;
+}
+
+.measured { color: var(--terracotta); font-weight: 600; }
+
+.sign-off {
+  margin-top: 24px;
+  color: #4d5a60;
+  font-style: italic;
+}
+
+/* --- footer --- */
+.tail {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 2px solid var(--sea-deep);
+  font-size: 0.9rem;
+}
+.see-head {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--terracotta);
+  margin: 0 0 8px;
+}
+.colophon {
+  margin: 14px 0 0;
+  font-style: italic;
+  color: #6b7880;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 620px) {
+  .foglio { padding: 32px 22px 28px; margin: -40px 12px 24px; }
+  h1 { font-size: 2rem; }
+  .sun { width: 40px; height: 40px; top: 24px; right: 20px; }
+}
