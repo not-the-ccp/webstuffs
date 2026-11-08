@@ -1,0 +1,169 @@
+/* Poucha Pond — liner notes booklet, EFT 69-01 */
+:root {
+  --paper: #efe9db;
+  --paper-edge: #e4dcc9;
+  --ink: #23201a;
+  --faint: #6d6455;
+  --rule: #23201a;
+}
+* { box-sizing: border-box; }
+html { background: #d8d2c2; }
+body {
+  margin: 0;
+  padding: 3rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(0,0,0,.05), transparent 40%),
+    radial-gradient(circle at 88% 92%, rgba(0,0,0,.06), transparent 45%),
+    #d8d2c2;
+}
+.booklet {
+  max-width: 42rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 120px),
+    var(--paper);
+  border: 1px solid #b8ae97;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 18px 40px rgba(40,34,24,.35);
+  padding: 2.5rem 2.75rem 2rem;
+  position: relative;
+}
+.booklet::before,
+.booklet::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 6px);
+  pointer-events: none;
+}
+.booklet::before { top: 0; }
+.booklet::after { bottom: 0; }
+
+.gate {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 3px double var(--rule);
+}
+.gate-press {
+  margin: 0;
+  font-size: .72rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.gate-num {
+  margin: .35rem 0 .6rem;
+  font-size: 1.05rem;
+  letter-spacing: .18em;
+  font-weight: bold;
+}
+.gate-disc {
+  width: 3.4rem; height: 3.4rem;
+  margin: 0 auto .6rem;
+  border: 2px solid var(--rule);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform: rotate(-8deg);
+}
+.gate-disc span {
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  padding: .2rem .45rem;
+}
+.gate-note { margin: 0; font-size: .78rem; color: var(--faint); font-style: italic; }
+
+.masthead { text-align: center; margin-bottom: 1.4rem; }
+.kicker {
+  margin: 0 0 .8rem;
+  font-size: .7rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+h1 {
+  margin: 0;
+  font-size: 2.9rem;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-variant: small-caps;
+}
+.sub {
+  margin: .7rem 0 0;
+  font-size: .9rem;
+  font-style: italic;
+  color: var(--faint);
+}
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 1.4rem 0; }
+
+.notes p { margin: 0 0 1.1rem; }
+.notes p:first-of-type::first-letter {
+  font-size: 3.1rem;
+  line-height: .9;
+  float: left;
+  padding: .08rem .5rem .1rem 0;
+  font-weight: bold;
+}
+
+.sides h2, .credits h2 {
+  font-size: .8rem;
+  font-variant: small-caps;
+  letter-spacing: .22em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+  margin: 1.8rem 0 1rem;
+}
+.tracks {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+.tracks caption {
+  caption-side: top;
+  text-align: left;
+  font-size: .72rem;
+  color: var(--faint);
+  font-style: italic;
+  padding-bottom: .4rem;
+}
+.tracks td {
+  padding: .3rem .4rem .3rem 0;
+  border-bottom: 1px dotted #a3987f;
+  vertical-align: baseline;
+}
+.tracks td.n { width: 1.6rem; color: var(--faint); }
+.tracks td.d {
+  width: 4rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--faint);
+}
+.tracks td.t::after {
+  content: "";
+  display: inline-block;
+  width: .6rem;
+  border-bottom: 1px dotted #a3987f;
+  margin-left: .3rem;
+  transform: translateY(-.18rem);
+}
+.credits p { font-size: .85rem; color: var(--faint); }
+
+a { color: inherit; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; }
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: .8rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.colophon p { margin: 0; }
