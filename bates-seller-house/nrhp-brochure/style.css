@@ -1,0 +1,212 @@
+/* Pacific–Great Lakes Heritage Route — Brochure No. 7 */
+
+:root {
+  --paper: #f5edda;
+  --paper-deep: #ece0c4;
+  --ink: #23302a;
+  --green: #17372c;
+  --brass: #a8823c;
+  --brass-soft: #c8a45f;
+  --oxblood: #8a2f2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(168, 130, 60, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(23, 55, 44, 0.12), transparent 40%),
+    #22303b;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0.75rem 4rem;
+}
+
+.brochure {
+  position: relative;
+  width: 100%;
+  max-width: 46rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(35, 48, 42, 0.025) 0 1px, transparent 1px 3px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 3px double var(--green);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.perforation {
+  height: 12px;
+  background-image: radial-gradient(circle at 8px 6px, #22303b 4.5px, transparent 5px);
+  background-size: 18px 12px;
+  background-repeat: repeat-x;
+}
+.perforation.bottom { transform: scaleY(-1); }
+
+.cover {
+  text-align: center;
+  padding: 2.25rem 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.issue {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 6vw, 3.3rem);
+  line-height: 1.04;
+  margin: 0;
+  color: var(--green);
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  margin: 0.9rem auto 1.1rem;
+  max-width: 30rem;
+  font-style: italic;
+  color: #4c5a52;
+}
+
+.mark { color: var(--brass); display: flex; justify-content: center; }
+.mark svg polygon:last-child {
+  animation: drift 6s ease-in-out infinite;
+  transform-origin: 32px 20px;
+}
+@keyframes drift {
+  0%, 100% { transform: translateX(-3px); opacity: 0.85; }
+  50%      { transform: translateX(3px); opacity: 1; }
+}
+
+.panel {
+  padding: 1.4rem 1.75rem 1.6rem;
+  border-bottom: 1px dashed rgba(168, 130, 60, 0.65);
+}
+.panel:last-of-type { border-bottom: none; }
+
+h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--oxblood);
+  margin: 0 0 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+h2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brass), transparent);
+}
+
+p { line-height: 1.62; margin: 0 0 0.85rem; }
+a { color: var(--green); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+a:hover { color: var(--oxblood); }
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.1rem 0 0.2rem;
+}
+.counter {
+  border: 1px solid var(--brass);
+  background: rgba(168, 130, 60, 0.07);
+  padding: 0.6rem 0.7rem 0.5rem;
+  text-align: center;
+}
+.counter .num {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+}
+.counter .cap {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5a5340;
+  margin-top: 0.15rem;
+}
+
+.stop {
+  border-left: 3px solid var(--brass);
+  padding: 0.25rem 0 0.35rem 1rem;
+  margin-bottom: 1.3rem;
+}
+.stop:last-child { margin-bottom: 0.2rem; }
+.stop-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 0.25rem;
+}
+h3 {
+  font-size: 1.12rem;
+  color: var(--green);
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+
+.fineprint {
+  font-size: 0.78rem;
+  color: #5a5340;
+  border-top: 1px dotted rgba(35, 48, 42, 0.4);
+  padding-top: 0.7rem;
+}
+
+.stamp {
+  position: absolute;
+  top: 34%;
+  right: 5%;
+  padding: 0.55rem 0.9rem;
+  border: 3px solid var(--oxblood);
+  border-radius: 6px;
+  color: var(--oxblood);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: rotate(-12deg) scale(2.6);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.stamp.shown {
+  animation: stamp-slam 0.4s cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+}
+@keyframes stamp-slam {
+  0%   { opacity: 0; transform: rotate(-12deg) scale(2.6); }
+  70%  { opacity: 0.92; transform: rotate(-12deg) scale(0.94); }
+  100% { opacity: 0.88; transform: rotate(-12deg) scale(1); }
+}
+
+.stamp-btn {
+  display: block;
+  margin: 0.4rem auto 1.6rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: transparent;
+  border: 1px solid var(--green);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.stamp-btn:hover { background: var(--green); color: var(--paper); }
