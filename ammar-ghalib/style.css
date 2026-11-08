@@ -1,0 +1,166 @@
+/* Field notes — Entry 12. Paper, ink, and one red stamp. */
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #e9ddc0;
+  --ink: #26323b;
+  --ink-soft: #4d5a63;
+  --rule: #b9a97f;
+  --accent: #7a2e1d;
+  --green: #3f5d3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #cdd8c4 0%, transparent 60%),
+    radial-gradient(1000px 700px at 110% 110%, #c9b98f 0%, transparent 55%),
+    #b8c4b1;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 960px;
+  margin: 3rem auto 4rem;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 31px, rgba(122, 46, 29, 0.10) 31px 32px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #93835c;
+  box-shadow: 0 24px 60px rgba(38, 50, 59, 0.35), inset 0 0 80px rgba(148, 128, 84, 0.18);
+  position: relative;
+}
+.sheet::before { /* red margin rule */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 92px;
+  width: 1px;
+  background: rgba(122, 46, 29, 0.45);
+}
+
+.spine {
+  background: linear-gradient(180deg, #3f5d3a, #2c4028);
+  color: #e9ddc0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.spine-top { font-weight: 700; }
+.spine-mid { opacity: 0.8; }
+.spine-bot {
+  transform: rotate(180deg);
+  border: 1px solid #e9ddc0;
+  padding: 0.4rem 0.6rem;
+}
+
+.page { padding: 2.5rem 2.75rem 2rem 4.5rem; }
+
+.masthead { border-bottom: 3px double var(--rule); padding-bottom: 1rem; }
+.masthead-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin: 0.35rem 0 0.25rem;
+  letter-spacing: 0.01em;
+}
+h1 .arabic {
+  font-size: 0.55em;
+  color: var(--accent);
+  margin-left: 0.5rem;
+}
+.specimen-line {
+  margin: 0 0 1.1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.metadata {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem 1.4rem;
+  margin: 0;
+  font-size: 0.92rem;
+}
+.metadata dt {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.metadata dd { margin: 0.1rem 0 0; }
+
+.notes p { margin: 0 0 1.15rem; text-align: justify; hyphens: auto; }
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--green);
+  font-weight: 700;
+}
+.notes strong { color: var(--accent); }
+.crossrefs {
+  border-left: 3px solid var(--rule);
+  padding-left: 1rem;
+  font-size: 0.95rem;
+}
+a { color: var(--green); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+a:hover { color: var(--accent); text-decoration-style: solid; }
+
+.stamp-area { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px dashed var(--rule); }
+.stamp {
+  display: inline-block;
+  transform: rotate(-6deg);
+  border: 3px double var(--accent);
+  color: var(--accent);
+  padding: 0.55rem 1.1rem;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  border-radius: 6px;
+  mix-blend-mode: multiply;
+  animation: settle 0.9s ease-out both;
+}
+.stamp-line { display: block; }
+.stamp-line.big { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.3em; }
+@keyframes settle {
+  0% { transform: rotate(2deg) scale(1.4); opacity: 0; }
+  70% { transform: rotate(-7deg) scale(0.96); opacity: 1; }
+  100% { transform: rotate(-6deg) scale(1); opacity: 0.85; }
+}
+.notes p strong .pencil-line {
+  display: block;
+  height: 2px;
+  margin-top: 2px;
+  background: linear-gradient(90deg, transparent, rgba(38, 50, 59, 0.5) 12%, rgba(38, 50, 59, 0.5) 88%, transparent);
+  transform: rotate(-0.4deg);
+}
+
+.colophon { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
+
+@media (max-width: 640px) {
+  .sheet { grid-template-columns: 1fr; margin: 0; }
+  .spine { display: none; }
+  .sheet::before { display: none; }
+  .page { padding: 1.75rem 1.25rem; }
+  .notes p { text-align: left; }
+}
