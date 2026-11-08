@@ -1,0 +1,200 @@
+/* Entry 41 — Plecotus auritus : experimental encyclopaedia sheet */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #1e1a14;
+  --faded: #6d6353;
+  --red: #8a2f24;
+  --chalk: #d9d2c0;
+  --bore: #101014;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.entry-sheet {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 3rem;
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  position: relative;
+  padding-right: 4rem;
+}
+
+.desk-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.4rem;
+}
+
+.species {
+  font-size: clamp(3rem, 9vw, 6.4rem);
+  line-height: 0.95;
+  margin: 0 0 0.6rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.species .italic { font-style: italic; color: var(--red); }
+
+.common {
+  max-width: 34em;
+  font-size: 1.02rem;
+  color: var(--faded);
+  margin: 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 0.2rem;
+  right: 0;
+  transform: rotate(9deg);
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  padding: 0.5rem 0.6rem;
+  text-align: center;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* ---------- specimen card, overlapping the grid ---------- */
+.specimen {
+  position: relative;
+  z-index: 3;
+  width: 320px;
+  max-width: 100%;
+  margin: -1.2rem 0 0 55%;
+  background: var(--bore);
+  color: var(--chalk);
+  transform: rotate(-2.2deg);
+  box-shadow: 0.5rem 0.6rem 0 rgba(30, 26, 20, 0.28);
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+
+.specimen-head {
+  margin: 0 0 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #cbbfa4;
+  border-bottom: 1px solid #4a4a55;
+  padding-bottom: 0.45rem;
+}
+
+.measure { margin: 0; }
+.measure-row {
+  display: grid;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 0.6rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px dotted #4a4a55;
+  font-size: 0.82rem;
+}
+.measure-row:last-child { border-bottom: none; }
+.measure-row dt { color: #9d9482; }
+.measure-row dd { margin: 0; }
+.measure-row.highlight dt { color: #e0b9b0; }
+.measure-row.highlight dd { color: #f0ded8; }
+
+/* ---------- asymmetric body grid ---------- */
+.body-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12rem;
+  gap: 2.4rem;
+  margin-top: 3rem;
+}
+
+.column-prose h2 {
+  font-size: 0.86rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--red);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.35rem;
+  margin: 2.4rem 0 0.8rem;
+}
+.column-prose h2:first-child { margin-top: 0; }
+
+.column-prose p { max-width: 46em; }
+
+blockquote.parish-line {
+  margin: 1.2rem 0 1.2rem 2rem;
+  padding: 1rem 1.4rem;
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  border-left: 4px solid var(--red);
+  background: rgba(138, 47, 36, 0.06);
+  max-width: 30em;
+}
+
+/* ---------- marginalia strip ---------- */
+.side-strip {
+  margin-top: 1rem;
+  border-left: 2px solid var(--ink);
+  padding-left: 1.1rem;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.74rem;
+  line-height: 2.1;
+  color: var(--faded);
+  max-height: 22rem;
+  overflow: hidden;
+  margin: 0 0 1.4rem;
+}
+
+.side-note {
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--faded);
+  margin: 0;
+}
+
+/* ---------- links, footer ---------- */
+a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { background: var(--red); color: var(--paper); }
+
+.entry-foot { margin-top: 3.4rem; }
+.foot-rule {
+  border: none;
+  border-top: 3px double var(--ink);
+  margin: 0 0 0.8rem;
+}
+.entry-foot p {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 720px) {
+  .body-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .specimen { margin: 1.4rem 0 0 8%; }
+  .vertical {
+    writing-mode: horizontal-tb;
+    transform: none;
+    max-height: none;
+  }
+  .masthead { padding-right: 0; }
+  .stamp { position: static; display: inline-block; margin-top: 0.8rem; }
+}
