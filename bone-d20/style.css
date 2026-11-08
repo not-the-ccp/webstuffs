@@ -1,0 +1,394 @@
+/* Fitch v. De la Fuente — Burt County record styling */
+
+:root {
+  --ink: #241c12;
+  --ink-soft: #4a3d2a;
+  --parchment: #f0e3c4;
+  --parchment-deep: #e2cf9f;
+  --red: #8c1f1f;
+  --red-bright: #b3221d;
+  --gold: #9a7a2f;
+  --rule: rgba(74, 61, 42, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.62;
+  background-color: var(--parchment-deep);
+  background-image:
+    radial-gradient(ellipse at 12% -5%, rgba(255, 246, 214, 0.9), transparent 55%),
+    radial-gradient(ellipse at 105% 15%, rgba(140, 110, 50, 0.28), transparent 50%),
+    radial-gradient(ellipse at -10% 100%, rgba(120, 85, 35, 0.3), transparent 55%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(74, 61, 42, 0.055) 31px 32px),
+    linear-gradient(160deg, #ecdcB4 0%, #e5d3a4 45%, #d9c28c 100%);
+  background-attachment: fixed;
+}
+
+/* the faint watermark: a twenty */
+.hallmark {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: min(78vh, 60vw);
+  font-weight: 700;
+  color: rgba(140, 31, 31, 0.05);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(-8deg);
+  user-select: none;
+}
+
+.record {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.4rem 5rem;
+}
+
+main.record {
+  background:
+    linear-gradient(90deg, rgba(140, 110, 50, 0.12), transparent 6%, transparent 94%, rgba(140, 110, 50, 0.12)),
+    linear-gradient(180deg, rgba(255, 248, 220, 0.55), rgba(240, 227, 196, 0.2) 20%, rgba(226, 207, 159, 0.25));
+  border-left: 3px double var(--rule);
+  border-right: 3px double var(--rule);
+  box-shadow: 0 0 45px rgba(60, 45, 20, 0.25) inset;
+}
+
+/* ---------- header ---------- */
+
+.court-head {
+  position: relative;
+  text-align: center;
+  padding: 3rem 1rem 0.5rem;
+  border-bottom: none;
+}
+
+.court-head .seal {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  width: clamp(92px, 16vw, 150px);
+  height: auto;
+  opacity: 0.85;
+  animation: seal-turn 90s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes seal-turn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.seal-outer { fill: none; stroke: var(--red); stroke-width: 3; }
+.seal-inner { fill: none; stroke: var(--red); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.seal-text { fill: var(--red); font-family: Georgia, serif; }
+.seal-die-hex { fill: rgba(140, 31, 31, 0.08); stroke: var(--red); stroke-width: 2; }
+.seal-die-top { fill: rgba(140, 31, 31, 0.16); stroke: var(--red); stroke-width: 1; }
+.seal-die-num { fill: var(--red); font-family: Georgia, serif; font-weight: 700; }
+.seal-die-num.small { font-size: 9px; }
+
+.court-line {
+  margin: 0.2rem 0;
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.caption {
+  margin: 1.4rem auto 0;
+  max-width: 26rem;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  text-align: left;
+  font-variant: small-caps;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.8rem 0;
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(255, 250, 230, 0.5) 8% 92%, transparent 92%);
+}
+
+.caption .party { font-weight: 700; }
+.caption .v { font-style: italic; font-weight: 400; font-size: 1.05rem; }
+.caption .inre { font-size: 1.05rem; letter-spacing: 0.02em; }
+
+.meta {
+  max-width: 34rem;
+  margin: 1.1rem auto 0;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.meta p { margin: 0.15rem 0; }
+
+.heavy-rule {
+  border: none;
+  height: 7px;
+  margin: 1.4rem 0 0;
+  background:
+    linear-gradient(var(--ink), var(--ink)) top / 100% 2px no-repeat,
+    linear-gradient(var(--ink), var(--ink)) bottom / 100% 1px no-repeat;
+}
+
+/* ---------- the stamp ---------- */
+
+.stamp {
+  display: inline-block;
+  position: relative;
+  margin: 1.6rem 0 0 14%;
+  padding: 0.35em 0.9em;
+  font-family: "Arial Black", "Franklin Gothic Medium", Impact, sans-serif;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  letter-spacing: 0.14em;
+  color: var(--red-bright);
+  border: 4px double var(--red-bright);
+  border-radius: 6px;
+  transform: rotate(-6deg);
+  opacity: 0;
+  animation: stamp-in 0.7s cubic-bezier(0.2, 1.6, 0.4, 1) 0.5s forwards;
+  mix-blend-mode: multiply;
+  user-select: none;
+}
+
+.stamp::after {
+  content: "EX-14";
+  position: absolute;
+  right: -0.55em;
+  bottom: -0.85em;
+  font-size: 0.42em;
+  letter-spacing: 0.2em;
+  border: 2px solid var(--red-bright);
+  border-radius: 50%;
+  padding: 0.28em 0.1em;
+}
+
+@keyframes stamp-in {
+  0%   { opacity: 0; transform: rotate(-6deg) scale(2.6); }
+  70%  { opacity: 1; transform: rotate(-6deg) scale(0.94); }
+  100% { opacity: 0.92; transform: rotate(-6deg) scale(1); }
+}
+
+/* ---------- standfirst ---------- */
+
+.standfirst {
+  max-width: 44rem;
+  margin: 2rem auto 1rem;
+  padding: 0.9rem 1.2rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  border-left: 4px solid var(--gold);
+  background: linear-gradient(90deg, rgba(154, 122, 47, 0.12), transparent 85%);
+}
+
+/* ---------- transcript pages ---------- */
+
+.page {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto 2.2rem;
+  padding: 1.3rem 1.4rem 1.4rem 3.2rem;
+  border: 1px solid rgba(74, 61, 42, 0.28);
+  border-left: 10px solid transparent;
+  border-image: repeating-linear-gradient(180deg, var(--gold) 0 8px, transparent 8px 16px) 10;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(154, 122, 47, 0.08), transparent 60%),
+    linear-gradient(180deg, rgba(255, 250, 228, 0.6), rgba(243, 230, 199, 0.35));
+  box-shadow: 3px 3px 0 rgba(74, 61, 42, 0.14);
+}
+
+.pagenum {
+  position: absolute;
+  top: -0.7rem;
+  left: 1.4rem;
+  padding: 0 0.6em;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  font-variant: small-caps;
+  background: var(--parchment);
+  color: var(--ink-soft);
+}
+
+.speaker { margin: 0 0 1rem; }
+.speaker:first-of-type { text-indent: 0; }
+
+.page p:first-of-type::first-letter,
+.standfirst::first-letter {
+  font-size: 2.9em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--red);
+  font-family: Georgia, serif;
+}
+
+.speaker > span {
+  display: block;
+  margin-bottom: 0.2em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--red);
+}
+
+.page a, .see a {
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.page a:hover, .see a:hover { background: rgba(179, 34, 29, 0.12); }
+
+em { color: inherit; }
+
+/* ---------- the order ---------- */
+
+.order h2 {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.order h2::before, .order h2::after {
+  content: " \2726 ";
+  color: var(--gold);
+}
+
+.order-block {
+  margin: 1rem 0;
+  padding: 1.1rem 1.3rem;
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(74, 61, 42, 0.1) 27px 28px),
+    linear-gradient(180deg, rgba(255, 250, 230, 0.75), rgba(238, 224, 186, 0.5));
+}
+.order-block p { margin: 0.55rem 0; }
+.order-block strong {
+  display: block;
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.24em;
+  margin-bottom: 0.8rem;
+}
+
+/* ---------- footer ---------- */
+
+.colophon { max-width: 46rem; margin: 2.6rem auto 0; }
+
+.certified {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.signature-block {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  font-size: 0.85rem;
+  margin: 1.4rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.7rem 0.4rem;
+}
+
+.see { font-size: 0.92rem; color: var(--ink-soft); }
+
+/* ---------- docket roll ---------- */
+
+.docket-roll {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 5;
+  width: 11.5rem;
+  padding: 0.9rem 0.9rem 0.8rem;
+  text-align: center;
+  background: linear-gradient(165deg, #2c2316, #1d160c);
+  border: 1px solid var(--gold);
+  outline: 1px solid rgba(154, 122, 47, 0.4);
+  outline-offset: 3px;
+  color: #e9dcb8;
+  font-size: 0.72rem;
+  box-shadow: 0 10px 28px rgba(20, 14, 5, 0.55);
+}
+
+.docket-roll button {
+  font-family: Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  color: #f2e6c2;
+  background: linear-gradient(180deg, var(--red) 0%, #5f1414 100%);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  padding: 0.45em 0.7em;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.docket-roll button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(179, 34, 29, 0.5);
+}
+.docket-roll button:active { transform: translateY(0); }
+
+.die-face {
+  width: 58px;
+  height: 52px;
+  margin: 0.7rem auto 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(160deg, #f5ecd2, #cdbb8d);
+  animation: die-bob 4s ease-in-out infinite;
+}
+
+@keyframes die-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(3deg); }
+}
+
+.die-face span {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--red);
+}
+
+.die-face.spinning { animation: die-spin 0.12s linear infinite; }
+
+@keyframes die-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(14deg) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.roll-note {
+  margin: 0;
+  line-height: 1.4;
+  color: #cdbc92;
+  font-style: italic;
+}
+
+@media (max-width: 40rem) {
+  .court-head .seal { position: static; margin: 0 auto 1rem; display: block; }
+  .docket-roll { width: 9.5rem; }
+}
