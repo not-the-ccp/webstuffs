@@ -1,0 +1,245 @@
+/* The Fowlers' Quail — kitchen-ledger page */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dcbc;
+  --ink: #2b2118;
+  --faded-ink: #5d4f3d;
+  --oxblood: #6b1d24;
+  --oxblood-deep: #4a1218;
+  --brass: #a67c2e;
+  --brass-soft: #c9a35c;
+  --candle: #ffbe5c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 190, 92, 0.20), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(93, 79, 61, 0.045) 0 2px, transparent 2px 27px),
+    linear-gradient(160deg, #efe3c8 0%, var(--paper) 40%, var(--paper-deep) 100%);
+  line-height: 1.62;
+}
+
+.recipe-sheet {
+  max-width: 52rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 3.25rem 2.5rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 225, 170, 0.35), transparent 60%),
+    rgba(255, 252, 243, 0.62);
+  border: 3px double var(--oxblood);
+  outline: 1px solid var(--brass-soft);
+  outline-offset: 6px;
+  box-shadow:
+    0 0 0 10px rgba(243, 233, 210, 0.9),
+    0 24px 60px rgba(43, 33, 24, 0.28);
+}
+
+/* faint ledger watermark */
+.recipe-sheet::before {
+  content: "K·S·F.";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 11rem;
+  letter-spacing: 0.35em;
+  color: var(--oxblood);
+  opacity: 0.045;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+/* candle ornament */
+.candle {
+  position: absolute;
+  top: -1.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.candle .flame {
+  width: 14px;
+  height: 22px;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(circle at 50% 75%, #fff3c4 0 28%, var(--candle) 55%, #e2801f 100%);
+  box-shadow: 0 0 22px 8px rgba(255, 190, 92, 0.45);
+  animation: flicker 2.6s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+.candle .wax {
+  width: 10px;
+  height: 26px;
+  background: linear-gradient(#f7e9c9, #e6cf9d);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+  30%      { transform: scale(1.06, 0.94) rotate(2.5deg); opacity: 0.88; }
+  60%      { transform: scale(0.94, 1.08) rotate(-1.5deg); opacity: 0.96; }
+}
+
+.masthead { text-align: center; }
+.ledger-line {
+  font-style: italic;
+  color: var(--faded-ink);
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+h1 {
+  font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+  line-height: 1.12;
+  margin: 0.2rem 0 0.8rem;
+  color: var(--oxblood-deep);
+  font-weight: 700;
+}
+.dedication {
+  margin: 0 auto;
+  max-width: 34rem;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+.dedication strong { font-style: normal; }
+
+.rule {
+  border: 0;
+  text-align: center;
+  margin: 1.4rem 0 1.7rem;
+  position: relative;
+}
+.rule::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  height: 4px;
+  transform: translateY(-50%);
+}
+.rule span {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.9rem;
+  background: transparent;
+  color: var(--brass);
+  font-size: 1.15rem;
+}
+
+.body-copy h2 {
+  font-size: 1.02rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--brass-soft);
+  padding-bottom: 0.35rem;
+  margin: 2.1rem 0 0.9rem;
+}
+
+.body-copy p { margin: 0 0 1.1rem; }
+.lead::first-letter {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.82;
+  padding: 0.1rem 0.55rem 0 0;
+  color: var(--oxblood);
+  font-weight: 700;
+}
+
+.strong, strong { font-weight: 700; }
+a {
+  color: var(--oxblood);
+  text-decoration-color: var(--brass-soft);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--oxblood-deep); background: rgba(166, 124, 46, 0.14); }
+
+/* ingredients card */
+.ingredients table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 252, 243, 0.55);
+  border: 1px solid var(--brass-soft);
+  font-size: 0.95rem;
+}
+.ingredients td {
+  padding: 0.45rem 0.8rem;
+  border-bottom: 1px dotted rgba(93, 79, 61, 0.4);
+  vertical-align: top;
+}
+.ingredients tr:last-child td { border-bottom: 0; }
+.ingredients td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  color: var(--faded-ink);
+  font-style: italic;
+}
+
+/* method */
+.method ol { padding-left: 1.4rem; }
+.method li { margin-bottom: 1rem; }
+.method li::marker { color: var(--oxblood); font-weight: 700; }
+.method li strong:first-child {
+  color: var(--oxblood-deep);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+/* table of seven */
+.table-of-seven {
+  display: flex;
+  justify-content: center;
+  gap: 0.85rem;
+  margin: 2.6rem 0 0.3rem;
+}
+.seat {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--oxblood);
+  background: transparent;
+  transition: background 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease;
+}
+.seat.seated {
+  background: radial-gradient(circle at 35% 30%, var(--brass-soft), var(--oxblood));
+  box-shadow: 0 0 12px rgba(166, 124, 46, 0.55);
+  transform: scale(1.12);
+}
+.seat.eighth { border-style: dashed; }
+.seat.eighth.seated {
+  background: radial-gradient(circle at 35% 30%, #fff3c4, var(--candle));
+  box-shadow: 0 0 14px rgba(255, 190, 92, 0.75);
+}
+.table-caption {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--faded-ink);
+  margin: 0 0 1.4rem;
+}
+
+/* colophon */
+.colophon {
+  margin-top: 2rem;
+  border-top: 3px double var(--oxblood);
+  padding-top: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--faded-ink);
+}
+.colophon p { margin: 0.3rem 0; }
+.nav { text-align: center; }
+.nav a { margin: 0 0.5rem; }
+
+@media (max-width: 40rem) {
+  .recipe-sheet { margin: 1rem 0.5rem 2rem; padding: 2rem 1.25rem 1.5rem; }
+  .candle { display: none; }
+  .ingredients td:last-child { white-space: normal; }
+}
