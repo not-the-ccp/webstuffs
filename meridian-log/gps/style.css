@@ -1,0 +1,308 @@
+/* FM-9 Addendum A — the satellite chapter. Deep-space cover over a printed manual page. */
+
+:root {
+  --ink: #0b1220;
+  --ink-2: #101b30;
+  --paper: #f5eeda;
+  --paper-2: #efe4c8;
+  --gold: #d4a94e;
+  --gold-dim: #9c7a2f;
+  --rust: #a34d26;
+  --text: #241d12;
+  --mono: "Courier New", Courier, monospace;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--ink); }
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+
+/* ---------- the sky ---------- */
+.sky {
+  position: relative;
+  min-height: 340px;
+  background:
+    radial-gradient(ellipse at 70% 110%, #1c2c4a 0%, transparent 60%),
+    linear-gradient(180deg, #060a14 0%, var(--ink) 55%, var(--ink-2) 100%);
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, #cfd8ea 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 31% 64%, #e8d9a8 50%, transparent 51%),
+    radial-gradient(1px 1px at 47% 15%, #aab6d4 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 41%, #cfd8ea 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 78% 71%, #8fa0c4 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 26%, #e8d9a8 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 84%, #aab6d4 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 88%, #cfd8ea 50%, transparent 51%);
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+.stars-b {
+  background-position: 40px 20px;
+  opacity: .6;
+  animation-duration: 9s;
+}
+@keyframes twinkle { from { opacity: .45; } to { opacity: .95; } }
+
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(212, 169, 78, .35);
+  border-radius: 50%;
+}
+.orbit-1 { width: 560px; height: 150px; animation: orbit-spin 22s linear infinite; }
+.orbit-2 { width: 760px; height: 210px; animation: orbit-spin 34s linear infinite reverse; border-color: rgba(143, 160, 196, .3); }
+.orbit-3 { width: 360px; height: 96px; animation: orbit-spin 14s linear infinite; }
+
+.sat {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  margin-left: -4px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(212, 169, 78, .8);
+}
+.sat-alt { background: #9db1d9; box-shadow: 0 0 8px 2px rgba(157, 177, 217, .8); }
+
+@keyframes orbit-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* ---------- the cover ---------- */
+.cover {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 28px 40px;
+  position: relative;
+}
+
+.stamp {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  transform: rotate(7deg);
+  border: 3px double var(--gold);
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  padding: 6px 12px;
+  background: rgba(212, 169, 78, .07);
+}
+
+.tape {
+  height: 10px;
+  background: repeating-linear-gradient(45deg, var(--gold) 0 12px, var(--ink) 12px 24px);
+  opacity: .85;
+  margin-bottom: 34px;
+}
+
+.agency, .code {
+  font-family: var(--mono);
+  color: #c9b98c;
+  letter-spacing: .22em;
+  font-size: 12px;
+  margin: 0 0 6px;
+}
+.code { color: #8fa0c4; margin-bottom: 22px; }
+
+.cover h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--paper);
+  margin: 0 0 10px;
+  letter-spacing: .01em;
+  text-shadow: 0 0 24px rgba(212, 169, 78, .35);
+}
+
+.subtitle {
+  color: #aab6d4;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ---------- the printed page ---------- */
+main {
+  max-width: 860px;
+  margin: -18px auto 0;
+  padding: 0 18px 40px;
+}
+
+.chapter {
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  border: 1px solid #c8b98d;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .55);
+  padding: 44px 48px 34px;
+  position: relative;
+}
+/* flywire: a dashed line strung down the left margin */
+.chapter::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 28px;
+  bottom: 28px;
+  border-left: 2px dashed rgba(163, 77, 38, .45);
+}
+
+.drop {
+  font-size: 1.02rem;
+}
+.drop::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: .85;
+  padding: 4px 10px 0 0;
+  color: var(--rust);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.25rem;
+  letter-spacing: .06em;
+  color: var(--rust);
+  border-bottom: 2px solid var(--gold-dim);
+  padding-bottom: 6px;
+  margin-top: 2.2em;
+}
+
+/* ---------- tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: .95rem;
+}
+caption {
+  caption-side: top;
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  padding-bottom: 8px;
+  text-align: left;
+}
+.const-table td {
+  border-bottom: 1px solid rgba(156, 122, 47, .35);
+  padding: 7px 8px;
+}
+.const-table td:first-child {
+  font-family: var(--mono);
+  font-size: .85rem;
+  color: var(--rust);
+  white-space: nowrap;
+  padding-right: 18px;
+}
+
+.hdop-table th {
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: left;
+  background: var(--ink);
+  color: var(--gold);
+  padding: 8px 10px;
+}
+.hdop-table td {
+  border-bottom: 1px solid rgba(156, 122, 47, .35);
+  padding: 7px 10px;
+}
+.hdop-table td:first-child { font-family: var(--mono); }
+.hdop-table tr:nth-child(even) td { background: rgba(212, 169, 78, .1); }
+
+/* ---------- the moves ---------- */
+.moves li { margin-bottom: .7em; }
+.moves strong { color: var(--rust); }
+
+/* ---------- the roller ---------- */
+.roller {
+  background: var(--ink);
+  color: var(--paper);
+  border: 2px dashed var(--gold);
+  padding: 18px 22px 16px;
+  margin: 1.4em 0;
+}
+.roller h3 {
+  margin: 0 0 4px;
+  font-family: var(--mono);
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.roller-help { margin: 0 0 12px; font-size: .9rem; color: #c9b98c; font-style: italic; }
+.roller label { font-family: var(--mono); font-size: .9rem; display: block; margin-bottom: 10px; }
+.roller select, .roller button {
+  font-family: var(--mono);
+  font-size: .9rem;
+  padding: 6px 10px;
+  border: 1px solid var(--gold-dim);
+  background: var(--ink-2);
+  color: var(--paper);
+}
+.roller button {
+  cursor: pointer;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: bold;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.roller button:hover { background: #e5bd66; }
+.roller output {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--gold);
+  background: rgba(212, 169, 78, .08);
+  font-size: .95rem;
+}
+
+/* ---------- voice log ---------- */
+.voice-log {
+  margin-top: 2.2em;
+  border: 1px solid var(--gold-dim);
+  border-left: 6px solid var(--rust);
+  background: rgba(163, 77, 38, .06);
+  padding: 16px 20px;
+}
+.log-head {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .16em;
+  color: var(--rust);
+  margin: 0 0 8px;
+}
+
+/* ---------- footer ---------- */
+.manual-footer {
+  max-width: 860px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+  color: #8fa0c4;
+  font-size: .92rem;
+}
+.manual-footer a { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .chapter { padding: 30px 22px 26px; }
+  .chapter::before { display: none; }
+  .stamp { position: static; display: inline-block; margin-bottom: 14px; }
+  .orbit-1, .orbit-2, .orbit-3 { display: none; }
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Positioning System — The Satellite Chapter | Field Manual FM-9, Addendum A</title>
+<meta name="description" content="Game-manual addendum to Field Manual FM-9 on the Global Positioning System: the twenty-four-satellite constellation, trilateration in four moves, the HDOP check table, the crew bench under its shelf mark, and standing orders for a satellite fix off the Maranhão coast.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <div class="stars stars-a"></div>
+  <div class="stars stars-b"></div>
+  <div class="orbit orbit-1"><span class="sat"></span></div>
+  <div class="orbit orbit-2"><span class="sat sat-alt"></span></div>
+  <div class="orbit orbit-3"><span class="sat"></span></div>
+</div>
+
+<header class="cover">
+  <div class="stamp">PUBLIC / DUAL-USE</div>
+  <div class="tape" aria-hidden="true"></div>
+  <p class="agency">COASTAL SURVEY SERVICE &middot; MARANH&Atilde;O SECTOR</p>
+  <p class="code">FIELD MANUAL FM-9 &middot; ADDENDUM A &middot; CAMPAIGN PAGES 47&ndash;52</p>
+  <h1>Global Positioning System</h1>
+  <p class="subtitle">The satellite chapter &mdash; trilateration in four moves, and the bench where the receiver keeps its luck</p>
+</header>
+
+<main>
+
+<section class="chapter">
+  <p class="drop">The Global Positioning System (GPS) is a satellite-based hyperbolic navigation system owned by the United States Space Force and operated by Mission Delta 31. It is one of the global navigation satellite systems (GNSS) that provide geolocation and time information to a GPS receiver anywhere on or near the Earth where signal quality permits. It does not require the user to transmit any data, and operates independently of any telephone or Internet reception, though these technologies can enhance the usefulness of the GPS positioning information. It provides critical positioning capabilities to military, civil, and commercial users around the world. The United States government, in short, is pointing at the sky, and you are allowed to borrow its arithmetic &mdash; this addendum is the borrowing rules.</p>
+
+  <h2>A.1 The constellation, as the almanac reads it</h2>
+  <p>Do not think of the satellites as many. Think of the almanac the receiver downloads before it trusts anything: a short, public schedule of where the whole fleet will be. Off this coast the jangada skippers at <a href="../../pedro-do-rosario/">Pedro do Ros&aacute;rio</a> still shape their dawn run to the reef by the Pedra do Ros&aacute;rio rock, and most of them would rather keep it that way; the receiver goes in the bow locker anyway, and it has never once been asked for permission.</p>
+  <table class="const-table">
+    <caption>Constellation data, as filed (current build-up)</caption>
+    <tbody>
+      <tr><td>Operational satellites</td><td>24 in service, 31 active during the current build-up</td></tr>
+      <tr><td>Orbital planes</td><td>6, each inclined 55&deg; to the equator</td></tr>
+      <tr><td>Altitude</td><td>20,200 km, circular orbits</td></tr>
+      <tr><td>Orbital period</td><td>11 hours 58 minutes of sidereal time &mdash; half a day plus a little</td></tr>
+      <tr><td>Civil signal</td><td>L1 at 1575.42 MHz, the C/A code</td></tr>
+      <tr><td>Second civil signal</td><td>L2 at 1227.60 MHz, the 1980s addition, the one that eats the ionosphere&rsquo;s error in half</td></tr>
+      <tr><td>Time reference</td><td>GPS time, no leap seconds; UTC on a leap-second offset the receiver keeps for you</td></tr>
+    </tbody>
+  </table>
+  <p>The arithmetic works because light keeps its speed, and a satellite says <em>I was here at this instant</em> in a tone that is hard to argue with. What it is not: a replacement for <a href="../">Chapter 4, the geographic coordinate system</a>. The fix you get is still latitude and longitude, still angles on the Earth, still in the datum the receiver thinks the world is &mdash; which is WGS 84, and which is not SIRGAS, so the datum re-check in the parent chapter stands as written.</p>
+
+  <h2>A.2 How a fix works &mdash; four moves</h2>
+  <ol class="moves">
+    <li><strong>Acquire the almanac.</strong> Cold start, no almanac on file: the receiver may stand and squint for up to twelve minutes. Warm start, almanac in hand: under two. The manual&rsquo;s rule for players is the same as the rule for the jangadas &mdash; the longer the boat sits, the less anyone likes it.</li>
+    <li><strong>Track the satellites.</strong> The receiver locks the C/A code on each signal it can see and keeps the ones that stay locked. Three birds is not a fix; it is a circle. Four is the smallest honest number in this chapter.</li>
+    <li><strong>Range each one.</strong> The receiver measures how long the signal took and multiplies by the speed of light. The result is a <em>pseudorange</em>, and the word is doing real work: your clock is a few hundred metres wrong, and the fourth satellite exists mostly to find out by how much.</li>
+    <li><strong>Solve.</strong> Four ranges, four unknowns &mdash; longitude, latitude, height, and your clock&rsquo;s error &mdash; and the geometry closes. Log time, latitude, longitude, and the number of satellites, exactly as the parent chapter&rsquo;s standing orders say, and do not log the receiver&rsquo;s mood.</li>
+  </ol>
+
+  <h2>A.3 The check &mdash; HDOP and the roll</h2>
+  <p>Every fix comes with a number the makers call HDOP &mdash; the geometric dilution of precision, which is a fancy way of saying how badly the satellites are arranged overhead. Five spread across the sky is a kitchen fix; four bunched in one direction is a corridor, and a corridor down the river mouth in the rain is how boats get their reputations. Use the table, roll the d20 the bench keeps, and read the result.</p>
+  <table class="hdop-table">
+    <caption>The HDOP check table</caption>
+    <thead>
+      <tr><th>HDOP</th><th>Modifier</th><th>Field reading</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>under 1.0</td><td>+3</td><td>A kitchen fix. Trust it to the metre.</td></tr>
+      <tr><td>1.0 &ndash; 2.0</td><td>+1</td><td>The standard day. Plot it and move.</td></tr>
+      <tr><td>2.0 &ndash; 5.0</td><td>0</td><td>Honest geometry, no bonus.</td></tr>
+      <tr><td>5.0 &ndash; 10.0</td><td>&minus;2</td><td>A corridor, not a point. Note the long axis.</td></tr>
+      <tr><td>10.0 or worse</td><td>&minus;5</td><td>The receiver has stopped trusting you. Steer by the rock.</td></tr>
+    </tbody>
+  </table>
+  <div class="roller" id="roller">
+    <h3>Bench roll &mdash; satellite fix</h3>
+    <p class="roller-help">Set how many satellites the sky is giving you, roll the d20, and read the line. Four or more is a fix; fewer is a circle, and a circle is not a place.</p>
+    <label>Satellites in view &nbsp;
+      <select id="sats">
+        <option value="2">2 &mdash; decorative</option>
+        <option value="3">3 &mdash; a circle</option>
+        <option value="4" selected>4 &mdash; the smallest honest fix</option>
+        <option value="5">5 &mdash; one to cross-check</option>
+        <option value="6">6 &mdash; a generous sky</option>
+      </select>
+    </label>
+    <button type="button" id="roll-btn">Roll the fix</button>
+    <output id="roll-out" aria-live="polite">The bench roll has not been made yet. The table above is the printed answer.</output>
+  </div>
+
+  <h2>A.4 The bench and the shelf mark</h2>
+  <p>Every piece of kit in the shed runs along the north-wall bench, and everything on it has a shelf mark. At the left end, in its padded sleeve, sits the WAAS-capable receiver the survey vessel lent the crew before it went into dry dock. Nobody leans on it, nobody parks the wash bottle on it. It&rsquo;s by far the holiest on the bench Remaining: the flywire fence line, a second string of lamps nobody in the same shelf mark as the casting platform's headshots. The two leftovers are debris from the <a href="../../bedford-downs/">Bedford Downs build</a>: the flywire fence has not been strung since Sheet 5 was still open, and the lamps are the string that never got lit in the Quilty-era photograph, which the build log filed on the same shelf. The shelf mark itself is the one that holds the headshots from the California casting platform &mdash; whose founder, <a href="../../joey-rubenstein/">Joey Rubenstein</a>, filed his own card in the museum drawer of this site &mdash; and no lamp has ever been marked against any headshot, and the manual will not be the one to start.</p>
+
+  <h2>A.5 Standing orders, satellite chapter</h2>
+  <ol>
+    <li>Cold start before the tide turns: a twelve-minute squint is a luxury the river mouth does not offer.</li>
+    <li>Four satellites minimum. Three is a circle, and a circle is not a place.</li>
+    <li>Re-check the datum before you plot. The receiver says WGS 84; the chart may say SIRGAS; two hundred metres is the width of the channel.</li>
+    <li>Log time, latitude, longitude, satellite count, and HDOP on every entry, in the parent chapter&rsquo;s log format, so the satellite fixes and the hand-bearing fixes sit in the same column.</li>
+    <li>Do not swim the river mouth after rain, satellite or no. The current does not read your pseudoranges.</li>
+    <li>If the fix and the rock disagree, the rock is right. File the receiver under <em>needs a new almanac</em> and steer by the numbers.</li>
+  </ol>
+
+  <div class="voice-log">
+    <p class="log-head">VOICE LOG &middot; 21 JUNE, 03:55 &middot; WEAK, THEN CLEAN</p>
+    <p>The same test channel that carried the <q>Bow-BILL DUCKS</q> fragment in Chapter 4 was re-used for the receiver&rsquo;s acceptance test: the sentence left the shed as C/A code, crossed the ionosphere twice in the notes (once on the way up for the record, once on the way down), and came back word for word. The channel holds; the receiver is admitted to the bench. The jangada skipper&rsquo;s note about the reel and the reef, meanwhile, has a second written version now &mdash; the one a Mirandola kitchen hangs above its pass, which the <a href="../../santa-maria-bianca/novecento/">Osteria dei Novecento review</a> still prints as the only version anyone had written down. The shelf keeps both. It has the space; it has a shelf mark.</p>
+  </div>
+</section>
+
+<footer class="manual-footer">
+  <p>Related: <a href="../">FM-9 Chapter 4 &mdash; The Geographic Coordinate System</a> &middot; <a href="../../bedford-downs/">Bedford Downs Station &mdash; build log</a> &middot; <a href="../../pedro-do-rosario/">Pedro do Ros&aacute;rio &mdash; anyone been?</a> &middot; <a href="../../joey-rubenstein/">Joey Rubenstein &mdash; museum placard</a> &middot; <a href="../../">Webstuffs home</a></p>
+</footer>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
