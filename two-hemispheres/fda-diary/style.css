@@ -1,0 +1,256 @@
+/* The Rockville Diary — Cold Storage Plant 3 */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #eadfc4;
+  --rule: rgba(112, 132, 160, 0.35);
+  --margin-red: rgba(178, 60, 54, 0.55);
+  --ink: #1f3a5f;
+  --ink-soft: #33507a;
+  --stamp-red: #b23a34;
+  --stamp-blue: #274a7c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% -10%, #cfc3a2 0%, transparent 55%),
+    radial-gradient(ellipse at 110% 110%, #b8ab88 0%, transparent 50%),
+    #a99d78;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 3rem 1rem;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 0 auto;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2.42rem,
+      var(--rule) 2.42rem,
+      var(--rule) calc(2.42rem + 1px)
+    );
+  border: 1px solid #8c7f5c;
+  box-shadow:
+    0 2px 0 #fff8 inset,
+    0 18px 40px rgba(40, 32, 10, 0.45),
+    0 2px 6px rgba(40, 32, 10, 0.3);
+  padding: 3rem 2.5rem 3rem 5.25rem;
+  position: relative;
+}
+
+/* red margin line, as on old ruling */
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4.1rem;
+  width: 2px;
+  background: var(--margin-red);
+  pointer-events: none;
+}
+.paper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(4.1rem + 3px);
+  width: 1px;
+  background: var(--margin-red);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* hole punches */
+.paper .holes { display: none; }
+
+.cover { margin-bottom: 2.5rem; }
+
+.office-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stamp-blue);
+  border-bottom: 1px solid var(--stamp-blue);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  max-width: 34rem;
+}
+
+/* the plant's circular seal */
+.seal {
+  position: absolute;
+  top: 2.6rem;
+  right: 2.4rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  border: 2px solid var(--stamp-blue);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--stamp-blue);
+  opacity: 0.75;
+  transform: rotate(-8deg);
+  animation: seal-settle 1.4s ease-out both;
+}
+.seal::before {
+  content: "";
+  position: absolute;
+  inset: 0.45rem;
+  border: 1px dashed var(--stamp-blue);
+  border-radius: 50%;
+}
+.seal .stamp-ring,
+.seal .stamp-est {
+  position: absolute;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+}
+.seal .stamp-ring { top: 0.85rem; }
+.seal .stamp-est { bottom: 0.85rem; }
+.seal .stamp-core {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+@keyframes seal-settle {
+  from { opacity: 0; transform: rotate(-30deg) scale(1.3); }
+  to   { opacity: 0.75; transform: rotate(-8deg) scale(1); }
+}
+
+.entries { position: relative; }
+
+.entry { margin-bottom: 2.6rem; }
+
+.date {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stamp-blue);
+  margin: 0 0 0.6rem;
+  border-bottom: 2px solid var(--stamp-blue);
+  padding-bottom: 0.2rem;
+  display: inline-block;
+}
+.date span { color: var(--stamp-red); }
+.date em {
+  text-transform: none;
+  font-style: italic;
+  font-weight: normal;
+  font-family: Georgia, serif;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+}
+
+.entry p { margin: 0 0 0.9rem; }
+
+a {
+  color: var(--stamp-blue);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--stamp-red); }
+
+/* the doubled fax line */
+.fax {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  background:
+    repeating-linear-gradient(to bottom, rgba(39, 74, 124, 0.05) 0 2px, transparent 2px 4px),
+    #efe6cd;
+  border-left: 4px solid var(--stamp-red);
+  border-right: 4px solid var(--stamp-blue);
+  padding: 0.8rem 1rem;
+  box-shadow: 2px 2px 0 rgba(39, 74, 124, 0.25), -2px -2px 0 rgba(178, 58, 52, 0.25);
+  transform: rotate(-0.4deg);
+}
+.fax:hover {
+  transform: rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+strong { letter-spacing: 0.02em; color: var(--ink); }
+
+/* the retain stamp, added by script */
+.stamp-retain {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border: 3px double var(--stamp-red);
+  color: var(--stamp-red);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  transform: rotate(-4deg);
+  opacity: 0.9;
+  background: transparent;
+  animation: stamp-drop 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+  cursor: pointer;
+}
+@keyframes stamp-drop {
+  from { opacity: 0; transform: rotate(-14deg) scale(2.2); }
+  to   { opacity: 0.9; transform: rotate(-4deg) scale(1); }
+}
+
+/* wet-ink cursor at the foot of the last entry */
+.entries .entry:last-of-type::after {
+  content: "▌";
+  color: var(--stamp-blue);
+  animation: blink 1.1s steps(1) infinite;
+  font-size: 0.85em;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.colophon {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--stamp-blue);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.colophon .fine {
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .paper { padding: 2rem 1.2rem 2rem 3.2rem; }
+  .paper::before { left: 2.2rem; }
+  .paper::after { left: calc(2.2rem + 3px); }
+  .seal { position: static; margin: 1.5rem 0 0.5rem auto; width: 6rem; height: 6rem; }
+}
