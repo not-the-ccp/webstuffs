@@ -1,0 +1,268 @@
+/* Western Australia — geography report, ruled-paper look */
+:root {
+  --ink: #23304a;
+  --blue-ink: #1e3a6e;
+  --red-pen: #b3282d;
+  --rule: #b9cfe4;
+  --paper: #fbf7ec;
+  --paper-edge: #efe6d2;
+  --stamp: #7c1f24;
+  --gold: #a8842c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, #2c3a4d 0%, #1c2735 60%, #141d29 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 2.5rem 1rem;
+}
+
+.paper {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  background:
+    /* ruled lines */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    ),
+    var(--paper);
+  border: 1px solid #d8cba9;
+  box-shadow:
+    0 2px 0 var(--paper-edge),
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 60px rgba(168, 132, 44, 0.08);
+  padding: 1.5rem 2.5rem 2rem 3.25rem;
+}
+/* left margin line, like a real report sheet */
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.4rem;
+  width: 2px;
+  background: rgba(179, 40, 45, 0.45);
+}
+
+.top-strip {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+.hole {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #23304a 0%, #10161f 70%);
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--blue-ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+.school {
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  margin: 0 0 0.35rem;
+  font-weight: bold;
+}
+.school .est { letter-spacing: 0.12em; font-weight: normal; font-style: italic; }
+.term {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: var(--blue-ink);
+}
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 0.02em;
+  color: var(--blue-ink);
+  font-variant: small-caps;
+}
+.dek {
+  margin: 0.5rem 0 1rem;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.student-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+.student-table th, .student-table td {
+  border: 1px solid #9db6d1;
+  padding: 0.3rem 0.8rem;
+  text-align: left;
+}
+.student-table th {
+  background: #e8eef6;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--blue-ink);
+}
+#mark { color: var(--red-pen); font-weight: bold; font-style: italic; }
+
+/* the big pencil stamp */
+.stamp {
+  position: absolute;
+  right: 1rem;
+  top: 38%;
+  transform: rotate(-14deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  font-size: 1.1rem;
+  padding: 0.55rem 1rem 0.45rem;
+  text-align: center;
+  opacity: 0;
+  box-shadow: inset 0 0 12px rgba(124, 31, 36, 0.15);
+  border-radius: 4px;
+}
+.stamp span {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  margin-top: 0.15rem;
+}
+.stamp.stamped {
+  animation: stampIn 0.5s cubic-bezier(0.2, 2.2, 0.4, 1) forwards;
+}
+@keyframes stampIn {
+  0%   { opacity: 0; transform: rotate(-4deg) scale(2.2); }
+  70%  { opacity: 1; transform: rotate(-15deg) scale(0.94); }
+  100% { opacity: 0.85; transform: rotate(-14deg) scale(1); }
+}
+/* readable even without JS */
+@media (prefers-reduced-motion: no-preference) {
+  .stamp { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp { opacity: 0.85; }
+}
+
+main { position: relative; }
+
+.sec {
+  margin: 1.4rem 0 1.4rem 0.5rem;
+  line-height: 32px; /* sit on the rules */
+  font-size: 1.02rem;
+}
+.sec h2 {
+  font-size: 1.25rem;
+  color: var(--blue-ink);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  margin: 0.5rem 0 0;
+  line-height: 32px;
+}
+.sec strong { color: var(--blue-ink); }
+.sec p { margin: 0 0 0.9rem; }
+
+.redpen {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  color: var(--red-pen);
+  font-size: 1.02rem;
+  transform: rotate(-0.6deg);
+  display: inline-block;
+}
+
+.climate-table {
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0.9rem 0.25rem;
+}
+.climate-table th, .climate-table td {
+  border: 1px solid #9db6d1;
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+  line-height: 1.3;
+}
+.climate-table thead th {
+  background: var(--blue-ink);
+  color: var(--paper);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.climate-table tbody tr:nth-child(even) { background: rgba(30, 58, 110, 0.06); }
+
+/* the instruction note */
+.note {
+  margin: 0.75rem 1rem 0.9rem;
+  padding: 0.9rem 1.1rem;
+  background:
+    linear-gradient(160deg, #fdf3d7 0%, #f6e6bb 100%);
+  border: 1px solid #c9a227;
+  box-shadow: 3px 4px 0 rgba(168, 132, 44, 0.25);
+  font-style: italic;
+  font-size: 1.06rem;
+  line-height: 1.5;
+  transform: rotate(-0.5deg);
+  position: relative;
+}
+.note::before {
+  content: "";
+  position: absolute;
+  top: -9px; left: 50%;
+  width: 70px; height: 18px;
+  background: rgba(233, 220, 180, 0.85);
+  border: 1px solid rgba(168, 132, 44, 0.4);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.remarks {
+  margin: 1.75rem 0.5rem 0;
+  border-top: 2px solid var(--red-pen);
+  padding-top: 0.6rem;
+  line-height: 32px;
+  font-size: 1rem;
+}
+.remarks h3 {
+  margin: 0;
+  color: var(--red-pen);
+  font-variant: small-caps;
+  font-size: 1.1rem;
+}
+.remarks p { margin: 0.25rem 0; line-height: 32px; }
+.sig {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  color: var(--blue-ink);
+  font-size: 1.15rem;
+}
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 3px double var(--blue-ink);
+  padding-top: 0.6rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--blue-ink);
+}
+.colophon .nav a { color: var(--blue-ink); }
+.colophon a { text-decoration-color: var(--gold); }
+
+.wordcount {
+  position: absolute;
+  bottom: 0.4rem;
+  right: 0.9rem;
+  font-size: 0.65rem;
+  color: rgba(30, 58, 110, 0.5);
+  font-style: italic;
+}
+
+a { color: var(--blue-ink); }
+a:hover { color: var(--red-pen); }
