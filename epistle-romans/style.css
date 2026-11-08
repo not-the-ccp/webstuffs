@@ -1,0 +1,235 @@
+/* The Copyist's Desk — Thread 214: The Epistle to the Romans */
+:root {
+  --vellum: #f3ead6;
+  --vellum-deep: #e9dcbd;
+  --ink: #2a2318;
+  --ink-soft: #5a4f3a;
+  --rust: #8a3b1f;
+  --brass: #a87b2d;
+  --sea: #33544c;
+  --line: #c9b98f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(168, 123, 45, 0.14), transparent 55%),
+    radial-gradient(ellipse at 110% 110%, rgba(51, 84, 76, 0.12), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(42, 35, 24, 0.025) 0 1px, transparent 1px 28px),
+    linear-gradient(180deg, var(--vellum) 0%, var(--vellum-deep) 100%);
+  background-attachment: fixed;
+  line-height: 1.65;
+}
+
+.board {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+/* reading progress — a line of ink filling as you scroll */
+#inkline {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--rust), var(--brass));
+  box-shadow: 0 1px 0 rgba(42, 35, 24, 0.25);
+  z-index: 10;
+  transition: width 80ms linear;
+}
+
+/* masthead */
+.board-head {
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.board-head::after {
+  content: "❧";
+  position: absolute;
+  bottom: -0.85em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--vellum);
+  padding: 0 0.6em;
+  color: var(--brass);
+  font-size: 1.1rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 em { font-style: normal; color: var(--rust); }
+
+.sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 42rem;
+  margin: 0.75rem auto 0;
+}
+
+.thread-meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.6rem;
+  padding: 0.9rem 0 0;
+  margin: 1.1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.thread-meta span {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* posts */
+.post {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1rem 1.4rem;
+  background: rgba(255, 252, 243, 0.72);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--rust);
+  border-radius: 3px;
+  box-shadow: 3px 4px 0 rgba(42, 35, 24, 0.08);
+  padding: 1.4rem 1.5rem 1.6rem;
+  margin-bottom: 1.6rem;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.post:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 5px 7px 0 rgba(42, 35, 24, 0.12);
+}
+.post:nth-child(even of .post) { border-top-color: var(--sea); }
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-top: 0.2rem;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--vellum);
+  background: radial-gradient(circle at 32% 28%, var(--brass), var(--rust) 78%);
+  border: 2px solid var(--ink);
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.25);
+}
+.post:nth-child(even of .post) .avatar {
+  background: radial-gradient(circle at 32% 28%, #5f8279, var(--sea) 78%);
+}
+
+.post-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.post-head h2 a {
+  color: var(--rust);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rust);
+}
+.post:nth-child(even of .post) .post-head h2 a {
+  color: var(--sea);
+  border-bottom-color: var(--sea);
+}
+.post-head small {
+  color: var(--ink-soft);
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 0.5em;
+}
+.stamp {
+  margin: 0.25rem 0 1rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.post-body p { margin: 0 0 1rem; }
+.post-body p:last-child { margin-bottom: 0; }
+
+.post-body a {
+  color: var(--sea);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(51, 84, 76, 0.45);
+  transition: background 140ms ease, border-color 140ms ease;
+}
+.post-body a:hover {
+  background: rgba(168, 123, 45, 0.18);
+  border-bottom-color: var(--brass);
+}
+
+blockquote {
+  margin: 1.2rem 0.5rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--brass);
+  background:
+    linear-gradient(180deg, rgba(201, 185, 143, 0.28), rgba(201, 185, 143, 0.12));
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+}
+blockquote p { margin: 0; }
+
+strong { color: var(--ink); }
+
+/* footer seal */
+.seal {
+  width: 72px;
+  height: 72px;
+  margin: 2.6rem auto 0.6rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--vellum);
+  background: radial-gradient(circle at 34% 28%, #b04f2c, var(--rust) 70%);
+  border: 3px double var(--vellum);
+  outline: 1px solid var(--ink);
+  box-shadow: 0 4px 10px rgba(42, 35, 24, 0.35), inset 0 0 12px rgba(0, 0, 0, 0.35);
+  transform: rotate(-8deg);
+}
+
+.colophon {
+  text-align: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0.8rem 0 0;
+}
+
+@media (max-width: 560px) {
+  .post { grid-template-columns: 1fr; }
+  .avatar { margin-bottom: 0.3rem; }
+}
