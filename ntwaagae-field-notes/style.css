@@ -1,0 +1,257 @@
+/* Field Notes, Plate 12 — a naturalist's notebook, Gambia Avenue */
+
+:root {
+  --paper: #f2ecdb;
+  --paper-deep: #e9e1c8;
+  --ink: #2b2620;
+  --ink-soft: #5c6b52;
+  --racing: #1f5c3d;
+  --racing-bright: #2e7a52;
+  --rule: rgba(43, 38, 32, 0.14);
+  --stamp: #8a3324;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #211d18; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(255, 250, 230, 0.35), transparent 60%),
+    #211d18;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 72px;
+}
+
+.pad {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    ),
+    linear-gradient(105deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #b8ab89;
+  box-shadow:
+    0 0 0 6px rgba(0, 0, 0, 0.25),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 56px 64px 40px;
+}
+
+/* red margin line, like a journal */
+.pad::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 52px;
+  width: 2px;
+  background: rgba(138, 51, 36, 0.35);
+}
+
+/* punched binding holes */
+.pad::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 18px;
+  width: 12px;
+  background-image: radial-gradient(circle at 6px 6px, #211d18 5px, transparent 6px);
+  background-size: 12px 96px;
+  background-repeat: repeat-y;
+  opacity: 0.9;
+}
+
+.stamp {
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--stamp);
+  border: 2px double var(--stamp);
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-align: center;
+  transform: rotate(7deg);
+  opacity: 0.75;
+}
+
+.plaque {
+  margin: 0 0 8px;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 24px;
+}
+
+.kicker {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 1.1;
+  margin: 0 0 6px;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.latin {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+
+.specimen {
+  border-collapse: collapse;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  width: 100%;
+  background: rgba(255, 253, 244, 0.5);
+}
+
+.specimen th, .specimen td {
+  border: 1px solid rgba(43, 38, 32, 0.4);
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.specimen th {
+  width: 130px;
+  color: var(--racing);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+}
+
+.entry {
+  margin: 40px 0;
+  position: relative;
+}
+
+.dateline {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--racing);
+  margin: 0 0 12px;
+  padding-left: 26px;
+  position: relative;
+}
+
+.dateline::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--stamp);
+}
+
+.entry p {
+  margin: 0 0 14px;
+  padding-left: 26px;
+}
+
+.entry p:first-of-type {
+  padding-left: 26px;
+}
+
+/* drop-cap on the first entry's first paragraph */
+.entry:first-of-type p:first-of-type::first-letter {
+  font-size: 3.1em;
+  line-height: 0.85;
+  float: left;
+  padding: 6px 8px 0 0;
+  color: var(--racing);
+}
+
+a {
+  color: var(--racing);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(31, 92, 61, 0.4);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+a:hover, a:focus {
+  background: rgba(31, 92, 61, 0.12);
+  border-bottom-color: var(--racing);
+}
+
+.plate {
+  margin: 48px auto 8px;
+  max-width: 560px;
+}
+
+.plate svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(43, 38, 32, 0.45);
+  background: rgba(255, 253, 244, 0.55);
+}
+
+.plate figcaption {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.plate .car {
+  animation: drive 9s linear infinite alternate;
+}
+
+@keyframes drive {
+  from { transform: translateX(-16px); }
+  to   { transform: translateX(16px); }
+}
+
+.colophon {
+  margin-top: 40px;
+  border-top: 1px solid rgba(43, 38, 32, 0.35);
+  padding-top: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 1px;
+}
+
+.colophon p { margin: 0 0 8px; }
+
+#tally {
+  color: var(--racing-bright);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .pad { padding: 48px 26px 32px; }
+  .pad::before { left: 30px; }
+  .pad::after { display: none; }
+  h1 { font-size: 30px; }
+  .entry p, .dateline { padding-left: 0; }
+  .stamp { right: 12px; top: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate .car { animation: none; }
+}
