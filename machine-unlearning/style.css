@@ -1,0 +1,226 @@
+/* The Marginal — a letter to the editor, typeset as newsprint */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #eadfc2;
+  --ink: #22201a;
+  --ink-soft: #4a453a;
+  --red: #a4322a;
+  --red-dark: #7c211b;
+  --rule: #6b6350;
+  --serif: "Georgia", "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --mono: "Courier New", "Courier", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(255, 252, 240, 0.9), transparent 55%),
+    radial-gradient(ellipse at 110% 110%, rgba(140, 110, 60, 0.18), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* paper grain, very faint */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(60, 50, 30, 0.028) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(60, 50, 30, 0.02) 0 1px, transparent 1px 4px);
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.masthead, .letter, .colophon { position: relative; z-index: 1; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  max-width: 46rem;
+  margin: 2.5rem auto 1.5rem;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.masthead-rule {
+  height: 3px;
+  background: var(--ink);
+  margin: 0.4rem auto;
+}
+
+.masthead-rule.double {
+  height: 7px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+}
+
+.masthead-kicker {
+  margin: 0.6rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.masthead-title {
+  font-size: clamp(3rem, 9vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0.1rem 0 0.15rem;
+  line-height: 1;
+}
+
+.masthead-sub {
+  margin: 0.2rem 0 0.7rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- the letter ---------- */
+
+.letter {
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  padding: 2.2rem 2.4rem 2.4rem;
+  background: linear-gradient(175deg, #f8f1de 0%, #f3ead2 70%, #eee2c4 100%);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 250, 0.8) inset,
+    0 14px 34px rgba(70, 55, 25, 0.22);
+  position: relative;
+}
+
+/* double inner border, like a form letter */
+.letter::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(107, 99, 80, 0.55);
+  pointer-events: none;
+}
+
+.letter-head { text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 1.1rem; margin-bottom: 1.4rem; }
+
+.letter-to {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.78rem;
+  margin: 0;
+  color: var(--red-dark);
+}
+
+.letter-title {
+  font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+  line-height: 1.2;
+  margin: 0.5rem 0 0.4rem;
+}
+
+.letter-datelined {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.letter p { margin: 0 0 1.1rem; font-size: 1.03rem; text-align: justify; hyphens: auto; }
+
+.letter a {
+  color: var(--red-dark);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red);
+}
+
+.letter a:hover {
+  color: var(--red);
+  border-bottom-style: solid;
+  background: rgba(164, 50, 42, 0.08);
+}
+
+/* the registered sentence — set apart as a clip from the file */
+.letter strong {
+  display: block;
+  font-weight: 700;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background:
+    repeating-linear-gradient(-45deg, rgba(164, 50, 42, 0.06) 0 10px, transparent 10px 20px);
+  border: 1px dashed var(--red);
+  border-left: 5px solid var(--red);
+  padding: 0.85rem 1rem;
+  margin: 0.6rem 0 1.2rem;
+  color: var(--red-dark);
+}
+
+/* red-pen marks */
+.redacted {
+  background: linear-gradient(to top, transparent 58%, var(--red) 58%, var(--red) 92%, transparent 92%);
+  display: inline-block;
+  min-width: 1.2em;
+  height: 1em;
+  vertical-align: baseline;
+  transform-origin: left center;
+  animation: strike 0.7s ease both;
+}
+
+@keyframes strike {
+  from { transform: scaleX(0); opacity: 0.4; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+.signature { font-size: 1.05rem; margin-bottom: 0.2rem !important; }
+
+.signature-name {
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.15rem !important;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.signature-role {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 0 !important;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.25rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.colophon-rule {
+  width: 4rem;
+  height: 2px;
+  background: var(--rule);
+  margin: 0 auto 0.9rem;
+}
+
+.colophon a { color: var(--red-dark); }
+
+@media (max-width: 600px) {
+  .letter { padding: 1.6rem 1.2rem 1.8rem; }
+  .letter p { text-align: left; }
+}
