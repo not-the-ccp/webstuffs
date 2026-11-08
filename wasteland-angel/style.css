@@ -1,0 +1,135 @@
+/* The Rumble Strip — Newsletter No. 7, Ironbark Overland Club */
+
+:root {
+  --paper: #f7f2e8;
+  --ink: #26221a;
+  --ink-soft: #55503f;
+  --rule: #b8ad93;
+  --wax: #7c2f24;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #e9e2d2; }
+
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  padding: 3.5rem 2rem 3rem;
+}
+
+.masthead { text-align: center; }
+
+.masthead-club {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  margin: 0;
+  color: var(--wax);
+}
+
+.masthead-issue {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.7rem 0 1.6rem;
+}
+
+.masthead-rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 5px;
+  margin: 0 0 0.5rem;
+}
+
+main { padding-top: 2.2rem; }
+
+.editorial { margin-bottom: 2.8rem; }
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 0.3rem;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 2.4rem;
+  border-top: 1px solid var(--wax);
+  margin: 0.6rem auto 0;
+}
+
+.byline {
+  text-align: center;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.4rem 0 1.2rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+a {
+  color: var(--wax);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--ink); }
+
+strong { font-weight: bold; }
+
+.notices ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+
+.notices li {
+  padding: 0.55rem 0 0.55rem 1.4rem;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+  text-indent: -1.4rem;
+  padding-left: 1.4rem;
+}
+
+.notices li::before {
+  content: "— ";
+  color: var(--wax);
+}
+
+.colophon {
+  margin-top: 3.2rem;
+  padding-top: 1.4rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.colophon-small {
+  font-size: 0.7rem;
+  font-style: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.9rem;
+}
