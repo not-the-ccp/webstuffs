@@ -1,0 +1,228 @@
+/* The Korek Express — Line 7 timetable sheet, Greater Poland Regional Railway */
+
+:root {
+  --paper: #f4ead2;
+  --paper-deep: #ecdcb8;
+  --ink: #2b2118;
+  --rail-green: #1e4d3a;
+  --rail-green-dark: #143528;
+  --oxblood: #7a2e22;
+  --gold: #c8912e;
+  --pencil: #6b6152;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 33, 24, 0.03) 0 2px, transparent 2px 5px),
+    radial-gradient(ellipse at 50% 0%, #26323f 0%, #171f28 70%);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem 3rem;
+  line-height: 1.55;
+}
+
+.station-header {
+  width: 100%;
+  max-width: 880px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--rail-green) 0%, var(--rail-green-dark) 100%);
+  color: var(--paper);
+  border: 4px double var(--gold);
+  border-radius: 10px 10px 0 0;
+  padding: 1.6rem 1.5rem 1.2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.company {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+}
+
+.clock {
+  margin: 0.5rem 0 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: #d9e4dc;
+}
+
+/* Route line with pins and a travelling dot */
+.plate-line {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1.1rem 0 0.4rem;
+  padding-top: 14px;
+}
+.plate-line::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 6px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 12px, transparent 12px 18px);
+}
+.pin {
+  position: relative;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e8efea;
+  padding-top: 16px;
+  flex: 1;
+}
+.pin::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 0;
+  width: 9px; height: 9px;
+  transform: translateX(-50%);
+  background: var(--paper);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+}
+.pin.small { font-size: 0.52rem; opacity: 0.85; }
+.pin.halt { color: var(--gold); font-weight: bold; }
+.pin.halt::before { background: var(--oxblood); border-color: var(--gold); animation: pulse 2.4s ease-in-out infinite; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 145, 46, 0.7); }
+  50% { box-shadow: 0 0 0 7px rgba(200, 145, 46, 0); }
+}
+.train-dot {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 26px; height: 9px;
+  background: linear-gradient(180deg, #f0d98a, var(--gold));
+  border: 1px solid var(--rail-green-dark);
+  border-radius: 3px 6px 2px 2px;
+  animation: run 14s linear infinite;
+}
+.train-dot::after {
+  content: "";
+  position: absolute;
+  right: -7px; top: 1px;
+  width: 8px; height: 6px;
+  background: var(--gold);
+  clip-path: polygon(0 100%, 100% 40%, 60% 0);
+}
+@keyframes run {
+  0% { left: 0%; }
+  100% { left: calc(100% - 26px); }
+}
+
+.platform {
+  width: 100%;
+  max-width: 880px;
+  background: var(--paper);
+  border-left: 4px solid var(--rail-green-dark);
+  border-right: 4px solid var(--rail-green-dark);
+  padding: 1.8rem 2rem 1.4rem;
+  background-image:
+    linear-gradient(180deg, rgba(200, 145, 46, 0.08), transparent 220px),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(43, 33, 24, 0.05) 27px 28px);
+}
+
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--rail-green-dark);
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 0.15rem;
+  margin: 0 0 0.9rem;
+}
+
+.service { border-bottom: 1px dashed var(--pencil); padding-bottom: 1.4rem; }
+.service + .commentary { padding-top: 1.4rem; }
+
+.timetable-note { font-size: 0.95rem; }
+.ipa { font-family: "Courier New", Courier, monospace; font-size: 0.85em; }
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  background: #fbf4e2;
+  border: 1.5px solid var(--rail-green-dark);
+}
+.timetable th {
+  background: var(--rail-green-dark);
+  color: var(--paper);
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+}
+.timetable td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid rgba(43, 33, 24, 0.18);
+}
+.timetable tbody tr:nth-child(even) { background: rgba(30, 77, 58, 0.06); }
+.timetable tr.special td { color: var(--oxblood); font-weight: bold; background: rgba(122, 46, 34, 0.07); }
+
+.fineprint {
+  font-size: 0.8rem;
+  color: var(--pencil);
+  font-style: italic;
+  margin-top: 0.8rem;
+}
+
+.commentary p { max-width: 68ch; }
+.commentary a { color: var(--oxblood); text-decoration-thickness: 1.5px; }
+.commentary a:hover { background: rgba(200, 145, 46, 0.25); }
+strong { color: var(--rail-green-dark); }
+
+.colophon {
+  margin-top: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--pencil);
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  max-width: 880px;
+  background: var(--rail-green-dark);
+  color: #d9e4dc;
+  border: 4px solid var(--gold);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  padding: 0.9rem 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+footer a { color: var(--gold); }
+
+@media (max-width: 560px) {
+  .pin.small { display: none; }
+  .platform { padding: 1.3rem 1rem; }
+  table.timetable { font-size: 0.7rem; }
+}
