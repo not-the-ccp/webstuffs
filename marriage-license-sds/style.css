@@ -1,0 +1,140 @@
+:root {
+  --paper: #f4efe3;
+  --ink: #241f1a;
+  --line: #b7a98c;
+  --tan: #c9a86a;
+  --yellow: #e6c14f;
+  --red: #9c3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e2d2;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sds {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 14px rgba(40, 30, 10, 0.18);
+  padding: 0 2rem 2.5rem;
+}
+
+.hazard-band {
+  height: 14px;
+  margin: 0 -2rem 1.5rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--red) 0 14px,
+    var(--yellow) 14px 28px
+  );
+}
+
+.sds-code {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.4rem;
+  color: #6b5c42;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.01em;
+}
+
+.product-sub {
+  font-style: italic;
+  color: #5c4f3a;
+  margin-top: 0;
+}
+
+.id-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.92rem;
+}
+
+.id-table th,
+.id-table td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.id-table th {
+  width: 9rem;
+  background: #ece3cd;
+  font-weight: bold;
+}
+
+.sec {
+  border-top: 3px double var(--line);
+  margin-top: 1.8rem;
+  padding-top: 0.9rem;
+}
+
+.sec h2 {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.6rem;
+  color: var(--red);
+}
+
+.calc {
+  border: 1px solid var(--line);
+  background: #faf6ea;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+
+.calc label {
+  display: block;
+  font-size: 0.9rem;
+  margin: 0.7rem 0 0.25rem;
+}
+
+.calc output {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
+
+.calc input[type="range"] {
+  width: 100%;
+  accent-color: var(--red);
+}
+
+.calc .result {
+  margin: 1rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--yellow);
+  border-left: 4px solid var(--tan);
+  font-size: 0.95rem;
+}
+
+.no-js-note {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #6b5c42;
+}
+
+a { color: var(--red); }
+
+a:hover { color: #c25444; }
+
+.rev {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: #6b5c42;
+  margin-top: 1.5rem;
+}
