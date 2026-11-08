@@ -1,0 +1,360 @@
+/* The Theban Almanac of Weathers — Entry No. XX */
+:root {
+  --papyrus: #f0e2c4;
+  --papyrus-deep: #e3cf9f;
+  --night: #1a1230;
+  --indigo: #2a1f4e;
+  --sand: #c9a45c;
+  --gold: #e8b443;
+  --gold-bright: #ffd873;
+  --flood: #1e5f6e;
+  --flood-deep: #143d4d;
+  --lapis: #1b3a8f;
+  --ochre: #a4551e;
+  --ink: #2b1d0e;
+  --ink-soft: #4a3620;
+  --pond: #3e8f7a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 216, 115, 0.5), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(43, 29, 14, 0.045) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(90deg, rgba(43, 29, 14, 0.03) 0 3px, transparent 3px 31px),
+    linear-gradient(175deg, var(--papyrus) 0%, var(--papyrus-deep) 55%, #d9c189 100%);
+  min-height: 100vh;
+}
+
+/* ---------- the sky over the page ---------- */
+.sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.band-horizon {
+  position: absolute;
+  left: 0; right: 0;
+  top: 0;
+  height: 34vh;
+  background: linear-gradient(180deg, var(--night) 0%, var(--indigo) 45%, rgba(42, 31, 78, 0) 100%);
+}
+.band-flood {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  height: 22vh;
+  background: linear-gradient(0deg, var(--flood-deep) 0%, rgba(30, 95, 110, 0.35) 60%, transparent 100%);
+}
+.sun-disc {
+  position: absolute;
+  top: 3.5vh;
+  right: 6vw;
+  width: 150px;
+  height: 150px;
+  animation: sun-turn 60s linear infinite;
+}
+.sun-core { fill: var(--gold-bright); filter: drop-shadow(0 0 22px rgba(255, 216, 115, 0.85)); }
+.sun-halo { fill: none; stroke: rgba(255, 216, 115, 0.55); stroke-width: 2; }
+.sun-rays line { stroke: var(--gold-bright); }
+@keyframes sun-turn { to { transform: rotate(360deg); } }
+
+.wind-line {
+  position: absolute;
+  left: -5vw;
+  width: 110vw;
+  height: 40px;
+  fill: none;
+  stroke: rgba(255, 216, 115, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 10;
+  animation: wind-drift 14s linear infinite;
+}
+.wind-1 { top: 24vh; }
+.wind-2 { top: 29vh; animation-duration: 21s; animation-direction: reverse; stroke: rgba(62, 143, 122, 0.4); }
+@keyframes wind-drift { to { stroke-dashoffset: -360; } }
+
+/* ---------- masthead ---------- */
+.masthead {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 7vh 6vw 4vh;
+  color: var(--papyrus);
+}
+.almanac-mark {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 0 0 1.4rem;
+}
+.masthead h1 {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  line-height: 1.05;
+  margin: 0;
+  color: #fdf3d7;
+  text-shadow:
+    0 0 18px rgba(255, 216, 115, 0.45),
+    0 2px 0 rgba(0, 0, 0, 0.4);
+}
+.entry-no {
+  display: inline-block;
+  font-size: 0.42em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--indigo);
+  background: var(--gold);
+  padding: 0.35em 0.9em;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-bottom: 0.35em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+}
+.throne-name {
+  display: block;
+  font-size: 0.5em;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: var(--gold-bright);
+  margin-top: 0.4em;
+}
+.sub {
+  max-width: 46rem;
+  margin: 1.4rem auto 0;
+  font-size: 1.06rem;
+  font-style: italic;
+  color: #e8d9b0;
+}
+.stamp-row {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.stamp {
+  font-family: "Special Elite", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--night);
+  background: var(--papyrus);
+  border: 1.5px dashed var(--ochre);
+  padding: 0.4em 0.8em;
+  transform: rotate(-1.2deg);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+}
+.stamp:nth-child(even) { transform: rotate(1.4deg); background: var(--gold); }
+
+/* ---------- the almanac body ---------- */
+.almanac {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 4rem;
+}
+.panel {
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 250, 232, 0.82), rgba(255, 250, 232, 0.82)),
+    repeating-linear-gradient(45deg, rgba(164, 85, 30, 0.05) 0 8px, transparent 8px 16px);
+  border: 2px solid var(--ochre);
+  border-radius: 4px;
+  padding: 1.8rem 2rem 1.6rem;
+  margin: 0 0 2.4rem;
+  box-shadow:
+    0 10px 30px rgba(26, 18, 48, 0.35),
+    inset 0 0 40px rgba(201, 164, 92, 0.35);
+  animation: rise 0.8s ease both;
+}
+.panel::before, .panel::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--gold);
+}
+.panel::before { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.panel::after { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.panel:nth-of-type(2) { animation-delay: 0.1s; }
+.panel:nth-of-type(3) { animation-delay: 0.2s; }
+.panel:nth-of-type(4) { animation-delay: 0.3s; }
+.panel:nth-of-type(5) { animation-delay: 0.4s; }
+
+.panel h2 {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--indigo);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px double var(--sand);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.panel p { line-height: 1.72; margin: 0 0 1rem; font-size: 1.02rem; }
+.panel strong { color: var(--lapis); font-weight: 700; }
+.panel em { color: var(--ochre); }
+
+/* ---------- gauge table ---------- */
+.gauge-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.2rem 0 0.6rem;
+}
+.gauge-table th {
+  font-family: "Cinzel", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--papyrus);
+  background: linear-gradient(180deg, var(--flood) 0%, var(--flood-deep) 100%);
+  padding: 0.6rem 0.7rem;
+  text-align: left;
+  border: 1px solid var(--flood-deep);
+}
+.gauge-table td {
+  padding: 0.65rem 0.7rem;
+  border: 1px solid rgba(164, 85, 30, 0.4);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.gauge-table tbody tr:nth-child(odd) { background: rgba(232, 180, 67, 0.14); }
+.gauge-table tbody tr { transition: background 0.25s ease, transform 0.25s ease; }
+.gauge-table tbody tr:hover { background: rgba(62, 143, 122, 0.22); transform: translateX(4px); }
+td.yr {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  text-align: center;
+  color: var(--ochre);
+  white-space: nowrap;
+}
+td.lvl {
+  position: relative;
+  font-family: "Special Elite", monospace;
+  font-weight: 700;
+  color: var(--flood-deep);
+  white-space: nowrap;
+  min-width: 9.5rem;
+}
+td.lvl::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--flood) 0%, var(--pond) 100%);
+  box-shadow: 0 0 6px rgba(30, 95, 110, 0.5);
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+tr.filled td.lvl::before { width: calc((var(--lvl, 14) / 20) * 100%); }
+.gauge-foot {
+  font-family: "Special Elite", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--flood-deep);
+  border-top: 1px dashed var(--sand);
+  padding-top: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ---------- the pond panel ---------- */
+.pond-panel {
+  border-color: var(--pond);
+  box-shadow:
+    0 10px 30px rgba(20, 61, 77, 0.4),
+    inset 0 0 46px rgba(62, 143, 122, 0.3);
+}
+.pond-panel h2 {
+  color: var(--flood-deep);
+  border-bottom-color: var(--pond);
+}
+.pond-panel strong { color: var(--flood-deep); }
+.pond-panel p:first-of-type::first-letter,
+.pond-panel .pond-quote::first-letter {
+  font-family: "Cinzel", serif;
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.12em;
+  color: var(--pond);
+}
+
+/* ---------- cross-index ---------- */
+.panel a {
+  color: var(--lapis);
+  font-weight: 700;
+  text-decoration: underline 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.panel a:hover {
+  color: #fff;
+  background: var(--lapis);
+  border-radius: 2px;
+  text-decoration-color: var(--gold-bright);
+}
+
+/* ---------- colophon ---------- */
+.colophon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.5rem 6vw 4vh;
+  color: var(--papyrus);
+  background:
+    linear-gradient(0deg, rgba(20, 61, 77, 0.92), rgba(20, 61, 77, 0.75)),
+    repeating-linear-gradient(90deg, rgba(255, 216, 115, 0.06) 0 2px, transparent 2px 14px);
+  border-top: 4px double var(--gold);
+}
+.scarab {
+  width: 54px;
+  height: 36px;
+  fill: var(--gold);
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  display: block;
+  margin: 0 auto 1rem;
+  animation: scarab-bob 3.2s ease-in-out infinite;
+}
+@keyframes scarab-bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
+.colophon p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 44rem;
+  margin: 0 auto;
+  color: #e0d2a8;
+}
+
+@media (max-width: 640px) {
+  .gauge-table { font-size: 0.8rem; display: block; overflow-x: auto; }
+  .panel { padding: 1.3rem 1.2rem; }
+  .sun-disc { width: 96px; height: 96px; right: 3vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sun-disc, .wind-line, .scarab, .panel { animation: none; }
+  td.lvl::before { transition: none; }
+}
