@@ -1,0 +1,160 @@
+/* A Manual of Craft Etiquette — Chapter XII */
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dcbc;
+  --ink: #33241a;
+  --cedar: #8a4b2a;
+  --walnut: #4c3220;
+  --bark: #a5793f;
+  --sage: #6b6f4a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -100px, #efe2c4 0%, transparent 60%),
+    var(--paper);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cedar), var(--bark));
+  z-index: 10;
+}
+
+.chapter {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+  border-left: 1px solid rgba(76, 50, 32, 0.25);
+  border-right: 1px solid rgba(76, 50, 32, 0.25);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(138, 75, 42, 0.028) 0px,
+      rgba(138, 75, 42, 0.028) 2px,
+      transparent 2px,
+      transparent 5px
+    );
+}
+
+.chapter-head { text-align: center; }
+
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin: 0 0 1.2rem;
+}
+
+.mark { color: var(--cedar); margin: 0 auto 0.5rem; display: block; width: 6.5rem; }
+
+h1 {
+  font-size: 3.4rem;
+  margin: 0;
+  color: var(--walnut);
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
+
+.chapter-title {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--cedar);
+  margin: 0.6rem 0 1.4rem;
+}
+
+.lede {
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.85;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.zigzag {
+  height: 12px;
+  margin: 2.2rem auto;
+  max-width: 30rem;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--bark) 0px,
+      var(--bark) 3px,
+      transparent 3px,
+      transparent 9px
+    );
+  opacity: 0.55;
+  clip-path: polygon(
+    0 100%, 0 50%, 4% 0, 8% 50%, 12% 0, 16% 50%, 20% 0, 24% 50%,
+    28% 0, 32% 50%, 36% 0, 40% 50%, 44% 0, 48% 50%, 52% 0, 56% 50%,
+    60% 0, 64% 50%, 68% 0, 72% 50%, 76% 0, 80% 50%, 84% 0, 88% 50%,
+    92% 0, 96% 50%, 100% 0, 100% 100%
+  );
+}
+
+section { margin: 2rem 0; }
+
+h3 {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--walnut);
+  border-bottom: 2px solid var(--cedar);
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  margin: 0 0 1.1rem;
+  font-weight: 700;
+}
+
+p { margin: 0 0 1.1rem; }
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.82;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  color: var(--cedar);
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+a {
+  color: var(--walnut);
+  text-decoration-color: var(--bark);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--cedar); }
+
+.chapter-foot {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(76, 50, 32, 0.35);
+  font-size: 0.92rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 2.6rem; }
+  .chapter { padding: 2.5rem 1.1rem 2rem; border-left: none; border-right: none; }
+}
