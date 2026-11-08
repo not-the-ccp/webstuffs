@@ -1,0 +1,168 @@
+/* Chapter IV — Of the Surname Abell. A book of etiquette, fourth impression. */
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #eadfc2;
+  --ink: #2b241a;
+  --oxblood: #6e1f26;
+  --brass: #9a7a2f;
+  --slate: #3d4a52;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(154, 122, 47, 0.14), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(43, 36, 26, 0.028) 0 2px, transparent 2px 4px),
+    var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.62;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.plate {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 240, 0.9), rgba(244, 236, 216, 0.96)),
+    var(--paper);
+  border: 1px solid #c9b98d;
+  box-shadow:
+    0 0 0 6px rgba(201, 185, 141, 0.25),
+    0 24px 48px -18px rgba(43, 36, 26, 0.45);
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.2rem) 2rem;
+  position: relative;
+}
+
+.plate::before,
+.plate::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  height: 8px;
+  background:
+    repeating-linear-gradient(90deg, var(--brass) 0 10px, transparent 10px 20px);
+  opacity: 0.55;
+}
+.plate::before { top: 0.45rem; }
+.plate::after { bottom: 0.45rem; }
+
+.rule-double {
+  border-top: 3px double var(--oxblood);
+  border-bottom: 1px solid var(--oxblood);
+  height: 6px;
+  margin: 1rem 0;
+}
+
+.chapter-head { text-align: center; }
+
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  margin: 0.2rem 0 0;
+  color: var(--oxblood);
+  font-size: 1.05rem;
+}
+.imprint {
+  font-style: italic;
+  color: var(--slate);
+  font-size: 0.85rem;
+  margin: 0.3rem 0 1.4rem;
+}
+h1 {
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  line-height: 1.12;
+  margin: 0 0 1rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+h1 .of {
+  display: block;
+  font-size: 0.52em;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--oxblood);
+  margin-top: 0.5rem;
+}
+.motto {
+  font-style: italic;
+  color: var(--slate);
+  margin: 0;
+}
+
+main p { margin: 1.1rem 0; text-align: justify; }
+
+.drop { text-indent: 0; }
+.cap {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.82;
+  padding: 0.1rem 0.45rem 0 0;
+  color: var(--oxblood);
+  font-family: "Palatino Linotype", Georgia, serif;
+}
+
+.section {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--brass);
+  border-top: 1px solid #c9b98d;
+  border-bottom: 1px solid #c9b98d;
+  padding: 0.35rem 0;
+  margin: 1.8rem auto;
+  max-width: 24rem;
+}
+
+blockquote.ledger {
+  margin: 1.4rem auto;
+  max-width: 30rem;
+  padding: 1.2rem 1.6rem;
+  background: linear-gradient(135deg, #efe4c6, #e7d9b2);
+  border-left: 4px solid var(--oxblood);
+  border-right: 1px dashed var(--brass);
+  font-style: italic;
+  font-size: 1.08rem;
+}
+blockquote.ledger p { margin: 0; text-align: center; }
+
+a {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+a:hover, a:focus {
+  background-color: var(--brass);
+  color: var(--paper);
+}
+
+.colophon-line {
+  text-align: center;
+  font-style: italic;
+  color: var(--slate);
+  margin-top: 2.2rem;
+}
+
+.foot { text-align: center; }
+.foot p {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  color: var(--slate);
+  margin: 1rem 0 0.2rem;
+}
+
+strong { color: var(--oxblood); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cap { animation: settle 1.4s ease-out both; }
+  @keyframes settle {
+    from { transform: translateY(-0.35em); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
