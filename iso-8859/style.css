@@ -1,0 +1,165 @@
+/* The Fifteen Parts - a dining review, kept like a 1999 personal homepage */
+
+html { background: #000033; }
+
+body {
+  margin: 0;
+  color: #ffffcc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  background:
+    radial-gradient(circle at 12% 18%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 38% 62%, #ffff99 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 30%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 81% 74%, #99ccff 0 1px, transparent 2px),
+    radial-gradient(circle at 51% 88%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 25% 85%, #ccccff 0 1px, transparent 2px),
+    #000033;
+  background-size: 120px 90px;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 120%, #000066 0%, transparent 60%);
+}
+
+.wrapper {
+  position: relative;
+  max-width: 46em;
+  margin: 0 auto;
+  padding: 1em 0.75em 3em;
+}
+
+.panel {
+  background: #000066;
+  border: 4px outset #9999ff;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 0.9em 1.1em;
+  margin: 1.2em 0;
+}
+
+.masthead { text-align: center; }
+.eyebrow {
+  color: #ff99cc;
+  font-size: 0.78em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.3em;
+}
+h1 {
+  font-size: 2.3em;
+  margin: 0.1em 0;
+  color: #ffd700;
+  text-shadow: 2px 2px 0 #660066;
+  letter-spacing: 0.04em;
+}
+.subtitle { margin: 0; color: #ccffcc; font-style: italic; }
+.verdict {
+  margin: 0.9em auto 0;
+  display: inline-block;
+  padding: 0.35em 0.8em;
+  background: #660066;
+  border: 3px inset #ff99cc;
+  color: #ffff99;
+  font-size: 0.92em;
+}
+
+h2 {
+  font-size: 1.15em;
+  color: #99ffff;
+  border-bottom: 2px dotted #6699ff;
+  padding-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+a { color: #66ff66; }
+a:visited { color: #cc99ff; }
+a:hover { color: #ffffff; background: #006600; }
+
+.ticker {
+  overflow: hidden;
+  border: 3px inset #336699;
+  background: #003300;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 0.85em;
+  padding: 0.3em 0;
+  margin: 1.2em 0;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  padding-left: 100%;
+  animation: slide 22s linear infinite;
+}
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.counter-box {
+  text-align: center;
+  margin: 0.4em 0 0.9em;
+}
+.counter-label {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #99cccc;
+  margin: 0;
+}
+.counter {
+  font-family: "Courier New", monospace;
+  font-size: 2em;
+  letter-spacing: 0.35em;
+  color: #00ff00;
+  background: #000000;
+  border: 3px inset #006600;
+  display: inline-block;
+  padding: 0.05em 0.4em;
+  margin: 0;
+}
+
+.book { list-style: none; padding: 0; margin: 0.5em 0; }
+.book li {
+  border-bottom: 1px dashed #336699;
+  padding: 0.35em 0;
+  font-size: 0.92em;
+}
+.book-name { color: #ffd700; }
+
+.sign label { display: block; margin: 0.4em 0; font-size: 0.9em; }
+.sign input {
+  font-family: "Courier New", monospace;
+  background: #ffffcc;
+  color: #000033;
+  border: 3px inset #cccccc;
+  padding: 0.25em 0.4em;
+  width: 18em;
+  max-width: 60%;
+}
+.sign button {
+  font-family: inherit;
+  font-size: 0.9em;
+  background: #cccccc;
+  border: 3px outset #ffffff;
+  padding: 0.25em 0.9em;
+  cursor: pointer;
+}
+.sign button:active { border-style: inset; }
+.foot { font-size: 0.8em; font-style: italic; color: #99cccc; }
+
+.colophon {
+  text-align: center;
+  font-size: 0.82em;
+  color: #ccffcc;
+  border-style: inset;
+}
+
+@media (max-width: 40em) {
+  body { font-size: 16px; }
+  .sign input { width: 100%; }
+}
