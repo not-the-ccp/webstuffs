@@ -1,0 +1,176 @@
+/* Santiago's Trail Chile — family recipe sheet */
+/* Paper, ink, and a single brick-red accent */
+:root {
+  --paper: #f7f3ea;
+  --ink: #27221b;
+  --brick: #8c321f;
+  --dust: #b7a584;
+  --dust-light: #d9cfb8;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 3rem;
+  background: #e8e0ce;
+  color: var(--ink);
+  font-family: "New Century Schoolbook", "Bookman Old Style", "Century Schoolbook L", Georgia, serif;
+  line-height: 1.7;
+  background-image: radial-gradient(circle at 20% 30%, rgba(140, 50, 31, 0.06) 0%, transparent 40%),
+                    radial-gradient(circle at 85% 80%, rgba(60, 55, 45, 0.06) 0%, transparent 45%);
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 0.15rem solid var(--dust);
+  border-top: 0.5rem solid var(--brick);
+  padding: 2.5rem 3rem 3rem;
+  box-shadow: 0.35rem 0.45rem 0 rgba(40, 35, 28, 0.2);
+}
+
+.recipe-header {
+  border-bottom: 0.2rem solid var(--dust-light);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--brick);
+}
+
+.recipe-dek {
+  font-size: 0.95rem;
+  color: #5a5244;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  margin: 0;
+}
+
+.preamble {
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.preamble p {
+  margin: 0 0 1.35rem;
+}
+
+.card-quote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #f1e8d4;
+  border-left: 0.35rem solid var(--brick);
+  font-style: italic;
+  color: #3d352b;
+}
+
+.card-quote em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.recipe {
+  margin-top: 2.5rem;
+  border-top: 0.2rem solid var(--dust-light);
+  padding-top: 1.5rem;
+}
+
+.recipe h2 {
+  font-size: 1.5rem;
+  color: var(--brick);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.recipe-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #5a5244;
+  margin-bottom: 1.5rem;
+}
+
+.recipe-meta p {
+  margin: 0;
+}
+
+.recipe h3 {
+  font-size: 1.15rem;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--ink);
+}
+
+ul.ingredients {
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 1.4rem;
+}
+
+ul.ingredients li {
+  margin: 0 0 0.45rem;
+}
+
+ol.instructions {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.4rem;
+}
+
+ol.instructions li {
+  margin: 0 0 0.85rem;
+}
+
+.odd-step {
+  background: #f5efe2;
+  border: 0.1rem dashed var(--dust);
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+
+.step-note {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #5a5244;
+}
+
+.recipe-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 0.2rem solid var(--dust-light);
+  font-size: 0.9rem;
+  color: #5a5244;
+}
+
+.nav-line {
+  margin: 0 0 0.5rem;
+}
+
+.nav-line a {
+  color: var(--brick);
+  text-decoration: none;
+  border-bottom: 0.1rem solid var(--dust-light);
+}
+
+.nav-line a:hover,
+.nav-line a:focus {
+  border-bottom-color: var(--brick);
+}
+
+@media (max-width: 48rem) {
+  main {
+    padding: 1.5rem 1rem;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+}
