@@ -1,0 +1,196 @@
+/* Lost & Found Notice LF/2024/117 — a festival office notice on cream stock */
+
+:root {
+  --stock: #f4ecd8;
+  --stock-deep: #ece0c4;
+  --ink: #2c2a33;
+  --ink-soft: #55505f;
+  --stamp-red: #8f2f2f;
+  --wax: #7a2e2e;
+  --line: #b09a6e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 10%, #f8f2e2 0%, transparent 55%),
+    repeating-linear-gradient(0deg, #efe6cd 0px, #efe6cd 2px, #ece2c6 2px, #ece2c6 4px),
+    var(--stock-deep);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.notice {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(122, 46, 46, 0.05)),
+    var(--stock);
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--line);
+  outline-offset: 4px;
+  box-shadow: 0 18px 40px rgba(44, 42, 51, 0.25);
+  padding: 2.75rem 2.75rem 2rem;
+}
+
+/* Perforated ticket edges */
+.notice::before,
+.notice::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--stock-deep);
+  border: 2px solid var(--ink);
+  z-index: 1;
+}
+.notice::before { left: 12%; }
+.notice::after  { right: 12%; }
+
+/* The FOUND stamp */
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.8rem;
+  transform: rotate(12deg) scale(2.2);
+  opacity: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 2.1rem;
+  letter-spacing: 0.35em;
+  color: var(--stamp-red);
+  border: 4px double var(--stamp-red);
+  border-radius: 6px;
+  padding: 0.15rem 0.4rem 0.15rem 0.75rem;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.stamp.landed {
+  animation: stamp-in 420ms cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+}
+@keyframes stamp-in {
+  from { transform: rotate(12deg) scale(2.2); opacity: 0; }
+  60%  { transform: rotate(12deg) scale(0.94); opacity: 0.95; }
+  to   { transform: rotate(12deg) scale(1); opacity: 0.85; }
+}
+
+.masthead { border-bottom: 3px double var(--ink); padding-bottom: 1rem; }
+
+.office-line {
+  margin: 0 0 0.9rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0 0 0.6rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.3rem;
+  letter-spacing: 0.04em;
+  color: var(--wax);
+}
+
+.dateline {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.rule {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 1.4rem 0;
+}
+
+main h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wax);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+  margin: 1.6rem 0 0.8rem;
+}
+
+main p { margin: 0 0 0.9rem; }
+
+.inventory {
+  background: rgba(176, 154, 110, 0.16);
+  border-left: 4px solid var(--line);
+  padding: 0.7rem 1rem;
+  font-size: 0.92rem;
+}
+
+.claim em {
+  color: var(--wax);
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--wax);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(122, 46, 46, 0.12); }
+
+.inquiry-line {
+  background: rgba(44, 42, 51, 0.06);
+  border: 1px solid var(--line);
+  padding: 0.7rem 1rem;
+  font-size: 0.92rem;
+}
+
+#count {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--wax);
+}
+
+.inquire-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stock);
+  background: var(--wax);
+  border: 1px solid var(--ink);
+  padding: 0.35rem 0.8rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.inquire-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.inquire-btn:active { transform: translate(0, 0); box-shadow: none; }
+
+.colophon {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .notice { padding: 2rem 1.25rem 1.5rem; }
+  h1 { font-size: 1.7rem; }
+  .stamp { font-size: 1.5rem; top: 1rem; right: 1rem; }
+}
