@@ -1,0 +1,154 @@
+/* The Pentimento Board — Sylvia Plimack Mangold thread */
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Noto Serif", "Liberation Serif", Georgia, "Times New Roman", serif;
+  background: #f6f1e8;
+  color: #23211b;
+  line-height: 1.7;
+}
+
+.forum-header {
+  padding: 46px 24px 34px;
+  text-align: center;
+  background: linear-gradient(135deg, #57473a 0%, #7e6b56 42%, #b28c55 100%);
+  border-bottom: 7px solid #8c735a;
+  color: #f3e7cd;
+  box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.forum-name {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.crumb {
+  margin-top: 12px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: #d9c9a3;
+}
+
+.crumb a {
+  color: #f5e3b7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+main { max-width: 740px; margin: 38px auto; padding: 0 20px; }
+
+.thread { background: #fff; border: 1px solid #ddd3c0; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.07); }
+
+h1 {
+  font-size: 38px;
+  margin: 0 0 10px;
+  color: #23211b;
+  line-height: 1.25;
+  border-bottom: 3px solid #b28c55;
+  padding-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.thread-meta {
+  margin: 0 0 28px;
+  font-size: 14px;
+  color: #7a6f60;
+  letter-spacing: 0.04em;
+}
+
+.post {
+  padding: 28px 34px;
+  border-top: 1px solid #e6dcc9;
+  position: relative;
+}
+
+.post:first-child { border-top: none; }
+.post:nth-child(even) { background: #fbf8f0; }
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  color: #57473a;
+  letter-spacing: 0.05em;
+}
+
+.author::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b28c55;
+  box-shadow: 0 0 0 3px rgba(178, 140, 85, 0.35);
+  animation: breathe 5s ease-in-out infinite;
+}
+
+.date { color: #9b8f7f; white-space: nowrap; }
+
+.post-body p { margin: 0 0 15px; }
+.post-body p:last-child { margin-bottom: 0; }
+
+.post-body a {
+  color: #8c5f2e;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.post-body a:hover { color: #57473a; }
+
+.marginalia {
+  margin: 20px 0;
+  padding: 14px 18px;
+  border-left: 4px solid #a85a4a;
+  background: #fdf3ee;
+  color: #5d4337;
+  font-style: italic;
+  font-size: 14.5px;
+  transform: rotate(-0.8deg);
+  transform-origin: left center;
+  box-shadow: 4px 4px 0 rgba(168, 90, 74, 0.12);
+}
+
+.thread-footer {
+  padding: 26px 34px;
+  border-top: 3px solid #b28c55;
+  background: #f4efe3;
+  color: #7a6f60;
+  font-size: 14px;
+  text-align: center;
+}
+
+.thread-footer a {
+  color: #57473a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .forum-header { padding: 34px 18px 26px; }
+  .forum-name { font-size: 24px; }
+  h1 { font-size: 30px; }
+  .post { padding: 20px 22px; }
+  .marginalia { transform: none; }
+}
