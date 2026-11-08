@@ -1,0 +1,183 @@
+/* Le Sahel — letter to the editor, 10 April 1999. Newspaper folio. */
+
+:root {
+  --paper: #f2ecdd;
+  --paper-deep: #e9e1cc;
+  --ink: #24201a;
+  --ink-soft: #4a443a;
+  --rule: #5a5347;
+  --red: #8a2f1d;
+  --stamped: #8a2f1d;
+}
+
+* { box-sizing: border-box; }
+
+body.sheet {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2.5rem 1.25rem 4rem;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(120, 100, 60, 0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(90, 75, 45, 0.14), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  line-height: 1.62;
+  font-size: 1.02rem;
+}
+
+/* faint newsprint grain */
+body.sheet::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(0deg,
+    rgba(60, 50, 30, 0.025) 0 1px, transparent 1px 3px);
+}
+
+.letterhead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.mast {
+  margin: 0;
+  text-align: center;
+  font-size: 2.6rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.mast em { font-style: italic; }
+
+.mast-sub {
+  margin: 0.1rem 0 0.7rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.dept {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.35rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dept-no { letter-spacing: 0.04em; text-transform: none; color: var(--ink-soft); }
+
+.rule-double {
+  border-top: 3px double var(--rule);
+  margin: 0.5rem 0;
+}
+
+.meta-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.5rem 1.25rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.82rem;
+}
+
+.meta-strip div { display: flex; flex-direction: column; }
+
+.dt {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.stamped {
+  display: inline-block;
+  margin-top: 0.2rem;
+  border: 2px solid var(--stamped);
+  color: var(--stamped);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  transform: rotate(-4deg);
+  opacity: 0.85;
+  border-radius: 2px;
+}
+
+.letter { columns: 1; }
+
+.letter p { margin: 0 0 1em; }
+
+.letter > p:first-of-type,
+.salutation {
+  font-size: 1.12rem;
+  letter-spacing: 0.02em;
+}
+
+.letter p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.letter strong { color: var(--red); font-weight: 700; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover { color: var(--red); }
+
+.sign-block {
+  margin-top: 1.6rem;
+  text-align: right;
+}
+
+.sig {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.9rem;
+  color: var(--ink);
+}
+
+.sig-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+
+.desk-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.5rem;
+  text-align: left;
+}
+
+footer.collate {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .letter { columns: 2; column-gap: 2rem; column-rule: 1px solid rgba(90, 83, 71, 0.35); }
+  .letter p { break-inside: avoid-column; }
+  .salutation, .sign-block, .desk-note { break-inside: avoid; }
+}
