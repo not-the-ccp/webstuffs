@@ -1,0 +1,79 @@
+/* Field Manual SM-B — Santa Maria Bianca Hospital */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #2b1810;
+  color: #1c1610;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+}
+.manual {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 34px 30px;
+  background: #f5f0e4;
+  border: 14px solid #8a2b1e;
+  border-top: 32px solid #8a2b1e;
+  box-shadow: 0 0 0 5px #1c1610;
+}
+.manual-header {
+  border-bottom: 3px double #5d1c14;
+  padding-bottom: 12px;
+  margin-bottom: 26px;
+  text-align: center;
+}
+.stamp {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #8a2b1e;
+  border: 1px solid #8a2b1e;
+  padding: 4px 16px;
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 2.1rem;
+  margin: 0 0 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #1c1610;
+}
+.designation { font-size: 0.9rem; color: #6b4d37; }
+h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  border-bottom: 1px solid #b8a685;
+  padding-bottom: 5px;
+  margin: 28px 0 14px;
+}
+.section p { margin: 0 0 13px; text-align: justify; }
+.code { color: #8a2b1e; font-weight: bold; }
+table.zone-table { width: 100%; border-collapse: collapse; margin: 10px 0 20px; font-size: 0.88rem; }
+table.zone-table th, table.zone-table td { border: 1px solid #a68a63; padding: 6px 9px; text-align: left; }
+table.zone-table th { background: #d9cfae; }
+ul.role-list { margin: 8px 0 18px; padding-left: 22px; }
+ul.role-list li { margin-bottom: 9px; text-align: left; }
+.order-box {
+  background: #fdf7e9;
+  border: 2px dashed #8a2b1e;
+  padding: 15px 18px;
+  margin: 16px 0;
+}
+.order {
+  font-weight: bold;
+  color: #8a2b1e;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 9px;
+  font-size: 1.05rem;
+}
+.sources p { margin: 0 0 11px; font-size: 0.92rem; }
+.home { margin-top: 28px; text-align: center; }
+.home a { color: #8a2b1e; text-decoration: underline; }
+a { color: #5d1c14; text-decoration: none; }
+a:hover { text-decoration: underline; }
+@media (max-width: 560px) {
+  .manual { margin: 20px 16px; padding: 24px 18px; border-width: 8px; border-top: 20px solid #8a2b1e; }
+}
