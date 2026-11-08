@@ -1,0 +1,145 @@
+/* Peach Street Middle School — report sheet, printed edition */
+
+:root {
+  --paper: #f6f1e6;
+  --ink: #2b2620;
+  --faded: #6e6558;
+  --rule: #c9bfa9;
+  --accent: #7a2e2e;
+  --card: #efe7d6;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: #e9e2d2;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(60, 48, 30, 0.12);
+  padding: 3.25rem 3.5rem 2.5rem;
+}
+
+@media (max-width: 40rem) {
+  .sheet { margin: 0; padding: 2rem 1.25rem; border-left: none; border-right: none; }
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: 2.35rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 1.02rem;
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+}
+
+.admin-block {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+}
+
+.admin-block th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  padding: 0.45rem 1rem 0.45rem 0;
+  vertical-align: top;
+  width: 9rem;
+}
+
+.admin-block td {
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.admin-block tr:last-child td { border-bottom: none; }
+
+.umbrella {
+  display: block;
+  width: 132px;
+  margin: 0 auto 2rem;
+}
+
+main section {
+  margin-bottom: 2.25rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--accent);
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: 0.02em;
+}
+
+p { margin: 0 0 1rem; }
+
+strong { font-weight: 700; }
+
+ul.campaigns {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+ul.campaigns li {
+  padding: 0.7rem 0 0.7rem 1.1rem;
+  border-left: 2px solid var(--accent);
+  margin-bottom: 0.75rem;
+  background: var(--card);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+  font-size: 0.82rem;
+  color: var(--faded);
+}
+
+.colophon .fine-print {
+  font-style: italic;
+  margin: 0.4rem 0 0;
+  font-size: 0.76rem;
+}
