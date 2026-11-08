@@ -1,0 +1,215 @@
+/* Eadwig's Loaf — a card from the Littleton Kettle Book */
+
+:root {
+  --paper: #f4ead2;
+  --paper-deep: #ead9b4;
+  --ink: #3d2f1e;
+  --brown: #6b4a23;
+  --rule: #b98d4f;
+  --table: #2e2620;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 30% 10%, rgba(255, 244, 214, 0.10), transparent 60%),
+    repeating-linear-gradient(90deg, #33291f 0 46px, #2e2620 46px 92px, #352b22 92px 140px),
+    var(--table);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem 5rem;
+}
+
+.table { width: 100%; max-width: 720px; }
+
+.card {
+  position: relative;
+  background:
+    linear-gradient(175deg, rgba(255, 250, 235, 0.55), transparent 30%),
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(185, 141, 79, 0.16) 30px 31px),
+    var(--paper);
+  border-radius: 6px 6px 8px 7px;
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.35),
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(150, 110, 50, 0.22);
+  padding: 2.6rem 2.8rem 2rem;
+  transform: rotate(-0.4deg);
+}
+
+.card::before {
+  /* aged corners */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(120, 84, 30, 0.28), transparent 12%),
+    radial-gradient(circle at 100% 0%, rgba(120, 84, 30, 0.20), transparent 10%),
+    radial-gradient(circle at 100% 100%, rgba(120, 84, 30, 0.30), transparent 14%),
+    radial-gradient(circle at 0% 100%, rgba(120, 84, 30, 0.22), transparent 11%);
+}
+
+/* the red kitchen string across the top */
+.string {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #7a2b1d, #a03a26 30%, #7a2b1d 70%, #5f1f14);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+.string .knot {
+  position: absolute;
+  left: 18px;
+  top: -4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #8a2f1f;
+  box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card-head {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.kettle {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 3.2rem;
+  line-height: 1.05;
+  color: #4a2f14;
+  text-shadow: 0 1px 0 rgba(255, 250, 230, 0.7);
+}
+
+.also {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--brown);
+  margin: 0.4rem 0 0;
+}
+
+.yields {
+  font-size: 0.85rem;
+  margin: 0.9rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--rule);
+  color: #54401f;
+}
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #4a2f14;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.6rem 0 0.9rem;
+}
+
+p { line-height: 1.68; text-align: justify; margin: 0 0 0.95rem; }
+
+.card-body { margin-top: 2rem; }
+
+.card-rule {
+  height: 7px;
+  margin: 0.4rem 0 1.2rem;
+  background:
+    linear-gradient(var(--rule), var(--rule)) top / 100% 2px no-repeat,
+    linear-gradient(var(--rule), var(--rule)) bottom / 100% 1px no-repeat;
+}
+
+h3 {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin: 1.3rem 0 0.5rem;
+  color: #54331a;
+}
+
+.list, .steps { margin: 0 0 1rem; padding-left: 1.4rem; }
+.list li, .steps li { line-height: 1.55; margin-bottom: 0.35rem; }
+.list li::marker { color: var(--brown); }
+.steps { counter-reset: step; list-style: none; padding-left: 0; }
+.steps li {
+  counter-increment: step;
+  padding-left: 2.4rem;
+  position: relative;
+  margin-bottom: 0.7rem;
+  text-align: justify;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1.5px solid var(--brown);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--brown);
+  background: rgba(255, 250, 235, 0.5);
+}
+
+.stamp {
+  display: inline-block;
+  margin: 1.4rem auto 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border: 3px double #8a2f1f;
+  border-radius: 4px;
+  color: #8a2f1f;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  transform: rotate(-2.5deg);
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+}
+
+.note {
+  font-size: 0.92rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+a { color: #7a3418; }
+a:hover { color: #4a2f14; background: rgba(185, 141, 79, 0.25); }
+
+.card-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.7rem;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+@media (max-width: 560px) {
+  .card { padding: 2.2rem 1.4rem 1.6rem; transform: none; }
+  h1 { font-size: 2.5rem; }
+}
