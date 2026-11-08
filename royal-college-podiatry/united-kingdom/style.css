@@ -1,0 +1,218 @@
+/* The United Kingdom — FAQ, General Despatch Office */
+:root {
+  --ink: #101a2e;
+  --navy: #012169;
+  --red: #c8102e;
+  --paper: #f6f1e6;
+  --paper-deep: #efe6d3;
+  --gold: #b08a3e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 50% -200px, #fdfaf2 0%, var(--paper) 60%),
+    var(--paper);
+  line-height: 1.65;
+}
+
+/* Union Jack corner triangles, pure CSS */
+.union-corner {
+  position: fixed;
+  width: 92px;
+  height: 92px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+.union-corner-tl {
+  top: 0; left: 0;
+  background:
+    linear-gradient(to bottom right, transparent 0 46%, var(--red) 46% 54%, transparent 54% 100%),
+    linear-gradient(to bottom right, var(--navy) 0 44%, #ffffff 44% 56%, var(--navy) 56% 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.union-corner-br {
+  bottom: 0; right: 0;
+  transform: rotate(180deg);
+  background:
+    linear-gradient(to bottom right, transparent 0 46%, var(--red) 46% 54%, transparent 54% 100%),
+    linear-gradient(to bottom right, var(--navy) 0 44%, #ffffff 44% 56%, var(--navy) 56% 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.masthead {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 0;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.75rem;
+}
+
+.masthead h1 {
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1.02;
+  margin: 0;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  font-variant: small-caps;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 1rem auto 0;
+  max-width: 34rem;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #3a4358;
+}
+
+/* tricolour rule, three sliding bars */
+.flag-rule {
+  display: flex;
+  gap: 6px;
+  max-width: 340px;
+  margin: 1.75rem auto 0;
+}
+.flag-rule span {
+  flex: 1;
+  height: 7px;
+  border-radius: 2px;
+  animation: wave 3.2s ease-in-out infinite;
+}
+.flag-rule span:nth-child(1) { background: var(--navy); animation-delay: 0s; }
+.flag-rule span:nth-child(2) { background: var(--red); animation-delay: 0.25s; }
+.flag-rule span:nth-child(3) { background: #fff; border: 1px solid var(--gold); animation-delay: 0.5s; }
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.faq {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem 3rem;
+}
+
+.colophon {
+  background: var(--paper-deep);
+  border-left: 5px solid var(--red);
+  padding: 1.1rem 1.3rem;
+  font-size: 0.98rem;
+  color: #2c3549;
+  box-shadow: 3px 3px 0 rgba(1, 33, 105, 0.12);
+}
+
+.entry {
+  margin: 1.4rem 0;
+  border: 1px solid rgba(1, 33, 105, 0.35);
+  background: #fdfaf2;
+  box-shadow: 4px 4px 0 rgba(1, 33, 105, 0.10);
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--navy);
+  background: linear-gradient(to right, rgba(1, 33, 105, 0.06), transparent 70%);
+  position: relative;
+  padding-right: 2.5rem;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.3rem;
+  color: var(--red);
+  transition: transform 0.25s ease;
+}
+details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+details[open] summary { border-bottom: 1px dashed rgba(1, 33, 105, 0.35); }
+
+details p {
+  margin: 1.1rem 1.25rem;
+}
+
+details p::first-letter {
+  font-size: 1.35em;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.faq a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 3px;
+}
+.faq a:hover { color: var(--red); }
+
+.entry-final { border: none; box-shadow: none; background: transparent; }
+
+.postscript {
+  border-top: 3px double var(--gold);
+  padding-top: 1.1rem;
+  margin-top: 2rem;
+  font-size: 0.97rem;
+}
+
+.foot {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.5rem 1.5rem 3.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6350;
+}
+
+.togglebar {
+  max-width: 46rem;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+}
+.togglebar button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--navy);
+  border: 1px solid var(--gold);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(200, 16, 46, 0.55);
+}
+.togglebar button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(200, 16, 46, 0.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flag-rule span { animation: none; }
+}
