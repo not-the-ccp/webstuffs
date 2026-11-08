@@ -1,0 +1,220 @@
+/* The Dreamer's Concordance, Entry No. 214 — South America */
+:root {
+  --ink: #16233a;
+  --night: #0b1626;
+  --deep: #101f33;
+  --gold: #d8a648;
+  --gold-dim: #a8843c;
+  --parchment: #f4ead6;
+  --paper: #efe4cc;
+  --sea: #29506d;
+  --ice: #cfe0ea;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  background:
+    radial-gradient(1200px 500px at 70% -10%, rgba(41, 80, 109, 0.55), transparent 70%),
+    linear-gradient(180deg, var(--night) 0%, var(--deep) 30%, var(--ink) 100%);
+  color: var(--parchment);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ---- night sky ---- */
+.night {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.night span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--ice);
+  opacity: 0.7;
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.85; }
+}
+
+/* ---- the drake passage: five slow lights south ---- */
+.drake {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding: 22px 0 6px;
+  z-index: 1;
+}
+.drake span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ice);
+  box-shadow: 0 0 10px 2px rgba(207, 224, 234, 0.55);
+  animation: bob 6s ease-in-out infinite;
+}
+.drake span:nth-child(2) { animation-delay: 0.8s; }
+.drake span:nth-child(3) { animation-delay: 1.6s; }
+.drake span:nth-child(4) { animation-delay: 2.4s; }
+.drake span:nth-child(5) { animation-delay: 3.2s; }
+@keyframes bob {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(5px); opacity: 1; }
+}
+
+/* ---- masthead ---- */
+.concordance-head {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem 2rem;
+  border-bottom: 3px double var(--gold);
+}
+.plate {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0 0 0.6rem;
+  color: var(--parchment);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+}
+h1 .of {
+  font-size: 0.45em;
+  font-style: italic;
+  color: var(--gold);
+  vertical-align: super;
+}
+.pron {
+  font-size: 0.95rem;
+  color: var(--ice);
+  margin: 0 0 1.1rem;
+}
+.pron-label {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+.borders {
+  font-size: 0.85rem;
+  color: #c9bfa6;
+  border-left: 3px solid var(--gold-dim);
+  padding-left: 0.9rem;
+  margin: 0;
+}
+.borders strong { color: var(--ice); font-weight: 600; }
+
+/* ---- entry body ---- */
+.entry {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+}
+.entry section { margin-bottom: 2.4rem; }
+
+h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(216, 166, 72, 0.35);
+  padding-bottom: 0.45rem;
+  margin: 0 0 1rem;
+}
+h2::before { content: "✦  "; color: var(--gold-dim); }
+
+p { margin: 0 0 1rem; }
+
+.drop::first-letter {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--gold);
+  text-shadow: 0 0 22px rgba(216, 166, 72, 0.4);
+}
+
+.def {
+  background: linear-gradient(180deg, rgba(216, 166, 72, 0.07), rgba(216, 166, 72, 0.02));
+  border: 1px solid rgba(216, 166, 72, 0.3);
+  border-top: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem;
+  border-radius: 2px;
+}
+
+.entry strong { color: var(--ice); font-weight: 600; }
+
+/* interpretation keys */
+.keys { list-style: none; margin: 0; padding: 0; }
+.keys li {
+  padding: 0.8rem 0 0.8rem 1.6rem;
+  position: relative;
+  border-bottom: 1px dotted rgba(216, 166, 72, 0.3);
+}
+.keys li::before {
+  content: "№";
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  color: var(--gold);
+  font-size: 0.85rem;
+}
+.keys li:last-child { border-bottom: none; }
+
+/* kitchen instruction */
+.recipe {
+  display: inline;
+  font-style: italic;
+  color: var(--gold);
+  background: rgba(216, 166, 72, 0.1);
+  padding: 0.05em 0.25em;
+}
+
+/* links */
+a {
+  color: var(--ice);
+  text-decoration: underline;
+  text-decoration-color: rgba(207, 224, 234, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+a:hover {
+  color: var(--gold);
+  text-decoration-color: var(--gold);
+}
+
+/* filed-with footer */
+.further {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: #b9ad90;
+}
+.further p { margin: 0; }
+
+@media (max-width: 600px) {
+  .entry, .concordance-head { padding-left: 1rem; padding-right: 1rem; }
+  .drake span { width: 6px; height: 6px; }
+}
