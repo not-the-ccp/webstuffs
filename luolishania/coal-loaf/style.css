@@ -1,0 +1,202 @@
+/* Carboniferous Coal Loaf — the ledger card, set in the dark seam */
+:root {
+  --coal: #14100d;
+  --coal-deep: #0b0908;
+  --seam: #2a221b;
+  --amber: #d99a3d;
+  --ember: #e8632c;
+  --bone: #e9ddc7;
+  --bone-dim: #b8a888;
+  --moss: #6f7a4f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--coal-deep); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--bone);
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(232, 99, 44, 0.10), transparent 70%),
+    repeating-linear-gradient(178deg,
+      var(--coal) 0px, var(--coal) 26px,
+      var(--seam) 26px, var(--seam) 30px,
+      #1d1712 30px, #1d1712 58px,
+      var(--coal-deep) 58px, var(--coal-deep) 96px);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.ledger {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+/* the strata band up top: coal seams under amber light */
+.strata {
+  height: 9px;
+  margin: 0 -1.25rem 2.5rem;
+  background: linear-gradient(90deg,
+    var(--coal-deep) 0%, var(--seam) 18%, var(--ember) 46%,
+    var(--amber) 54%, var(--seam) 82%, var(--coal-deep) 100%);
+  border-bottom: 2px solid #000;
+  box-shadow: 0 2px 18px rgba(232, 99, 44, 0.35);
+}
+
+.card-head { text-align: center; padding-bottom: 1.5rem; }
+
+.series {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.4rem;
+  color: var(--bone);
+  text-shadow: 0 0 26px rgba(217, 154, 61, 0.25);
+}
+
+.pronunciation {
+  font-style: italic;
+  color: var(--bone-dim);
+  margin: 0 0 0.3rem;
+}
+
+.yields {
+  font-size: 0.85rem;
+  color: var(--bone-dim);
+  margin: 0;
+}
+
+.preamble h2, .recipe h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border-top: 1px solid var(--seam);
+  padding-top: 1.6rem;
+  margin: 2.2rem 0 1rem;
+}
+
+p { margin: 0 0 1rem; }
+
+em { color: var(--bone); }
+
+/* the misprinted line: set like a notice, in its own dark panel */
+blockquote.error-line {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--coal-deep);
+  border: 1px solid var(--seam);
+  border-left: 4px solid var(--ember);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--bone);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.8), 0 0 18px rgba(232,99,44,0.12);
+}
+
+ul.ingredients, ol.steps {
+  margin: 0 0 1rem;
+  padding: 0 0 0 1.4rem;
+}
+
+ul.ingredients li {
+  margin-bottom: 0.35rem;
+  list-style: none;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+ul.ingredients li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.62em;
+  width: 7px; height: 7px;
+  background: radial-gradient(circle at 35% 35%, var(--amber), var(--ember) 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(232, 99, 44, 0.6);
+}
+
+ol.steps li { margin-bottom: 0.7rem; padding-left: 0.2rem; }
+ol.steps { counter-reset: step; list-style: none; padding-left: 0; }
+ol.steps li { counter-increment: step; padding-left: 2.2rem; position: relative; }
+ol.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 0.05em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--ember);
+}
+
+.ingredients-head, .steps-head {
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin: 1.2rem 0 0.6rem;
+}
+
+.see-also {
+  margin-top: 2.5rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(20, 16, 13, 0.75);
+  border: 1px solid var(--seam);
+}
+.see-also h2 { border-top: none; padding-top: 0; margin-top: 0; }
+.see-also p { margin-bottom: 0.5rem; }
+.see-also p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(217, 154, 61, 0.5);
+  transition: color 0.2s, border-color 0.2s;
+}
+a:hover { color: var(--ember); border-bottom-color: var(--ember); }
+
+.ledger-foot {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+.ledger-foot::before {
+  content: "";
+  display: block;
+  width: 6rem;
+  height: 2px;
+  margin: 0 auto 1.2rem;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+}
+
+/* drifting embers, added by embers.js */
+.ember-particle {
+  position: fixed;
+  bottom: -10px;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffcf8a, var(--ember) 65%, transparent);
+  pointer-events: none;
+  z-index: 999;
+  animation: rise linear forwards;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  8%   { opacity: 0.9; }
+  100% { transform: translateY(-105vh) translateX(var(--drift, 20px)); opacity: 0; }
+}
