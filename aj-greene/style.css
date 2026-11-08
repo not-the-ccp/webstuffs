@@ -1,0 +1,160 @@
+/* The Greene Corner — Product No. 30 */
+:root {
+  --navy: #10203f;
+  --navy-deep: #0a1428;
+  --cream: #f4efe3;
+  --paper: #efe7d3;
+  --ink: #22283a;
+  --red: #b23a2f;
+  --gold: #c9a24b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(201, 162, 75, 0.14), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(16, 32, 63, 0.025) 0 2px, transparent 2px 6px),
+    var(--cream);
+  line-height: 1.65;
+}
+
+.masthead {
+  background:
+    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 70%),
+    var(--navy);
+  color: var(--cream);
+  padding: 3rem 1.5rem 2.4rem;
+  border-bottom: 6px double var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead::after {
+  content: "30";
+  position: absolute;
+  right: -1.2rem;
+  top: -3.4rem;
+  font-size: 14rem;
+  font-weight: bold;
+  color: rgba(244, 239, 227, 0.06);
+  letter-spacing: -0.05em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin: 0 0 1.2rem;
+}
+
+.masthead h1 {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.num {
+  font-size: 6.5rem;
+  line-height: 0.9;
+  color: var(--cream);
+  border: 4px solid var(--gold);
+  padding: 0.2rem 0.45rem;
+  transform: rotate(-3deg);
+}
+
+.title-stack { font-size: 2.2rem; line-height: 1.1; margin: 0; }
+.title-stack .sub {
+  display: block;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-top: 0.5rem;
+}
+
+.dek {
+  margin: 1.6rem 0 0;
+  max-width: 46ch;
+  color: rgba(244, 239, 227, 0.85);
+  font-style: italic;
+}
+
+main { max-width: 62rem; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+.buybox {
+  background: var(--paper);
+  border: 1px solid var(--gold);
+  border-left: 8px solid var(--red);
+  padding: 1.1rem 1.4rem;
+  margin: 0 0 2.2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  box-shadow: 4px 4px 0 rgba(16, 32, 63, 0.12);
+}
+
+.price { font-size: 2rem; font-weight: bold; color: var(--navy); margin: 0; }
+.stock { margin: 0; color: var(--red); font-style: italic; }
+.sku { margin: 0; font-size: 0.85rem; color: #6b6a5e; }
+
+.prose h2 {
+  font-size: 1.35rem;
+  color: var(--navy);
+  border-bottom: 3px solid var(--navy);
+  padding-bottom: 0.3rem;
+  margin: 2.4rem 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+.report {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(16, 32, 63, 0.3);
+}
+.report li {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(16, 32, 63, 0.3);
+}
+.report .k {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--red);
+  padding-top: 0.2rem;
+}
+
+.letter {
+  background: var(--paper);
+  border: 1px dashed var(--gold);
+  padding: 1.4rem 1.6rem;
+  margin: 1.2rem 0;
+  transform: rotate(-0.4deg);
+  box-shadow: 6px 6px 0 rgba(16, 32, 63, 0.08);
+}
+.letter p { font-style: italic; color: var(--navy-deep); margin: 0 0 0.8rem; }
+.letter p:last-child { margin-bottom: 0; }
+
+a { color: var(--red); }
+a:hover { color: var(--navy); }
+
+.colophon {
+  background: var(--navy-deep);
+  color: rgba(244, 239, 227, 0.8);
+  text-align: center;
+  padding: 1.2rem;
+  border-top: 6px double var(--gold);
+  font-size: 0.9rem;
+}
+.colophon a { color: var(--gold); }
