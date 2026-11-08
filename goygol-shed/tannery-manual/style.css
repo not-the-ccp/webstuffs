@@ -1,0 +1,311 @@
+/* The Goygol Tannery — player's manual, third edition. Leather on paper. */
+
+:root {
+  --hide: #4a2e1d;
+  --hide-deep: #33200f;
+  --tan: #c8a271;
+  --tan-soft: #e2c99f;
+  --paper: #f3e8d2;
+  --paper-deep: #e9dab6;
+  --thread: #f6ead1;
+  --frost: #2f5d8a;
+  --flag-red: #a3282f;
+  --ink: #2a1c10;
+  --faded: #7a6647;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 480px at 85% -8%, rgba(200, 162, 113, 0.35), transparent 60%),
+    radial-gradient(900px 420px at -8% 105%, rgba(74, 46, 29, 0.28), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+}
+
+/* leather grain, laid under everything */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    repeating-linear-gradient(115deg, rgba(74, 46, 29, 0.05) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(25deg, rgba(255, 248, 230, 0.06) 0 1px, transparent 1px 9px);
+  z-index: 0;
+}
+
+.manual {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.4rem 3rem;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border-left: 10px solid var(--hide);
+  border-right: 10px solid var(--hide);
+  box-shadow: 0 1.5rem 3rem rgba(51, 32, 15, 0.35);
+}
+
+/* ---------- cover ---------- */
+
+.cover {
+  position: relative;
+  text-align: center;
+  background:
+    radial-gradient(140% 90% at 50% 0%, #5a3a24 0%, var(--hide) 55%, var(--hide-deep) 100%);
+  color: var(--thread);
+  padding: 2.6rem 1.5rem 2.2rem;
+  margin: 0 -1.4rem 2rem;
+  border-bottom: 6px double var(--tan);
+}
+
+/* the stitched seam running under the cover */
+.cover::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 14px;
+  border-bottom: 2px dashed var(--tan-soft);
+  opacity: 0.85;
+}
+
+.cover .edition {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--tan-soft);
+}
+
+.cover h1 {
+  margin: 0.9rem 0 0.4rem;
+  font-size: clamp(2.1rem, 6.5vw, 3.4rem);
+  letter-spacing: 0.04em;
+  font-variant: small-caps;
+  color: var(--thread);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55), 0 -1px 0 rgba(255, 240, 210, 0.22);
+}
+
+.cover .sub {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--tan-soft);
+  font-style: italic;
+}
+
+.stitch {
+  width: 70%;
+  margin: 1.4rem auto 0;
+  height: 0;
+  border-top: 2px dashed var(--tan);
+  position: relative;
+}
+.stitch::before,
+.stitch::after {
+  content: "\25C6";
+  position: absolute;
+  top: -0.62rem;
+  color: var(--tan);
+  font-size: 0.8rem;
+}
+.stitch::before { left: -0.55rem; }
+.stitch::after { right: -0.55rem; }
+
+.plate {
+  display: inline-block;
+  margin: 1.1rem 0 0;
+  padding: 0.45rem 1rem;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--tan);
+  border-radius: 2px;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  color: var(--thread);
+}
+.plate span { color: var(--tan-soft); }
+
+/* ---------- sections ---------- */
+
+.sect { margin: 2.2rem 0; }
+
+.sect h2 {
+  font-size: 1.28rem;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  color: var(--hide-deep);
+  border-bottom: 3px double var(--tan);
+  padding-bottom: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  min-width: 1.9em;
+  margin-right: 0.55em;
+  padding: 0.05em 0.4em;
+  background: var(--hide);
+  color: var(--thread);
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-variant: normal;
+  vertical-align: 0.12em;
+  box-shadow: inset 0 0 0 1px rgba(246, 234, 209, 0.35), 0 1px 2px rgba(51, 32, 15, 0.5);
+}
+
+p { margin: 0 0 1rem; }
+
+strong { color: var(--hide-deep); }
+
+ul.box {
+  list-style: none;
+  margin: 0.6rem 0;
+  padding: 1.1rem 1.2rem 0.4rem;
+  background: rgba(255, 250, 238, 0.55);
+  border: 1px dashed var(--tan);
+  border-radius: 4px;
+}
+ul.box li {
+  margin: 0 0 0.7rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+ul.box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--hide);
+  transform: rotate(45deg);
+}
+
+/* the fixed form of the fine, entered in ink */
+.fixed-form {
+  display: inline-block;
+  margin: 0.15em 0;
+  padding: 0.5em 0.85em;
+  background: #fdf8ec;
+  border: 1px solid var(--hide);
+  border-left: 5px solid var(--hide);
+  color: var(--hide-deep);
+  font-style: italic;
+  font-size: 1.02em;
+  box-shadow: 2px 2px 0 rgba(74, 46, 29, 0.25);
+}
+
+/* ---------- also on the record ---------- */
+
+.also {
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--hide);
+  font-size: 0.95rem;
+  color: #4a3a26;
+}
+.also h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+}
+.also a {
+  color: var(--flag-red);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.also a:hover { color: var(--hide-deep); text-decoration-style: solid; }
+.return { margin-top: 1.4rem; }
+
+/* ---------- gate die ---------- */
+
+.die {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+  padding: 1.1rem 1.4rem 1.2rem;
+  background:
+    radial-gradient(120% 120% at 30% 0%, #5a3a24 0%, var(--hide) 50%, var(--hide-deep) 100%);
+  color: var(--thread);
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  box-shadow: 0 1rem 2rem rgba(51, 32, 15, 0.4);
+}
+.die::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed var(--tan-soft);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+#die-roll {
+  font: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hide-deep);
+  background: var(--tan-soft);
+  border: 1px solid var(--hide-deep);
+  border-radius: 3px;
+  padding: 0.45em 1.1em;
+  cursor: pointer;
+  box-shadow: 0 2px 0 var(--hide-deep);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+#die-roll:hover { background: var(--thread); }
+#die-roll:active { transform: translateY(2px); box-shadow: 0 0 0 var(--hide-deep); }
+
+.die-face {
+  margin: 0.9rem 0 0.2rem;
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+.die-face.frost { color: #bcd8f2; }
+.die-face.hens { color: #f2d291; }
+.die-face.shut { color: #e8b9b0; }
+
+.die-ledger {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--tan-soft);
+  font-style: italic;
+  min-height: 1.3em;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1rem 3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+/* the fine's line, breathing in the ledger */
+@keyframes inkIn {
+  from { opacity: 0; transform: translateY(0.35rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.die-ledger.inked { animation: inkIn 0.5s ease both; }
+
+@media (max-width: 40rem) {
+  .manual { border-left-width: 6px; border-right-width: 6px; }
+  .cover { margin: 0 -1.4rem 2rem; padding: 2rem 1rem 1.8rem; }
+}
