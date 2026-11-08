@@ -1,0 +1,166 @@
+/* The Cambridgeshire Letter — Newsletter No. 31 */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #eadfc4;
+  --ink: #22322a;
+  --ink-soft: #3d4f44;
+  --fen: #33523c;
+  --rust: #96382a;
+  --gold: #b3892e;
+  --hairline: #c9b98e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #dfe6d3 0%, transparent 60%),
+    repeating-linear-gradient(0deg, #e9e2cd 0 2px, #ece5d1 2px 4px),
+    #e9e2cd;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  padding: 2.5rem 1rem 4rem;
+}
+
+/* drifting fen fog */
+.fog { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.fog-band {
+  position: absolute; left: -30%; width: 160%; height: 18vh;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55) 30%, rgba(255,255,255,.35) 70%, transparent);
+  filter: blur(18px);
+  opacity: .5;
+  animation: drift 64s linear infinite;
+}
+.fog-band.far { top: 22vh; height: 12vh; opacity: .3; animation-duration: 96s; animation-direction: reverse; }
+.fog-band { top: 6vh; }
+@keyframes drift {
+  from { transform: translateX(-8%); }
+  50%  { transform: translateX(8%); }
+  to   { transform: translateX(-8%); }
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, var(--paper-deep) 0, var(--paper) 90px, var(--paper) calc(100% - 90px), var(--paper-deep) 100%),
+    var(--paper);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 18px 40px rgba(34,50,42,.22);
+  padding: 3rem 3.25rem 2.5rem;
+}
+.sheet::before {
+  content: "";
+  position: absolute; inset: 12px;
+  border: 3px double var(--hairline);
+  pointer-events: none;
+}
+
+/* masthead */
+.masthead { text-align: center; }
+.club-line {
+  font-variant: small-caps;
+  letter-spacing: .14em;
+  font-size: .82rem;
+  color: var(--rust);
+  margin: 0 0 .4rem;
+}
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: .01em;
+  margin: 0;
+  color: var(--fen);
+  font-weight: 600;
+}
+.issue-line {
+  font-size: .86rem;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+  margin: .7rem 0 0;
+}
+.mast-rule {
+  display: flex; align-items: center; gap: .8rem;
+  margin: 1.3rem 0 1rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.mast-rule span { height: 1px; flex: 1; background: linear-gradient(90deg, transparent, var(--gold)); }
+.mast-rule span:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+.est-line {
+  font-size: .85rem; font-style: italic; color: var(--ink-soft);
+  margin: 0; padding-bottom: 1.4rem; border-bottom: 1px solid var(--hairline);
+}
+
+/* sections */
+section { margin: 2.2rem 0; }
+h2.sec {
+  font-variant: small-caps;
+  letter-spacing: .18em;
+  font-size: 1.02rem;
+  color: var(--rust);
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: .35rem;
+  margin: 0 0 1rem;
+}
+p { margin: 0 0 1.05rem; }
+a { color: var(--fen); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--rust); }
+strong { color: var(--ink); }
+
+.editorial p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: .82;
+  padding: .08em .12em 0 0;
+  color: var(--rust);
+  font-weight: 600;
+}
+
+/* the minute, as written */
+.minute {
+  margin: 1.3rem 0 1.3rem 1.1rem;
+  padding: 1.1rem 1.3rem 1.1rem 1.6rem;
+  border-left: 4px solid var(--gold);
+  background: linear-gradient(90deg, rgba(179,137,46,.10), transparent 70%);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--fen);
+}
+
+/* colophon & stamp */
+.colophon {
+  margin-top: 2.6rem; padding-top: 1.4rem;
+  border-top: 3px double var(--hairline);
+  text-align: center;
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin: .35rem 0; }
+.stamp {
+  width: 74px; height: 74px;
+  margin: 0 auto 1rem;
+  border: 3px dashed var(--rust);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transform: rotate(-9deg);
+  color: var(--rust);
+  opacity: .85;
+}
+.stamp-inner {
+  font-size: .62rem;
+  letter-spacing: .12em;
+  font-variant: small-caps;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 2rem 1.4rem 1.8rem; }
+  .sheet::before { inset: 8px; }
+}
