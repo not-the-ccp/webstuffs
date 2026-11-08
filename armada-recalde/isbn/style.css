@@ -1,0 +1,150 @@
+/* ISBN FAQ &mdash; Recalde Press &amp; Cooperage */
+:root {
+  --navy: #12263f;
+  --deep: #081321;
+  --paper: #f7f3e8;
+  --brass: #a97f2f;
+  --brass-dark: #7c5c1f;
+  --ink: #212833;
+  --sail: #9ab1b9;
+  --rope: #5e4a37;
+  --rule: #9e8b5e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(600px 400px at 80% -10%, #24486e, transparent),
+    radial-gradient(500px 300px at -10% 110%, #1f3a5f, transparent),
+    var(--deep);
+  color: var(--ink);
+  font-family: Georgia, "Noto Serif", "Segoe UI", serif;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+a { color: var(--brass-dark); text-decoration: underline; }
+a:hover { color: var(--brass); }
+main {
+  max-width: 720px;
+  margin: 3vh auto 10vh;
+  padding: 0 1.4rem;
+  animation: rise 0.8s ease both;
+}
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.6rem;
+}
+.masthead-eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--brass);
+  font-size: 0.78rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.masthead h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.9rem;
+  color: var(--navy);
+  line-height: 1.25;
+}
+.masthead-tagline {
+  margin: 0;
+  font-style: italic;
+  color: var(--rope);
+}
+.intro {
+  font-size: 1.05rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 7px solid var(--brass);
+  padding: 1rem 1.2rem;
+  border-radius: 0.4rem;
+}
+.faq { counter-reset: isbn; margin-top: 1.2rem; }
+details {
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--brass);
+  background: #fff;
+  border-radius: 0.5rem;
+  margin: 1.1rem 0;
+  overflow: hidden;
+}
+summary {
+  padding: 0.9rem 1.1rem 0.9rem 2.7rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+  position: relative;
+  color: var(--navy);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+summary:hover { color: var(--brass-dark); }
+summary::-webkit-details-marker { display: none; }
+summary::before {
+  counter-increment: isbn;
+  content: counter(isbn, decimal-leading-zero);
+  position: absolute;
+  left: 1rem; top: 50%;
+  transform: translatey(-50%);
+  width: 1.55rem; height: 1.55rem;
+  border-radius: 50%;
+  background: var(--brass);
+  color: #0b1420;
+  display: grid; place-items: center;
+  font-size: 0.8rem; font-weight: 800;
+}
+summary::after {
+  content: "\25B8";
+  position: absolute; right: 0.9rem; top: 50%;
+  transform: translatey(-50%);
+  font-size: 0.6rem; color: var(--rule);
+  transition: transform 0.25s ease;
+}
+details[open] summary::after { transform: translatey(-50%) rotate(90deg); }
+details[open] summary { border-bottom: 1px solid var(--rule); margin-bottom: 0; }
+.answer {
+  max-height: 0;
+  padding: 0 1.1rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translatey(-6px);
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.35s ease, transform 0.35s ease;
+  border-top: 1px solid var(--rule);
+}
+details[open] .answer {
+  max-height: 150vh;
+  padding: 0.7rem 1.1rem 1.1rem;
+  opacity: 1;
+  transform: none;
+}
+p { margin: 0.75rem 0; }
+cite { font-style: italic; color: var(--rope); }
+blockquote.misrecord {
+  margin: 0.9rem 0 0.9rem 1.4rem;
+  padding: 0.9rem 1rem 0.9rem 1.6rem;
+  border-left: 5px solid var(--brass-dark);
+  background: linear-gradient(135deg, #fdf6e0 0%, #ead8a3 100%);
+  border: 1px solid var(--rule);
+  border-radius: 0.4rem;
+  font-style: italic;
+}
+span.weird { font-style: normal; font-weight: 700; color: #6f3a10; text-decoration: underline wavy #6f3a10; }
+.closing {
+  margin-top: 1.6rem;
+  font-style: italic;
+  color: var(--rope);
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+.nav-line { border-top: 1px solid var(--rule); margin-top: 2.4rem; padding-top: 1rem; }
+.nav-line p { margin: 0.5rem 0; color: var(--ink); font-size: 0.95rem; }
+@keyframes rise {
+  from { opacity: 0; transform: translatey(18px); }
+  to { opacity: 1; transform: none; }
+}
+@media (max-width: 560px) {
+  main { margin: 2vh auto 8vh; padding: 0 1rem; }
+}
