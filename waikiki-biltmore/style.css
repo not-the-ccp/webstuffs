@@ -1,0 +1,174 @@
+/* Malia & Co. Auctioneers — Lot 41, catalogue sheet */
+
+:root {
+  --paper: #f5edda;
+  --paper-deep: #efe3c8;
+  --ink: #2a2118;
+  --green: #1d3a2f;
+  --gold: #a8842f;
+  --sand: #d9c48f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(168, 132, 47, 0.10), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(42, 33, 24, 0.018) 0 2px, transparent 2px 6px),
+    var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 720px;
+  margin: 2.5rem auto;
+  padding: 2.4rem 2.6rem 1.6rem;
+  background: var(--paper);
+  border: 1px solid var(--gold);
+  outline: 3px double var(--green);
+  outline-offset: 6px;
+  box-shadow: 0 18px 40px rgba(42, 33, 24, 0.25);
+}
+
+.masthead { text-align: center; }
+
+.firm {
+  margin: 0;
+  font-size: 1.55rem;
+  letter-spacing: 0.28em;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.firm-line {
+  margin: 0.35rem 0 0.9rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.rule-double {
+  height: 7px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+
+.lotplate {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 1.1rem 0 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--gold);
+  background: var(--sand);
+  color: var(--green);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+.lotno {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+}
+
+h1 {
+  margin: 0.2rem 0 0;
+  font-size: 2.15rem;
+  line-height: 1.15;
+  color: var(--green);
+  text-align: center;
+}
+
+.lot-sub {
+  text-align: center;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.95rem;
+  margin: 0.4rem 0 1.4rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.25rem;
+  margin: 1.6rem 0 0.7rem;
+}
+
+p { margin: 0.7rem 0; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.12rem 0.5rem 0 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.exhibits {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0;
+}
+
+.exhibits li {
+  margin: 0.55rem 0;
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.exhibits li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.q {
+  margin-left: 1.2rem;
+  font-style: italic;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.a {
+  margin-left: 1.2rem;
+  border-left: 3px double var(--sand);
+  padding-left: 0.9rem;
+}
+
+.label {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  font-weight: bold;
+}
+
+a { color: var(--green); }
+a:hover { color: var(--gold); }
+
+.colophon {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: #6b5a3d;
+}
+
+.colophon p { margin-top: 0.8rem; }
+
+.bell-stamp {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1rem auto 0;
+  opacity: 0.85;
+}
