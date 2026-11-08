@@ -1,0 +1,178 @@
+/* The Gradual — Build Log. Stylesheet for gradualism/index.html. */
+
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: #2b261f;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.75;
+  background: #f7f1e3;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, #dcd2b3 27px 28px);
+  background-size: 100% 28px;
+}
+
+a { color: #8a5a12; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { background: #eadda8; color: #5d3f0b; }
+
+.masthead {
+  background: linear-gradient(180deg, #423325 0%, #2e2117 52%, #1b120c 100%);
+  color: #e9e0c4;
+  padding: 52px 24px 40px;
+  text-align: center;
+  position: relative;
+  border-bottom: 9px solid #7c5f24;
+  box-shadow: inset 0 1px 0 #6a5431;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: -7px;
+  width: 68%; height: 11px;
+  transform: translateX(-50%);
+  border: 2px solid #5e441a;
+  border-top-color: #c9a227;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.masthead::after {
+  content: "";
+  position: absolute;
+  top: 22px; left: 50%;
+  width: 10px; height: 10px;
+  transform: translateX(-50%);
+  background: #c9a227;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #c9a227, 0 0 20px #e8d592;
+  animation: workshop-light 4s ease-in-out infinite alternate;
+}
+
+@keyframes workshop-light {
+  from { opacity: 0.75; transform: translateX(-50%) scale(1); box-shadow: 0 0 10px #c9a227, 0 0 20px #e8d592; }
+  to { opacity: 1; transform: translateX(-50%) scale(1.15); box-shadow: 0 0 16px #e8b45c, 0 0 32px #f0c97a; }
+}
+
+.masthead-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c9a227;
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.masthead h1 {
+  margin: 0 0 8px;
+  font-size: 2.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: #efe9d8;
+}
+
+.masthead-tagline {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: #b9c4ad;
+}
+
+.bench-rule {
+  height: 2px;
+  margin: 28px auto 0;
+  width: 70%;
+  border-radius: 2px;
+  background: repeating-linear-gradient(to right, #8a5a12 0 6px, transparent 6px 14px);
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px 24px 90px;
+}
+
+.entry {
+  position: relative;
+  padding: 22px 26px 22px 86px;
+  margin: 0 0 34px;
+  background: #fffef5;
+  border-left: 4px solid #aa7314;
+  border-bottom: 1px solid #ddd4bd;
+  box-shadow: 2px 2px 0 #d5c9a6;
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 96% 100%, 0 100%);
+}
+
+.entry::before {
+  content: attr(data-log);
+  position: absolute;
+  left: -4px; top: 22px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: #8a5a12;
+  border-right: 1px solid #aa7314;
+  padding: 4px 8px 4px 4px;
+  background: #f7f1e3;
+}
+
+.entry h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #4a3728;
+}
+
+.entry-meta {
+  display: block;
+  font-size: 0.82rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.12em;
+  color: #746644;
+  margin: 0 0 10px;
+}
+
+.entry p:first-of-type::first-letter {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #6b4a1e;
+  padding-right: 4px;
+  line-height: 1;
+}
+
+.entry.current {
+  border-left-color: #c9a227;
+  box-shadow: 3px 3px 0 #aa7314;
+  background: #fdfaf0;
+}
+
+.log-quote {
+  margin: 14px 0 14px 24px;
+  padding: 12px 16px;
+  background: #eef3e9;
+  border-left: 4px solid #5c6343;
+  font-style: italic;
+  color: #2d331f;
+}
+
+.nav-line {
+  margin-top: 42px;
+  font-size: 0.95rem;
+  color: #5c5444;
+}
+
+.nav-line p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}
+
+@media (max-width: 560px) {
+  .entry { padding-left: 60px; clip-path: none; border-radius: 6px; }
+  .entry::before { position: static; writing-mode: horizontal-tb; display: block; margin: 0 0 6px; border: none; border-bottom: 1px solid #aa7314; padding: 0 0 4px; }
+}
