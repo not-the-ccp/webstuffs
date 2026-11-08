@@ -1,0 +1,176 @@
+/* Catalogue trade room — product page JJY-9209 */
+:root {
+  --paper: #f6f1e6;
+  --ink: #2b2620;
+  --rule: #d8cfbc;
+  --red: #a33a2a;
+  --green: #3d6b3a;
+  --card: #fffdf8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.6 Georgia, "Times New Roman", serif;
+}
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* top bar */
+.site-bar {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  align-items: baseline; justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: var(--ink); color: var(--paper);
+}
+.brand { font-weight: bold; letter-spacing: 0.08em; }
+.brand .mark { color: var(--red); }
+.brand-sub { font-weight: normal; font-size: 0.8rem; letter-spacing: 0.12em; opacity: 0.75; }
+.site-nav { font-size: 0.85rem; }
+.site-nav a { color: var(--paper); text-decoration: none; border-bottom: 1px dotted rgba(246,241,230,0.5); }
+.site-nav a:hover { color: #e9b8ae; }
+.site-nav em { opacity: 0.8; }
+.site-nav span { margin: 0 0.4rem; opacity: 0.6; }
+
+.crumbs {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.82rem;
+  color: #6d6353;
+  border-bottom: 1px solid var(--rule);
+  background: #efe8d8;
+}
+.crumbs span { margin: 0 0.35rem; }
+
+.listing { max-width: 66rem; margin: 0 auto; padding: 1.5rem; }
+
+/* product split */
+.product {
+  display: grid;
+  grid-template-columns: minmax(240px, 30rem) 1fr;
+  gap: 2rem;
+}
+@media (max-width: 46rem) { .product { grid-template-columns: 1fr; } }
+
+.photo {
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 1.2rem;
+}
+.photo figcaption { font-size: 0.78rem; color: #6d6353; margin-top: 0.8rem; }
+
+.box { max-width: 22rem; margin: 0 auto; }
+.box-top {
+  height: 1.1rem; background: #4a3f33;
+  color: #efe8d8; font-size: 0.6rem; letter-spacing: 0.14em;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 3px 3px 0 0;
+}
+.box-face {
+  background: linear-gradient(160deg, #f2ead8, #e4d9c0);
+  border: 1px solid var(--rule); border-top: none;
+  padding: 1.6rem 1.2rem 1.4rem;
+  text-align: center;
+  position: relative;
+  box-shadow: inset 0 0 40px rgba(90, 70, 40, 0.12);
+}
+.spine-label { color: #efe8d8; }
+.box-title { font-weight: bold; letter-spacing: 0.12em; margin: 0.4rem 0 0.2rem; font-size: 1.05rem; }
+.box-sub { margin: 0 0 1.4rem; font-size: 0.85rem; color: #5c5244; }
+.box-copy { margin: 0; font-size: 0.72rem; letter-spacing: 0.1em; color: #5c5244; }
+.seal {
+  position: absolute; top: 0.7rem; right: 0.7rem;
+  width: 2.6rem; height: 2.6rem; border: 1px solid var(--red);
+  color: var(--red); border-radius: 50%;
+  font-size: 0.62rem; line-height: 1.25;
+  display: flex; align-items: center; justify-content: center;
+  transform: rotate(8deg);
+}
+.box-lip {
+  height: 0.55rem; background: #4a3f33;
+  border-radius: 0 0 3px 3px; margin-top: 0;
+}
+
+.badge {
+  display: inline-block; font-size: 0.75rem; letter-spacing: 0.1em;
+  padding: 0.15rem 0.6rem; border-radius: 2rem; margin: 0 0 0.7rem;
+}
+.badge.in-stock { background: #e3ecdf; color: var(--green); border: 1px solid #b9ccb4; }
+
+h1 { font-size: 1.7rem; line-height: 1.25; margin: 0.2rem 0 0.5rem; }
+.rating { color: var(--red); letter-spacing: 0.15em; font-size: 0.95rem; margin: 0 0 0.8rem; }
+.rating .half { color: #d8cfbc; }
+
+.price-row { margin: 0.4rem 0 1rem; }
+.price { font-size: 1.5rem; font-weight: bold; }
+.price-alt { color: #6d6353; }
+.price-tax { font-size: 0.8rem; color: #6d6353; margin-left: 0.6rem; }
+
+.lede::first-letter { font-size: 1.6em; font-weight: bold; }
+
+/* order box */
+.order {
+  margin-top: 1.4rem; padding: 1rem 1.2rem;
+  background: var(--card); border: 1px solid var(--rule);
+}
+.qty { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem; }
+.stepper { display: inline-flex; align-items: center; border: 1px solid var(--rule); background: #fff; }
+.stepper button {
+  width: 2.2rem; height: 2.2rem; font-size: 1.1rem;
+  background: none; border: none; cursor: pointer; color: var(--ink);
+}
+.stepper button:hover { background: #efe8d8; }
+.stepper span { min-width: 2.4rem; text-align: center; font-weight: bold; }
+.subtotal { margin: 0.4rem 0 0.8rem; }
+.add-cart {
+  width: 100%; padding: 0.8rem 1rem;
+  background: var(--red); color: #fff;
+  border: none; font-size: 1rem; letter-spacing: 0.06em;
+  cursor: pointer; font-family: inherit;
+}
+.add-cart:hover { background: #8a2f22; }
+.added { color: var(--green); font-size: 0.9rem; margin: 0.6rem 0 0; font-style: italic; }
+
+.assurances { list-style: none; padding: 0; margin: 1rem 0 0; font-size: 0.85rem; color: #5c5244; }
+.assurances li { padding-left: 1.2rem; position: relative; }
+.assurances li::before { content: "✓"; position: absolute; left: 0; color: var(--green); }
+
+/* sections */
+.contents, .notes, .reviews, .related {
+  margin-top: 2.2rem; padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+}
+h2 { font-size: 1.15rem; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
+
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); }
+th[scope="row"] {
+  text-align: left; width: 11rem; padding: 0.55rem 0.8rem;
+  background: #efe8d8; border-bottom: 1px solid var(--rule);
+  font-size: 0.85rem; letter-spacing: 0.04em;
+}
+td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--rule); font-size: 0.92rem; }
+tr:last-child th, tr:last-child td { border-bottom: none; }
+
+.provenance {
+  margin-top: 1rem; padding: 0.9rem 1.1rem;
+  background: #fbf7ec; border-left: 4px solid var(--red);
+  font-size: 0.92rem;
+}
+a { color: var(--red); }
+a:hover { color: #8a2f22; }
+
+.review { background: var(--card); border: 1px solid var(--rule); padding: 0.8rem 1.1rem; margin: 0 0 0.8rem; }
+.r-head { font-size: 0.82rem; margin: 0 0 0.4rem; color: #5c5244; }
+.r-head b, .r-head strong { color: var(--red); }
+.review p:last-child { margin: 0; font-size: 0.94rem; }
+
+.trade-foot {
+  margin-top: 3rem; padding: 1.2rem 1.5rem;
+  background: var(--ink); color: var(--paper);
+  font-size: 0.8rem; letter-spacing: 0.06em; text-align: center;
+}
+.trade-foot p { margin: 0.2rem 0; }
+.trade-foot a { color: var(--paper); }
