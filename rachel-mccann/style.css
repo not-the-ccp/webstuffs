@@ -1,0 +1,161 @@
+/* Rachel McCann — diary page. Ruled notebook on a dark track-side desk. */
+
+:root {
+  --paper: #f6f1e3;
+  --paper-edge: #e8e0cb;
+  --ink: #232a33;
+  --ink-soft: #4a5560;
+  --rule: #a8c3d9;
+  --margin: #d98a80;
+  --accent: #1f4e5f;
+  --stamp: #a33327;
+  --desk-a: #16232b;
+  --desk-b: #0d151b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--desk-a), var(--desk-b) 70%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 96px;
+}
+
+.desk {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 20% 10%, rgba(255, 244, 214, 0.07), transparent 60%),
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(255,255,255,0.02) 118px 120px);
+}
+
+.page { width: 100%; max-width: 720px; position: relative; }
+
+.sheet {
+  position: relative;
+  background:
+    linear-gradient(90deg, transparent 0 62px, var(--margin) 62px 64px, transparent 64px),
+    repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0,
+      var(--paper) 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    );
+  border-radius: 4px 14px 14px 4px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 2px 0 rgba(255, 255, 255, 0.15) inset;
+  padding: 56px 56px 40px 96px;
+  transform: rotate(-0.4deg);
+}
+
+.spine {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; width: 18px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.22), rgba(0,0,0,0.04));
+  border-radius: 4px 0 0 4px;
+}
+
+.entry-head { padding-left: 0; }
+
+.place {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.date-line {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.15rem;
+  color: var(--stamp);
+  border-bottom: 1px dashed var(--margin);
+  display: inline-block;
+  padding-bottom: 4px;
+  transform: rotate(-0.6deg);
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.15;
+  margin: 18px 0 6px;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.rule {
+  border: 0;
+  height: 3px;
+  width: 72px;
+  margin: 14px 0 26px;
+  background: linear-gradient(90deg, var(--stamp), transparent);
+  border-radius: 2px;
+}
+
+.entry-body p {
+  line-height: 32px;
+  margin: 0 0 32px;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+
+.entry-body em { color: var(--accent); }
+
+.postscript {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+.entry-foot {
+  margin-top: 8px;
+}
+
+.entry-foot p {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  border-top: 1px solid rgba(35, 42, 51, 0.25);
+  padding-top: 14px;
+}
+
+.entry-foot a { color: var(--accent); }
+.entry-foot a:hover { color: var(--stamp); }
+
+.stopwatch {
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--ink-soft);
+  letter-spacing: 0.05em;
+}
+
+/* little ink drop under the masthead, fades in */
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: 34px; right: 42px;
+  width: 26px; height: 26px;
+  border-radius: 55% 45% 60% 40% / 50% 60% 40% 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(31, 78, 95, 0.85), rgba(31, 78, 95, 0.35) 70%);
+  animation: ink 1.6s ease-out both;
+  opacity: 0;
+}
+
+@keyframes ink {
+  0% { opacity: 0; transform: scale(0.3); }
+  60% { opacity: 0.9; transform: scale(1.12); }
+  100% { opacity: 0.75; transform: scale(1); }
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 40px 26px 32px 74px; }
+  .entry-body p { font-size: 1rem; }
+}
