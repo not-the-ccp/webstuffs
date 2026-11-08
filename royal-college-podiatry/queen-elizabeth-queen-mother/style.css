@@ -1,0 +1,145 @@
+/* Queen Elizabeth the Queen Mother — Webstuffs stylesheet */
+:root {
+  --royal: #411e3c;
+  --gold: #b98a2f;
+  --rose: #d7a4b5;
+  --ink: #231a20;
+  --paper: #fbf7f0;
+  --line: #ddd4c8;
+  --muted: #5a4a4e;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Baskerville", "Baskerville Old Face", "Palatino Linotype", "Palatino", "URW Palladio L", serif;
+  line-height: 1.75;
+}
+.shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 40px;
+  align-items: start;
+}
+header.masthead {
+  grid-column: 1 / -1;
+  padding: 44px 0 30px;
+  border-top: 12px double var(--royal);
+  border-bottom: 3px solid var(--gold);
+}
+.masthead-eyebrow {
+  margin: 0 0 12px 2px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+h1 {
+  margin: 0 0 10px;
+  font-size: 2.7rem;
+  line-height: 1.1;
+  color: var(--royal);
+  letter-spacing: -0.01em;
+}
+.masthead-tagline {
+  margin: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--rose);
+  padding-left: 14px;
+  max-width: 58ch;
+}
+article { padding-right: 10px; }
+article p { margin: 0 0 20px; }
+article p.drop::first-letter {
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.9;
+  color: var(--gold);
+  font-weight: bold;
+  padding: 2px 14px 0 0;
+  margin-right: 10px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+article h2 {
+  font-size: 1.25rem;
+  color: var(--royal);
+  margin: 44px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: normal;
+}
+article h2:first-of-type { margin-top: 0; border: none; }
+hr.divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold) 30%, var(--royal) 50%, var(--gold) 70%, transparent);
+  margin: 40px 0;
+  border-radius: 2px;
+}
+article a {
+  color: var(--royal);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rose);
+}
+article a:hover { border-bottom-style: solid; }
+.infobox {
+  background: linear-gradient(180deg, #fffaf5, #f2e3db);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--royal);
+  border-radius: 4px;
+  padding: 22px 24px 26px;
+  font-size: 0.88rem;
+  position: sticky;
+  top: 24px;
+}
+.seal {
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  border: 4px double var(--gold);
+  background: conic-gradient(var(--royal) 0 90deg, transparent 90deg 180deg, var(--rose) 180deg 270deg, var(--royal) 270deg 360deg);
+  margin: 0 auto 16px;
+  animation: sealturn 20s linear infinite;
+}
+@keyframes sealturn { to { transform: rotate(360deg); } }
+.infobox table { width: 100%; border-collapse: collapse; }
+.infobox caption {
+  text-align: left;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--royal);
+  padding: 0 0 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.infobox th {
+  text-align: left;
+  padding: 6px 0;
+  color: #7a5a52;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border-bottom: 1px solid var(--line);
+}
+.infobox td { padding: 6px 0; vertical-align: top; }
+footer.notes {
+  grid-column: 1 / -1;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-size: 0.98rem;
+  color: #4a3a40;
+}
+@media (max-width: 760px) {
+  .shell { grid-template-columns: 1fr; }
+  .infobox { position: static; }
+}
