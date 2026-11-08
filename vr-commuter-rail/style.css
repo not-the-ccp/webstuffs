@@ -1,0 +1,220 @@
+/* VR Commuter Rail — Transcript Excerpt, Case No. 24/19871 */
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #ece4d2;
+  --ink: #23201b;
+  --faded: #6c6357;
+  --oxblood: #6e1f1f;
+  --seal: #8a2b2b;
+  --rule: #c8bda4;
+  --exhibit-bg: #efe7d4;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #1c1a16; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #2a2721 0%, #1c1a16 70%),
+    #1c1a16;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+}
+
+.transcript {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(0deg, rgba(110, 31, 31, 0.03) 1px, transparent 1px),
+    radial-gradient(140% 100% at 50% 0%, var(--paper) 60%, var(--paper-deep) 100%);
+  background-size: 100% 0.5rem, 100% 100%;
+  border: 1px solid #3a352c;
+  box-shadow:
+    0 0 0 6px rgba(0, 0, 0, 0.25),
+    0 30px 60px rgba(0, 0, 0, 0.55);
+  position: relative;
+  padding: 3rem 3rem 2.5rem;
+}
+
+/* left margin rules, as on court paper */
+.transcript::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 2.6rem;
+  border-left: 1px solid rgba(110, 31, 31, 0.25);
+  pointer-events: none;
+}
+
+.court-head {
+  text-align: center;
+  position: relative;
+}
+
+.venue {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.venue-sub {
+  margin: 0.3rem 0 1.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0.2rem 0 1.2rem;
+  font-size: 2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
+}
+
+.caption {
+  margin: 0 auto 1.2rem;
+  max-width: 30rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.8rem 0;
+}
+.party {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.role {
+  display: inline-block;
+  min-width: 7rem;
+  text-align: left;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin-right: 0.8rem;
+}
+.vs {
+  margin: 0.4rem 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  color: var(--faded);
+}
+
+.matters {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: #3d382f;
+  max-width: 32rem;
+  margin: 0 auto 1rem;
+}
+
+.rule {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 1.4rem 0;
+}
+
+.dayline {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #3d382f;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.rec-line {
+  margin: 0 0 1.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--seal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.rec-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--seal);
+  animation: blink 1.6s steps(2, start) infinite;
+}
+@keyframes blink { to { visibility: hidden; } }
+
+.stamp {
+  position: absolute;
+  top: 0.6rem;
+  right: -0.6rem;
+  transform: rotate(9deg);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: rgba(110, 31, 31, 0.55);
+  border: 2px solid rgba(110, 31, 31, 0.45);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  mix-blend-mode: multiply;
+}
+
+.exchange p {
+  margin: 0 0 1.1rem;
+  line-height: 1.72;
+  font-size: 0.98rem;
+  padding-left: 1.4rem;
+}
+
+.speaker {
+  margin-bottom: 0.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--oxblood);
+  padding-left: 1.4rem;
+}
+
+.exhibit {
+  background: var(--exhibit-bg);
+  border-left: 3px solid var(--seal);
+  box-shadow: inset 0 0 0 1px rgba(110, 31, 31, 0.12);
+  padding: 1rem 1.2rem !important;
+  font-size: 0.92rem !important;
+}
+.exhibit strong {
+  font-weight: 700;
+  font-style: normal;
+  background: linear-gradient(transparent 62%, rgba(138, 43, 43, 0.22) 62%);
+}
+
+.transcript-foot {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+.colophon {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--faded);
+}
+.colophon a {
+  color: var(--seal);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.colophon a:hover { background: rgba(138, 43, 43, 0.1); }
+
+a { color: var(--seal); }
+
+@media (max-width: 640px) {
+  .transcript { padding: 2rem 1.2rem; }
+  .transcript::before { display: none; }
+  .exchange p, .speaker { padding-left: 0; }
+  .stamp { right: 0; }
+}
