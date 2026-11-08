@@ -1,0 +1,201 @@
+/* A diary kept in a notebook on the night train: ruled cream paper,
+   a red margin, punch holes, a wax seal, and one blackbird. */
+
+:root {
+  --paper: #f7efdd;
+  --paper-deep: #efe3c8;
+  --ink: #2b2519;
+  --ink-soft: #5a4c33;
+  --rule: #b9c4c9;
+  --margin: #b3452f;
+  --gold: #b9821e;
+  --seal: #8c2f1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 70% -10%, #6e5a3d 0%, transparent 60%),
+    #38301f;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem 4rem;
+}
+
+.notebook {
+  position: relative;
+  width: min(760px, 100%);
+  background:
+    linear-gradient(90deg, transparent 0 62px, rgba(179, 69, 47, .55) 62px 64px, transparent 64px),
+    repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0,
+      var(--paper) 33px,
+      var(--rule) 33px,
+      var(--rule) 34px
+    );
+  background-color: var(--paper);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, .55),
+    inset 0 0 60px rgba(90, 60, 20, .12);
+  border-radius: 3px 10px 10px 3px;
+  transform: rotate(-.4deg);
+}
+
+/* the three punch holes of a ring-bound diary */
+.hole { position: absolute; left: 18px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-evenly; }
+.hole span {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #221c10, #0f0c07 70%);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.9), 0 1px 0 rgba(255,255,255,.25);
+}
+
+.diary-head {
+  padding: 2.4rem 2rem 1rem 4.5rem;
+  position: relative;
+}
+
+.hand {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  margin: 0 0 .6rem;
+  transform: rotate(-.6deg);
+}
+.hand a { color: var(--margin); text-decoration: underline dotted; }
+
+.stamp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2.5px solid var(--seal);
+  color: var(--seal);
+  border-radius: 6px;
+  padding: .15rem .9rem;
+  line-height: 1;
+  transform: rotate(2.5deg);
+  mix-blend-mode: multiply;
+  opacity: .9;
+  margin-left: 1rem;
+}
+.stamp-day { font-size: 1.9rem; font-weight: bold; letter-spacing: .05em; }
+.stamp-month { font-size: .62rem; letter-spacing: .35em; margin-top: .3rem; }
+
+h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  margin: 1rem 0 .3rem;
+  font-variant: small-caps;
+  letter-spacing: .04em;
+}
+
+.weather {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: .95rem;
+}
+
+/* the wet club seal, upper right */
+.seal {
+  position: absolute;
+  top: 1.6rem; right: 1.6rem;
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.28), transparent 42%),
+    radial-gradient(circle, #a4432e 0 58%, var(--seal) 62% 100%);
+  box-shadow: 0 6px 14px rgba(0,0,0,.35), inset 0 -6px 12px rgba(0,0,0,.3);
+  display: grid;
+  place-items: center;
+  transform: rotate(-8deg);
+  animation: seal-set 1.4s ease-out both;
+}
+.seal span {
+  font-size: .52rem;
+  font-weight: bold;
+  letter-spacing: .22em;
+  color: #f3e6cf;
+  border: 1.5px solid rgba(243, 230, 207, .8);
+  border-radius: 50%;
+  width: 70px; height: 70px;
+  display: grid; place-items: center;
+  text-align: center;
+  padding: .5rem;
+}
+@keyframes seal-set {
+  0% { transform: rotate(-30deg) scale(1.7); opacity: 0; }
+  60% { transform: rotate(-4deg) scale(.94); opacity: 1; }
+  100% { transform: rotate(-8deg) scale(1); }
+}
+
+/* the perched merla */
+.bird {
+  position: absolute;
+  top: 9.5rem; right: 2.2rem;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+.bird:hover { transform: translateY(-4px) rotate(3deg); }
+.bird .merla { animation: bob 3.4s ease-in-out infinite; transform-origin: 50% 80%; }
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(3px) rotate(-2.5deg); }
+}
+
+main.ruled {
+  padding: .5rem 2rem 1rem 4.5rem;
+}
+main.ruled p {
+  margin: 0 0 1.9rem;
+  line-height: 34px; /* sits exactly on the rules */
+  font-size: 1.02rem;
+}
+main.ruled p::first-letter {
+  font-size: 1.28em;
+  font-weight: bold;
+  color: var(--margin);
+}
+main.ruled strong { color: var(--margin); }
+main.ruled a { color: #274d7c; text-decoration: underline; text-decoration-style: dotted; }
+
+.sig {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  transform: rotate(-1deg);
+}
+
+.colophon {
+  padding: 1.2rem 2rem 2rem 4.5rem;
+  border-top: 1.5px dashed rgba(90, 76, 51, .5);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.colophon a { color: var(--margin); }
+
+/* falling stiver */
+.stiver {
+  position: fixed;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #f0d48a, var(--gold) 70%);
+  box-shadow: 0 0 0 2px rgba(120, 84, 10, .55), 0 4px 6px rgba(0,0,0,.4);
+  pointer-events: none;
+  z-index: 99;
+  animation: drop 1.1s ease-in forwards;
+}
+@keyframes drop {
+  to { transform: translateY(70vh) rotate(540deg); opacity: 0; }
+}
+
+@media (max-width: 560px) {
+  .bird { top: auto; bottom: .5rem; right: .8rem; }
+  .seal { width: 70px; height: 70px; }
+  .seal span { width: 54px; height: 54px; font-size: .42rem; }
+}
