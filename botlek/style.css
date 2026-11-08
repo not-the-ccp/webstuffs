@@ -1,0 +1,207 @@
+/* Aromaten — Botlek Sessions · sleeve styling */
+:root {
+  --soot: #14161a;
+  --slate: #1e2229;
+  --slate-2: #262c35;
+  --line: #3a424e;
+  --bone: #e8e2d4;
+  --bone-dim: #b7b0a0;
+  --flare: #ff7a1a;
+  --flare-soft: #ffb25e;
+  --sulfur: #e6c93c;
+  --maas: #4d7a8c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 500px at 80% -10%, rgba(255, 122, 26, 0.14), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(232, 226, 212, 0.025) 46px 47px),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(232, 226, 212, 0.025) 46px 47px),
+    var(--soot);
+  color: var(--bone);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sleeve {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 22px 48px;
+}
+
+/* hazard tape bands */
+.stripe {
+  height: 14px;
+  margin: 26px 0;
+  background: repeating-linear-gradient(-45deg,
+    var(--flare) 0 16px, #191b1f 16px 32px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.mast { padding: 34px 0 8px; }
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--flare-soft);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 5rem);
+  letter-spacing: 0.06em;
+  margin: 0;
+  line-height: 1;
+  color: var(--bone);
+  text-shadow: 0 0 22px rgba(255, 122, 26, 0.35);
+}
+
+.artist {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--bone-dim);
+  margin: 10px 0 4px;
+}
+
+.sub {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--bone-dim);
+  border-left: 3px solid var(--flare);
+  padding: 8px 0 8px 14px;
+  margin: 18px 0 0;
+}
+
+h2 {
+  font-size: 0.82rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sulfur);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin: 44px 0 18px;
+}
+
+section.notes p { margin: 0 0 16px; }
+
+/* tracklist */
+.tracklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: track;
+}
+.tracklist li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr 4.2rem;
+  gap: 4px 14px;
+  padding: 12px 10px;
+  border-bottom: 1px dashed var(--line);
+  transition: background 0.2s;
+}
+.tracklist li:hover { background: var(--slate-2); }
+.no {
+  font-family: "Courier New", monospace;
+  color: var(--flare);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+.tt { font-weight: bold; letter-spacing: 0.02em; }
+.len {
+  font-family: "Courier New", monospace;
+  color: var(--bone-dim);
+  font-size: 0.85rem;
+  text-align: right;
+}
+.note {
+  grid-column: 2 / 4;
+  font-size: 0.92rem;
+  color: var(--bone-dim);
+  font-style: italic;
+}
+
+/* logbook */
+.logbook {
+  background: var(--slate);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--maas);
+  padding: 20px 24px;
+  margin: 0;
+}
+.logbook h2 { margin-top: 0; color: var(--maas); border: none; padding: 0 0 10px; }
+.forage-rule {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--sulfur);
+  background: var(--slate-2);
+  border: 1px dashed var(--line);
+  padding: 16px 18px;
+  margin: 18px 0;
+  white-space: pre-wrap;
+}
+.forage-rule::before {
+  content: "LOGBOOK p.212 — ";
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--bone-dim);
+  margin-bottom: 8px;
+}
+
+/* credits */
+.credits dl { margin: 0; }
+.credits dt {
+  font-family: "Courier New", monospace;
+  color: var(--flare-soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+.credits dd { margin: 2px 0 0; color: var(--bone-dim); }
+
+a { color: var(--flare-soft); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--flare); }
+
+.colophon {
+  margin-top: 46px;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--bone-dim);
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.sleeve-ft { margin-top: 30px; }
+.flare {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--bone-dim);
+}
+.flame {
+  width: 12px;
+  height: 18px;
+  background: linear-gradient(to top, var(--flare), var(--sulfur) 70%, #fff3c4);
+  border-radius: 50% 50% 20% 20%;
+  transform-origin: bottom center;
+  animation: flicker 1.6s ease-in-out infinite;
+  box-shadow: 0 0 14px rgba(255, 122, 26, 0.7);
+}
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) rotate(-2deg); opacity: 1; }
+  25% { transform: scaleY(1.25) rotate(2deg); opacity: 0.92; }
+  50% { transform: scaleY(0.85) rotate(-1deg); opacity: 1; }
+  75% { transform: scaleY(1.1) rotate(1deg); opacity: 0.95; }
+}
