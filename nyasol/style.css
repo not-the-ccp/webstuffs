@@ -1,0 +1,289 @@
+/* Bingxian Flats Field Manual — Vol. II, Chapter 11 (Nyasol) */
+
+:root {
+  --paper: #ece3cf;
+  --paper-deep: #e2d6ba;
+  --ink: #26221a;
+  --faded: #6b6350;
+  --stamp-red: #a4341f;
+  --stamp-blue: #2c4a6e;
+  --rule: #b4a780;
+  --lamp: #f2c14e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d9cfb4; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 18% -8%, rgba(242, 193, 78, 0.22), transparent 46%),
+    radial-gradient(ellipse at 85% 108%, rgba(44, 74, 110, 0.14), transparent 52%),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(38, 34, 26, 0.045) 34px 35px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 72px;
+}
+
+main, .masthead, footer.colophon {
+  width: 100%;
+  max-width: 46rem;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  position: relative;
+  border: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 55%),
+    var(--paper-deep);
+  padding: 18px 28px 22px;
+  margin-bottom: 0;
+}
+
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+.masthead h1 .thin {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--stamp-blue);
+}
+
+.taxon {
+  margin: 10px 0 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--faded);
+  border-left: 4px solid var(--stamp-red);
+  padding-left: 10px;
+}
+
+.mast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.mast-grid > div {
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  border-right: 1px dashed var(--rule);
+  border-bottom: 1px dashed var(--rule);
+}
+
+.mast-grid span {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--faded);
+}
+
+/* ---------- Stamp ---------- */
+
+.stamp {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  width: 5.2rem;
+  height: 5.2rem;
+  border: 3px double var(--stamp-red);
+  border-radius: 50%;
+  color: var(--stamp-red);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: center;
+  line-height: 1.5;
+  padding-top: 1.05rem;
+  transform: rotate(12deg) scale(0);
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transition: transform 0.55s cubic-bezier(0.2, 1.6, 0.4, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.stamp.stamped {
+  transform: rotate(-9deg) scale(1);
+  opacity: 0.88;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stamp.stamped { animation: stamp-wobble 5s ease-in-out 1.2s infinite alternate; }
+  @keyframes stamp-wobble {
+    from { transform: rotate(-9deg) scale(1); }
+    to   { transform: rotate(-7.5deg) scale(1.015); }
+  }
+}
+
+/* ---------- Clauses ---------- */
+
+.clause {
+  border: 2px solid var(--ink);
+  border-top: none;
+  padding: 20px 28px 22px;
+  position: relative;
+}
+
+.clause::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  width: 2rem;
+  height: 3px;
+  background: var(--stamp-red);
+}
+
+.clause h2 {
+  margin: 0 0 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stamp-blue);
+}
+
+.clause h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-top: 1px dotted var(--rule);
+  margin-top: 6px;
+}
+
+.clause p { margin: 0 0 12px; }
+.clause p:last-child { margin-bottom: 0; }
+
+.clause em.lamp-note, .clause p em {
+  font-style: italic;
+}
+
+a {
+  color: var(--stamp-blue);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--stamp-blue);
+}
+
+a:hover {
+  color: var(--stamp-red);
+  border-bottom-color: var(--stamp-red);
+}
+
+/* ---------- Protocol list ---------- */
+
+.protocol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.protocol li {
+  margin-bottom: 10px;
+  padding-left: 0.4rem;
+}
+
+.protocol li::marker {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--stamp-red);
+  font-weight: 700;
+}
+
+/* ---------- Plate table ---------- */
+
+.plate {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.plate caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--faded);
+  padding-bottom: 6px;
+}
+
+.plate th, .plate td {
+  border: 1px solid var(--rule);
+  padding: 6px 9px;
+  text-align: right;
+}
+
+.plate th:first-child, .plate td:first-child { text-align: left; }
+
+.plate thead th {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.plate tbody tr:nth-child(even) { background: rgba(180, 167, 128, 0.16); }
+
+/* ---------- Colophon ---------- */
+
+.colophon {
+  border: 2px solid var(--ink);
+  border-top: 1px dashed var(--rule);
+  background: var(--paper-deep);
+  padding: 12px 28px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--faded);
+  text-align: center;
+}
+
+.col-line { margin: 3px 0; }
+
+/* ---------- Corner registration marks ---------- */
+
+body::before,
+body::after {
+  content: "+";
+  position: fixed;
+  font-family: "Courier New", Courier, monospace;
+  color: rgba(38, 34, 26, 0.4);
+  font-size: 1rem;
+}
+
+body::before { top: 10px; left: 14px; }
+body::after  { bottom: 10px; right: 14px; }
