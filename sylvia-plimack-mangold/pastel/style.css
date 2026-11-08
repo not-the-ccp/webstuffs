@@ -1,0 +1,264 @@
+/* SDS PM-04 — Pastel (stick form): a safety data sheet in dusted pigments */
+
+:root {
+  --paper: #f4efe6;
+  --paper-deep: #ece4d4;
+  --ink: #3a332c;
+  --ink-soft: #6b6156;
+  --rose: #d8a7a0;
+  --sage: #a9b59b;
+  --powder: #a7c0cd;
+  --ochre: #d9b36a;
+  --rule: #c9bda6;
+  --caution: #e9c76a;
+  --caution-dark: #5c5138;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 85% -5%, rgba(167, 192, 205, 0.28), transparent 60%),
+    radial-gradient(900px 420px at -10% 30%, rgba(216, 167, 160, 0.22), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+/* the caution band along the top — striped like the door mat of any serious studio */
+.caution-band {
+  height: 14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--caution) 0 18px,
+    var(--caution-dark) 18px 36px
+  );
+  border-bottom: 2px solid var(--caution-dark);
+  animation: slide 40s linear infinite;
+}
+
+@keyframes slide {
+  from { background-position: 0 0; }
+  to   { background-position: 509px 0; }
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 3rem;
+}
+
+/* ---------- header ---------- */
+.sheet-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.sdsl {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.3rem;
+}
+
+.sheet-head h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: 0.06em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.sheet-head h1 .form {
+  display: block;
+  font-size: 0.34em;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  margin-top: 0.45rem;
+  text-transform: none;
+  font-style: italic;
+}
+
+.head-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.28rem 1rem;
+  margin: 1.1rem 0 0;
+  font-size: 0.92rem;
+}
+
+.head-meta dt {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  padding-top: 0.18rem;
+}
+
+.head-meta dd { margin: 0; }
+
+/* the three GHS-style diamonds */
+.head-right { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+.diamond {
+  width: 78px;
+  height: 78px;
+  transform: rotate(45deg);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-content: center;
+  gap: 0.1rem;
+  box-shadow: 3px 3px 0 rgba(58, 51, 44, 0.18);
+  transition: transform 0.35s ease;
+}
+
+.diamond:hover { transform: rotate(45deg) scale(1.08); }
+
+.d1 { background: linear-gradient(135deg, var(--ochre), var(--rose)); }
+.d2 { background: linear-gradient(135deg, var(--sage), var(--powder)); }
+.d3 { background: linear-gradient(135deg, var(--paper-deep), var(--rose)); }
+
+.diamond span {
+  transform: rotate(-45deg);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.diamond small {
+  transform: rotate(-45deg);
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  max-width: 5.4rem;
+  color: var(--ink);
+}
+
+/* ---------- sections ---------- */
+.sec {
+  background: rgba(255, 253, 248, 0.72);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--sage);
+  padding: 1.05rem 1.35rem 1.15rem;
+  margin: 0 0 1.15rem;
+  position: relative;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* dust settling only when the script is present; without it the sheet stands fully visible */
+html.js .sec:not(.settled) {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+/* dust settling: sections fade into the room as they are scrolled to */
+.sec.settled { opacity: 1; transform: translateY(0); }
+
+.sec:nth-child(odd of .sec) { border-left-color: var(--rose); }
+.sec:nth-child(3n of .sec) { border-left-color: var(--powder); }
+.sec:nth-child(4n of .sec) { border-left-color: var(--ochre); }
+
+.sec h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.02rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.secno {
+  display: inline-grid;
+  place-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.95rem;
+  transform: rotate(-4deg);
+  flex: none;
+}
+
+.sec p { margin: 0 0 0.75rem; }
+.sec p:last-child { margin-bottom: 0; }
+
+.sec a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rose);
+  text-underline-offset: 3px;
+}
+
+.sec a:hover { text-decoration-color: var(--ink); }
+
+/* ---------- tables ---------- */
+.haz-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  margin: 0 0 0.75rem;
+}
+
+.haz-table th {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  text-align: left;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 0.42rem 0.6rem;
+}
+
+.haz-table td {
+  border: 1px solid var(--rule);
+  padding: 0.42rem 0.6rem;
+  vertical-align: top;
+}
+
+.haz-table tbody tr:nth-child(odd) { background: rgba(236, 228, 212, 0.45); }
+
+/* ---------- issued line & footer ---------- */
+.issued {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.7rem;
+}
+
+.sheet-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.9rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+
+.sheet-foot a { color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .caution-band { animation: none; }
+  html.js .sec { opacity: 1; transform: none; transition: none; }
+  .diamond { transition: none; }
+}
