@@ -1,0 +1,235 @@
+/* Build Log No. 9 — A Grand Prix in the Garage Below */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #23211c;
+  --racing: #1c5a34;
+  --racing-deep: #0f3a20;
+  --red: #b23a2c;
+  --brass: #a98a4d;
+  --faint: #6d675a;
+  --line: #c9c0aa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(28, 90, 52, 0.05) 0 2px, transparent 2px 28px),
+    #e9e2d0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 52rem;
+  margin: 2.5rem auto;
+  padding: 2.2rem clamp(1.2rem, 5vw, 3.2rem) 3rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 18px 40px -22px rgba(35,33,28,.55);
+  position: relative;
+}
+
+/* painted number plate at the sheet corner */
+.sheet::before {
+  content: "12";
+  position: absolute;
+  top: -0.9rem;
+  right: 1.4rem;
+  font: 700 2.4rem/1 "Courier New", monospace;
+  color: var(--paper);
+  background: var(--racing);
+  padding: .45rem .7rem .3rem;
+  border: 3px double var(--paper);
+  box-shadow: 0 6px 14px -8px rgba(15,58,32,.7);
+  transform: rotate(3deg);
+}
+
+.masthead-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.4rem;
+  justify-content: space-between;
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: .55rem;
+}
+
+.class-line {
+  font-family: "Courier New", monospace;
+  font-size: .8rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 1.1rem 0 .2rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5.5vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 .7rem;
+  letter-spacing: -.01em;
+  color: var(--racing-deep);
+}
+
+.subject {
+  font-style: italic;
+  color: var(--faint);
+  max-width: 44rem;
+  margin: 0 0 1.2rem;
+}
+
+.masthead-rule {
+  height: 4px;
+  margin: 1rem 0;
+  background: linear-gradient(90deg, var(--racing) 0 62%, var(--red) 62% 66%, var(--brass) 66% 100%);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.checkers {
+  display: block;
+  height: 12px;
+  margin-top: 3px;
+  background:
+    repeating-conic-gradient(var(--ink) 0 25%, var(--paper) 0 50%) 0 0 / 16px 16px;
+  opacity: .85;
+}
+
+.masthead-meta p { font-size: .92rem; color: var(--faint); margin: .3rem 0; }
+.now-lap { font-family: "Courier New", monospace; font-size: .85rem; }
+.now-lap .label { color: var(--red); letter-spacing: .12em; text-transform: uppercase; font-size: .72rem; }
+#session { color: var(--racing-deep); font-weight: 700; }
+
+.log { display: grid; gap: 2.1rem; margin-top: 1.6rem; }
+
+.entry {
+  display: grid;
+  grid-template-columns: 4.4rem 1fr;
+  gap: 1.1rem;
+  position: relative;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: 2.1rem;
+  top: -2.1rem;
+  bottom: 0;
+  border-left: 1px dashed var(--line);
+}
+.entry:first-of-type::before { top: .5rem; }
+.entry:last-of-type::before { display: none; }
+
+.entry-no {
+  font: 700 .78rem/1.15 "Courier New", monospace;
+  letter-spacing: .18em;
+  color: var(--racing-deep);
+  background: var(--paper);
+  border: 1px solid var(--racing);
+  border-radius: 50%;
+  width: 4.2rem;
+  height: 4.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--line);
+  margin-top: .2rem;
+}
+
+.entry-body p { margin: .55rem 0; }
+.entry-body p:first-of-type { margin-top: 0; }
+
+.stamp {
+  font-family: "Courier New", monospace;
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px dotted var(--line);
+  padding-bottom: .35rem;
+}
+
+.pencil {
+  margin: 1rem 1.4rem;
+  padding: .9rem 1.2rem;
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--racing-deep);
+  background:
+    linear-gradient(0deg, rgba(169,138,77,.10), rgba(169,138,77,.10)),
+    repeating-linear-gradient(0deg, transparent 0 1.55rem, rgba(109,103,90,.25) 1.55rem 1.6rem);
+  border-left: 4px solid var(--brass);
+  box-shadow: 3px 3px 0 rgba(35,33,28,.08);
+  transform: rotate(-.4deg);
+}
+
+a { color: var(--racing); text-decoration-color: rgba(28,90,52,.4); text-underline-offset: 3px; }
+a:hover { color: var(--racing-deep); text-decoration-color: var(--red); }
+
+.laptable {
+  margin: 2.4rem 0 0;
+  border-collapse: collapse;
+  font-size: .85rem;
+  width: 100%;
+}
+.laptable caption {
+  caption-side: top;
+  text-align: left;
+  font-family: "Courier New", monospace;
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding-bottom: .5rem;
+}
+.laptable th, .laptable td {
+  padding: .45rem .6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.laptable thead th {
+  font-family: "Courier New", monospace;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--racing);
+}
+.laptable tbody tr:nth-child(odd) { background: rgba(28,90,52,.05); }
+.laptable td:first-child { font-family: "Courier New", monospace; color: var(--red); font-weight: 700; }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 4px double var(--ink);
+  font-size: .9rem;
+  color: var(--faint);
+}
+.colophon .strip {
+  display: flex;
+  gap: 1rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: .3em;
+  color: var(--brass);
+  margin: 0 0 .8rem;
+}
+.footlinks a { font-family: "Courier New", monospace; font-size: .78rem; }
+
+@keyframes flagwave { from { background-position-x: 0; } to { background-position-x: 32px; } }
+.checkers { animation: flagwave 2.4s linear infinite; }
+
+@media (max-width: 40rem) {
+  .entry { grid-template-columns: 1fr; gap: .5rem; }
+  .entry::before { display: none; }
+  .entry-no { width: 3.4rem; height: 3.4rem; font-size: .7rem; }
+  .sheet::before { display: none; }
+}
