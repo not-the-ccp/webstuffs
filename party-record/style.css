@@ -1,0 +1,211 @@
+/* Partido Magsaysay — Excerpt from the Verbatim Record */
+:root {
+  --ink: #26231e;
+  --paper: #f4efe1;
+  --red: #7a2222;
+  --rule: #b8a988;
+  --muted: #8c7f6b;
+}
+
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 6vh 5vw;
+  background: linear-gradient(160deg, #f7f2e4, #eae0c7);
+  color: var(--ink);
+  font-family: Georgia, Cambria, "Noto Serif", serif;
+  line-height: 1.6;
+}
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  background: var(--red);
+  z-index: 4;
+  pointer-events: none;
+}
+body::before { left: 0; }
+body::after { right: 0; }
+
+header.court {
+  text-align: center;
+  padding-bottom: 26px;
+  border-bottom: 3px double var(--rule);
+  margin-bottom: 30px;
+  position: relative;
+}
+.seal {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 38%, #eadcc8, #cfb28f 60%, #a68a63);
+  box-shadow: 0 0 0 8px var(--paper), inset 0 0 14px rgba(0, 0, 0, 0.12);
+  animation: seal-turn 20s linear infinite;
+}
+.seal::after {
+  content: "M";
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--red);
+  animation: seal-back 14s linear infinite reverse;
+}
+@keyframes seal-turn { to { transform: rotate(360deg); } }
+@keyframes seal-back { to { transform: translate(-50%, -50%) rotate(420deg); } }
+
+.court-name {
+  margin: 4px 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--red);
+}
+.division {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+}
+
+article.transcript {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fffbf2;
+  border: 1px solid var(--rule);
+  padding: 34px 40px 46px;
+  box-shadow: 10px 10px 0 rgba(122, 34, 34, 0.08);
+}
+
+.caption {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  border-left: 4px solid var(--ink);
+  border-right: 4px solid var(--ink);
+  padding: 16px 20px;
+  margin-bottom: 26px;
+}
+.caption h1 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+  text-align: center;
+  font-variant: all-small-caps;
+  letter-spacing: 0.28em;
+}
+.docket {
+  margin: 6px 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--muted);
+}
+.parties {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.parties .label {
+  font-weight: bold;
+  color: var(--red);
+}
+
+.proceeding {
+  counter-reset: line;
+  border-left: 1px dotted var(--rule);
+  padding-left: 46px;
+  margin: 22px 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #2d2820;
+}
+.record-line {
+  position: relative;
+  counter-increment: line;
+  margin: 0 0 6px;
+  padding: 1px 0;
+}
+.record-line::before {
+  content: counter(line, decimal-leading-zero);
+  position: absolute;
+  left: -46px;
+  top: 2px;
+  color: #a69470;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  width: 32px;
+}
+.speaker {
+  color: var(--red);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.exhibit {
+  margin: 20px 0;
+  padding: 18px 22px 18px 56px;
+  background: #fdf8ec;
+  border: 1px dashed var(--red);
+  border-left: 7px solid var(--red);
+  position: relative;
+  font-family: Georgia, Cambria, "Noto Serif", serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #3d3022;
+}
+.exhibit::before {
+  content: "Exhibit B";
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.related {
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 2px solid var(--rule);
+}
+.related h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+}
+.related p {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+a {
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+a:focus { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.record-footer {
+  margin-top: 38px;
+  padding-top: 16px;
+  border-top: 3px double var(--ink);
+  font-size: 0.85rem;
+  color: #5c5242;
+  text-align: center;
+}
+.record-footer p { margin: 0 0 6px; }
+#clock {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--red);
+}
