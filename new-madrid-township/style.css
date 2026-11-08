@@ -1,0 +1,225 @@
+/* Riverview Junior High — Form 3B term report: ruled ledger sheet */
+:root {
+  --paper: #fbf7ea;
+  --rule: rgba(58, 110, 165, 0.28);
+  --margin: #d4695c;
+  --ink: #23304d;
+  --faded: #5c6a8a;
+  --grade: #b5382f;
+  --stamp: #2f6b4f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 3rem 1rem 5rem;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(47, 107, 79, 0.10), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(181, 56, 47, 0.08), transparent 45%),
+    linear-gradient(160deg, #e8e2d0 0%, #ded6bf 55%, #d3c9ad 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.sheet {
+  max-width: 52rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.75rem,
+      var(--rule) 1.75rem,
+      var(--rule) calc(1.75rem + 1px)
+    ),
+    linear-gradient(to right, var(--paper) 0%, var(--paper) 2.6rem, #f4eddb 2.6rem, #f4eddb 2.7rem, var(--paper) 2.7rem),
+    var(--paper);
+  background-color: var(--paper);
+  background-blend-mode: normal, normal, normal;
+  border: 1px solid #b9ad8d;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.5) inset,
+    0 18px 40px rgba(35, 48, 77, 0.28);
+  padding: 2.5rem 3rem 2rem 4.5rem;
+  position: relative;
+}
+
+/* red double margin line, like a real notebook */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, transparent 2.9rem, var(--margin) 2.9rem, var(--margin) 2.96rem, transparent 2.96rem),
+    linear-gradient(to right, transparent 3.05rem, rgba(212, 105, 92, 0.55) 3.05rem, rgba(212, 105, 92, 0.55) 3.1rem, transparent 3.1rem);
+}
+
+/* punch holes */
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 1rem;
+  width: 0.9rem;
+  background:
+    radial-gradient(circle at 50% 4rem, #e8e2d0 0.42rem, transparent 0.44rem) no-repeat,
+    radial-gradient(circle at 50% 50%, #e8e2d0 0.42rem, transparent 0.44rem) no-repeat,
+    radial-gradient(circle at 50% calc(100% - 4rem), #e8e2d0 0.42rem, transparent 0.44rem) no-repeat;
+}
+
+.letterhead .school {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--ink);
+  display: inline-block;
+  padding-bottom: 0.15em;
+}
+
+.letterhead .form {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.3rem 0 1.2rem;
+}
+
+.head-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.head-table th, .head-table td {
+  border: 1px solid #c6b992;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+}
+
+.head-table th {
+  background: rgba(47, 107, 79, 0.08);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  width: 6rem;
+}
+
+.body h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  margin: 2.1rem 0 0.6rem;
+  color: var(--ink);
+}
+
+.body h2::before { content: "§ "; color: var(--margin); }
+
+.body p { margin: 0 0 1.05rem; line-height: 1.78rem; }
+
+strong { color: #14213c; }
+
+a {
+  color: var(--stamp);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(47, 107, 79, 0.12); }
+
+/* the slip: card stock pasted into the report */
+blockquote.slip {
+  margin: 1.4rem 1rem;
+  padding: 1.1rem 1.4rem;
+  background:
+    linear-gradient(180deg, rgba(212, 105, 92, 0.06), transparent 30%),
+    #fffdf4;
+  border: 1px solid #cbbf98;
+  box-shadow: 0 6px 14px rgba(35, 48, 77, 0.18);
+  transform: rotate(-0.7deg);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #33405f;
+  position: relative;
+}
+
+blockquote.slip::before {
+  content: "";
+  position: absolute;
+  top: -0.55rem; left: 50%;
+  width: 5.5rem; height: 1.1rem;
+  transform: translateX(-50%) rotate(1.5deg);
+  background: rgba(214, 203, 168, 0.85);
+  border: 1px solid rgba(160, 148, 110, 0.4);
+}
+
+blockquote.slip mark {
+  background: linear-gradient(transparent 55%, rgba(212, 105, 92, 0.35) 55%);
+  color: inherit;
+  padding: 0 1px;
+}
+
+/* the red grade in the corner */
+.graded {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  border-top: 1px dashed #c6b992;
+  padding-top: 1.4rem;
+}
+
+.mark {
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: bold;
+  color: var(--grade);
+  border: 3px double var(--grade);
+  border-radius: 50%;
+  width: 5.2rem; height: 5.2rem;
+  display: grid;
+  place-items: center;
+  transform: rotate(-8deg);
+  flex: none;
+  animation: stampIn 0.9s cubic-bezier(0.2, 1.6, 0.4, 1) 0.4s both;
+}
+
+@keyframes stampIn {
+  0%   { opacity: 0; transform: rotate(14deg) scale(2.2); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
+.mark-note {
+  margin: 0.6rem 0 0;
+  font-style: italic;
+  color: var(--grade);
+  max-width: 34rem;
+  line-height: 1.5;
+}
+
+.foot-line {
+  margin-top: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .sheet { padding: 2rem 1.2rem 1.5rem 2.4rem; }
+  .sheet::before, .sheet::after { display: none; }
+  h1 { font-size: 1.8rem; }
+  .mark { width: 4rem; height: 4rem; font-size: 2.4rem; }
+}
