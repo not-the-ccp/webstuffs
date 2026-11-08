@@ -1,0 +1,170 @@
+/* Lot 312 — catalogue sheet, Haldane & Voss, Catalogue D */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #22201a;
+  --faded: #6d6455;
+  --rule: #b9ad92;
+  --accent: #7c2d1e;
+  --stood: #3f5d3a;
+  --retired: #8a5a1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.folio {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.auctioneer {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+.lot-title {
+  font-size: 1.35rem;
+  font-style: italic;
+  margin: 0.4rem 0 0.25rem;
+}
+
+.lot-sub { margin: 0; color: var(--faded); }
+
+h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 2.25rem 0 1rem;
+}
+
+p { margin: 0 0 1rem; }
+
+strong { letter-spacing: 0.01em; }
+
+a { color: var(--accent); }
+
+/* The ledger table */
+table.calls {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1rem 0 0.5rem;
+}
+
+table.calls th {
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.4rem 0.6rem 0.4rem 0;
+}
+
+table.calls td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 0.6rem 0.6rem 0;
+  vertical-align: top;
+}
+
+td.yr {
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+tr[data-result="stood"] td.standing { color: var(--stood); }
+tr[data-result="retired"] td.standing { color: var(--retired); }
+
+tr.chosen { background: rgba(124, 45, 30, 0.08); }
+tr.chosen td.yr::after { content: " \2014 ruled in"; font-size: 0.8em; font-weight: normal; color: var(--faded); }
+
+.tally {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+  color: var(--ink);
+  background: rgba(185, 173, 146, 0.18);
+}
+
+.tally-note { color: var(--faded); font-size: 0.9rem; font-style: italic; }
+
+.lot-note {
+  padding: 0.75rem 1rem;
+  background: rgba(34, 32, 26, 0.05);
+  border: 1px dashed var(--rule);
+  font-size: 0.95rem;
+}
+
+.sale-ft {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+}
+
+.ft-line {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.hammer {
+  display: inline-block;
+  width: 1.6rem;
+  height: 0.5rem;
+  background: var(--accent);
+  border-radius: 2px;
+  position: relative;
+}
+
+.hammer::after {
+  content: "";
+  position: absolute;
+  left: -0.9rem;
+  top: 0.02rem;
+  width: 0.7rem;
+  height: 0.36rem;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+@media (max-width: 34rem) {
+  h1 { font-size: 2.4rem; }
+  table.calls { font-size: 0.85rem; }
+}
