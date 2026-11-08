@@ -1,0 +1,202 @@
+/* Osteria dei Novecento — The Mirenolese Table */
+:root {
+  --ink: #221c15;
+  --paper: #f5efe1;
+  --paper-deep: #ece2cc;
+  --oxblood: #6e1f22;
+  --gold: #a67c2e;
+  --gold-bright: #c99a3f;
+  --river: #2f4858;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(201, 154, 63, 0.14), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(34, 28, 21, 0.02) 0 2px, transparent 2px 5px),
+    var(--paper-deep);
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 3.25rem 1.5rem;
+  background: var(--paper);
+  border: 1px solid #c9b98f;
+  box-shadow:
+    0 0 0 6px var(--paper),
+    0 0 0 7px #c9b98f,
+    0 24px 60px rgba(34, 28, 21, 0.25);
+}
+
+.masthead {
+  text-align: center;
+  padding-bottom: 1.25rem;
+}
+
+.kicker {
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  color: var(--oxblood);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 400;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+h1::first-letter {
+  color: var(--oxblood);
+}
+
+.sub {
+  font-style: italic;
+  color: #5c5142;
+  margin: 0 auto 1.2rem;
+  max-width: 34rem;
+  font-size: 0.98rem;
+}
+
+.bells {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.bell {
+  color: var(--gold);
+  font-size: 1.15rem;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: ring 0.5s ease forwards;
+}
+
+.bell:nth-child(2) { animation-delay: 0.15s; }
+.bell:nth-child(3) { animation-delay: 0.3s; }
+.bell:nth-child(4) { animation-delay: 0.45s; }
+.bell:nth-child(5) { animation-delay: 0.6s; }
+.bell.half { color: transparent; -webkit-text-stroke: 1px var(--gold); }
+
+@keyframes ring {
+  0%   { opacity: 0; transform: translateY(6px) rotate(-12deg); }
+  60%  { transform: translateY(-2px) rotate(8deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.rule {
+  height: 3px;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  margin: 0.5rem 0 2rem;
+}
+
+.lead::first-letter {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--oxblood);
+}
+
+.course { margin: 0 0 1.6rem; }
+
+.course h2 {
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.2rem;
+  color: var(--river);
+  margin: 0 0 0.5rem;
+}
+
+.course h2::before {
+  content: "\2733\2002";
+  color: var(--gold);
+}
+
+.ledger h2 {
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.2rem;
+  color: var(--river);
+  margin: 1.8rem 0 0.6rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+td {
+  padding: 0.4rem 0.6rem;
+  border-top: 1px dotted #b8a87e;
+  vertical-align: top;
+}
+
+td:first-child {
+  width: 9rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--oxblood);
+  white-space: nowrap;
+}
+
+a {
+  color: var(--river);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--oxblood); }
+
+.colophon {
+  margin-top: 2.4rem;
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  color: #4c4234;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--gold);
+}
+
+.plate {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.plate .reel-line {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+.plate .reel {
+  display: inline-block;
+  color: var(--river);
+  animation: spin 9s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bell { animation: none; opacity: 1; transform: none; }
+  .plate .reel { animation: none; }
+}
+
+@media (max-width: 40rem) {
+  .paper { margin: 0; padding: 2rem 1.4rem; }
+}
