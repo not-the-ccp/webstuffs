@@ -1,0 +1,193 @@
+/* The Ninety-Four — walking tour route sheet */
+:root {
+  --paper: #f4ecd9;
+  --paper-dark: #eadfc4;
+  --ink: #2b2620;
+  --sign-green: #1d5b38;
+  --sign-green-deep: #143d26;
+  --rust: #b5432a;
+  --rust-deep: #8c2f1c;
+  --yellow: #e0a92f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(43,38,32,.035) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(90deg, rgba(43,38,32,.03) 0 2px, transparent 2px 26px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.masthead {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  border-bottom: 6px double var(--sign-green);
+  background: linear-gradient(180deg, var(--paper-dark), var(--paper));
+}
+
+.shield {
+  display: inline-block;
+  margin-bottom: 1rem;
+  transform: rotate(-2deg);
+  filter: drop-shadow(2px 3px 0 rgba(43,38,32,.25));
+}
+.shield-inner {
+  display: block;
+  background: var(--rust);
+  color: #fff7e8;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: .05em;
+  padding: .55rem 1.4rem .45rem;
+  border: 4px solid #fff7e8;
+  outline: 4px solid var(--rust-deep);
+  border-radius: 12px 12px 60px 60px / 12px 12px 40px 40px;
+}
+.shield-word {
+  display: block;
+  margin-top: .35rem;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: .8rem;
+  letter-spacing: .55em;
+  padding-left: .55em;
+  color: var(--rust-deep);
+}
+
+h1 {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 2.6rem;
+  margin: .2rem 0 .6rem;
+  letter-spacing: .02em;
+}
+
+.standfirst {
+  max-width: 46rem;
+  margin: 0 auto;
+  font-style: italic;
+  color: #4a4238;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.stop {
+  margin: 2.4rem 0;
+  padding: 1.4rem 1.6rem 1.6rem;
+  background: #faf4e4;
+  border: 2px solid var(--sign-green);
+  border-left: 10px solid var(--sign-green);
+  box-shadow: 4px 4px 0 rgba(29,91,56,.18);
+  position: relative;
+}
+.stop::before {
+  content: "";
+  position: absolute;
+  top: -.7rem;
+  left: 1.4rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--rust);
+  border: 3px solid #fff7e8;
+  outline: 2px solid var(--rust-deep);
+  border-radius: 50%;
+}
+
+.stop-tag {
+  margin: 0 0 .4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rust-deep);
+}
+
+.stop h2 {
+  margin: 0 0 .8rem;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5rem;
+  color: var(--sign-green-deep);
+  border-bottom: 1px dashed rgba(29,91,56,.5);
+  padding-bottom: .3rem;
+}
+
+.stop p { margin: .7rem 0; }
+
+.tag {
+  margin: 1.1rem 0 .4rem;
+  padding: .9rem 1.1rem;
+  background: var(--paper-dark);
+  border: 2px dashed var(--rust);
+  font-size: .95rem;
+}
+.tag-head {
+  margin: 0 0 .4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.tag p { margin: .4rem 0; }
+.tag strong {
+  display: block;
+  background: var(--sign-green);
+  color: #fff7e8;
+  padding: .35rem .6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .9rem;
+}
+
+.filing {
+  margin: 2.6rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 6px double var(--sign-green);
+}
+.filing h2 {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  color: var(--sign-green-deep);
+  margin-top: 0;
+}
+
+a { color: var(--rust-deep); }
+a:hover { color: var(--sign-green); }
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  justify-content: center;
+  padding: 1.4rem 1rem 2.4rem;
+  border-top: 6px double var(--sign-green);
+  background: var(--paper-dark);
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  letter-spacing: .08em;
+}
+.foot .stamp {
+  background: var(--rust);
+  color: #fff7e8;
+  padding: .2rem .6rem;
+  border: 2px solid var(--rust-deep);
+  transform: rotate(-1.5deg);
+}
+
+#pace-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 5px;
+  width: 0;
+  background: linear-gradient(90deg, var(--sign-green), var(--yellow) 60%, var(--rust));
+  z-index: 10;
+}
