@@ -1,0 +1,147 @@
+/* Error MS-531 · Route Record Discrepancy — error console documentation */
+:root {
+  --ink: #1c2430;
+  --paper: #f4f1e9;
+  --card: #fbfaf5;
+  --rule: #c9c2b2;
+  --red: #a33327;
+  --green: #3d6b45;
+  --mono: "Courier New", Courier, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.console {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  background: var(--card);
+  border-left: 3px solid var(--red);
+  border-right: 3px solid var(--red);
+  box-shadow: 0 0 2rem rgba(28, 36, 48, 0.12);
+}
+.letterhead {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: var(--red);
+}
+h1 {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.75rem;
+  border-bottom: 4px double var(--ink);
+  padding-bottom: 0.5rem;
+}
+.errcode { font-family: var(--mono); font-size: 0.8rem; }
+.badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--ink);
+  padding: 0.1rem 0.45rem;
+  margin-right: 0.25rem;
+  background: var(--paper);
+}
+.msgbox {
+  margin: 1.5rem 0;
+  border: 2px solid var(--red);
+  background: #fdeeea;
+  padding: 0.75rem 1rem;
+  font-family: var(--mono);
+}
+.msglabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.4rem;
+  color: var(--red);
+}
+.msg { font-size: 0.82rem; margin: 0; line-height: 1.5; }
+.page p { margin: 0 0 1rem; }
+.page h2 {
+  font-family: var(--mono);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  margin: 1.6rem 0 0.8rem;
+}
+a { color: var(--red); }
+.kept {
+  display: inline;
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: #e9e4d4;
+  border: 1px dashed var(--ink);
+  padding: 0.05em 0.25em;
+}
+.diag {
+  margin: 1.4rem 0;
+  border: 1px solid var(--ink);
+  background: #10161f;
+  color: #cfe3c9;
+  font-family: var(--mono);
+  padding: 1rem;
+}
+.diag label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.diag .row { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; }
+.diag input {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 1rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #4a5a70;
+  background: #1a2330;
+  color: #e8f2e4;
+}
+.diag button {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.9rem;
+  background: var(--green);
+  color: #f4f1e9;
+  border: 1px solid var(--green);
+  cursor: pointer;
+}
+.diag button:hover { background: #4b8156; }
+.diag table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.diag th, .diag td {
+  text-align: left;
+  padding: 0.3rem 0.4rem;
+  border-bottom: 1px dotted #4a5a70;
+}
+.diag th { width: 42%; color: #8fa8c2; font-weight: normal; letter-spacing: 0.05em; }
+.diag .v { color: #d8ec6f; }
+.fineprint {
+  font-size: 0.68rem;
+  color: #8fa8c2;
+  margin: 0.8rem 0 0;
+}
+.signed { font-style: italic; }
+.sigsub { font-size: 0.85em; }
+.errfoot {
+  margin-top: 2.5rem;
+  border-top: 4px double var(--ink);
+  padding-top: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--red);
+}

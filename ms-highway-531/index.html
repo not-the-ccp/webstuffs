@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mississippi Highway 531 — Error MS-531 · Route Record Discrepancy · Central District</title>
+<meta name="description" content="Error message documentation MS-531 for Mississippi Highway 531, the state highway running northeast from MS 28 near Taylorsville, Smith County, to MS 18 in Bay Springs, Jasper County: designation of 1956, paving by 1960, county line crossing at milepost 27, and one kept line in the record.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="console">
+
+<header class="errhead">
+  <p class="letterhead">STATE HIGHWAY COMMISSION &middot; CENTRAL DISTRICT &middot; ROUTE RECORDS BUREAU &middot; ERROR FILE</p>
+  <h1>Error MS-531 — Route Record Discrepancy</h1>
+  <p class="errcode"><span class="badge">SEVERITY: ARCHIVAL</span> &nbsp;<span class="badge">STATUS: KEPT, UNCORRECTED</span> &nbsp;<span class="badge">RECORD NO. CD-1956-0531</span></p>
+</header>
+
+<section class="body">
+
+<div class="msgbox">
+  <p class="msglabel">RECORDED MESSAGE (AS PRINTED, NOT CORRECTED)</p>
+  <p class="msg">MS-531: ROUTE RECORD DISCREPANCY — MILEPOST 27.4, SMITH/JASPER COUNTY LINE. SURFACE DATA PREDATES PAVER CREW (1960). ROUTE DESIGNATED 1956, ALIGNMENT UNCHANGED. ONE LINE RETAINED IN ORIGINAL STATE. DO NOT RE-FLOW. DO NOT DELETE. THE LINE REMAINS ON THE RECORD.</p>
+</div>
+
+<div class="page">
+  <p><strong>Subject of the error record:</strong> Mississippi Highway 531 (MS 531), a state highway in central Mississippi, some forty-two miles of it. The route starts at MS 28 near Taylorsville in Smith County and travels northeastward, crossing from Smith County into Jasper County at milepost 27.4, and ends at MS 18 in the town of Bay Springs. The route was designated in 1956 along its current alignment, and it was paved by 1960. Both of those dates are on the record, and neither is in dispute. What the error record is actually about is the four years in between, when the route existed on the survey sheets but not under the wheels — and about one line in the file that the records bureau has refused, on three separate occasions, to retype.</p>
+
+  <h2>When this error appears</h2>
+  <p>Error MS-531 is raised by the route records bureau when a mileage figure, a county attribution, or a surface condition for MS 531 is entered before the paving survey of 1960 is attached to the file. Typical triggers: a 1957 or 1958 ledger that lists the route as <em>paved</em>; a postcard route map that sends a traveller through Bay Springs on MS 28 instead of MS 18; or a mileage entry for the Smith–Jasper crossing that says 27.0 instead of 27.4. The error does not close itself. The bureau's standing instruction, printed in the margin of the 1956 designation order, is that the discrepancy be <em>kept, not corrected</em>, until the surveyor's chain is re-run on the ground.</p>
+
+  <h2>Why it is retained</h2>
+  <p>The route itself behaves. Forty-two miles, two counties, one county line crossing, two numbered highways at the ends, a town — Bay Springs — that the route was arguably named to reach, and a start near Taylorsville that any surveyor can walk to in a morning. The alignment of 1956 is still the alignment; nothing has been moved, widened, or renumbered, which is unusual for a route this age and worth recording. The only defect in the file is the surface data for the years 1956–1960, which the ledgers variously describe as hard-packed dirt, gravel, or &ldquo;weather-dependent.&rdquo; The paving crew's final survey, sealed in 1960, resolves all of it at once: by that year the whole route was pavement, and has been ever since.</p>
+
+  <p>One line, however, survives the paving. It was found superimposed on the county-line survey sheet at milepost 27.4, in the margin beside the chainman's initials (E. R.), and the bureau's rule for such a line is the same rule everywhere in these records: it is kept standing, word for word, uncorrected, and no one signs it. It reads, word for word: <span class="kept">&ldquo;Santiago's Trail Chile — A Music-Box Organ for &quot;Amazing Grace&quot; Walnut, one brass plaque, for the whole ship is only the casket, is the same cabinet under a slate sky.&rdquo;</span> The walnut organ it points to is catalogued elsewhere, bench by bench, in the <a href="../amazing-grace/">build log, no. 41</a>, and the trail chile at its head comes from the family recipe file at <a href="../santiago-recipe/">Santiago's Trail Chile</a>. The line is nonsense on the survey sheet. The bureau's answer, as always, is that the line is not the survey's to judge, and the line stays on the record.</p>
+
+  <h2>Diagnosis and handling</h2>
+  <p>To work the route yourself, the records bureau keeps a milepost diagnostic at milepost zero (MS 28, near Taylorsville) and milepost 42 (MS 18, Bay Springs). Enter any milepost between 0 and 42 and the diagnostic returns the county, the bearing, and the surface the 1960 survey would have written for that point. The county returns <strong>Smith County</strong> for any milepost up to 27.4 and <strong>Jasper County</strong> from 27.4 to the end of the route, because the line is a line and the chain was run on it. The bearing is <strong>northeastward</strong> for the whole run. The surface, on a route paved by 1960 and never disturbed since, is <strong>asphalt, 1960 survey</strong> at every milepost. If a ledger in front of you says otherwise for the years 1956 to 1959, raise MS-531 and keep the ledger's line standing.</p>
+
+  <div class="diag" id="diagnostic">
+    <label for="mp">MILEPOST (0.0 – 42.0, from MS 28 near Taylorsville)</label>
+    <div class="row">
+      <input type="number" id="mp" min="0" max="42" step="0.1" value="27.4" inputmode="decimal">
+      <button id="run" type="button">RUN SURVEY</button>
+    </div>
+    <table id="diagout" aria-live="polite">
+      <tr><th>MILEPOST</th><td class="v" id="d-mp">27.4</td></tr>
+      <tr><th>COUNTY</th><td class="v" id="d-county">Jasper County (line at 27.4)</td></tr>
+      <tr><th>BEARING</th><td class="v" id="d-bear">Northeastward</td></tr>
+      <tr><th>SURFACE, 1960 SURVEY</th><td class="v" id="d-surf">Asphalt, paved by 1960</td></tr>
+      <tr><th>NEAREST TERMINUS</th><td class="v" id="d-term">County line, 0.0 mi; Bay Springs (MS 18), 14.6 mi</td></tr>
+      <tr><th>RECORD STATUS</th><td class="v" id="d-status">OK — survey attached</td></tr>
+    </table>
+    <p class="fineprint">Without the script this table stands at milepost 27.4 by hand: Jasper County, northeastward, asphalt per the 1960 survey. The chain was run; the numbers hold.</p>
+  </div>
+
+  <h2>Related records</h2>
+  <p>For the file on the archive's reading room and the practice of keeping a line standing, see the <a href="../bic-cristal/">diary entry of 12 September 2006 — The Pen in the Folio</a>. For the other side of this route's ledger, the eastern terminus itself: <a href="../yerevan/">Yerevan — Guidebook No. 88: The Pink City</a>, where the records bureau notes, in a footnote no one has explained, that the milepost at the top of the Cascade is also numbered 531, and also kept.</p>
+
+  <p class="signed">— Route Records Bureau, Central District<br><span class="sigsub">Record CD-1956-0531 · kept, not corrected · <a href="../">return to the front page</a></span></p>
+</div>
+
+</section>
+
+<footer class="errfoot">
+  <p>ERROR MS-531 &middot; ROUTE RECORD DISCREPANCY &middot; MS 531, SMITH &amp; JASPER COUNTIES &middot; DESIGNATED 1956 &middot; PAVED BY 1960 &middot; ALIGNMENT UNCHANGED &middot; LINE KEPT</p>
+</footer>
+
+</main>
+<script src="diagnostic.js"></script>
+</body>
+</html>
