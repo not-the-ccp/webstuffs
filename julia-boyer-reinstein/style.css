@@ -1,0 +1,204 @@
+/* Catalogue D — Haldane & Voss, lot plate. Old-auction-house look:
+   cream paper, oxblood and gunpowder green, double rules, a stamp. */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #ece1c4;
+  --ink: #241c12;
+  --oxblood: #6e1f23;
+  --green: #2f4a35;
+  --faded: #8a7a58;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(110, 31, 35, 0.06), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(47, 74, 53, 0.08), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(36, 28, 18, 0.015) 0 2px, transparent 2px 4px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 1.62;
+}
+
+.plate {
+  max-width: 44em;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+.plate > header, .lot, .notes {
+  border: 1px solid var(--ink);
+  position: relative;
+  margin-bottom: 1.6rem;
+  background: linear-gradient(180deg, var(--paper-deep) 0, var(--paper) 120px);
+  box-shadow: 4px 4px 0 rgba(36, 28, 18, 0.18);
+}
+
+.plate > header::before, .lot::before, .notes::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid var(--faded);
+  pointer-events: none;
+}
+
+.cat-head {
+  text-align: center;
+  padding: 2.6rem 2rem 2.2rem;
+}
+
+.house {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.42em;
+  color: var(--oxblood);
+  font-variant: small-caps;
+}
+
+.sale {
+  margin: 0.35rem 0 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  margin: 0 auto 0.9rem;
+  max-width: 34em;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+  margin: 0 auto;
+  max-width: 30em;
+}
+
+.rule-double {
+  max-width: 220px;
+  margin: 1.6rem auto 0;
+  height: 5px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.lot, .notes { padding: 2rem 2.2rem 1.8rem; }
+
+h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--faded);
+  padding-bottom: 0.45rem;
+  margin: 0 0 1.1rem;
+}
+
+.lot h2 { font-size: 1.05rem; letter-spacing: 0.18em; }
+
+p { margin: 0 0 1.05rem; }
+
+.drop::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.14em 0 0;
+  color: var(--oxblood);
+  font-variant: small-caps;
+}
+
+strong { color: var(--oxblood); font-weight: normal; }
+
+.slip { background: linear-gradient(180deg, #f7f1e0, #efe4c8); }
+
+.slip-line {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92em;
+  color: var(--green);
+  background: rgba(47, 74, 53, 0.07);
+  border: 1px dashed var(--green);
+  padding: 0.35em 0.7em;
+  margin: 0.15em 0;
+  transform: rotate(-0.4deg);
+}
+
+.slip-line.inked {
+  animation: settle 1.4s ease-out both;
+}
+
+@keyframes settle {
+  from { opacity: 0; transform: rotate(-1.6deg) translateY(4px); }
+  to   { opacity: 1; transform: rotate(-0.4deg) translateY(0); }
+}
+
+.estimate {
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+  margin: 0.4rem 0 1rem;
+  font-variant: small-caps;
+}
+
+.currency { color: var(--green); }
+
+.terms { font-size: 0.9rem; color: var(--faded); }
+
+.notes {
+  font-size: 0.95rem;
+  border-left: 3px double var(--oxblood);
+}
+
+a { color: var(--oxblood); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--green); }
+
+.cat-foot {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footnote {
+  flex: 1;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--faded);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.seal {
+  flex: 0 0 auto;
+  width: 84px;
+  height: 84px;
+  border: 2px solid var(--oxblood);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--oxblood);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  transform: rotate(8deg);
+  opacity: 0.85;
+  box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(110, 31, 35, 0.5);
+}
+
+@media (max-width: 40em) {
+  .lot, .notes { padding: 1.4rem 1.2rem; }
+  .cat-head { padding: 1.8rem 1.2rem; }
+  .cat-foot { flex-direction: column; text-align: center; }
+}
