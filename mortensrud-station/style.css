@@ -1,0 +1,373 @@
+/* Mortensrud — the terminus diary.
+   Concrete, wood, stone, and the red of line 3.
+   A diary kept in a platform, styled like one. */
+
+:root {
+  --concrete: #8e9199;
+  --concrete-deep: #4c4f57;
+  --ink: #20232b;
+  --paper: #f3ead7;
+  --paper-line: #c9bfa6;
+  --wood: #a9713f;
+  --wood-deep: #6e4322;
+  --stone: #b9bfc4;
+  --stone-deep: #767d85;
+  --line3: #d61f2c;
+  --line3-soft: #f2a7ab;
+  --platform-yellow: #f4c430;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background-color: #33353c;
+  /* layered: concrete speckle, then long wood-grain seams, then the tunnel wall */
+  background-image:
+    radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1.6px),
+    radial-gradient(rgba(0,0,0,0.22) 1px, transparent 1.8px),
+    repeating-linear-gradient(90deg,
+      rgba(110,67,34,0.16) 0px, rgba(110,67,34,0.16) 2px,
+      transparent 2px, transparent 90px),
+    repeating-linear-gradient(0deg,
+      rgba(214,31,44,0.05) 0px, rgba(214,31,44,0.05) 1px,
+      transparent 1px, transparent 140px),
+    linear-gradient(180deg, #26272d 0%, #3a3d45 34%, #55585f 62%, #43464d 100%);
+  background-size: 13px 13px, 29px 29px, auto, auto, auto;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ——— the passing train, a light beam sweeping the tunnel wall ——— */
+.tunnel {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.tunnel .beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45vw;
+  width: 40vw;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(244,196,48,0.0) 12%,
+    rgba(244,196,48,0.10) 45%,
+    rgba(255,244,214,0.16) 50%,
+    rgba(244,196,48,0.10) 55%,
+    transparent 88%);
+  transform: skewX(-8deg);
+  animation: pass 17s cubic-bezier(0.4, 0, 0.4, 1) infinite;
+}
+@keyframes pass {
+  0%   { left: -45vw; }
+  14%  { left: 108vw; }
+  100% { left: 108vw; }
+}
+
+/* ——— winter snow over Oslo ——— */
+.snow {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.snow i {
+  position: absolute;
+  top: -12px;
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.75);
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0%   { transform: translateY(-5vh) translateX(0) ; opacity: 0; }
+  10%  { opacity: 0.9; }
+  100% { transform: translateY(110vh) translateX(6vw); opacity: 0.35; }
+}
+
+/* ——— the diary book ——— */
+.diary {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 56px) clamp(14px, 3vw, 40px) 70px;
+}
+
+.diary-head {
+  position: relative;
+  border: 3px double var(--wood-deep);
+  outline: 1px solid rgba(255,255,255,0.18);
+  outline-offset: 6px;
+  background:
+    repeating-linear-gradient(0deg,
+      rgba(255,255,255,0.03) 0 2px, transparent 2px 6px),
+    linear-gradient(180deg, #56341d 0%, var(--wood) 40%, #8a5a2e 100%);
+  color: #f7e9cf;
+  padding: 30px 30px 24px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55), inset 0 0 60px rgba(0,0,0,0.35);
+}
+
+.diary-head .keep-title {
+  margin: 0 0 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--line3-soft);
+}
+
+.diary-head h1 {
+  margin: 0;
+  font-family: "Snell Roundhand", "Segoe Script", "Apple Chancery", "Brush Script MT", cursive;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.35);
+}
+
+.diary-head .dateline {
+  margin: 12px 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e8cfa5;
+}
+
+/* the line-3 roundel, rotating slowly */
+.orbit {
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 10px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.45));
+  animation: orbit-turn 24s linear infinite;
+}
+@keyframes orbit-turn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.orbit .ring {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 4;
+}
+.orbit .ring.inner { stroke-dasharray: 6 8; stroke-width: 2; opacity: 0.7; }
+.orbit .arc {
+  fill: none;
+  stroke: var(--line3);
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+.orbit .dot { fill: var(--platform-yellow); }
+.orbit .ring-no {
+  font: 700 40px Georgia, serif;
+  fill: var(--line3);
+  stroke: var(--paper);
+  stroke-width: 1;
+}
+
+.rule {
+  height: 0;
+  border: none;
+  border-top: 2px solid var(--line3);
+  width: 140px;
+  margin: 18px auto 0;
+  position: relative;
+}
+.rule::after {
+  content: "·";
+  position: absolute;
+  left: 50%;
+  top: -0.85em;
+  transform: translateX(-50%);
+  background: transparent;
+  color: var(--platform-yellow);
+  font-size: 1.4rem;
+}
+
+/* ——— the paper page: ruled, pinned, slightly worn ——— */
+.entry {
+  margin-top: 34px;
+  position: relative;
+  padding: 34px 38px 26px 74px;
+  color: #2a2418;
+  background:
+    repeating-linear-gradient(0deg,
+      transparent 0, transparent 34px,
+      var(--paper-line) 34px, var(--paper-line) 35px),
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,0.55), transparent 55%),
+    linear-gradient(160deg, #f8f1e1 0%, var(--paper) 55%, #eadfc4 100%);
+  border-left: 10px solid transparent;
+  border-image: repeating-linear-gradient(0deg,
+    var(--wood) 0 14px, var(--wood-deep) 14px 18px) 10;
+  box-shadow:
+    0 22px 44px rgba(0,0,0,0.5),
+    inset 0 0 90px rgba(151,120,63,0.16);
+}
+/* the red margin line, like a diary page */
+.entry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 52px;
+  width: 2px;
+  background: rgba(214,31,44,0.45);
+}
+/* a brass pin holding the page */
+.entry::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, #fff3c9 0%, #e9c25a 38%, #9c6b1e 80%, #6d470f 100%);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+.entry p {
+  font-size: 1.06rem;
+  line-height: 35px; /* sits on the ruling */
+  margin: 0 0 20px;
+}
+
+.stamp-date {
+  display: inline-block;
+  margin: 0 0 22px;
+  padding: 5px 14px 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--line3);
+  border: 2px dashed var(--line3);
+  transform: rotate(-1.4deg);
+  background: rgba(255,255,255,0.4);
+}
+
+.entry em {
+  font-style: italic;
+  color: #5c3b12;
+  background: linear-gradient(transparent 68%, rgba(244,196,48,0.55) 68%);
+}
+
+.entry .cross-keep {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(110,67,34,0.4);
+  font-size: 0.95rem;
+}
+.entry a {
+  color: #8f1119;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: rgba(214,31,44,0.55);
+  text-underline-offset: 3px;
+}
+.entry a:hover {
+  background: rgba(214,31,44,0.12);
+  color: #60090f;
+}
+
+/* ——— the ledger of figures, set like a station notice board ——— */
+.ledger {
+  margin-top: 40px;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.03) 0 3px, transparent 3px 26px),
+    linear-gradient(180deg, #1d1f24, #2c2f36 60%, #23252b);
+  border: 1px solid #5a5e67;
+  border-top: 8px solid var(--line3);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.55), inset 0 0 40px rgba(0,0,0,0.5);
+  padding: 26px 30px 30px;
+  color: #e8e9ec;
+}
+.ledger h2 {
+  margin: 0 0 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--platform-yellow);
+}
+.ledger ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ledger li {
+  display: flex;
+  gap: 14px;
+  padding: 9px 4px;
+  border-bottom: 1px dotted rgba(255,255,255,0.22);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  animation: board-flick 9s infinite;
+}
+.ledger li:nth-child(odd)  { animation-delay: 0s; }
+.ledger li:nth-child(3n)   { animation-delay: 1.7s; }
+.ledger li:nth-child(4n+1) { animation-delay: 3.1s; }
+@keyframes board-flick {
+  0%, 96%, 100% { opacity: 1; }
+  97%           { opacity: 0.55; }
+  98%           { opacity: 1; }
+  99%           { opacity: 0.7; }
+}
+.ledger span {
+  flex: 0 0 118px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--line3-soft);
+  padding-top: 2px;
+}
+.ledger li:last-child span { color: var(--platform-yellow); }
+
+/* ——— the colophon ——— */
+.diary-foot {
+  margin-top: 44px;
+  text-align: center;
+  color: #b9bcc4;
+}
+.diary-foot .foot {
+  margin: 14px 0 0;
+  font-family: "Snell Roundhand", "Segoe Script", "Apple Chancery", cursive;
+  font-size: 1.35rem;
+}
+.diary-foot .foot.small {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #8a8d96;
+}
+
+@media (max-width: 560px) {
+  .entry { padding: 28px 22px 22px 60px; }
+  .entry::before { left: 40px; }
+  .ledger span { flex-basis: 92px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tunnel .beam, .orbit, .snow i, .ledger li { animation: none; }
+  .tunnel, .snow { display: none; }
+}
