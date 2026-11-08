@@ -1,0 +1,170 @@
+/* The Sukkur Ledger — canal-office diary sheet */
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #e9ddc0;
+  --ink: #2b2620;
+  --faded: #6b5f4d;
+  --river: #35596b;
+  --river-deep: #24404e;
+  --red: #9c3b2a;
+  --gilt: #b98a2f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2.5rem 1.4rem 4rem;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(185, 138, 47, 0.14), transparent 55%),
+    radial-gradient(ellipse at 88% 94%, rgba(53, 89, 107, 0.16), transparent 52%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.72;
+  box-shadow: 0 0 0 1px rgba(43, 38, 32, 0.18), 0 24px 60px rgba(43, 38, 32, 0.28);
+  position: relative;
+}
+
+/* the ledger's red margin line */
+.margin-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 2.4rem;
+  width: 1px;
+  background: rgba(156, 59, 42, 0.45);
+  pointer-events: none;
+}
+
+/* ruled-paper texture */
+.leaves {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2.42rem,
+      rgba(53, 89, 107, 0.12) 2.42rem,
+      rgba(53, 89, 107, 0.12) 2.44rem
+    );
+}
+
+.diary-head {
+  border-bottom: 3px double var(--river-deep);
+  padding-bottom: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: 0.02em;
+  color: var(--river-deep);
+  font-variant: small-caps;
+}
+
+.sub {
+  margin: 0.7rem 0 0;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+.head-rule {
+  height: 6px;
+  margin-top: 1rem;
+  background:
+    linear-gradient(90deg, var(--river-deep) 0 34%, transparent 34% 36%, var(--river) 36% 100%);
+  opacity: 0.75;
+}
+
+.entry {
+  padding: 0.2rem 0 1.6rem 0;
+  animation: ink-in 1.2s ease-out both;
+}
+
+.entry:nth-child(2) { animation-delay: 0.25s; }
+.entry:nth-child(3) { animation-delay: 0.5s; }
+.entry:nth-child(4) { animation-delay: 0.75s; }
+
+@keyframes ink-in {
+  from { opacity: 0; transform: translateY(0.4rem); filter: blur(1.5px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+
+.date-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  border-bottom: 1px dotted rgba(156, 59, 42, 0.5);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.9rem;
+}
+
+.date-line .day { font-weight: bold; }
+.date-line .place { color: var(--faded); }
+
+p { margin: 0 0 1.1rem; }
+
+strong { color: var(--river-deep); }
+
+.quoted-line {
+  display: inline-block;
+  border-left: 3px solid var(--gilt);
+  padding-left: 0.7rem;
+  color: var(--river-deep);
+  font-style: italic;
+  background: linear-gradient(to right, rgba(185, 138, 47, 0.12), transparent);
+}
+
+.diary-foot {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--river-deep);
+  padding-top: 1.2rem;
+}
+
+.filing h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.filing p { margin: 0 0 0.6rem; font-size: 0.95rem; }
+
+a {
+  color: var(--river);
+  text-decoration: underline;
+  text-decoration-color: rgba(53, 89, 107, 0.4);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--river-deep);
+  background: linear-gradient(to top, rgba(185, 138, 47, 0.25), transparent 70%);
+}
+
+.sign-off {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: var(--faded);
+  font-style: italic;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry { animation: none; }
+}
