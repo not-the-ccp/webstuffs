@@ -1,0 +1,223 @@
+/* In re the 1942 Oregon Ducks Football Ledger — verbatim record styling */
+
+:root {
+  --vellum: #f2ead8;
+  --vellum-deep: #e9dec4;
+  --ink: #2b2418;
+  --ink-soft: #4a4130;
+  --seal: #7d1f21;
+  --seal-deep: #571113;
+  --gold: #9a7b2f;
+  --ruled: #c9b98f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  background:
+    radial-gradient(ellipse at 12% -5%, rgba(125, 31, 33, 0.10), transparent 42%),
+    radial-gradient(ellipse at 105% 110%, rgba(154, 123, 47, 0.14), transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(43, 36, 24, 0.012) 3px 4px),
+    var(--vellum);
+}
+
+.transcript {
+  max-width: 720px;
+  margin: 3.5rem auto 4rem;
+  padding: 0 1.4rem;
+}
+
+/* ————— Caption block ————— */
+
+.court-head { text-align: center; }
+
+.caption-top {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--seal);
+  font-weight: bold;
+}
+
+.court-head h1 {
+  margin: 0 auto 0.8rem;
+  font-size: clamp(1.7rem, 4.6vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.court-head h1::first-letter { color: var(--seal); }
+
+.caption-sub {
+  margin: 0 auto 0.6rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.record-note {
+  margin: 0.9rem auto 0;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  padding: 0.55rem 0.9rem;
+  border-top: 1px solid var(--ruled);
+  border-bottom: 1px solid var(--ruled);
+}
+
+/* ————— Ruling bars ————— */
+
+.rule {
+  height: 10px;
+  margin: 1.8rem 0;
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: linear-gradient(90deg, transparent, rgba(125, 31, 33, 0.35) 50%, transparent);
+}
+
+/* ————— Sections ————— */
+
+section {
+  background: rgba(255, 252, 244, 0.55);
+  border: 1px solid var(--ruled);
+  border-left: 5px solid var(--seal);
+  box-shadow: 3px 4px 0 rgba(43, 36, 24, 0.08);
+  padding: 1.25rem 1.5rem 1.1rem;
+  margin-bottom: 1.6rem;
+}
+
+section p { margin: 0 0 0.9rem; line-height: 1.62; font-size: 1.02rem; }
+section p:last-child { margin-bottom: 0; }
+
+.speaker {
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--seal-deep);
+}
+
+.section-label, .exhibit-label {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px dotted var(--gold);
+  padding-bottom: 0.45rem;
+}
+
+.minute {
+  background: var(--vellum-deep);
+  border: 1px dashed var(--ruled);
+  padding: 0.9rem 1.1rem;
+  font-style: italic;
+}
+
+/* ————— Ledger table ————— */
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.ledger caption {
+  caption-side: top;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding-bottom: 0.6rem;
+  text-align: left;
+}
+
+.ledger th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--seal);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.45rem 0.7rem 0.45rem 0;
+}
+
+.ledger td {
+  padding: 0.5rem 0.7rem 0.5rem 0;
+  border-bottom: 1px solid var(--ruled);
+  vertical-align: top;
+}
+
+.ledger tr:last-child td { border-bottom: 2px solid var(--ink); }
+.ledger td:last-child { font-variant-numeric: tabular-nums; }
+
+/* ————— Signature & colophon ————— */
+
+.signature {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.colophon {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.colophon a { color: var(--seal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.colophon a:hover { background: rgba(125, 31, 33, 0.1); }
+
+/* ————— Certified stamp (added by transcript.js) ————— */
+
+.certified-stamp {
+  display: inline-block;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  border: 2px solid var(--seal);
+  color: var(--seal);
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transform: rotate(-8deg) scale(1.8);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1.4, 0.4, 1);
+  pointer-events: none;
+}
+
+.certified-stamp.landed { opacity: 0.8; transform: rotate(-8deg) scale(1); }
+
+section.examination { position: relative; }
+
+@media (prefers-reduced-motion: reduce) {
+  .certified-stamp { transition: none; }
+}
+
+/* ————— Entrance ————— */
+
+section, .court-head, .colophon {
+  animation: page-in 0.6s ease both;
+}
+section:nth-of-type(2) { animation-delay: 0.08s; }
+section:nth-of-type(3) { animation-delay: 0.16s; }
+section:nth-of-type(4) { animation-delay: 0.24s; }
+section:nth-of-type(5) { animation-delay: 0.32s; }
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  section, .court-head, .colophon { animation: none; }
+}
