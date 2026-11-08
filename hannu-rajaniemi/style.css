@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #faf8f3;
+  --muted: #6b6b6b;
+  --accent: #8b7d5c;
+  --accent-dark: #6b5f3f;
+  --rule: #d4c4a0;
+  --shadow: rgba(26,26,26,0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.obituary {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.dates {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.portrait {
+  margin: 3rem auto 4rem;
+  max-width: 220px;
+  text-align: center;
+}
+
+.portrait-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.portrait figcaption {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+h2 {
+  margin: 3.5rem 0 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--ink);
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.life p, .later-years p, .legacy p {
+  margin: 0 0 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.life p:first-of-type::first-letter {
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  margin-right: 0.15em;
+  margin-top: 0.1em;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+cite {
+  font-style: italic;
+  font-family: inherit;
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+.final-line {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.obit-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.nav-line {
+  margin: 0.75rem 0;
+  font-size: 0.95rem;
+}
+
+.nav-line a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.nav-line a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+section {
+  scroll-margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .obituary { padding: 2.5rem 1.25rem 4rem; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.5rem; }
+  .life p:first-of-type::first-letter { float: none; font-size: inherit; margin: 0; color: inherit; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+@media print {
+  body { background: white; }
+  .obituary { padding: 0; max-width: none; }
+  .nav-line { display: none; }
+  h1 { font-size: 2.5rem; }
+}
