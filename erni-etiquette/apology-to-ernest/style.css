@@ -1,0 +1,183 @@
+/* An Apology to Ernest — the letterhead of the household */
+:root {
+  --ink: #26221c;
+  --ink-soft: #55483a;
+  --paper: #f4ecdc;
+  --paper-deep: #eadfc8;
+  --rule: #b7a583;
+  --seal: #7d2b1e;
+  --ok: #3f5a36;
+  --bad: #8a2f1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.paper {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 250, 235, 0.9), transparent 42%),
+    radial-gradient(circle at 84% 88%, rgba(120, 90, 40, 0.10), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(90, 70, 40, 0.028) 0 2px, transparent 2px 5px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+main.letter {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 #fff inset, 0 18px 40px -28px rgba(40, 30, 10, 0.55);
+}
+
+.letterhead {
+  max-width: 44rem;
+  margin: 2.4rem auto 1.6rem;
+  padding: 1.2rem 1.4rem 0.4rem;
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+}
+.letterhead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+}
+.letterhead-mid h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0.7rem 0 0.4rem;
+  letter-spacing: 0.02em;
+}
+.letterhead-mid .sub em { font-style: italic; color: var(--seal); }
+.imprint { font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+.letterhead-rule { font-size: 1.1rem; color: var(--rule); }
+
+address.to {
+  font-style: normal;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem 0.4rem;
+  line-height: 1.5;
+}
+.date { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; }
+.salutation { font-size: 1.05rem; }
+
+p { margin: 0 0 1.05rem; }
+a { color: var(--seal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--ink); }
+
+strong { font-weight: 700; }
+
+.annex {
+  margin: 1.6rem 0 1.4rem;
+  padding: 1.1rem 1.2rem 1.3rem;
+  border: 1px solid var(--rule);
+  background: #f8f2e3;
+}
+.annex h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.checker { margin: 0.4rem 0 0.2rem; }
+.checker-row { margin-bottom: 0.7rem; }
+.checker-row label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.25rem;
+}
+.checker-row input {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: #fffdf6;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+.checker-row input:focus {
+  outline: 2px solid var(--seal);
+  outline-offset: 1px;
+}
+.bench-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 1.1rem;
+  color: #f6efe0;
+  background: var(--seal);
+  border: 1px solid var(--seal);
+  cursor: pointer;
+}
+.bench-btn:hover { background: #933526; }
+
+.verdict {
+  margin-top: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  border-left: 4px solid var(--rule);
+  background: #fffdf6;
+  font-size: 0.95rem;
+  min-height: 2.4rem;
+}
+.verdict.ok { border-left-color: var(--ok); }
+.verdict.bad { border-left-color: var(--bad); }
+.verdict .verdict-note { margin: 0; }
+.verdict .ruling {
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+.verdict.ok .ruling { color: var(--ok); }
+.verdict.bad .ruling { color: var(--bad); }
+
+.noscript {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px dotted var(--rule);
+  padding-top: 0.6rem;
+}
+
+.signature { font-size: 1.02rem; font-style: italic; }
+.sig-block { font-size: 0.9rem; color: var(--ink-soft); }
+.sig-block p { margin: 0; }
+.sig-name { font-size: 1.05rem !important; color: var(--ink); font-style: italic; }
+
+.postscript {
+  margin-top: 1.6rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.postscript p { margin: 0; }
+
+.colophon {
+  max-width: 44rem;
+  margin: 0 auto 2.6rem;
+  padding: 0 1.4rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin: 0.2rem 0; }
