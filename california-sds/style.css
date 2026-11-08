@@ -1,0 +1,153 @@
+/* California — Safety Data Sheet. Webstuffs Geologic Desk. */
+:root {
+  --ink: #21201b;
+  --paper: #f7f3e8;
+  --red: #8f1d21;
+  --red-dark: #5b1215;
+  --gold: #b98a1f;
+  --slate: #3e4238;
+  --line: #c9bdab;
+  --muted: #6e6658;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 15px; }
+body {
+  margin: 0;
+  background: linear-gradient(160deg, #7a5c3d 0%, #5c4630 55%, #3d2f22 100%);
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 30px 18px;
+}
+.sds {
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 10px solid var(--slate);
+  border-top: none;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.6);
+  overflow-wrap: break-word;
+}
+.sds-header {
+  background: var(--slate);
+  color: #f5efe2;
+  padding: 26px 34px 22px;
+  border-bottom: 8px solid var(--red);
+  position: relative;
+}
+.sds-header::after {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: repeating-linear-gradient(90deg, var(--gold), var(--gold) 12px, transparent 12px, transparent 24px);
+}
+.doc-id {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #d8c9a8;
+  font-family: "Courier New", monospace;
+}
+.sds-header h1 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.product-id {
+  margin: 0 0 4px;
+  font-size: 13.5px;
+  color: #eaddc4;
+}
+.signal {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 14px;
+  border: 2px solid var(--red);
+  color: #ffe7b8;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  animation: pulse 2.8s ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  from { box-shadow: 0 0 0 0 rgba(143,29,33,.45); border-color: var(--red); color: #ffe7b8; background: transparent; }
+  to { box-shadow: 0 0 0 7px rgba(143,29,33,.18); border-color: #c44449; color: #fff; background: rgba(143,29,33,.12); }
+}
+.sds-section {
+  padding: 24px 34px;
+  border-bottom: 1px solid var(--line);
+}
+.sds-section:last-child { border-bottom: none; }
+.sds-section h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--red-dark);
+  border-left: 6px solid var(--gold);
+  padding-left: 12px;
+  font-family: "Courier New", monospace;
+}
+.secnum {
+  display: inline-block;
+  min-width: 26px;
+  background: var(--gold);
+  color: #2c2210;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  margin-right: 10px;
+  padding: 1px 6px;
+}
+p { margin: 0 0 10px; }
+strong { color: var(--red-dark); }
+.ghs {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0 4px;
+  flex-wrap: wrap;
+}
+.diamond {
+  width: 72px; height: 72px;
+  border: 2px solid var(--ink);
+  transform: rotate(45deg);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.7);
+}
+.d-face { transform: rotate(-45deg); font: 700 10px/1 "Courier New", monospace; text-align: center; color: var(--ink); }
+.d-health { border-color: #154a7e; }
+.d-flame { border-color: #a31621; }
+.d-instability { border-color: #c9a227; }
+.d-special { border-color: #6b7a5e; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 13.5px; }
+th, td { border: 1px solid var(--line); padding: 4px 7px; text-align: left; vertical-align: top; }
+th { background: #eae3d4; color: var(--red-dark); font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; }
+tr:nth-child(even) td { background: #fdfaf2; }
+a { color: var(--red-dark); text-decoration: underline; font-weight: 600; }
+a:visited { color: #6f3a22; }
+.sds-nav {
+  padding: 22px 34px 30px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  font-family: "Courier New", monospace;
+}
+.sds-nav p { margin: 0; }
+.sds-nav a { font-weight: 700; }
+.disclaimer {
+  font-style: italic;
+  border-top: 3px double var(--line);
+  padding-top: 10px;
+  margin-top: 14px;
+}
+@media (max-width: 600px) {
+  .sds { border-width: 6px 6px 10px; margin: 10px; }
+  .sds-header, .sds-section, .sds-nav { padding-left: 20px; padding-right: 20px; }
+  .ghs { gap: 8px; }
+  .diamond { width: 56px; height: 56px; }
+}
