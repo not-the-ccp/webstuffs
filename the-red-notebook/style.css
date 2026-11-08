@@ -1,0 +1,193 @@
+/* The Red Notebook — formal letter on cream paper, red thread accents */
+
+:root {
+  --paper: #f6efe1;
+  --paper-deep: #efe4cd;
+  --ink: #2c2420;
+  --faded: #6e5f52;
+  --red: #a4232c;
+  --red-deep: #6f1219;
+  --gold: #b98a3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, #3a2b26 0%, #241a16 55%, #17110e 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif CJK SC", serif;
+  line-height: 1.75;
+  padding: 3rem 1rem 4rem;
+}
+
+/* the envelope corner mark */
+.envelope {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 1.6rem;
+  transform: rotate(6deg);
+  background: rgba(164, 35, 44, 0.06);
+  box-shadow: 0 0 0 4px rgba(164, 35, 44, 0.12);
+  animation: settle 1.6s ease-out both;
+}
+@keyframes settle {
+  from { transform: rotate(24deg) translateY(-0.6rem); opacity: 0; }
+  to   { transform: rotate(6deg) translateY(0); opacity: 1; }
+}
+
+.letter {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 78%, #e7d9bb 100%);
+  border: 1px solid #c9b283;
+  outline: 6px double var(--red-deep);
+  outline-offset: 8px;
+  padding: 3.25rem 3rem 2.5rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+
+/* ruled-paper texture */
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2.05rem,
+    rgba(164, 35, 44, 0.08) 2.05rem,
+    rgba(164, 35, 44, 0.08) calc(2.05rem + 1px)
+  );
+  pointer-events: none;
+}
+
+.letterhead {
+  border-bottom: 3px double var(--red);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+.letterhead .from {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.letterhead .address {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: var(--faded);
+}
+.letterhead .date {
+  margin: 1.1rem 0 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.letterhead .to {
+  margin: 0.9rem 0 0;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--red-deep);
+  letter-spacing: 0.02em;
+}
+
+.letter p { margin: 0 0 1.15rem; text-align: justify; }
+
+.salutation {
+  font-size: 1.08rem;
+  font-weight: bold;
+  color: var(--red-deep);
+}
+
+.caption-quote {
+  display: inline;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.86em;
+  background: rgba(164, 35, 44, 0.08);
+  border-bottom: 1px solid var(--red);
+  padding: 0 0.15em;
+  white-space: normal;
+}
+
+a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red);
+}
+a:hover { color: var(--red-deep); background: rgba(164, 35, 44, 0.08); }
+
+.closing {
+  font-style: italic;
+  color: var(--faded);
+}
+
+.signature {
+  margin-top: 1.8rem;
+  padding-left: 8.5rem;
+}
+.sig-name {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--red-deep);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+.sig-title { margin: 0.1rem 0 0; font-size: 0.85rem; color: var(--faded); }
+.sig-cc { margin: 0.9rem 0 0; font-size: 0.82rem; color: var(--faded); }
+
+.stamp-note {
+  margin-top: 2.2rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faded);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.stamp {
+  display: inline-grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex: none;
+  border: 2px solid var(--red);
+  border-radius: 4px;
+  color: var(--red);
+  font-size: 1.15rem;
+  font-style: normal;
+  transform: rotate(-8deg);
+  opacity: 0.9;
+  animation: press 2.4s ease-in-out both;
+}
+@keyframes press {
+  0%, 55% { transform: rotate(-8deg) scale(1.5); opacity: 0; }
+  75%     { transform: rotate(-8deg) scale(0.94); opacity: 1; }
+  100%    { transform: rotate(-8deg) scale(1); opacity: 0.9; }
+}
+
+.collation {
+  max-width: 46rem;
+  margin: 2.2rem auto 0;
+  text-align: center;
+  color: #cdbb9d;
+  font-size: 0.8rem;
+}
+.collation a { color: #e0b471; border-color: #a97c3a; }
+
+@media (max-width: 560px) {
+  .letter { padding: 2rem 1.25rem; outline-offset: 5px; }
+  .signature { padding-left: 0; }
+}
