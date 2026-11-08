@@ -1,0 +1,205 @@
+/* A Book of Good Company and Seated Deportment — Chapter IX
+   lovingly set for the 800x600 crowd, web-safe colours only */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000033;
+  background-image:
+    radial-gradient(circle at 12% 18%, #ffffcc 1px, transparent 2px),
+    radial-gradient(circle at 68% 7%,  #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 84% 42%, #ccffcc 1px, transparent 2px),
+    radial-gradient(circle at 35% 63%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 55% 88%, #ffffcc 1px, transparent 2px),
+    radial-gradient(circle at 8% 91%,  #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 94% 76%, #ccccff 1px, transparent 2px),
+    radial-gradient(circle at 26% 38%, #ffffff 1px, transparent 2px);
+  background-size: 140px 140px;
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.marquee-band {
+  background-color: #000080;
+  border-top: 3px ridge #c0c0c0;
+  border-bottom: 3px ridge #c0c0c0;
+  padding: 4px 0;
+}
+
+.ticker {
+  color: #ffff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.sheet {
+  width: 780px;
+  max-width: 94%;
+  margin: 18px auto 40px;
+  background-color: #fffff0;
+  border: 4px outset #c0c0c0;
+  padding: 0 26px 22px;
+}
+
+.masthead { width: 100%; background-color: #000080; }
+.masthead-cell {
+  border: 3px ridge #808080;
+  background: repeating-linear-gradient(45deg, #000080 0 12px, #000066 12px 24px);
+  color: #ffff00;
+  text-align: center;
+  padding: 18px 14px;
+}
+.book-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  margin: 0 0 4px;
+  color: #ffffcc;
+}
+.book-sub { font-size: 13px; margin: 0 0 14px; color: #ffffff; }
+.chapter-title {
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.25;
+  text-shadow: 2px 2px 0 #800000;
+}
+.chapter-of { font-size: 19px; font-style: italic; }
+.est { font-size: 12px; color: #cccccc; margin: 12px 0 0; }
+
+.rule {
+  border: 0;
+  border-top: 3px double #800000;
+  margin: 18px 0;
+}
+
+.lede { text-align: justify; }
+.lede::first-letter {
+  font-size: 44px;
+  float: left;
+  line-height: 1;
+  padding-right: 6px;
+  color: #800000;
+  font-weight: bold;
+}
+
+.section {
+  border: 2px inset #c0c0c0;
+  background-color: #ffffcc;
+  padding: 10px 16px 12px;
+  margin: 16px 0;
+  text-align: justify;
+}
+.section-head {
+  color: #000080;
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin: 2px 0 8px;
+  text-transform: uppercase;
+}
+
+.medal-table { width: 100%; margin-top: 8px; border-collapse: separate; }
+.medal-table th {
+  background-color: #800000;
+  color: #ffffcc;
+  border: 2px outset #c0c0c0;
+  font-size: 14px;
+  padding: 4px 6px;
+  text-align: left;
+}
+.medal-table td {
+  border: 2px inset #c0c0c0;
+  background-color: #fffff0;
+  font-size: 14px;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+.medal-table tr.alt td { background-color: #e0ffff; }
+
+.flyleaf {
+  margin: 10px 6px;
+  padding: 10px 14px;
+  border: 2px dotted #800000;
+  background-color: #fffff0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: #800000;
+}
+
+.counter-box {
+  margin: 22px auto 0;
+  width: 260px;
+  text-align: center;
+  border: 4px ridge #c0c0c0;
+  background-color: #000000;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  padding: 8px;
+}
+.counter-label { margin: 0; font-size: 13px; color: #ffff00; }
+.odometer {
+  display: inline-block;
+  background-color: #000000;
+  border: 2px inset #c0c0c0;
+  color: #00ff00;
+  font-size: 26px;
+  letter-spacing: 6px;
+  padding: 2px 8px;
+  margin: 6px 0;
+}
+.counter-fine { margin: 0; font-size: 11px; color: #808080; }
+
+.guestbook {
+  margin: 22px 0;
+  border: 3px double #800000;
+  background-color: #e0ffff;
+  padding: 10px 14px;
+}
+.guestbook-head {
+  text-align: center;
+  color: #800000;
+  font-size: 15px;
+  margin: 0 0 8px;
+  letter-spacing: 1px;
+}
+.guest-table { width: 100%; border-collapse: separate; }
+.guest-table td {
+  border: 1px dashed #800000;
+  padding: 5px 8px;
+  font-size: 13px;
+  background-color: #fffff0;
+  vertical-align: top;
+}
+.guest-name { font-weight: bold; width: 150px; color: #000080; }
+
+.under-construction {
+  text-align: center;
+  font-size: 14px;
+  color: #800000;
+  border: 2px dashed #800000;
+  background-color: #ffffcc;
+  padding: 6px 8px;
+}
+.hammer { width: 18px; height: 18px; vertical-align: -4px; }
+
+.page-nav {
+  border-top: 3px double #800000;
+  margin-top: 18px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+.page-nav a, .sheet a { color: #000080; }
+.page-nav a:hover, .sheet a:hover { color: #800000; background-color: #ffff00; }
+
+.colophon {
+  text-align: center;
+  font-size: 11px;
+  color: #555555;
+  margin-top: 16px;
+}
+
+.blink { animation: blink 1s step-start infinite; }
+@keyframes blink { 50% { visibility: hidden; } }
