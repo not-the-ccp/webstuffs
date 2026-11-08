@@ -1,0 +1,199 @@
+/* Robert Morgan — Diary, 21 February 2017. A page kept in a green ledger. */
+
+:root {
+  --ink: #23304a;
+  --ink-faded: #4a5878;
+  --pencil: #8b93a7;
+  --paper: #f4efe2;
+  --paper-deep: #e9e1cc;
+  --rule: #b8c4d4;
+  --margin: #b64a3e;
+  --stamp: #8c2f2b;
+  --seal: #7d5a33;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, #3a4560 0%, transparent 60%),
+    linear-gradient(160deg, #262e44 0%, #1c2334 70%, #171c2a 100%);
+  min-height: 100vh;
+  padding: 48px 16px 80px;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+}
+
+.paper {
+  max-width: 780px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      var(--rule) 30px,
+      var(--rule) 31px
+    ),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  background-attachment: local, scroll;
+  border: 1px solid #c9c0a8;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 84px 0 0 -78px rgba(182, 74, 62, 0.35); /* the red margin rule */
+  padding: 56px 64px 64px 108px;
+  position: relative;
+}
+
+.paper::before {
+  /* red margin line */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 84px;
+  width: 2px;
+  background: var(--margin);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.masthead { border-bottom: 3px double var(--ink-faded); padding-bottom: 18px; margin-bottom: 8px; }
+
+.date-stamp {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 5px 12px;
+  transform: rotate(-1.6deg);
+  border-radius: 4px;
+  opacity: 0.9;
+  box-shadow: 1px 1px 0 rgba(140, 47, 43, 0.3);
+}
+
+.entry-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 18px 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.ink-name {
+  color: var(--stamp);
+  border-bottom: 2px solid var(--seal);
+}
+
+.weather-line {
+  margin: 0;
+  font-style: italic;
+  color: var(--pencil);
+  font-size: 0.95rem;
+}
+
+.diary p {
+  line-height: 31px; /* ride the ruled lines */
+  margin: 0 0 31px;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding: 4px 10px 0 0;
+  color: var(--stamp);
+  font-weight: 700;
+}
+
+.diary em { color: var(--ink-faded); }
+
+.further {
+  margin-top: 40px;
+  border-top: 1px solid var(--ink-faded);
+  padding-top: 24px;
+}
+
+.further h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pencil);
+  font-weight: 400;
+}
+
+.further ul { list-style: none; padding: 0; margin: 16px 0; }
+
+.further li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  line-height: 31px;
+}
+
+.further li::before {
+  content: "\2715"; /* the small cross in the margin */
+  position: absolute;
+  left: 2px;
+  color: var(--stamp);
+  font-size: 0.8rem;
+  top: 1px;
+}
+
+.further a, .home-link a {
+  color: var(--stamp);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--stamp);
+}
+
+.further a:hover, .home-link a:hover {
+  background: rgba(182, 74, 62, 0.12);
+  border-bottom-style: solid;
+}
+
+.home-link { font-size: 0.9rem; color: var(--pencil); font-style: italic; }
+
+/* pencil cross in the margin, bottom right, as noted in the entry */
+.paper::after {
+  content: "\2715";
+  position: absolute;
+  right: 30px;
+  bottom: 26px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.4rem;
+  color: var(--pencil);
+  transform: rotate(8deg);
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  body { padding: 16px 8px 48px; }
+  .paper { padding: 36px 24px 56px 64px; }
+  .paper::before { left: 54px; }
+  .entry-title { font-size: 1.45rem; }
+}
+
+/* Enhancement only: when diary.js runs, the page "settles into ink". */
+.paper.inked .diary p,
+.paper.inked .further {
+  animation: settle 0.9s ease-out both;
+}
+
+.paper.inked .diary p:nth-child(2) { animation-delay: 0.08s; }
+.paper.inked .diary p:nth-child(3) { animation-delay: 0.16s; }
+.paper.inked .diary p:nth-child(4) { animation-delay: 0.24s; }
+.paper.inked .diary p:nth-child(5) { animation-delay: 0.32s; }
+.paper.inked .further { animation-delay: 0.42s; }
+
+@keyframes settle {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper.inked .diary p, .paper.inked .further { animation: none; }
+}
