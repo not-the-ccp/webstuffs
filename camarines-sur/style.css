@@ -1,0 +1,161 @@
+/* Camarines Sur — Grade 10 geography report, ruled-paper school form */
+:root {
+  --ink: #2b2b33;
+  --blue-ink: #1f3f7a;
+  --red-pen: #b3232a;
+  --rule: rgba(43, 90, 158, 0.28);
+  --margin-rule: rgba(179, 35, 42, 0.45);
+  --paper: #fbf6e9;
+  --paper-dark: #f1e8d2;
+  --stamp: #8c1d24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(139, 94, 40, 0.14), transparent 14%),
+    linear-gradient(180deg, #e8dfc9 0%, #ded2b6 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.sheet {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(90deg,
+      transparent 0, transparent 3.4rem,
+      var(--margin-rule) 3.4rem, var(--margin-rule) 3.5rem,
+      transparent 3.5rem, transparent 100%),
+    repeating-linear-gradient(
+      180deg,
+      var(--paper) 0, var(--paper) 2.35rem,
+      var(--rule) 2.35rem, var(--rule) 2.45rem
+    );
+  border: 1px solid #b8a87f;
+  box-shadow: 0 18px 40px rgba(60, 45, 20, 0.35), 0 2px 6px rgba(60, 45, 20, 0.25);
+  padding: 2.5rem 2rem 2rem 4.6rem;
+}
+
+/* letterhead */
+.letterhead { text-align: center; margin-bottom: 1.6rem; }
+.dept  { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; margin: 0; color: #6b5d3f; }
+.school {
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 1.7rem; font-weight: 700; letter-spacing: 0.04em;
+  margin: 0.25rem 0 0; color: var(--blue-ink);
+}
+.address { font-size: 0.8rem; font-style: italic; margin: 0.15rem 0 0.9rem; color: #6b5d3f; }
+.double-rule { border: 0; border-top: 3px double var(--blue-ink); margin: 0 0 0.9rem; }
+
+.report-meta { margin: 0 auto; border-collapse: collapse; font-size: 0.9rem; }
+.report-meta td { padding: 0.14rem 0.9rem 0.14rem 0; vertical-align: top; }
+.report-meta .k { color: var(--blue-ink); font-variant: small-caps; letter-spacing: 0.05em; margin-right: 0.4rem; }
+
+/* title and prose */
+.title {
+  font-size: 1.35rem; line-height: 1.45;
+  color: var(--blue-ink);
+  border-bottom: 1px solid var(--blue-ink);
+  display: inline-block;
+  margin: 0 0 1.4rem;
+}
+
+.prose { font-size: 1.02rem; line-height: 2.45rem; }
+.prose p { margin: 0 0 2.45rem; text-align: justify; }
+.prose .lead { text-indent: 2.45rem; }
+.prose em, .prose blockquote em { color: var(--blue-ink); }
+.prose strong { color: var(--ink); background: linear-gradient(transparent 62%, rgba(255, 214, 120, 0.7) 62%); }
+
+.subhead {
+  font-size: 1.05rem; color: var(--blue-ink);
+  margin: 0 0 2.45rem; line-height: 2.45rem;
+  display: inline-block;
+  border-bottom: 2px solid var(--blue-ink);
+  padding-bottom: 0.1rem;
+}
+
+/* the copied exhibit */
+.exhibit {
+  background: var(--paper-dark);
+  border: 1px solid #c9b98c;
+  border-left: 5px double var(--blue-ink);
+  box-shadow: 2px 3px 0 rgba(60, 45, 20, 0.15);
+  padding: 0.7rem 1.1rem;
+  margin: 0 0 2.45rem;
+  transform: rotate(-0.5deg);
+}
+.exhibit p { margin: 0.35rem 0; }
+.exhibit-label { font-size: 0.78rem; font-style: italic; color: #6b5d3f; }
+.exhibit-note { font-size: 0.85rem; color: #5c5138; }
+
+/* signature */
+.signature { font-size: 0.95rem; }
+.sig { font-family: "Segoe Script", "Brush Script MT", cursive; font-size: 1.5rem; color: var(--blue-ink); }
+
+/* red-pen margin notes */
+.red-pen { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--red-pen); }
+.margin-note {
+  font-family: "Segoe Print", "Comic Sans MS", cursive;
+  color: var(--red-pen);
+  font-size: 0.92rem;
+  margin: 0 0 0.55rem;
+  transform: rotate(-1.1deg);
+  opacity: 0;
+  animation: ink-in 0.7s ease forwards;
+}
+.margin-note[data-note="1"] { animation-delay: 0.6s; }
+.margin-note[data-note="2"] { animation-delay: 1.3s; }
+.margin-note[data-note="3"] { animation-delay: 2s; }
+@keyframes ink-in { to { opacity: 0.95; } }
+.graded-by { font-family: "Segoe Print", "Comic Sans MS", cursive; color: var(--red-pen); font-size: 0.85rem; text-align: right; margin: 0.8rem 0 0; opacity: 0.9; }
+
+/* the grade stamp */
+.stamp {
+  position: absolute;
+  top: 2rem; right: 1.6rem;
+  width: 7.5rem; height: 7.5rem;
+  border: 3px double var(--stamp);
+  border-radius: 50%;
+  color: var(--stamp);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  transform: rotate(12deg) scale(1.6);
+  opacity: 0;
+  animation: stamp-land 0.35s ease-out 0.9s forwards;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.stamp-num { font-size: 2.2rem; font-weight: 700; line-height: 1; font-family: Georgia, serif; }
+.stamp-word { font-size: 0.52rem; letter-spacing: 0.12em; margin-top: 0.4rem; line-height: 1.4; padding: 0 0.6rem; }
+@keyframes stamp-land {
+  0%   { opacity: 0; transform: rotate(20deg) scale(1.6); }
+  70%  { opacity: 1; transform: rotate(11deg) scale(0.96); }
+  100% { opacity: 0.85; transform: rotate(12deg) scale(1); }
+}
+
+/* footer */
+.file-footer {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--blue-ink);
+  font-size: 0.82rem;
+  color: #5c5138;
+  line-height: 1.6;
+}
+.file-footer a { color: var(--blue-ink); }
+.file-footer a:hover { background: linear-gradient(transparent 62%, rgba(255, 214, 120, 0.8) 62%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .margin-note, .stamp { opacity: 0.9; transform: rotate(-1deg); animation: none; }
+  .stamp { transform: rotate(12deg); opacity: 0.85; }
+}
+@media (max-width: 560px) {
+  .sheet { padding: 1.6rem 1.1rem 1.4rem 2.6rem; background-position: 2.6rem 0, 0 0; }
+  .stamp { position: static; margin: 1rem auto 0; }
+}
