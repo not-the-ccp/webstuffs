@@ -1,0 +1,278 @@
+/* The Extinction Event — Report, Class 8C: ruled paper, red margin, black bands */
+
+:root {
+  --paper: #f4eddc;
+  --paper-deep: #ecdfc4;
+  --ink: #2b2620;
+  --ink-soft: #5a5044;
+  --teacher-red: #a83a28;
+  --rule: rgba(90, 80, 68, 0.28);
+  --coal: #191512;
+  --seam: #2c2118;
+  --ochre: #b9822e;
+  --slate: #40504a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(185, 130, 46, 0.14), transparent 60%),
+    linear-gradient(180deg, var(--paper-deep), var(--paper) 340px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+.sheet {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem 5.5rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 29px,
+      var(--rule) 29px,
+      var(--rule) 30px
+    ),
+    var(--paper);
+  box-shadow: 0 18px 50px rgba(43, 38, 32, 0.35);
+}
+
+/* red margin line, as in the class copies */
+.margin-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4rem;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--teacher-red) 8%, var(--teacher-red) 92%, transparent);
+  opacity: 0.55;
+}
+
+/* the five strata bands at the head of the sheet */
+.strata {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  display: flex;
+}
+.strata .band {
+  display: block;
+  flex: 1;
+  height: 100%;
+  position: relative;
+  transition: height 0.35s ease, filter 0.35s ease;
+}
+.strata .band:nth-child(odd) { filter: brightness(1.15); }
+.strata .band.p1 { background: linear-gradient(90deg, #7c6a4f, #6d5c43); }
+.strata .band.p2 { background: linear-gradient(90deg, #40504a, #374540); }
+.strata .band.p3 { background: linear-gradient(90deg, #191512, #2c2118); }
+.strata .band.p4 { background: linear-gradient(90deg, #6b4a2c, #59391f); }
+.strata .band.p5 { background: linear-gradient(90deg, #a83a28, #7d2c1f); }
+.strata .band:hover { height: 34px; }
+.strata .band:hover::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink-soft);
+  padding: 1px 6px;
+  z-index: 2;
+}
+
+.report-head {
+  padding-top: 2.4rem;
+  border-bottom: 3px double var(--ink);
+  margin-bottom: 2rem;
+}
+.school {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.8rem;
+}
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4rem;
+  color: var(--coal);
+}
+.tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.2rem;
+}
+.admin {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.3rem 1rem;
+  margin: 0;
+  font-size: 0.92rem;
+}
+.admin dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  align-self: center;
+}
+.admin dd { margin: 0; }
+
+.lines h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 2.6rem 0 0.8rem;
+  color: var(--coal);
+}
+.lines h2::after {
+  content: "";
+  display: block;
+  width: 5.5rem;
+  height: 3px;
+  margin-top: 0.3rem;
+  background: linear-gradient(90deg, var(--coal) 0 55%, var(--ochre) 55% 100%);
+}
+.lines p { margin: 0 0 1rem; }
+em { color: var(--slate); }
+
+/* the teacher's red margin notes */
+.teacher-note {
+  margin: 1.2rem 0 1.6rem 2.2rem;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--teacher-red);
+  background: rgba(168, 58, 40, 0.06);
+  color: var(--teacher-red);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+/* the five, as filed */
+.five {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 1.6rem;
+  font-size: 0.9rem;
+  background: rgba(255, 252, 244, 0.55);
+  border: 1px solid var(--ink-soft);
+}
+.five caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 0.4rem;
+}
+.five th, .five td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.five thead th {
+  background: var(--coal);
+  color: var(--paper);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+.five tbody tr:nth-child(even) { background: rgba(43, 38, 32, 0.05); }
+.five tbody tr:hover { background: rgba(185, 130, 46, 0.14); }
+.pct {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--coal);
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 2ch;
+}
+
+/* the almanac leaf, pasted in */
+.almanac {
+  margin: 1.4rem 0 1.4rem 1.2rem;
+  padding: 1rem 1.4rem;
+  background:
+    repeating-linear-gradient(-2deg, transparent 0 22px, rgba(90, 80, 68, 0.12) 22px 23px),
+    #efe4c9;
+  border: 1px solid var(--ink-soft);
+  box-shadow: 4px 5px 0 rgba(43, 38, 32, 0.14);
+  transform: rotate(-0.7deg);
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--seam);
+}
+.almanac::before {
+  content: "pasted from the almanac · harbour fishmonger · leaf 41";
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.filed {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--ink);
+}
+.filed h2 { margin-top: 0; }
+.filed p { font-size: 0.92rem; margin-bottom: 0.6rem; }
+a {
+  color: var(--slate);
+  text-decoration-color: var(--ochre);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--coal); }
+
+.report-foot {
+  margin-top: 3rem;
+  position: relative;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.stamp {
+  position: absolute;
+  right: 0;
+  top: -2.4rem;
+  transform: rotate(-11deg);
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: var(--teacher-red);
+  border: 3px double var(--teacher-red);
+  padding: 0.2rem 0.9rem;
+  opacity: 0.65;
+  animation: settle 1.4s ease-out 0.4s backwards;
+}
+@keyframes settle {
+  0% { transform: rotate(-24deg) scale(1.5); opacity: 0; }
+  70% { transform: rotate(-8deg) scale(0.94); opacity: 0.85; }
+  100% { transform: rotate(-11deg) scale(1); opacity: 0.65; }
+}
+
+@media (max-width: 620px) {
+  .sheet { padding: 0 1.2rem 3rem 2.6rem; }
+  .margin-line { left: 1.8rem; }
+  h1 { font-size: 2rem; }
+  .admin { grid-template-columns: 1fr; }
+  .admin dt { margin-top: 0.4rem; }
+}
