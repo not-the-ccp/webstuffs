@@ -1,0 +1,245 @@
+/* Chapter IV · Of Calling in Gothenburg — A Book of Etiquette for the Theatre
+   Delft paper, candlelight, and canal mist */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #e8e0ce;
+  --ink: #212224;
+  --faded: #6a604d;
+  --delft: #304c72;
+  --delft-pale: #afc3db;
+  --gold: #9b752c;
+  --gold-pale: #e8d8a8;
+  --brick: #7d2e2e;
+  --rule: #bfb295;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(48, 76, 114, 0.07), transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(125, 46, 46, 0.05), transparent 40%),
+    linear-gradient(140deg, var(--paper), var(--paper-deep));
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.85;
+  font-size: 16.5px;
+}
+
+/* gilt book spine at the fore edge */
+.spine {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 28px;
+  background: linear-gradient(90deg, var(--delft), #1d324a 55%, #0e1924 100%);
+  box-shadow: 3px 0 14px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spine::before {
+  content: "IV";
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.5em;
+  color: var(--gold-pale);
+}
+
+.chapter {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 42px 38px 60px calc(38px + 36px);
+  background: var(--paper);
+  border: 1.5px solid var(--rule);
+  border-top: 8px solid var(--delft);
+  box-shadow: 8px 8px 0 var(--paper-deep);
+  position: relative;
+}
+
+/* chapter head */
+.chapter-head { text-align: center; }
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  font-size: 0.78rem;
+  color: var(--faded);
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+}
+.imprint {
+  font-size: 0.75rem;
+  color: var(--faded);
+  margin: 0 0 16px 0;
+  letter-spacing: 0.06em;
+}
+h1 {
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+  color: var(--delft);
+  letter-spacing: 0.02em;
+}
+.house {
+  font-size: 0.85rem;
+  color: var(--faded);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 18px 0;
+}
+.motto {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin: 0 0 24px 0;
+  padding-left: 44px;
+  position: relative;
+}
+.flame {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom: 12px solid var(--gold-pale);
+  border-radius: 50% 50% 42% 42%;
+  box-shadow: 0 0 10px var(--gold-pale);
+  animation: flicker 3.5s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  from { transform: scale(1) rotate(-1.5deg); opacity: 0.92; }
+  to   { transform: scale(1.08) rotate(2deg); opacity: 1; }
+}
+.seal {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: conic-gradient(from 80deg, var(--brick) 0 105deg, var(--gold) 105deg 215deg, var(--delft) 215deg 360deg);
+  box-shadow: inset 0 0 0 3px var(--paper), 0 0 0 6px var(--ink);
+  animation: seal-turn 9s linear infinite;
+}
+@keyframes seal-turn { to { transform: rotate(360deg); } }
+
+hr.rule {
+  height: 1px;
+  background: var(--rule);
+  border: none;
+  margin: 28px auto;
+  width: 210px;
+  position: relative;
+}
+hr.rule em {
+  position: absolute;
+  left: 50%;
+  top: -11px;
+  transform: translatex(-50%);
+  background: var(--paper);
+  padding: 0 8px;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.25em;
+}
+
+/* contents */
+.toc {
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--delft);
+  background: #fbf8ee;
+  padding: 16px 22px;
+  margin: 26px 0;
+  font-size: 0.95rem;
+}
+.toc h2 {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--faded);
+  margin: 0 0 10px 0;
+}
+.toc ol { margin: 0; padding-left: 20px; }
+.toc li { margin: 0 0 6px 0; }
+.toc a {
+  color: var(--delft);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+.toc a:hover { border-bottom-color: var(--delft-pale); background: var(--gold-pale); }
+
+/* entries */
+.entry h2 {
+  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  color: var(--delft);
+  margin: 30px 0 10px 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--gold);
+}
+.entry p {
+  margin: 0 0 15px 0;
+  text-align: justify;
+}
+.dropcap {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.85;
+  padding: 4px 10px 2px 0;
+  margin: 0 10px 7px 0;
+  color: var(--brick);
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  box-shadow: 3px 3px 0 var(--gold-pale);
+}
+
+blockquote.clipping {
+  margin: 18px 0 22px 0;
+  padding: 16px 20px 12px;
+  border: 1px dashed var(--rule);
+  background: #faf7ec;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--ink);
+  transform: rotate(-1.4deg);
+  box-shadow: 4px 4px 0 var(--paper-deep);
+}
+
+a {
+  color: var(--delft);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--delft-pale);
+}
+a:hover { border-bottom-style: solid; background: var(--gold-pale); color: var(--brick); }
+
+.closing {
+  margin-top: 30px;
+  font-size: 0.95rem;
+}
+.closing a { border-bottom: 1px dotted var(--delft-pale); }
+.closing a:hover { border-bottom-style: solid; }
+
+.fin {
+  text-align: center;
+  color: var(--faded);
+  letter-spacing: 0.35em;
+  font-size: 0.9rem;
+  margin-top: 36px;
+}
+
+@media (max-width: 620px) {
+  .chapter { padding-left: 36px; padding-right: 32px; margin: 24px 16px; }
+  .seal { display: none; }
+}
