@@ -1,0 +1,252 @@
+/* Destroyer thread — night bridge look */
+:root {
+  --night: #0b1524;
+  --night-2: #101f33;
+  --panel: #13253c;
+  --brass: #c9a45c;
+  --brass-dim: #8f7643;
+  --phosphor: #9fd6a8;
+  --ink: #d8e2ec;
+  --ink-dim: #93a7ba;
+  --rule: #23395a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(159, 214, 168, 0.07), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(201, 164, 92, 0.06), transparent 55%),
+    var(--night);
+  background-attachment: fixed;
+}
+
+/* ---- header & signal line ---- */
+.board-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 26px 20px 18px;
+  background: linear-gradient(180deg, #0d1a2d, var(--night) 90%);
+}
+
+.signal-line {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  height: 34px;
+  align-items: flex-start;
+}
+
+.flag {
+  width: 30px;
+  height: 34px;
+  border-radius: 2px;
+  position: relative;
+  transform-origin: top center;
+  animation: sway 5s ease-in-out infinite;
+}
+.flag:nth-child(even) { animation-delay: -2.5s; }
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.flag::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 2px;
+  height: 7px;
+  background: var(--brass-dim);
+}
+.f1 { background: linear-gradient(180deg, var(--brass) 50%, #e6e0cf 50%); }
+.f2 { background: linear-gradient(90deg, var(--brass) 50%, #e6e0cf 50%); }
+.f3 { background: var(--brass); }
+.f4 { background: #e6e0cf; }
+.f5 { background: linear-gradient(180deg, #e6e0cf 50%, var(--brass) 50%); }
+.f6 { background: linear-gradient(45deg, var(--brass) 50%, #e6e0cf 50%); }
+.f7 { background: linear-gradient(45deg, #e6e0cf 50%, var(--brass) 50%); }
+.f8 { background: repeating-linear-gradient(45deg, var(--brass) 0 6px, #e6e0cf 6px 12px); }
+
+.board-name {
+  font-size: 15px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-family: 'Courier New', Courier, monospace;
+}
+.crumb { font-size: 13px; color: var(--ink-dim); margin-top: 6px; }
+.board-motto {
+  margin: 10px 0 0;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+
+/* ---- thread ---- */
+main { max-width: 860px; margin: 0 auto; padding: 30px 20px 70px; }
+
+h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0 0 8px;
+  color: #eef3f8;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+.thread-meta {
+  font-size: 13.5px;
+  color: var(--ink-dim);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 14px;
+  margin: 0 0 26px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.thread-meta .author { color: var(--brass); }
+
+.post {
+  background: linear-gradient(180deg, var(--panel), var(--night-2));
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brass-dim);
+  border-radius: 6px;
+  margin: 0 0 18px;
+  padding: 16px 22px 18px;
+}
+.post.op { border-left-color: var(--brass); }
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.author {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: var(--brass);
+  letter-spacing: 0.04em;
+}
+.rank { font-size: 12.5px; font-style: italic; color: var(--ink-dim); }
+.date {
+  margin-left: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+}
+
+.post-body p { margin: 0 0 12px; }
+.post-body p:last-child { margin-bottom: 0; }
+
+a { color: var(--phosphor); text-decoration: none; border-bottom: 1px dotted rgba(159, 214, 168, 0.5); }
+a:hover { color: #c7ecd0; border-bottom-style: solid; }
+
+/* ---- sonar box ---- */
+.sonar-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: center;
+  margin: 30px 0;
+  padding: 18px 22px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background:
+    radial-gradient(closest-side at 50% 50%, rgba(159, 214, 168, 0.06), transparent),
+    #0a1320;
+}
+.sonar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(159, 214, 168, 0.5);
+  background:
+    radial-gradient(circle, transparent 0 33%, rgba(159, 214, 168, 0.12) 33% 34%, transparent 34% 66%, rgba(159, 214, 168, 0.12) 66% 67%, transparent 67%),
+    #071018;
+  flex: 0 0 auto;
+}
+.sonar::before, .sonar::after {
+  content: "";
+  position: absolute;
+  background: rgba(159, 214, 168, 0.12);
+}
+.sonar::before { left: 50%; top: 0; width: 1px; height: 100%; }
+.sonar::after { top: 50%; left: 0; height: 1px; width: 100%; }
+.sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(159, 214, 168, 0.35), transparent 70deg);
+  animation: spin 4s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--phosphor);
+  opacity: 0;
+}
+.ping .ring { animation: ping 1.6s ease-out; }
+.ping .ring.r2 { animation-delay: 0.25s; }
+.ping .ring.r3 { animation-delay: 0.5s; }
+@keyframes ping {
+  0% { transform: scale(0.15); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.blip {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--phosphor);
+  left: 62%;
+  top: 38%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.blip.lit { opacity: 1; box-shadow: 0 0 10px var(--phosphor); }
+
+.sonar-controls { flex: 1 1 240px; }
+.sonar-controls button {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--phosphor);
+  background: transparent;
+  border: 1px solid rgba(159, 214, 168, 0.6);
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.sonar-controls button:hover { background: rgba(159, 214, 168, 0.1); }
+.sonar-readout {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  color: var(--ink-dim);
+  margin: 10px 0 0;
+}
+
+/* ---- footer ---- */
+.thread-footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+.thread-footer p { margin: 0; }
+.thread-footer a { color: var(--brass); border-bottom-color: rgba(201, 164, 92, 0.5); }
+
+@media (max-width: 560px) {
+  h1 { font-size: 30px; }
+  .post { padding: 14px 16px; }
+}
