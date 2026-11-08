@@ -1,0 +1,238 @@
+/* Bocusoides — Build Log: field-notebook plate, lichen green and ink on warm paper */
+
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #ece4d2;
+  --ink: #26312a;
+  --ink-soft: #4c5a50;
+  --lichen: #7d8f6b;
+  --lichen-deep: #55663f;
+  --clay: #a4552f;
+  --line: #c9bfa5;
+  --card: #faf6ea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(125, 143, 107, 0.18), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(38, 49, 42, 0.025) 0 2px, transparent 2px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.masthead, main, .nav-line {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- masthead: the plate ---------- */
+
+.masthead {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 3px double var(--line);
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lichen-deep);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 5.5rem;
+  height: 4px;
+  margin-top: 0.55rem;
+  background: linear-gradient(90deg, var(--clay), var(--lichen-deep));
+  border-radius: 2px;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.7rem 0 0.2rem;
+}
+
+.plate {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0.55rem 0 0;
+}
+
+/* the CSS ant patrolling the top of the plate */
+.ant-run {
+  position: relative;
+  height: 26px;
+  margin-bottom: 0.6rem;
+  border-bottom: 2px dashed var(--line);
+}
+.ant {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  animation: ant-walk 26s linear infinite;
+}
+.ant .seg {
+  display: block;
+  background: var(--ink);
+  border-radius: 50%;
+  margin-left: 1px;
+}
+.ant .head   { width: 8px;  height: 8px; }
+.ant .thorax { width: 10px; height: 7px;  border-radius: 40%; }
+.ant .gaster { width: 15px; height: 9px;  border-radius: 50% 60% 60% 50%; }
+.ant .seg::before {
+  content: "";
+  position: absolute;
+  width: 2px; height: 9px;
+  background: var(--ink);
+  left: 3px;
+  top: -7px;
+  transform: rotate(38deg);
+}
+@keyframes ant-walk {
+  0%   { left: -40px; transform: rotate(2deg); }
+  49%  { left: calc(100% + 10px); transform: rotate(-2deg); }
+  50%  { transform: rotate(-2deg) scaleY(0.12); }
+  99%  { left: -40px; transform: rotate(2deg) scaleY(0.12); }
+  100% { left: -40px; transform: rotate(2deg); }
+}
+
+/* dotted reading trail */
+.trail {
+  position: relative;
+  height: 3px;
+  margin-top: 1rem;
+  background-image: radial-gradient(circle, var(--line) 0 1px, transparent 1.4px);
+  background-size: 10px 3px;
+  background-repeat: repeat-x;
+}
+.trail-head {
+  position: absolute;
+  top: -1.5px;
+  left: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--clay);
+  transform: translateX(-3px);
+}
+
+/* ---------- entries ---------- */
+
+main { padding-bottom: 1rem; }
+
+.entry {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--lichen);
+  border-radius: 3px;
+  padding: 1.35rem 1.5rem 1.2rem;
+  margin: 1.6rem 0;
+  box-shadow: 0 1px 0 rgba(38, 49, 42, 0.06), 0 10px 24px -18px rgba(38, 49, 42, 0.35);
+}
+
+.entry h2 {
+  font-size: 1.22rem;
+  margin: 0 0 0.55rem;
+  color: var(--lichen-deep);
+  letter-spacing: 0.01em;
+}
+
+.entry-meta {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+  padding: 0.35rem 0.5rem;
+  background: var(--paper-deep);
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+}
+.entry-meta .label {
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.entry p { margin: 0 0 0.95rem; }
+.entry p:last-child { margin-bottom: 0.2rem; }
+
+.entry .drop, .entry > p:first-of-type { }
+.entry > p:first-of-type::first-letter {
+  font-size: 2.6em;
+  line-height: 0.9;
+  float: left;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--clay);
+}
+
+.entry a { color: var(--lichen-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.entry a:hover { color: var(--clay); }
+
+/* the clipped notice */
+.clip {
+  margin: 1.1rem 0 1.2rem 0.4rem;
+  padding: 0.9rem 1.1rem;
+  background:
+    linear-gradient(105deg, transparent 88%, rgba(164, 85, 47, 0.12) 92%),
+    var(--paper-deep);
+  border: none;
+  border-top: 2px solid var(--clay);
+  border-bottom: 2px solid var(--clay);
+  font-style: italic;
+  color: var(--ink);
+  transform: rotate(-0.5deg);
+}
+.clip::before {
+  content: "CLIP · PALPS 2020 · CORNER OF BACK PAGE";
+  display: block;
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  color: var(--clay);
+  margin-bottom: 0.5rem;
+}
+
+.found-source {
+  font-style: italic;
+  background: linear-gradient(90deg, rgba(125, 143, 107, 0.14), transparent);
+  border-left: 3px solid var(--lichen);
+  padding: 0.5rem 0.9rem;
+}
+
+/* ---------- nav ---------- */
+
+.nav-line {
+  border-top: 3px double var(--line);
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  padding-bottom: 3rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.nav-line p { margin: 0.5rem 0; }
+.nav-line a { color: var(--lichen-deep); }
+.nav-line a:hover { color: var(--clay); }
