@@ -1,0 +1,128 @@
+/* Designation — Restaurant Review */
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f7f2e4;
+  color: #241d18;
+  font-family: "Constantia", "Palatino Linotype", "URW Palladio", "Palatino", serif;
+  line-height: 1.8;
+}
+
+.masthead {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  padding: 2.5rem 1rem 2rem;
+  border-bottom: 4px double #7a5c23;
+  text-align: center;
+  position: relative;
+}
+
+.masthead::before {
+  content: "❧";
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  color: #9a7d38;
+  background: #f7f2e4;
+  padding: 0 0.4rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  color: #8a6d3b;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.9rem;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+.subtitle {
+  margin: 0;
+  font-style: italic;
+  color: #8a6d3b;
+}
+
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 0 1rem 6rem;
+}
+
+p + p { margin-top: 1.3rem; }
+
+p.drop::first-letter {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.9;
+  padding: 0.1rem 0.5rem 0.05rem 0;
+  color: #7a5c23;
+}
+
+hr.rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #7a5c23, transparent);
+  border: none;
+  margin: 2.5rem 0;
+}
+
+p.quote {
+  margin: 2.2rem 0;
+  padding: 1rem 1.4rem;
+  background: #efe4cf;
+  border-left: 4px solid #7a5c23;
+  font-style: italic;
+  font-size: 1.05rem;
+  position: relative;
+}
+
+p.quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.6rem;
+  left: 0.9rem;
+  font-size: 3rem;
+  color: #b98a2f;
+  line-height: 1;
+}
+
+a {
+  color: #5c471e;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+a:hover, a:focus { border-bottom-color: #9a7d38; }
+
+footer {
+  max-width: 34rem;
+  margin: 2rem auto 0;
+  padding: 0 1rem 4rem;
+  font-size: 0.9rem;
+  color: #6b5d4a;
+  border-top: 1px solid #d8cfb8;
+  text-align: center;
+}
+
+main > p, p.quote {
+  animation: fade-in 0.7s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 2.2rem; }
+  .masthead::before { top: -0.4rem; font-size: 1.3rem; }
+}
