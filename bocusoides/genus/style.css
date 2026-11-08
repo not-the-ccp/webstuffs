@@ -1,0 +1,207 @@
+/* Placard No. G-214 — The Isthmus Museum of Small Collections */
+
+:root {
+  --stone: #1b1a17;
+  --stone-2: #23211c;
+  --plaque: #26241e;
+  --brass: #c9a35c;
+  --brass-hi: #e8cf96;
+  --parchment: #efe6d2;
+  --ink: #2a251c;
+  --faded: #b7ab8f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #33302a 0%, transparent 60%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 90px),
+    var(--stone);
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* the hall behind the case: a slow drifting spotlight */
+.hall {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  background: radial-gradient(600px 420px at var(--mx, 50%) var(--my, 12%),
+    rgba(232, 207, 150, 0.10), transparent 65%);
+  transition: background 0.4s ease-out;
+  animation: drift 26s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from { transform: translateX(-2.5%) translateY(-1%); }
+  to   { transform: translateX(2.5%) translateY(1.5%); }
+}
+
+.placard {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 18px 72px;
+}
+
+.plaque {
+  position: relative;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.05), transparent 30%),
+    var(--plaque);
+  border: 1px solid #4a4434;
+  outline: 1px solid rgba(201,163,92,0.35);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  padding: 44px 48px 36px;
+}
+/* brass corner brackets */
+.plaque::before, .plaque::after,
+.plaque-head::before, .plaque-head::after {
+  content: "";
+  position: absolute;
+  width: 26px; height: 26px;
+  border: 2px solid var(--brass);
+  opacity: 0.8;
+}
+.plaque::before      { top: 10px;  left: 10px;  border-right: 0; border-bottom: 0; }
+.plaque::after       { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+.plaque-head::before { top: -34px; right: -34px; border-left: 0; border-top: 0; }
+.plaque-head::after  { bottom: -34px; left: -34px; border-right: 0; border-bottom: 0; }
+
+.plaque-head { position: relative; text-align: center; margin-bottom: 30px; }
+
+.museum {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 14px;
+}
+.museum span {
+  display: block;
+  margin-top: 5px;
+  letter-spacing: 0.2em;
+  color: var(--faded);
+  font-size: 0.62rem;
+}
+
+.placard-no {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  padding: 4px 14px 3px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-size: 3.4rem;
+  line-height: 1;
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  background: linear-gradient(180deg, var(--parchment) 20%, var(--brass) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.latin {
+  margin: 12px 0 0;
+  color: var(--faded);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.rule { margin: 26px auto 0; display: flex; align-items: center; gap: 10px; max-width: 420px; }
+.rule .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--brass), transparent); }
+.rule .rivet {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--brass-hi), var(--brass) 60%, #6e5628);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+.entry { margin: 34px 0; }
+
+.entry h2 {
+  font-size: 0.78rem;
+  font-weight: normal;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted rgba(201,163,92,0.4);
+}
+
+.entry p { margin: 0 0 14px; font-size: 1.02rem; }
+.entry strong { color: var(--parchment); }
+.entry em { color: var(--brass-hi); font-style: italic; }
+
+a {
+  color: var(--brass-hi);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass);
+}
+a:hover { color: #fff3d6; border-bottom-style: solid; }
+
+.accession {
+  font-size: 0.78rem !important;
+  letter-spacing: 0.06em;
+  color: var(--faded) !important;
+  border-left: 2px solid var(--brass);
+  padding-left: 12px;
+}
+
+blockquote.jury {
+  margin: 22px 8px;
+  padding: 20px 26px;
+  position: relative;
+  font-size: 1.28rem;
+  font-style: italic;
+  color: var(--parchment);
+  text-align: center;
+  background: linear-gradient(180deg, rgba(201,163,92,0.10), rgba(201,163,92,0.03));
+  border-top: 1px solid rgba(201,163,92,0.5);
+  border-bottom: 1px solid rgba(201,163,92,0.5);
+}
+blockquote.jury::before, blockquote.jury::after {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--brass);
+  opacity: 0.6;
+}
+blockquote.jury::before { content: "\201C"; top: 2px; left: 10px; }
+blockquote.jury::after  { content: "\201D"; bottom: -8px; right: 10px; }
+
+.plaque-foot {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #4a4434;
+  text-align: center;
+}
+.plaque-foot .small {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--faded);
+  margin: 4px 0;
+}
+
+@media (max-width: 560px) {
+  .plaque { padding: 32px 22px 28px; }
+  h1 { font-size: 2.5rem; }
+  .plaque-head::before, .plaque-head::after { display: none; }
+}
