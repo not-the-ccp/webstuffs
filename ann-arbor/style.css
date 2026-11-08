@@ -1,0 +1,177 @@
+/* Card No. 214 — Huron River Maple Bread, Wadsworth Family Recipe Ledger */
+:root {
+  --paper: #f4ead3;
+  --card: #fbf5e6;
+  --ink: #2b2417;
+  --maple: #b06a1e;
+  --river: #33586b;
+  --ribbon: #1d5c3a;
+  --rule: #c9b98f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.ledger {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.masthead {
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+  padding: 1.25rem 0 1.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 6px; bottom: 6px;
+  border-left: 1px solid var(--rule);
+  margin-left: -1.5rem;
+  padding-left: 0;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--maple);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.08;
+  margin: 0 0 0.75rem;
+}
+
+.latin {
+  font-style: italic;
+  color: var(--river);
+  margin: 0 0 0.5rem;
+}
+
+.tagline {
+  font-size: 0.98rem;
+  color: #4d4230;
+  max-width: 34rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+article { margin-bottom: 2.5rem; }
+
+.recipe-meta {
+  font-size: 0.85rem;
+  color: #5a4c34;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 1.25rem;
+}
+
+.label { font-variant: small-caps; color: var(--river); }
+
+.scale-bench {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.bench-label {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--maple);
+}
+
+.bench-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.bench-controls output {
+  font-size: 1.6rem;
+  min-width: 3.5rem;
+  text-align: center;
+}
+
+.step {
+  font-family: inherit;
+  font-size: 1.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.step:hover, .step:focus-visible { background: var(--ribbon); color: var(--paper); }
+
+.bench-note { margin: 0; font-style: italic; color: #4d4230; font-size: 0.92rem; }
+
+ul.ingredients {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+ul.ingredients li {
+  padding: 0.45rem 0.2rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.amt {
+  font-weight: bold;
+  color: var(--maple);
+  white-space: nowrap;
+}
+
+ol.method li { margin-bottom: 0.6rem; padding-left: 0.3rem; }
+
+blockquote.found-note {
+  margin: 1rem 0 0.25rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid var(--ribbon);
+  background: var(--card);
+  font-style: italic;
+}
+
+p.found-source {
+  font-size: 0.85rem;
+  color: #5a4c34;
+  margin-top: 0.4rem;
+}
+
+a { color: var(--river); }
+
+.colophon {
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #4d4230;
+}
+
+.colophon .nav a { margin-right: 1rem; }
