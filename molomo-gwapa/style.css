@@ -1,0 +1,195 @@
+/* The Ntwaagae kitchen — molomo gwapa, ledger entry no. 7 */
+
+:root {
+  --cream: #f4e8d3;
+  --paper: #efe0c6;
+  --ink: #38281a;
+  --ochre: #c07a2d;
+  --terracotta: #9c4327;
+  --green: #1f5c3d;
+  --khaki: #8a7a4e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(192, 122, 45, 0.10), transparent 34%),
+    radial-gradient(circle at 88% 92%, rgba(156, 67, 39, 0.08), transparent 40%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(56, 40, 26, 0.035) 26px 27px);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.ledger {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+  background: var(--paper);
+  border-left: 2px solid var(--ochre);
+  border-right: 2px solid var(--ochre);
+  box-shadow: 0 14px 40px rgba(56, 40, 26, 0.25);
+}
+
+.stamp {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--terracotta);
+  border: 2px solid var(--terracotta);
+  border-radius: 6px;
+  padding: 8px 12px;
+  text-align: center;
+  transform: rotate(-2.2deg);
+  width: max-content;
+  margin: 0 auto 26px;
+  opacity: 0.85;
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 12.5px;
+  letter-spacing: 1.5px;
+  color: var(--khaki);
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: 44px;
+  line-height: 1.1;
+  margin: 0 0 6px;
+  color: var(--terracotta);
+  border-bottom: 3px double var(--ochre);
+  padding-bottom: 10px;
+}
+
+.latin {
+  font-style: italic;
+  color: var(--green);
+  margin: 0 0 18px;
+}
+
+table.specimen {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin-bottom: 30px;
+  background: rgba(244, 232, 211, 0.6);
+}
+
+table.specimen th {
+  text-align: left;
+  font-family: "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  width: 130px;
+  padding: 6px 10px 6px 2px;
+  border-bottom: 1px dashed rgba(156, 67, 39, 0.4);
+  vertical-align: top;
+}
+
+table.specimen td {
+  padding: 6px 2px;
+  border-bottom: 1px dashed rgba(138, 122, 78, 0.4);
+}
+
+.entry { margin-bottom: 34px; }
+
+.entry h2 {
+  font-size: 21px;
+  color: var(--green);
+  border-left: 4px solid var(--ochre);
+  padding-left: 12px;
+  margin: 0 0 12px;
+}
+
+.entry p { margin: 0 0 14px; }
+
+a { color: var(--terracotta); }
+a:hover { color: var(--green); }
+
+blockquote.marginal {
+  margin: 22px 18px;
+  padding: 16px 20px;
+  background: rgba(192, 122, 45, 0.10);
+  border-left: 3px solid var(--terracotta);
+  border-right: 1px dashed var(--ochre);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink);
+}
+blockquote.marginal p { margin: 0; }
+
+h3 {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin: 22px 0 10px;
+}
+
+ul.ingredients {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+}
+
+ul.ingredients li {
+  padding: 7px 2px 7px 26px;
+  position: relative;
+  border-bottom: 1px dotted rgba(138, 122, 78, 0.45);
+  cursor: pointer;
+}
+
+ul.ingredients li::before {
+  content: "◻";
+  position: absolute;
+  left: 4px;
+  color: var(--ochre);
+  font-size: 14px;
+}
+
+ul.ingredients li.done {
+  text-decoration: line-through;
+  color: var(--khaki);
+}
+ul.ingredients li.done::before { content: "☑"; color: var(--green); }
+
+ol.method {
+  padding-left: 22px;
+}
+ol.method li {
+  margin-bottom: 14px;
+  padding-left: 6px;
+}
+ol.method li strong {
+  color: var(--terracotta);
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.colophon {
+  border-top: 3px double var(--ochre);
+  padding-top: 14px;
+  font-family: "Courier New", monospace;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  color: var(--khaki);
+}
+.colophon .nav a { margin: 0 6px; }
+
+#tally { color: var(--terracotta); font-weight: bold; }
+
+@media (max-width: 520px) {
+  h1 { font-size: 34px; }
+  .ledger { padding: 20px 14px 44px; }
+}
