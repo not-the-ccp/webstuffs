@@ -1,0 +1,208 @@
+/* The General Ledger — ledger-paper sleeve notes */
+
+:root {
+  --paper: #f4eedd;
+  --paper-deep: #ece3cb;
+  --ink: #26221a;
+  --ink-soft: #4d463a;
+  --rule: #b9c4b1;
+  --margin-red: #a8402e;
+  --debit: #31556e;
+  --credit: #7d3b2a;
+  --stamp: #8c2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(255,255,255,.55), transparent 55%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(70,90,110,.10) 31px 32px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  font-size: 17px;
+}
+
+.masthead {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px 8px;
+  position: relative;
+  border-bottom: 3px double var(--ink);
+}
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 1.02;
+  margin: 0 0 10px;
+  letter-spacing: -.01em;
+  font-weight: 600;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 16px;
+}
+
+.stamp {
+  position: absolute;
+  top: 42px;
+  right: 26px;
+  transform: rotate(-9deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 4px;
+  mix-blend-mode: multiply;
+  animation: stamp-in .7s cubic-bezier(.2, 1.4, .4, 1) both .3s;
+}
+
+@keyframes stamp-in {
+  from { opacity: 0; transform: rotate(-9deg) scale(1.8); }
+  to   { opacity: .85; transform: rotate(-9deg) scale(1); }
+}
+
+.sheet {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 24px 40px;
+}
+
+/* the red ledger margin rule */
+.sheet::before {
+  content: "";
+  position: absolute;
+}
+
+.intro, .notes, .card {
+  padding-left: 44px;
+  border-left: 2px solid var(--margin-red);
+}
+
+.intro p, .notes p, .card p, .credits p {
+  margin: 0 0 1em;
+}
+
+.drop::first-letter {
+  font-size: 54px;
+  float: left;
+  line-height: .82;
+  padding: 6px 10px 0 0;
+  color: var(--margin-red);
+  font-weight: 600;
+}
+
+a { color: var(--debit); text-decoration-color: rgba(49,85,110,.4); }
+a:hover { color: var(--margin-red); }
+
+.tracks {
+  padding: 26px 0 6px 44px;
+  border-left: 2px solid var(--margin-red);
+}
+
+.tracks h2, .notes h2, .card h2, .credits h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  margin: 30px 0 14px;
+}
+
+.tracks h2:first-child { margin-top: 8px; }
+
+.track {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 15.5px;
+}
+
+.track .num {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  color: var(--debit);
+  min-width: 26px;
+}
+
+.tracks h2 + .track .num,
+.tracks h2:nth-of-type(2) + .track .num { color: var(--credit); }
+
+.tname { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dots { flex: 1; border-bottom: 1px dotted var(--rule); transform: translateY(-4px); }
+.dur {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.notes h3 {
+  font-size: 17px;
+  margin: 24px 0 8px;
+  font-weight: 600;
+}
+
+.band {
+  height: 14px;
+  margin: 34px 44px 0 0;
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 12px);
+  opacity: .55;
+}
+
+.card .mangle, .notes .mangle {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14.5px;
+  line-height: 1.7;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--margin-red);
+  padding: 14px 18px;
+  box-shadow: 3px 3px 0 rgba(38,34,26,.12);
+}
+
+.credits {
+  margin-top: 8px;
+  padding-left: 44px;
+  border-left: 2px solid var(--margin-red);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.colophon-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-top: 3px double var(--ink);
+  padding-top: 10px;
+}
+
+.listen {
+  max-width: 720px;
+  margin: 10px auto 0;
+  padding: 18px 24px 44px;
+  border-top: 3px double var(--ink);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
