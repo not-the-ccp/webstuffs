@@ -1,0 +1,215 @@
+/* The Corvina Loop — a reconstructed route card, set like a transit pamphlet */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #21301f;
+  --pine: #2f4f3e;
+  --copper: #b0663a;
+  --copper-deep: #8a4a26;
+  --cream: #fbf7ec;
+  --rule: #c9bda2;
+  --card: #fdf6df;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(47, 79, 62, 0.14), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(33, 48, 31, 0.028) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 760px;
+  margin: 2.5rem auto 1.2rem;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  margin: 0 0 0.6rem;
+}
+
+.masthead h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--pine);
+  font-weight: 700;
+}
+
+.sub {
+  font-style: italic;
+  color: #4c5a4a;
+  margin: 0.7rem auto 0;
+  max-width: 52ch;
+}
+
+.rule {
+  height: 3px;
+  margin: 1.2rem auto 0;
+  max-width: 420px;
+  background: var(--pine);
+}
+.rule.double {
+  height: 7px;
+  border-top: 1px solid var(--pine);
+  border-bottom: 1px solid var(--pine);
+  background: linear-gradient(var(--pine), transparent 40%, transparent 60%, var(--pine));
+}
+
+/* Route map ribbon */
+.routemap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 760px;
+  margin: 1.6rem auto 0.4rem;
+  padding: 0 1.25rem;
+}
+
+.routemap .dot {
+  flex: 0 0 auto;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--pine);
+  color: var(--pine);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 0 rgba(33, 48, 31, 0.25);
+}
+
+.routemap .dot.start { background: var(--pine); color: var(--cream); }
+.routemap .dot.end {
+  background: var(--copper);
+  border-color: var(--copper-deep);
+  color: var(--cream);
+}
+
+.routemap .dot.lit { background: var(--copper); border-color: var(--copper-deep); color: var(--cream); }
+
+.routemap .seg {
+  flex: 1 1 auto;
+  height: 0;
+  border-top: 3px dashed var(--copper);
+  margin: 0 0.35rem;
+  animation: march 1.4s linear infinite;
+  background: linear-gradient(90deg, var(--copper) 60%, transparent 0);
+  background-size: 12px 3px;
+  background-repeat: repeat-x;
+}
+
+@keyframes march {
+  to { background-position: 12px 0; }
+}
+
+main {
+  max-width: 760px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.25rem;
+}
+
+.stop {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--pine);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem 1.2rem;
+  margin: 0 0 1.8rem;
+  box-shadow: 0 3px 14px rgba(33, 48, 31, 0.08);
+}
+
+.stop h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.18rem;
+  color: var(--pine);
+  letter-spacing: 0.01em;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+.stop p, .intro p, .practical li {
+  font-size: 1.02rem;
+}
+
+.route-card {
+  background: var(--card);
+  border: 2px solid var(--copper);
+  outline: 1px dashed var(--copper-deep);
+  outline-offset: -7px;
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.1rem 0;
+  font-family: "Courier New", monospace;
+  transform: rotate(-0.6deg);
+  box-shadow: 3px 4px 0 rgba(138, 74, 38, 0.25);
+}
+
+.route-card p { margin: 0; font-size: 0.95rem; }
+.route-card p:first-child::before {
+  content: "REGISTER COPY";
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--copper-deep);
+  margin-bottom: 0.5rem;
+}
+
+.card-foot {
+  margin-top: 0.7rem !important;
+  font-size: 0.74rem !important;
+  color: var(--copper-deep);
+  font-style: italic;
+}
+
+.practical {
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--copper);
+  background: rgba(253, 246, 223, 0.6);
+  border-radius: 4px;
+  padding: 1.2rem 1.6rem;
+}
+
+.practical h2 {
+  margin-top: 0;
+  color: var(--copper-deep);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.colophon {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  padding: 0 1.25rem;
+  font-size: 0.9rem;
+  color: #4c5a4a;
+}
+
+.colophon-rule {
+  height: 1px;
+  background: var(--rule);
+  margin: 0 0 0.8rem;
+}
+
+a { color: var(--copper-deep); }
+a:hover { color: var(--pine); }
+
+@media (prefers-reduced-motion: reduce) {
+  .routemap .seg { animation: none; }
+}
