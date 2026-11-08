@@ -1,0 +1,29 @@
+/* The San Juan de Portugal -- build log stylesheet */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 32px 16px 64px;
+  background: #14100c;
+  background-image: radial-gradient(#291f14 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: #e6dcc3;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.masthead { text-align: center; border-bottom: 3px double #8a6d3b; padding-bottom: 18px; margin-bottom: 30px; }
+.masthead-eyebrow { letter-spacing: 0.28em; text-transform: uppercase; font-size: 0.72rem; color: #b08d3e; margin: 0 0 12px; }
+.masthead h1 { font-size: 2.4rem; margin: 0 0 8px; letter-spacing: 0.06em; }
+.masthead-tagline { font-style: italic; color: #c9b184; margin: 0; }
+main { max-width: 62ch; margin: 0 auto; }
+.entry { border: 1px solid #4a3f2e; background: #1c1610; padding: 18px 22px; margin-bottom: 26px; }
+.entry h2 { font-size: 1.15rem; color: #d8a24a; border-bottom: 1px solid #4a3f2e; padding-bottom: 6px; letter-spacing: 0.04em; margin: 0 0 10px; }
+.entry-meta { font-size: 0.76rem; color: #8f7d5e; text-transform: uppercase; letter-spacing: 0.12em; border-left: 3px solid #8a6d3b; padding-left: 10px; margin-bottom: 10px; }
+.label { font-weight: bold; color: #d8a24a; }
+.entry p { margin: 0 0 12px; text-align: left; }
+.entry strong { color: #e6b95c; }
+.found-source { font-size: 0.8rem; color: #8f7d5e; margin-bottom: 12px; font-style: italic; }
+.nav-line { max-width: 62ch; margin: 0 auto; text-align: center; border-top: 1px solid #4a3f2e; padding-top: 16px; }
+a { color: #d8a24a; }
+a:hover { color: #f0c463; }
+@media (max-width: 600px) { main { padding: 0 4px; } }
