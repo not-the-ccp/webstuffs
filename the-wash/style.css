@@ -1,0 +1,176 @@
+/* The Wash — museum placard stylesheet */
+
+/* Page: a slow, tidal drift of sand and water behind the card */
+html { height: 100%; }
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 25% 30%, #e8ded4 0%, transparent 52%),
+    linear-gradient(140deg, #ced6d7 0%, #e6d9bd 45%, #f0e3c8 100%);
+  background-attachment: fixed;
+  animation: tide 26s ease-in-out infinite;
+  background-size: 320% 320%;
+  font-family: "Iowan Old Style", "Garamond", "Hoefler Text", "Times New Roman", serif;
+  color: #3c362b;
+  line-height: 1.62;
+}
+@keyframes tide {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* The placard itself: thick museum card with hairline rules */
+.placard {
+  max-width: 660px;
+  margin: 52px auto;
+  padding: 50px 44px 46px;
+  background: #f6f1e6;
+  border: 10px solid #d9cdad;
+  outline: 1px solid #7e6d4f;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+    0 25px 60px -20px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.placard::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(64, 85, 75, 0.03) 40px);
+  pointer-events: none;
+}
+.placard::after {
+  content: "WSH";
+  position: absolute;
+  top: 14px; right: 18px;
+  font: 700 10px/1 "Times New Roman", serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #a89b78;
+}
+
+/* Typography */
+.gallery {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #736750;
+}
+h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+  color: #304038;
+}
+.place {
+  margin: 0 0 26px;
+  font-size: 0.9rem;
+  color: #5a5448;
+  font-style: italic;
+  border-bottom: 3px double #7e6d4f;
+  padding-bottom: 10px;
+  width: fit-content;
+}
+p {
+  margin: 0 0 16px;
+  text-align: justify;
+}
+p::first-letter {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #40554b;
+  padding-right: 0.08em;
+}
+
+/* Object facts, set like a catalogue card */
+.facts {
+  margin: 0 0 26px;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 6px 18px;
+  font-size: 0.88rem;
+}
+.facts dt {
+  margin: 0;
+  color: #5c5446;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: bold;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #d8cfae;
+}
+.facts dd {
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #d8cfae;
+}
+
+/* Schematic map */
+.map { margin: 0 0 26px; text-align: center; }
+.map svg { width: 100%; max-width: 620px; height: auto; display: block; margin: 0 auto; }
+.caption {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: #736750;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* Accession seal, drifting like a buoy */
+.seal {
+  float: right;
+  width: 74px;
+  height: 74px;
+  border: 2px double #7e6d4f;
+  border-radius: 50%;
+  margin: 0 0 14px 18px;
+  font: 8px/74px "Times New Roman", serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #5d4c36;
+  animation: drift 5s ease-in-out infinite;
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* The misfiled instruction card */
+blockquote.misquote {
+  margin: 22px 0;
+  padding: 14px 18px 14px 60px;
+  background: #efe9da;
+  border: 1px solid #d4c9ae;
+  border-left: 5px solid #7e6d4f;
+  font-style: italic;
+}
+blockquote.misquote p { margin: 0 0 6px; font-size: 1.05rem; }
+.attrib {
+  margin: 0;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: #736750;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Related pages */
+.seealso {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid #d8cfae;
+  font-size: 0.88rem;
+  color: #5c5446;
+}
+a { color: #40554b; }
+.seealso a { text-decoration: underline dotted; text-decoration-thickness: 0.5px; }
+
+@media (max-width: 560px) {
+  .placard { margin: 20px; padding: 30px 22px; }
+  .facts { grid-template-columns: 1fr; }
+  .seal { float: none; display: inline-block; margin: 10px 6px; }
+}
