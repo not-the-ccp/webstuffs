@@ -1,0 +1,307 @@
+/* Herbarium & Culinary Council — minutes of the order Lamiales */
+:root {
+  --desk: #17241c;
+  --desk-deep: #0f1813;
+  --paper: #f3eedd;
+  --paper-edge: #e6dec6;
+  --ink: #24312a;
+  --ink-soft: #4c5a50;
+  --moss: #4a5d3a;
+  --moss-deep: #2f3d26;
+  --rose: #8c3b2e;
+  --rose-deep: #6e2a20;
+  --gold: #b98a2f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(74, 93, 58, 0.5), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(140, 59, 46, 0.28), transparent 50%),
+    linear-gradient(160deg, var(--desk) 0%, var(--desk-deep) 100%);
+  background-attachment: fixed;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.68;
+  padding: 2.6rem 0.8rem 4rem;
+}
+
+.minutes {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.9rem, rgba(47, 61, 38, 0.045) 1.9rem calc(1.9rem + 1px)),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-edge) 100%);
+  border: 1px solid rgba(243, 238, 221, 0.35);
+  box-shadow:
+    0 0 0 6px rgba(15, 24, 19, 0.55),
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(140, 59, 46, 0.06);
+  padding: 2.6rem 2.4rem 2.4rem;
+  position: relative;
+}
+
+/* red margin line, as in a kept ledger */
+.minutes::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.7rem;
+  width: 1px;
+  background: rgba(140, 59, 46, 0.35);
+}
+
+/* ---------- header ---------- */
+.minutes-header {
+  text-align: center;
+  border-bottom: 4px double var(--moss-deep);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.1rem;
+}
+
+.council {
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5.5vw, 2.8rem);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--moss-deep);
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.subhead {
+  margin: 0.7rem 0 1.2rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+.subhead em { color: var(--moss); font-style: italic; }
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 2rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.meta p { margin: 0; }
+.meta strong { color: var(--moss-deep); letter-spacing: 0.06em; }
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--gold);
+  margin: 1.3rem 0 0;
+}
+.rule::after {
+  content: "\2698\2002\2698\2002\2698";
+  display: block;
+  text-align: center;
+  color: var(--gold);
+  font-size: 0.7rem;
+  line-height: 0.4;
+  transform: translateY(0.45em);
+}
+
+/* ---------- seal ---------- */
+.seal {
+  width: 118px;
+  margin: 0 auto 1rem;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.seal:hover { transform: scale(1.05) rotate(-3deg); }
+.seal:active { transform: scale(0.94); }
+
+.seal-outer { fill: none; stroke: var(--rose); stroke-width: 3; }
+.seal-inner { fill: none; stroke: var(--rose); stroke-width: 1; stroke-dasharray: 3 3; }
+.seal-text {
+  font-size: 9.2px;
+  letter-spacing: 0.18em;
+  fill: var(--rose-deep);
+  font-family: Georgia, serif;
+  font-variant: small-caps;
+}
+.seal-leaf { fill: var(--moss); stroke: var(--moss-deep); stroke-width: 1; }
+.seal-vein { fill: none; stroke: #8fa075; stroke-width: 1; }
+.seal-num {
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  fill: var(--rose-deep);
+  text-anchor: middle;
+  font-family: Georgia, serif;
+}
+
+/* ---------- items ---------- */
+.item {
+  margin-bottom: 1.9rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.item.in { opacity: 1; transform: none; }
+
+.item h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.09em;
+  color: var(--moss-deep);
+  font-size: 1.12rem;
+  margin: 0 0 0.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  border-bottom: 1px dotted rgba(47, 61, 38, 0.4);
+  padding-bottom: 0.35rem;
+}
+.item h2 em { font-style: italic; color: var(--moss); }
+
+.itemnum {
+  font-family: Georgia, serif;
+  font-size: 0.78rem;
+  font-variant: normal;
+  letter-spacing: 0.05em;
+  color: var(--rose);
+  border: 1.5px solid var(--rose);
+  border-radius: 50%;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-4deg);
+  background: rgba(243, 238, 221, 0.6);
+  flex: none;
+}
+
+.item p {
+  margin: 0 0 0.95rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.item p:first-of-type::first-letter {
+  font-size: 1.02em;
+  color: var(--rose-deep);
+}
+
+.item strong { color: var(--moss-deep); }
+.item em { color: var(--moss); }
+
+.item a {
+  color: var(--rose-deep);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(140, 59, 46, 0.4);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.item a:hover, .minutes-footer a:hover {
+  background: rgba(185, 138, 47, 0.22);
+  border-color: var(--rose-deep);
+}
+
+/* ---------- motions ---------- */
+.motions {
+  margin: 1.1rem 0 0.4rem;
+  border-left: 3px solid var(--gold);
+  padding-left: 1.1rem;
+}
+.motion {
+  position: relative;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.8rem;
+  background: rgba(74, 93, 58, 0.06);
+  border: 1px solid rgba(74, 93, 58, 0.25);
+}
+.motion::before {
+  content: "\2713";
+  position: absolute;
+  top: -0.7rem;
+  right: 0.55rem;
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+.motion em { color: var(--rose-deep); font-style: normal; font-weight: bold; letter-spacing: 0.03em; }
+
+/* ---------- closure ---------- */
+.closure {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--moss-deep);
+  text-align: center;
+  margin-top: 1.4rem;
+}
+.signatures {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ---------- footer ---------- */
+.minutes-footer {
+  margin-top: 2.3rem;
+  border-top: 4px double var(--moss-deep);
+  padding-top: 1rem;
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+}
+.minutes-footer a {
+  color: var(--rose-deep);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(140, 59, 46, 0.4);
+  transition: background 0.25s ease;
+}
+.see-also { margin: 0 0 0.8rem; }
+.true-copy {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--moss-deep);
+}
+
+/* ---------- the stamp (pressed by the seal) ---------- */
+.stamp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg) scale(3);
+  font-family: Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  font-size: clamp(1.6rem, 6vw, 3rem);
+  color: var(--rose);
+  border: 6px double var(--rose);
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.4rem;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 50;
+}
+.stamp.press { animation: press 1.6s ease forwards; }
+@keyframes press {
+  0%   { opacity: 0; transform: translate(-50%, -50%) rotate(-18deg) scale(3); }
+  18%  { opacity: 0.85; transform: translate(-50%, -50%) rotate(-18deg) scale(1); }
+  70%  { opacity: 0.85; transform: translate(-50%, -50%) rotate(-18deg) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(-18deg) scale(1); }
+}
+
+@media (max-width: 40rem) {
+  .minutes { padding: 2rem 1.3rem; }
+  .minutes::before { left: 0.8rem; }
+  .item p { text-align: left; }
+  .meta { flex-direction: column; gap: 0.15rem; align-items: center; }
+}
