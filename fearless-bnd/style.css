@@ -1,0 +1,87 @@
+/* The We Are Fearless Express — station timetable stylesheet */
+
+:root {
+  --ink: #e8e2d4;
+  --ink-dim: #a89e88;
+  --station: #171310;
+  --platform: #241c16;
+  --brass: #c9a227;
+  --signal: #d64545;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--station);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+.station-header {
+  background: #0e0b09;
+  border-bottom: 6px solid var(--brass);
+  text-align: center;
+  padding: 3rem 1rem 2.25rem;
+}
+
+.station-name {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--brass);
+}
+
+.station-header h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  margin: 0.5rem 0;
+  letter-spacing: 0.04em;
+}
+
+.clock {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--ink-dim);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem; }
+
+.service, .commentary {
+  border-bottom: 1px solid #3a2f27;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 0.4rem;
+}
+
+.timetable-note { font-style: italic; color: var(--ink-dim); }
+
+table.timetable { width: 100%; border-collapse: collapse; font-family: "Courier New", Courier, monospace; }
+table.timetable th, table.timetable td { border: 1px solid #3a2f27; padding: 0.55rem 0.35rem; text-align: center; font-size: 0.9rem; }
+table.timetable th { background: var(--platform); color: var(--brass); }
+table.timetable td { background: var(--station); }
+
+.memoir {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  background: var(--platform);
+  border-left: 4px solid var(--signal);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+footer { text-align: center; padding: 2rem 1rem; }
+footer a { color: var(--brass); }
