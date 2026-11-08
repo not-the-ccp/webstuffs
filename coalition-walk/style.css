@@ -1,0 +1,193 @@
+/* The Coalition Walk — tour handbill and itinerary */
+:root {
+  --paper: #f5eddc;
+  --paper-deep: #efe3c8;
+  --ink: #2c2620;
+  --ink-soft: #5c5142;
+  --vermilion: #b0432a;
+  --river: #2e5c55;
+  --gold: #b98a2f;
+  --rule: #cbb98f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(184, 67, 42, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(44, 38, 32, 0.025) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.handbill {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3.25rem 1.5rem 1.75rem;
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+}
+
+.handbill-top {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin: 0 0 1.1rem;
+}
+
+.handbill h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.handbill h1::after {
+  content: "\2693";
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 36rem;
+  margin: 0.9rem auto 0;
+}
+
+.handbill-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.6rem;
+  margin: 1.4rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.handbill-meta span { border-top: 1px solid var(--rule); padding-top: 0.35rem; }
+
+.itinerary {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+.lede {
+  font-size: 1.08rem;
+  max-width: 46rem;
+}
+
+/* Route: a dashed line running through the stops */
+.itinerary {
+  position: relative;
+}
+.itinerary::before {
+  content: "";
+  position: absolute;
+  left: calc(1.5rem + 1.45rem);
+  top: 2.5rem;
+  bottom: 1rem;
+  border-left: 2px dashed var(--river);
+  opacity: 0.45;
+}
+
+.stop {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.4rem;
+  padding: 2.1rem 0 0.4rem;
+  position: relative;
+}
+
+.stop-marker {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.stop-number {
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 3px 3px 0 rgba(44, 38, 32, 0.22);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.35rem;
+  transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+}
+
+.stop.current .stop-number {
+  background: var(--vermilion);
+  color: var(--paper);
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.stop-time {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin: 0 0 0.2rem;
+}
+
+.stop-title {
+  font-size: 1.55rem;
+  margin: 0 0 0.7rem;
+  line-height: 1.2;
+}
+
+.stop-body p { margin: 0 0 1rem; }
+
+.tally {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+}
+.tally li { margin-bottom: 0.9rem; }
+
+.tally strong { color: var(--river); }
+
+blockquote.find {
+  margin: 1.2rem 0;
+  padding: 1rem 1.4rem;
+  border-left: 4px solid var(--gold);
+  background: var(--paper-deep);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.return {
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+.colophon {
+  max-width: 56rem;
+  margin: 2.5rem auto 0;
+  padding: 1.6rem 1.5rem 3rem;
+  border-top: 3px double var(--ink);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.related p { margin: 0.45rem 0; }
+.related a { color: var(--vermilion); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.related a:hover { background: var(--paper-deep); }
+
+@media (max-width: 40rem) {
+  .itinerary::before { left: calc(1rem + 1.45rem); }
+  .stop { grid-template-columns: 2.9rem 1fr; gap: 0.9rem; }
+}
