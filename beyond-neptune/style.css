@@ -1,0 +1,269 @@
+/* Beyond Neptune — field notes of the far ring. Journal paper, carbon ink, night leg. */
+
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #e9dcc2;
+  --ink: #2b2118;
+  --ink-soft: #5a4a38;
+  --rust: #9c4a2f;
+  --rule: rgba(90, 74, 56, 0.28);
+  --night: #141d2e;
+  --night-ink: #d8e0ee;
+  --star: #f4e8c8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(20, 29, 46, 0.14), transparent 60%),
+    repeating-linear-gradient(to bottom, transparent 0 27px, var(--rule) 27px 28px),
+    linear-gradient(var(--paper-deep), var(--paper));
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+}
+
+.masthead, main, .foot {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- masthead: journal cover ------------------------------------------------ */
+
+.masthead {
+  position: relative;
+  border-bottom: 3px double var(--ink);
+  padding-top: 3rem;
+  padding-bottom: 2.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.02;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.dek {
+  max-width: 46rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* wax-style stamp, top right */
+.stamp {
+  position: absolute;
+  top: 2.4rem;
+  right: 1.5rem;
+  transform: rotate(7deg);
+  border: 2px solid var(--rust);
+  color: var(--rust);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0.5rem 0.65rem;
+  opacity: 0.75;
+  border-radius: 4px;
+}
+
+/* orbit diagram: sun-centred, slow rotation */
+.orbit {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.4rem;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+}
+.orbit::before, .orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  border: 1px dashed rgba(43, 33, 24, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.orbit::before { width: 56px; height: 56px; }
+.orbit::after  { width: 104px; height: 104px; }
+.orbit .orb { position: absolute; top: 50%; left: 50%; border-radius: 50%; }
+.orb-neptune {
+  width: 8px; height: 8px; background: var(--ink);
+  animation: spin 18s linear infinite; transform-origin: 0 0;
+  animation-timing-function: linear;
+}
+.orb-pluto, .orb-eris {
+  background: var(--rust);
+}
+.orb-pluto { width: 6px; height: 6px; animation: spin 44s linear infinite; }
+.orb-eris  { width: 5px; height: 5px; animation: spin 72s linear infinite; }
+@keyframes spin {
+  from { transform: rotate(0deg) translateX(52px); }
+  to   { transform: rotate(360deg) translateX(52px); }
+}
+.orb-neptune { animation-name: spin1; }
+@keyframes spin1 {
+  from { transform: rotate(0deg) translateX(28px); }
+  to   { transform: rotate(360deg) translateX(28px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none !important; }
+}
+
+/* --- entries: dated journal leaves ------------------------------------------ */
+
+.entry {
+  position: relative;
+  border: 1px solid rgba(43, 33, 24, 0.35);
+  border-left: 6px solid var(--rust);
+  background: rgba(255, 252, 242, 0.55);
+  padding: 1.6rem 2rem 1.8rem;
+  margin: 0 0 2rem;
+  box-shadow: 3px 4px 0 rgba(43, 33, 24, 0.12);
+}
+
+.entry .date {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.entry h2 {
+  font-size: 1.35rem;
+  margin: 0 0 0.8rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+a { color: var(--rust); }
+a:hover { color: var(--ink); }
+
+/* the carbon-copy line: typewriter, torn edges */
+.carbon {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  background: #efe6cf;
+  border: none;
+  border-left: 3px solid var(--ink);
+  border-right: 3px dotted var(--ink-soft);
+  color: var(--ink);
+  margin: 1.2rem 0;
+  padding: 1rem 1.2rem;
+  box-shadow: inset 0 0 24px rgba(90, 74, 56, 0.18);
+}
+.carbon::before {
+  content: "STATION LOGBOOK · FLAGSTAFF · 1915 · CARBON 2 OF 3";
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+}
+
+/* blink comparator toy */
+.blink {
+  margin: 1.2rem 0 0.4rem;
+  padding: 1rem 1.2rem;
+  border: 1px dashed var(--ink-soft);
+}
+.blink-btn {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+.blink-btn:hover { background: var(--rust); }
+.plate {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  height: 9rem;
+  margin: 0.8rem auto 0;
+  background: #10141d;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+}
+.plate span {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--star);
+  border-radius: 50%;
+  opacity: 0.85;
+}
+.plate .drift {
+  width: 4px; height: 4px;
+  background: #fff;
+  box-shadow: 0 0 6px 2px rgba(244, 232, 200, 0.7);
+}
+/* default: show plate B (the one with the body); the button flips to A */
+.blink .plate:first-of-type { display: none; }
+.blink.flipping .plate:first-of-type { display: block; }
+.blink.flipping .plate:last-of-type { display: none; }
+.blink-note {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  max-width: 30rem;
+  margin: 0.8rem auto 0;
+  font-style: italic;
+}
+
+/* night leg: inverted leaf */
+.entry.night {
+  background:
+    radial-gradient(1px 1px at 12% 30%, var(--star) 50%, transparent 51%),
+    radial-gradient(1px 1px at 34% 74%, var(--star) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 58% 22%, var(--star) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 58%, var(--star) 50%, transparent 51%),
+    radial-gradient(1px 1px at 90% 14%, var(--star) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 88%, var(--star) 50%, transparent 51%),
+    var(--night);
+  color: var(--night-ink);
+  border-left-color: var(--star);
+}
+.entry.night .date { color: var(--star); border-bottom-color: rgba(216, 224, 238, 0.3); }
+.entry.night a { color: #f0b98a; }
+.entry.night a:hover { color: var(--star); }
+
+/* --- footer ------------------------------------------------------------------ */
+
+.foot {
+  border-top: 3px double var(--ink);
+  padding-top: 1.2rem;
+  padding-bottom: 3rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.foot p { margin: 0.3rem 0; }
+.foot-links a { font-family: "Courier New", Courier, monospace; letter-spacing: 0.05em; }
+
+@media (max-width: 40rem) {
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+  .orbit { display: none; }
+  .entry { padding: 1.2rem 1.2rem 1.4rem; }
+}
