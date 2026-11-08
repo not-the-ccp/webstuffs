@@ -1,0 +1,32 @@
+/* System Notice Archive &mdash; Error LU-1980 */
+html { box-sizing: border-box; }
+body { margin: 0; background: #0a0c11; color: #d8d4c8; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height: 1.62; }
+.chassis { max-width: 700px; margin: 40px auto; border: 14px solid #141821; border-radius: 10px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.7); background: #0f1217; overflow: hidden; }
+.bezel { display: flex; gap: 10px; padding: 12px 16px; background: linear-gradient(90deg, #1c212a 0%, #0f1217 100%); border-bottom: 1px solid #2a303a; }
+.status-light { width: 12px; height: 12px; border-radius: 50%; background: #232a33; box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8); }
+.status-light.active { background: #b45309; box-shadow: 0 0 10px #b45309, inset 0 0 4px rgba(0, 0, 0, 0.8); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+.notice-header { padding: 32px 28px 4px; border-bottom: 1px solid #2a303a; background: #0f1217; }
+.eyebrow { margin: 0 0 8px; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: #b45309; font-family: ui-monospace, SF Mono, Menlo, monospace; }
+h1 { margin: 0 0 6px; font-size: 1.75rem; color: #f3f4f6; letter-spacing: 0.03em; }
+.dek { margin: 0; color: #9aa3ad; font-size: 0.92rem; }
+main { padding: 28px; }
+h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: #b45309; margin: 26px 0 8px; border-bottom: 1px solid #1f2833; padding-bottom: 5px; font-family: ui-monospace, SF Mono, Menlo, monospace; }
+section { margin-bottom: 26px; }
+p { margin: 0 0 12px; }
+.code { font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 1.5rem; color: #38bdf8; margin: 6px 0 0; letter-spacing: 0.08em; }
+.cursor::after { content: "▋"; animation: blink 1.1s steps(2) infinite; color: #38bdf8; padding-left: 2px; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.message { background: #161b22; border-left: 3px solid #ef4444; padding: 10px 14px; margin-top: 10px; color: #f87171; }
+table { width: 100%; border-collapse: collapse; font-size: 0.94rem; margin-top: 8px; }
+th { text-align: left; color: #9aa3ad; padding: 6px 8px; font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 0.78rem; text-transform: uppercase; border-bottom: 1px solid #1f2833; }
+td { padding: 6px 8px; border-bottom: 1px solid #171c23; color: #e7e5db; }
+tr:last-child td { border-bottom: none; }
+.clear-btn { margin-top: 10px; font-family: inherit; font-size: 0.85rem; padding: 6px 12px; background: #161b22; border: 1px solid #2a303a; color: #d8d4c8; border-radius: 4px; cursor: pointer; }
+.clear-btn:disabled { color: #6b7280; border-color: #232a33; cursor: not-allowed; opacity: 0.6; }
+.clear-btn:hover:not(:disabled) { border-color: #b45309; color: #fbbf24; }
+a { color: #38bdf8; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: #7dd3fc; }
+.see-also { margin-top: 30px; padding-top: 14px; border-top: 1px solid #2a303a; }
+.notice-footer { padding: 20px 28px; border-top: 1px solid #2a303a; font-size: 0.78rem; color: #6b7280; text-align: center; font-family: ui-monospace, SF Mono, Menlo, monospace; }
+@media (max-width: 560px) { .chassis { margin: 16px; border-width: 8px; } main { padding: 20px 16px; } h1 { font-size: 1.4rem; } }
