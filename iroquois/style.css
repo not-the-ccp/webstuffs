@@ -1,0 +1,175 @@
+/* Field Book No. 12 — South Bank Station, Iroquois, Louisville */
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dcb8;
+  --ink: #2e2a22;
+  --faded: #6b5f45;
+  --margin: #b3402a;
+  --moss: #5f7445;
+  --sky: #54677c;
+  --stamp: #a03c28;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(255, 250, 230, 0.9), transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(120, 100, 60, 0.18), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.journal {
+  max-width: 46rem;
+  margin: 3rem auto 5rem;
+  padding: 2.5rem 2rem 2rem 3.2rem;
+  background:
+    repeating-linear-gradient(transparent 0 2.05rem, rgba(107, 95, 69, 0.16) 2.05rem 2.1rem),
+    linear-gradient(var(--paper), var(--paper-deep));
+  border: 1px solid #c9b98d;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 18px 40px -18px rgba(46, 42, 34, 0.55);
+  position: relative;
+}
+
+/* the red margin line of a ruled notebook */
+.journal::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.4rem;
+  width: 2px;
+  background: var(--margin);
+  opacity: 0.45;
+}
+
+.masthead { border-bottom: 3px double #8a7a55; padding-bottom: 1rem; position: relative; }
+
+.station {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.8rem;
+}
+.rule { color: var(--margin); }
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+.subtitle { margin: 0; color: var(--faded); font-style: italic; }
+
+.stamp {
+  position: absolute;
+  top: 0.6rem; right: 0;
+  transform: rotate(-8deg);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  color: var(--stamp);
+  border: 2px double var(--stamp);
+  border-radius: 4px;
+  padding: 0.3rem 0.55rem;
+  opacity: 0.75;
+}
+
+.map { margin: 2rem 0 2.4rem; }
+.map svg { width: 100%; height: auto; display: block; border: 1px solid #8a7a55; background: #efe4c9; }
+.map figcaption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.5rem 0 0;
+}
+
+.entry { margin: 0 0 2.2rem; }
+.dateline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--margin);
+  border-left: 3px solid var(--margin);
+  padding-left: 0.6rem;
+  margin: 0 0 0.9rem;
+}
+.entry p { margin: 0 0 1rem; text-align: justify; hyphens: auto; }
+.entry strong { font-weight: bold; }
+a { color: var(--sky); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--margin); }
+
+.ledger {
+  margin: 2.4rem 0;
+  padding: 1.1rem 1.2rem;
+  background: rgba(255, 252, 240, 0.65);
+  border: 1px dashed #8a7a55;
+}
+.ledger h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.6rem;
+  color: var(--moss);
+}
+.ledger table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.ledger caption { font-size: 0.8rem; font-style: italic; color: var(--faded); text-align: left; padding-bottom: 0.4rem; }
+.ledger td { padding: 0.28rem 0.4rem 0.28rem 0; border-bottom: 1px dotted #b3a476; }
+.ledger .n { text-align: right; font-family: "Courier New", Courier, monospace; font-size: 0.85rem; color: var(--faded); }
+.ledger-note { font-size: 0.8rem; font-style: italic; color: var(--faded); margin: 0.7rem 0 0; }
+
+.colophon {
+  border-top: 3px double #8a7a55;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+.colophon p { margin: 0 0 0.5rem; }
+.clock { font-family: "Courier New", Courier, monospace; font-size: 0.78rem; letter-spacing: 0.1em; }
+
+/* the heron: a small CSS shape that settles, once, on the masthead */
+.heron {
+  position: absolute;
+  top: -0.55rem; right: 11rem;
+  width: 0; height: 0;
+  animation: settle 2.4s ease-out both;
+}
+.heron::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: 6px;
+  width: 12px; height: 16px;
+  background: var(--sky);
+  border-radius: 50% 50% 40% 40%;
+}
+.heron::after {
+  content: "";
+  position: absolute;
+  left: 4px; top: 0;
+  width: 14px; height: 4px;
+  background: var(--sky);
+  border-radius: 2px;
+  transform-origin: left center;
+  transform: rotate(-18deg);
+}
+@keyframes settle {
+  0%   { transform: translateY(-46px); opacity: 0; }
+  60%  { transform: translateY(4px);   opacity: 1; }
+  100% { transform: translateY(0);     opacity: 1; }
+}
+
+@media (max-width: 620px) {
+  .journal { padding-left: 2.6rem; margin: 1rem 0.75rem 3rem; }
+  .stamp { position: static; display: inline-block; margin-top: 0.8rem; }
+  .heron { display: none; }
+}
