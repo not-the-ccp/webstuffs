@@ -1,0 +1,195 @@
+/* Field diary — ruled notebook on a wooden bench */
+
+:root {
+  --paper: #faf4e3;
+  --paper-deep: #f1e8cd;
+  --ink: #26344f;
+  --ink-soft: #43536f;
+  --rule: rgba(84, 110, 150, 0.22);
+  --margin: #c65b4e;
+  --moss: #5d7a4a;
+  --moss-dark: #2f3d26;
+  --pale-brown: #c9b28c;
+  --desk: #3b3327;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--desk); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.desk {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 244, 214, 0.10), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0 3px, transparent 3px 120px),
+    linear-gradient(180deg, #4a4033, #2c261d);
+}
+
+.page {
+  width: 100%;
+  max-width: 760px;
+  padding: 3rem 2.75rem 3.5rem 4.25rem;
+  position: relative;
+  background:
+    linear-gradient(to right, transparent 0 54px, var(--margin) 54px 55px, transparent 55px),
+    repeating-linear-gradient(to bottom, transparent 0 31px, var(--rule) 31px 32px),
+    linear-gradient(180deg, var(--paper), var(--paper-deep));
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.4) inset,
+    0 18px 45px rgba(0,0,0,0.55),
+    0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* a folded corner */
+.page::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 42px 42px;
+  border-color: transparent transparent var(--desk) transparent;
+  filter: drop-shadow(-2px -2px 3px rgba(0,0,0,0.25));
+}
+
+.dhead { position: relative; margin-bottom: 1.25rem; }
+
+.dateline {
+  font-family: "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+
+.species {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--moss-dark);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.9rem;
+  margin-bottom: 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 0.25rem;
+  right: -0.5rem;
+  transform: rotate(6deg);
+  border: 3px double var(--margin);
+  color: var(--margin);
+  border-radius: 4px;
+  padding: 0.45rem 0.7rem 0.5rem;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  user-select: none;
+}
+
+.entry p {
+  margin: 0 0 32px;
+  line-height: 32px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.entry p strong { color: var(--moss-dark); }
+
+.entry a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--moss);
+  text-underline-offset: 3px;
+}
+.entry a:hover { background: rgba(93, 122, 74, 0.14); }
+
+.sign {
+  font-family: "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  text-align: right;
+  margin-bottom: 0 !important;
+}
+.sign .postscript { font-size: 0.95rem; color: var(--moss-dark); }
+
+/* the moth */
+.moth {
+  display: block;
+  width: min(240px, 60%);
+  margin: 0 auto 0.25rem;
+  cursor: pointer;
+  animation: drift 7s ease-in-out infinite;
+}
+@keyframes drift {
+  0%, 100% { transform: translateX(-8px) rotate(-1.5deg); }
+  50%      { transform: translateX(8px) rotate(1.5deg); }
+}
+
+.moth .forew { fill: var(--moss); stroke: var(--moss-dark); stroke-width: 2; }
+.moth .marble { fill: none; stroke: var(--moss-dark); stroke-width: 3; stroke-linecap: round; opacity: 0.85; }
+.moth .hindw { fill: var(--pale-brown); stroke: #9a825e; stroke-width: 2; }
+.moth .body { fill: var(--moss-dark); }
+.moth .ant { fill: none; stroke: var(--moss-dark); stroke-width: 1.5; stroke-linecap: round; }
+
+.moth .hind {
+  opacity: 0;
+  transform: scaleY(0.25);
+  transform-origin: 110px 60px;
+  transition: transform 0.7s ease, opacity 0.5s ease 0.1s;
+}
+.moth.open .hind { opacity: 1; transform: scaleY(1); }
+.moth .fore { transition: transform 0.7s ease; transform-origin: 110px 62px; }
+.moth.open .fore { transform: scaleY(0.82) }
+
+.fig {
+  text-align: center !important;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  line-height: 1.6 !important;
+  margin-bottom: 32px !important;
+}
+.click-hint {
+  font-style: normal;
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 560px) {
+  .page { padding: 2.25rem 1.25rem 3rem 2.5rem; }
+  .page { background:
+    linear-gradient(to right, transparent 0 30px, var(--margin) 30px 31px, transparent 31px),
+    repeating-linear-gradient(to bottom, transparent 0 31px, var(--rule) 31px 32px),
+    linear-gradient(180deg, var(--paper), var(--paper-deep)); }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+  .entry p { text-align: left; }
+}
