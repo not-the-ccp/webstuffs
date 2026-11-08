@@ -1,0 +1,213 @@
+/* Dumbarton Bridge — Field Manual Chapter (FM-9, Chapter 5: Crossings) */
+
+:root {
+  --ink: #0b1021;
+  --paper: #f4f1e8;
+  --steel: #334155;
+  --wire: #94a3b8;
+  --span: #b45309;
+  --marsh: #5c6b3a;
+  --line: #e7e2d4;
+}
+
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #090c16;
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  line-height: 1.65;
+}
+
+.manual {
+  position: relative;
+  max-width: 690px;
+  margin: 52px auto 64px;
+  padding: 48px 40px 60px;
+  background: var(--paper);
+  border: 2px solid var(--steel);
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.7);
+}
+
+.manual::before,
+.manual::after {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--span);
+}
+
+.manual::before {
+  top: -12px;
+  left: -12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.manual::after {
+  bottom: -12px;
+  right: -12px;
+  border-left: none;
+  border-top: none;
+}
+
+.manual-header {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 24px;
+  margin-bottom: 10px;
+}
+
+.manual-series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--span);
+  margin: 0 0 8px;
+}
+
+.manual-header h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.manual-dek {
+  font-size: 0.82rem;
+  color: var(--steel);
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.12em;
+}
+
+.wire {
+  height: 5px;
+  margin: 22px 0 6px;
+  background: repeating-linear-gradient(90deg, var(--wire), var(--wire) 10%, transparent 10%, transparent 20%);
+  position: relative;
+  overflow: hidden;
+}
+
+.wire::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--span), transparent);
+  animation: sweep 5s linear infinite;
+  opacity: 0.6;
+}
+
+.transit-light {
+  position: relative;
+  top: -9px;
+  left: 48%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--span);
+  box-shadow: 0 0 10px var(--span);
+  animation: blink 2.4s infinite;
+  display: inline-block;
+}
+
+@keyframes sweep {
+  from { transform: translateX(-140%); }
+  to { transform: translateX(160%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+.entry {
+  margin: 0 0 30px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+
+.entry h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--span);
+  margin: 0 0 6px;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.entry h2 .enum {
+  font-family: "Georgia", serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-transform: none;
+  letter-spacing: 0;
+  border: 1.5px solid var(--steel);
+  padding: 0 8px;
+  border-radius: 2px;
+}
+
+.entry-meta {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--wire);
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  border-top: 1px dotted var(--wire);
+  border-bottom: 1px dotted var(--wire);
+}
+
+.label {
+  color: var(--ink);
+  font-weight: bold;
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+blockquote.found-note {
+  margin: 16px 22px;
+  padding: 14px 18px;
+  border-left: 4px solid var(--span);
+  background: #fdf6e7;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.found-source {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--wire);
+  margin: 0 0 24px;
+}
+
+.sign-off {
+  margin-top: 34px;
+  padding-top: 16px;
+  border-top: 3px double var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--steel);
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 600px) {
+  .manual {
+    margin: 28px 16px;
+    padding: 34px 20px 44px;
+  }
+}
