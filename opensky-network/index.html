@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenSky Network — A Visitor's Brochure</title>
+<meta name="description" content="A tourist brochure for the OpenSky Network, the Swiss non-profit that tracks the world's airspace with around 2,000 volunteer receivers: the Zürich base, the European grid, the Naga detour, and the free flight data.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article class="brochure">
+
+  <header class="masthead">
+    <svg class="beacon" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <circle cx="60" cy="60" r="56" class="ring r1"/>
+      <circle cx="60" cy="60" r="40" class="ring r2"/>
+      <circle cx="60" cy="60" r="24" class="ring r3"/>
+      <line x1="60" y1="60" x2="60" y2="4" class="sweep"/>
+      <circle cx="60" cy="60" r="4" class="core"/>
+      <circle cx="88" cy="34" r="3" class="blip b1"/>
+      <circle cx="30" cy="78" r="3" class="blip b2"/>
+      <circle cx="70" cy="92" r="3" class="blip b3"/>
+    </svg>
+    <p class="kicker">Helvetic Republic &bull; Non-Profit Association &bull; Airspace Visitor's Edition</p>
+    <h1>The OpenSky Network</h1>
+    <p class="tagline">Around 2,000 volunteer receivers &mdash; mostly in Europe and the United States &mdash; listening to the sky, and giving the whole conversation away free.</p>
+    <div class="ticket" aria-hidden="true">
+      <span class="t-left">AIRSPACE PASSES<br>THIS DAY, WORLDWIDE</span>
+      <span class="t-num" id="passes">000000</span>
+      <span class="t-right">FARE&nbsp;—&nbsp;NONE<br>API KEY&nbsp;—&nbsp;YOURS</span>
+    </div>
+  </header>
+
+  <section class="welcome">
+    <h2><span class="num">01</span>Welcome aboard the network</h2>
+    <p class="drop-cap">The OpenSky Network is a non-profit association based in Switzerland that provides open access of flight tracking control data. It was set up as a research project by several universities and government entities &mdash; the founding circle included ETH Z&uuml;rich, Delft University of Technology, Kungliga Tekniska H&ouml;gskolan in Stockholm, and the Finnish and Polish research institutes that still answer to it &mdash; with the goal to improve the security, reliability and efficiency of the airspace. Its main function is to collect, process and store air traffic control data and provide open access to this data to the public.</p>
+    <p>Similar to many existing flight trackers such as Flightradar24 and FlightAware, the OpenSky Network consists of a multitude of receivers &mdash; currently around 2,000, mostly concentrated in Europe and the US &mdash; which are connected to the Internet by volunteers, industrial partners, and one very patient university in Zürich. Each receiver is an ordinary little antenna dish or stick, often on a balcony, a barn roof, or a fire escape. What they hear is the transponder squawk of every nearby aircraft: callsign, altitude, speed, position, updated every few seconds. What the network does with it is the point of the tour.</p>
+  </section>
+
+  <section class="numbers">
+    <h2><span class="num">02</span>By the numbers</h2>
+    <div class="stat-grid">
+      <div class="stat"><span class="figure">2,000</span><span class="label">receiver stations, of every kind of roof</span></div>
+      <div class="stat"><span class="figure">24/7</span><span class="label">the squawk never stops, not even for lunch</span></div>
+      <div class="stat"><span class="figure">100%</span><span class="label">open &mdash; the data is free to anyone, anywhere</span></div>
+      <div class="stat"><span class="figure">~10 M</span><span class="label">aircraft trackings ingested daily at peak</span></div>
+    </div>
+    <p>The association's own rule book is short: record it, time-stamp it, correlate it across stations, and publish it. There is no ticket counter, no paywall, no &ldquo;premium altitude&rdquo;. A researcher in Helsinki and a schoolgirl in Naga City read the same feed.</p>
+  </section>
+
+  <section class="itinerary">
+    <h2><span class="num">03</span>The three-day route</h2>
+
+    <div class="day">
+      <h3>Day 1 &mdash; Zürich: the base station</h3>
+      <p>Begin in Switzerland, where the association is headquartered and the archive lives. The processing pipeline swallows the raw squawk from all 2,000 stations, deduplicates it, and lays it down in a long historical archive that stretches back years. Data consumers pull it through a simple REST API: a URL, a box of coordinates, a time window, and back comes the sky as JSON. It is, for a research project, an almost embarrassingly generous engine room, and it runs on a non-profit's idea of money.</p>
+    </div>
+
+    <div class="day">
+      <h3>Day 2 &mdash; The European grid</h3>
+      <p>The densest part of the network is the one you can walk: receivers in Paris, Vienna, Prague, Amsterdam, and small towns that have no other claim to fame. The overlap is deliberate. A single receiver hears only its own circle; three overlapping receivers triangulate a track, and the network's data quality is the sum of its volunteers' rooftops. Fly the corridor Zurich&ndash;Vienna&ndash;Budapest and watch your own squalk being recorded, processed, and published before your coffee is finished.</p>
+    </div>
+
+    <div class="day">
+      <h3>Day 3 &mdash; The Naga detour</h3>
+      <p>One of the network's far-flung stations keeps a curious logbook. It sits on the edge of a small Philippine square, a volunteer antenna next to a rickshaw lane, and its station logger writes one line per shift in the margin of the day's sheet. The square itself is worth the detour: the cathedral steps, the Bicol river at the end of the avenue, the coalition politics of the seat arithmetic on the water tower. If you read the logbook from first page to last, as one of our visitors did, you will find that <a href="../coalition-walk/">the walking tour down Magsaysay Avenue</a> ends exactly where this station listens. Confirmed as a record of the square were recorded in the station logger's last page is the old bakery on Magsaysay Avenue &mdash; whose ovens have, more than once, been the loudest thing the receiver heard all day, and whose <a href="../party-record/">court records and precinct maps</a> still carry the smell of morning bread.</p>
+    </div>
+  </section>
+
+  <section class="useful">
+    <h2><span class="num">04</span>Practical notes for the visitor</h2>
+    <ul class="notes">
+      <li><strong>Getting there.</strong> Anywhere with an antenna. The association welcomes new receivers from hobbyists, universities, and governments alike; the hardware is a small dish and a network connection.</li>
+      <li><strong>Reading the sky.</strong> The open API accepts a bounding box in degrees and minutes; the archive accepts a date range; the rate limit is generous, because the data is meant to move.</li>
+      <li><strong>Pairing the route.</strong> Travellers who keep a map habit will enjoy the <a href="../santa-maria-bianca/marengo/">Italy &mdash; A Visitor's Brochure</a>, whose Secchia valley chapter shows what the airspace looks like from below, and the <a href="../galileo-report/">Galileo term report</a>, for the satellite side of the same conversation &mdash; Galileo gives the position, OpenSky gives the passengers.</li>
+      <li><strong>Best season.</strong> All of it. The squawk does not observe a closing time.</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <p class="issue">Issued by the OpenSky Network association, Switzerland &bull; fares: none &bull; connections: worldwide</p>
+    <p><a href="../">Return to Webstuffs</a></p>
+  </footer>
+
+</article>
+<script src="brochure.js"></script>
+</body>
+</html>

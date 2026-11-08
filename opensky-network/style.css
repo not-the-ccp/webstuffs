@@ -1,0 +1,238 @@
+/* OpenSky Network — Visitor's Brochure: vintage air-ailine leaflet in night-sky blues */
+:root {
+  --ink: #1c2b3a;
+  --night: #10233b;
+  --night-deep: #0a1830;
+  --cream: #f4ecd8;
+  --cream-dim: #e9dfc4;
+  --gold: #c9a24b;
+  --gold-soft: #e3c37a;
+  --teal: #3f8f8a;
+  --stamp: #b2543f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(201, 162, 75, 0.10), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(63, 143, 138, 0.12), transparent 45%),
+    var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.brochure {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+/* ---- masthead: boarding-pass panel ---- */
+.masthead {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 2.5rem 2rem 2rem;
+  background: linear-gradient(160deg, var(--night) 0%, var(--night-deep) 70%);
+  color: var(--cream);
+  border: 3px double var(--gold);
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(16, 35, 59, 0.35);
+  overflow: hidden;
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(201, 162, 75, 0.45);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--gold-soft);
+  margin: 0 0 0.75rem;
+}
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0 0 0.5rem;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+.tagline {
+  max-width: 40em;
+  font-style: italic;
+  color: var(--cream-dim);
+  margin: 0 0 1.5rem;
+}
+
+.beacon {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 108px;
+  height: 108px;
+  opacity: 0.9;
+}
+.beacon .ring {
+  fill: none;
+  stroke: rgba(201, 162, 75, 0.55);
+  stroke-width: 1;
+}
+.beacon .sweep {
+  stroke: rgba(227, 195, 122, 0.85);
+  stroke-width: 2;
+  transform-origin: 60px 60px;
+  animation: sweep 6s linear infinite;
+}
+.beacon .core { fill: var(--gold-soft); }
+.beacon .blip { fill: #8fd3cf; animation: blink 2.4s ease-in-out infinite; }
+.beacon .b2 { animation-delay: 0.8s; }
+.beacon .b3 { animation-delay: 1.6s; }
+@keyframes sweep { to { transform: rotate(360deg); } }
+@keyframes blink { 0%, 100% { opacity: 0.15; } 50% { opacity: 1; } }
+
+/* the perforated fare ticket */
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: rgba(244, 236, 216, 0.06);
+  border-top: 1px dashed rgba(201, 162, 75, 0.7);
+  border-bottom: 1px dashed rgba(201, 162, 75, 0.7);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  text-align: center;
+}
+.t-num {
+  font-family: "Courier New", monospace;
+  font-size: 1.15rem;
+  color: var(--cream);
+  align-self: center;
+  min-width: 7ch;
+}
+
+/* ---- sections ---- */
+section { margin-top: 3rem; }
+h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+h2 .num {
+  color: var(--teal);
+  font-family: "Courier New", monospace;
+  margin-right: 0.5rem;
+}
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding-right: 0.55rem;
+  color: var(--stamp);
+  font-weight: bold;
+}
+
+/* ---- stat grid ---- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+.stat {
+  background: var(--cream-dim);
+  border: 1px solid rgba(28, 43, 58, 0.25);
+  border-top: 4px solid var(--gold);
+  padding: 0.9rem 1rem;
+  box-shadow: 3px 3px 0 rgba(28, 43, 58, 0.15);
+}
+.stat .figure {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--night);
+  font-family: "Courier New", monospace;
+}
+.stat .label {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ---- itinerary days ---- */
+.day {
+  position: relative;
+  margin-bottom: 1.6rem;
+  padding: 1rem 1.2rem 1.2rem 3.2rem;
+  background: rgba(244, 236, 216, 0.55);
+  border-left: 5px solid var(--teal);
+}
+.day h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--night);
+}
+.day::before {
+  content: "\2191"; /* take-off arrow as a route marker */
+  position: absolute;
+  left: 0.7rem;
+  top: 0.9rem;
+  color: var(--stamp);
+  font-size: 1.2rem;
+}
+
+/* ---- practical notes ---- */
+.notes { list-style: none; padding: 0; margin: 0; }
+.notes li {
+  padding: 0.45rem 0 0.45rem 1.6rem;
+  position: relative;
+  border-bottom: 1px dotted rgba(28, 43, 58, 0.35);
+}
+.notes li::before {
+  content: "\2605";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--gold);
+}
+
+a {
+  color: var(--teal);
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--stamp); }
+
+/* ---- footer ---- */
+.foot {
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--gold);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.issue { font-style: italic; margin: 0 0 0.5rem; }
+.foot a {
+  display: inline-block;
+  margin-top: 0.6rem;
+  border: 1px solid var(--gold);
+  padding: 0.35rem 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.foot a:hover { background: var(--gold); color: var(--night-deep); }
