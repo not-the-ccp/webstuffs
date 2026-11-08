@@ -1,0 +1,235 @@
+/* Kleinanzeigen — the Herscheid sheet */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #eadfc4;
+  --ink: #211a12;
+  --ink-soft: #4c4234;
+  --red: #93281c;
+  --band: #1c1712;
+  --rule: #b3a483;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -100px, rgba(255,250,235,.9), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(120,100,60,.05) 0 2px, transparent 2px 5px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.45;
+}
+
+/* ---- running ticker ---- */
+.ticker {
+  background: var(--band);
+  color: var(--paper);
+  overflow: hidden;
+  border-bottom: 3px double var(--red);
+  white-space: nowrap;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.ticker-inner {
+  display: inline-block;
+  padding: .35rem 0;
+  animation: run 40s linear infinite;
+}
+@keyframes run {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- masthead ---- */
+.masthead {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem .5rem;
+  text-align: center;
+}
+.masthead-kicker {
+  margin: 0 0 .5rem;
+  font-size: .7rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-top: 4px solid var(--band);
+  border-bottom: 4px solid var(--band);
+  box-shadow: 0 12px 0 -10px var(--paper-deep);
+  padding: .35em .2em;
+}
+.masthead-sub {
+  margin: .9rem 0 .3rem;
+  font-size: .95rem;
+  font-variant: small-caps;
+  letter-spacing: .08em;
+}
+.masthead-rule {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: .4rem 0 1rem;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead-rule .dash {
+  flex: 1;
+  border-top: 1px dashed var(--rule);
+}
+.masthead-rule .price { white-space: nowrap; }
+.notice {
+  max-width: 46rem;
+  margin: 0 auto 1.25rem;
+  padding: .6rem 1rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: .9rem;
+  color: var(--ink-soft);
+  position: relative;
+}
+.notice::before,
+.notice::after {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  border: 2px solid var(--red);
+  top: -7px;
+}
+.notice::before { left: -7px; border-right: 0; border-bottom: 0; }
+.notice::after  { right: -7px; border-left: 0; border-bottom: 0; }
+
+/* ---- the sheet: three newspaper columns ---- */
+.sheet {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem 1.5rem;
+  column-count: 3;
+  column-gap: 1.6rem;
+  column-rule: 1px solid var(--rule);
+}
+.column { break-inside: auto; }
+
+.band {
+  margin: 1.4rem 0 .8rem;
+  background: var(--band);
+  color: var(--paper);
+  font-size: .85rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: .45rem .7rem;
+  border-left: 8px solid var(--red);
+  break-inside: avoid;
+}
+.band small {
+  display: block;
+  text-transform: none;
+  letter-spacing: .05em;
+  font-style: italic;
+  color: var(--paper-deep);
+  font-size: .72rem;
+}
+
+.ad {
+  break-inside: avoid;
+  border-bottom: 1px dashed var(--rule);
+  padding: .7rem 0 .9rem;
+  margin: 0 0 .4rem;
+  position: relative;
+}
+.ad::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .85rem;
+  width: 6px; height: 6px;
+  background: var(--red);
+  transform: rotate(45deg);
+}
+.ad-head {
+  margin: 0 0 .45rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.tag {
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .06em;
+  font-size: .68rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.tag.new {
+  color: #fff;
+  background: var(--red);
+  padding: .1rem .4rem;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+
+.ad p { margin: 0 0 .5rem; font-size: .92rem; }
+.ad p:last-child { margin-bottom: 0; }
+.ad a {
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.ad a:hover { background: rgba(147, 40, 28, .12); }
+
+.feature {
+  background:
+    linear-gradient(0deg, rgba(255, 250, 235, .55), rgba(255, 250, 235, .55)),
+    repeating-linear-gradient(-45deg, rgba(147,40,28,.05) 0 6px, transparent 6px 12px);
+  border: 1px solid var(--red);
+  padding: 1rem 1rem 1rem 1.4rem;
+}
+.feature .ad-head { color: var(--red); }
+.feature strong { color: var(--red); }
+
+/* ---- colophon ---- */
+.colophon {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+  text-align: center;
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+.colophon-band {
+  font-variant: small-caps;
+  letter-spacing: .1em;
+  border-top: 3px double var(--band);
+  border-bottom: 1px solid var(--rule);
+  padding: .6rem .2rem;
+  margin: 0 0 .7rem;
+}
+
+@media (max-width: 860px) {
+  .sheet { column-count: 2; }
+}
+@media (max-width: 560px) {
+  .sheet { column-count: 1; column-rule: 0; }
+  .masthead-rule .price { font-size: .6rem; }
+}
