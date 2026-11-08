@@ -1,0 +1,191 @@
+/* ofa-dewes — Waitematā Local Board minutes */
+@charset "utf-8";
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #242820;
+  --gold: #9c7b38;
+  --gold-dark: #6e5220;
+  --rule: #c2b188;
+  --seal: #7a5b1f;
+  --muted: #5a5a4f;
+}
+
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 28px 18px 60px;
+  background: linear-gradient(150deg, #e9e1cf 0%, #f7f3ea 40%, #e8ddb2 100%);
+  color: var(--ink);
+  font-family: "Cambria", "Georgia", "Bitstream Charter", "Droid Serif", serif;
+  line-height: 1.7;
+}
+.minutes {
+  max-width: 740px;
+  margin: 42px auto;
+  background: var(--paper);
+  border: 3px double var(--rule);
+  outline: 1px solid var(--gold-dark);
+  box-shadow: 0 16px 40px rgba(42, 36, 18, 0.14);
+  padding: 52px 56px 62px;
+  position: relative;
+  overflow: hidden;
+}
+.minutes::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 9px;
+  background: linear-gradient(90deg, var(--gold) 0%, #c9a855 45%, var(--gold) 100%);
+}
+.minutes::after {
+  content: "";
+  position: absolute;
+  right: 14px; top: 10px;
+  width: 150px; height: 150px;
+  background: radial-gradient(circle at 60% 40%, rgba(156, 123, 56, 0.07), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.seal {
+  position: absolute;
+  top: -52px; left: 30px;
+  width: 106px; height: 106px;
+  z-index: 2;
+}
+.seal-ring {
+  display: block;
+  width: 100px; height: 100px;
+  margin: 3px auto 0;
+  border: 3px solid var(--seal);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--seal);
+  font: bold 8.5px/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 26px;
+  transform: rotate(-16deg);
+  animation: seal-wobble 5s ease-in-out infinite;
+}
+.seal-text {
+  position: absolute;
+  left: 50%; top: 124px;
+  transform: translatex(-50%);
+  font: bold 11px/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 1.6px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+}
+@keyframes seal-wobble {
+  0%, 100% { transform: rotate(-16deg); }
+  50% { transform: rotate(-12deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal-ring { animation: none; }
+}
+
+.crown {
+  margin: 0 0 2px;
+  font: 700 12px/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+h1 {
+  margin: 0 0 14px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.subhead {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  margin-top: 6px;
+  color: var(--muted);
+}
+.meta {
+  font-size: 12.5px;
+  margin: 14px 0 22px;
+  color: var(--muted);
+}
+.meta strong { color: var(--ink); }
+hr.rule {
+  border: none;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--gold-dark);
+  margin: 26px 0;
+  height: 3px;
+  width: 70%;
+}
+
+.item { margin: 0 0 30px; }
+.item h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+.itemnum {
+  color: var(--gold);
+  margin-right: 6px;
+}
+.item p { margin: 0 0 10px; font-size: 13.5px; text-align: justify; }
+.item strong { color: var(--ink); }
+
+.extract {
+  margin: 26px 0 20px;
+  padding: 20px 24px 20px 34px;
+  border-left: 5px solid var(--gold);
+  background: linear-gradient(135deg, #fffef3 0%, #f4e7c9 100%);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--ink);
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 5% 100%);
+}
+.extract::before {
+  content: "\201C";
+  position: absolute;
+  left: 10px; top: 6px;
+  font: bold 34px/1 "Georgia", serif;
+  color: var(--gold);
+}
+
+.signatures { margin-top: 18px; font-style: italic; font-size: 13px; color: var(--muted); }
+.closure { font-style: italic; }
+
+.minutes-footer {
+  margin-top: 46px;
+  padding-top: 24px;
+  border-top: 2px solid var(--rule);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.see-also a { color: var(--gold-dark); font-weight: 700; text-decoration: underline; }
+.see-also a:hover { color: var(--seal); }
+.true-copy {
+  margin-top: 10px;
+  font: 800 10px/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .minutes { padding: 34px 22px 44px; }
+  .seal { top: -30px; left: 14px; width: 80px; height: 80px; }
+  .seal-ring { width: 74px; height: 74px; padding-top: 20px; font-size: 7px; }
+}
