@@ -1,0 +1,179 @@
+/* Ethan Allen — Field Notes. Green Mountain series, entry no. 14. */
+
+:root {
+  --paper: #f4efe4;
+  --paper-cream: #eadfca;
+  --ink: #242118;
+  --ink-dim: #5c523f;
+  --moss: #4c5d3a;
+  --bark: #3b2e20;
+  --copper: #b27436;
+  --copper-soft: #d9a66b;
+  --rust: #8b4a2c;
+  --fog: #dcd6c5;
+  --marble: #eeebe4;
+}
+
+* { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 40% 30%, #f0e8d4 0%, #d9cfb8 45%, #bcb092 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Apple Garamond", "Times New Roman", serif;
+  line-height: 1.8;
+}
+
+a { color: var(--bark); text-decoration: none; border-bottom: 1px solid var(--fog); }
+a:hover, a:focus { color: var(--copper); border-bottom-color: var(--copper-soft); }
+a:focus { outline: 2px solid var(--copper); outline-offset: 2px; }
+
+.field-notes {
+  position: relative;
+  max-width: 660px;
+  margin: 44px auto;
+  padding: 46px 40px 60px;
+  background: var(--paper);
+  border: 14px solid var(--bark);
+  border-top: 28px solid var(--bark);
+  box-shadow: 0 20px 60px rgba(30, 24, 14, 0.35);
+  overflow: hidden;
+}
+
+.field-notes::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.55) 0%, transparent 45%), linear-gradient(to top, rgba(0, 0, 0, 0.04), transparent);
+  pointer-events: none;
+}
+
+.notes-header {
+  border-bottom: 4px double var(--bark);
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+  position: relative;
+}
+
+.notes-service {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  margin: 0 0 8px;
+}
+
+.notes-header h1 {
+  font-size: 2.6rem;
+  margin: 0 0 10px;
+  letter-spacing: 0.05em;
+}
+
+.notes-coords {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.05em;
+}
+
+.press {
+  position: absolute;
+  top: -70px; right: -45px;
+  width: 210px; height: 210px;
+  border: 9px solid var(--marble);
+  border-radius: 56% 44% 51% 49% / 47% 53% 47% 53%;
+  background: radial-gradient(circle at 35% 35%, #fdfaf0 0%, #e8dfc8 60%, #d9cfb8 100%);
+  box-shadow: 0 12px 34px rgba(20, 18, 12, 0.25);
+  animation: rustle 7s ease-in-out infinite alternate;
+}
+
+.notes-byline {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--ink-dim);
+  margin: 0 0 34px;
+  padding: 8px 0;
+  border-top: 1px solid var(--fog);
+  border-bottom: 1px solid var(--fog);
+}
+
+.entry { margin-bottom: 38px; }
+
+.entry:last-of-type { margin-bottom: 10px; }
+
+.entry h2 {
+  font-size: 1.1rem;
+  margin: 0 0 9px;
+  padding-left: 14px;
+  border-left: 6px solid var(--moss);
+  color: var(--bark);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.entry-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-dim);
+  margin: 0 0 10px;
+}
+
+.label { font-weight: bold; color: var(--moss); }
+
+.stop-two h2 {
+  border-left-color: var(--copper);
+  background: linear-gradient(90deg, var(--copper-soft) 0%, transparent 45%);
+  padding: 7px 12px 4px;
+  border-radius: 0 14px 14px 0;
+}
+
+.marble h2 { border-left-color: var(--rust); }
+
+blockquote {
+  margin: 16px 0 16px 22px;
+  padding-left: 14px;
+  border-left: 4px solid var(--fog);
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+.sign-off {
+  text-align: right;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-dim);
+  margin-top: 6px;
+}
+
+.tail { margin-top: 46px; border-top: 1px solid var(--fog); padding-top: 22px; }
+
+.see-head {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--ink-dim);
+  margin: 0 0 8px;
+}
+
+.tail p {
+  font-size: 0.88rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+}
+
+.colophon {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-top: 14px;
+}
+
+@keyframes rustle {
+  0% { transform: rotate(-3deg) scale(1); }
+  100% { transform: rotate(-2.4deg) scale(1.03); }
+}
