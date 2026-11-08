@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oberrender — Restaurant Review</title>
+<meta name="description" content="Restaurant review of Oberrender, the twenty-three cover dining room above Dry Dock 3 in New London, Connecticut: the Guadalcanal clam chowder, the Mount Hood crudo, the DE-344 shortcake, and the two school bells that still call the single seating.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="review">
+
+<header class="masthead">
+  <p class="kicker">Restaurant Review · Webstuffs</p>
+  <h1>Oberrender</h1>
+  <p class="address">14 Dry Dock Road, New London, Connecticut &middot; twenty-three covers, one seating a night &middot; menu changes with the tide table</p>
+  <p class="score" title="Score of the review">★★★★&frac12; <span class="score-note">(the half star is held over until the scallops hold up in winter)</span></p>
+</header>
+
+<section class="block">
+<h2>The room</h2>
+<p>Oberrender sits above Dry Dock 3 on the New London waterfront, in a low brick block that has had a better claim to a name than a use for most of its life. It was built in the 1890s as a pair of schools sharing a bell tower — St. Anne's on the north face for the dockworkers' children, St. Brendan's on the south for the chandler's — and it kept the arrangement, down to the two bells, long after both schools closed in the 1960s. The current owners, Dana Whitcomb and her partner Elias Roux, bought it in 2019 for the bells and then found they had also bought a dining room of exactly twenty-three covers, a wood stove that outlived the second school by fifty years, and a bell rope that still runs true to the north room's ceiling.</p>
+<p>They took the name from the destroyer escort <em>USS Oberrender</em> (DE-344), a John C. Butler–class ship laid down in November 1943, launched in January 1944 and commissioned almost four months later, which spent the last two years of the war on convoy escort duty in the Pacific, with an interlude protecting escort carriers off Leyte, before the ammunition ship <em>Mount Hood</em> blew up at Manus and ended most of her useful life in a single afternoon. Whitcomb's father was the messman on a sister ship of the same class, and he kept her service record in a biscuit tin under his sink; the restaurant is, in her own words, "the biscuit tin, opened."</p>
+<p>Service begins at seven, called by both bells, and there is no second seating — a rule the north wall has carried since 1891, and one the building's last caretaker, a Mr. Pell, told Whitcomb about in the only complete sentence he ever gave her. She has it framed, and she has it read aloud to the first table every night, word for word: <strong>"Both, and the sister school at the tower was wearing a waistcoat full of people carrying things, the doors open; a service without a second time."</strong> Nobody on the staff can fully parse it. Pell, it seems, had the two schools, the two waistcoated waiters of the dock era, and the doors of the chandler's all in his head at once, and he let them come out as one sentence with the doors still open. What it did fix, in the room's memory, was the part everybody agrees about: the single seating. One service, one seating, bells at seven, and if you arrive at seven fifteen the chowder is already going out.</p>
+</section>
+
+<section class="block">
+<h2>The menu</h2>
+<p>The menu is a single page, typeset in the same face as a 1944 provisioning manifest, and it does not pretend to be anything it is not: a dock menu with opinions. The <strong>Guadalcanal chowder, $16</strong>, is the house standard — clams, leeks, a knuckle of beef, and a last second of sherry that the kitchen defends the way the crew of the <em>Juneau</em> defended her guns, which is to say briefly, loudly, and at close range. The <strong>Manus crudo, $21</strong>, arrives on a plate of black slate with charred citrus and a drizzle of smoked oil, and it is an open reference to the explosion at Manus Bay: everything on it is either seared, blistered, or a little scorched at the edge, and it is the best plate in the room by a margin. The <strong>Butler short rib, $34</strong>, is braised for the class of ships the name comes from — small, hard, and built to do the long job — and it comes in a half-pint of braising liquid you are encouraged to drink with a spoon, which Whitcomb insists is a dock custom, not a restaurant policy. Dessert is the <strong>DE-344 shortcake, $12</strong>, served with butterscotch ice and a card printed with the ship's keel date; the card is a souvenir, and the ice melts on the schedule.</p>
+
+<p id="builder-label">The room will build you a plate for a flat <strong>$78</strong> if you ask for the whole manifest, or you can take it course by course. Tick what you would order and the desk below keeps the count and the clock — the kitchen runs each course on the same intervals the old tower ran its classes.</p>
+
+<table class="menu" id="menu">
+  <thead>
+    <tr><th class="tick-col"></th><th>Dish</th><th class="num">Price</th><th class="num">Course clock</th></tr>
+  </thead>
+  <tbody>
+    <tr data-price="16" data-minutes="7"><td class="tick-col"><input type="checkbox" id="m1" aria-label="Guadalcanal chowder"></td><td><label for="m1">Guadalcanal chowder</label></td><td class="num">$16</td><td class="num">7 min</td></tr>
+    <tr data-price="21" data-minutes="4"><td class="tick-col"><input type="checkbox" id="m2" aria-label="Manus crudo"></td><td><label for="m2">Manus crudo</label></td><td class="num">$21</td><td class="num">4 min</td></tr>
+    <tr data-price="34" data-minutes="11"><td class="tick-col"><input type="checkbox" id="m3" aria-label="Butler short rib"></td><td><label for="m3">Butler short rib</label></td><td class="num">$34</td><td class="num">11 min</td></tr>
+    <tr data-price="9" data-minutes="3"><td class="tick-col"><input type="checkbox" id="m4" aria-label="Dock biscuits and chandler's butter"></td><td><label for="m4">Dock biscuits and chandler's butter</label></td><td class="num">$9</td><td class="num">3 min</td></tr>
+    <tr data-price="12" data-minutes="2"><td class="tick-col"><input type="checkbox" id="m5" aria-label="DE-344 shortcake"></td><td><label for="m5">DE-344 shortcake</label></td><td class="num">$12</td><td class="num">2 min</td></tr>
+  </tbody>
+</table>
+
+<p class="desk" id="desk">Nothing ticked yet — the desk is open and the chowder clock is running. Full manifest, $78, served as one seating.</p>
+</section>
+
+<section class="block">
+<h2>Service and the verdict</h2>
+<p>Service is the building's best trick. There are two waiters in waistcoats — Pell's waistcoats, Whitcomb says, though the tailoring is new — and they work the single seating the way a convoy escort works a screen: close, orderly, and never twice in the same place. Breads come out before the menu is finished; the chowder comes out before the chowder order, if you ordered chowder; nothing is apologized for, and the only word you will hear repeated all night is <em>seven</em> — seven courses, seven o'clock, seven clams in the pot, seven minutes to the table. The bar is short, the wine list is honest, and the house white, a Chablis in a crate marked <em>DOCK</em>, costs $14 a glass, which is the correct price for wine in a place that has never once needed to explain itself.</p>
+<p>Oberrender is not a naval museum. The service record hangs in the back room, the bells are real, the shortcake card is a souvenir, and the room will tell you about DE-344 if you ask, but the food does not require a lecture. It is a dock dinner with a memory, a single seating under two school bells, and a half star held over in the ice. Come for the crudo. Stay for the one service without a second time.</p>
+<p>Readers who need the review next to a chapel kitchen can file it beside the <a href="../santa-maria-bianca/novecento/">Osteria dei Novecento review</a> — a smaller comparison, a larger bell — and those who have followed the second halves of other named rooms will want the <a href="../rae-ingham/">The Silkmen review</a>, where the boundary, unlike the single seating here, nobody names at all.</p>
+</section>
+
+<footer class="foot">
+  <p>Oberrender, 14 Dry Dock Road, New London, Connecticut &middot; one seating nightly, called by the tower &middot; reviewed on a Wednesday, in a coat, at seven minutes past seven.</p>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

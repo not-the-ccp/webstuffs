@@ -1,0 +1,125 @@
+:root {
+  --ink: #1d2430;
+  --paper: #f6f1e6;
+  --brick: #8c3b2e;
+  --brass: #a8802f;
+  --sea: #2f4a5e;
+  --line: #d8cfbc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.55;
+}
+
+.review {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--brick);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.address {
+  font-style: italic;
+  color: var(--sea);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.score {
+  color: var(--brass);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.score-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.block { margin-bottom: 2rem; }
+
+h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brick);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+}
+
+.menu {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0.75rem;
+}
+
+.menu th, .menu td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.menu thead th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--sea);
+}
+
+.menu .num { text-align: right; white-space: nowrap; }
+.tick-col { width: 2rem; text-align: center; }
+
+.menu input[type="checkbox"] {
+  accent-color: var(--brick);
+  width: 1.05rem;
+  height: 1.05rem;
+  cursor: pointer;
+}
+
+.menu label { cursor: pointer; }
+
+.menu tr.selected td { background: #efe6d2; }
+
+.desk {
+  background: var(--sea);
+  color: var(--paper);
+  font-style: italic;
+  padding: 0.75rem 1rem;
+  border-left: 5px solid var(--brass);
+}
+
+.desk.total { font-style: normal; font-weight: bold; }
+
+.foot {
+  border-top: 3px double var(--ink);
+  padding-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--sea);
+}
+
+a { color: var(--brick); }
