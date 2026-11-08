@@ -1,0 +1,172 @@
+/* Slack-Rope Buns &mdash; A Family Recipe
+   Navy ledger: ink, rope, wax seal, and gold leaf. */
+
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 3vh 1rem;
+  background: #f4efe3;
+  color: #222033;
+  font-family: Georgia, "Noto Serif", "Times New Roman", Times, "FreeSerif", serif;
+  line-height: 1.75;
+}
+em { font-style: italic; }
+.ledger {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 2.5rem 2.25rem 3rem;
+  background: #fffbf3;
+  border: 2px solid #2c334a;
+  border-top: 8px solid #8b6b4a;
+  box-shadow: 0 12px 40px rgba(44, 51, 74, 0.25);
+}
+.rope {
+  height: 16px;
+  background: repeating-linear-gradient(90deg, #8b6b4a 0, #8b6b4a 12px, #b4916e 12px, #b4916e 24px);
+  border-bottom: 1px solid #c9bda0;
+  margin-bottom: 1.25rem;
+  transform: rotate(1.2deg);
+  transform-origin: left;
+}
+.card-head {
+  text-align: center;
+  border-bottom: 2px double #2c334a;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.card-head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  width: 170px;
+  margin-left: -85px;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #8b6b4a 0, #8b6b4a 6px, transparent 6px, transparent 12px);
+}
+.series {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8b6b4a;
+}
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.3rem;
+  letter-spacing: 0.12em;
+  color: #222033;
+  display: inline-block;
+}
+.turn {
+  display: inline-block;
+  width: 16px;
+  height: 24px;
+  border: 2px solid #8b6b4a;
+  border-radius: 55%/70%;
+  transform: rotate(-18deg);
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  box-shadow: inset 0 0 0 1.5px #fffbf3;
+}
+.yields {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #5c556b;
+  font-style: italic;
+}
+.seal {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #a63d3d;
+  box-shadow: 0 0 0 4px #fffbf3, 0 0 0 5px #2c334a, 0 2px 6px rgba(0, 0, 0, 0.25);
+  animation: seal-pulse 4s ease-in-out infinite;
+}
+@keyframes seal-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+.preamble h2,
+.recipe h2,
+.filed-beside h2,
+.ledger-foot {
+  font-size: 1.1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8b6b4a;
+  margin: 1.75rem 0 0.75rem;
+  padding-bottom: 0.35rem;
+}
+.preamble h2:first-of-type,
+.filed-beside h2 {
+  margin-top: 0;
+  border: none;
+  padding-top: 0;
+}
+.preamble h2,
+.recipe h2 {
+  border-bottom: 1px solid #d9ceb8;
+}
+.preamble p {
+  margin: 0 0 1.1rem;
+  text-align: justify;
+}
+.ingredients-method {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+@media (min-width: 600px) {
+  .ingredients-method { grid-template-columns: 1fr 1fr; }
+}
+.ingredients .head,
+.method .head {
+  font-size: 1.05rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #2c334a;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #d9ceb8;
+}
+.ingredients ul,
+.method ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #3a3649;
+}
+.ingredients li { margin-bottom: 0.55rem; }
+.method li { margin-bottom: 0.85rem; }
+.method li::marker { color: #8b6b4a; font-weight: bold; }
+.filed-beside {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px double #2c334a;
+}
+.filed-beside p {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+.filed-beside a {
+  color: #2c334a;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.filed-beside a:hover { color: #8b6b4a; }
+.ledger-foot {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8b6b4a;
+  text-align: center;
+  border-top: 1px solid #d9ceb8;
+  padding-top: 1rem;
+}
