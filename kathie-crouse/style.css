@@ -1,0 +1,196 @@
+/* The Kanawha Board — retro county-forum look */
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #e9dcc2;
+  --ink: #2c2419;
+  --board: #1f3a34;
+  --board-deep: #16291f;
+  --accent: #b23a2a;
+  --gold: #c99a3c;
+  --thread-line: #a4906c;
+  --scan: #efe6cf;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--board-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='70' cy='50' r='1' fill='%23ffffff' opacity='0.04'/%3E%3C/svg%3E");
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.bbs-frame {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 3rem;
+}
+/* masthead */
+.board-masthead {
+  background: linear-gradient(180deg, var(--board) 0%, var(--board-deep) 100%);
+  border: 1px solid #3e6258;
+  border-bottom: 4px double var(--gold);
+  color: var(--paper);
+  padding: 1.4rem 1.6rem 1.1rem;
+  border-radius: 4px 4px 0 0;
+}
+.board-name {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 1.35rem;
+}
+.board-name .kan { color: var(--gold); animation: blink 2.4s steps(2, start) infinite; }
+.board-sub {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #9db8ac;
+  margin-top: 0.35rem;
+}
+.crumbs {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  color: #b9cec2;
+  border-top: 1px solid #3e6258;
+  padding-top: 0.6rem;
+}
+.crumbs strong { color: var(--gold); }
+@keyframes blink { to { visibility: hidden; } }
+/* thread bar */
+.thread-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--thread-line);
+  border-top: none;
+  padding: 0.65rem 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+}
+.t-title { font-weight: bold; letter-spacing: 0.03em; }
+.t-meta { color: #7a6a4d; }
+/* posts */
+.thread { background: transparent; }
+.post {
+  display: flex;
+  gap: 1.1rem;
+  background: var(--paper);
+  border: 1px solid var(--thread-line);
+  border-left: 6px solid var(--accent);
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.3rem 1.2rem;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+.side {
+  flex: 0 0 128px;
+  border-right: 1px dashed var(--thread-line);
+  padding-right: 1rem;
+  text-align: center;
+}
+.avatar {
+  width: 58px; height: 58px;
+  margin: 0 auto 0.55rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold; font-size: 1.5rem; color: #fff;
+  border-radius: 50%;
+  border: 3px solid var(--paper-deep);
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.22);
+}
+.av-ken { background: #7a3b2e; }
+.av-deb { background: #33607a; }
+.av-bloom { background: #5c7a3a; }
+.av-ink { background: #6a4a7a; }
+.who { font-weight: bold; font-size: 0.98rem; }
+.rank {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+.loc, .join, .posts {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  color: #7a6a4d;
+  margin-top: 0.35rem;
+}
+.body { flex: 1; min-width: 0; }
+.posted {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  color: #7a6a4d;
+  border-bottom: 1px solid var(--paper-deep);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+.re { color: var(--accent); font-weight: bold; }
+.new-tag {
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  animation: blink 1.8s steps(2, start) infinite;
+}
+.body p { margin: 0 0 0.8rem; }
+.body p:last-child { margin-bottom: 0; }
+.body a { color: #7a3b2e; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.body a:hover { color: var(--accent); }
+.op { font-size: 1.02rem; }
+blockquote.scan {
+  margin: 0.4rem 0 0.9rem;
+  background: var(--scan);
+  border: 1px solid var(--thread-line);
+  border-left: 4px solid var(--gold);
+  padding: 0.7rem 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.86rem;
+  color: #4a3d28;
+  position: relative;
+}
+blockquote.scan::after {
+  content: "scan ref. EW-2003-114";
+  position: absolute;
+  right: 0.6rem; bottom: -0.85rem;
+  font-size: 0.62rem;
+  color: #9a8a68;
+}
+/* footer */
+.board-footer {
+  margin-top: 1.8rem;
+  border-top: 4px double var(--gold);
+  padding-top: 0.9rem;
+  color: #9db8ac;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  text-align: center;
+}
+.board-footer a { color: var(--gold); }
+.board-footer a:hover { color: var(--paper); }
+.foot-line { margin: 0.3rem 0; }
+@media (max-width: 620px) {
+  .post { flex-direction: column; }
+  .side {
+    flex: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    border-right: none;
+    border-bottom: 1px dashed var(--thread-line);
+    padding: 0 0 0.5rem;
+    text-align: left;
+  }
+  .avatar { width: 38px; height: 38px; font-size: 1rem; margin: 0; flex: none; }
+  .loc, .join, .posts { display: none; }
+}
