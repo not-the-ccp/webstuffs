@@ -1,0 +1,185 @@
+/* Exhibit 43.B — The Landing at Nadzab — placard styling */
+:root {
+  --drab: #2f2c1e;
+  --drab-deep: #232115;
+  --paper: #efe6cf;
+  --paper-edge: #e2d5b2;
+  --ink: #2b281c;
+  --olive: #5c5a34;
+  --brass: #8a7b3f;
+  --rust: #8a4a2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  background:
+    radial-gradient(ellipse at 30% 20%, #3a3626 0%, transparent 55%),
+    repeating-linear-gradient(45deg, #2c291c 0 14px, #2f2c1e 14px 28px);
+  font-family: "Crimson Text", "Crimson Pro", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.placard {
+  position: relative;
+  width: min(680px, 100%);
+  background: var(--paper);
+  border: 1px solid var(--brass);
+  outline: 4px double var(--brass);
+  outline-offset: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 44px 52px 32px;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(92, 90, 52, 0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 90%, rgba(138, 74, 43, 0.10) 0 2px, transparent 3px);
+}
+
+.placard::before,
+.placard::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--brass);
+}
+.placard::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.placard::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+.placard-head { text-align: center; }
+
+.star {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 10px;
+  display: block;
+  animation: turn 60s linear infinite;
+}
+@keyframes turn { to { transform: rotate(360deg); } }
+
+.exhibit-no {
+  font-family: "Stardos Stencil", "Copperplate", "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-family: "Stardos Stencil", "Copperplate", "Courier New", monospace;
+  font-size: clamp(34px, 6vw, 48px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--drab-deep);
+}
+
+.subline {
+  font-style: italic;
+  font-size: 15px;
+  color: var(--rust);
+  margin: 8px 0 0;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  height: 4px;
+  margin: 24px 0;
+}
+
+.prose p { font-size: 17px; line-height: 1.65; margin: 0 0 14px; }
+
+.drop::first-letter {
+  font-family: "Stardos Stencil", "Copperplate", "Courier New", monospace;
+  font-size: 44px;
+  float: left;
+  line-height: 0.85;
+  padding: 4px 8px 0 0;
+  color: var(--rust);
+}
+
+.case-note h2 {
+  font-family: "Stardos Stencil", "Copperplate", "Courier New", monospace;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.case-tag {
+  display: inline-block;
+  background: var(--drab-deep);
+  color: var(--paper);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  padding: 3px 10px;
+  margin-right: 10px;
+  vertical-align: 2px;
+}
+
+.case-note p { font-size: 15.5px; line-height: 1.6; margin: 0 0 12px; }
+
+.dispatch {
+  margin: 18px 0;
+  padding: 16px 20px;
+  background: var(--paper-edge);
+  border-left: 5px solid var(--rust);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--drab-deep);
+}
+
+.ledger {
+  border: 1px dashed var(--brass);
+  padding: 16px 20px;
+  margin: 0 0 22px;
+}
+.ledger h2 {
+  font-family: "Stardos Stencil", "Copperplate", "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--olive);
+}
+.ledger dl { margin: 0; }
+.ledger div { display: flex; gap: 12px; font-size: 14.5px; padding: 4px 0; border-bottom: 1px dotted rgba(138, 123, 63, 0.4); }
+.ledger dt { flex: 0 0 110px; font-weight: 700; letter-spacing: 0.04em; }
+.ledger dd { margin: 0; }
+
+.related { margin-top: 4px; }
+.related h2 {
+  font-family: "Stardos Stencil", "Copperplate", "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  color: var(--olive);
+}
+.related p { font-size: 15px; line-height: 1.6; margin: 0 0 10px; }
+.related a { color: var(--rust); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.related a:hover { background: rgba(138, 74, 43, 0.12); }
+.home { margin-top: 14px; font-size: 13.5px; font-style: italic; }
+
+.placard-foot {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+@media (max-width: 520px) {
+  .placard { padding: 30px 22px 24px; }
+  .ledger div { flex-direction: column; gap: 2px; }
+}
