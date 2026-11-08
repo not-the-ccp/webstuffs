@@ -1,0 +1,184 @@
+/* Inner Sphere — The Bridged Quarter, Valence */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", "Bitstream Charter", serif;
+  color: #242a1c;
+  background: #f7f4e9;
+  line-height: 1.7;
+}
+
+.guide {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 26px 20px 60px;
+  border-left: 16px solid #9a7b3d;
+  border-right: 16px solid #9a7b3d;
+  background: #fdfaf0;
+  box-shadow: 0 0 60px rgba(42, 48, 28, 0.12);
+}
+
+.guide-header {
+  background: linear-gradient(135deg, #34543f 0%, #4c7057 55%, #3d634a 100%);
+  color: #eef3e6;
+  padding: 44px 30px 36px;
+  border-bottom: 10px solid #c46210;
+  position: relative;
+  overflow: hidden;
+}
+.guide-header::before, .guide-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #5c8a6e;
+  opacity: 0.35;
+}
+.guide-header::before { left: -60px; top: -60px; width: 140px; height: 140px; }
+.guide-header::after { right: -40px; bottom: -40px; width: 100px; height: 100px; opacity: 0.25; }
+
+.beacon {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  width: 14px;
+  height: 14px;
+  background: #f2b05d;
+  border-radius: 50%;
+  border: 2px solid #5c4a2e;
+  box-shadow: 0 0 12px rgba(242, 176, 93, 0.7);
+  animation: beacon-pulse 2.6s ease-in-out infinite;
+}
+@keyframes beacon-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.18); }
+}
+
+.stamp {
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b9cfbe;
+  margin: 0 0 10px;
+}
+.guide-header h1 {
+  margin: 0 0 12px;
+  font-size: 2.6rem;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  color: #f3ecd8;
+}
+.dek {
+  margin: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #d8e4d0;
+  max-width: 60ch;
+}
+
+.bridge {
+  height: 150px;
+  margin: 30px 0 8px;
+  position: relative;
+}
+.bridge::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 18px;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, #8a6d3b 40%, #c46210 50%, #8a6d3b 60%, transparent);
+  clip-path: polygon(0 0, 40% 0, 46% 30px, 54% 30px, 60% 0, 100% 0);
+}
+.bridge::after {
+  content: "";
+  position: absolute;
+  left: 48%;
+  bottom: 23px;
+  width: 4%;
+  height: 120px;
+  background: #5d4a2e;
+  box-shadow: inset 1px 0 0 #8a6d3b;
+}
+
+.section h2 {
+  font-size: 1.25rem;
+  color: #8a5a1a;
+  margin: 0 0 10px;
+  border-bottom: 2px solid #c46210;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.section p { margin: 0 0 14px; }
+.section p strong { color: #6b4a1e; }
+
+a { color: #8a5a1a; text-decoration: underline dotted #c46210; }
+a:hover { color: #b86a22; }
+
+.almanac {
+  margin: 18px 0 26px;
+  padding: 16px 20px 14px;
+  background: #f0e9d3;
+  border: 2px dashed #9a7b3d;
+  border-left: 10px solid #c46210;
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 94% 100%, 0 100%);
+}
+.almanac-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a5a1a;
+  margin: 0 0 8px;
+}
+.almanac-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+  color: #4a4733;
+}
+.almanac-list li {
+  margin: 0 0 6px;
+  padding-left: 18px;
+  text-indent: -18px;
+}
+.almanac-list li::before {
+  content: "\2022";
+  color: #c46210;
+  font-weight: bold;
+}
+
+.keep-moving {
+  margin-top: 46px;
+  padding-top: 26px;
+  border-top: 4px double #9a7b3d;
+}
+.keep-moving-dek {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8a5a1a;
+  margin: 0 0 10px;
+}
+.keep-moving-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.keep-moving-list li { margin: 0 0 8px; font-size: 0.95rem; }
+.keep-moving-list a {
+  color: #34543f;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.keep-moving-list a:hover {
+  border-bottom-color: #8a5a1a;
+  color: #8a5a1a;
+}
+
+@media (max-width: 560px) {
+  .guide { border-left-width: 8px; border-right-width: 8px; padding: 18px 16px 44px; }
+  .guide-header h1 { font-size: 2rem; }
+}
