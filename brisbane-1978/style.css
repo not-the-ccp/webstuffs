@@ -1,0 +1,164 @@
+/* The Seventy-First — build log: a notebook on the bench */
+
+:root {
+  --paper: #f3e9d4;
+  --paper-deep: #eadfc6;
+  --ink: #3a2c20;
+  --ochre: #a13c1e;
+  --brass: #8a6a2f;
+  --grass: #4a5d3a;
+  --grid: rgba(58, 44, 32, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, var(--grid) 31px 32px),
+    radial-gradient(ellipse at 20% 0%, #6b503a 0%, #3d2e21 55%, #241a12 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+  padding: 2.5rem 1rem;
+}
+
+.book {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 120px),
+    var(--paper);
+  border: 1px solid #c9b48c;
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.55),
+    inset 14px 0 0 -8px rgba(161, 60, 30, 0.28);
+  padding: 3rem 3.25rem 2.25rem;
+  position: relative;
+}
+
+/* red binding stitch down the left */
+.book::before {
+  content: "";
+  position: absolute;
+  left: 1.1rem; top: 0; bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(180deg,
+    var(--ochre) 0 10px, transparent 10px 22px);
+  opacity: 0.55;
+}
+
+.log-head { text-align: center; margin-bottom: 2.25rem; }
+
+.workshop {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.log-sub {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #6b5540;
+  max-width: 30rem;
+  margin: 0.8rem auto 0;
+}
+
+.spine-rule {
+  width: 60%;
+  margin: 1.4rem auto 0;
+  height: 6px;
+  border-top: 3px double var(--ochre);
+  opacity: 0.7;
+}
+
+.entry { margin: 0 0 2.1rem; position: relative; }
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -1.9rem; top: 0.6rem;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d8e2c8, var(--grass));
+  box-shadow: 0 0 0 1.5px rgba(74, 93, 58, 0.5);
+}
+
+.date-stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  border: 1.5px dashed rgba(161, 60, 30, 0.55);
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  margin: 0 0 0.85rem;
+  transform: rotate(-1.2deg);
+  background: rgba(255, 250, 235, 0.6);
+}
+
+.entry p { margin: 0 0 1rem; }
+
+.also {
+  border-left: 3px solid var(--brass);
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  color: #58483a;
+}
+
+a { color: var(--ochre); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { background: rgba(161, 60, 30, 0.1); }
+
+.log-foot { margin-top: 2.5rem; text-align: center; }
+
+.stamp {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--ochre);
+  border: 2px solid var(--ochre);
+  border-radius: 4px;
+  padding: 0.35rem 0.9rem;
+  transform: rotate(-2deg);
+  opacity: 0;
+  transition: opacity 0.9s ease 0.3s;
+}
+
+.stamp.stamped {
+  opacity: 0.85;
+  animation: stamp-ink 0.5s ease-out;
+}
+
+@keyframes stamp-ink {
+  0%   { transform: rotate(-2deg) scale(1.6); opacity: 0; }
+  60%  { transform: rotate(-2deg) scale(0.94); opacity: 0.9; }
+  100% { transform: rotate(-2deg) scale(1); opacity: 0.85; }
+}
+
+.foot-note {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #7d6a55;
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .book { padding: 2rem 1.4rem 1.5rem; }
+  .entry::before { display: none; }
+  h1 { font-size: 2rem; }
+}
