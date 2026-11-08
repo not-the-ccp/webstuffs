@@ -1,0 +1,264 @@
+/* finland-manual/style.css · Theater Manual SU-0 · Finland game manual */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #21261c;
+  --pine: #3d5a46;
+  --pine-dark: #2c3e30;
+  --gold: #b98a1c;
+  --rust: #7c3618;
+  --marg: #eae6d8;
+  --errata-bg: #fbead8;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #efe9d7; }
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", "Bitstream Charter", serif;
+  color: var(--ink);
+  line-height: 1.7;
+  background: var(--paper);
+}
+
+.manual {
+  max-width: 980px;
+  margin: 40px auto;
+  border: 3px double var(--ink);
+  border-top: 9px solid var(--pine);
+  background: var(--paper);
+  box-shadow: 14px 14px 0 var(--pine-dark);
+  overflow: hidden;
+}
+
+.manual-header {
+  background: linear-gradient(180deg, var(--pine) 0%, var(--pine-dark) 100%);
+  color: #f3efe1;
+  padding: 34px 40px 26px;
+  border-bottom: 7px double var(--gold);
+  position: relative;
+}
+
+.manual-header::after {
+  content: "STAMP: ACTIVE";
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  border: 1px solid #c9b170;
+  color: #c9b170;
+  padding: 5px 12px;
+  transform: rotate(-10deg);
+  animation: stamp-flicker 6s ease-in-out infinite;
+}
+
+@keyframes stamp-flicker {
+  0%, 100% { opacity: 1; }
+  48% { opacity: 1; }
+  50% { opacity: 0.55; }
+  52% { opacity: 1; }
+}
+
+.agency {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d9c890;
+  margin: 0 0 12px;
+  font-weight: bold;
+}
+
+.manual-header h1 {
+  font-size: 46px;
+  margin: 0 0 8px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #f3efe1;
+  text-shadow: 1px 1px 0 #18241b;
+}
+
+.manual-dek {
+  margin: 0;
+  font-size: 13px;
+  color: #d9c890;
+  font-family: "Courier New", Courier, monospace;
+  border-top: 1px solid #5a745c;
+  padding-top: 10px;
+  max-width: 62ch;
+}
+
+.manual-grid {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+}
+
+.theater-margin {
+  background: var(--marg);
+  border-right: 3px double var(--ink);
+  padding: 26px 20px 30px;
+  font-size: 12px;
+  position: sticky;
+  top: 40px;
+}
+
+.margin-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--pine-dark);
+  margin: 0 0 10px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 7px;
+}
+
+.sector-list {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+.sector-list li {
+  margin-bottom: 9px;
+}
+
+.sector-list a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--pine);
+}
+
+.sector-list a:hover {
+  background: var(--pine);
+  color: #f3efe1;
+  padding: 2px 7px;
+  border-bottom-style: none;
+}
+
+.margin-note {
+  margin-top: 28px;
+  padding-top: 12px;
+  border-top: 1px solid #c7c2b1;
+  font-size: 11.5px;
+  color: #4a4639;
+}
+
+.margin-note a {
+  color: var(--rust);
+  text-decoration: underline;
+}
+
+.theater-body {
+  padding: 30px 42px 46px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 0 12px;
+  color: var(--pine-dark);
+  font-weight: bold;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 5px;
+}
+
+.sec-no {
+  display: inline-block;
+  background: var(--pine);
+  color: #f3efe1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 2px 9px;
+  margin-right: 10px;
+  clip-path: polygon(0 0, 82% 0, 100% 45%, 100% 100%, 18% 100%, 0 55%);
+}
+
+p { margin: 0 0 14px; }
+
+.errata {
+  background: var(--errata-bg);
+  border: 2px dashed var(--rust);
+  padding: 18px 22px 16px;
+  position: relative;
+}
+
+.errata::before {
+  content: "ERRATA";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rust);
+  border: 1px solid var(--rust);
+  padding: 3px 10px;
+  transform: rotate(8deg);
+}
+
+.misprint {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  background: #fff8ec;
+  border: 1px solid var(--rust);
+  padding: 14px 16px;
+  margin: 12px 0 6px;
+}
+
+.misprint-source {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--rust);
+}
+
+.related {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.related li {
+  margin-bottom: 8px;
+  padding-left: 22px;
+  text-indent: -22px;
+}
+
+.manual-footer {
+  margin-top: 44px;
+  padding: 22px 42px;
+  border-top: 3px double var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-chip {
+  display: inline-block;
+  border: 2px solid var(--ink);
+  padding: 3px 11px;
+  border-radius: 16px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 720px) {
+  .manual-grid { grid-template-columns: 1fr; }
+  .theater-margin { border-right: none; border-bottom: 3px double var(--ink); position: static; }
+  .manual-header h1 { font-size: 34px; }
+  .manual { margin: 20px auto; box-shadow: 8px 8px 0 var(--pine-dark); }
+}
