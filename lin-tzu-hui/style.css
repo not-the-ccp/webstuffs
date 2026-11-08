@@ -1,0 +1,214 @@
+/* Lin Tzu-hui — Dream Dictionary, Entry 317 */
+
+:root {
+  --night: #101527;
+  --night-soft: #171e35;
+  --paper: #ece5d3;
+  --paper-dim: #b9b29c;
+  --chalk: #f4efe2;
+  --amber: #e8b64c;
+  --citrus: #f2c230;
+  --ink-blue: #8ea2d6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 120% 60% at 85% -10%, #232c4d 0%, transparent 55%),
+    radial-gradient(ellipse 90% 50% at 10% 110%, #1b2340 0%, transparent 60%),
+    var(--night);
+  color: var(--paper);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* The moon, rising off the top-right */
+.moon {
+  position: fixed;
+  top: -70px;
+  right: -70px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, var(--chalk) 0%, #d9d2be 45%, #b7ae97 70%, transparent 72%);
+  box-shadow:
+    0 0 60px 18px rgba(244, 239, 226, 0.10),
+    0 0 140px 60px rgba(232, 182, 76, 0.05);
+  animation: moon-drift 26s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moon-drift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-18px, 14px); }
+}
+
+.entry {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+  background: linear-gradient(180deg, var(--night-soft) 0%, var(--night) 30%);
+  border: 1px solid #2b3558;
+  border-top: 6px double var(--amber);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Chalked margin figures */
+.marginalia {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.marginalia span {
+  position: absolute;
+  right: -2.4rem;
+  writing-mode: vertical-rl;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: rgba(232, 182, 76, 0.4);
+}
+.marginalia span:first-child { top: 6rem; }
+.marginalia span:last-child { top: 42%; }
+
+.entry-head {
+  text-align: center;
+  border-bottom: 1px dashed var(--ink-blue);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.series {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-blue);
+}
+
+h1 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: var(--chalk);
+}
+
+.hanzi {
+  margin: 0.2rem 0;
+  font-size: 1.35rem;
+  color: var(--amber);
+  letter-spacing: 0.3em;
+}
+.pinyin { font-style: italic; font-size: 1.05rem; }
+
+.pronunciation {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--paper-dim);
+}
+
+.part-of-speech {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-blue);
+}
+
+.definition {
+  font-size: 1.05rem;
+  color: var(--chalk);
+}
+.definition::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.15rem 0.55rem 0 0;
+  color: var(--amber);
+}
+
+h2 {
+  margin: 2.2rem 0 0.7rem;
+  font-size: 0.95rem;
+  font-weight: normal;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+h2::before,
+h2::after {
+  content: " \2014 ";
+  color: #3d4a78;
+}
+
+ul.imagery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.imagery li {
+  padding: 0.45rem 0 0.45rem 1.4rem;
+  position: relative;
+  color: var(--paper-dim);
+  border-bottom: 1px dotted #2b3558;
+}
+ul.imagery li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--citrus);
+  box-shadow: 0 0 8px rgba(242, 194, 48, 0.5);
+}
+
+.figure {
+  font-family: "Courier New", monospace;
+  color: var(--citrus);
+  letter-spacing: 0.08em;
+}
+
+blockquote, p em { color: inherit; }
+
+.see-also {
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 6px double var(--amber);
+}
+.see-also h2 { margin-top: 0; }
+.see-also p { margin: 0.35rem 0; }
+
+a {
+  color: var(--ink-blue);
+  text-decoration: underline;
+  text-decoration-color: rgba(142, 162, 214, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--amber);
+  text-decoration-color: var(--amber);
+}
+
+.entry-foot {
+  margin-top: 2.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #55618f;
+}
+
+@media (max-width: 720px) {
+  .marginalia { display: none; }
+  h1 { font-size: 2.2rem; }
+  .entry { border: 1px solid #2b3558; margin: 0.75rem; }
+}
