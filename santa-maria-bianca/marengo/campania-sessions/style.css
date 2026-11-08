@@ -1,0 +1,208 @@
+/* Campania — The Bay Sessions · liner notes, Casa Vesuvio Records CVR-07 */
+
+:root {
+  --bone: #f4ede0;
+  --ink: #1c1712;
+  --seal: #b23a24;      /* Vesuvian red */
+  --tyrrhenian: #14405a; /* sea to the west */
+  --amber: #c98a2d;
+  --paper-line: rgba(28, 23, 18, 0.25);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 85% -10%, rgba(178, 58, 36, 0.14), transparent 45%),
+    radial-gradient(circle at -10% 110%, rgba(20, 64, 90, 0.18), transparent 50%),
+    var(--bone);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.liner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  border-left: 1px solid var(--paper-line);
+  border-right: 1px solid var(--paper-line);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2.2rem, rgba(28, 23, 18, 0.035) 2.2rem calc(2.2rem + 1px));
+}
+
+/* ---------- header: spinning vinyl ---------- */
+
+.liner-header { text-align: center; }
+
+.label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 1.5rem;
+}
+
+.disc {
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle,
+      var(--seal) 0 18%,
+      #2a221b 18% 19%,
+      #100d0a 19% 100%);
+  box-shadow:
+    0 0 0 4px #100d0a,
+    0 0 0 5px rgba(201, 138, 45, 0.6),
+    0 0.5rem 2rem rgba(28, 23, 18, 0.45);
+  animation: spin 9s linear infinite;
+}
+
+.groove {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 237, 224, 0.10);
+}
+.groove.g2 { inset: 1.15rem; border-color: rgba(244, 237, 224, 0.14); }
+.groove.g3 { inset: 2.2rem;  border-color: rgba(201, 138, 45, 0.30); }
+.hole {
+  position: absolute;
+  inset: calc(50% - 0.45rem);
+  border-radius: 50%;
+  background: var(--bone);
+  border: 2px solid #100d0a;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .disc { animation: none; } }
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0.25rem 0 0;
+  font-weight: 400;
+}
+
+.subtitle {
+  margin: 0.1rem 0 0.6rem;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--tyrrhenian);
+}
+
+.dek {
+  font-size: 0.9rem;
+  max-width: 32rem;
+  margin: 0 auto;
+  color: rgba(28, 23, 18, 0.75);
+}
+
+/* ---------- sections ---------- */
+
+section { margin-top: 2.75rem; }
+
+.track-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 2px solid var(--seal);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+.track-head .side {
+  display: inline-block;
+  background: var(--seal);
+  color: var(--bone);
+  padding: 0.05rem 0.5rem;
+  margin-right: 0.75rem;
+  vertical-align: 1px;
+}
+
+.sleeve-note p { margin: 0 0 1rem; }
+.sleeve-note p:first-of-type::first-letter {
+  font-size: 3.1rem;
+  float: left;
+  line-height: 0.9;
+  padding: 0.1rem 0.45rem 0 0;
+  color: var(--seal);
+}
+
+/* ---------- track lists ---------- */
+
+.tracklist {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  counter-reset: track;
+}
+
+.tracklist li {
+  counter-increment: track;
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px dotted var(--paper-line);
+}
+
+.tracklist li::before {
+  content: counter(track, decimal-leading-zero) ".";
+  font-family: "Courier New", Courier, monospace;
+  color: var(--seal);
+  font-size: 0.85rem;
+}
+
+.tracklist .t { font-weight: bold; }
+.tracklist .d {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--tyrrhenian);
+  white-space: nowrap;
+}
+.tracklist .w {
+  grid-column: 2 / 3;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(28, 23, 18, 0.7);
+}
+
+/* ---------- panel (the à la Marengo sign) ---------- */
+
+.panel {
+  background: #efe5cf;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  padding: 1.25rem 1.5rem;
+  transform: rotate(-0.4deg);
+  box-shadow: 0 0.6rem 1.4rem rgba(28, 23, 18, 0.18);
+}
+
+.panel p { font-style: italic; }
+
+/* ---------- links & credits ---------- */
+
+a { color: var(--tyrrhenian); }
+a:hover { color: var(--seal); }
+
+.credits { font-size: 0.92rem; }
+.colophon {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--seal);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: rgba(28, 23, 18, 0.75);
+}
