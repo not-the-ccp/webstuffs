@@ -1,0 +1,127 @@
+/* Coomera State High — lined report paper */
+:root {
+  --ink: #1e2a4a;
+  --faint: #5a6480;
+  --rule: #b9c7dd;
+  --red: #b0304a;
+  --green: #1f6f50;
+  --paper: #fbf9f2;
+  --shadow: #2b335522;
+}
+* { box-sizing: border-box; }
+html { background:
+  radial-gradient(1200px 600px at 20% -10%, #dce6f2 0%, transparent 60%),
+  radial-gradient(900px 500px at 110% 105%, #e8e2d2 0%, transparent 55%),
+  #cfd6e4; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 48px 16px;
+}
+.paper {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0, transparent 27px,
+      var(--rule) 27px, var(--rule) 28px
+    ),
+    var(--paper);
+  border: 1px solid #b6ae9a;
+  box-shadow: 0 24px 48px var(--shadow), 0 2px 0 #fff inset;
+  padding: 56px 64px 40px 96px;
+  background-attachment: local, local;
+}
+.margin-line {
+  position: absolute; top: 0; bottom: 0; left: 72px;
+  width: 2px; background: var(--red);
+  opacity: 0.55;
+}
+.binder {
+  position: absolute; left: 26px; top: 0; bottom: 0; width: 24px;
+}
+.binder i {
+  position: absolute; left: 4px;
+  width: 15px; height: 15px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #8a92a8 70%, #5b637a);
+  box-shadow: inset 0 -2px 3px #0007, 0 1px 0 #fff;
+}
+.binder i:nth-child(1) { top: 80px; }
+.binder i:nth-child(2) { top: 46%; }
+.binder i:nth-child(3) { bottom: 90px; }
+
+.sheet-head .school {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--faint); margin: 0 0 14px;
+}
+h1 {
+  font-size: 2.1rem; line-height: 1.15; margin: 0 0 18px;
+  font-variant: small-caps; letter-spacing: 0.02em;
+  border-bottom: 3px double var(--ink); padding-bottom: 10px;
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th {
+  text-align: left; font-weight: 700; width: 190px;
+  color: var(--faint); font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.1em; vertical-align: top; padding: 4px 12px 4px 0;
+  border: 0;
+}
+td { padding: 4px 0; border-bottom: 1px dotted var(--rule); }
+.meta td { border-bottom: 1px dotted var(--rule); }
+
+.stamp {
+  position: absolute; top: 150px; right: 40px;
+  transform: rotate(-11deg);
+  font-family: "Courier New", monospace; font-weight: 700;
+  font-size: 1.25rem; letter-spacing: 0.08em;
+  color: var(--red); border: 3px solid var(--red);
+  border-radius: 8px; padding: 8px 14px; text-align: center;
+  opacity: 0.85; mix-blend-mode: multiply;
+  animation: press 0.5s 0.6s both cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+.stamp small { display: block; font-size: 0.6rem; letter-spacing: 0.18em; }
+@keyframes press {
+  from { transform: rotate(-11deg) scale(2.1); opacity: 0; }
+  to   { transform: rotate(-11deg) scale(1); opacity: 0.85; }
+}
+
+.fold { border: 0; border-top: 2px dashed #9aa4bd; margin: 28px 0; opacity: 0.6; }
+
+h2 {
+  font-size: 1.15rem; margin: 30px 0 6px;
+  font-variant: small-caps; letter-spacing: 0.06em;
+  color: var(--green);
+}
+h2::before { content: "§ "; color: var(--red); }
+p { margin: 0 0 1.2em; }
+.lede::first-letter {
+  font-size: 3.2em; float: left; line-height: 0.85;
+  padding: 2px 8px 0 0; color: var(--red); font-weight: 700;
+}
+strong { color: var(--ink); }
+a { color: var(--red); text-decoration: none; border-bottom: 1px dotted var(--red); }
+a:hover { background: #f2e3c9; }
+
+.marks { margin-top: 34px; padding: 18px 22px;
+  background: #f4efe1; border: 1px solid #d8cfae;
+  box-shadow: 0 2px 0 #fff inset; }
+.marks h2 { margin-top: 0; }
+.remark { font-style: italic; color: var(--faint); margin-bottom: 0; }
+.sheet-foot {
+  margin-top: 34px; padding-top: 12px;
+  border-top: 3px double var(--ink);
+  font-family: "Courier New", monospace; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint);
+}
+@media (max-width: 640px) {
+  .paper { padding: 40px 24px 28px 56px; }
+  .margin-line { left: 42px; }
+  .binder, .margin-line { display: none; }
+  .stamp { position: static; display: inline-block; margin-bottom: 12px; }
+  th { width: 120px; }
+}
