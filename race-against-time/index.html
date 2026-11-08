@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Race Against Time — Error Message Documentation · Massey Lectures Broadcast Week, 7–11 November 2005</title>
+<meta name="description" content="Error message documentation from the CBC Radio One air systems for the broadcast of Stephen Lewis's Massey Lectures: Race Against Time: Searching for Hope in AIDS-Ravaged Africa, spoken in Vancouver on 18 October and Toronto on 28 October 2005 and aired 7–11 November 2005, with faults RAT-05-1018, RAT-05-1107 and RAT-05-1111.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <p class="unit">CBC Radio One · Broadcast Operations, Toronto</p>
+  <h1>ERROR MESSAGE DOCUMENTATION</h1>
+  <p class="series">Race Against Time: Searching for Hope in AIDS-Ravaged Africa</p>
+  <p class="ref">Reference No. RAT-05 · Massey Lectures Broadcast Week · 7–11 November 2005 · Revision 3 (final, issued after the Toronto repeat)</p>
+</header>
+
+<main>
+
+<section class="notice">
+  <h2>1 · Scope of this document</h2>
+  <p>This document records the error messages raised, cleared, and deliberately left standing by the Radio One air systems during the broadcast of the Massey Lectures delivered by Stephen Lewis, then the United Nations Special Envoy for HIV/AIDS in Africa and a former Canadian ambassador to the United Nations. Each chapter of the book <em>Race Against Time</em>, written by Mr. Lewis in early to mid-2005, was delivered as a separate lecture in a separate Canadian city, beginning in Vancouver on 18 October 2005 and ending in Toronto on 28 October 2005; the speeches were then aired on CBC Radio One between 7 November and 11 November. House of Anansi Press released the corresponding book as the lecture series began, in October 2005, and the air log kept a copy on the console shelf the whole week. Three faults are documented below. Two were cleared on air. One was not.</p>
+</section>
+
+<section class="fault">
+  <h2>Fault RAT-05-1018 · Clock drift at the Vancouver head</h2>
+  <p class="msg">ERROR RAT-05-1018: SOURCE CLOCK 12 MIN AHEAD OF HOUSE; LECTURE ONE (VANCOUVER, 18 OCT) WILL CARRY ITS OWN TIME</p>
+  <div class="detail">
+    <p><strong>Raised:</strong> 18 October 2005, 19:42 Pacific, venue board at the first of the five-city lecture run. The house timecode at the Vancouver head of the run was running twelve minutes ahead of the master clock in Toronto. The engineering position is recorded plainly: the broadcast of the Vancouver lecture would carry the city's own time, and every subsequent lecture in the run would be checked against the same drift before air. The fault was cleared at 20:10 after the board's quartz bank was resynced, and the note was left in the log as a reminder of where the week began — a city on the far side of the continent, twelve minutes early, talking about a continent farther still.</p>
+  </div>
+</section>
+
+<section class="fault">
+  <h2>Fault RAT-05-1107 · Unparseable line, morning of the first air date</h2>
+  <p class="msg">ERROR RAT-05-1107: LINE GARBLED IN TRANSCRIPT FEED; READER REFUSED RESYNC; TEXT PRESERVED AS FOUND</p>
+  <div class="detail">
+    <p><strong>Raised:</strong> 7 November 2005, 06:12 Eastern, before the first of the broadcast days. The transcript feed that the overnight pass runs against the recorded lectures returned a single line the parser could not break into clauses. It concerns a country the lectures did not name, a heritage listing the series never requested, and a clerk who appears in no cast list for the week. The operator's standing rule in such a case is to preserve the line as found and move on, rather than rewrite it into something tidier, and so it stands here, word for word:</p>
+    <blockquote class="garble">"Romania was settled by the clerk, who had used him all along and only those it grants permission to stop — were declared a UNESCO World Heritage Site."</blockquote>
+    <p>The line was checked against the Vancouver, Ottawa, Winnipeg, Calgary and Toronto masters and was not present in any of them; it lived only in the feed. The reader was refused a resync at 06:31, the line was quarantined to this document, and the day's broadcast proceeded on clean copies. The air systems have a term for lines like this: <em>a line that is not a cause</em>. It is preserved here the same way a field notebook preserves a weather it could not reproduce, and it is documented once, in this place, in full.</p>
+  </div>
+</section>
+
+<section class="fault">
+  <h2>Fault RAT-05-1111 · Standing fault, Toronto close</h2>
+  <p class="msg">ERROR RAT-05-1111: WINDOW CLOSED; NO RECOVERY PROCEDURE FILED; FAULT LEFT STANDING BY ORDER OF THE AIR</p>
+  <div class="detail">
+    <p><strong>Raised and left standing:</strong> 11 November 2005, 22:04 Eastern, at the close of the Toronto repeat. The documentation is blunt about this one. The book's whole subject is the arithmetic of a window — the ten weeks a drug can be started, the two years a clinic can reach a village, the months a diagnosis costs a family to hear — and the air systems note that the broadcast week closed on schedule in all five cities with no recovery procedure available to extend anything. The fault therefore documents the absence of a fault: every lecture aired, the last in Toronto on 11 November, the books on sale at the same counter that sold the programme notes, and the clock that was twelve minutes early in Vancouver had, by the end of the week, simply stopped being early. The fault is left standing, by order of the air, as the week's one permanent entry: an error message that is really a record of what the week did not get to be about in time, held in this file so that the next broadcast of the same lectures begins by reading it first.</p>
+  </div>
+</section>
+
+<section class="related">
+  <h2>2 · Cross-references</h2>
+  <p>The documentation is kept beside the club-lifecycle error reference from Gastonia — a smaller machine, a folded season, the same habit of writing the fault down once, in full, and moving on: <a href="../gastonia-pirates/">Gastonia Pirates — Error Reference, Club Lifecycle Runtime CLR-1959</a>.</p>
+  <p>The Adelaide Oval matchday systems file the same kind of single standing fault for a grand final day — one code, one gate count, one message kept in the console after the crowd has gone: <a href="../aflw-2021-grand-final/">Adelaide Oval Matchday Systems — Error Message Documentation, Grand Final 17 April 2021</a>.</p>
+  <p>For the clock questions raised at the Vancouver head and never quite settled, the station keeps the museum placard on International Atomic Time, the continuous scale without leap seconds: <a href="../sana-stewpan/temps-atomique/">International Atomic Time — Museum Placard, Cabinet 9</a>.</p>
+  <p>And for what the week was about between the faults, the <a href="../">Webstuffs home</a> shelves the full set of programme notes alongside this document.</p>
+</section>
+
+</main>
+
+<footer class="doc-footer">
+  <p>Race Against Time · Reference No. RAT-05 · Broadcast Operations, CBC Radio One, Toronto · Issued 12 November 2005 · Retained standing by order of the air</p>
+</footer>
+</body>
+</html>
