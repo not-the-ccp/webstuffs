@@ -1,0 +1,203 @@
+/* Apology to the Indo-European Languages — letter on the register's paper */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dcbc;
+  --ink: #2a2119;
+  --ink-soft: #4c4034;
+  --rule: #b7452f;
+  --seal: #8c2f24;
+  --seal-hi: #c96a52;
+  --gold: #9a7b3c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  background:
+    radial-gradient(ellipse 120% 90% at 50% -10%, #f6eeda 0%, var(--paper) 55%, var(--paper-deep) 100%),
+    var(--paper);
+  line-height: 1.65;
+}
+
+/* the register's red margin line, fixed to the page, not the sheet */
+.margin-rule {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: clamp(1.25rem, 6vw, 5.5rem);
+  width: 2px;
+  background: linear-gradient(var(--rule) 0%, rgba(183, 69, 47, 0.35) 100%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  position: relative;
+}
+
+/* ---- letterhead ---- */
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.office {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.ref {
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  margin: 0;
+  font-variant: small-caps;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5.5vw, 2.9rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0.7rem 0 0.6rem;
+  line-height: 1.15;
+}
+
+.epigraph {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.hittite {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--seal);
+  letter-spacing: 0.08em;
+}
+
+/* ---- the letter ---- */
+
+.letter {
+  font-size: 1.06rem;
+}
+
+.letter p { margin: 0 0 1.1rem; }
+
+.salutation {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.6rem;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.85;
+  padding: 0.04em 0.12em 0 0;
+  color: var(--seal);
+  font-weight: 600;
+}
+
+.letter strong {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+.signature {
+  font-size: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.sig-note {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.dateline {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: right;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ---- the wax seal ---- */
+
+.seal {
+  width: 92px;
+  height: 92px;
+  margin: 1.5rem auto 2.5rem;
+  border-radius: 47% 53% 51% 49% / 51% 48% 52% 49%;
+  background:
+    radial-gradient(circle at 32% 28%, var(--seal-hi) 0%, var(--seal) 42%, #5e1d15 100%);
+  box-shadow:
+    inset 0 2px 6px rgba(255, 220, 200, 0.35),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.45),
+    0 6px 14px rgba(42, 33, 25, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-8deg) scale(0.4);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.2, 1.4, 0.4, 1), opacity 0.6s ease;
+}
+
+.seal.sealed {
+  opacity: 1;
+  transform: rotate(-8deg) scale(1);
+}
+
+.seal-face {
+  font-family: Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f0d9c8;
+  text-shadow: 0 -1px 1px rgba(60, 10, 5, 0.9), 0 1px 1px rgba(255, 220, 200, 0.3);
+}
+
+/* ---- cross references ---- */
+
+.xrefs {
+  border-top: 1px solid rgba(42, 33, 25, 0.4);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.xrefs a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--seal);
+}
+
+.xrefs a:hover {
+  color: var(--ink);
+  border-bottom-style: solid;
+}
+
+@media (max-width: 600px) {
+  .margin-rule { display: none; }
+  .sheet { padding: 2rem 1.15rem 3rem; }
+}
