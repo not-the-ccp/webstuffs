@@ -1,0 +1,170 @@
+/* Plate VII — the night of the four flows */
+:root {
+  --paper: #efe7d8;
+  --ink: #23201c;
+  --ash: #6b655c;
+  --mud: #7a4a2b;
+  --ember: #b23a26;
+  --grid: 14cqw;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+.plate {
+  container-type: inline-size;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+  position: relative;
+}
+
+/* masthead: oversized date bleeding into the title */
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  position: relative;
+  margin-bottom: 3rem;
+}
+.maker {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.titleblock {
+  display: grid;
+  grid-template-columns: minmax(200px, 34%) 1fr;
+  gap: 1rem;
+  align-items: end;
+}
+.oversized {
+  font-size: clamp(4rem, 13cqw, 8.5rem);
+  line-height: 0.9;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.titles {
+  border-top: 3px solid var(--ink);
+  padding-top: 0.75rem;
+}
+.titles .game {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mud);
+}
+.titles h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 3.4cqw, 2.1rem);
+  line-height: 1.15;
+}
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: -0.5rem;
+  transform: rotate(7deg);
+  border: 2px solid var(--ember);
+  color: var(--ember);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(239, 231, 216, 0.7);
+}
+
+section { margin-bottom: 3rem; }
+section h2 {
+  font-size: clamp(1.15rem, 2.6cqw, 1.55rem);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--ash);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.2rem;
+}
+
+.setting {
+  max-width: 46rem;
+  margin-left: 8%;
+}
+
+/* rules: two staggered columns, numbered blocks */
+.rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3rem;
+  margin-top: 1rem;
+}
+.rulecol:nth-child(2) { margin-top: 3.5rem; }
+.rule {
+  position: relative;
+  padding: 1.1rem 1.1rem 1.1rem 3.2rem;
+  margin-bottom: 1.4rem;
+  background: #f6f0e2;
+  border: 1px solid #d8cbb2;
+  box-shadow: 4px 4px 0 rgba(35, 32, 28, 0.08);
+}
+.rulecol .rule:nth-child(odd) { transform: rotate(-0.4deg); }
+.rulecol .rule:nth-child(even) { transform: rotate(0.35deg); }
+.rno {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.9rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ember);
+  font-variant-numeric: tabular-nums;
+}
+.rule h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.rule p { margin: 0; font-size: 0.95rem; }
+
+/* the season: inset sheet, off to the right */
+.season {
+  margin-left: 18%;
+  max-width: 44rem;
+  padding: 1.5rem 1.75rem;
+  background: #e7dcc6;
+  border-left: 6px solid var(--mud);
+  transform: rotate(-0.5deg);
+  box-shadow: -6px 6px 0 rgba(35, 32, 28, 0.07);
+}
+.season p { font-size: 0.98rem; }
+.exact {
+  font-weight: 700;
+  background: #fff8ea;
+  box-shadow: 0 0 0 1px #d8cbb2;
+  padding: 0 0.15rem;
+}
+
+.colophon {
+  font-size: 0.85rem;
+  color: var(--ash);
+  border-top: 3px double var(--ash);
+  padding-top: 1rem;
+}
+a { color: var(--ember); }
+a:hover { color: var(--mud); }
+
+@media (max-width: 640px) {
+  .titleblock { grid-template-columns: 1fr; }
+  .rules { grid-template-columns: 1fr; }
+  .rulecol:nth-child(2) { margin-top: 0; }
+  .setting, .season { margin-left: 0; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+}
