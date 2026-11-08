@@ -1,0 +1,171 @@
+/* Minutes of a Special Session — minute-book styling */
+
+:root {
+  --paper: #f6f1e3;
+  --paper-edge: #e8dfc9;
+  --ink: #23211c;
+  --faded: #5c5648;
+  --rule: #9a8f74;
+  --red: #8a2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #37332b;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 244, 214, 0.06), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(0, 0, 0, 0.35), transparent 60%);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: var(--ink);
+  line-height: 1.5;
+  padding: 2.5rem 0.75rem 4rem;
+}
+
+.sheet {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      rgba(154, 143, 116, 0.12) 30px,
+      rgba(154, 143, 116, 0.12) 31px
+    );
+  border: 1px solid #b9ad8d;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+  padding: 2.5rem 2.75rem 2rem;
+}
+
+/* dog-eared corner and paper wear */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 2.2rem 2.2rem 0;
+  border-color: transparent #37332b transparent transparent;
+}
+.sheet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 100%, rgba(122, 96, 48, 0.10), transparent 40%),
+    radial-gradient(ellipse at 100% 0%, rgba(122, 96, 48, 0.08), transparent 35%);
+}
+
+.coffee-ring {
+  position: absolute;
+  top: 12%;
+  right: 4%;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 0.45rem solid rgba(139, 94, 34, 0.14);
+  box-shadow: 0 0 0 0.15rem rgba(139, 94, 34, 0.06) inset;
+  transform: rotate(8deg) scaleX(0.92);
+  pointer-events: none;
+}
+
+.stamp-recorded {
+  position: absolute;
+  top: 6rem;
+  left: 1.6rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.35em;
+  color: var(--red);
+  border: 3px double var(--red);
+  padding: 0.2rem 0.55rem 0.2rem 0.85rem;
+  transform: rotate(-14deg);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.letterhead { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1rem; margin-bottom: 1.4rem; }
+.office-line { margin: 0; font-variant: small-caps; letter-spacing: 0.12em; font-size: 0.95rem; }
+.address-line { margin: 0.15rem 0 0.9rem; font-size: 0.8rem; color: var(--faded); }
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+  letter-spacing: 0.28em;
+  margin: 0 0 0.8rem;
+}
+
+.session-line { margin: 0; font-size: 0.82rem; color: var(--faded); }
+
+.roll { margin-bottom: 1.4rem; font-size: 0.92rem; }
+
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.6rem 0 0.7rem;
+}
+
+.item p { margin: 0 0 0.7rem; font-size: 0.94rem; }
+
+.recital {
+  margin: 0 0 0.8rem 1.2rem;
+  border-left: 2px solid var(--rule);
+  padding: 0.1rem 0 0.1rem 1rem;
+  font-size: 0.9rem;
+}
+.recital p { margin-bottom: 0.6rem; }
+
+blockquote.clerk-note {
+  margin: 0 0 0.7rem;
+  padding: 0.7rem 1rem;
+  border: 1px dashed var(--rule);
+  background: rgba(255, 253, 246, 0.6);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+a { color: #4a3f7a; text-decoration: underline dotted; }
+a:hover { background: rgba(74, 63, 122, 0.08); }
+
+.close { margin-top: 1.8rem; }
+
+.signatures {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
+}
+.signatures u {
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding: 0 0.6rem;
+}
+
+.folio {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--faded);
+  text-align: right;
+}
+
+.foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.6rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--faded);
+}
+.foot p { margin: 0; }
