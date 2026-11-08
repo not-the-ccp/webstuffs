@@ -1,0 +1,143 @@
+/* The Coastal Collection &mdash; museum placard style */
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f4efe4;
+  color: #23282d;
+  font-family: "Iowan Old Style", "Apple Garamond", "Times New Roman", serif;
+  padding: 2.5rem 1rem;
+  line-height: 1.6;
+}
+
+.placard {
+  max-width: 44rem;
+  margin: 0 auto;
+  background: linear-gradient(150deg, #ffffff 0%, #f2f7fa 45%, #e7eef2 100%);
+  border: 1px solid #2c4a66;
+  border-top: 5px solid #a67c2e;
+  border-bottom: 5px solid #a67c2e;
+  box-shadow: 0 14px 34px rgba(28, 52, 78, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  padding: 2rem 2.25rem 2.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.placard::before {
+  content: "";
+  position: absolute;
+  top: -3rem; right: -3rem;
+  width: 16rem; height: 16rem;
+  background: radial-gradient(circle at 75% 15%, rgba(166, 124, 46, 0.10), transparent 55%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.museum {
+  position: relative; z-index: 1;
+  font-size: 0.7rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: #2c4a66;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #c9c3b6;
+}
+
+h1 {
+  position: relative; z-index: 1;
+  font-size: 2.3rem;
+  margin: 0 0 0.4rem;
+  color: #16293d;
+  line-height: 1.12;
+  font-variant-ligatures: common-ligatures;
+}
+
+.object-line {
+  position: relative; z-index: 1;
+  font-size: 0.8rem;
+  letter-spacing: 0.28rem;
+  text-transform: uppercase;
+  color: #7a6639;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px double #2c4a66;
+}
+
+p {
+  position: relative; z-index: 1;
+  font-size: 1.05rem;
+  margin: 0 0 1.15rem;
+  text-align: justify;
+}
+
+.rig {
+  position: relative; z-index: 1;
+  float: right;
+  width: 160px;
+  height: 62px;
+  margin: 0 0 1rem 1rem;
+  animation: heave 7s ease-in-out infinite;
+}
+
+@keyframes heave {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  33% { transform: translateY(-5px) rotate(-0.8deg); }
+  66% { transform: translateY(-9px) rotate(0.6deg); }
+}
+
+.specs {
+  position: relative; z-index: 1;
+  margin-top: 2rem;
+  border: 1px solid #d6d1c5;
+  background: #faf8f1;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.specs h3 {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: #a67c2e;
+}
+
+dl { margin: 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.35rem 1rem; }
+dt { color: #2c4a66; font-weight: bold; }
+dd { margin: 0; }
+
+.note {
+  position: relative; z-index: 1;
+  font-style: italic;
+  color: #425160;
+  border-left: 3px solid #a67c2e;
+  padding-left: 1rem;
+  margin: 1.6rem 0;
+}
+
+.gallery {
+  position: relative; z-index: 1;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #525f6b;
+  border-top: 1px solid #c9c3b6;
+  padding-top: 1.1rem;
+}
+
+.gallery a {
+  color: #2c4a66;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 3px;
+}
+
+.gallery a:hover { color: #a67c2e; }
+
+@media (max-width: 480px) {
+  body { padding: 1.25rem 0.75rem; }
+  .placard { padding: 1.25rem 1.25rem 1.5rem; }
+  h1 { font-size: 1.8rem; }
+  .rig { float: none; width: 150px; height: 58px; margin: 0 auto 1rem; display: block; }
+}
