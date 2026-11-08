@@ -1,0 +1,223 @@
+/* A Book of the Airborne Gratitude — Chapter XIV */
+
+:root {
+  --ink: #26211a;
+  --paper: #f4ead6;
+  --paper-deep: #ecdcbc;
+  --rust: #9a3f1d;
+  --faded: #6f5c3f;
+  --thread: #c9b489;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.leaf {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+}
+
+/* Oversized rotated chapter numeral, overlapping the head */
+.plate {
+  position: absolute;
+  top: 0.5rem;
+  left: -1.5rem;
+  transform: rotate(-7deg);
+  z-index: 0;
+  opacity: 0.92;
+}
+.plate-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px double var(--rust);
+  background: var(--paper-deep);
+  padding: 1.2rem 1.6rem;
+  box-shadow: 6px 8px 0 rgba(38, 33, 26, 0.15);
+}
+.plate-num {
+  font-size: clamp(4.5rem, 11vw, 8rem);
+  line-height: 0.9;
+  font-weight: bold;
+  letter-spacing: -0.04em;
+  color: var(--rust);
+}
+.plate-rule {
+  margin: 0.5rem 0 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.chapter-head {
+  position: relative;
+  z-index: 1;
+  padding-left: clamp(5rem, 16vw, 11rem);
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid var(--thread);
+  padding-bottom: 1.4rem;
+}
+.book {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.byline {
+  margin: 0.7rem 0 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--faded);
+  max-width: 34em;
+}
+
+/* Asymmetric two-column body */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(11rem, 4fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.main p {
+  margin: 0 0 1.1rem;
+  font-size: 1.02rem;
+}
+.main strong { color: #3c2f20; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 4.6em;
+  line-height: 0.82;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--rust);
+  font-weight: bold;
+}
+
+.sub {
+  grid-column: 1;
+  margin: 1.8rem 0 0.8rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+.sub::before {
+  content: "§ ";
+  color: var(--rust);
+}
+
+/* Rotated margin note, overlapping the text edge */
+.note-card {
+  margin: 1.8rem -1.2rem 0.5rem 0;
+  background: var(--paper-deep);
+  border: 1px solid var(--thread);
+  box-shadow: 4px 5px 0 rgba(38, 33, 26, 0.12);
+  padding: 1rem 1.2rem;
+  transform: rotate(1.2deg);
+  max-width: 30rem;
+}
+.note-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.note-card p:last-child { margin: 0; font-size: 0.95rem; font-style: italic; }
+
+.sidebar {
+  position: sticky;
+  top: 1.5rem;
+}
+.side-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 1.6rem 0 0.6rem;
+}
+.sidebar .side-kicker:first-child { margin-top: 0; }
+
+table.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.35);
+}
+.table th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 2px solid var(--rust);
+  padding: 0.35rem 0.4rem;
+}
+.table td {
+  border-bottom: 1px solid var(--thread);
+  padding: 0.4rem;
+}
+.table tr td:first-child { font-weight: bold; }
+
+.side-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.6rem 0 0;
+}
+.side-gloss {
+  font-size: 0.92rem;
+  margin: 0 0 0.9rem;
+}
+.side-gloss strong { color: var(--rust); }
+
+a {
+  color: var(--rust);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(154, 63, 29, 0.12); }
+
+.foot {
+  margin-top: 3rem;
+}
+.foot-rule {
+  height: 4px;
+  border: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 0.9rem;
+}
+.foot p:last-child {
+  margin: 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+@media (max-width: 720px) {
+  .plate { position: static; transform: rotate(-2deg); margin-bottom: 1.5rem; }
+  .plate-inner { display: inline-flex; flex-direction: row; gap: 1rem; padding: 0.7rem 1.1rem; }
+  .plate-num { font-size: 3rem; }
+  .chapter-head { padding-left: 0; }
+  .grid { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .note-card { transform: none; margin-left: 0; }
+}
