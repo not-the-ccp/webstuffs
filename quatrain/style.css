@@ -1,0 +1,279 @@
+/* The Quatrain — Build Log: parchment & indigo, four-line rhythm throughout */
+
+:root {
+  --parchment: #f3e9d2;
+  --parchment-deep: #e9dcbc;
+  --ink: #2b2118;
+  --indigo: #22355c;
+  --indigo-deep: #16233f;
+  --ochre: #b5762a;
+  --rust: #8a3b1e;
+  --rule: #c9b586;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(181, 118, 42, 0.14), transparent 55%),
+    radial-gradient(ellipse at 88% 100%, rgba(34, 53, 92, 0.12), transparent 60%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 2rem;
+  text-align: center;
+  border-bottom: 4px double var(--indigo);
+  position: relative;
+}
+
+.masthead::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin-bottom: 1.75rem;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--indigo) 0 22px,
+    var(--ochre) 22px 30px,
+    var(--rust) 30px 38px,
+    transparent 38px 46px
+  );
+}
+
+.masthead-eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--indigo-deep);
+}
+
+.masthead-tagline {
+  margin: 0.75rem auto 0;
+  max-width: 34rem;
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+/* CSS-drawn ship: mast, yard, and a sail that billows when raised */
+.sail-figure {
+  position: relative;
+  height: 150px;
+  margin: 1.75rem auto 0.5rem;
+  width: 190px;
+}
+
+.sail-figure .mast {
+  position: absolute;
+  left: 34px;
+  top: 0;
+  width: 5px;
+  height: 128px;
+  background: linear-gradient(90deg, #5a3d22, #8a5a2e);
+  border-radius: 2px;
+}
+
+.sail-figure .yard {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  width: 118px;
+  height: 5px;
+  background: linear-gradient(90deg, #5a3d22, #8a5a2e);
+  border-radius: 2px;
+}
+
+.sail-figure .sail {
+  position: absolute;
+  left: 39px;
+  top: 19px;
+  width: 92px;
+  height: 100px;
+  background: linear-gradient(135deg, #fbf4e0 0%, #e9dcbc 70%, #d8c493 100%);
+  border: 1px solid rgba(43, 33, 24, 0.45);
+  clip-path: polygon(0 0, 96% 0, 100% 100%, 0 100%);
+  transform-origin: left center;
+  transform: scaleX(0.55);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sail-figure .sail.sailed {
+  transform: scaleX(1);
+  animation: billow 5s ease-in-out 1.2s infinite alternate;
+}
+
+@keyframes billow {
+  from { transform: scaleX(1) skewY(0deg); }
+  to   { transform: scaleX(0.93) skewY(1.5deg); }
+}
+
+.sail-figure .sail-button {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  background: none;
+  border: 1px solid var(--indigo);
+  color: var(--indigo);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.sail-figure .sail-button:hover,
+.sail-figure .sail-button:focus-visible {
+  background: var(--indigo);
+  color: var(--parchment);
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.entry {
+  margin: 0 0 2.25rem;
+  padding: 1.1rem 1.4rem 1.3rem;
+  background: linear-gradient(180deg, rgba(255, 252, 240, 0.75), rgba(255, 252, 240, 0.35));
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--indigo);
+  box-shadow: 0 2px 0 rgba(43, 33, 24, 0.08);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.entry.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry { opacity: 1; transform: none; transition: none; }
+  .sail-figure .sail { transition: none; animation: none; }
+}
+
+.entry h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.45rem;
+  color: var(--indigo-deep);
+  letter-spacing: 0.01em;
+}
+
+.entry-meta {
+  margin: 0 0 0.9rem;
+  font-size: 0.82rem;
+  color: var(--rust);
+  letter-spacing: 0.05em;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.55rem;
+}
+
+.entry-meta .label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--indigo);
+}
+
+.entry p { margin: 0 0 0.9rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+.entry .drop::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--rust);
+  font-weight: 700;
+}
+
+.found-source {
+  margin: 1rem 1.5rem 1rem 2.2rem;
+  padding: 0.7rem 1rem;
+  background: var(--parchment-deep);
+  border-left: 3px solid var(--ochre);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+a {
+  color: var(--indigo);
+  text-decoration: underline;
+  text-decoration-color: var(--ochre);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--rust); }
+
+.stanza {
+  margin: 1.4rem 0;
+  padding: 1.6rem 1.8rem 1.2rem;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.06), transparent 45%),
+    var(--indigo);
+  color: #f3e9d2;
+  border-top: 4px solid var(--ochre);
+  border-bottom: 4px solid var(--ochre);
+  box-shadow: inset 0 0 0 1px rgba(243, 233, 210, 0.25);
+}
+
+.stanza-line {
+  display: block;
+  font-size: 1.28rem;
+  line-height: 2;
+  font-style: italic;
+  text-indent: 1.6em;
+}
+
+.stanza-line:nth-child(1) { text-indent: 0; }
+.stanza-line:nth-child(2) { text-indent: 1.1em; }
+.stanza-line:nth-child(3) { text-indent: 1.6em; color: #e6c88f; }
+.stanza-line:nth-child(4) { text-indent: 2.1em; }
+
+.stanza-catch {
+  display: block;
+  margin-top: 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: rgba(243, 233, 210, 0.65);
+}
+
+.nav-line {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3.5rem;
+  border-top: 4px double var(--indigo);
+  font-size: 0.95rem;
+}
+
+.nav-line p { margin: 0 0 0.7rem; }
