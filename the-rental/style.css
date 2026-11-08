@@ -1,0 +1,97 @@
+/* The Rental — stylesheet */
+:root {
+  --paper: #f5efe4;
+  --ink: #1c1613;
+  --blood: #7c1012;
+  --fence: #2d2320;
+  --haze: #e4d6c6;
+}
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% 25%, #ead9c2, #d4bfa8 55%, #b59e88);
+  color: var(--ink);
+  font-family: Georgia, "Bitstream Charter", "Palatino Linotype", serif;
+  line-height: 1.7;
+}
+article.rental {
+  max-width: 700px;
+  margin: 5vh auto;
+  padding: 0 18px;
+  position: relative;
+  z-index: 1;
+}
+article.rental::before,
+article.rental::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+article.rental::before {
+  inset: 0;
+  border: 2px solid var(--blood);
+  border-style: double solid;
+  border-radius: 4px;
+}
+article.rental::after {
+  top: 14px; right: 14px; bottom: 14px; left: 14px;
+  border: 1px solid var(--haze);
+  border-style: dashed;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+header.rental-header {
+  border-bottom: 3px double var(--blood);
+  padding-bottom: 20px;
+  margin-bottom: 26px;
+  text-align: center;
+}
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.14ch;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  color: var(--blood);
+}
+h1::after {
+  content: " \2022";
+  animation: flicker 5s infinite alternate;
+}
+.rental-dek {
+  font-size: 0.9rem;
+  letter-spacing: 0.06ch;
+  text-transform: uppercase;
+  color: var(--fence);
+  margin: 0;
+}
+h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.1ch;
+  text-transform: uppercase;
+  color: var(--blood);
+  border-left: 4px solid var(--blood);
+  padding-left: 10px;
+  margin: 34px 0 12px;
+}
+section p { margin: 0 0 14px; text-align: justify; }
+p.marginalia {
+  font-style: italic;
+  text-align: center;
+  color: var(--blood);
+  border: 1px dashed var(--blood);
+  padding: 12px;
+  margin: 22px 0;
+}
+section.release, section.reception { background: var(--paper); padding: 14px 16px; border: 1px solid var(--haze); }
+section.see-also { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--haze); font-size: 0.95rem; }
+section.see-also h2 { margin-top: 0; }
+@keyframes flicker {
+  0%, 92% { opacity: 1; }
+  94% { opacity: 0.35; }
+  96% { opacity: 1; }
+}
+@media (max-width: 560px) {
+  article.rental { margin: 3vh auto; padding: 0 12px; }
+  h1 { font-size: 2rem; }
+}
