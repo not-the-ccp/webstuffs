@@ -1,0 +1,345 @@
+/* The Dreamer's Concordance · Entry No. 144 · Boxing */
+
+:root {
+  --ink: #14100e;
+  --paper: #1b1512;
+  --paper-2: #221a15;
+  --canvas: #e8dcc8;
+  --canvas-dim: #b9a98c;
+  --rope: #b3402e;
+  --rope-dark: #7e2c1f;
+  --gold: #c9a24b;
+  --gold-dim: #8a6f33;
+  --mist: rgba(232, 220, 200, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(201, 162, 75, 0.10), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(179, 64, 46, 0.07), transparent 60%),
+    var(--paper);
+  color: var(--canvas);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+/* the four ropes across the top of the page */
+.rope {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--rope) 8%, var(--rope) 92%, transparent);
+  z-index: 5;
+}
+.rope--one { top: 26px; opacity: .9; }
+.rope--two { top: 36px; opacity: .55; height: 2px; }
+.rope--three { top: 44px; opacity: .3; height: 1px; }
+
+/* corner posts */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 18px;
+  width: 10px;
+  height: 34px;
+  background: linear-gradient(180deg, var(--rope), var(--rope-dark));
+  border-radius: 3px 3px 0 0;
+  z-index: 6;
+}
+body::before { left: 22px; }
+body::after { right: 22px; }
+
+/* floating corner-dust motes */
+.motes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.motes i {
+  position: absolute;
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(232, 220, 200, 0.35);
+  filter: blur(1px);
+  animation: drift 14s linear infinite;
+}
+.motes i:nth-child(1) { left: 12%; top: 70%; animation-delay: 0s; }
+.motes i:nth-child(2) { left: 28%; top: 85%; animation-delay: -3s; width: 3px; height: 3px; }
+.motes i:nth-child(3) { left: 55%; top: 78%; animation-delay: -6s; }
+.motes i:nth-child(4) { left: 71%; top: 88%; animation-delay: -9s; width: 3px; height: 3px; }
+.motes i:nth-child(5) { left: 84%; top: 74%; animation-delay: -12s; }
+.motes i:nth-child(6) { left: 43%; top: 92%; animation-delay: -5s; width: 2px; height: 2px; }
+@keyframes drift {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  15%  { opacity: .6; }
+  85%  { opacity: .35; }
+  100% { transform: translateY(-70vh) translateX(24px); opacity: 0; }
+}
+
+.concordance-head {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 110px 1.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.plate {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border-top: 1px solid rgba(201, 162, 75, 0.35);
+  border-bottom: 1px solid rgba(201, 162, 75, 0.35);
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--canvas);
+  margin: 0 0 0.9rem;
+  text-shadow: 0 0 40px rgba(201, 162, 75, 0.25);
+}
+h1 .of {
+  font-style: italic;
+  font-size: 0.55em;
+  color: var(--gold);
+  vertical-align: baseline;
+}
+
+.pron {
+  font-size: 0.95rem;
+  color: var(--canvas-dim);
+  margin: 0;
+}
+.pron-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-right: 0.4rem;
+}
+
+.entry {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 90px;
+  position: relative;
+  z-index: 2;
+}
+
+section {
+  background: linear-gradient(180deg, var(--paper-2), transparent 90%);
+  border: 1px solid rgba(232, 220, 200, 0.08);
+  border-left: 3px solid var(--rope-dark);
+  padding: 1.6rem 1.9rem 1.9rem;
+  margin: 0 0 2.2rem;
+  box-shadow: 0 18px 40px -30px rgba(0, 0, 0, 0.9);
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+h2::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  position: relative;
+  flex: none;
+  box-shadow: inset 0 -3px 4px rgba(0, 0, 0, 0.4);
+  animation: bell 6s ease-in-out infinite;
+  transform-origin: 50% -4px;
+}
+@keyframes bell {
+  0%, 82%, 100% { transform: rotate(0deg); }
+  85% { transform: rotate(7deg); }
+  88% { transform: rotate(-6deg); }
+  91% { transform: rotate(4deg); }
+  94% { transform: rotate(-2deg); }
+  97% { transform: rotate(1deg); }
+}
+
+.def p {
+  margin: 0;
+  font-size: 1.06rem;
+  text-align: justify;
+}
+.drop::first-letter {
+  float: left;
+  font-size: 4.3rem;
+  line-height: 0.85;
+  padding: 0.12rem 0.55rem 0 0;
+  color: var(--rope);
+  font-weight: 700;
+}
+
+p { margin: 0 0 1.1rem; }
+p:last-child { margin-bottom: 0; }
+
+strong { color: var(--canvas); font-weight: 700; }
+em { color: var(--canvas-dim); }
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 162, 75, 0.4);
+  transition: color 0.2s, border-color 0.2s;
+}
+a:hover {
+  color: var(--canvas);
+  border-bottom-color: var(--canvas);
+}
+
+.keys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.keys li {
+  margin: 0 0 1.15rem;
+  padding-left: 1.4rem;
+  position: relative;
+  text-align: justify;
+}
+.keys li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--rope);
+  transform: rotate(45deg);
+}
+.keys li:last-child { margin-bottom: 0; }
+
+.dictation {
+  margin: 0.4rem 0 1.4rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  background:
+    repeating-linear-gradient(180deg, transparent 0 1.55rem, rgba(201, 162, 75, 0.12) 1.55rem calc(1.55rem + 1px));
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--canvas);
+}
+.dictation::before,
+.dictation::after {
+  font-family: Georgia, serif;
+  color: var(--gold-dim);
+}
+.dictation::before { content: "\201C"; margin-right: 0.2rem; }
+.dictation::after { content: "\201D"; margin-left: 0.2rem; }
+
+.recipe {
+  font-style: italic;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.cross {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cross li {
+  margin: 0 0 0.9rem;
+  padding-left: 1.4rem;
+  position: relative;
+}
+.cross li::before {
+  content: "\2756"; /* not used; replaced by ring marker */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1.5px solid var(--rope);
+  border-radius: 50%;
+}
+.cross li:last-child { margin-bottom: 0; }
+
+.foot {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(201, 162, 75, 0.35);
+}
+
+h2.rings::before { animation: ringswing 1.3s ease-in-out; }
+@keyframes ringswing {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(10deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(5deg); }
+  60% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.bell-ripple {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  background: linear-gradient(180deg,
+    rgba(201, 162, 75, 0.14),
+    transparent 30%);
+  animation: ripple 1.7s ease-out forwards;
+}
+@keyframes ripple {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motes i, h2::before, h2.rings::before, .bell-ripple { animation: none; }
+}
+
+::selection {
+  background: var(--rope);
+  color: var(--canvas);
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16.5px; }
+  body::before, body::after { display: none; }
+  section { padding: 1.2rem 1.1rem 1.4rem; }
+  .concordance-head { padding-top: 92px; }
+  .recipe { white-space: normal; }
+}
