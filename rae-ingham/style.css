@@ -1,0 +1,160 @@
+/* The Silkmen — a dining-room review set over the water */
+
+:root {
+  --ink: #1c2b26;
+  --petrol: #123a37;
+  --petrol-deep: #0b2523;
+  --cream: #f4eddc;
+  --paper: #efe6cf;
+  --gold: #c19a3d;
+  --gold-bright: #e0bd66;
+  --rust: #9c4a2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* a slow band of "tide" drifting at the very top of the page */
+.tide {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  z-index: 5;
+  background: linear-gradient(90deg,
+    var(--petrol-deep), var(--petrol), var(--gold), var(--petrol), var(--petrol-deep));
+  background-size: 300% 100%;
+  animation: tide-drift 14s linear infinite alternate;
+}
+@keyframes tide-drift {
+  from { background-position: 0% 0; }
+  to   { background-position: 100% 0; }
+}
+
+.review {
+  max-width: 46rem;
+  margin: 3.5rem auto 5rem;
+  padding: 0 1.4rem;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(18, 58, 55, 0.08), transparent 70%),
+    var(--paper);
+  border: 1px solid rgba(28, 43, 38, 0.25);
+  box-shadow: 0 18px 45px rgba(11, 37, 35, 0.18), inset 0 0 0 6px rgba(244, 237, 220, 0.6);
+}
+
+.masthead {
+  text-align: center;
+  padding: 2.2rem 1rem 1.6rem;
+  border-bottom: 3px double rgba(28, 43, 38, 0.55);
+}
+.kicker {
+  margin: 0 0 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--rust);
+}
+.kicker-rule { display: inline-block; width: 2.2rem; border-top: 1px solid var(--rust); vertical-align: middle; margin-left: 0.5rem; }
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 3.9rem);
+  letter-spacing: 0.04em;
+  color: var(--petrol-deep);
+  font-weight: 400;
+}
+h1::after {
+  content: "❧";
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+
+.byline {
+  margin: 0.9rem 0 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(28, 43, 38, 0.8);
+}
+
+.stars {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+}
+.star { opacity: 1; transition: opacity 0.6s ease, transform 0.6s ease; }
+.stars .star.js-hidden { opacity: 0; transform: scale(0.4); }
+.star.ghost { color: rgba(28, 43, 38, 0.25); }
+
+p { margin: 1.1rem 0; }
+.lede::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--petrol);
+  font-weight: 700;
+}
+
+strong { color: var(--petrol-deep); }
+em { color: var(--rust); }
+
+a { color: var(--petrol); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--rust); }
+
+/* the scorecard, like a folded sheet of paper on the table */
+.scorecard {
+  margin: 2.4rem 0 1.4rem;
+  padding: 1.4rem 1.6rem 1.2rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.55rem, rgba(18, 58, 55, 0.14) 1.55rem 1.6rem),
+    #f9f4e6;
+  border: 1px dashed rgba(28, 43, 38, 0.5);
+  box-shadow: 4px 5px 0 rgba(28, 43, 38, 0.12);
+}
+.scorecard h2 {
+  margin: 0 0 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--rust);
+}
+.scorecard dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  row-gap: 0.15rem;
+}
+.scorecard dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(28, 43, 38, 0.65);
+  padding-top: 0.1rem;
+}
+.scorecard dd { margin: 0; }
+
+.colophon {
+  border-top: 3px double rgba(28, 43, 38, 0.55);
+  padding-top: 1rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(28, 43, 38, 0.7);
+}
+.colophon p { margin: 0.3rem 0; }
