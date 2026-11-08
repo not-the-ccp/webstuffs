@@ -1,0 +1,223 @@
+/* The Lagoon Line — vintage Pacific brochure */
+
+:root {
+  --ink: #16333a;
+  --lagoon: #0e6e74;
+  --deep: #093e44;
+  --foam: #f7efdc;
+  --sand: #efe2c2;
+  --coral: #d9694f;
+  --gold: #c99a3f;
+  --line: #c8b78f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--foam);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* ambient sea at the very top of the page */
+.sea {
+  position: relative;
+  height: 90px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--deep) 0%, var(--lagoon) 70%, var(--foam) 100%);
+}
+.wave {
+  position: absolute;
+  left: -50%;
+  width: 200%;
+  height: 40px;
+  border-radius: 45%;
+  opacity: 0.35;
+}
+.wave-a {
+  bottom: 34px;
+  background: #ffffff;
+  animation: drift 14s linear infinite;
+}
+.wave-b {
+  bottom: 10px;
+  background: var(--gold);
+  opacity: 0.25;
+  animation: drift 22s linear infinite reverse;
+}
+@keyframes drift {
+  from { transform: translateX(0) rotate(0deg); }
+  to   { transform: translateX(50%) rotate(360deg); }
+}
+
+.masthead {
+  background: var(--foam);
+  text-align: center;
+  padding: 28px 20px 8px;
+  border-bottom: 4px double var(--ink);
+}
+.line-badge {
+  font-variant: small-caps;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: var(--coral);
+  margin: 0 0 10px;
+}
+.sun {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 4px;
+  display: block;
+}
+.sun .rays path {
+  fill: var(--gold);
+  transform-origin: 60px 60px;
+  animation: spin 60s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.sun .disc { fill: var(--coral); }
+.sun .crest { fill: none; stroke: var(--foam); stroke-width: 4; stroke-linecap: round; }
+
+h1 {
+  font-size: 3.2rem;
+  letter-spacing: 0.06em;
+  margin: 0.1em 0 0.1em;
+  color: var(--deep);
+}
+.sub {
+  font-style: italic;
+  margin: 0 0 14px;
+  color: var(--lagoon);
+}
+.stamp-row { margin: 0; }
+.stamp {
+  display: inline-block;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 3px 12px;
+  margin: 3px 4px;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  transform: rotate(-1.5deg);
+}
+.stamp:nth-child(even) { transform: rotate(1.5deg); }
+.stamp { animation: stampIn 0.6s both; }
+.stamp:nth-child(2) { animation-delay: 0.15s; }
+.stamp:nth-child(3) { animation-delay: 0.3s; }
+.stamp:nth-child(4) { animation-delay: 0.45s; }
+@keyframes stampIn {
+  from { opacity: 0; transform: scale(1.6) rotate(-8deg); }
+  to   { opacity: 1; }
+}
+
+.brochure {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 22px 40px;
+}
+
+.prose { margin-bottom: 42px; }
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--coral);
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
+.intro p:first-of-type::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.8;
+  padding: 4px 8px 0 0;
+  color: var(--lagoon);
+}
+
+a { color: var(--lagoon); }
+a:hover { color: var(--coral); }
+
+/* tables as boarding tickets */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  background: #fffdf5;
+  border: 1.5px solid var(--ink);
+}
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; }
+th {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  background: var(--deep);
+  color: var(--foam);
+  font-weight: normal;
+}
+tr:nth-child(even) td { background: var(--sand); }
+tr { border-bottom: 1px dashed var(--line); }
+
+.isle-table td:first-child { font-weight: bold; white-space: nowrap; }
+
+.fare-table td:nth-child(4) { white-space: nowrap; color: var(--coral); }
+
+/* the brass plaque */
+.plaque {
+  background: linear-gradient(160deg, #2c4a52 0%, #17323a 55%, #0e262d 100%);
+  color: var(--foam);
+  border: 3px double var(--gold);
+  border-radius: 6px;
+  padding: 22px 26px;
+  margin: 26px 0 8px;
+  box-shadow: inset 0 0 22px rgba(0,0,0,0.45), 0 3px 0 var(--line);
+  position: relative;
+}
+.plaque::before, .plaque::after {
+  content: "\25C9";
+  position: absolute;
+  top: 50%;
+  color: var(--gold);
+  font-size: 0.8rem;
+  transform: translateY(-50%);
+}
+.plaque::before { left: 8px; }
+.plaque::after { right: 8px; }
+.plaque-title {
+  display: block;
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+.plaque strong { color: #ffe9b0; font-style: italic; }
+
+.home {
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.colophon {
+  text-align: center;
+  padding: 22px 18px 34px;
+  border-top: 4px double var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--deep);
+}
+
+/* reveal on scroll (progressive enhancement only) */
+.reveal { opacity: 1; }
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js .reveal.shown { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; }
+  table { font-size: 0.85rem; }
+}
