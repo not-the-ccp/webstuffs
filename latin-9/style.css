@@ -1,0 +1,51 @@
+/* Shed Recordings RP-15 · Latin Alphabet No. 9 · liner notes */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 36px 18px 70px;
+  background: #f5f1e8;
+  background: radial-gradient(circle at 75% 10%, #ffffff 0%, #f2ecde 38%, #e7ddc9 100%);
+  color: #2c2721;
+  font-family: "Georgia", "Noto Serif", "Times New Roman", serif;
+  line-height: 1.7;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 28px, #d8ceb8 28px, #d8ceb8 30px);
+  pointer-events: none;
+  z-index: -1;
+}
+.wrapper { max-width: 720px; margin: 0 auto; position: relative; }
+.masthead { position: relative; padding-bottom: 30px; border-bottom: 4px double #8c6b4a; margin-bottom: 34px; }
+.reel, .light { position: absolute; top: -16px; right: -16px; }
+.reel { width: 86px; height: 86px; border: 7px double #9a7b5a; border-radius: 50%; animation: spin 16s linear infinite; opacity: 0.5; z-index: 2; }
+.light { width: 14px; height: 14px; top: 10px; right: 10px; background: #b33a3a; border-radius: 50%; box-shadow: 0 0 14px #b33a3a, 0 0 4px #722424; animation: flicker 2s ease-in-out infinite alternate; opacity: 0.8; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes flicker { from { opacity: 0.6; transform: scale(1); } to { opacity: 1; transform: scale(1.06); } }
+.eyebrow { margin: 0 0 8px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3em; color: #8c6b4a; }
+h1 { margin: 0 0 10px; font-size: 2.4rem; line-height: 1.12; color: #25201a; text-shadow: 1px 1px 0 #e8ddc6; }
+.subtitle { margin: 0; font-size: 0.95rem; color: #6e5e4d; }
+p { margin: 0 0 18px; }
+.dropcap::first-letter { float: left; font-size: 3.2rem; line-height: 0.85; padding: 4px 10px 2px 0; margin: 2px 8px 4px 0; color: #8c4a4a; background: #fdf6e7; border: 2px solid #d8ceb8; border-radius: 2px; }
+h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.22em; color: #8c4a4a; border-bottom: 1px solid #d8ceb8; margin: 30px 0 14px; padding-bottom: 6px; }
+.swaps { width: 100%; border-collapse: collapse; font-family: "Courier New", monospace; font-size: 0.85rem; margin: 10px 0 26px; }
+.swaps caption { caption-side: top; text-align: left; font-size: 0.8rem; letter-spacing: 0.2em; color: #8c6b4a; margin-bottom: 6px; }
+.swaps th { text-align: left; color: #8c4a4a; border-bottom: 2px solid #8c6b4a; padding: 6px 8px; font-weight: normal; }
+.swaps td { border-bottom: 1px solid #d8ceb8; padding: 5px 8px; }
+.swaps td.iso { color: #b33a3a; }
+.swaps td.new { color: #3d663d; font-weight: bold; }
+.tracklist { list-style: none; padding: 0; margin: 0 0 26px; }
+.tracklist li { border-left: 5px solid #c8b28a; padding: 10px 14px; margin: 0 0 12px; background: #fbf8ef; }
+.tracklist li:nth-child(even) { background: #f4f0e4; }
+.tracklist strong { color: #5c3a1e; }
+.tracklist .dur { float: right; font-family: "Courier New", monospace; font-size: 0.8rem; color: #8c6b4a; margin-left: 10px; }
+.tracklist li p { margin: 6px 0 0; }
+.trail { border-top: 3px double #8c6b4a; padding-top: 18px; margin-top: 44px; font-size: 0.9rem; color: #4a4236; }
+a { color: #6d4c2e; text-decoration: underline; text-decoration-color: #c8b28a; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+@media (max-width: 560px) {
+  body { padding: 20px 14px 50px; }
+  h1 { font-size: 1.9rem; }
+  .reel { width: 60px; height: 60px; border-width: 5px; }
+}
