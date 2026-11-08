@@ -1,0 +1,239 @@
+/* Coopers' Lane School — ruled exercise paper */
+:root {
+  --paper: #fdfaf1;
+  --rule: #bcd6ea;
+  --margin: #d96a6a;
+  --ink: #26324b;
+  --red: #b3322e;
+  --blue-ink: #1f4e8c;
+  --gold: #c9a227;
+  --hand: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, #4a5872 0%, #2c3549 55%, #1d2333 100%);
+  font-family: var(--serif);
+  color: var(--ink);
+  padding: 2.5rem 1rem 4rem;
+}
+
+.desk { max-width: 860px; margin: 0 auto; }
+
+.paper {
+  position: relative;
+  background:
+    linear-gradient(90deg, transparent 0, transparent 5.2rem, var(--margin) 5.2rem, var(--margin) calc(5.2rem + 2px), transparent calc(5.2rem + 2px)),
+    repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0,
+      var(--paper) 30px,
+      var(--rule) 30px,
+      var(--rule) 31px
+    );
+  border-radius: 4px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 0 2rem 1rem 7rem;
+}
+
+/* punched holes down the left edge */
+.paper::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  background-image: radial-gradient(circle at 0.55rem 3rem, #2c3549 0 5px, transparent 6px);
+  background-size: 100% 5.5rem;
+  background-repeat: repeat-y;
+  background-position-y: 1.2rem;
+}
+
+/* staples */
+.paper::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 33%;
+  width: 56px;
+  height: 5px;
+  background: linear-gradient(180deg, #d8d8d8, #8a8a8a);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+
+/* ---------- header ---------- */
+.report-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.6rem 0 1.4rem;
+  border-bottom: 3px double var(--blue-ink);
+  margin-bottom: 1.2rem;
+}
+
+.crest {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+}
+.crest svg { width: 100%; height: 100%; display: block; }
+.ring { fill: none; stroke: var(--gold); stroke-width: 2.5; }
+.ring.thin { stroke-width: 1; stroke: var(--blue-ink); }
+.orbit { fill: none; stroke: var(--blue-ink); stroke-width: 1; stroke-dasharray: 3 4; }
+.earth { fill: var(--blue-ink); }
+.sat { fill: var(--gold); }
+.crest-text {
+  position: absolute;
+  left: 50%;
+  bottom: -1.3rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--blue-ink);
+}
+
+.head-block { flex: 1 1 14rem; }
+.school-line {
+  margin: 0 0 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--blue-ink);
+  letter-spacing: 0.01em;
+}
+.head-sub {
+  margin: 0.35rem 0 0;
+  font-family: var(--hand);
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.head-table {
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  flex: 0 0 11rem;
+}
+.head-table th, .head-table td {
+  text-align: left;
+  padding: 0.2rem 0.5rem 0.2rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+.head-table th { color: var(--blue-ink); font-weight: 600; width: 5.5rem; }
+
+.mark {
+  font-family: var(--hand);
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.grade-stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1.4rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  display: grid;
+  place-items: center;
+  border: 3px double var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  font-family: var(--hand);
+  font-size: 1.6rem;
+  font-weight: 700;
+  transform: rotate(-12deg);
+  opacity: 0.85;
+}
+
+/* ---------- body ---------- */
+.report-body { line-height: 31px; font-size: 1.02rem; }
+.report-body section { margin-bottom: 0.6rem; }
+
+h2 {
+  line-height: 31px;
+  font-size: 1.15rem;
+  color: var(--blue-ink);
+  margin: 0.6rem 0 0.2rem;
+}
+h2::after {
+  content: "";
+  display: inline-block;
+  width: 2.4rem;
+  height: 2px;
+  margin-left: 0.6rem;
+  background: var(--gold);
+  vertical-align: baseline;
+}
+
+.report-body a {
+  color: var(--blue-ink);
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.report-body a:hover { color: var(--red); text-decoration-color: var(--red); }
+
+/* teacher's red-ink annotations */
+.teacher-note {
+  margin-top: 1.4rem;
+  padding: 0.6rem 1rem;
+  background: rgba(179, 50, 46, 0.05);
+  border-left: 3px solid var(--red);
+  font-family: var(--hand);
+  color: var(--red);
+  line-height: 1.7;
+  transform: rotate(-0.4deg);
+}
+.note-head {
+  margin: 0 0 0.3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.teacher-note p { margin: 0; }
+
+.report-foot {
+  margin-top: 1.6rem;
+  padding-top: 0.6rem;
+  border-top: 2px solid var(--rule);
+  font-size: 0.85rem;
+  line-height: 2;
+}
+.report-foot p { margin: 0; }
+
+/* ephemeris ticker (JS fills it) */
+.ephem {
+  margin-top: 1.2rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--rule);
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--blue-ink);
+  min-height: 1.4rem;
+}
+.ephem .blink { animation: blink 1.2s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+@media (max-width: 640px) {
+  .paper { padding: 0 1.2rem 1rem 4.6rem; }
+  .paper::before { display: none; }
+  h1 { font-size: 2.2rem; }
+  .head-table { flex-basis: 100%; }
+}
