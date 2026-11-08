@@ -1,0 +1,205 @@
+/* Lot 142 — catalogue B: cream stock, navy stencil, cedar, and gold */
+:root {
+  --paper: #f6efdc;
+  --paper-deep: #efe3c4;
+  --ink: #2a2117;
+  --navy: #1f4e5f;
+  --cedar: #b0793a;
+  --rust: #7c2d12;
+  --gold: #e8b23a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #fdf7e6 0%, var(--paper) 55%, #ead9b4 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+/* Masthead — auctioneer's plate */
+.masthead {
+  text-align: center;
+  border-top: 4px double var(--rust);
+  border-bottom: 4px double var(--rust);
+  padding: 1.6rem 1rem 1.4rem;
+  background: linear-gradient(180deg, rgba(232, 178, 58, 0.14), rgba(232, 178, 58, 0) 70%);
+}
+
+.firm {
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+}
+
+.auction {
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.lot-line {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.lot-no {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--paper);
+  padding: 0.1em 0.7em;
+  letter-spacing: 0.2em;
+  font-size: 0.85em;
+  border: 2px solid var(--paper);
+  outline: 2px solid var(--rust);
+  animation: gavel 3.2s ease-in-out infinite;
+}
+
+@keyframes gavel {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  90% { transform: rotate(-3deg); }
+  93% { transform: rotate(2deg); }
+}
+
+.dek {
+  margin: 0.9rem auto 0;
+  max-width: 34rem;
+  font-size: 0.95rem;
+  color: #4d3d28;
+}
+
+/* Estimate strip */
+.estimate {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.estimate .col {
+  border: 1.5px solid var(--rust);
+  background: var(--paper-deep);
+  padding: 0.55rem 0.5rem 0.65rem;
+  text-align: center;
+}
+
+.estimate .cap {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.estimate .num { font-size: 1rem; font-weight: bold; color: var(--rust); }
+.estimate small { font-weight: normal; font-style: italic; }
+
+/* Plate */
+.plate { margin: 1.8rem 0; }
+.plate svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(124, 45, 18, 0.25);
+}
+.plate figcaption {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #5a4a33;
+}
+
+/* Body sections */
+section h2 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-bottom: 1px solid var(--cedar);
+  padding-bottom: 0.35rem;
+  margin: 2rem 0 0.9rem;
+}
+
+.lot p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--rust);
+}
+
+a { color: var(--navy); }
+a:hover { color: var(--rust); }
+
+/* Provenance slip — sewn paper */
+.provenance .found {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.6rem, rgba(31, 78, 95, 0.08) 1.6rem 1.65rem),
+    #f9f3e2;
+  border: 1px dashed var(--rust);
+  padding: 0.9rem 1.1rem;
+  font-style: italic;
+  position: relative;
+}
+.provenance .found::before {
+  content: "\2715";
+  position: absolute;
+  top: -0.9em;
+  right: 1rem;
+  color: var(--gold);
+  border: 1.5px solid var(--rust);
+  background: var(--paper);
+  padding: 0.05em 0.35em;
+  font-style: normal;
+}
+
+/* Terms */
+.terms ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.terms li {
+  padding: 0.45rem 0 0.45rem 1.4rem;
+  position: relative;
+  border-bottom: 1px dotted var(--cedar);
+  font-size: 0.95rem;
+}
+.terms li::before {
+  content: "\2696"; /* gavel mark */
+  position: absolute;
+  left: 0.2rem;
+  color: var(--cedar);
+}
+
+/* Colophon */
+.colophon {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #5a4a33;
+  border-top: 4px double var(--rust);
+  padding-top: 1rem;
+}
+
+@media (max-width: 520px) {
+  .estimate { grid-template-columns: repeat(2, 1fr); }
+  .lot-line { font-size: 1.5rem; }
+}
