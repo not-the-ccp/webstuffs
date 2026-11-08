@@ -1,0 +1,129 @@
+/* Atlantic Reel ARL-1037 — album insert */
+
+:root {
+  --paper: #f5f0e4;
+  --ink: #23303f;
+  --blue: #1d4e89;
+  --yellow: #d8a12b;
+  --faint: #8a8271;
+}
+
+* { box-sizing: border-box; }
+
+body.insert {
+  margin: 0;
+  padding: 0 12px 48px;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(29,78,137,.06), transparent 45%),
+    radial-gradient(ellipse at 85% 92%, rgba(216,161,43,.08), transparent 40%),
+    #e9e2d0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.notes {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid #cfc5ab;
+  box-shadow: 0 14px 34px rgba(60,50,25,.22), inset 0 0 60px rgba(120,100,50,.07);
+  padding: 3rem 3.2rem 2.4rem;
+  position: relative;
+}
+
+/* corner stamp */
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  border: 2px solid rgba(29,78,137,.55);
+  color: rgba(29,78,137,.65);
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  padding: .3rem .55rem;
+  transform: rotate(4deg);
+}
+
+.masthead { text-align: center; border-bottom: 3px double var(--ink); padding-bottom: 1.4rem; }
+.label {
+  margin: 0 0 1.1rem;
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: .02em;
+  color: var(--blue);
+}
+h1::first-letter { color: var(--yellow); }
+.artist { margin: .6rem 0 0; font-size: 1.15rem; font-style: italic; }
+.sub { margin: .5rem 0 0; font-size: .85rem; color: var(--faint); }
+.producer { margin: .9rem 0 0; font-size: .78rem; letter-spacing: .04em; }
+
+.sect { margin-top: 2rem; }
+.sect h2 {
+  font-size: .8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+.sect h2::before, .sect h2::after {
+  content: "";
+  display: inline-block;
+  width: 2.2rem;
+  border-top: 1px solid var(--faint);
+  vertical-align: middle;
+  margin: 0 .8rem;
+}
+.sect p { margin: 0 0 1rem; text-align: justify; }
+em { font-style: italic; }
+
+/* track listing */
+.sides { display: flex; gap: 2.4rem; }
+.side { flex: 1; }
+.side h3 {
+  margin: 0 0 .5rem;
+  text-align: center;
+  font-size: .75rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: .35rem;
+}
+.side ol { list-style: none; margin: 0; padding: 0; }
+.side li {
+  display: flex;
+  gap: .5rem;
+  padding: .28rem 0;
+  border-bottom: 1px dotted #c9bfa4;
+  font-size: .88rem;
+}
+.side .t { flex: 1; }
+.side .n { font-variant-numeric: tabular-nums; color: var(--faint); }
+
+/* colophon */
+.colophon {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  text-align: center;
+}
+.rule-line { margin: 0; font-size: .72rem; letter-spacing: .08em; color: var(--faint); }
+.fine { margin: .5rem 0 0; font-size: .7rem; font-style: italic; color: var(--faint); }
+
+a { color: var(--blue); }
+a:hover { color: var(--yellow); }
+
+@media (max-width: 560px) {
+  .notes { padding: 2rem 1.2rem; }
+  .sides { flex-direction: column; gap: 1.4rem; }
+  h1 { font-size: 1.9rem; }
+}
