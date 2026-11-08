@@ -1,0 +1,201 @@
+/* St Adwen's Church, Advent — Shed Ledger, Entry 41 */
+:root {
+  --night: #14202b;
+  --stone: #e9e2cf;
+  --paper: #efe7d2;
+  --ink: #2b2620;
+  --copper: #b3742f;
+  --copper-deep: #7d4d1c;
+  --lichen: #6b7a5e;
+  --seam: #d8cba9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--stone);
+  background:
+    radial-gradient(1100px 500px at 80% -10%, rgba(179, 116, 47, 0.18), transparent 60%),
+    radial-gradient(900px 600px at -10% 100%, rgba(107, 122, 94, 0.22), transparent 55%),
+    linear-gradient(160deg, #0e161e 0%, var(--night) 45%, #1a2836 100%);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+.masthead {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 28px 8px;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 32px;
+  align-items: start;
+}
+
+.kicker {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border-bottom: 1px solid rgba(179, 116, 47, 0.4);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  font-style: italic;
+  color: #cfc4a6;
+}
+
+.ledger {
+  max-width: 1040px;
+  margin: 24px auto 0;
+  padding: 0 28px 40px;
+}
+
+.entry {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(43, 38, 32, 0.045) 27px 28px),
+    linear-gradient(180deg, #f4edda 0%, var(--paper) 55%, #e6dcbd 100%);
+  color: var(--ink);
+  border: 1px solid var(--copper-deep);
+  outline: 1px solid rgba(179, 116, 47, 0.35);
+  outline-offset: 4px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 26px 32px 22px;
+  margin: 0 0 34px;
+  position: relative;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(125, 77, 28, 0.35);
+  pointer-events: none;
+}
+
+.entry h2 {
+  margin: 0 0 2px;
+  font-size: 1.18rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+.date {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #6d5f48;
+  border-bottom: 1px solid var(--seam);
+  padding-bottom: 8px;
+}
+
+.entry p { margin: 0 0 1em; }
+
+.entry p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 4px 10px 0 0;
+  color: var(--copper);
+  font-weight: 700;
+}
+
+.court-line {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--copper-deep);
+  border-left: 4px solid var(--copper);
+  padding: 6px 0 6px 14px;
+  margin: 1.2em 0;
+}
+
+.stamp {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border: 2px double var(--copper);
+  transform: rotate(-1.2deg);
+}
+
+.shelf-notes {
+  color: var(--stone);
+  padding: 8px 4px 0;
+}
+
+.shelf-notes h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border-bottom: 1px solid rgba(179, 116, 47, 0.4);
+  padding-bottom: 8px;
+}
+
+.shelf-notes a { color: var(--paper); text-underline-color: var(--copper); text-decoration-thickness: 1px; }
+.shelf-notes a:hover { color: #fff3dd; }
+.home { margin-top: 1.4em; font-style: italic; color: #cfc4a6; }
+
+/* Tower diagram */
+.tower {
+  grid-row: 1 / 4;
+  width: 100%;
+  max-width: 220px;
+  justify-self: end;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.5));
+}
+.stone { fill: #2a3947; stroke: var(--copper); stroke-width: 1.5; }
+.seam { stroke: rgba(233, 226, 207, 0.28); stroke-width: 1; }
+.window { fill: #0e161e; stroke: var(--copper); stroke-width: 1; }
+.pin { fill: #34455490; stroke: var(--copper); stroke-width: 1.4; }
+.bell-rope { stroke: var(--copper); stroke-width: 1.5; }
+.bell-body { fill: var(--copper); }
+.bell-clapper { fill: var(--copper-deep); }
+.bell { transform-origin: 125px 60px; animation: sway 5.5s ease-in-out infinite; }
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+.svg-note {
+  fill: var(--copper);
+  font-family: inherit;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+}
+
+.colophon {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 28px 56px;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #9aa893;
+  border-top: 1px solid rgba(179, 116, 47, 0.3);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .masthead { grid-template-columns: 1fr; }
+  .tower { justify-self: start; max-width: 180px; }
+  .entry { padding: 20px 20px 18px; }
+}
