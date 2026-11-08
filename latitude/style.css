@@ -1,0 +1,289 @@
+/* Latitude — Visitor's Brochure, Parallel 13° North */
+
+:root {
+  --ink: #1e2a2f;
+  --teal: #0f5e5a;
+  --teal-dark: #0a3f3c;
+  --sun: #e8a03c;
+  --sun-deep: #c76b1e;
+  --cream: #f6eeda;
+  --cream-deep: #efe2c4;
+  --rule: #b8a67e;
+  --red: #a4342a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--cream); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0, transparent 57px,
+      rgba(15, 94, 90, 0.07) 57px, rgba(15, 94, 90, 0.07) 58px
+    ),
+    linear-gradient(180deg, #fdf6e4 0%, var(--cream) 40%, var(--cream-deep) 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+.sun {
+  position: fixed;
+  top: -90px;
+  right: -90px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #f7c96b 0%, var(--sun) 55%, var(--sun-deep) 100%);
+  box-shadow: 0 0 80px 20px rgba(232, 160, 60, 0.35);
+  opacity: 0.55;
+  animation: sun-drift 60s linear infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes sun-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-70px, 40px) scale(1.08); }
+}
+
+.brochure {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+  border-bottom: 4px double var(--teal-dark);
+}
+
+.masthead .issue {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin: 0 0 1.25rem;
+}
+
+.masthead h1 {
+  font-size: clamp(3.2rem, 11vw, 5.5rem);
+  letter-spacing: 0.3em;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  text-shadow: 3px 3px 0 rgba(232, 160, 60, 0.35);
+}
+
+.masthead .subtitle {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin: 0.5rem auto 0;
+  max-width: 32rem;
+  color: var(--ink);
+}
+
+.masthead .deg { font-style: normal; font-weight: bold; color: var(--red); }
+
+.masthead .edition {
+  display: inline-block;
+  margin-top: 1.4rem;
+  padding: 0.3rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1.5px dashed var(--rule);
+  background: rgba(255, 255, 255, 0.4);
+  transform: rotate(-1deg);
+}
+
+/* ---------- Panels ---------- */
+
+.panel {
+  position: relative;
+  background: rgba(255, 252, 244, 0.82);
+  border: 1px solid var(--rule);
+  border-top: 5px solid var(--teal);
+  padding: 1.4rem 1.6rem 1.6rem;
+  margin: 1.8rem 0;
+  box-shadow: 0 6px 18px -8px rgba(30, 42, 47, 0.25);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: -5px; left: 0; right: 0;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, var(--teal) 0 14px, var(--sun) 14px 28px);
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+.lead { font-size: 1.02rem; }
+
+.lead strong { color: var(--teal-dark); }
+
+/* ---------- Coordinate table ---------- */
+
+.coord-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.coord-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  border-bottom: 2px solid var(--teal);
+  padding: 0.3rem 0.5rem 0.3rem 0;
+}
+
+.coord-table td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.4rem 0.5rem 0.4rem 0;
+  vertical-align: top;
+}
+
+.coord-table td:nth-child(2) {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-weight: bold;
+  color: var(--red);
+}
+
+.fineprint { font-size: 0.8rem; font-style: italic; color: #5a5343; }
+
+/* ---------- Circuit ---------- */
+
+.circuit { list-style: none; margin: 0; padding: 0; }
+
+.circuit li {
+  position: relative;
+  padding: 0 0 0.9rem 4.2rem;
+  border-left: 2px dashed var(--rule);
+  margin-left: 1rem;
+}
+
+.circuit li:last-child { border-left-color: transparent; }
+
+.circuit li::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0.35rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 3px solid var(--teal);
+}
+
+.circuit .stop {
+  position: absolute;
+  left: -4.2rem;
+  top: 0;
+  width: 3.4rem;
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Appendix ---------- */
+
+.panel-appendix { border-top-color: var(--sun-deep); }
+
+.panel-appendix::before {
+  background: repeating-linear-gradient(90deg, var(--sun-deep) 0 14px, var(--teal) 14px 28px);
+}
+
+.record {
+  margin: 1rem 0 1.2rem;
+  padding: 1rem 1.2rem;
+  background: var(--teal-dark);
+  color: #f3ecd8;
+  font-style: italic;
+  border-left: 6px solid var(--sun);
+  box-shadow: inset 0 0 0 1px rgba(243, 236, 216, 0.25);
+}
+
+.record p { margin: 0; font-size: 1.02rem; }
+
+/* ---------- Back panel ---------- */
+
+.back-note { font-size: 0.95rem; }
+
+.back-note a {
+  color: var(--teal-dark);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--sun);
+  text-underline-offset: 3px;
+}
+
+.back-note a:hover { background: rgba(232, 160, 60, 0.25); }
+
+/* ---------- Footer ---------- */
+
+.broom { text-align: center; margin-top: 2.4rem; }
+
+.broom .stamp {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 3px double var(--red);
+  color: var(--red);
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  transform: rotate(-4deg);
+  background: rgba(164, 52, 42, 0.05);
+  animation: stamp-wobble 7s ease-in-out infinite;
+}
+
+@keyframes stamp-wobble {
+  0%, 100% { transform: rotate(-4deg); }
+  50%      { transform: rotate(-1.5deg) translateY(-2px); }
+}
+
+.colophon {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #5a5343;
+  max-width: 34rem;
+  margin: 1.4rem auto 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .circuit li { padding-left: 0; margin-left: 0.2rem; }
+  .circuit .stop {
+    position: static;
+    display: inline-block;
+    width: auto;
+    text-align: left;
+    margin-right: 0.5rem;
+  }
+}
