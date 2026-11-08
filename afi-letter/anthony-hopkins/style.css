@@ -1,0 +1,156 @@
+/* The Dragon's Rehearsal — AFI Archive Broadcast Service */
+:root {
+  --ink: #1c1712;
+  --paper: #f3e9d2;
+  --amber: #e8a33d;
+  --amber-deep: #b96a1e;
+  --rust: #8a3b2a;
+  --night: #12100e;
+  --grid: #2a241d;
+  font-size: 17px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #3a2c1a 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,0.015) 3px 4px),
+    var(--night);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+.frame {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 6rem;
+}
+/* Masthead: broadcast slate */
+.mast {
+  border: 2px solid var(--amber-deep);
+  outline: 1px solid var(--grid);
+  outline-offset: 6px;
+  padding: 1.6rem 1.8rem 1.3rem;
+  background: linear-gradient(160deg, #221b12 0%, #14110d 70%);
+  text-align: center;
+  position: relative;
+}
+.mast::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 46px, rgba(232,163,61,0.05) 46px 48px);
+  pointer-events: none;
+}
+.onair {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  color: var(--rust);
+  display: flex; align-items: center; justify-content: center; gap: 0.6em;
+  margin-bottom: 1rem;
+}
+.lamp {
+  width: 0.85em; height: 0.85em; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff9d8a, var(--rust) 70%);
+  box-shadow: 0 0 10px 2px rgba(178,60,40,0.6);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.svc {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  color: var(--amber);
+  margin: 0 0 0.8rem;
+}
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.05;
+  margin: 0 0 0.5rem;
+  color: var(--paper);
+  letter-spacing: 0.01em;
+}
+.deck {
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  color: #c9b58f;
+  margin: 0;
+}
+/* Program note */
+.note {
+  margin: 2.8rem 0 0;
+  padding: 1.6rem 1.8rem;
+  background: linear-gradient(180deg, rgba(232,163,61,0.07), rgba(232,163,61,0.02));
+  border-left: 4px solid var(--amber);
+}
+.note .lead::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.05em 0.15em 0 0;
+  color: var(--amber);
+}
+.note p { margin: 0 0 1rem; }
+.note p:last-child { margin-bottom: 0; }
+.cast { font-size: 0.88rem; color: #cfc0a3; }
+a { color: var(--amber); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: #ffd28a; }
+/* Scenes */
+.scene { margin-top: 3rem; }
+.scene-head {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--amber);
+  border-bottom: 1px solid var(--grid);
+  padding-bottom: 0.6rem;
+  margin: 0 0 1.4rem;
+}
+.scene-head::before { content: "◆ "; color: var(--rust); }
+.sfx {
+  font-style: italic;
+  color: #9d8f74;
+  font-size: 0.92rem;
+  margin: 0 0 1.1rem;
+  padding-left: 0.25rem;
+}
+.cue {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  color: var(--amber-deep);
+  font-size: 0.8rem;
+  margin: 1.2rem 0 0.2rem;
+}
+.line { margin: 0; }
+/* Colophon */
+.colophon {
+  margin-top: 3.2rem;
+  padding-top: 1.4rem;
+  border-top: 2px double var(--grid);
+  font-size: 0.88rem;
+  color: #9d8f74;
+}
+.play-nav p { margin: 0.35rem 0; }
+/* VU meter strip */
+.vu {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  padding: 0 8px 4px;
+  background: linear-gradient(180deg, rgba(18,16,14,0) 0%, var(--night) 45%);
+  pointer-events: none;
+}
+.vu .bar {
+  flex: 1;
+  background: linear-gradient(180deg, var(--rust) 0%, var(--amber) 45%, #6f4a12 46%, #6f4a12 100%);
+  height: 18%;
+  transition: height 0.18s ease;
+  opacity: 0.85;
+}
