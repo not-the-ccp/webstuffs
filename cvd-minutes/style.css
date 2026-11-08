@@ -1,0 +1,109 @@
+/* Chemical Vapor Deposition — Council Minutes No. 217 (council minutes sheet) */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  background: #faf7f0;
+  color: #2a2730;
+  font-family: "New York", "Times New Roman", Georgia, serif;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+.minutes {
+  max-width: 700px;
+  margin: 2.2rem auto;
+  padding: 2.6rem 2.2rem 3.4rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f5ede0 55%, #efe4d1 100%);
+  border: 1px solid #c9bda3;
+  border-top: 4px double #8c7348;
+  border-bottom: 4px double #8c7348;
+  box-shadow: 0 30px 70px -20px rgba(30, 24, 16, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+.minutes::before {
+  content: "";
+  position: absolute; top: -60px; left: -60px; width: 170px; height: 170px;
+  background: radial-gradient(circle at 40% 40%, rgba(140, 115, 72, 0.12) 0%, transparent 60%);
+  z-index: 0;
+}
+.letterhead {
+  position: relative; z-index: 2;
+  border-bottom: 2px double #8c7348;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+.seal {
+  position: absolute; top: -52px; left: 26px;
+  width: 104px; height: 104px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #b04a36, #7a2219);
+  border: 2.5px double #5c1812;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  animation: seal-sway 7s ease-in-out infinite;
+}
+.seal::after {
+  content: "PJMC &middot; No. 217";
+  position: absolute; inset: 5px;
+  border: 1.4px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #fff; display: flex; align-items: center; justify-content: center;
+}
+@keyframes seal-sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50% { transform: rotate(1.4deg); }
+}
+h1 {
+  font-size: 1.55rem; letter-spacing: 0.24em; text-transform: uppercase;
+  margin: 0 0 0.3rem; color: #2a2730; padding-left: 124px;
+}
+.meta {
+  margin: 0; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #726856; padding-left: 124px;
+}
+h2 {
+  font-size: 0.88rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #8c7348; margin: 1.9rem 0 0.65rem;
+  border-bottom: 1px solid #ddd4c1; padding-bottom: 0.35rem;
+}
+p { margin: 0 0 1.05rem; text-align: justify; }
+.attendance dl { margin: 0 0 1rem; display: grid; grid-template-columns: 150px 1fr; gap: 0.55rem 1.2rem; font-size: 0.93rem; }
+.attendance dt { font-weight: 700; color: #443d34; }
+.attendance dd { margin: 0; color: #5a5248; }
+.apologies { font-size: 0.9rem; color: #726856; margin-top: -0.4rem; }
+blockquote {
+  margin: 1rem 0 1.2rem; padding: 0.85rem 1rem 0.85rem 2.6rem;
+  border-left: 3px double #c9bda3; font-style: italic; color: #4d4539;
+  position: relative;
+}
+blockquote::before {
+  content: "\201C"; position: absolute; left: 0.45rem; top: 0.15rem;
+  font-size: 2.2rem; color: #c9bda3; line-height: 1;
+}
+strong { color: #5c411b; }
+em { color: #3b352e; }
+.resolution, p strong + text { }
+.signed {
+  margin-top: 2.8rem; border-top: 1px solid #cfc3ad; padding-top: 1.6rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; font-size: 0.92rem;
+  z-index: 2; position: relative;
+}
+.sign {
+  border-top: 1px solid #8c7348; padding-top: 0.45rem; margin-top: 2.7rem;
+  font-style: italic; color: #554d41;
+}
+.links {
+  margin-top: 3rem; border-top: 1px solid #e0d6c6; padding-top: 1rem;
+  font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; z-index: 2; position: relative;
+}
+.links a { color: #8c7348; text-decoration: none; border-bottom: 1px dotted #c9bda3; }
+.links a:hover { color: #b04a36; border-bottom-style: solid; }
+a { color: #8c7348; }
+@media (max-width: 560px) {
+  .minutes { margin: 1rem auto; padding: 1.8rem 1.2rem 2.6rem; }
+  h1 { padding-left: 112px; font-size: 1.3rem; }
+  .meta { padding-left: 112px; font-size: 0.78rem; }
+  .seal { width: 88px; height: 88px; top: -44px; left: 18px; }
+  .attendance dl { grid-template-columns: 1fr; }
+  .signed { grid-template-columns: 1fr; }
+}
