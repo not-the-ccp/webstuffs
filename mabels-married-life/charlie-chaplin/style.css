@@ -1,0 +1,208 @@
+/* Charlie Chaplin — Encyclopaedia Entry */
+:root {
+  --ink: #211814;
+  --paper: #faf7ee;
+  --leather: #5c3d2e;
+  --leather-dark: #3d2b20;
+  --brass: #b98a2f;
+  --moss: #8a6d4c;
+  --blood: #8c3b2e;
+}
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  padding: 40px 20px;
+  background: #f0e8d6;
+  color: var(--ink);
+  font-family: "Noto Serif", "Times New Roman", Times, serif;
+  line-height: 1.7;
+}
+.plate {
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid #b8a88c;
+  box-shadow: 0 0 0 4px var(--paper) inset, 0 12px 48px rgba(0,0,0,0.22);
+  padding: 52px 66px 70px;
+}
+@media (max-width: 620px) {
+  .plate { padding: 30px 20px 48px; }
+}
+.masthead {
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 3px double var(--leather-dark);
+  margin-bottom: 36px;
+  position: relative;
+}
+.tramp {
+  display: inline-block;
+  width: 80px;
+  height: 92px;
+  margin: 0 auto 14px;
+  animation: sway 6s ease-in-out infinite;
+}
+.brim {
+  position: absolute;
+  bottom: 16px;
+  left: -10px;
+  width: 100px;
+  height: 22px;
+  background: var(--leather-dark);
+  border-radius: 50%;
+  box-shadow: inset 0 2px 0 rgba(0,0,0,0.4);
+}
+.crown {
+  position: absolute;
+  bottom: 32px;
+  left: 11px;
+  width: 58px;
+  height: 36px;
+  background: var(--leather);
+  border-radius: 16px 16px 0 0;
+  box-shadow: inset 0 2px 0 rgba(0,0,0,0.3);
+}
+.band {
+  position: absolute;
+  bottom: 44px;
+  left: 7px;
+  width: 66px;
+  height: 12px;
+  background: #14100c;
+  border-radius: 6px;
+}
+.cane {
+  position: absolute;
+  bottom: 0;
+  left: 56px;
+  width: 10px;
+  height: 58px;
+  background: #6e4f3b;
+  border-radius: 5px;
+  transform: rotate(16deg);
+  transform-origin: bottom center;
+  box-shadow: 2px 2px 0 var(--leather-dark);
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(16deg); }
+  50% { transform: rotate(-8deg); }
+}
+.entry-title {
+  font-size: 48px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--leather-dark);
+  margin: 10px 0 6px;
+  font-variant: small-caps;
+  font-weight: 600;
+}
+.entry-vital {
+  font-size: 19px;
+  color: #7a5a3c;
+  margin: 0 0 4px;
+}
+.entry-vital .dates { font-style: italic; color: var(--leather); }
+.entry-deck {
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0;
+  font-variant: small-caps;
+}
+.entry-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 42px;
+  align-items: start;
+}
+@media (max-width: 700px) {
+  .entry-wrapper { grid-template-columns: 1fr; }
+}
+.entry h2 {
+  font-size: 19px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--leather-dark);
+  border-bottom: 1px solid #d9cbb2;
+  padding-bottom: 7px;
+  margin: 42px 0 16px;
+  font-variant: small-caps;
+}
+.entry h2:first-of-type { margin-top: 6px; }
+.entry p {
+  margin: 0 0 17px;
+  text-align: justify;
+}
+.entry .lead {
+  font-size: 18.5px;
+  color: var(--ink);
+}
+.entry .lead::first-letter {
+  float: left;
+  font-size: 72px;
+  line-height: 64px;
+  padding: 2px 12px 0 0;
+  margin-right: 10px;
+  color: var(--blood);
+}
+.dossier {
+  background: #f1e8d6;
+  border: 1px solid #d9cbb2;
+  border-top: 5px solid var(--brass);
+  padding: 16px 18px;
+  font-size: 14px;
+  position: sticky;
+  top: 20px;
+}
+.dossier caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--leather-dark);
+  font-variant: small-caps;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.dossier table { width: 100%; border-collapse: collapse; }
+.dossier td { padding: 5px 0; border-bottom: 1px dotted #d1c3a6; vertical-align: top; }
+.dossier td:first-child {
+  width: 38%;
+  color: #7a5a3c;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+.filmography {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin: 18px 0 4px;
+}
+.filmography th {
+  background: var(--leather-dark);
+  color: #f3ead9;
+  text-align: left;
+  padding: 7px 10px;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.filmography td { padding: 6px 10px; border-bottom: 1px solid #e1d4bd; }
+.filmography tr:last-child td { border-bottom: none; }
+.filmography tr:hover { background: #f5eddc; }
+a { color: var(--blood); text-decoration: underline dotted #c9a878; }
+a:hover, a:focus { background: #f3e9cf; text-decoration: underline; }
+.colophon {
+  margin-top: 50px;
+  padding-top: 26px;
+  border-top: 3px double var(--leather-dark);
+  font-size: 14px;
+  color: #6b5740;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+.colophon .sources { font-style: italic; margin-bottom: 14px; text-align: justify; }
+.colophon .nav a { margin: 0 6px; }
