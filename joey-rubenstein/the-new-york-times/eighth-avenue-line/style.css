@@ -1,0 +1,478 @@
+/* The Eighth Avenue Line — service timetable & field commentary */
+
+:root {
+  --paper: #f3ecdb;
+  --paper-deep: #eaddc5;
+  --ink: #22271f;
+  --green: #1f3a2d;
+  --green-deep: #142620;
+  --rail: #b0b7a6;
+  --oxblood: #7c2320;
+  --brass: #9a7b3f;
+  --rule: #c9bfa4;
+  --stamp: #8a3b34;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(31, 58, 45, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(34, 39, 31, 0.035) 27px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.58;
+}
+
+.page {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 22px 90px;
+  position: relative;
+}
+
+/* perforation edge down the left of the sheet */
+.page::before {
+  content: "";
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 14px;
+  background:
+    radial-gradient(circle at 7px 12px, rgba(0,0,0,0.18) 2.2px, transparent 2.6px);
+  background-size: 14px 26px;
+  border-right: 1px dashed var(--rule);
+  pointer-events: none;
+}
+
+/* masthead */
+.masthead {
+  border-top: 6px double var(--green);
+  border-bottom: 3px double var(--green);
+  padding: 18px 6px 16px;
+  margin: 26px 0 8px;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(31, 58, 45, 0.06), transparent 70%);
+}
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--green);
+  border: 1.5px solid var(--green);
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.62rem;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: var(--stamp);
+  border: 2.5px solid var(--stamp);
+  border-radius: 4px;
+  padding: 6px 8px;
+  transform: rotate(3deg);
+  opacity: 0.85;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1.02;
+  margin: 14px 0 6px;
+  color: var(--green-deep);
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.latin {
+  font-style: italic;
+  margin: 0 0 4px;
+  color: #4b5443;
+  font-size: 0.95rem;
+}
+
+.locator {
+  margin: 8px 0 0;
+  font-size: 0.83rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.04em;
+  color: #3d4437;
+  border-top: 1px solid var(--rule);
+  padding-top: 8px;
+}
+
+/* route strip */
+.route-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 14px 0 26px;
+  padding: 10px 4px 4px;
+}
+
+.route-strip .stop {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  white-space: nowrap;
+  position: relative;
+  padding: 4px 2px;
+}
+
+.route-strip .stop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 7px;
+  height: 7px;
+  background: var(--paper);
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.route-strip .rail {
+  flex: 1;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, var(--rail) 0 10px, transparent 10px 17px);
+  border-radius: 2px;
+  position: relative;
+  margin: 0 4px;
+}
+
+.route-strip .rail:first-of-type { flex: 2.2; }
+
+.train {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 22px;
+  height: 11px;
+  background: var(--oxblood);
+  border-radius: 5px 7px 2px 2px;
+  box-shadow: 0 0 0 1px var(--green-deep);
+  animation: run 14s linear infinite;
+}
+
+.train::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 2px;
+  width: 5px;
+  height: 4px;
+  background: var(--paper);
+}
+
+@keyframes run {
+  0%   { left: -6%; }
+  100% { left: 104%; }
+}
+
+/* entries */
+.entry {
+  margin: 0 0 34px;
+  padding: 0 4px;
+}
+
+.entry-date {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--brass);
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+h2 {
+  font-size: 1.32rem;
+  color: var(--green-deep);
+  margin: 0 0 10px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 5px;
+}
+
+p { margin: 0 0 12px; }
+
+a {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--green); }
+
+.drop {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 4px 8px 0 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+sup { color: var(--oxblood); font-size: 0.65em; }
+
+/* timetable */
+.timetable {
+  border: 2px solid var(--green);
+  background:
+    linear-gradient(180deg, var(--green) 0, var(--green) 44px, transparent 44px);
+  padding: 0;
+}
+
+.timetable caption {
+  caption-side: top;
+  background: var(--green);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 11px 10px 9px;
+  text-align: left;
+}
+
+table.times {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+table.times th,
+table.times td {
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px dotted var(--rule);
+  padding: 6px 7px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+table.times th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  background: rgba(31, 58, 45, 0.06);
+}
+
+.th-sub {
+  display: block;
+  font-size: 0.6rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #5c6353;
+}
+
+table.times td:first-child,
+table.times th:first-child {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--brass);
+  font-size: 0.78rem;
+}
+
+table.times tr:nth-child(even) { background: rgba(31, 58, 45, 0.035); }
+
+table.times tr.next {
+  background: rgba(124, 35, 32, 0.10);
+}
+
+table.times tr.next td:first-child {
+  color: var(--oxblood);
+  font-weight: bold;
+}
+
+table.times tr.next td:first-child::after {
+  content: " ◂";
+}
+
+table.times td:last-child {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem !important;
+  line-height: 1.35;
+  text-align: left;
+  color: #46503f;
+}
+
+.next-svc {
+  margin: 12px 4px 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
+  border-top: 1px dashed var(--oxblood);
+  padding-top: 8px;
+}
+
+/* feeder table */
+.feeders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 12px;
+  font-size: 0.9rem;
+}
+
+.feeders-table caption {
+  caption-side: top;
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  padding-bottom: 6px;
+}
+
+.feeders-table th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  border-bottom: 2px solid var(--green);
+  padding: 5px 8px;
+  color: var(--green);
+}
+
+.feeders-table td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 7px 8px;
+  vertical-align: top;
+}
+
+.feeders-table td:first-child {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--oxblood);
+}
+
+/* specimen tag */
+.specimen-tag {
+  border: 1.5px solid var(--brass);
+  outline: 1px solid var(--brass);
+  outline-offset: 3px;
+  background: #f7f1e2;
+  padding: 18px 22px 16px;
+  margin: 40px 0;
+  box-shadow: 3px 3px 0 rgba(154, 123, 63, 0.25);
+}
+
+.tag-head {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--brass);
+  margin: 0 0 10px;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 6px;
+}
+
+.specimen-tag dl { margin: 0; }
+
+.specimen-tag dl > div {
+  display: flex;
+  gap: 14px;
+  padding: 4px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.9rem;
+}
+
+.specimen-tag dt {
+  flex: 0 0 150px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5c6353;
+  padding-top: 2px;
+}
+
+.specimen-tag dd { margin: 0; }
+
+.tag-foot {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #5c6353;
+  margin: 12px 0 0;
+}
+
+/* colophon */
+.colophon {
+  border-top: 6px double var(--green);
+  padding-top: 14px;
+  margin-top: 30px;
+  font-size: 0.85rem;
+}
+
+.field-time {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--green);
+  letter-spacing: 0.05em;
+  margin: 0 0 6px;
+}
+
+.see-also a { margin-right: 0.2em; }
+
+/* round stamp */
+.stamp-round {
+  position: absolute;
+  right: 30px;
+  bottom: 120px;
+  width: 132px;
+  height: 132px;
+  transform: rotate(-12deg);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.stamp-ring {
+  position: absolute;
+  inset: 6px;
+  border: 3px solid var(--stamp);
+  border-radius: 50%;
+}
+
+.stamp-ring::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--stamp);
+  border-radius: 50%;
+}
+
+.stamp-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  line-height: 1.6;
+  color: var(--stamp);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .timetable { overflow-x: auto; }
+  table.times { min-width: 720px; }
+  .stamp-round { display: none; }
+}
