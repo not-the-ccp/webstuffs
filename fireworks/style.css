@@ -1,0 +1,114 @@
+/* Placard No. 47 — Museum of the Broadcast Prop */
+
+:root {
+  --paper: #f5f1e8;
+  --ink: #23201a;
+  --rule: #b8ac93;
+  --accent: #7c3f2b;
+  --dim: #6b6455;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e6e0d2;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.case {
+  max-width: 40rem;
+  margin: 3.5rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgba(35, 32, 26, 0.12), 0 14px 40px rgba(35, 32, 26, 0.14);
+  padding: 3rem 3.25rem 2.25rem;
+}
+
+.case-head {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.attrib {
+  font-style: italic;
+  color: var(--dim);
+  margin: 0;
+}
+
+main p {
+  margin: 0 0 1.35rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+main p:last-of-type { margin-bottom: 0; }
+
+.specimen::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: #54301f; }
+
+.colophon-line {
+  font-size: 0.82rem;
+  color: var(--dim);
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+.case-foot {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.case-foot p {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0.4rem 0 0;
+}
+
+.case-foot::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  border-top: 1px solid var(--rule);
+  margin: 0 auto 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .case { margin: 0; padding: 2rem 1.4rem; border-left: none; border-right: none; }
+  main p { text-align: left; }
+}
