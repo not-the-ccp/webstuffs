@@ -1,0 +1,230 @@
+/* Apology to the Garrison of Lilybaeum — a Roman letter, 241 BC */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 10%, #4a3f33 0%, #332b22 55%, #241e17 100%);
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 80px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: #2a2018;
+}
+
+.desk {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(93deg, rgba(255,255,255,.015) 0 2px, transparent 2px 7px);
+  mix-blend-mode: overlay;
+}
+
+.letter {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(255,250,235,.7) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(120,80,40,.22) 0%, transparent 45%),
+    linear-gradient(178deg, #ece0c4 0%, #e5d6b2 40%, #ddcaa0 78%, #d3bd92 100%);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.5),
+    0 22px 48px rgba(0,0,0,.55),
+    inset 0 0 90px rgba(120,85,40,.28),
+    inset 0 0 12px rgba(90,60,30,.25);
+  padding: 64px 72px 56px;
+  border-radius: 2px 2px 3px 2px;
+}
+
+/* torn, deckle edges */
+.letter::before,
+.letter::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 10px;
+  background: inherit;
+  background: radial-gradient(circle at 6px -4px, transparent 5px, #e5d6b2 5.5px);
+  background-size: 14px 12px;
+}
+.letter::before { top: -8px; }
+.letter::after { bottom: -8px; transform: scaleY(-1); }
+
+/* fold lines */
+.fold { position: absolute; pointer-events: none; }
+.fold-h, .fold-h2 {
+  left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(90,60,25,.18) 12%, rgba(90,60,25,.22) 50%, rgba(90,60,25,.18) 88%, transparent);
+  box-shadow: 0 1px 0 rgba(255,248,230,.5);
+}
+.fold-h { top: 33.3%; }
+.fold-h2 { top: 66.6%; }
+.fold-v {
+  top: 0; bottom: 0; width: 2px; left: 50%;
+  background: linear-gradient(180deg, transparent, rgba(90,60,25,.10) 15%, rgba(90,60,25,.12) 85%, transparent);
+}
+
+/* red dispatch stamp, upper left */
+.stamp-stamp {
+  position: absolute;
+  top: 22px;
+  left: 26px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: .22em;
+  line-height: 1.5;
+  color: rgba(146, 44, 28, .72);
+  border: 2px solid rgba(146, 44, 28, .6);
+  border-radius: 4px;
+  padding: 5px 9px;
+  transform: rotate(-7deg);
+  mix-blend-mode: multiply;
+}
+
+.letterhead { margin-bottom: 28px; }
+
+.from-line {
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #4a3a28;
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin: 0 0 14px;
+  color: #241a10;
+  font-variant: small-caps;
+}
+
+.to-line {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3c2f20;
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(90, 60, 25, .4);
+}
+
+.body { margin-top: 8px; }
+
+.body p {
+  font-size: 16px;
+  line-height: 1.72;
+  margin: 0 0 18px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.salutation {
+  margin-bottom: 24px;
+  letter-spacing: .01em;
+}
+
+/* drop cap on the first paragraph */
+.body p.silence + p { break-before: avoid; }
+.body > p:nth-of-type(2)::first-letter {
+  float: left;
+  font-size: 52px;
+  line-height: .88;
+  padding: 4px 8px 0 0;
+  color: #6e2418;
+  font-weight: 600;
+}
+
+.closing {
+  margin-top: 40px;
+  text-align: right;
+  padding-right: 8px;
+}
+
+.sign-1, .sign-2 {
+  margin: 4px 0;
+  font-size: 15.5px;
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  color: #241a10;
+}
+
+.sign-1 {
+  font-family: "Snell Roundhand", "Segoe Script", cursive;
+  font-size: 26px;
+  color: #3a2a50;
+  transform: rotate(-2deg);
+}
+
+.postscript {
+  margin-top: 16px;
+  font-size: 13.5px;
+  font-style: italic;
+  color: #5a452c;
+}
+
+/* wax seal */
+.seal {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  margin: 26px 0 0 auto;
+}
+
+.seal svg { width: 100%; height: 100%; display: block; }
+
+.seal-wax {
+  fill: #7c1f16;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,.4));
+}
+
+.seal-ring { fill: none; stroke: #9a2f1f; stroke-width: 2.5; }
+.seal-ring2 { fill: none; stroke: #5c140d; stroke-width: 1.5; }
+
+.seal-text {
+  fill: #d9a38f;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: .28em;
+}
+
+.seal-shadow {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 18px rgba(40,0,0,.65);
+  pointer-events: none;
+}
+
+.colophon {
+  margin-top: 48px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(90, 60, 25, .45);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #5a452c;
+}
+
+.colophon p { margin: 0 0 8px; }
+
+.colophon a {
+  color: #6e2418;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(110, 36, 24, .5);
+}
+
+.colophon a:hover { background: rgba(110, 36, 24, .08); }
+
+@media (max-width: 560px) {
+  .letter { padding: 52px 26px 44px; }
+  h1 { font-size: 24px; }
+  .body p { text-align: left; }
+  .closing { text-align: left; }
+  .seal { margin-left: 0; }
+}
