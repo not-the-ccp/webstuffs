@@ -1,0 +1,267 @@
+/* Pamplona Football Society — Lost & Found Notice No. 402 */
+
+:root {
+  --paper: #f5eeda;
+  --paper-deep: #ece1c4;
+  --ink: #24221c;
+  --ink-soft: #4d483c;
+  --verde: #00613c;
+  --verde-deep: #024429;
+  --red: #b23a2e;
+  --rule: #b9ad8d;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--verde-deep); }
+
+body {
+  margin: 0;
+  padding: 48px 16px 72px;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 14px, transparent 14px 28px),
+    radial-gradient(circle at 20% 0%, #0b5a3c 0%, var(--verde-deep) 60%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.62;
+}
+
+.sheet {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(178, 161, 110, 0.10), transparent 120px),
+    var(--paper);
+  border: 1px solid #c8bb95;
+  box-shadow:
+    0 2px 0 rgba(0,0,0,0.35),
+    0 24px 60px rgba(0,0,0,0.45),
+    inset 0 0 90px rgba(140, 120, 60, 0.16);
+  padding: 0 44px 40px;
+}
+
+.perforations {
+  position: absolute;
+  top: -9px; left: 18px; right: 18px; height: 18px;
+  background-image: radial-gradient(circle at 9px 0px, var(--verde-deep) 6px, transparent 6.5px);
+  background-size: 34px 18px;
+  background-repeat: repeat-x;
+}
+
+/* ---------- letterhead ---------- */
+
+.notice-head { text-align: center; padding: 34px 0 10px; }
+
+.letterhead {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.34em;
+  font-size: 1.35rem;
+  color: var(--verde);
+  font-weight: normal;
+}
+
+.letterhead-sub {
+  margin: 6px 0 18px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+h1 .form {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
+
+.filed {
+  margin: 12px auto 0;
+  max-width: 560px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 7px 0;
+}
+
+/* ---------- the rubber stamp ---------- */
+
+.stamp {
+  position: relative;
+  width: 168px; height: 168px;
+  margin: 22px auto 6px;
+  transform: rotate(-11deg);
+  color: var(--red);
+  opacity: 0.88;
+  mix-blend-mode: multiply;
+}
+
+.stamp-ring {
+  position: absolute; inset: 0;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 5px var(--red);
+}
+
+.stamp span { position: absolute; left: 0; right: 0; text-align: center; font-family: "Courier New", Courier, monospace; font-weight: bold; }
+.stamp-top { top: 26px; font-size: 0.78rem; letter-spacing: 0.18em; }
+.stamp-mid { top: 66px; font-size: 0.62rem; letter-spacing: 0.12em; }
+.stamp-bot { top: 100px; font-size: 0.78rem; letter-spacing: 0.2em; }
+
+/* ---------- panels ---------- */
+
+.panel {
+  margin: 30px 0;
+  padding: 22px 26px 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent 90px), var(--paper-deep);
+  border: 1px dashed #a4966e;
+  box-shadow: inset 0 0 24px rgba(140, 120, 60, 0.14);
+}
+
+.panel p { margin: 0 0 14px; }
+
+.panel-tag {
+  margin: 0 0 16px;
+  font-size: 1.02rem;
+  letter-spacing: 0.08em;
+  font-variant: small-caps;
+  color: var(--verde-deep);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag-missing, .tag-found, .tag-ledger, .tag-describe {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  padding: 4px 12px;
+  color: var(--paper);
+  transform: rotate(-2deg);
+}
+.tag-missing { background: var(--red); box-shadow: 2px 2px 0 rgba(178,58,46,0.25); }
+.tag-found   { background: var(--verde); box-shadow: 2px 2px 0 rgba(0,97,60,0.25); }
+.tag-ledger  { background: var(--ink-soft); }
+.tag-describe { background: #8a6d1f; }
+
+/* ---------- pencilled line ---------- */
+
+.pencil-line {
+  margin: 18px auto;
+  max-width: 560px;
+  padding: 16px 22px;
+  background: #fbf7e8;
+  border: 1px solid var(--rule);
+  border-left: 4px solid #9a917a;
+  font-style: italic;
+  color: #5b5340;
+  box-shadow: 2px 3px 0 rgba(90, 80, 50, 0.12);
+  transform: rotate(-0.6deg);
+  position: relative;
+}
+
+.pencil-line::after {
+  content: "pencilled in the folio, hand of the file";
+  position: absolute;
+  right: 10px; bottom: -9px;
+  font-size: 0.66rem;
+  font-style: normal;
+  color: #8b8266;
+  background: var(--paper-deep);
+  padding: 0 6px;
+}
+
+/* ---------- ledger ---------- */
+
+.ledger ul { list-style: none; margin: 0; padding: 0; }
+
+.ledger li {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  padding: 10px 2px;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.ledger li:last-child { border-bottom: none; }
+
+.ledger .when {
+  flex: 0 0 132px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: var(--verde);
+  letter-spacing: 0.06em;
+}
+
+/* ---------- links ---------- */
+
+a { color: var(--verde); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--verde-deep); background: rgba(0, 97, 60, 0.08); }
+
+/* ---------- footer ---------- */
+
+.notice-foot { margin-top: 38px; text-align: center; }
+
+.barcode {
+  height: 34px;
+  width: 240px;
+  margin: 0 auto 14px;
+  background: repeating-linear-gradient(90deg,
+    var(--ink) 0 2px, transparent 2px 5px,
+    var(--ink) 5px 8px, transparent 8px 10px,
+    var(--ink) 10px 11px, transparent 11px 16px,
+    var(--ink) 16px 19px, transparent 19px 21px);
+  opacity: 0.8;
+}
+
+.foot-line {
+  margin: 0 0 20px;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.stamp-btn {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  background: var(--red);
+  border: 2px solid var(--red);
+  padding: 10px 20px;
+  cursor: pointer;
+  transform: rotate(-1.2deg);
+  box-shadow: 3px 3px 0 rgba(178, 58, 46, 0.3);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.stamp-btn:hover { transform: rotate(-1.2deg) translateY(-2px); box-shadow: 4px 5px 0 rgba(178, 58, 46, 0.3); }
+.stamp-btn:active { transform: rotate(-1.2deg) translateY(1px); box-shadow: 1px 1px 0 rgba(178, 58, 46, 0.3); }
+
+.stamp-note {
+  margin: 14px 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--red);
+  letter-spacing: 0.06em;
+  min-height: 1.3em;
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 0 20px 32px; }
+  .ledger .when { flex-basis: 88px; }
+  h1 { font-size: 1.6rem; }
+}
