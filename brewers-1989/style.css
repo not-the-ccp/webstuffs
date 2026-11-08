@@ -1,0 +1,199 @@
+/* The 1989 Brewers Service — route book of Line B-89 */
+
+:root {
+  --ink: #1d2a4a;          /* Brewers navy */
+  --gold: #c69a2e;         /* County gold */
+  --paper: #f6efdd;        /* ticket stock */
+  --paper-deep: #efe4c8;
+  --rule: #8a7b52;
+  --red-ink: #9c3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 62rem;
+  padding: 2rem 1.25rem 4rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(29, 42, 74, 0.04) 34px 35px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+.plate {
+  text-align: center;
+  border-top: 6px double var(--ink);
+  border-bottom: 6px double var(--ink);
+  padding: 1.1rem 0 1.3rem;
+  background: var(--paper-deep);
+}
+
+.plate-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.8rem;
+}
+
+.board {
+  background: var(--ink);
+  color: var(--gold);
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--gold);
+  white-space: nowrap;
+}
+
+.plate h1 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+}
+
+.plate-sub {
+  margin: 0 0 0.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+}
+
+.plate-plate {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--rule);
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin: 1.2rem auto;
+  padding: 0.7rem 0.5rem;
+  border: 1px dashed var(--rule);
+  background: transparent;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.stop {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 0.2rem 0.45rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.stop.big {
+  background: var(--ink);
+  color: var(--gold);
+  border-color: var(--gold);
+  font-weight: bold;
+}
+
+.route i {
+  width: 1.4rem;
+  border-top: 2px dotted var(--rule);
+}
+
+.book section {
+  margin: 2.2rem 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  font-size: 0.86rem;
+}
+
+.timetable th {
+  background: var(--ink);
+  color: var(--gold);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  padding: 0.5rem 0.55rem;
+  border: 1px solid var(--ink);
+}
+
+.timetable td {
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.timetable tbody tr:nth-child(odd) { background: var(--paper-deep); }
+
+tr.terminal td {
+  background: #fff8e6;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  font-weight: bold;
+}
+
+.table-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--rule);
+  border-left: 3px solid var(--gold);
+  padding-left: 0.8rem;
+}
+
+.note {
+  margin: 0 0 1.6rem;
+  padding: 0 0 0 1rem;
+  border-left: 4px solid var(--ink);
+}
+
+.note h3 {
+  margin: 0.4rem 0 0.5rem;
+  font-size: 1.02rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.margin-quote {
+  margin: 0.8rem 0;
+  padding: 0.6rem 1rem;
+  background: var(--paper-deep);
+  border: 1px dashed var(--rule);
+  font-style: italic;
+  color: var(--red-ink);
+}
+
+.sig { font-style: italic; }
+
+footer.colophon {
+  border-top: 6px double var(--ink);
+  margin-top: 2.5rem;
+  padding-top: 0.8rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+footer.colophon p { margin: 0.2rem 0; }
+footer.colophon p:last-child { font-style: italic; }
+
+a { color: var(--ink); }
+a:hover { color: var(--red-ink); }
