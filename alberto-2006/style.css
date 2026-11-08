@@ -1,0 +1,310 @@
+/* Notice Nº 106 — Tropical Storm Alberto, No. 1 of 2006
+   Big Bend Mercantile, gulf-facing room. A page kept wet on purpose. */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Special+Elite&family=UnifrakturMaguntia&display=swap');
+
+:root {
+  --deep: #0b1d2b;
+  --slate: #16323f;
+  --tide: #2e6f75;
+  --foam: #cfe6df;
+  --paper: #efe6d2;
+  --ink: #20303a;
+  --brass: #b98a3c;
+  --verm: #b0432e;
+  --rain: rgba(160, 200, 215, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--foam);
+  font-family: 'IM Fell English', Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(120, 180, 190, 0.25), transparent 60%),
+    radial-gradient(ellipse 90% 55% at 85% 110%, rgba(46, 111, 117, 0.5), transparent 65%),
+    linear-gradient(180deg, var(--deep) 0%, var(--slate) 45%, #102833 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ---------- The sky: rain and the vortex ---------- */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.rain {
+  position: absolute;
+  inset: -20% 0 0 0;
+  background-image: repeating-linear-gradient(
+    105deg,
+    transparent 0 46px,
+    var(--rain) 46px 47px,
+    transparent 47px 92px
+  );
+  background-size: 200% 200%;
+  opacity: 0.22;
+  animation: rainfall 1.1s linear infinite;
+}
+
+.rain-b {
+  opacity: 0.12;
+  background-image: repeating-linear-gradient(
+    100deg,
+    transparent 0 13px,
+    var(--rain) 13px 14px,
+    transparent 14px 31px
+  );
+  animation-duration: 0.7s;
+  animation-direction: reverse;
+}
+
+@keyframes rainfall {
+  from { background-position: 0 0; }
+  to   { background-position: -180px 340px; }
+}
+
+.vortex {
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: min(52vw, 480px);
+  height: min(52vw, 480px);
+  color: rgba(207, 230, 223, 0.16);
+  animation: spin 24s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- The notice board ---------- */
+
+.board {
+  position: relative;
+  z-index: 1;
+  width: min(46rem, 94vw);
+  margin: 4rem auto 6rem;
+  padding: 2.6rem 2.8rem 2.2rem;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(185, 138, 60, 0.06) 30px 31px),
+    radial-gradient(ellipse 140% 90% at 50% 0%, #f7efdc, var(--paper) 55%, #e3d6ba 100%);
+  border: 3px double var(--brass);
+  outline: 1px solid rgba(32, 48, 58, 0.35);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 12px rgba(11, 29, 43, 0.25);
+  transform: rotate(-0.4deg);
+}
+
+/* water stains */
+.board::before,
+.board::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(46, 111, 117, 0.14) 0 58%, transparent 62%);
+}
+.board::before { width: 190px; height: 190px; top: -50px; left: -60px; }
+.board::after  { width: 130px; height: 130px; bottom: 30px; right: -45px; }
+
+/* ---------- Head ---------- */
+
+.head { text-align: center; border-bottom: 4px double var(--ink); padding-bottom: 1.4rem; }
+
+.merch {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.4rem;
+  color: var(--slate);
+}
+
+.dept {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  margin: 0 0 1.2rem;
+  color: var(--verm);
+}
+
+h1 {
+  font-family: 'UnifrakturMaguntia', 'IM Fell English', serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 3.9rem);
+  line-height: 1.05;
+  margin: 0.2rem 0 0.6rem;
+  color: var(--deep);
+  text-shadow: 2px 2px 0 rgba(185, 138, 60, 0.35);
+}
+
+h1 .lost {
+  display: inline-block;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.42em;
+  letter-spacing: 0.18em;
+  color: var(--verm);
+  border: 2px solid var(--verm);
+  padding: 0.15em 0.5em;
+  transform: rotate(-7deg);
+  margin-right: 0.5em;
+  vertical-align: 0.35em;
+}
+
+.notice-no {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--tide);
+}
+
+/* ---------- Sections ---------- */
+
+.item { padding: 1.3rem 0 1.1rem; border-bottom: 1px dashed rgba(32, 48, 58, 0.4); }
+.item:last-of-type { border-bottom: none; }
+
+h2 {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+  color: var(--verm);
+}
+
+h2::before {
+  content: "◉ ";
+  color: var(--brass);
+}
+
+p { margin: 0 0 0.9rem; }
+
+a {
+  color: var(--tide);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--verm);
+  background: rgba(185, 138, 60, 0.18);
+}
+
+strong { color: var(--deep); }
+
+em.marginal {
+  display: block;
+  margin: 0.9rem 1.2rem;
+  padding: 0.7rem 1rem;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--slate);
+  border-left: 4px solid var(--brass);
+  background:
+    linear-gradient(90deg, rgba(46, 111, 117, 0.10), transparent 70%),
+    rgba(255, 252, 244, 0.6);
+  transform: rotate(-0.6deg);
+}
+
+/* ---------- Spec table ---------- */
+
+table.spec {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.97rem;
+}
+
+table.spec th {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  text-align: left;
+  vertical-align: top;
+  width: 11rem;
+  padding: 0.35rem 0.8rem 0.35rem 0;
+  color: var(--verm);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+table.spec td {
+  padding: 0.35rem 0;
+  border-bottom: 1px dotted rgba(32, 48, 58, 0.3);
+}
+
+table.spec tr:last-child td,
+table.spec tr:last-child th { border-bottom: none; }
+
+/* ---------- Footer ---------- */
+
+.foot {
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 4px double var(--ink);
+  text-align: center;
+}
+
+.sig {
+  font-style: italic;
+  margin: 0 0 0.6rem;
+  color: var(--slate);
+}
+
+.see-also {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.see-also a { font-family: inherit; }
+
+/* ---------- Pressure gauge ---------- */
+
+.gauge {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 2;
+  color: var(--foam);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.8rem;
+  text-align: center;
+  background: rgba(11, 29, 43, 0.75);
+  border: 1px solid rgba(207, 230, 223, 0.4);
+  padding: 0.6rem 0.9rem 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gauge svg { width: 110px; display: block; margin: 0 auto; }
+.gauge #needle { transition: transform 2.2s cubic-bezier(0.2, 0.8, 0.3, 1); transform-origin: 60px 65px; }
+.gauge p { margin: 0.2rem 0 0; letter-spacing: 0.1em; }
+
+/* ---------- Reading the wet page: a soft swell ---------- */
+
+.board { animation: swell 9s ease-in-out infinite alternate; }
+
+@keyframes swell {
+  from { transform: rotate(-0.4deg) translateY(0); }
+  to   { transform: rotate(0.3deg) translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rain, .vortex, .board { animation: none; }
+}
