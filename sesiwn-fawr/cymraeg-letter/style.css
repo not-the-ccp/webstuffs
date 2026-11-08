@@ -1,0 +1,113 @@
+/* Cymraeg — a letter to the editor, Webstuffs */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 34px 16px;
+  background: linear-gradient(135deg, #e9f0e4 0%, #d3ddc2 55%, #b9c7a4 100%);
+  background-attachment: fixed;
+  color: #1b2a1e;
+  font-family: "Constantia", "Palatino Linotype", "URW Palladio", "P052", serif;
+  line-height: 1.7;
+}
+.letter {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fdfbf2;
+  border: 2px solid #5c7a43;
+  border-radius: 10px;
+  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.13);
+  padding: 52px 44px 46px;
+  position: relative;
+  overflow: hidden;
+}
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #5c7a43;
+  border-radius: 10px;
+  margin: -2px;
+  z-index: 0;
+  pointer-events: none;
+}
+.letter::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, #a02c2c 0, #a02c2c 14px, #ffffff 14px, #ffffff 28px);
+}
+.letter > * { position: relative; z-index: 1; }
+.seal {
+  position: absolute;
+  top: -52px; right: -52px;
+  width: 150px; height: 150px;
+  background: #a02c2c;
+  clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 50% 78%, 0% 100%, 0% 30%);
+  color: #fff;
+  font: 11px/1.4 "Trebuchet MS", sans-serif;
+  letter-spacing: 2.4px;
+  padding: 58px 14px 0;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0.92;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  animation: seal-sway 5s ease-in-out infinite;
+}
+@keyframes seal-sway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+.letter-head .letter-place {
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  color: #5c7a43;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #5c7a43;
+  display: inline-block;
+}
+.letter-head h1 {
+  font-size: 2.5rem;
+  margin: 10px 0 6px;
+  letter-spacing: 0.4px;
+  color: #142116;
+  text-shadow: 0.5px 0.5px 0 #d9e2c8;
+}
+.letter-head .letter-date { font-size: 0.9rem; color: #455a3c; font-style: italic; }
+.letter-head .letter-to { font-size: 1rem; font-weight: bold; color: #1b2a1e; margin-top: 14px; }
+p.dropcap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 2px 10px 0 0;
+  margin-right: 8px;
+  color: #a02c2c;
+  font-weight: bold;
+}
+.sign-off {
+  margin-top: 30px;
+  border-top: 1px solid #b9c7a4;
+  padding-top: 16px;
+  font-style: italic;
+}
+.sign-off .signer { display: block; font-style: normal; font-weight: bold; }
+.letter-footer {
+  margin-top: 34px;
+  font-size: 0.85rem;
+  color: #455a3c;
+  border-top: 1px solid #b9c7a4;
+  padding-top: 14px;
+}
+.letter-footer p { margin: 6px 0; }
+.letter-footer a {
+  color: #a02c2c;
+  text-decoration: none;
+  border-bottom: 1px dotted #a02c2c;
+}
+.letter-footer a:hover { text-decoration: underline; }
+@media (max-width: 560px) {
+  .letter { padding: 36px 22px 32px; margin: 0 10px; }
+  .seal { width: 110px; height: 110px; top: -38px; right: -38px; font-size: 9px; padding: 44px 10px 0; }
+}
