@@ -1,0 +1,247 @@
+/* Enoch Powell — Biographical Entry. A reference-plate aesthetic:
+   engraving rules, Greek accents, two columns, drop cap. */
+
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #ece4d2;
+  --ink: #23201a;
+  --faded: #5c5545;
+  --rule: #b8ab8d;
+  --greek: #5d4a7a;
+  --oxford: #1d3a2f;
+  --flag: #7a1f1f;
+  --chair: #2b2a26;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(93, 74, 122, 0.10), transparent 55%),
+    radial-gradient(ellipse at 110% 110%, rgba(29, 58, 47, 0.12), transparent 55%),
+    var(--paper-deep);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.plate {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3rem;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box;
+  border: 1px solid var(--rule);
+  outline: 4px double var(--rule);
+  outline-offset: 6px;
+  position: relative;
+  box-shadow: 0 18px 40px rgba(35, 32, 26, 0.22);
+}
+
+/* The Greek margin: one letter, cycling, down the left edge */
+.greek-margin {
+  position: absolute;
+  left: -2.9rem;
+  top: 8rem;
+  writing-mode: vertical-rl;
+  font-size: 3.4rem;
+  font-style: italic;
+  color: var(--greek);
+  opacity: 0.28;
+  user-select: none;
+}
+@media (max-width: 1180px) { .greek-margin { display: none; } }
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+}
+
+.division {
+  margin: 1.4rem 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--greek);
+}
+
+h1 {
+  margin: 0.2rem 0 0;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+h1::after {
+  content: "\395\39d\39f\3a7   \3a0\3a9\39b\39b"; /* ΕΝΟΧ ΠΩΛΛ */
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 0.5em;
+  color: var(--greek);
+  margin-top: 0.7rem;
+}
+
+.dates {
+  margin: 0.6rem 0 0;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--oxford);
+  font-size: 1.05rem;
+}
+
+.lede {
+  margin: 1.2rem 0 0;
+  font-size: 1.08rem;
+  color: var(--ink);
+}
+
+.lede strong { color: var(--oxford); }
+
+.rule {
+  margin-top: 1.6rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rule) 18%, var(--rule) 82%, transparent);
+  position: relative;
+  text-align: center;
+}
+.rule span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--paper);
+  padding: 0 0.9rem;
+  color: var(--greek);
+  font-size: 1.1rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 2.4rem;
+  margin-top: 2.2rem;
+}
+@media (max-width: 860px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+.article h2 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--oxford);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.45rem;
+  margin: 2.4rem 0 1rem;
+}
+.article h2:first-child { margin-top: 0; }
+
+.article p { margin: 0 0 1.15rem; }
+
+.article > p:first-of-type::first-letter,
+.article h2:first-of-type + p::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--greek);
+}
+
+strong { color: var(--oxford); }
+em { color: var(--faded); }
+
+a {
+  color: var(--flag);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--flag);
+}
+a:hover { color: var(--oxford); border-bottom-color: var(--oxford); }
+
+/* Infobox — the filing card */
+.infobox {
+  align-self: start;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 1.3rem 1.3rem 1.1rem;
+  font-size: 0.92rem;
+}
+.infobox h3 {
+  margin: 0 0 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--greek);
+  border-bottom: 2px solid var(--greek);
+  padding-bottom: 0.4rem;
+}
+.infobox dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 0.55rem; }
+.infobox dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin-bottom: 0.05rem;
+}
+.infobox dd { margin: 0; }
+
+.chair-note {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.chair-note p { margin: 0.25rem 0; }
+.chair {
+  display: inline-block;
+  width: 1em;
+  height: 1.2em;
+  border: 2px solid var(--chair);
+  border-radius: 3px 3px 0 0;
+  background: repeating-linear-gradient(0deg, transparent 0 4px, var(--chair) 4px 5px);
+  vertical-align: middle;
+  margin-right: 0.2rem;
+}
+.chair-second { border-color: var(--greek); background: repeating-linear-gradient(0deg, transparent 0 4px, var(--greek) 4px 5px); animation: settle 3.5s ease-in-out infinite; }
+@keyframes settle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+.do-not-flip {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--flag);
+  margin-top: 0.6rem;
+}
+
+.colophon {
+  margin-top: 3rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--faded);
+}
+.strip {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  color: var(--greek);
+  opacity: 0.55;
+  margin: 0 0 1rem;
+}
