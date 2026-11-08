@@ -1,0 +1,212 @@
+/* Huddersfield Literature Festival — patent application docket sheet.
+   Palette: parchment paper, iron-gall ink, sealing wax, brass rule. */
+
+:root {
+  --ink: #252119;
+  --paper: #fbf7ee;
+  --rule: #b98c4f;
+  --wax: #7a2e2e;
+  --wax-dark: #5a1f1f;
+  --cloth: #4a3f35;
+  --mute: #6e6254;
+  --border: #d5c9a8;
+}
+
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  font-family: "Iowan Old Style", "Apple Garamond", "Iowan", "Times New Roman", Times, serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background: linear-gradient(150deg, #eadebe 0%, #f2ece0 42%, #eadebe 100%);
+  background-attachment: fixed;
+}
+
+.patent {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 48px 36px 60px;
+  background: var(--paper);
+  border: 10px solid var(--border);
+  box-shadow: 0 14px 44px rgba(36, 30, 22, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sealing wax devices — decorative, no meaning */
+.patent::before,
+.patent::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 8px solid var(--wax);
+  background: radial-gradient(circle at 40% 40%, #b04343, var(--wax-dark) 72%);
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.4), 0 0 0 5px var(--paper);
+  opacity: 0.92;
+}
+.patent::before {
+  top: -72px; left: -68px;
+  width: 200px; height: 200px;
+  animation: wax-drift 7s ease-in-out infinite alternate;
+}
+.patent::after {
+  top: 26px; right: -58px;
+  width: 140px; height: 140px;
+  animation: wax-drift 9s ease-in-out infinite alternate-reverse;
+  opacity: 0.85;
+}
+@keyframes wax-drift {
+  from { transform: scale(1) rotate(-3deg); }
+  to { transform: scale(1.05) rotate(3deg); }
+}
+
+/* Dog-ear corner (CSS shape) */
+.dogear {
+  position: absolute;
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-top: 46px solid var(--rule);
+  border-left: 46px solid transparent;
+}
+
+header.docket {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+.docket-seal {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--wax);
+  background: radial-gradient(circle at 42% 42%, #d87a6a, var(--wax) 68%);
+  color: #f9efe0;
+  font: 700 11px/52px "Courier New", Courier, monospace;
+  text-align: center;
+  letter-spacing: 3px;
+  box-shadow: 0 0 0 5px var(--paper), 0 3px 10px rgba(0, 0, 0, 0.3);
+  animation: seal-nod 5s ease-in-out infinite;
+}
+@keyframes seal-nod {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.office {
+  margin: 0;
+  font: 700 9px/1 "Courier New", Courier, monospace;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8a6b3f;
+}
+h1 {
+  font-size: 21px;
+  line-height: 1.25;
+  margin: 10px 0 6px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.dek {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--mute);
+  letter-spacing: 0.15px;
+}
+
+main section { margin-bottom: 30px; }
+main section:last-of-type { margin-bottom: 4px; }
+
+h2 {
+  font-size: 13.5px;
+  line-height: 1;
+  margin: 0 0 12px;
+  padding-left: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--wax);
+  border-left: 5px solid var(--rule);
+}
+
+p { margin: 0 0 13px; text-align: justify; }
+
+.shelf-copy {
+  font-style: italic;
+  font-size: 16.5px;
+  border-left: 7px solid var(--wax);
+  background: #f7efe4;
+  padding: 14px 20px;
+  margin: 20px 0;
+}
+
+.claims ol {
+  margin: 0; padding: 0;
+  list-style: none;
+  counter-reset: claim;
+}
+.claims li {
+  counter-increment: claim;
+  position: relative;
+  padding: 10px 14px 10px 60px;
+  margin: 0 0 11px;
+  background: #faf6ea;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--rule);
+}
+.claims li::before {
+  content: "Claim " counter(claim);
+  position: absolute;
+  left: 11px; top: 50%; transform: translateY(-50%);
+  font: 700 10.5px/1 "Courier New", Courier, monospace;
+  letter-spacing: 1.5px;
+  color: var(--wax);
+}
+.claims li p { margin: 0; }
+
+figure.site-plan {
+  margin: 12px 0 6px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  background: #fdfaf0;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+figure.site-plan svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+figcaption {
+  font-size: 11px;
+  color: var(--mute);
+  margin-top: 7px;
+  text-align: center;
+}
+
+.meta {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 2px solid var(--rule);
+  font-size: 12px;
+  color: var(--mute);
+}
+.meta p { margin: 0 0 7px; }
+
+.colophon {
+  margin-top: 50px;
+  padding-top: 22px;
+  border-top: 1px solid #c9bd9e;
+  font-size: 12px;
+  color: var(--mute);
+  text-align: center;
+}
+
+a { color: var(--wax-dark); text-decoration: underline; }
+a:hover { color: var(--wax); text-decoration-style: wavy; }
+
+@media (max-width: 620px) {
+  body { padding: 14px 12px 30px; }
+  .patent { padding: 28px 18px 36px; border-width: 6px; }
+  h1 { font-size: 18px; }
+  .shelf-copy { font-size: 14.5px; padding: 12px 16px; }
+}
