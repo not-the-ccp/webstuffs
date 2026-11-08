@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antarctic Treaty System — Error Reference, ATCS-9000 Console, Rev. 4</title>
+<meta name="description" content="Error reference for the ATCS-9000 treaty system operations console: the 60°S boundary fault, Article I arms presence, the September 2004 relocation to Buenos Aires, a folio authentication in the Ledger's own words, an eighty-ninth-minute clock skew, and a 1.15-metre net out of spec.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sheet" role="document">
+  <div class="stamp" aria-hidden="true">REV. 4</div>
+
+  <header class="console-head">
+    <table class="head-table" cellpadding="4" cellspacing="0" border="0">
+      <tr>
+        <td class="head-l">
+          <p class="unit">ATCS-9000 · TREATY SYSTEM OPERATIONS CONSOLE</p>
+          <p class="unit-sub">Antarctic Treaty System · Secretariat Channel · Issue Rev. 4</p>
+        </td>
+        <td class="head-r">
+          <p class="head-right">ERROR REFERENCE MANUAL</p>
+          <p class="head-right">Issued from Buenos Aires, Argentina, Sept 2004 — still in force</p>
+        </td>
+      </tr>
+    </table>
+    <p class="bootline">BOOT 1959-12-01 &middot; BOUNDARY LOAD 60°S OK &middot; ALL STATIONS: READ THIS PAGE BEFORE REPORTING A FAULT<span class="caret" aria-hidden="true">&#9608;</span></p>
+  </header>
+
+  <hr class="rule">
+
+  <section class="section">
+    <h2 class="sec-head">0 &middot; SCOPE OF THIS REFERENCE</h2>
+    <p>This manual covers the errors and warnings raised by the ATCS-9000, the console that implements the <strong>Antarctic Treaty System (ATS)</strong> — the Antarctic Treaty and the agreements related to it, which together regulate international relations with respect to Antarctica, Earth's only continent without a native human population. The main treaty is the first arms control agreement established during the Cold War: it designates the continent as a scientific preserve, establishes freedom of scientific investigation, and bans military activity. For the purposes of the treaty system — and therefore of every boundary check in this manual — Antarctica is defined as <strong>all the land and ice shelves south of 60°S latitude</strong>. The Antarctic Treaty Secretariat, which implements the treaty system, has been headquartered in Buenos Aires, Argentina, since September 2004; console time is kept there and is not negotiable.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="sec-head">1 &middot; FAULT CODES AT A GLANCE</h2>
+    <table class="fault-table" cellpadding="4" cellspacing="0" border="0">
+      <tr class="thead">
+        <th>Code</th><th>Name</th><th>Severity</th><th>Meaning, in one line</th>
+      </tr>
+      <tr><td>ATC-001</td><td>BOUNDARY FAULT</td><td class="sev sev-h">HIGH</td><td>Territorial claim asserted south of 60°S</td></tr>
+      <tr class="alt"><td>ATC-019</td><td>ART. I ARMS PRESENCE</td><td class="sev sev-h">HIGH</td><td>Military activity detected on the preserve</td></tr>
+      <tr><td>ATC-117</td><td>SCIENCE DENIED</td><td class="sev sev-m">MED</td><td>Freedom of scientific investigation obstructed</td></tr>
+      <tr class="alt"><td>ATC-204</td><td>SECRETARIAT RELOCATED</td><td class="sev sev-l">INFO</td><td>Legacy notice; Buenos Aires since Sept 2004</td></tr>
+      <tr><td>ATC-402</td><td>FOLIO AUTHENTICATION</td><td class="sev sev-m">MED</td><td>Submitted folio fails or passes the genuineness check</td></tr>
+      <tr class="alt"><td>ATC-508</td><td>CLOCK SKEW, 89:00</td><td class="sev sev-m">MED</td><td>Two distant events recorded at the same minute</td></tr>
+      <tr><td>ATC-700</td><td>NET HEIGHT OUT OF SPEC</td><td class="sev sev-l">LOW</td><td>1.15-metre seated net reported in the wrong venue</td></tr>
+      <tr class="alt"><td>ATC-881</td><td>THERMAL ANOMALY, RED</td><td class="sev sev-l">LOW</td><td>Floodlight residue, folded, unopened since 2014</td></tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2 class="sec-head">2 &middot; FAULT RECORDS</h2>
+
+    <div class="fault">
+      <p class="fault-head">ATC-001 &middot; BOUNDARY FAULT <span class="code">BOUNDARY_FAULT(60S)</span></p>
+      <p class="fault-msg">A vessel or survey has asserted authority, title or jurisdiction over territory south of 60°S, or has attempted to exclude the ice shelves from the count, both of which the console does not permit.</p>
+      <p class="fault-res">Resolution: refer the claimant to the boundary as defined for the purposes of the treaty system — all the land <em>and ice shelves</em> south of 60°S — and to Article IV, under which the treaty neither recognises, nor impairs, nor prejudices any territorial sovereignty claim. No new claims after 1959. Log the reference and close; the console has closed eleven of these in one season and is not amused.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-019 &middot; ART. I ARMS PRESENCE <span class="code">MILITARY_ACTIVITY_DETECTED</span></p>
+      <p class="fault-msg">Weapons, manoeuvres, or the construction of military fortifications reported on the scientific preserve. The console records this with the severity it deserves: the treaty that raises it was the first arms control agreement established during the Cold War, and the ban on military activity is its standing order, not a seasonal one.</p>
+      <p class="fault-res">Resolution: freeze the station's channel, notify the Secretariat in Buenos Aires, and note that military personnel and equipment may be present only for scientific research or other peaceful purposes, as the treaty allows. In practice the fault is almost always a sensor mistaking a penguin for a patrol; verify twice before you page anyone at three in the morning.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-117 &middot; SCIENCE DENIED <span class="code">INVESTIGATION_OBSTRUCTED</span></p>
+      <p class="fault-msg">A party has attempted to restrict freedom of scientific investigation, or to withhold information required under Article III.</p>
+      <p class="fault-res">Resolution: restore the investigation, transmit the withheld data through the Secretariat, and record the obstruction in the station log. The console reminds operators, as the treaty does, that the freedom of scientific investigation is one of the two purposes the treaty exists for, the other being the preservation of the continent for that purpose. The preserve and the science are not negotiable in separate windows.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-204 &middot; SECRETARIAT RELOCATED <span class="code">SEAT_OF_RECORD_MOVED</span></p>
+      <p class="fault-msg">Raised by older consoles that still address the Secretariat at a former seat. Informational only; the fault is the console's own.</p>
+      <p class="fault-res">Resolution: update the addressing. Since September 2004 the Antarctic Treaty Secretariat, which implements the treaty system, is headquartered in Buenos Aires, Argentina. Re-point the channel, verify against one known-good report, and clear the fault. If a console older than 2004 still raises this, replace the console, which is what we told them in 2006.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-402 &middot; FOLIO AUTHENTICATION <span class="code">GENUINENESS_CHECK</span></p>
+      <p class="fault-msg">A folio submitted for authentication has failed the genuineness check, or a submitter has asked the console what standard it applies. The standard, read out in full, is the submitter's own: <strong>Genuine copies only; creases, foxing and tears acceptable.</strong></p>
+      <p class="fault-res">Resolution: in the spring of this year, reply Box 9911, c/o The Lagan Ledger, BT1 4AB, forwarded for authentication a folio of the 1909 FA Cup final programme — Bristol City v Manchester United, Crystal Palace, 24 April 1909 — on behalf of the paper's &ldquo;Wanted&rdquo; column, which offered &pound;250 in cash. The first submission was a photocopy; the console declined it and printed the paper's own advertisement back at the sender, word for word. A second folio, genuine, creased once down the centre and foxed at the lower right, passed. The Ledger's want ad for the 1909 programme, and the small ads around it, are kept at the <a href="../bristol-city/northern-ireland/">Lagan Ledger, Small Ads, Northern Ireland</a>. Note for future operators: the console authenticates paper; it does not value it. The &pound;250 is the Ledger's business.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-508 &middot; CLOCK SKEW, 89:00 <span class="code">TWO_EVENTS_ONE_MINUTE</span></p>
+      <p class="fault-msg">The console recorded, at the same minute and without error, two unrelated strikes of the woodwork at different ends of the world: a header at Elland Road, Leeds United pressing, and a free-kick at Al Rayyan. The minute was the eighty-ninth.</p>
+      <p class="fault-res">Resolution: none required; the skew is the event. The Lagan Ledger, wanting witnesses to the eighty-ninth minute, set a reward of one pint at the Crown Liquor Saloon and has since found its witness, whose evidence the Matchnight Committee preserved as Item 3. Operators asked to explain the coincidence are referred to the Ledger's own witness ad, and to the apology the paper owes to Ashton Gate, where the crossbar was struck in the same minute: both are at the <a href="../bristol-city/northern-ireland/">Lagan Ledger, Small Ads</a>. The console notes that 89:00 has not since failed, and declines to be asked why.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-700 &middot; NET HEIGHT OUT OF SPEC <span class="code">NET_1_15M_WRONG_VENUE</span></p>
+      <p class="fault-msg">A net standing at 1.15 metres — the seated game's height — has been reported from a venue where no mat is laid, or a guest at the top of the stand has been heard asking a seated player of the Bosnia and Herzegovina national sitting volleyball team how long he has sat, in the way one asks how long.</p>
+      <p class="fault-res">Resolution: lay the mat, correct the net, and remind the guest of the standing orders of the seated court: lower the voice at the third row; take the handshake at the net, from the mat, without a rise. The player in question, Mr. Ismet Godinjak, has carried the colours to seven Paralympic Games, 2000 to 2024, with a medal at each; the full protocol is in <a href="../ismet-godinjak/">Chapter IX, of Ismet Godinjak and the Seated Court</a>, which the console's reading circle — a small one, it meets beside the Sarajevo river — holds as the only authority on the 1.15-metre net. The chapter's guestbook records the standing order under which this fault usually clears: the mat being dry. When the mat is dry, clear the fault and do not ask again.</p>
+    </div>
+
+    <div class="fault">
+      <p class="fault-head">ATC-881 &middot; THERMAL ANOMALY, RED <span class="code">FLOODLIGHT_RESIDUE</span></p>
+      <p class="fault-msg">A low-severity thermal signature, red, size L, reported near the Antrim Road: a shirt folded away in the spring of 2014, unworn since, smelling of Bedminster, Ashton Gate Road and the floodlights, and — by the owner's request — unwashed.</p>
+      <p class="fault-res">Resolution: log and leave. The console declines to cold-soap it, and refers any laundry to Mrs O'Neill of the Ledger's services column, who washes beside the Lagan at &pound;8 a load and, when shown the tag reading &ldquo;unwashed, by request,&rdquo; understood. The signature is linked to a season ticket lost between Belfast and Bristol, Gate 13, Row H, Seat 14; both items are still wanted, still unopened, and are listed together at the <a href="../bristol-city/northern-ireland/">Lagan Ledger, Lost &amp; found</a>. Clear the fault on a season's cycle; the anomaly persists by request.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="sec-head">3 &middot; RESOLUTION PROCEDURES, GENERAL</h2>
+    <p>Every operator at the ATCS-9000 is reminded of the standing orders. <em>First</em>, the boundary is 60°S, land and ice shelves together, and a claim south of it is referred to Article IV and closed. <em>Second</em>, the preserve is a scientific preserve, the investigation is free, and the military is banned; no operator may raise one of these three and lower another. <em>Third</em>, the Secretariat is in Buenos Aires, and since September 2004, and console time follows it. <em>Fourth</em>, where the console cannot resolve a matter of paper, of pints, of nets or of shirts, it refers the matter to the record that keeps it — the Ledger's small ads at <a href="../bristol-city/northern-ireland/">BT1 4AB</a>, and the seated court's book at <a href="../ismet-godinjak/">Chapter IX</a> — and notes the referral in the station log. The continent has no native human population, and the console notes, for the record, that it would rather keep it that way.</p>
+  </section>
+
+  <hr class="rule">
+
+  <nav class="page-nav">
+    <p>
+      <a href="../">&larr; Return to Webstuffs</a>
+      &middot;
+      <a href="../bristol-city/northern-ireland/">The Lagan Ledger, Small Ads, Northern Ireland</a>
+      &middot;
+      <a href="../ismet-godinjak/">Chapter IX, of Ismet Godinjak and the Seated Court</a>
+      &middot;
+      <a href="../bristol-city/">Dear Ashton Gate</a>
+    </p>
+  </nav>
+
+  <p class="colophon">ATCS-9000 · Error Reference, Rev. 4 · Antarctic Treaty System · issued from Buenos Aires, Sept 2004 · boundary 60°S, land and ice shelves · the preserve and the science are not negotiable in separate windows</p>
+</div>
+
+<script src="blink.js"></script>
+</body>
+</html>

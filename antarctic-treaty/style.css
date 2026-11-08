@@ -1,0 +1,118 @@
+/* ATCS-9000 error reference manual — console paper look */
+body {
+  margin: 0;
+  background: #c9c5b8;
+  font-family: "Courier New", Courier, monospace;
+  color: #1c2430;
+}
+
+.sheet {
+  max-width: 62rem;
+  margin: 2.5rem auto 4rem;
+  background: #f4f1e6;
+  border: 1px solid #9a968a;
+  box-shadow: 0 0 0 6px #e8e5d8, 0 18px 40px rgba(40, 40, 30, 0.35);
+  padding: 2.2rem 2.4rem 1.4rem;
+  position: relative;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 2rem;
+  border: 3px double #a33527;
+  color: #a33527;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.7rem;
+  transform: rotate(6deg);
+  opacity: 0.85;
+}
+
+.console-head { margin-bottom: 0.6rem; }
+
+.head-table { width: 100%; border-collapse: collapse; }
+.head-table td { vertical-align: bottom; }
+.head-l .unit {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  border-bottom: 4px double #1c2430;
+}
+.head-l .unit-sub { margin: 0.2rem 0 0; font-size: 0.85rem; color: #4c5a68; }
+.head-r { text-align: right; }
+.head-right { margin: 0; font-weight: bold; letter-spacing: 0.1em; }
+.head-right + .head-right { font-weight: normal; font-size: 0.85rem; color: #4c5a68; letter-spacing: 0.02em; }
+
+.bootline {
+  margin: 0.8rem 0 0;
+  padding: 0.35rem 0.5rem;
+  background: #101418;
+  color: #7fd4a0;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+}
+.caret { animation: blink 1s steps(1) infinite; }
+.caret.hidden { visibility: hidden; }
+@keyframes blink { 50% { visibility: hidden; } }
+
+.rule { border: 0; border-top: 3px double #1c2430; margin: 1.1rem 0 1.4rem; }
+
+.section { margin-bottom: 1.8rem; }
+.sec-head {
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  border-bottom: 2px solid #1c2430;
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+.fault-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.fault-table th {
+  text-align: left;
+  border-bottom: 2px solid #1c2430;
+  letter-spacing: 0.08em;
+}
+.fault-table td { border-bottom: 1px solid #b8b4a4; padding: 0.35rem 0.4rem; }
+.fault-table tr.thead th { padding: 0.35rem 0.4rem; }
+.fault-table tr.alt td { background: #ece8d8; }
+.sev { font-weight: bold; letter-spacing: 0.05em; }
+.sev-h { color: #a33527; }
+.sev-m { color: #8a6d1c; }
+.sev-l { color: #3e5f4a; }
+
+.fault {
+  border: 1px solid #1c2430;
+  margin: 0 0 1rem;
+  background: #f8f6ec;
+}
+.fault-head {
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  background: #1c2430;
+  color: #f4f1e6;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+}
+.fault-head .code {
+  float: right;
+  font-weight: normal;
+  color: #7fd4a0;
+  letter-spacing: 0.03em;
+}
+.fault p { margin: 0.5rem 0.7rem; font-size: 0.92rem; line-height: 1.55; }
+.fault-msg { color: #33404e; }
+.fault-res { color: #1c2430; }
+.fault-res::first-letter { font-weight: bold; }
+
+.page-nav { margin: 1.4rem 0 0.8rem; font-size: 0.85rem; }
+.page-nav a, .fault a { color: #1a4a7a; }
+.colophon {
+  margin: 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid #9a968a;
+  font-size: 0.78rem;
+  color: #5c584a;
+  letter-spacing: 0.04em;
+}
