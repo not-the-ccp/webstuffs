@@ -1,0 +1,91 @@
+/* Sesiwn Fawr Dolgellau restaurant review stylesheet */
+/* Deep green hills, cream paper, folk gold */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #f4efe3;
+  background: #0e2a1a;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.review-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #f7f2e7;
+  color: #23291f;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #3d5c43;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.review-header {
+  background: linear-gradient(180deg, #14532d 0%, #0e2a1a 100%);
+  color: #f7f2e7;
+  padding: 3rem 2.5rem 2.25rem;
+  border-bottom: 6px solid #c9a227;
+}
+
+.review-header h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.review-dek {
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.review-masthead {
+  margin: 0;
+  padding: 1.5rem 2.5rem;
+  background: #e8e0cc;
+  border-bottom: 1px solid #c9a227;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stars { color: #c9a227; letter-spacing: 0.2em; font-size: 1.4rem; }
+.price { color: #14532d; background: #f7f2e7; padding: 0.2rem 0.6rem; border: 1px solid #14532d; border-radius: 3px; }
+
+.review-masthead figcaption {
+  font-style: italic;
+  color: #4a5240;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.review-body { padding: 2.5rem; }
+
+.review-body p { margin-bottom: 1.5rem; text-align: justify; hyphens: auto; }
+.review-body p:last-child { margin-bottom: 0; }
+
+.review-footer {
+  padding: 1.5rem 2.5rem 2.5rem;
+  border-top: 3px double #c9a227;
+  background: #e8e0cc;
+  color: #23291f;
+}
+
+.nav-line { margin: 0.75rem 0; font-size: 0.95rem; }
+.nav-line a { color: #14532d; text-decoration: none; border-bottom: 1px solid #c9a227; }
+.nav-line a:hover, .nav-line a:focus { color: #7a1f1f; border-bottom-color: #7a1f1f; outline: none; }
+
+@media (max-width: 600px) {
+  .review-header, .review-masthead, .review-body, .review-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .review-header h1 { font-size: 1.9rem; }
+}
