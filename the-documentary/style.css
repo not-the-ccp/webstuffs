@@ -1,0 +1,195 @@
+/* The Documentary — Weather Almanac, Station 7, Compton */
+
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #eae2cf;
+  --ink: #2b2a26;
+  --ink-faded: #5c574b;
+  --rule: #8a7f68;
+  --stamp: #7d3b2a;
+  --cold: #43596e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+/* the drifting cold front in the sky band */
+.sky {
+  position: relative;
+  height: 56px;
+  background: linear-gradient(to bottom, #d8dde2, var(--paper-deep));
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.front {
+  position: absolute;
+  top: 10px;
+  left: -160px;
+  width: 160px;
+  height: 26px;
+  background: repeating-linear-gradient(to right, var(--cold) 0 14px, transparent 14px 22px);
+  opacity: 0.35;
+  animation: drift 46s linear infinite;
+}
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100vw + 320px)); }
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 24px auto 64px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 0 var(--paper-deep), 0 18px 40px rgba(60, 50, 30, 0.18);
+  padding: 40px 52px 28px;
+  position: relative;
+}
+/* worn corner */
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  border-style: solid;
+  border-width: 0 26px 26px 0;
+  border-color: transparent var(--paper-deep) transparent transparent;
+  box-shadow: -2px 2px 3px rgba(60, 50, 30, 0.15);
+}
+
+.masthead { text-align: center; }
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0 0 10px;
+}
+.masthead h1 {
+  font-size: 2.4rem;
+  margin: 0;
+  letter-spacing: 0.01em;
+  font-variant: small-caps;
+}
+.masthead h1 .comma { color: var(--stamp); }
+.masthead h1 em { font-size: 1.4rem; letter-spacing: normal; }
+.station {
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  margin: 10px 0 0;
+}
+.masthead-rule {
+  height: 5px;
+  margin: 18px auto 10px;
+  max-width: 620px;
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.reading {
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  margin: 0 0 8px;
+}
+.reading span { color: var(--cold); font-weight: 600; }
+
+.entry {
+  margin: 34px 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--paper-deep);
+}
+.entry-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 4px;
+}
+.entry h2 {
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+  font-variant: small-caps;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+.entry p { margin: 0 0 12px; }
+.entry .note {
+  font-size: 0.82rem;
+  color: var(--ink-faded);
+  font-style: italic;
+}
+
+table.normals {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 14px 0;
+  background: rgba(255, 255, 255, 0.35);
+}
+.normals th, .normals td {
+  border: 1px solid var(--rule);
+  padding: 6px 9px;
+  text-align: center;
+}
+.normals thead th {
+  background: var(--paper-deep);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.normals tbody th {
+  text-align: left;
+  font-weight: 600;
+  background: rgba(234, 226, 207, 0.6);
+}
+.normals tfoot th {
+  text-align: left;
+  font-size: 0.78rem;
+  background: var(--paper-deep);
+}
+
+blockquote.marginalia {
+  margin: 18px 12px;
+  padding: 14px 18px;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.4);
+  border-left: 3px solid var(--stamp);
+  transform: rotate(-0.4deg);
+}
+blockquote.marginalia::before {
+  content: "\25C9 \00A0 ledger, p. last";
+  display: block;
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin-bottom: 6px;
+}
+
+.colophon {
+  border-top: 3px double var(--rule);
+  margin-top: 30px;
+  padding-top: 12px;
+  font-size: 0.78rem;
+  color: var(--ink-faded);
+  text-align: center;
+}
+.colophon p { margin: 4px 0; }
+.colophon a { color: var(--cold); }
+
+a { color: var(--cold); text-decoration-thickness: 1px; }
+a:hover { color: var(--stamp); }
+
+@media (max-width: 640px) {
+  .sheet { margin: 12px; padding: 26px 20px; }
+  .masthead h1 { font-size: 1.8rem; }
+  .normals { font-size: 0.75rem; }
+}
