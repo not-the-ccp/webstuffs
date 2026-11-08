@@ -1,0 +1,103 @@
+/* Placard No. 12 — Hannibal von Degenfeld, The Bavarian Court Armoury */
+:root {
+  --plaster: #ece5d8;
+  --case-wood: #4a3524;
+  --brass: #b08d4f;
+  --ink: #2b2118;
+  --parchment: #f6f0e1;
+  --foxing: #8a6a45;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px 12px;
+  background: var(--plaster);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.case {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--parchment);
+  border: 10px solid var(--case-wood);
+  outline: 2px solid var(--brass);
+  box-shadow: 0 14px 30px rgba(43, 33, 24, 0.35);
+}
+.placard-head {
+  padding: 26px 30px 18px;
+  border-bottom: 3px double var(--brass);
+  background: linear-gradient(180deg, #f3ebd8, var(--parchment));
+}
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--foxing);
+}
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--case-wood);
+}
+.object-title {
+  margin: 10px 0 6px;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+.object-sub { font-size: 0.95rem; font-weight: normal; color: var(--foxing); }
+.object-meta { margin: 0; font-size: 0.85rem; font-style: italic; }
+.placard-body { padding: 20px 30px 6px; }
+.placard-body h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 4px;
+  color: var(--case-wood);
+}
+.timeline-section .timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.stop {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 7px 12px;
+  background: var(--case-wood);
+  color: var(--parchment);
+  border: 1px solid var(--brass);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.stop:hover { background: #5d4430; }
+.stop.active {
+  background: var(--brass);
+  color: #241a10;
+  font-weight: bold;
+}
+.campaign-card {
+  min-height: 84px;
+  margin: 0 0 14px;
+  padding: 12px 16px;
+  background: #efe6cf;
+  border-left: 5px solid var(--brass);
+}
+.campaign-card h3 { margin: 0 0 6px; font-size: 1rem; }
+.campaign-card p { margin: 0; font-size: 0.95rem; }
+.card-lead { font-style: italic; color: var(--foxing); }
+.campaign-fallback { margin-bottom: 10px; }
+.campaign-fallback ul { padding-left: 1.2em; }
+.campaign-fallback li { margin-bottom: 8px; font-size: 0.93rem; }
+.placard-foot {
+  padding: 14px 30px 20px;
+  border-top: 3px double var(--brass);
+  font-size: 0.8rem;
+  color: var(--foxing);
+}
+a { color: #6b4a1f; }
+a:hover { color: var(--case-wood); }
