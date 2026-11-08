@@ -1,0 +1,330 @@
+/* Dinaric Field Notes — a field-notebook in ink, pressed leaves and valley weather */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Caveat:wght@500;700&family=IM+Fell+English+SC&display=swap');
+
+:root {
+  --paper: #efe6d1;
+  --paper-deep: #e4d6b8;
+  --ink: #2e2a24;
+  --ink-faded: #5c5344;
+  --brown-ink: #6b3f1d;
+  --sana: #4a6b7a;
+  --sana-deep: #2f4c58;
+  --stamp-red: #8a3324;
+  --leaf-green: #5f6f3c;
+  --rule: rgba(74, 107, 122, 0.22);
+  --margin-red: rgba(138, 51, 36, 0.35);
+  --almond: #a3773f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", Georgia, "Times New Roman", serif;
+  font-size: 1.075rem;
+  line-height: 1.72;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 250, 235, 0.9), transparent 60%),
+    radial-gradient(ellipse 90% 40% at 85% 110%, rgba(95, 111, 60, 0.14), transparent 65%),
+    repeating-linear-gradient(0deg, transparent 0 26px, var(--rule) 26px 27px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 70%, #d9c8a5 100%);
+  background-attachment: fixed;
+}
+
+/* faint fibres over the paper */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(107, 63, 29, 0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 64%, rgba(107, 63, 29, 0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 88%, rgba(47, 76, 88, 0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 12%, rgba(47, 76, 88, 0.05) 0 2px, transparent 3px);
+  background-size: 340px 260px, 410px 330px, 300px 400px, 380px 280px;
+}
+
+/* the ink scroll-progress line */
+.ink-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  z-index: 50;
+  background: linear-gradient(90deg, var(--sana), var(--brown-ink));
+  box-shadow: 0 1px 4px rgba(46, 42, 36, 0.4);
+  transition: width 0.12s linear;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.2rem 1.4rem 1rem;
+  text-align: center;
+}
+
+.series {
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--sana-deep);
+  margin: 0 0 0.4rem;
+}
+
+.masthead h1 {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: clamp(2.4rem, 6vw, 3.9rem);
+  line-height: 1.05;
+  margin: 0.2rem 0 0.5rem;
+  color: var(--ink);
+  text-shadow: 1px 1px 0 rgba(255, 250, 235, 0.8);
+}
+
+.masthead h1::after {
+  content: "";
+  display: block;
+  width: 62%;
+  margin: 0.7rem auto 0;
+  height: 3px;
+  background:
+    repeating-linear-gradient(90deg, var(--brown-ink) 0 14px, transparent 14px 18px),
+    var(--brown-ink);
+  border-radius: 2px;
+  opacity: 0.75;
+}
+
+.sub-title {
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 1.05rem;
+  margin: 0.6rem auto 0.4rem;
+  max-width: 34rem;
+}
+
+.keeper {
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-size: 1.35rem;
+  color: var(--brown-ink);
+  max-width: 30rem;
+  margin: 0.2rem auto 0;
+}
+
+/* compass */
+.compass {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 0.4rem;
+  display: block;
+  filter: drop-shadow(2px 3px 2px rgba(46, 42, 36, 0.25));
+}
+.compass .ring { fill: none; stroke: var(--brown-ink); }
+.compass .ring.outer { stroke-width: 2.5; }
+.compass .ring.inner { stroke-width: 1; stroke-dasharray: 3 4; }
+.compass .ticks line { stroke: var(--brown-ink); stroke-width: 2; }
+.compass .needle-n { fill: var(--stamp-red); }
+.compass .needle-s { fill: var(--sana-deep); }
+.compass .pivot { fill: var(--paper); stroke: var(--brown-ink); stroke-width: 1.5; }
+.compass .cardinal { font-family: "IM Fell English SC", serif; font-size: 11px; fill: var(--ink-faded); text-anchor: middle; }
+#needle { transform-origin: 60px 60px; transition: transform 0.25s ease-out; }
+
+/* pressed almond sprig */
+.sprig { width: 220px; margin: 1.1rem auto 0; display: block; opacity: 0.9; }
+.sprig .stem { stroke: var(--leaf-green); stroke-width: 2; }
+.sprig .leaves ellipse { fill: var(--leaf-green); opacity: 0.8; }
+.sprig .bud { fill: var(--almond); stroke: var(--brown-ink); stroke-width: 1; }
+
+/* ---------- notebook body ---------- */
+
+.notebook {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 1.5rem auto 0;
+  padding: 0.5rem 1.6rem 0.5rem 3.4rem;
+  background:
+    linear-gradient(90deg, transparent 0 2.4rem, var(--margin-red) 2.4rem 2.43rem, transparent 2.43rem),
+    repeating-linear-gradient(0deg, transparent 0 31px, var(--rule) 31px 32px),
+    linear-gradient(100deg, rgba(255, 252, 242, 0.85), rgba(244, 232, 205, 0.72));
+  border: 1px solid rgba(107, 63, 29, 0.35);
+  box-shadow:
+    0 1px 0 rgba(255, 252, 242, 0.9) inset,
+    10px 12px 0 -4px rgba(213, 197, 163, 0.55),
+    16px 18px 30px rgba(46, 42, 36, 0.28);
+  background-clip: padding-box;
+}
+
+/* punched holes down the spine */
+.notebook::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 1.05rem; bottom: 0;
+  width: 12px;
+  background-image: radial-gradient(circle, rgba(60, 50, 35, 0.55) 0 3px, rgba(107, 63, 29, 0.25) 3px 4px, transparent 4px);
+  background-size: 12px 96px;
+  background-repeat: repeat-y;
+}
+
+.entry {
+  margin: 2.2rem 0;
+  padding-bottom: 1.6rem;
+  position: relative;
+}
+
+.entry + .entry {
+  border-top: 1px dashed rgba(107, 63, 29, 0.4);
+}
+
+.entry-head { margin-bottom: 0.7rem; }
+
+.date-line {
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.08em;
+  color: var(--sana-deep);
+  font-size: 0.95rem;
+  margin: 0 0 0.2rem;
+}
+
+.weather-line {
+  font-family: "Caveat", cursive;
+  font-size: 1.25rem;
+  color: var(--brown-ink);
+  margin: 0;
+}
+.weather-line .wx {
+  font-family: Georgia, serif;
+  display: inline-block;
+  border: 1px solid var(--brown-ink);
+  border-radius: 50%;
+  width: 1.35rem; height: 1.35rem;
+  line-height: 1.3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  transform: translateY(2px) rotate(-6deg);
+}
+
+.entry p { margin: 0 0 1rem; text-align: justify; hyphens: auto; }
+
+.entry .dropcap {
+  float: left;
+  font-family: "IM Fell English SC", serif;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.15rem 0.4rem 0 0;
+  color: var(--stamp-red);
+}
+
+/* links — ink with a drawn underline */
+a {
+  color: var(--sana-deep);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+a:hover, a:focus-visible {
+  color: var(--brown-ink);
+  border-bottom-color: var(--brown-ink);
+}
+
+/* the key's sentence, as it sits in the old tin */
+.key-line {
+  margin: 1rem 0 1.2rem 0.6rem;
+  padding: 0.8rem 1.1rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 24px, rgba(107, 63, 29, 0.18) 24px 25px),
+    linear-gradient(105deg, #f6eed8, #efe3c4);
+  border-left: 4px solid var(--almond);
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--brown-ink);
+  box-shadow: 3px 3px 0 rgba(107, 63, 29, 0.15);
+}
+.key-line p { margin: 0; }
+
+.signature {
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  color: var(--brown-ink);
+  text-align: right;
+  margin-top: 1.4rem;
+}
+.sig-place { font-size: 1.15rem; color: var(--ink-faded); }
+
+/* specimen stamp */
+#entry-almonds::after {
+  content: "SPECIMEN 47 · AMYGDALUS";
+  position: absolute;
+  top: -0.6rem;
+  right: 0.4rem;
+  font-family: "IM Fell English SC", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--stamp-red);
+  border: 2px double var(--stamp-red);
+  padding: 0.3rem 0.55rem;
+  transform: rotate(-7deg);
+  opacity: 0.75;
+  background: rgba(239, 230, 209, 0.7);
+}
+
+/* ---------- footer ---------- */
+
+.notebook-foot {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  font-family: "IM Fell English SC", serif;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+}
+.notebook-foot p { margin: 0.3rem 0; }
+.foot-links a { margin: 0 0.4rem; }
+
+/* drifting pressed leaves (JS-placed) */
+.falling-leaf {
+  position: fixed;
+  z-index: 0;
+  width: 14px;
+  height: 20px;
+  pointer-events: none;
+  opacity: 0.35;
+  background: var(--leaf-green);
+  border-radius: 70% 30% 70% 30%;
+  animation: leaf-drift linear infinite;
+}
+@keyframes leaf-drift {
+  0%   { transform: translateY(-6vh) translateX(0) rotate(0deg); }
+  50%  { transform: translateY(50vh) translateX(4vw) rotate(190deg); }
+  100% { transform: translateY(108vh) translateX(-3vw) rotate(380deg); }
+}
+
+@media (max-width: 620px) {
+  body { font-size: 1.0rem; }
+  .notebook { padding-left: 2.6rem; }
+  .notebook::before { left: 0.55rem; }
+  .notebook::before {
+    background-image: radial-gradient(circle, rgba(60, 50, 35, 0.55) 0 2.5px, rgba(107, 63, 29, 0.25) 2.5px 3.5px, transparent 3.5px);
+    background-size: 10px 84px;
+  }
+  .entry p { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .falling-leaf { animation: none; display: none; }
+  #needle { transition: none; }
+}
