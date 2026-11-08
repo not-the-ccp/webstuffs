@@ -1,0 +1,126 @@
+/* The Conscience Register — 1916 file-room palette:
+   manila paper, iron-gall ink, red stamp ink, ruled ledger lines */
+
+:root {
+  --paper: #efe7d3;
+  --paper-deep: #e6dabd;
+  --ink: #2b2620;
+  --ink-soft: #5a5142;
+  --stamp: #9a3324;
+  --rule: #b6a67f;
+  --card: #f6f0de;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(182, 166, 127, 0.28) 31px 32px),
+    radial-gradient(ellipse at 20% 0%, #f5efdf 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.masthead {
+  border: 3px double var(--ink);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  padding: 1.5rem 1.75rem 1.25rem;
+  background: var(--card);
+}
+
+.mast-rule {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.dates {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+  color: var(--stamp);
+  letter-spacing: 0.12em;
+}
+
+.mast-sub {
+  margin: 0.9rem 0 0;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+.faq { margin-top: 2rem; }
+
+.qa {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--stamp);
+  padding: 1.1rem 1.4rem 0.4rem;
+  margin-bottom: 1.4rem;
+  box-shadow: 2px 3px 0 rgba(43, 38, 32, 0.12);
+}
+
+.qa h2 {
+  font-size: 1.08rem;
+  line-height: 1.35;
+  margin: 0 0 0.6rem;
+}
+
+.qno {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: #fff;
+  background: var(--ink);
+  padding: 0.1rem 0.45rem;
+  margin-right: 0.6rem;
+  vertical-align: 2px;
+}
+
+.answer p { margin: 0 0 1rem; }
+
+a { color: var(--stamp); }
+a:hover { color: var(--ink); }
+
+.record-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  background: var(--paper);
+  border-left: 3px solid var(--stamp);
+  padding: 0.8rem 1rem;
+  margin: 0.4rem 0 0.8rem;
+  transform: rotate(-0.4deg);
+}
+
+.record-line p { margin: 0 0 0.5rem; }
+
+.rec-note {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.foot {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--ink);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
