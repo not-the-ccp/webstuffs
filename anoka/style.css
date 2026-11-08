@@ -1,0 +1,245 @@
+/* Anoka — County Answers Desk, FAQ. Night palette: indigo sky, pumpkin orange, bone paper. */
+:root {
+  --night: #10122b;
+  --night-2: #1b1e42;
+  --pumpkin: #f28c28;
+  --pumpkin-deep: #c25f10;
+  --bone: #f4ead8;
+  --bone-dim: #cfc3a8;
+  --arrow: #5f9e7d;
+  --ink: #241a10;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #2a2e6b 0%, transparent 55%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 45%, #241a20 100%);
+  background-color: var(--night);
+  color: var(--bone);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ---------- night sky ---------- */
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.moon {
+  position: absolute;
+  top: 7vh; right: 10vw;
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 32%, #fdf6e3 0%, #f2e6c8 55%, #d9c99b 100%);
+  box-shadow: 0 0 38px 12px rgba(253, 246, 227, 0.22), 0 0 90px 30px rgba(253, 246, 227, 0.08);
+  animation: drift 34s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from { transform: translateY(0) translateX(0); }
+  to   { transform: translateY(-22px) translateX(-34px); }
+}
+.star {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--bone);
+  opacity: 0.7;
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+.s1 { top: 12vh; left: 8vw; }
+.s2 { top: 26vh; left: 20vw; animation-delay: 0.7s; }
+.s3 { top: 9vh;  left: 55vw; animation-delay: 1.4s; }
+.s4 { top: 33vh; right: 24vw; animation-delay: 2.1s; }
+.s5 { top: 44vh; left: 12vw; animation-delay: 0.3s; }
+.s6 { top: 52vh; right: 9vw; animation-delay: 1.8s; }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50%      { opacity: 0.9;  transform: scale(1.25); }
+}
+.bats {
+  position: absolute;
+  top: 14vh; left: -8vw;
+  width: 100vw; height: 4px;
+  background:
+    radial-gradient(ellipse 7px 4px at 0 0, transparent 60%, rgba(244, 234, 216, 0.5) 62%, transparent 75%),
+    transparent;
+  opacity: 0.5;
+  animation: batflight 26s linear infinite;
+}
+@keyframes batflight {
+  0%   { transform: translateX(0) translateY(0); }
+  25%  { transform: translateX(28vw) translateY(-3vh); }
+  50%  { transform: translateX(55vw) translateY(2vh); }
+  75%  { transform: translateX(80vw) translateY(-2vh); }
+  100% { transform: translateX(112vw) translateY(0); }
+}
+
+/* ---------- the desk sheet ---------- */
+.desk {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.6rem 3rem;
+}
+
+.desk-head {
+  text-align: center;
+  border-bottom: 4px double var(--pumpkin);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.2rem;
+}
+.issuer {
+  margin: 0 0 0.8rem;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pumpkin);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--bone);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.4);
+}
+.sub {
+  margin: 0.7rem 0 1.1rem;
+  font-style: italic;
+  color: var(--bone-dim);
+}
+.sub .dash { color: var(--pumpkin); font-style: normal; }
+
+/* carved pumpkin, pure CSS */
+.pumpkin {
+  position: relative;
+  width: 52px; height: 44px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #ff9d2f 0%, var(--pumpkin) 55%, var(--pumpkin-deep) 100%);
+  border-radius: 46% 46% 42% 42% / 58% 58% 44% 44%;
+  box-shadow: inset -6px -4px 10px rgba(120, 55, 0, 0.45), 0 0 18px rgba(242, 140, 40, 0.35);
+}
+.pumpkin::before { /* stem */
+  content: "";
+  position: absolute;
+  top: -9px; left: 50%;
+  width: 8px; height: 12px;
+  margin-left: -4px;
+  background: #4a7a3a;
+  border-radius: 3px 3px 0 0;
+}
+.pumpkin span { /* the lit face */
+  position: absolute;
+  top: 14px; left: 50%;
+  width: 34px; height: 16px;
+  transform: translateX(-50%);
+  background: linear-gradient(#ffd76b, #ffe9a3);
+  clip-path: polygon(12% 0, 30% 55%, 12% 100%, 0 55%, 34% 55%, 50% 20%, 66% 55%, 100% 55%, 88% 100%, 70% 55%, 88% 0, 62% 78%, 38% 78%);
+  background-color: #ffe9a3;
+  animation: glow 2.6s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+/* ---------- questions ---------- */
+.questions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: q;
+}
+.q {
+  margin-bottom: 1rem;
+  border: 1px solid rgba(242, 140, 40, 0.4);
+  border-left: 5px solid var(--pumpkin);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(244, 234, 216, 0.05), rgba(244, 234, 216, 0.02));
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.q[open], .q:has(details[open]) { border-color: var(--pumpkin); }
+.q:hover { transform: translateX(3px); }
+
+details summary {
+  cursor: pointer;
+  padding: 0.9rem 1.1rem 0.9rem 1.3rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--bone);
+  list-style: none;
+  position: relative;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.1rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: var(--pumpkin);
+  transition: transform 0.25s ease;
+}
+details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+details summary:hover { color: #ffd76b; }
+
+.a {
+  padding: 0.1rem 1.3rem 1.2rem;
+  color: var(--bone-dim);
+}
+.a p { margin: 0.6rem 0; }
+.a strong { color: var(--bone); }
+.a em { color: #ffd76b; }
+
+a {
+  color: var(--pumpkin);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--pumpkin);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+a:hover { color: #ffd76b; border-bottom-color: #ffd76b; }
+
+/* arrowhead bullet for the population number */
+.num {
+  color: #ffd76b;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- footer ---------- */
+.desk-foot {
+  margin-top: 2.6rem;
+  border-top: 4px double var(--pumpkin);
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--bone-dim);
+}
+.desk-foot p { margin: 0.35rem 0; }
+.fine {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(244, 234, 216, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon, .star, .bats, .pumpkin span { animation: none; }
+}
+
+@media (max-width: 480px) {
+  .desk { padding: 3.2rem 1rem 2rem; }
+  .moon { width: 56px; height: 56px; right: 6vw; }
+}
