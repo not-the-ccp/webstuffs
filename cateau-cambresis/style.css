@@ -1,0 +1,141 @@
+/* Treaty of Cateau-Cambrésis — parchment & wax seal, 1559 */
+
+:root {
+  --parchment: #f4ecda;
+  --parchment-deep: #ece0c4;
+  --ink: #2c2416;
+  --ink-soft: #5a4c34;
+  --royal: #2b3a67;
+  --seal: #8a1c1c;
+  --gold: #9c7a2c;
+  --rule: #b9a878;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--parchment-deep); }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,250,235,0.9), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(156,122,44,0.14), transparent 60%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.folio {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 0 1.4rem;
+}
+
+.masthead {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.plate-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: var(--royal);
+  margin: 0.2rem 0 0.4rem;
+}
+
+.subhead {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.rule-double {
+  margin: 1.2rem 0 1.8rem;
+}
+.rule-double span {
+  display: block;
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 6px;
+}
+
+section { margin: 0 0 2rem; }
+
+h2 {
+  font-size: 1.25rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--royal);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.9rem;
+}
+
+.lead .dropcap {
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.85;
+  padding: 0.12em 0.12em 0 0;
+  color: var(--seal);
+}
+
+strong { color: var(--ink); }
+
+figure.marginal {
+  margin: 1.2rem 0.5rem;
+  padding: 1rem 1.2rem;
+  background: var(--parchment-deep);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--seal);
+  box-shadow: 2px 2px 0 rgba(44,36,22,0.12);
+}
+
+figure.marginal blockquote {
+  margin: 0 0 0.8rem;
+  font-style: italic;
+  color: var(--royal);
+  font-size: 1.02rem;
+}
+
+figure.marginal figcaption {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.see-list { font-size: 0.95rem; line-height: 1.9; }
+
+a {
+  color: var(--royal);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+}
+a:hover { color: var(--seal); border-bottom-color: var(--seal); }
+
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin: 0.4rem 0 0; }
+
+.crest {
+  width: 46px;
+  height: 54px;
+  display: block;
+  margin: 0 auto 0.4rem;
+}
