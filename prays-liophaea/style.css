@@ -1,0 +1,190 @@
+/* In Memoriam — funeral-program look for the Moth Register */
+:root {
+  --ink: #1c1712;
+  --vellum: #f2e9d8;
+  --vellum-deep: #e7dcc6;
+  --gilt: #9a7b3f;
+  --gilt-bright: #c9a45c;
+  --moss: #4c5b43;
+  --wine: #5d2f2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 244, 214, 0.35), transparent 60%),
+    repeating-linear-gradient(45deg, #221c15 0 2px, #1c1712 2px 6px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.program {
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  background: var(--vellum);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,.5), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(93,47,43,.02) 0 1px, transparent 1px 7px);
+  border: 3px double var(--gilt);
+  outline: 1px solid rgba(154, 123, 63, .5);
+  outline-offset: 5px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .55);
+  padding: 0 2.5rem 2.5rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 1px solid var(--gilt);
+  padding: 2.5rem 0 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.eyebrow {
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--wine);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  margin: .25rem 0 .5rem;
+  color: var(--ink);
+}
+
+.dates {
+  font-style: italic;
+  color: var(--moss);
+  margin: 0 0 1.25rem;
+}
+
+.ornament {
+  color: var(--gilt-bright);
+  letter-spacing: .9em;
+  text-indent: .9em;
+  margin: 1rem 0 0;
+}
+
+.body p {
+  line-height: 1.75;
+  margin: 0 0 1.1rem;
+  font-size: 1.02rem;
+}
+
+.body p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: .85;
+  padding: .35rem .55rem 0 0;
+  color: var(--wine);
+  font-variant: small-caps;
+}
+
+a {
+  color: var(--wine);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--gilt-bright); }
+
+.candle {
+  margin: 2.25rem auto 1.5rem;
+  width: 7rem;
+  text-align: center;
+}
+
+.flame {
+  width: 16px;
+  height: 34px;
+  margin: 0 auto 2px;
+  background: radial-gradient(ellipse at 50% 75%, #fff8dc 0%, #ffd977 45%, #f0902a 80%, transparent 100%);
+  border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
+  transform-origin: 50% 100%;
+  animation: flicker 2.4s ease-in-out infinite;
+  box-shadow: 0 0 22px 8px rgba(255, 200, 110, .35);
+}
+
+.wax {
+  width: 34px;
+  height: 64px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #efe4c8, #fffbe9 40%, #d8c9a2);
+  border-radius: 6px 6px 3px 3px;
+  box-shadow: inset -6px 0 10px rgba(93, 47, 43, .15);
+}
+
+.wax::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 8px;
+  margin: 0 auto;
+  background: #3a2c1a;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-1.5deg); opacity: .95; }
+  30%      { transform: scale(1.06, .94) rotate(2deg);  opacity: 1; }
+  60%      { transform: scale(.95, 1.05) rotate(-2.5deg); opacity: .85; }
+}
+
+.candle figcaption {
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--moss);
+  max-width: 18rem;
+  margin: .75rem auto 0;
+  line-height: 1.5;
+}
+
+.register {
+  border-top: 1px solid var(--gilt);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.register h2 {
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.entry {
+  margin: 0 0 1rem;
+  padding: .75rem 1rem;
+  border-left: 3px solid var(--gilt);
+  background: var(--vellum-deep);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.entry.three {
+  border-left-color: var(--wine);
+  background: linear-gradient(90deg, rgba(93, 47, 43, .08), transparent 70%);
+}
+
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--gilt);
+  font-size: .85rem;
+  text-align: center;
+}
+.colophon p { margin: 0; }
+.colophon a { margin: 0 .4rem; white-space: nowrap; }
+
+.footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gilt);
+}
+.footer p { margin: .25rem 0; }
