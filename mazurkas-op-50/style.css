@@ -1,0 +1,207 @@
+/* Mazurkas, Op. 50 &mdash; Class 4B music report, Coopers' Lane School */
+html { height: 100%; }
+body {
+  margin: 0;
+  padding: 40px 18px;
+  min-height: 100vh;
+  background: #1c2a38;
+  background: radial-gradient(circle at 30% 20%, #4a5e72 0%, #16232f 55%, #0e1a24 100%);
+  color: #2b2419;
+  font-family: "Georgia", "Times New Roman", "Bitstream Charter", serif;
+  line-height: 1.7;
+}
+.desk {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  padding: 52px 44px 66px;
+  background: #fbfaf0;
+  border: 1px solid #9a8255;
+  border-top: 4px solid #7a6342;
+  box-shadow: 0 0 0 3px rgba(154,130,85,.12), 14px 22px 40px rgba(0,0,0,.45);
+  transform: rotate(-0.35deg);
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: rotate(-0.35deg) translateY(0); }
+  50% { transform: rotate(-0.25deg) translateY(-6px); }
+}
+
+/* paperclip at the top of the sheet */
+.clip {
+  position: absolute;
+  top: -22px;
+  left: 90px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #8a734c;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(42deg);
+  z-index: 2;
+}
+.clip::after {
+  content: "";
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 2px solid #b7a67b;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+/* grade badge */
+.grade {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f4a261, #c0392b);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35), inset 0 0 10px rgba(255,255,255,.4);
+  border: 2px solid rgba(255,255,255,.55);
+  animation: seal 4s ease-in-out infinite;
+}
+@keyframes seal {
+  0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(0,0,0,.35); }
+  50% { transform: scale(1.06); box-shadow: 0 4px 12px rgba(0,0,0,.5); }
+}
+
+/* corner mounts */
+.sheet::before, .sheet::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #9a8255;
+  background: #efe4c9;
+}
+.sheet::before { top: -3px; left: -3px; border-right: none; border-bottom: none; border-radius: 4px 0 0 0; }
+.sheet::after { bottom: -3px; right: -3px; border-left: none; border-top: none; border-radius: 0 0 4px 0; }
+
+.report-head { text-align: center; padding-bottom: 18px; border-bottom: 2px solid #d9c79a; margin-bottom: 26px; }
+.school {
+  font-size: .85rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #8a734c;
+  margin: 0 0 6px;
+  font-weight: bold;
+}
+.report-head h1 {
+  font-size: 2.1rem;
+  margin: 0 0 8px;
+  color: #3e2f1f;
+  letter-spacing: .04em;
+}
+.byline { font-size: .9rem; color: #77684e; margin: 0; font-style: italic; }
+
+table.meta {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 26px;
+  font-size: .95rem;
+}
+table.meta th {
+  text-align: left;
+  padding: 6px 8px;
+  color: #8a734c;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .75rem;
+  border-bottom: 1px dashed #c9b98f;
+}
+table.meta td { padding: 6px 8px; border-bottom: 1px solid #efe1ca; }
+
+h2 {
+  font-size: 1.15rem;
+  color: #5d4c2e;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  margin: 30px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid #c0392b;
+}
+p { margin: 0 0 14px; text-align: justify; }
+section { position: relative; }
+section::after {
+  content: "❦";
+  position: absolute;
+  right: -2px;
+  bottom: -10px;
+  font-size: .8rem;
+  color: #d9c79a;
+}
+
+/* teacher's red-ink comment */
+.comment {
+  margin-top: 34px;
+  padding: 16px 18px 14px;
+  background: #fbeced;
+  border: 1px solid #e2b9bb;
+  border-left: 6px solid #c0392b;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+.comment::before {
+  content: "\271D";
+  position: absolute;
+  top: 10px;
+  left: -14px;
+  font-size: 1.4rem;
+  color: #c0392b;
+}
+.comment p { font-style: italic; color: #6d2a28; margin: 0 0 8px; text-align: left; }
+.comment p:last-child { margin: 0; }
+
+blockquote {
+  margin: 18px 0 22px 0;
+  padding: 20px 22px 18px;
+  background: #f3e9d2;
+  border: 1px solid #d8c7a3;
+  border-left: 6px solid #8a734c;
+  font-style: italic;
+  color: #443926;
+}
+blockquote p { margin: 0 0 10px; text-align: left; }
+blockquote .cite {
+  font-style: normal;
+  font-size: .82rem;
+  color: #8a734c;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+
+.related {
+  margin-top: 34px;
+  font-size: .92rem;
+  text-align: left;
+  border-top: 1px solid #d9c79a;
+  padding-top: 16px;
+}
+a { color: #7a5334; text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: #7a5334; }
+.related a { color: #5d4c2e; text-decoration: underline; }
+
+@media (max-width: 560px) {
+  body { padding: 20px 12px; }
+  .sheet { padding: 40px 24px 52px; transform: none; animation: none; }
+  .grade { top: 8px; right: 8px; width: 44px; height: 44px; font-size: 1.25rem; }
+  .clip { left: 50px; }
+}
