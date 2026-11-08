@@ -1,0 +1,152 @@
+/* Trades Hall — A Visitor's Guide. Stylesheet for trade-union/index.html. */
+
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f6f1e6;
+  color: #212a1e;
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.75;
+}
+
+a { color: #8a5a12; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { background: #eadda8; }
+
+.masthead {
+  background: linear-gradient(180deg, #274131 0%, #17281c 60%, #0e1912 100%);
+  color: #efe9d8;
+  padding: 60px 28px 46px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 10px double #a97930;
+}
+
+.masthead::before,
+.masthead::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border: 4px solid transparent;
+  border-top-color: #a97930;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.masthead::before { top: 18px; left: 18px; }
+.masthead::after { bottom: 18px; right: 18px; transform: rotate(180deg); }
+
+.emblem {
+  display: block;
+  margin: 0 auto 18px;
+  width: 72px;
+  height: 72px;
+  animation: breathe 7s ease-in-out infinite;
+}
+
+.masthead-eyebrow {
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #d9b56f;
+  margin: 0 0 12px;
+  font-family: "Courier New", monospace;
+}
+
+.masthead h1 {
+  margin: 0 0 10px;
+  font-size: 2.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.masthead-tagline {
+  margin: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #c8d4c2;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 34px 24px 60px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f3a28;
+  border-bottom: 3px double #8a5a12;
+  padding-bottom: 8px;
+  margin: 46px 0 18px;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: #b98a2f;
+  border: 2px solid #212a1e;
+}
+
+p { margin: 0 0 16px; }
+
+section > p:first-of-type::first-letter {
+  float: left;
+  font-size: 2.8rem;
+  line-height: 0.9;
+  color: #8a5a12;
+  padding: 2px 8px 4px 0;
+  margin-right: 6px;
+}
+
+.sound {
+  background: #5c2e18;
+  color: #f3e9d2;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  padding: 14px 18px;
+  margin: 22px 0;
+  border: 2px solid #8a5a12;
+  border-left: 10px solid #b98a2f;
+  box-shadow: 5px 5px 0 #3d1e0d;
+  white-space: pre-wrap;
+}
+
+.practical {
+  background: #274131;
+  color: #efe9d8;
+  padding: 20px 24px;
+  margin-top: 50px;
+  border: 4px double #a97930;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 6% 100%, 0 88%);
+}
+
+.practical h2 { color: #d9b56f; border-bottom-color: #a97930; margin-top: 0; }
+.practical p { color: #efe9d8; margin: 8px 0; }
+.practical strong { color: #f0d9a8; }
+
+.further { margin-top: 54px; border-top: 1px solid #8a5a12; padding-top: 24px; }
+.further h2 { margin-top: 0; }
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1) rotate(-1deg); }
+  50% { transform: scale(1.06) rotate(2deg); }
+}
+
+@media (max-width: 560px) {
+  .masthead h1 { font-size: 2.2rem; }
+  main { padding: 26px 16px 50px; }
+}
