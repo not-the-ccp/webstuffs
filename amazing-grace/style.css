@@ -1,0 +1,160 @@
+/* Build Log No. 41 — The Bench at Fenn Court */
+:root {
+  --parchment: #f2e9d5;
+  --parchment-deep: #e9dcc0;
+  --ink: #2c2418;
+  --faded-ink: #5c4f38;
+  --walnut: #4a2f1e;
+  --brass: #a97c2f;
+  --chapel-green: #2e4034;
+  --stamp-red: #8a3324;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(74, 47, 30, 0.035) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 0%, rgba(169, 124, 47, 0.10), transparent 60%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.75rem;
+  text-align: center;
+  border-bottom: 4px double var(--walnut);
+  position: relative;
+}
+
+.mast-kicker {
+  font-variant: small-caps;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: var(--brass);
+  margin: 0 0 1rem;
+}
+
+.masthead h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+  color: var(--chapel-green);
+}
+
+.mast-sub {
+  margin: 0;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+
+.bell {
+  width: 72px;
+  color: var(--walnut);
+  margin: 1.25rem auto 0.5rem;
+  display: block;
+}
+
+.mast-stamp {
+  display: inline-block;
+  margin: 0.75rem 0 0;
+  padding: 0.25rem 0.9rem;
+  border: 1.5px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  transform: rotate(-2deg);
+}
+
+.log {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.entry {
+  margin: 2.4rem 0;
+  padding: 1.25rem 1.5rem 1.4rem;
+  background: var(--parchment-deep);
+  border: 1px solid rgba(74, 47, 30, 0.35);
+  border-top: 3px solid var(--walnut);
+  box-shadow: 3px 3px 0 rgba(44, 36, 24, 0.12);
+}
+
+.entry-date {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.entry h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.35rem;
+  color: var(--chapel-green);
+  border-bottom: 1px dotted var(--faded-ink);
+  padding-bottom: 0.35rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--walnut);
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--chapel-green); }
+
+blockquote.card {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: #fbf6e8;
+  border: 1px dashed var(--faded-ink);
+  font-family: "Courier New", monospace;
+  font-size: 0.92rem;
+  color: var(--walnut);
+  transform: rotate(-0.5deg);
+  box-shadow: 2px 2px 0 rgba(44, 36, 24, 0.10);
+}
+blockquote.card p { margin: 0; }
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  border-top: 4px double var(--walnut);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--faded-ink);
+}
+
+.colophon p { margin: 0.3rem 0; }
+
+.colophon-rule { letter-spacing: 0.8em; color: var(--brass); }
+
+.bell-line {
+  font-style: italic;
+  color: var(--chapel-green);
+  transition: opacity 0.3s;
+}
+
+.ring {
+  margin: 0.75rem auto 0;
+  display: block;
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  background: var(--chapel-green);
+  color: var(--parchment);
+  border: 1px solid var(--walnut);
+  padding: 0.45rem 1.2rem;
+  cursor: pointer;
+}
+.ring:hover { background: var(--walnut); }
