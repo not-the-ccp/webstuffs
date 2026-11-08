@@ -1,0 +1,325 @@
+/* Teardrops — Dining Column No. 207
+   A ballad house reviewed: midnight valley, one guitar rosette, six quiet courses.
+   The design is wet on purpose. */
+
+:root {
+  --midnight: #0b1220;
+  --deep: #101c30;
+  --slate: #1b2a42;
+  --rain: #6fa8c9;
+  --rain-dim: #3d5a75;
+  --paper: #e9e4d4;
+  --paper-dim: #b9b29a;
+  --amber: #d9a441;
+  --amber-dim: #8a6a2a;
+  --fiddle: #7c4a3a;
+  --tear: #9fd3ea;
+  --rule: #2c405c;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  background:
+    radial-gradient(1100px 500px at 78% -8%, rgba(111, 168, 201, 0.20), transparent 60%),
+    radial-gradient(900px 620px at 8% 108%, rgba(124, 74, 58, 0.22), transparent 62%),
+    linear-gradient(178deg, var(--midnight) 0%, var(--deep) 42%, var(--slate) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Rain streaks behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(103deg,
+      transparent 0 46px,
+      rgba(159, 211, 234, 0.045) 46px 47px,
+      transparent 47px 92px);
+  animation: rain-drift 14s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rain-drift {
+  from { background-position: 0 0; }
+  to   { background-position: -220px 640px; }
+}
+
+/* Falling teardrops canvas */
+.tears {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+main.review {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.2rem 1.6rem 4rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  text-align: center;
+  padding: 1rem 0 2.2rem;
+  border-bottom: 3px double var(--rule);
+  margin-bottom: 2.4rem;
+  position: relative;
+}
+
+.rosette {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  filter: drop-shadow(0 0 14px rgba(217, 164, 65, 0.35));
+  animation: rosette-turn 60s linear infinite;
+}
+
+@keyframes rosette-turn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.rosette .ring {
+  fill: none;
+  stroke: var(--amber);
+}
+.rosette .ring--outer { stroke-width: 2.4; opacity: 0.9; }
+.rosette .ring--mid   { stroke-width: 1.2; stroke-dasharray: 5 4; opacity: 0.7; }
+.rosette .ring--inner { stroke-width: 1.6; opacity: 0.8; }
+.rosette .rosette--heart {
+  fill: var(--fiddle);
+  stroke: var(--amber);
+  stroke-width: 1.4;
+  animation: heart-pulse 5.2s ease-in-out infinite;
+  transform-origin: 60px 60px;
+}
+
+@keyframes heart-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.14); }
+}
+
+.rosette .petals circle { fill: var(--rain); opacity: 0.55; }
+
+.kicker {
+  font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--rain);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 4.6rem);
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4), 0 0 34px rgba(159, 211, 234, 0.25);
+}
+
+/* the tear hanging off the T */
+h1::first-letter {
+  color: var(--amber);
+  position: relative;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--paper-dim);
+  max-width: 34rem;
+  margin: 1rem auto 1.4rem;
+}
+
+/* hanging teardrop under the h1, drawn in CSS */
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2.05rem;
+  width: 14px;
+  height: 20px;
+  background: linear-gradient(180deg, var(--tear), rgba(159, 211, 234, 0.15));
+  border-radius: 50% 50% 50% 50% / 38% 38% 62% 62%;
+  transform: translateX(-50%);
+  animation: drip 6s ease-in infinite;
+}
+
+@keyframes drip {
+  0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.95; }
+  70%  { transform: translateX(-50%) translateY(26px) scale(1, 1.25); opacity: 0.7; }
+  100% { transform: translateX(-50%) translateY(40px) scale(0.5); opacity: 0; }
+}
+
+.score {
+  margin-top: 1.2rem;
+  font-family: "Avenir Next", "Gill Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.star {
+  color: var(--rule);
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+}
+
+.star--lit {
+  color: var(--amber);
+  text-shadow: 0 0 12px rgba(217, 164, 65, 0.55);
+  animation: star-glow 3.4s ease-in-out infinite;
+}
+
+@keyframes star-glow {
+  0%, 100% { text-shadow: 0 0 8px rgba(217, 164, 65, 0.4); }
+  50%      { text-shadow: 0 0 18px rgba(217, 164, 65, 0.85); }
+}
+
+.score--note {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+/* ---------- entries ---------- */
+
+.entry {
+  margin: 0 0 2.4rem;
+  padding: 1.6rem 1.8rem 1.4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--rain-dim);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+/* rosette pip in each entry's corner */
+.entry::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 22px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  background: radial-gradient(circle at 50% 62%, var(--tear), var(--rain-dim) 70%);
+  box-shadow: 0 0 10px rgba(159, 211, 234, 0.5);
+}
+
+.entry h2 {
+  font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--amber);
+  margin: 0 0 1rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+.entry p:last-child { margin-bottom: 0.2rem; }
+
+.entry a {
+  color: var(--tear);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rain);
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.entry a:hover,
+.colophon a:hover {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* the gulf sentence gets the room */
+.entry em {
+  color: var(--paper);
+}
+
+.verdict {
+  border-left-color: var(--amber);
+  background:
+    radial-gradient(600px 200px at 90% 0%, rgba(217, 164, 65, 0.09), transparent 65%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+}
+
+.verdict h2 { color: var(--tear); }
+
+/* guitar-string rule between sections */
+.entry + .entry {
+  border-top: none;
+  margin-top: 3rem;
+}
+
+.entry + .entry::after {
+  content: "";
+  position: absolute;
+  top: -1.6rem;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg,
+    var(--rain-dim) 0 14px,
+    transparent 14px 18px);
+  opacity: 0.6;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 3.4rem;
+  padding-top: 1.6rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-style: italic;
+  color: var(--paper-dim);
+  font-size: 0.94rem;
+}
+
+.colophon a {
+  color: var(--tear);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rain);
+}
+
+.colophon .small {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.8rem;
+}
+
+/* a final drip at the very bottom of the page */
+.colophon::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 18px;
+  margin: 1.6rem auto 0;
+  background: linear-gradient(180deg, var(--tear), transparent);
+  border-radius: 50% 50% 50% 50% / 38% 38% 62% 62%;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .entry { padding: 1.2rem 1.1rem; }
+  main.review { padding: 2.2rem 1rem 3rem; }
+}
