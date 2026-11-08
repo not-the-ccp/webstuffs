@@ -1,0 +1,406 @@
+/* The Bostock Mail — art deco wartime railway, platform by the hush */
+
+:root {
+  --ink: #101823;
+  --midnight: #14202e;
+  --steel: #1e2f42;
+  --brass: #c9a24b;
+  --brass-bright: #e8c56d;
+  --parchment: #f3e9d2;
+  --parchment-dim: #d8c9a4;
+  --oxide: #8a4b2f;
+  --signal: #c96a3a;
+  --mist: #9fb3c8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--parchment);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(232, 197, 109, 0.14), transparent 60%),
+    radial-gradient(ellipse 90% 50% at 90% 110%, rgba(138, 75, 47, 0.22), transparent 65%),
+    repeating-linear-gradient(90deg, rgba(201, 162, 75, 0.045) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(0deg, rgba(159, 179, 200, 0.035) 0 1px, transparent 1px 46px),
+    linear-gradient(175deg, var(--midnight) 0%, var(--ink) 45%, #0b111a 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.4rem 1.4rem 4rem;
+}
+
+/* ---------- Marquise ---------- */
+
+.marquise {
+  text-align: center;
+  border: double 4px var(--brass);
+  outline: 1px solid rgba(201, 162, 75, 0.35);
+  outline-offset: 6px;
+  padding: 2.2rem 1.4rem 1.8rem;
+  background:
+    repeating-linear-gradient(45deg, rgba(201, 162, 75, 0.06) 0 10px, transparent 10px 20px),
+    linear-gradient(180deg, rgba(30, 47, 66, 0.9), rgba(16, 24, 35, 0.9));
+  position: relative;
+}
+
+.marquise::before,
+.marquise::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--brass);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.marquise::before { left: -27px; }
+.marquise::after { right: -27px; }
+
+.wing {
+  width: 300px;
+  max-width: 80%;
+  height: auto;
+  color: var(--brass-bright);
+  filter: drop-shadow(0 0 10px rgba(232, 197, 109, 0.35));
+  animation: slow-sway 9s ease-in-out infinite;
+}
+
+@keyframes slow-sway {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+
+.line-name {
+  margin: 1.2rem 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  font-size: 0.72rem;
+  color: var(--mist);
+}
+
+.marquise h1 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+  font-weight: 700;
+  color: var(--brass-bright);
+  text-shadow:
+    0 0 22px rgba(232, 197, 109, 0.4),
+    0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: var(--parchment-dim);
+  letter-spacing: 0.06em;
+}
+
+.clockline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  color: var(--brass);
+  border-top: 1px solid rgba(201, 162, 75, 0.4);
+  border-bottom: 1px solid rgba(201, 162, 75, 0.4);
+  padding: 0.45rem 0;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 8px var(--signal);
+  animation: blink 2.2s steps(2, start) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0.25; } }
+
+/* ---------- Concourse ---------- */
+
+.concourse { margin-top: 2.6rem; }
+
+.board-title {
+  font-size: 1.28rem;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+.board-title::before,
+.board-title::after { content: " \25C6 "; color: var(--signal); }
+
+.service { margin-bottom: 3rem; }
+
+.timetable-note {
+  font-size: 0.95rem;
+  color: var(--mist);
+  border-left: 3px solid var(--brass);
+  padding: 0.6rem 0 0.6rem 1rem;
+  margin: 0 auto 1.4rem;
+  max-width: 720px;
+}
+
+/* ---------- Timetable ---------- */
+
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(232, 197, 109, 0.03) 0 3px, transparent 3px 6px),
+    linear-gradient(180deg, var(--steel), var(--midnight));
+  border: 1px solid var(--brass);
+  box-shadow:
+    0 0 0 4px rgba(201, 162, 75, 0.12),
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(0, 0, 0, 0.45);
+}
+
+.timetable caption {
+  caption-side: top;
+  padding: 0.7rem;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--parchment-dim);
+  border-bottom: 2px solid var(--brass);
+  background: rgba(201, 162, 75, 0.08);
+}
+
+.timetable th {
+  text-align: left;
+  padding: 0.55rem 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+  border-bottom: 2px solid var(--brass);
+}
+
+.timetable td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px dashed rgba(201, 162, 75, 0.28);
+  color: var(--parchment);
+  white-space: nowrap;
+}
+
+.timetable tbody tr {
+  animation: row-reveal 0.7s ease backwards;
+}
+
+.timetable tbody tr:nth-child(odd) { background: rgba(159, 179, 200, 0.05); }
+
+.timetable tbody tr:hover {
+  background: rgba(232, 197, 109, 0.12);
+}
+
+.timetable tbody tr:hover td:first-child {
+  color: var(--brass-bright);
+}
+
+@keyframes row-reveal {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.timetable tbody tr.pre-reveal {
+  animation: none;
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timetable tbody tr[data-lit] {
+  background: rgba(232, 197, 109, 0.16);
+  box-shadow: inset 3px 0 0 var(--signal);
+}
+
+.timetable tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.timetable tbody tr:nth-child(2) { animation-delay: 0.15s; }
+.timetable tbody tr:nth-child(3) { animation-delay: 0.25s; }
+.timetable tbody tr:nth-child(4) { animation-delay: 0.35s; }
+.timetable tbody tr:nth-child(5) { animation-delay: 0.45s; }
+.timetable tbody tr:nth-child(6) { animation-delay: 0.55s; }
+.timetable tbody tr:nth-child(7) { animation-delay: 0.65s; }
+.timetable tbody tr:nth-child(8) { animation-delay: 0.75s; }
+.timetable tbody tr:nth-child(9) { animation-delay: 0.85s; }
+
+td[data-status] {
+  color: var(--brass-bright);
+  font-style: italic;
+}
+
+/* ---------- Commentary ---------- */
+
+.commentary p {
+  margin: 0 0 1.3rem;
+  text-indent: 1.6rem;
+}
+
+.commentary strong { color: var(--brass-bright); font-weight: 600; }
+
+.commentary a {
+  color: var(--brass-bright);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.commentary a:hover {
+  background: rgba(201, 162, 75, 0.2);
+  color: #fff3d6;
+}
+
+.telegram {
+  margin: 2rem auto;
+  max-width: 640px;
+  padding: 1.6rem 1.8rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 24, 35, 0.06) 0 26px, transparent 26px 27px),
+    linear-gradient(160deg, #efe3c4, #e2d1a6);
+  color: var(--ink);
+  border: 1px solid var(--oxide);
+  box-shadow:
+    0 0 0 5px rgba(232, 197, 109, 0.14),
+    14px 16px 0 -4px rgba(0, 0, 0, 0.45);
+  transform: rotate(-0.6deg);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.telegram::before {
+  content: "TELEGRAM \00B7 DARWIN STN \00B7 1943";
+  display: block;
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-size: 0.6rem;
+  color: var(--oxide);
+  border-bottom: 2px solid var(--oxide);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.telegram p { margin: 0; text-indent: 0; font-size: 1.05rem; line-height: 1.9; }
+
+.telegram-note {
+  margin-top: 0.9rem !important;
+  font-size: 0.72rem !important;
+  font-style: italic;
+  color: #5a4a2a;
+  text-align: right;
+}
+
+/* ---------- Wayboard ---------- */
+
+.wayboard {
+  margin: 2.6rem 0 0;
+  padding: 1.4rem 1.6rem 1.6rem;
+  border: 1px solid rgba(201, 162, 75, 0.5);
+  background:
+    linear-gradient(90deg, rgba(201, 162, 75, 0.14) 0 8px, transparent 8px),
+    repeating-linear-gradient(135deg, rgba(159, 179, 200, 0.05) 0 12px, transparent 12px 24px),
+    linear-gradient(180deg, var(--steel), var(--midnight));
+}
+
+.wayboard h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.wayboard ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wayboard li {
+  margin: 0 0 0.7rem;
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.wayboard li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+}
+
+.wayboard a {
+  color: var(--brass-bright);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.wayboard a:hover { background: rgba(201, 162, 75, 0.2); }
+
+/* ---------- Footer ---------- */
+
+.ledger-footer {
+  margin-top: 3.4rem;
+  text-align: center;
+}
+
+.footrule {
+  color: var(--brass);
+  letter-spacing: 0.4em;
+  margin: 0 0 0.8rem;
+}
+
+.ledger-footer p { margin: 0 0 0.6rem; }
+
+.ledger-footer .footlinks a {
+  color: var(--mist);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.ledger-footer .footlinks a:hover { color: var(--brass-bright); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .marquise::before, .marquise::after { display: none; }
+  .timetable { font-size: 0.72rem; display: block; overflow-x: auto; }
+  .telegram { transform: none; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .wing, .dot, .timetable tbody tr { animation: none; }
+}
