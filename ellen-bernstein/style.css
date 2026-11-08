@@ -1,0 +1,125 @@
+/* Ellen Bernstein — Weather Almanac Entry 2024/058 */
+
+:root {
+  --paper: #f6f3ec;
+  --ink: #1f2733;
+  --faint: #6b7280;
+  --rule: #c9c2b2;
+  --accent: #35506b;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: #eceadf;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 4rem 1.5rem 5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+}
+
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.masthead-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: normal;
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.masthead-tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.entry {
+  margin-bottom: 2.6rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.05rem; }
+
+.reading {
+  font-size: 0.85rem;
+  color: var(--faint);
+  border-left: 2px solid var(--rule);
+  padding-left: 0.9rem;
+  line-height: 1.65;
+}
+
+.reading span {
+  font-style: normal;
+  color: var(--ink);
+}
+
+blockquote.caveat {
+  margin: 1.5rem 2.2rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+  font-size: 1.08rem;
+  text-align: center;
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.colophon-entry {
+  font-size: 0.95rem;
+  color: #3c4453;
+}
+
+.nav-line {
+  border-top: 3px double var(--rule);
+  margin-top: 3rem;
+  padding-top: 1.1rem;
+}
+
+.nav {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0;
+  text-align: center;
+}
