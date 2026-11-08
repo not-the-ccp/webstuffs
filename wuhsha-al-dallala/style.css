@@ -1,0 +1,154 @@
+/* The House of Wuhsha — review styles, after the green cloth of the ledger */
+
+:root {
+  --ink: #2b2118;
+  --paper: #f6efe1;
+  --copper: #a5622d;
+  --copper-dark: #7c4620;
+  --leaf: #3d4a2f;
+  --rule: #cbb994;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  border-bottom: 4px double var(--copper);
+  padding: 2.2rem 1.2rem 1.4rem;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--copper-dark);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin: 0 0 0.7rem;
+}
+
+.standfirst {
+  font-style: italic;
+  color: #5c4a37;
+  margin: 0;
+}
+
+.stars { color: var(--copper); font-style: normal; letter-spacing: 0.1em; }
+
+.review {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.2rem 2.4rem;
+}
+
+.dateline {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.review p { margin: 0 0 1.15rem; }
+
+.ledger-box {
+  background: #efe6d2;
+  border: 1px solid var(--rule);
+  border-top: 6px solid var(--leaf);
+  padding: 1.2rem 1.3rem 1.4rem;
+  margin: 2rem 0;
+}
+
+.ledger-box h2 {
+  margin: 0 0 0.4rem;
+  color: var(--leaf);
+  font-size: 1.3rem;
+}
+
+.ledger-copy { margin: 0 0 1rem; font-size: 0.95rem; }
+
+#pledge-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.2rem;
+  align-items: flex-end;
+}
+
+#pledge-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+#pledge-form input {
+  font: inherit;
+  font-weight: normal;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--copper);
+  background: #fffaf0;
+  width: 7.5rem;
+  margin-top: 0.25rem;
+}
+
+#pledge-form button {
+  font: inherit;
+  font-weight: bold;
+  background: var(--copper);
+  color: #fff8ec;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+}
+
+#pledge-form button:hover { background: var(--copper-dark); }
+
+.ledger-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1.4rem;
+  margin: 1.1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.95rem;
+}
+
+.ledger-result dt { margin: 0; }
+.ledger-result dd {
+  margin: 0;
+  font-weight: bold;
+  color: var(--leaf);
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-result.total dd { color: var(--copper-dark); font-size: 1.05rem; }
+
+.nav-line {
+  font-style: italic;
+  color: #5c4a37;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+a { color: var(--copper-dark); }
+a:hover { color: var(--copper); }
+
+.colophon {
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #8a755a;
+  border-top: 4px double var(--copper);
+  padding: 1.1rem 1rem 1.8rem;
+}

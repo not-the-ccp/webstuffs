@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The House of Wuhsha — A Review · Fustat, the Bakkala Quarter</title>
+<meta name="description" content="A restaurant review of The House of Wuhsha, the pawnbroker's kitchen of Karima bint Ammar in the bakkala quarter of Fustat, 11th-century Egypt: the pledged-copper menu, the ledger at the counter, and a four-course meal run like a loan.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <p class="kicker">The Nile &amp; Nook, Dining Columns · Fustat edition</p>
+  <h1>The House of Wuhsha</h1>
+  <p class="standfirst">12 Copper Lane, Bakkala Quarter, Fustat, Egypt · <span class="stars">★★★★☆</span> · covers 18, counter 7 · open at dawn, closed at the second adhan</p>
+</header>
+
+<main class="review">
+<p class="dateline">Fustat —</p>
+
+<p>There is no sign. This is the first thing you must be told, because it is the last thing you will understand. The House of Wuhsha is a ground-floor room behind a pawnshop door on Copper Lane, in the bakkala quarter of Fustat, and the name of it belongs to <strong>Karima bint Ammar</strong>, the woman who runs the whole operation — the counter, the copper shelf, and, on the days she chooses, the stove. Neighbours call her Wuhsha; the men who bring her their rings to pledge call her the <em>dallala</em>, the broker, because that is what she is, of goods, of silver, of dinners. She was married, briefly, to <strong>Arye ben Judah</strong>, a Sicilian who arrived from Palermo with a satchel, a daughter, and what the quarter's gossip called "an appetite of no visible owner"; the marriage ended in the way such marriages do. She has not remarried. A man from Ashkelon, <strong>Hassun</strong>, appears at the counter on most market days and leaves with a son, <strong>Abu Saʿd</strong>, asleep on a mat behind the copper shelf, and nobody at the table asks questions. Abu Saʽd is, at four, the room's quietest critic: he bites the crust first, and if the crust holds, the loaf is forgiven.</p>
+
+<p>The menu, such as it is, is priced in dinars and in pledges, and the house rule — chalked above the door in three alphabets — is that nothing leaves the kitchen without a line in the ledger. I took a counter stool and was given the <em>four-pledge dinner</em> for two dinars and a promise: <strong>lentil soup on bread pooled with the shop's own oil</strong>, in which the lentils go in whole and stay whole, "as in the jar," the girl at the pass told me, which turned out to mean the soup tastes of its own keeping; <strong>fish in a pepper and coriander glaze</strong>, cut that morning off a barge on the Nile, the bones picked by a crew of three before the first adhan; <strong>a flatbread baked against the oven mouth</strong>, blistered dark at the corners the way a good coin is dark at the edges; and, for the sweet, <strong>stuffed dates with walnut and a thread of honey</strong>, counted out on a small brass scale, because even the sweetness here is weighed. The fish was the finest thing I have eaten north of the delta in ten years. The soup was the truest.</p>
+
+<p>What makes the room, though, is the ledger. It stands at the counter in a green cloth cover, and the dining is run exactly like the pawnshop: you sit, you are given what the day provides, and the woman at the pass logs it. My two dinars were entered; the promise was entered; the crust Abu Saʽd bit was entered, and I watched my own dinner become a line of small, careful figures. It is, I believe, the only restaurant in Egypt — possibly in the world — where the check arrives before the food, where being served is an act of credit, and where the house's word is the only collateral. Karima bint Ammar is a banker's daughter of a moderate fortune, and she cooks the way her family keeps its books: without haste, without drama, and never, under any provocation, without the total at the end of the line.</p>
+
+<p>One reservation, and it is a small one. The room is loud — the counter of the shop, the scale, the barge traffic on the water — and the girl at the pass once told me, quite firmly, that conversation about other debts is not conversation, it is inventory. A note of the evening, pinned inside my own copy of the house book, read exactly thus: <em>V. From the front page · 7 replies · opened by a familial production lineage operating as one would hope.</em> I could not make it out then, and I cannot make it out now, and I keep it on the mantel anyway, the way you keep a coin from a country that no longer exists, for the feeling of it in the hand. Four stars. Come early, bring something to pledge, and sit where the light comes off the shelf. You will be logged, and you will be well fed, and these two things, in Fustat, are the same thing.</p>
+
+<section class="ledger-box" id="ledger">
+  <h2>The Pledge-Counter</h2>
+  <p class="ledger-copy">The house prices a dinner the way it prices a pledge: the meal is the loan, the months are the run of it, and the rate is 5% per month on the balance you still owe the room. Enter the meal's price and how many months you hold your seat, and the counter will tell you what redemption costs.</p>
+  <form id="pledge-form">
+    <label>Price of the meal (dinars)
+      <input type="number" id="principal" min="0" step="0.5" value="2">
+    </label>
+    <label>Months the seat is held
+      <input type="number" id="months" min="1" max="12" step="1" value="6">
+    </label>
+    <button type="submit">Run the ledger</button>
+  </form>
+  <dl class="ledger-result" id="ledger-result" aria-live="polite">
+    <dt>Monthly rate (5% of balance)</dt><dd id="out-rate">—</dd>
+    <dt>Total of interest, all months</dt><dd id="out-interest">—</dd>
+    <dt>Redemption price (meal + interest)</dt><dd id="out-total">—</dd>
+  </dl>
+</section>
+
+<p class="nav-line">More of the dining columns: the eleven-course menu at <a href="../swamp-terrorists/">Swamp Terrorists, 14 Marsh Road</a>, the five-thousand-cover field beside the Afon Wnion at <a href="../sesiwn-fawr/">Sesiwn Fawr, Dolgellau</a>, and the whole shelf, <a href="../">at the front page</a>.</p>
+
+</main>
+
+<footer class="colophon">The Nile &amp; Nook · Fustat dining columns · figures entered in dinars of the old weight</footer>
+<script src="ledger.js"></script>
+</body>
+</html>
