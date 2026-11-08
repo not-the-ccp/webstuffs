@@ -1,0 +1,92 @@
+/* Oneirocriticon &middot; Entry 314 &middot; Given Name */
+html { box-sizing: border-box; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(600px 800px at 50% 0%, #261f3d 0%, #120b24 35%, #07050f 100%);
+  color: #e8ded4;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "URW Palladio", serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 30px 16px;
+}
+.frame {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  position: relative;
+  background: linear-gradient(180deg, #140e22 0%, #0b0814 100%);
+  border: 1px solid #3d2e24;
+  box-shadow: 0 0 0 1px rgba(195, 158, 78, 0.12), 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+.frame::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(195, 158, 78, 0.04) 51%, transparent 52%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 0;
+}
+.sigil {
+  position: absolute; top: -56px; left: 50%; transform: translatex(-50%);
+  width: 118px; height: 118px;
+  border: 2.5px solid #c39e4e;
+  clip-path: polygon(50% 0%, 93% 12%, 100% 48%, 93% 84%, 50% 96%, 7% 84%, 0% 48%, 7% 12%);
+  box-shadow: 0 0 24px rgba(195, 158, 78, 0.35);
+  animation: sigil-turn 20s linear infinite;
+  z-index: 1;
+}
+.entry { position: relative; z-index: 2; }
+.entry-head { border-bottom: 1px solid #3d2e24; padding-bottom: 22px; margin-bottom: 34px; }
+.dictionary {
+  margin: 0 0 8px; font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.42em; color: #c39e4e;
+}
+h1 {
+  margin: 0 0 10px; font-size: 2.5rem; letter-spacing: 0.02em;
+  color: #f3efe4; font-weight: 600;
+  text-shadow: 0 0 16px rgba(195, 158, 78, 0.25);
+  animation: name-glow 6s ease-in-out infinite alternate;
+}
+@keyframes name-glow {
+  from { text-shadow: 0 0 14px rgba(195, 158, 78, 0.2), 0 0 6px rgba(110, 85, 40, 0.25); }
+  to   { text-shadow: 0 0 26px rgba(195, 158, 78, 0.4), 0 0 10px rgba(172, 130, 42, 0.35); }
+}
+.subtitle { margin: 0; font-style: italic; color: #ad9ea8; font-size: 1.05rem; }
+section p { margin: 0 0 1.5rem; text-align: justify; }
+.dropcap::first-letter {
+  float: left; font-size: 3.1rem; line-height: 0.9;
+  padding: 6px 12px 4px 0; margin-right: 8px;
+  color: #e8c87a; font-weight: 700;
+}
+h2 {
+  margin: 42px 0 14px; font-size: 1.15rem; text-transform: uppercase;
+  letter-spacing: 0.3em; color: #e8c87a; border-bottom: 1px solid #281d15;
+  padding-bottom: 6px;
+}
+.receipt {
+  margin: 30px 0 10px; padding: 26px 32px 22px;
+  background: linear-gradient(145deg, #1d122c 0%, #10081b 100%);
+  border: 1px solid #3d2e24; border-left: 7px solid #c39e4e;
+  clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+.receipt q {
+  display: block; font-style: italic; font-size: 1.2rem; color: #ecd9b8;
+  line-height: 1.55; quotes: "“" "”";
+}
+.receipt-source {
+  margin: 0; font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: #8a7b6f; text-align: right;
+}
+.xrefs {
+  margin-top: 46px; padding-top: 24px; border-top: 1px solid #3d2e24;
+  font-size: 0.92rem; color: #b9b0bd; text-align: justify;
+}
+.xrefs a { color: #e8c87a; text-decoration: none; border-bottom: 1px dotted #6a5433; }
+.xrefs a:hover { color: #f3efe4; border-bottom-color: #c39e4e; }
+@keyframes sigil-turn { from { transform: translatex(-50%) rotate(0deg); } to { transform: translatex(-50%) rotate(360deg); } }
+@media (max-width: 560px) {
+  .frame { padding: 40px 20px 52px; margin: 0 8px; }
+  h1 { font-size: 2rem; }
+  .dropcap::first-letter { float: none; display: inline-block; padding: 0 6px 0 0; margin: 0; font-size: 2.4rem; }
+}
