@@ -1,0 +1,231 @@
+/* The Pastoral Hall — Placard No. 17: Lake Wells Station */
+:root {
+  --ink: #1d1a14;
+  --plaque: #221f18;
+  --brass: #c9a227;
+  --brass-hi: #e8c96a;
+  --brass-dim: #8a6f1f;
+  --paper: #ece4d2;
+  --paper-dim: #b8ab8e;
+  --blood: #7a2e1d;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--ink); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px 72px;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(201, 162, 39, 0.14), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #211d15 0%, #16130e 70%, #100e0a 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--paper);
+}
+
+/* drifting dust in the gallery light */
+.dust { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.dust i {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(232, 201, 106, 0.35);
+  animation: drift 22s linear infinite;
+}
+.dust i:nth-child(1) { left: 12%; top: 78%; animation-delay: 0s; }
+.dust i:nth-child(2) { left: 30%; top: 88%; animation-delay: -4s; width: 2px; height: 2px; }
+.dust i:nth-child(3) { left: 47%; top: 95%; animation-delay: -9s; }
+.dust i:nth-child(4) { left: 61%; top: 82%; animation-delay: -13s; width: 2px; height: 2px; }
+.dust i:nth-child(5) { left: 74%; top: 92%; animation-delay: -17s; }
+.dust i:nth-child(6) { left: 86%; top: 76%; animation-delay: -6s; width: 4px; height: 4px; background: rgba(232,201,106,0.22); }
+.dust i:nth-child(7) { left: 22%; top: 60%; animation-delay: -19s; width: 2px; height: 2px; }
+.dust i:nth-child(8) { left: 68%; top: 66%; animation-delay: -2s; }
+@keyframes drift {
+  from { transform: translateY(0); opacity: 0; }
+  8%  { opacity: 0.9; }
+  85% { opacity: 0.5; }
+  to   { transform: translateY(-64vh); opacity: 0; }
+}
+
+.plaque {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.05), transparent 40%),
+    radial-gradient(120% 90% at 50% 0%, #2b261c 0%, #1d1a13 55%, #17140e 100%);
+  border: 3px solid var(--brass-dim);
+  outline: 1px solid rgba(232, 201, 106, 0.35);
+  outline-offset: 5px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.65),
+    inset 0 1px 0 rgba(232, 201, 106, 0.25);
+  padding: 46px 54px 34px;
+}
+
+/* the slow sheen passing over the brass frame */
+.plaque::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(232,201,106,0.10) 46%, rgba(255,244,200,0.16) 50%, rgba(232,201,106,0.10) 54%, transparent 70%);
+  background-size: 260% 100%;
+  animation: sheen 9s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 100% { background-position: 120% 0; }
+  50%      { background-position: -20% 0; }
+}
+
+/* corner rivets */
+.rivet {
+  position: absolute;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--brass-hi), var(--brass) 45%, #4d3d10 85%);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+.rv1 { top: 12px; left: 12px; }
+.rv2 { top: 12px; right: 12px; }
+.rv3 { bottom: 12px; left: 12px; }
+.rv4 { bottom: 12px; right: 12px; }
+
+.plaque-head { text-align: center; }
+
+.hall {
+  margin: 0 0 18px;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--brass-hi);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(40px, 7vw, 62px);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #f4e2a4 10%, var(--brass) 48%, #7c611a 78%, #b3902e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.35);
+}
+
+.classification {
+  margin: 14px auto 6px;
+  max-width: 560px;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--paper-dim);
+}
+
+.placard-no {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+}
+
+.head-rule {
+  height: 2px;
+  margin: 26px auto 0;
+  max-width: 420px;
+  background: linear-gradient(90deg, transparent, var(--brass) 20%, var(--brass-hi) 50%, var(--brass) 80%, transparent);
+  position: relative;
+}
+.head-rule::after {
+  content: "\25C6";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -52%);
+  font-size: 10px;
+  color: var(--brass-hi);
+  background: #1d1a13;
+  padding: 0 8px;
+}
+
+.body { margin-top: 30px; font-size: 16.5px; line-height: 1.72; }
+.body p { margin: 0 0 1.15em; }
+.body p.lede::first-letter {
+  float: left;
+  font-size: 58px;
+  line-height: 0.85;
+  padding: 4px 10px 0 0;
+  color: var(--brass-hi);
+}
+.body strong { color: #f0e6cc; font-weight: 700; }
+.body em { color: #e4d6ae; }
+
+.body a {
+  color: var(--brass-hi);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass-dim);
+  transition: color 0.25s, border-color 0.25s;
+}
+.body a:hover { color: #fff3cf; border-bottom-color: var(--brass-hi); }
+
+.log-para {
+  border-left: 3px solid var(--blood);
+  background: linear-gradient(90deg, rgba(122, 46, 29, 0.14), transparent 70%);
+  padding: 4px 0 4px 18px;
+  margin: 1.4em 0;
+}
+
+.specimen { margin-top: 34px; }
+.specimen h2 {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--brass);
+}
+.specimen table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.specimen th, .specimen td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
+}
+.specimen th {
+  width: 34%;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+  vertical-align: top;
+  padding-top: 11px;
+}
+.specimen td { color: #e7ddc2; }
+.specimen tbody tr:last-child th, .specimen tbody tr:last-child td { border-bottom: none; }
+.specimen tbody tr { transition: background 0.3s; }
+.specimen tbody tr:hover { background: rgba(232, 201, 106, 0.05); }
+
+.colophon { margin-top: 30px; text-align: center; font-size: 12.5px; color: var(--paper-dim); line-height: 1.6; }
+.colophon-rule {
+  height: 1px;
+  width: 70%;
+  margin: 0 auto 16px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.6), transparent);
+}
+
+@media (max-width: 640px) {
+  .plaque { padding: 34px 22px 26px; }
+  .body { font-size: 15.5px; }
+}
