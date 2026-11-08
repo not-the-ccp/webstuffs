@@ -1,0 +1,214 @@
+/* Trial by the Sea — radio script sheet */
+
+:root {
+  --paper: #f6f1e3;
+  --paper-deep: #efe7d2;
+  --ink: #2b2620;
+  --faint: #6b6152;
+  --red: #9e2b23;
+  --line: #c9bda0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 252, 240, 0.7), transparent 60%),
+    radial-gradient(ellipse at 90% 100%, rgba(120, 96, 52, 0.10), transparent 55%);
+  color: var(--ink);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.sheet-head, main.script, .sheet-foot {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+/* Masthead */
+.masthead-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.25rem;
+}
+
+.service {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  color: var(--faint);
+  max-width: 34rem;
+}
+
+.mh-right { text-align: center; flex: 0 0 auto; }
+
+.onair {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid var(--red);
+  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.lamp {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #5c1512;
+  border: 1px solid #7c2a24;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.lamp.lit {
+  background: var(--red);
+  box-shadow: 0 0 10px 3px rgba(158, 43, 35, 0.65);
+  animation: flicker 3.2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  94% { opacity: 0.55; }
+  96% { opacity: 1; }
+  98% { opacity: 0.75; }
+}
+
+.onair-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.stamp {
+  display: inline-block;
+  transform: rotate(-7deg);
+  border: 2px solid var(--red);
+  color: var(--red);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* Cast table */
+table.cast {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.88rem;
+}
+
+table.cast th {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.3rem;
+}
+
+table.cast td {
+  padding: 0.35rem 0.75rem 0.35rem 0;
+  vertical-align: top;
+  border-bottom: 1px dotted var(--line);
+}
+
+table.cast tr td:first-child { width: 22%; }
+table.cast tr td:nth-child(2) { width: 28%; }
+table.cast tr td:nth-child(3) { width: 22%; padding-left: 1.5rem; }
+table.cast tr td:last-child { width: 28%; padding-left: 1.5rem; }
+
+/* Script body */
+.scene { margin: 2rem 0; }
+
+.scene-head {
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+
+.scene-head .scene-where {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+.direction {
+  color: var(--faint);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0.9rem 0;
+}
+
+.speaker {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  margin: 1.4rem 0 0.2rem;
+  text-transform: uppercase;
+}
+
+.line {
+  margin: 0 auto 0.6rem;
+  max-width: 46rem;
+}
+
+.collation {
+  border-top: 3px double var(--ink);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  font-size: 0.92rem;
+}
+
+.collation h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.collation a { color: var(--ink); }
+
+a { color: var(--ink); }
+
+/* Sheet foot */
+.sheet-foot {
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem;
+  color: var(--faint);
+  letter-spacing: 0.04em;
+}
+
+.sheet-foot p { margin: 0; }
