@@ -1,0 +1,355 @@
+/* The Coca-Cola Line — Timetable No. 47 · The Album Keepers */
+:root {
+  --ink: #2a1208;
+  --paper: #f7eeda;
+  --plum: #2c1140;
+  --plum-deep: #1c0a2b;
+  --cola: #7a1e12;
+  --cola-deep: #55130c;
+  --red: #a6192e;
+  --mustard: #e8a020;
+  --teal: #1e6e6a;
+  --fizz: #efe3c4;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--plum-deep); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(232, 160, 32, 0.14), transparent 60%),
+    repeating-linear-gradient(
+      90deg,
+      var(--plum-deep) 0px, var(--plum-deep) 6px,
+      #240e33 6px, #240e33 7px
+    );
+}
+
+.sheet {
+  max-width: 74rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(90, 19, 12, 0.035) 0px, rgba(90, 19, 12, 0.035) 1px,
+      transparent 1px, transparent 5px
+    );
+  border: 3px solid var(--cola);
+  outline: 1px solid var(--mustard);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 1px var(--cola-deep), 0 30px 60px rgba(0, 0, 0, 0.55);
+  padding: 0 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* the red ribbon */
+.ribbon {
+  height: 44px;
+  border-bottom: 3px solid var(--cola);
+  background:
+    linear-gradient(180deg, rgba(166, 25, 46, 0.06), transparent);
+}
+.ribbon svg { display: block; width: 100%; height: 100%; }
+
+/* rotated stamp, upper right, overlapping the ribbon */
+.stamp {
+  position: absolute;
+  top: 2.6rem;
+  right: -1.1rem;
+  transform: rotate(9deg);
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(247, 238, 218, 0.9);
+  box-shadow: inset 0 0 0 2px rgba(166, 25, 46, 0.25);
+  z-index: 3;
+}
+
+.masthead { padding: 1.2rem 2.2rem 0; position: relative; }
+
+.masthead-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-top: 2px solid var(--cola);
+  border-bottom: 1px solid var(--cola);
+  padding: 0.4rem 0;
+  margin-bottom: 1.4rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--cola-deep);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.route {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.epigraph {
+  margin: 0.6rem 0 1rem;
+  max-width: 34rem;
+  font-style: italic;
+  color: #4a2a1a;
+}
+
+.masthead-rule {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--cola) 0 18px, var(--mustard) 18px 26px, var(--red) 26px 40px);
+}
+
+/* asymmetric body grid: big number rail, timetable, commentary */
+.grid {
+  display: grid;
+  grid-template-columns: 9.5rem 1.05fr 0.95fr;
+  gap: 0 1.4rem;
+  padding: 1.8rem 2.2rem 0.6rem;
+}
+
+.number-aside {
+  position: relative;
+  border-right: 3px double var(--cola);
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 26rem;
+}
+
+.train-no {
+  font-size: 4.4rem;
+  font-weight: bold;
+  color: var(--red);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.train-year {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 2.6rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: var(--cola);
+  border-left: 3px solid var(--cola);
+  padding-left: 0.6rem;
+  margin-top: 1.6rem;
+  min-height: 18rem;
+}
+
+.train-caption {
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--teal);
+}
+
+.block-title {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cola-deep);
+  border-bottom: 2px solid var(--mustard);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  background: var(--fizz);
+  box-shadow: 0 6px 18px rgba(85, 19, 12, 0.25);
+}
+
+.timetable th {
+  background: var(--cola-deep);
+  color: var(--paper);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  padding: 0.5rem 0.55rem;
+  text-align: left;
+}
+
+.timetable td {
+  border-bottom: 1px solid rgba(122, 30, 18, 0.35);
+  padding: 0.55rem;
+  vertical-align: top;
+}
+
+.timetable tr:nth-child(even) td { background: rgba(232, 160, 32, 0.10); }
+
+.timetable .time {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.timetable .station { font-weight: bold; }
+.timetable .closed { font-weight: normal; font-style: italic; color: var(--teal); }
+
+.timetable .dist {
+  font-family: "Courier New", monospace;
+  text-align: right;
+  white-space: nowrap;
+  color: var(--cola);
+}
+
+.timetable .remark { line-height: 1.5; }
+
+.table-note {
+  margin-top: 0.6rem;
+  font-size: 0.74rem;
+  font-style: italic;
+  color: #4a2a1a;
+}
+
+.notes { padding-top: 0.2rem; }
+
+.note { margin-bottom: 1.5rem; }
+.note h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cola-deep);
+}
+
+.note-no {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  background: var(--red);
+  color: var(--paper);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  font-family: "Courier New", monospace;
+}
+
+.note p { margin: 0.4rem 0; font-size: 0.93rem; }
+
+.jelly-note {
+  border: 2px solid var(--red);
+  padding: 0.8rem 1rem;
+  background: rgba(166, 25, 46, 0.05);
+  transform: rotate(-0.4deg);
+}
+
+.jelly-line {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.95rem !important;
+  color: var(--red) !important;
+  border-left: 5px solid var(--red);
+  padding-left: 0.8rem;
+  background: rgba(247, 238, 218, 0.8);
+}
+
+.counter-board {
+  margin-top: 1.8rem;
+  background: var(--plum-deep);
+  color: var(--mustard);
+  border: 3px solid var(--mustard);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.6);
+  transform: rotate(0.5deg);
+}
+
+.board-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--paper);
+}
+
+.board-num {
+  font-family: "Courier New", monospace;
+  font-size: 3.2rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.board-sub { font-size: 0.72rem; font-style: italic; color: rgba(247, 238, 218, 0.75); }
+
+.colophon {
+  margin: 2rem 2.2rem 0;
+  border-top: 3px double var(--cola);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.colophon p { margin: 0.5rem 0; }
+
+.footlinks a {
+  color: var(--red);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a { color: var(--red); }
+
+@media (max-width: 62rem) {
+  .grid { grid-template-columns: 7.5rem 1fr; }
+  .notes { grid-column: 1 / -1; margin-top: 1.5rem; }
+}
+
+@media (max-width: 44rem) {
+  .grid { grid-template-columns: 1fr; }
+  .number-aside {
+    min-height: 0;
+    border-right: none;
+    border-bottom: 3px double var(--cola);
+    padding: 0 0 0.8rem;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .train-year {
+    writing-mode: horizontal-tb;
+    transform: none;
+    border-left: none;
+    padding-left: 0;
+    min-height: 0;
+    font-size: 1.8rem;
+  }
+  .train-caption { margin-top: 0; }
+  .timetable { display: block; overflow-x: auto; }
+  .stamp { position: static; display: inline-block; margin: 0.6rem 2.2rem 0; }
+}
