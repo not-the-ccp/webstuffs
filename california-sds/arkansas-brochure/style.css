@@ -1,0 +1,182 @@
+/* california-sds/arkansas-brochure/style.css — Arkansas: A Visitor's Brochure */
+:root {
+  --pine: #234533;
+  --pine-light: #5c8a6b;
+  --diamond-red: #a41e2c;
+  --diamond-red-dim: #7a1620;
+  --flag-blue: #16324f;
+  --cream: #faf8f0;
+  --rice: #f2ede1;
+  --gold: #a67c2e;
+  --ink: #1c1c22;
+  --muted: #5a574d;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--rice); }
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Iowan Old Style", "American Typewriter", serif;
+  color: var(--ink);
+  line-height: 1.7;
+  padding: 22px 5vw;
+}
+
+.brochure {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #fff;
+  border: 12px solid var(--pine);
+  box-shadow: inset 0 0 0 2px var(--gold), 0 25px 80px rgba(0, 0, 0, 0.2);
+  padding: 40px 46px 46px;
+  position: relative;
+}
+
+.brochure::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(166, 124, 46, 0.07) 10px, rgba(166, 124, 46, 0.07) 20px);
+  pointer-events: none;
+}
+
+.brochure-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 26px;
+  border-bottom: 4px double var(--flag-blue);
+  margin-bottom: 28px;
+}
+
+.diamond-mark {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--pine-light);
+  font-weight: bold;
+}
+
+.brochure h1 {
+  margin: 0 0 6px;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: var(--flag-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--pine);
+  margin: 0 0 12px;
+  border-bottom: 2px solid var(--diamond-red);
+  padding-bottom: 6px;
+}
+
+h2 .num {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-weight: bold;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  margin-right: 10px;
+  clip-path: polygon(20% 0, 80% 0, 100% 50%, 80% 100%, 20% 100%, 0 50%);
+  font-size: 1.1rem;
+}
+
+section { margin-bottom: 34px; }
+
+p { margin: 0 0 14px; text-align: justify; }
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 4px 10px 2px 0;
+  margin-right: 8px;
+  color: var(--diamond-red);
+  font-weight: bold;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.stats span {
+  padding: 6px 12px;
+  border: 2px solid var(--pine);
+  border-radius: 90px;
+  font-size: 0.9rem;
+  color: var(--pine);
+  font-weight: bold;
+}
+
+.two-col { display: block; }
+
+@media (min-width: 640px) {
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+}
+
+.plan {
+  background: var(--cream);
+  border: 6px solid var(--pine);
+  padding: 18px 24px;
+  margin-top: 10px;
+}
+
+.issued {
+  margin: 18px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: right;
+  font-style: italic;
+}
+
+.brochure-footer {
+  margin-top: 46px;
+  padding-top: 26px;
+  border-top: 2px solid var(--gold);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.brochure-footer p { margin: 0 0 10px; }
+
+a { color: var(--diamond-red); text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .brochure { border: 14px solid var(--pine); box-shadow: none; }
+}
