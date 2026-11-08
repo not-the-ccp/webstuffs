@@ -1,0 +1,234 @@
+/* Bergen Posten — classified column: five columns of hairline ink on warm newsprint */
+
+:root {
+  --ink: #1c1a15;
+  --ink-soft: #4a4438;
+  --paper: #f3ecd9;
+  --paper-deep: #e9e0c8;
+  --red: #a4351f;
+  --rule: #b7a982;
+  --stamp: rgba(164, 53, 31, 0.85);
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d9cfb4; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.paper {
+  max-width: 1040px;
+  margin: 2rem auto 4rem;
+  padding: 0 2rem 2.5rem;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(255, 252, 240, 0.9), transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(120, 100, 60, 0.12), transparent 60%),
+    var(--paper);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 18px 45px rgba(60, 48, 24, 0.35);
+  border: 1px solid #c9bd9c;
+  border-radius: 2px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead { text-align: center; padding-top: 1.6rem; }
+
+.masthead-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0;
+}
+.masthead-rule span { flex: 1; height: 0; border-top: 1px solid var(--ink); }
+.masthead-rule span:first-child { border-top-width: 3px; }
+
+.paper-name {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0.2rem 0 0.3rem;
+  font-variant: small-caps;
+}
+
+.masthead-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead-meta .price {
+  border: 1px solid var(--ink);
+  padding: 0.1rem 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.masthead h1 {
+  margin: 1.1rem 0 0.2rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.masthead-dek {
+  margin: 0 0 0.8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.colophon-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  border-bottom: 3px double var(--ink);
+  padding: 0.45rem 0.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.colophon-line .tick { color: var(--red); font-weight: 700; }
+
+/* ---------- the column ---------- */
+
+.column {
+  columns: 3 240px;
+  column-gap: 1.4rem;
+  column-rule: 1px solid var(--rule);
+}
+
+.ad {
+  position: relative;
+  break-inside: avoid;
+  margin: 0 0 1.5rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+  background: linear-gradient(180deg, rgba(255, 252, 242, 0.55), rgba(233, 224, 200, 0.35));
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--ink);
+}
+
+.ad-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.ad h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.02rem;
+  line-height: 1.2;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+.ad p {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.ad p:last-child { margin-bottom: 0; }
+
+.ad em { color: var(--ink-soft); }
+.ad strong { color: var(--ink); font-weight: 700; }
+
+.ad a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 2px;
+}
+.ad a:hover { color: var(--red); }
+
+/* "AD" corner stamp */
+.ad .stamp {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--stamp);
+  border: 1.5px solid var(--stamp);
+  border-radius: 2px;
+  padding: 0.08rem 0.3rem;
+  transform: rotate(6deg);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* featured ad */
+.ad-feature {
+  background:
+    repeating-linear-gradient(45deg, rgba(164, 53, 31, 0.035) 0 6px, transparent 6px 12px),
+    linear-gradient(180deg, #f6efdd, #eee3c8);
+  border-color: var(--red);
+  border-top-color: var(--red);
+}
+.ad-feature h2 { font-size: 1.2rem; }
+
+/* the wine ad */
+.ad-wine {
+  border-top: none;
+  border-left: 3px solid var(--red);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(122, 28, 18, 0.08), transparent 45%),
+    linear-gradient(180deg, #f3ead4, #efe3c6);
+}
+.ad-wine p strong {
+  color: var(--red);
+  font-variant: small-caps;
+}
+
+/* crosstie: dashed frame, like a hand-torn coupon */
+.ad-crosstie {
+  border: 1.5px dashed var(--ink-soft);
+  border-top: 1.5px dashed var(--ink-soft);
+  background: transparent;
+}
+
+/* hover: the compositor lifts a notice */
+.ad { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.ad:hover {
+  transform: translateY(-2px) rotate(-0.25deg);
+  box-shadow: 0 8px 18px rgba(60, 48, 24, 0.22);
+}
+
+/* ---------- fine print ---------- */
+
+.fineprint {
+  margin-top: 1.8rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.7rem;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  text-align: center;
+}
+.fineprint a { color: var(--ink); }
+
+@media (max-width: 720px) {
+  .paper { margin: 0; border-left: none; border-right: none; }
+  .paper-name { font-size: 2.1rem; }
+  .column { columns: 2 150px; }
+}
