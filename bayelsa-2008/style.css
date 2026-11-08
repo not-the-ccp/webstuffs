@@ -1,0 +1,190 @@
+/* An Apology to the People of Bayelsa — letter styling */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #e9dec3;
+  --ink: #2c2417;
+  --river: #1f4d46;
+  --river-deep: #14332e;
+  --seal: #7a1f2b;
+  --gold: #b8892b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(31, 77, 70, 0.18), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(122, 31, 43, 0.12), transparent 50%),
+    #10211e;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2rem 1rem 4rem;
+}
+
+.page {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 120px),
+    repeating-linear-gradient(180deg, transparent 0 31px, rgba(44,36,23,0.05) 31px 32px),
+    linear-gradient(135deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #c9b98c;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.55), inset 0 0 80px rgba(122,31,43,0.06);
+  padding: 3rem 3rem 2.5rem 4.5rem;
+  color: var(--ink);
+}
+
+/* left margin rules, like a ruled ledger */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 3.2rem;
+  width: 2px;
+  background: rgba(122, 31, 43, 0.35);
+  box-shadow: 4px 0 0 rgba(122, 31, 43, 0.15);
+}
+
+.postmark {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 11rem;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+}
+
+.letterhead { text-align: left; }
+
+.office {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--river);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: var(--river-deep);
+  margin: 0 0 0.8rem;
+  font-style: italic;
+}
+
+.dated {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: #5b4a2f;
+  margin: 0;
+}
+
+.rule {
+  height: 3px;
+  margin: 1.6rem 0;
+  background: linear-gradient(90deg, var(--seal), var(--gold) 55%, transparent);
+}
+
+main p { margin: 0 0 1.15rem; }
+
+.lede::first-letter {
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--seal);
+  font-weight: bold;
+}
+
+strong { color: var(--river-deep); }
+
+blockquote.margin-note {
+  margin: 1.8rem 0 1.8rem 0.6rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(244, 236, 217, 0.6);
+  border-left: 3px solid var(--gold);
+  box-shadow: 0 2px 10px rgba(44, 36, 23, 0.12);
+  font-size: 0.95rem;
+}
+
+blockquote.margin-note p { margin: 0.6rem 0; }
+
+blockquote .quoted {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--seal);
+  border-top: 1px dashed rgba(122, 31, 43, 0.4);
+  border-bottom: 1px dashed rgba(122, 31, 43, 0.4);
+  padding: 0.7rem 0.2rem;
+}
+
+.signature { margin-top: 2.2rem; line-height: 2; }
+
+.signer {
+  font-style: italic;
+  color: var(--river-deep);
+  letter-spacing: 0.02em;
+}
+
+.colophon {
+  font-size: 0.82rem;
+  color: #4d3f28;
+}
+
+.colophon a { color: var(--river); }
+.colophon a:hover { color: var(--seal); }
+
+.stamp-line {
+  margin-top: 1.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(122, 31, 43, 0.75);
+}
+
+/* the wax seal, pressed by script */
+.seal {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #a5303d, var(--seal) 55%, #4d1018);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5), inset 0 2px 6px rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(244, 236, 217, 0.9);
+  font-family: Georgia, serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.4;
+  transform: scale(1.6);
+  opacity: 0;
+}
+
+.seal.pressed {
+  animation: press 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+}
+
+@keyframes press {
+  0%   { transform: scale(1.6); opacity: 0; }
+  70%  { transform: scale(0.94); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .page { padding: 2.4rem 1.4rem 2rem 2.6rem; }
+  .page::before { left: 2rem; }
+  .postmark { width: 8rem; opacity: 0.5; }
+}
