@@ -1,0 +1,176 @@
+/* Entry 731 — St Vincent: navy, aged chart-paper, brass, seal red */
+
+:root {
+  --ink: #1d2b45;
+  --ink-soft: #33415e;
+  --paper: #f2e8d3;
+  --paper-deep: #e9dcbd;
+  --brass: #8a6d2f;
+  --brass-bright: #b8963f;
+  --seal: #7e2a1e;
+  --foam: #cfd8d2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(138, 109, 47, 0.18), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(29, 43, 69, 0.045) 0 1px, transparent 1px 26px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+}
+
+.entry {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border-left: 3px double var(--brass);
+  border-right: 3px double var(--brass);
+  box-shadow: 0 0 4rem rgba(29, 43, 69, 0.25);
+  position: relative;
+}
+
+.compass {
+  width: 120px;
+  margin: 0 auto 1rem;
+  color: var(--seal);
+}
+.compass .ring { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.compass .ring--inner { stroke-width: 0.8; stroke-dasharray: 3 4; }
+.compass .points path { fill: currentColor; }
+.compass .pt { font-size: 10px; font-family: "IM Fell English", serif; }
+.compass svg { animation: swing 9s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+@keyframes swing {
+  from { transform: rotate(-4deg); }
+  to   { transform: rotate(4deg); }
+}
+
+.entry-head { text-align: center; }
+.series {
+  font-family: "IM Fell English SC", serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--brass);
+  margin: 0 0 0.4rem;
+}
+h1 {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.part-of-speech {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.6rem 0 0.4rem;
+  font-size: 0.95rem;
+}
+.brassline {
+  border: 0;
+  height: 5px;
+  margin: 1.1rem auto 1.6rem;
+  width: 70%;
+  background: linear-gradient(90deg, transparent, var(--brass-bright) 20%, var(--brass-bright) 80%, transparent);
+  position: relative;
+}
+.brassline::after {
+  content: "\2693"; /* anchor */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  background: var(--paper);
+  padding: 0 0.5rem;
+  color: var(--seal);
+  font-size: 0.9rem;
+}
+
+.definition { font-size: 1.02rem; }
+.definition dfn { font-style: normal; font-weight: 600; color: var(--seal); }
+
+h2 {
+  font-family: "IM Fell English SC", serif;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  color: var(--brass);
+  margin: 2.2rem 0 0.7rem;
+}
+h2::before { content: "\25C6\00a0\00a0"; color: var(--seal); font-size: 0.7em; vertical-align: 0.15em; }
+
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.2rem;
+  background: rgba(29, 43, 69, 0.05);
+  border-left: 4px solid var(--ink);
+  font-family: "IM Fell English", serif;
+  font-size: 1.12rem;
+}
+.flyleaf {
+  text-align: center;
+  border-left: 0;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  background: transparent;
+  font-style: italic;
+  color: var(--seal);
+  letter-spacing: 0.02em;
+}
+.dream-report { border-left-color: var(--seal); }
+.report-attrib {
+  font-family: "Spectral", serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: right;
+  margin: 0.6rem 0 0;
+}
+
+ul.imagery {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+ul.imagery li {
+  padding: 0.35rem 0 0.35rem 1.6rem;
+  position: relative;
+  border-bottom: 1px dotted rgba(138, 109, 47, 0.5);
+}
+ul.imagery li::before {
+  content: "\0025"; /* sail, drawn as a simple mark */
+  content: "\2736";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--brass-bright);
+}
+
+a { color: var(--seal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+.see-also p { margin: 0.45rem 0; font-size: 0.95rem; }
+
+.sign-off {
+  margin-top: 2.6rem;
+  text-align: center;
+  font-family: "IM Fell English SC", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  border-top: 1px solid rgba(138, 109, 47, 0.6);
+  padding-top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compass svg { animation: none; }
+}
