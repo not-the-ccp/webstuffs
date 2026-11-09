@@ -1,0 +1,143 @@
+/* LINC-ERR — restrained registry styling */
+:root {
+  --paper: #faf7f0;
+  --ink: #22201c;
+  --faint: #6d675c;
+  --rule: #d9d2c3;
+  --red: #8c2f1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.reg-head {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+.subhead {
+  margin: 0;
+  color: var(--faint);
+  font-size: 1.02rem;
+  font-style: italic;
+}
+
+.sec {
+  margin-top: 2.75rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.sec-no {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--red);
+  margin-right: 0.6rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+strong { font-weight: normal; color: #000; }
+
+table.errors {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+table.errors th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--faint);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.35rem 0.6rem 0.35rem 0;
+}
+
+table.errors td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.7rem 0.6rem 0.7rem 0;
+  vertical-align: top;
+}
+
+td.code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  color: var(--red);
+}
+
+blockquote.verbatim {
+  margin: 1.5rem 0;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--red);
+  background: #f3eee1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--red); }
+
+.reg-foot {
+  max-width: 46rem;
+  margin: 3rem auto 0;
+  padding: 1.25rem 1.5rem 3rem;
+  border-top: 1px solid var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.reg-foot p { margin: 0; }
