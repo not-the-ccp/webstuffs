@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-label="A wing cross-section above a wavy waterline">
+  <g fill="none" stroke="#22252b" stroke-width="1.5">
+    <!-- wing section: rounded leading edge, flat chord, slightly cambered trailing edge -->
+    <path d="M 60 62
+             C 70 48, 110 40, 170 40
+             C 230 40, 285 46, 305 58
+             L 305 62
+             C 280 58, 220 56, 160 56
+             C 110 56, 78 58, 60 62 Z" />
+    <!-- waterline -->
+    <path d="M 20 92 q 15 -7 30 0 q 15 7 30 0 q 15 -7 30 0 q 15 7 30 0 q 15 -7 30 0 q 15 7 30 0 q 15 -7 30 0 q 15 7 30 0 q 15 -7 30 0 q 15 7 30 0" stroke-width="1" />
+    <!-- wind arrows, northeast, plain and uncrossed -->
+    <path d="M 30 24 l 26 14" stroke-width="1" />
+    <path d="M 56 38 l -12 -1.5 M 56 38 l -2 -11.5" stroke-width="1" />
+    <path d="M 250 20 l 26 14" stroke-width="1" />
+    <path d="M 276 34 l -12 -1.5 M 276 34 l -2 -11.5" stroke-width="1" />
+  </g>
+  <text x="180" y="80" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#555a63" text-anchor="middle">25 kt, N.E.</text>
+</svg>
