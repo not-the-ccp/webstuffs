@@ -1,0 +1,262 @@
+/* FRS-1898 · Rev. 7 — Studio Error Reference
+   Darkroom reference sheet: sepia paper, cyanotype ink, error codes. */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap');
+
+:root {
+  --paper: #e8d9b5;
+  --paper-deep: #d9c393;
+  --ink: #2b1c0e;
+  --cyan: #1c4a6e;
+  --seal: #7a1f1a;
+  --bloom: #b0722f;
+  --edge: rgba(43, 28, 14, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'IM Fell English', Georgia, 'Times New Roman', serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(28, 74, 110, 0.18), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 85% 108%, rgba(122, 31, 26, 0.16), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(43, 28, 14, 0.025) 0 2px, transparent 2px 4px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 55%, #c9ad79 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* film grain + scanline overlays */
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 3;
+  opacity: 0.5; mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(rgba(43,28,14,0.10) 1px, transparent 1px),
+    radial-gradient(rgba(43,28,14,0.07) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 2px 3px;
+  animation: grain-shift 1.2s steps(4) infinite;
+}
+.scan {
+  position: fixed; inset: 0; pointer-events: none; z-index: 4;
+  background: repeating-linear-gradient(0deg, rgba(28,74,110,0.03) 0 1px, transparent 1px 5px);
+}
+@keyframes grain-shift {
+  0% { background-position: 0 0, 2px 3px; }
+  25% { background-position: -1px 2px, 4px 0; }
+  50% { background-position: 2px -1px, 0 4px; }
+  75% { background-position: -2px 1px, 3px -2px; }
+  100% { background-position: 0 0, 2px 3px; }
+}
+
+.masthead {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.masthead::before, .masthead::after {
+  content: "";
+  position: absolute; left: 50%; transform: translateX(-50%);
+  height: 3px; width: min(46rem, 90%);
+  background: linear-gradient(90deg, transparent, var(--seal), transparent);
+}
+.masthead::before { top: 0.4rem; }
+.masthead::after { bottom: 0.4rem; }
+
+.plate-frame { display: flex; justify-content: center; margin-bottom: 1rem; }
+.ornament { width: 7.5rem; height: 7.5rem; }
+.ornament .ring { fill: none; stroke: var(--cyan); }
+.ornament .r1 { stroke-width: 3; }
+.ornament .r2 { stroke-width: 1; stroke-dasharray: 4 5; animation: spin 40s linear infinite; transform-origin: 120px 120px; }
+.ornament .r3 { stroke-width: 0.8; opacity: 0.7; }
+.ornament .r4 { stroke-width: 0.6; opacity: 0.5; }
+.ornament .lens { fill: rgba(28, 74, 110, 0.12); stroke-width: 1.5; }
+.ornament .lens.core { fill: var(--seal); stroke: none; animation: pulse 2.4s ease-in-out infinite; transform-origin: 120px 120px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+.eyebrow {
+  font-family: 'Courier Prime', monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--seal);
+  margin: 0.2rem 0 0.8rem;
+}
+.eyebrow .code { border-bottom: 2px dotted var(--seal); }
+
+h1 {
+  font-family: 'UnifrakturMaguntia', 'IM Fell English', cursive;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin: 0.4rem 0 0.8rem;
+  text-shadow: 2px 2px 0 rgba(28, 74, 110, 0.25);
+}
+
+.deck {
+  max-width: 46rem;
+  margin: 0 auto 1.4rem;
+  font-style: italic;
+  font-size: 1.02rem;
+}
+.ipa { font-family: 'Courier Prime', monospace; font-style: normal; font-size: 0.85em; }
+
+.specimen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.6rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem;
+}
+.specimen div {
+  border: 1px solid var(--edge);
+  background: rgba(255, 250, 235, 0.35);
+  padding: 0.45rem 0.7rem;
+  box-shadow: 3px 3px 0 rgba(43, 28, 14, 0.12);
+}
+.specimen dt { font-weight: 700; color: var(--seal); text-transform: uppercase; letter-spacing: 0.12em; }
+.specimen dd { margin: 0.15rem 0 0; }
+
+main { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem 2rem; }
+
+.index-line {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  text-align: center;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  padding: 0.5rem 0;
+  margin: 1.5rem 0 2rem;
+}
+a { color: var(--cyan); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+a:hover { background: rgba(28, 74, 110, 0.12); }
+
+.error, .ledger, .cure {
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--edge);
+  outline-offset: 4px;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 235, 0.5), rgba(255, 250, 235, 0.15)),
+    repeating-linear-gradient(90deg, transparent 0 12rem, rgba(122, 31, 26, 0.05) 12rem calc(12rem + 1px));
+  padding: 1.4rem 1.6rem;
+  margin: 0 0 2.2rem;
+  position: relative;
+  box-shadow: 6px 6px 0 rgba(43, 28, 14, 0.14);
+}
+.error::before {
+  content: attr(data-stamp, "FILED");
+  position: absolute; top: -0.9rem; right: 1rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  color: #fff;
+  background: var(--seal);
+  padding: 0.2rem 0.7rem;
+  transform: rotate(1.5deg);
+}
+.ledger::before { content: "KEPT"; }
+.cure::before { content: "CURED"; }
+
+h2 {
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+  border-bottom: 2px solid var(--seal);
+  padding-bottom: 0.5rem;
+}
+.errcode {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.5rem;
+  letter-spacing: 0.18em;
+  box-shadow: 2px 2px 0 var(--bloom);
+}
+
+.meta {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.74rem;
+  color: var(--seal);
+  margin: 0 0 1rem;
+  letter-spacing: 0.04em;
+}
+.meta span { text-transform: uppercase; letter-spacing: 0.14em; }
+.meta span:not(:last-child)::after { content: " ·"; color: var(--ink); margin: 0 0.4rem; }
+
+strong { color: var(--seal); }
+
+blockquote.kept {
+  margin: 1.2rem 0;
+  padding: 1rem 1.4rem;
+  border-left: 6px double var(--cyan);
+  border-right: 1px solid var(--edge);
+  background:
+    repeating-linear-gradient(0deg, rgba(28, 74, 110, 0.05) 0 1.5rem, rgba(28, 74, 110, 0.02) 1.5rem 3rem),
+    rgba(28, 74, 110, 0.07);
+  font-family: 'Courier Prime', monospace;
+  font-size: 1rem;
+  line-height: 2;
+}
+blockquote.kept p { margin: 0; }
+
+table.ref {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  margin: 0.8rem 0;
+}
+table.ref th {
+  background: var(--ink);
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-align: left;
+  padding: 0.45rem 0.7rem;
+}
+table.ref td { border: 1px solid var(--edge); padding: 0.4rem 0.7rem; background: rgba(255, 250, 235, 0.4); }
+table.ref tr:nth-child(even) td { background: rgba(28, 74, 110, 0.06); }
+table.ref td:first-child { font-weight: 700; color: var(--seal); white-space: nowrap; }
+
+.fineprint {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.74rem;
+  color: var(--cyan);
+  margin-top: 1.2rem;
+}
+
+.colophon {
+  text-align: center;
+  padding: 1.5rem 1rem 3rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.colophon p { margin: 0.3rem 0; }
+.flicker { color: var(--seal); animation: lamp 3.1s steps(2, jump-none) infinite; }
+@keyframes lamp {
+  0%, 92% { opacity: 1; }
+  93%, 96% { opacity: 0.25; }
+  97%, 100% { opacity: 1; }
+}
+
+@media (max-width: 40rem) {
+  .error, .ledger, .cure { padding: 1.1rem 1rem; box-shadow: 3px 3px 0 rgba(43, 28, 14, 0.14); }
+  .ornament { width: 5.5rem; height: 5.5rem; }
+}
