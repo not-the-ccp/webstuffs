@@ -1,0 +1,299 @@
+/* The Church Weather Almanac — Year XLVIII · Parish Observatory, Lambeth Hill */
+
+@keyframes drift-far {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 1200px 0, -900px 0; }
+}
+@keyframes drift-near {
+  from { background-position: 0 0; }
+  to   { background-position: -1600px 0; }
+}
+@keyframes sun-turn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes ticker-run {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes needle-sway {
+  0%, 100% { transform: rotate(-7deg); }
+  50%      { transform: rotate(5deg); }
+}
+@keyframes plate-glow {
+  0%, 100% { text-shadow: 0 1px 0 rgba(255,255,255,.55); }
+  50%      { text-shadow: 0 1px 0 rgba(255,255,255,.55), 0 0 14px rgba(232,178,58,.5); }
+}
+
+:root {
+  --ink: #2a2117;
+  --ink-soft: #4d3f2e;
+  --parch: #f4e9d2;
+  --parch-deep: #e9d9b4;
+  --gold: #8a6a1f;
+  --sun: #e8b23a;
+  --sky-top: #2f4d6b;
+  --sky-mid: #7d9cb8;
+  --sky-low: #e9d9b4;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  line-height: 1.58;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255,244,214,.9), transparent 60%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 26%, var(--sky-low) 52%, var(--parch) 78%);
+  background-attachment: fixed;
+}
+
+/* layered drifting cloud fields */
+.clouds {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.clouds-far {
+  background:
+    radial-gradient(240px 46px at 18% 16%, rgba(255,255,255,.5), transparent 70%),
+    radial-gradient(300px 52px at 68% 9%, rgba(255,255,255,.42), transparent 70%);
+  background-size: 1200px 400px, 900px 320px;
+  animation: drift-far 140s linear infinite;
+}
+.clouds-near {
+  background:
+    radial-gradient(340px 60px at 30% 24%, rgba(255,250,236,.62), transparent 70%),
+    radial-gradient(420px 70px at 82% 30%, rgba(255,250,236,.5), transparent 70%);
+  background-size: 1600px 420px;
+  animation: drift-near 90s linear infinite;
+}
+
+.sun {
+  position: fixed;
+  top: 3.2rem;
+  right: 4.5rem;
+  width: 92px;
+  height: 92px;
+  z-index: 1;
+  opacity: .9;
+  pointer-events: none;
+}
+.sun svg { animation: sun-turn 90s linear infinite; transform-origin: 50% 50%; }
+
+.sheet {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 3.2rem auto 4rem;
+  padding: 2.6rem 3rem 2.2rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(138,106,31,.05) 0 1px, transparent 1px 27px),
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(232,178,58,.14), transparent 70%),
+    linear-gradient(180deg, var(--parch) 0%, var(--parch-deep) 100%);
+  border: 3px double var(--gold);
+  outline: 1px solid rgba(138,106,31,.45);
+  outline-offset: 6px;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.5) inset,
+    0 24px 60px -18px rgba(31,42,58,.55);
+}
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 10px;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 22px);
+  opacity: .8;
+}
+.sheet::before { top: 6px; }
+.sheet::after { bottom: 6px; transform: scaleY(-1); }
+
+.masthead { text-align: center; }
+
+.folio {
+  margin: 0 0 1rem;
+  font-size: .78rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-variant: small-caps;
+}
+.crown { margin: 0 auto .6rem; width: fit-content; opacity: .9; }
+
+h1 {
+  margin: .2rem 0 .4rem;
+  font-size: clamp(2.1rem, 5.4vw, 3.1rem);
+  letter-spacing: .04em;
+  font-variant: small-caps;
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255,255,255,.6);
+}
+.subtitle {
+  margin: 0 auto 1rem;
+  max-width: 34rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: .98rem;
+}
+.obs-line {
+  display: inline-block;
+  margin: 0 0 .4rem;
+  padding: .35rem .9rem;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.obs-line span { color: var(--ink); font-weight: 700; }
+
+/* ticker of almanac notices */
+.ticker {
+  margin: 1.4rem -3rem 1.6rem;
+  overflow: hidden;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  background: linear-gradient(180deg, rgba(138,106,31,.16), rgba(138,106,31,.05));
+}
+.ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  padding: .42rem 0;
+  font-size: .74rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  animation: ticker-run 46s linear infinite;
+}
+
+.entry h2.plate {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 2.1rem 0 .7rem;
+  font-size: 1.12rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--ink);
+  animation: plate-glow 6s ease-in-out infinite;
+}
+.entry h2.plate::before,
+.entry h2.plate::after {
+  content: "";
+  flex: 1;
+  height: 5px;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 14px);
+  opacity: .75;
+}
+.entry h2.plate::before { max-width: 2.4rem; }
+.entry h2.plate::after  { max-width: 2.4rem; }
+
+.entry p { margin: 0 0 1.05rem; font-size: 1.02rem; }
+
+.drop {
+  float: left;
+  font-size: 3.4rem;
+  line-height: .82;
+  padding: .18rem .5rem .1rem 0;
+  font-variant: small-caps;
+  color: var(--gold);
+  text-shadow: 0 2px 0 rgba(255,255,255,.55);
+}
+
+/* readings table, ruled almanac fashion */
+.readings {
+  width: 100%;
+  margin: .2rem 0 1.2rem;
+  border-collapse: collapse;
+  font-size: .93rem;
+  background: rgba(255,255,255,.28);
+  border: 1px solid rgba(138,106,31,.55);
+}
+.readings caption {
+  caption-side: bottom;
+  padding: .5rem .2rem 0;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.readings th, .readings td {
+  padding: .48rem .65rem;
+  text-align: left;
+  border-bottom: 1px dotted rgba(138,106,31,.55);
+  vertical-align: top;
+}
+.readings thead th {
+  font-variant: small-caps;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+.readings tbody tr:nth-child(odd) { background: rgba(232,178,58,.1); }
+.readings tbody tr:hover { background: rgba(232,178,58,.24); }
+.readings .num {
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.entry a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background-color .18s ease, color .18s ease;
+}
+.entry a:hover, .entry a:focus {
+  background: rgba(232,178,58,.35);
+  color: #1d1610;
+}
+
+strong { color: #3a2c14; }
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--gold);
+  text-align: center;
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+.colophon .proverb { font-size: .95rem; margin: 0 0 .7rem; }
+.colophon p { margin: .3rem 0; }
+.colophon a {
+  color: var(--ink-soft);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+.colophon a:hover { color: var(--ink); text-decoration-style: solid; }
+.small { font-style: italic; font-size: .76rem; opacity: .85; }
+
+@media (max-width: 640px) {
+  .sheet { margin: 1.2rem .7rem 2rem; padding: 1.8rem 1.2rem 1.6rem; }
+  .ticker { margin: 1.2rem -1.2rem 1.4rem; }
+  .sun { width: 60px; height: 60px; top: 1.6rem; right: 1rem; }
+  .readings { font-size: .84rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clouds, .sun svg, .ticker-track, .entry h2.plate { animation: none !important; }
+}
