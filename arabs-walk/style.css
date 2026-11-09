@@ -1,0 +1,119 @@
+/* Al-ʿArab — Walking Series, Route 12 */
+:root {
+  --ink: #231d14;
+  --quay: #8a6d3b;
+  --wash: #b0432f;
+  --sand: #f4ecdd;
+  --paper: #fbf7ee;
+  --fog: #8f9aa3;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.tour {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  background: var(--paper);
+  border-left: 1px solid #d8cdb4;
+  border-right: 1px solid #d8cdb4;
+  box-shadow: 0 0 24px rgba(35, 29, 20, 0.08);
+}
+
+.compass {
+  text-align: center;
+  color: var(--quay);
+  font-size: 1.4rem;
+  letter-spacing: 0.5em;
+}
+
+.stamp {
+  border: 2px solid var(--wash);
+  color: var(--wash);
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  padding: 0.3rem 0.5rem;
+  width: 22rem;
+  max-width: 100%;
+  margin: 0.6rem auto;
+  transform: rotate(-1.2deg);
+}
+
+.tour-head { text-align: center; }
+.series {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--quay);
+  margin-bottom: 0.2rem;
+}
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 0.4rem 0; }
+.calligraphy { font-size: 2.2rem; color: var(--quay); }
+.route-line { font-size: 0.9rem; color: #5c5140; }
+.plimsoll { border: 0; border-top: 2px solid var(--quay); margin: 1.4rem 0; }
+
+h2 { font-size: 1.25rem; border-bottom: 1px solid #d8cdb4; padding-bottom: 0.25rem; margin-top: 2.2rem; }
+h3 { font-size: 1.05rem; margin-bottom: 0.4rem; color: #3a2f1e; }
+dfn { font-style: normal; font-weight: bold; }
+cite { font-style: italic; color: var(--quay); }
+
+.ledger-status {
+  display: inline-block;
+  border: 2px dashed var(--quay);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  background: #efe5cf;
+}
+
+.itinerary { list-style: none; padding: 0; counter-reset: stop; }
+.stop {
+  border-left: 3px solid var(--quay);
+  margin: 1.4rem 0;
+  padding: 0.4rem 0 0.4rem 1.1rem;
+}
+.stop.walked { border-left-color: var(--wash); }
+.stop.walked h3 { color: var(--wash); }
+
+.strike {
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  background: transparent;
+  border: 1px solid var(--quay);
+  color: var(--quay);
+  padding: 0.25rem 0.8rem;
+  cursor: pointer;
+}
+.strike:hover { background: var(--quay); color: var(--paper); }
+.stop.walked .strike {
+  border-color: var(--wash);
+  color: var(--wash);
+  text-decoration: line-through;
+}
+
+.menu-line {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: #efe5cf;
+  border-left: 4px solid var(--wash);
+  font-style: italic;
+}
+
+.orders li { margin: 0.4rem 0; }
+.see-also p { margin: 0.5rem 0; }
+.see-also a, p a { color: #6b4d1d; }
+.sign-off {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: #5c5140;
+  text-align: center;
+}
