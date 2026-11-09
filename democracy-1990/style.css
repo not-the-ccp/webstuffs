@@ -1,0 +1,185 @@
+/* Minutes No. 14 of 1990 — People's Council of the Gorkha Path */
+
+:root {
+  --paper: #f2ead6;
+  --paper-edge: #e6d9bb;
+  --ink: #2b2418;
+  --ink-soft: #4a4130;
+  --rule: #7a6a4c;
+  --seal: #8c2f22;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #cfc4a8; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: var(--ink);
+}
+
+main.minutes {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 3rem 2.5rem 3.4rem;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(122, 106, 76, 0.10), transparent 42%),
+    radial-gradient(ellipse at 88% 94%, rgba(122, 106, 76, 0.14), transparent 38%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 4px),
+    var(--paper);
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 14px 34px rgba(43, 36, 24, 0.28);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+/* left margin rule, as on a minute book */
+main.minutes::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 2.55rem;
+  width: 0;
+  border-left: 1px solid rgba(140, 47, 34, 0.35);
+  pointer-events: none;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.org {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.sub {
+  font-style: italic;
+  font-size: 1.02rem;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+}
+
+.sitting {
+  text-align: left;
+  font-size: 0.92rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+  margin: 0;
+}
+
+.item { margin: 0 0 1.6rem; }
+
+.item h2 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.item p { margin: 0 0 0.7rem; }
+
+blockquote.keeper,
+blockquote.resolution {
+  margin: 0.9rem 0.4rem 1rem;
+  padding: 0.7rem 1.1rem;
+  border-left: 3px solid var(--seal);
+  background: rgba(122, 106, 76, 0.08);
+  font-size: 0.98rem;
+}
+
+blockquote.keeper p {
+  margin: 0;
+  font-style: italic;
+  font-family: "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  font-size: 1.12rem;
+  color: var(--ink-soft);
+}
+
+blockquote.resolution p {
+  margin: 0;
+  font-variant: small-caps;
+  line-height: 1.55;
+}
+
+.close h2 { border-bottom: 3px double var(--rule); }
+
+.foot {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.9rem;
+  text-align: center;
+}
+
+.seal-line {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+.foot-links {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.foot-links a, .item a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(140, 47, 34, 0.55);
+}
+
+.foot-links a:hover, .item a:hover {
+  color: var(--ink);
+  border-bottom-style: solid;
+}
+
+/* the confirmation stamp */
+.stamp {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 6.8rem;
+  width: 6.2rem;
+  height: 6.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: var(--seal);
+  border: 3px double var(--seal);
+  border-radius: 50%;
+  transform: rotate(-11deg);
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  main.minutes { padding: 2rem 1.2rem 2rem 1.6rem; }
+  main.minutes::before { left: 1rem; }
+  .stamp { right: 0.6rem; bottom: 7.6rem; width: 5.4rem; height: 5.4rem; font-size: 0.62rem; }
+}
