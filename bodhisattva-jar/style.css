@@ -1,0 +1,410 @@
+/* The Bodhisattva Jar — NR-2 Shelf Office · Bhrikutimandap, Kathmandu */
+
+:root{
+  --clay:#7a3b1e;
+  --clay-deep:#4a1f0e;
+  --saffron:#e08a1e;
+  --saffron-soft:#f4b04a;
+  --paper:#f6e9d2;
+  --paper-dim:#ecd9b6;
+  --ink:#2c1608;
+  --maroon:#6d1a2e;
+  --brass:#b98a2e;
+  --flag-red:#a93a2a;
+  --flag-blue:#2d5a78;
+  --flag-green:#4c6b3c;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:"Spectral",Georgia,serif;
+  font-size:1.06rem;
+  line-height:1.68;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(224,138,30,.30), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 12% 100%, rgba(109,26,46,.18), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 88% 96%, rgba(45,90,120,.12), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(122,59,30,.05) 0 2px, transparent 2px 5px),
+    linear-gradient(175deg, #fbf3e0 0%, var(--paper) 42%, var(--paper-dim) 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+}
+
+/* ---- prayer flags, hanging over the whole page ---- */
+.flags{
+  position:fixed; top:0; left:0; right:0; height:34px; z-index:60;
+  display:flex; justify-content:space-around; align-items:flex-start;
+  pointer-events:none;
+  border-bottom:2px solid rgba(122,59,30,.55);
+  box-shadow:0 3px 10px rgba(74,31,14,.25);
+  background:linear-gradient(rgba(122,59,30,.10), rgba(122,59,30,0));
+}
+.flag{
+  width:26px; height:30px; margin-top:2px;
+  clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%);
+  opacity:.85;
+  transform-origin:top center;
+  animation:flag-wave 4.2s ease-in-out infinite;
+}
+.flag.f1{background:var(--flag-blue)}
+.flag.f2{background:#f0efe6; animation-delay:-.7s}
+.flag.f3{background:var(--flag-red); animation-delay:-1.4s}
+.flag.f4{background:var(--flag-green); animation-delay:-2.1s}
+.flag.f5{background:#f0efe6; animation-delay:-2.8s}
+.flag.f6{background:var(--flag-blue); animation-delay:-3.5s}
+.flag.f7{background:var(--flag-red); animation-delay:-.35s}
+@keyframes flag-wave{
+  0%,100%{transform:rotate(0deg) skewX(0deg)}
+  25%{transform:rotate(3deg) skewX(-3deg)}
+  75%{transform:rotate(-3deg) skewX(3deg)}
+}
+
+.set{
+  max-width:960px;
+  margin:0 auto;
+  padding:64px 28px 40px;
+}
+
+/* ---- masthead ---- */
+.mast{
+  position:relative;
+  text-align:center;
+  padding:28px 16px 30px;
+  border:3px double var(--clay);
+  outline:1px solid rgba(185,138,46,.6);
+  outline-offset:6px;
+  background:
+    radial-gradient(ellipse 70% 120% at 50% 0%, rgba(224,138,30,.16), transparent 65%),
+    linear-gradient(180deg, rgba(255,250,240,.65), rgba(246,233,210,.35));
+  box-shadow:
+    inset 0 0 40px rgba(122,59,30,.12),
+    0 14px 34px rgba(74,31,14,.22);
+}
+.office{
+  font-family:"Cinzel",serif;
+  font-size:.78rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--clay);
+  margin:0 0 14px;
+}
+.ornament{
+  color:var(--brass);
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  margin:0 auto 10px;
+}
+.ornament .knot{width:170px; height:32px}
+.ornament .dot{font-family:"IM Fell English",serif; font-size:1.1rem; color:var(--maroon)}
+.mast h1{
+  font-family:"Cinzel",serif;
+  font-weight:800;
+  font-size:clamp(2.5rem, 6.5vw, 4.4rem);
+  letter-spacing:.06em;
+  margin:.1em 0 .15em;
+  color:var(--clay-deep);
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.7),
+    0 4px 14px rgba(185,138,46,.45),
+    0 0 34px rgba(224,138,30,.35);
+  animation:halo-breathe 5s ease-in-out infinite;
+}
+@keyframes halo-breathe{
+  0%,100%{text-shadow:0 1px 0 rgba(255,255,255,.7),0 4px 14px rgba(185,138,46,.45),0 0 34px rgba(224,138,30,.30)}
+  50%{text-shadow:0 1px 0 rgba(255,255,255,.7),0 4px 18px rgba(185,138,46,.7),0 0 52px rgba(224,138,30,.55)}
+}
+.tagline{
+  font-family:"IM Fell English",serif;
+  font-style:italic;
+  font-size:1.05rem;
+  color:var(--maroon);
+  margin:0 0 6px;
+}
+.halo{
+  position:absolute; width:150px; height:150px; right:-34px; top:-42px;
+  color:rgba(185,138,46,.5);
+  animation:halo-spin 60s linear infinite;
+  pointer-events:none;
+}
+@keyframes halo-spin{to{transform:rotate(360deg)}}
+
+/* ---- shelf ruler under the mast ---- */
+.shelf-ruler{
+  display:flex; justify-content:space-between;
+  margin:18px 8px 26px;
+  padding:7px 6px 5px;
+  border-top:3px solid var(--clay);
+  border-bottom:1px solid rgba(122,59,30,.5);
+  background:linear-gradient(rgba(122,59,30,.08), rgba(122,59,30,.03));
+}
+.shelf-ruler span{
+  width:2px; height:9px; background:var(--clay); opacity:.55;
+}
+.shelf-ruler span:nth-child(odd){height:13px; opacity:.8}
+
+/* ---- hero ---- */
+.hero{
+  display:grid;
+  grid-template-columns:minmax(240px, 340px) 1fr;
+  gap:34px;
+  align-items:start;
+  margin-bottom:46px;
+}
+.vessel-frame{
+  margin:0;
+  padding:22px 18px 14px;
+  border:2px solid var(--brass);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 80%, rgba(224,138,30,.22), transparent 70%),
+    linear-gradient(180deg, rgba(255,248,232,.9), rgba(240,220,185,.75));
+  box-shadow:
+    inset 0 0 26px rgba(122,59,30,.15),
+    0 12px 28px rgba(74,31,14,.25);
+  position:relative;
+}
+.vessel-frame::before{
+  content:"No. 108";
+  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  font-family:"Cinzel",serif; font-size:.8rem; letter-spacing:.2em;
+  background:var(--maroon); color:var(--paper);
+  padding:2px 14px; border-radius:2px;
+  box-shadow:0 3px 8px rgba(74,31,14,.35);
+}
+.vessel{width:100%; height:auto; display:block; filter:drop-shadow(0 10px 14px rgba(74,31,14,.3));}
+.v-shadow{fill:rgba(74,31,14,.28)}
+.v-body{fill:#8a4a26; stroke:var(--clay-deep); stroke-width:2.5}
+.v-glaze{fill:var(--saffron); opacity:.92; stroke:var(--clay-deep); stroke-width:1.5}
+.v-mouth{fill:#5c2c12; stroke:var(--clay-deep); stroke-width:2}
+.v-cloth{fill:#efe3c8; stroke:var(--clay); stroke-width:2}
+.v-tie{fill:var(--maroon); opacity:.85}
+.v-tie2{fill:none; stroke:var(--maroon); stroke-width:3; stroke-linecap:round}
+.v-seal{fill:none; stroke:var(--clay-deep); stroke-width:2.4; opacity:.6}
+.vessel-frame figcaption{
+  font-family:"IM Fell English",serif; font-style:italic;
+  font-size:.9rem; text-align:center; color:var(--clay);
+  margin-top:10px;
+}
+
+.offer .price{
+  font-family:"Cinzel",serif; font-weight:800;
+  font-size:2.3rem; color:var(--maroon);
+  margin:0 0 4px; line-height:1.1;
+}
+.offer .price .cur{font-size:1.2rem; vertical-align:super; letter-spacing:.08em}
+.offer .price .per{
+  display:block; font-family:"IM Fell English",serif; font-weight:400;
+  font-size:.95rem; color:var(--clay); letter-spacing:.02em;
+}
+.avail{
+  display:flex; align-items:center; gap:9px;
+  font-family:"Cinzel",serif; font-size:.82rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--clay);
+  margin:0 0 16px;
+}
+.lamp{
+  width:12px; height:12px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #ffd97a, var(--saffron) 60%, #9c5a0a);
+  box-shadow:0 0 10px 3px rgba(224,138,30,.55);
+  animation:lamp-pulse 2.6s ease-in-out infinite;
+  flex:none;
+}
+@keyframes lamp-pulse{0%,100%{box-shadow:0 0 8px 2px rgba(224,138,30,.45)}50%{box-shadow:0 0 16px 5px rgba(224,138,30,.75)}}
+.desc{margin:0 0 18px}
+.desc em{color:var(--maroon)}
+.buy{margin:0 0 16px}
+.btn{
+  display:inline-block;
+  font-family:"Cinzel",serif; font-weight:600; font-size:.95rem;
+  letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+  color:var(--paper); background:linear-gradient(180deg, var(--maroon), #4d1020);
+  border:1px solid var(--brass);
+  padding:13px 26px;
+  box-shadow:0 6px 16px rgba(74,31,14,.35), inset 0 1px 0 rgba(255,255,255,.25);
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(74,31,14,.45), inset 0 1px 0 rgba(255,255,255,.25); filter:brightness(1.08)}
+.btn:active{transform:translateY(0)}
+.or{
+  display:block; margin-top:9px;
+  font-family:"IM Fell English",serif; font-style:italic;
+  font-size:.92rem; color:var(--clay);
+}
+.ticks{
+  list-style:none; margin:0; padding:16px 4px 0;
+  border-top:1px dashed rgba(122,59,30,.5);
+  font-size:.95rem;
+}
+.ticks li{padding:3px 0 3px 26px; position:relative}
+.ticks li::before{
+  content:"❋"; position:absolute; left:2px; color:var(--brass);
+}
+
+/* ---- sections ---- */
+main section{margin-bottom:44px}
+main h2{
+  font-family:"Cinzel",serif; font-weight:600;
+  font-size:1.55rem; letter-spacing:.05em;
+  color:var(--clay-deep);
+  margin:0 0 18px;
+  padding-bottom:8px;
+  border-bottom:3px double var(--brass);
+}
+main h2 .of{
+  font-family:"IM Fell English",serif; font-style:italic; font-weight:400;
+  font-size:1.1rem; color:var(--maroon);
+}
+.story p{max-width:72ch}
+
+/* ---- care card ---- */
+.card{
+  padding:26px 26px 24px;
+  border:2px solid var(--clay);
+  background:
+    repeating-linear-gradient(45deg, rgba(122,59,30,.045) 0 8px, transparent 8px 16px),
+    linear-gradient(180deg, rgba(255,250,238,.85), rgba(244,225,190,.85));
+  box-shadow:0 12px 30px rgba(74,31,14,.22), inset 0 0 30px rgba(122,59,30,.10);
+  position:relative;
+}
+.card::before{
+  content:"care card · with the jar";
+  position:absolute; top:-12px; left:20px;
+  font-family:"Cinzel",serif; font-size:.72rem; letter-spacing:.24em;
+  text-transform:uppercase; background:var(--clay-deep); color:var(--paper);
+  padding:3px 12px;
+}
+.as-recorded{
+  margin:20px 0;
+  border:2px solid var(--maroon);
+  background:rgba(109,26,46,.06);
+  padding:14px 18px 16px;
+  box-shadow:inset 0 0 22px rgba(109,26,46,.10);
+}
+.as-recorded-label{
+  font-family:"Cinzel",serif; font-size:.7rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--maroon);
+  margin:0 0 10px;
+}
+.as-recorded blockquote{
+  margin:0;
+  font-family:"IM Fell English",serif; font-style:italic;
+  font-size:1.28rem; line-height:1.5;
+  color:var(--ink);
+  border:none; padding:0;
+}
+.as-recorded blockquote .mark{color:var(--saffron); font-size:1.5em}
+.actual{
+  background:rgba(224,138,30,.10);
+  border-left:4px solid var(--saffron);
+  padding:12px 16px;
+}
+.actual strong{font-family:"Cinzel",serif; font-size:.95rem; letter-spacing:.04em; color:var(--clay-deep)}
+
+/* ---- spec table ---- */
+.specs table{
+  width:100%; border-collapse:collapse;
+  font-size:.98rem;
+  background:rgba(255,250,240,.55);
+  border:1px solid rgba(122,59,30,.45);
+  box-shadow:0 10px 24px rgba(74,31,14,.14);
+}
+.specs th{
+  font-family:"Cinzel",serif; font-weight:600; font-size:.82rem;
+  letter-spacing:.12em; text-transform:uppercase;
+  text-align:left; width:26%;
+  color:var(--clay);
+  padding:10px 14px;
+  border-bottom:1px solid rgba(122,59,30,.35);
+  vertical-align:top;
+  background:rgba(224,138,30,.10);
+}
+.specs td{padding:10px 14px; border-bottom:1px solid rgba(122,59,30,.3)}
+.specs tr:last-child th,.specs tr:last-child td{border-bottom:none}
+.specs tr:hover th,.specs tr:hover td{background:rgba(224,138,30,.12)}
+
+/* ---- voices ---- */
+.voices{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.voice{
+  padding:18px 18px 16px;
+  border:1px solid rgba(122,59,30,.5);
+  background:linear-gradient(180deg, rgba(255,250,240,.8), rgba(246,233,210,.55));
+  box-shadow:0 8px 18px rgba(74,31,14,.14);
+  position:relative;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.voice:hover{transform:translateY(-3px); box-shadow:0 14px 26px rgba(74,31,14,.22)}
+.voice::before{
+  content:""; position:absolute; top:-1px; left:-1px; right:-1px; height:5px;
+  background:linear-gradient(90deg, var(--flag-blue), var(--flag-red), var(--flag-green), var(--saffron));
+}
+.voice p{margin:0}
+.voice .who{
+  font-family:"Cinzel",serif; font-size:.74rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--maroon);
+  margin-bottom:8px;
+}
+
+/* ---- shipping / footer ---- */
+.shipping p{max-width:76ch}
+.fin{
+  font-family:"Cinzel",serif; font-weight:600;
+  letter-spacing:.1em; text-align:center;
+  margin-top:26px; color:var(--clay-deep);
+}
+.vow-line{
+  display:block;
+  font-family:"IM Fell English",serif; font-style:italic; font-weight:400;
+  font-size:1.2rem; color:var(--maroon); margin-top:4px;
+  animation:vow-glow 4.5s ease-in-out infinite;
+}
+@keyframes vow-glow{0%,100%{text-shadow:none}50%{text-shadow:0 0 18px rgba(224,138,30,.7)}}
+
+.colophon{
+  margin-top:30px; padding-top:22px;
+  border-top:3px double var(--clay);
+  text-align:center;
+}
+.colophon .knot{width:160px; height:30px; color:var(--brass); margin-bottom:10px}
+.colophon p{
+  font-family:"Cinzel",serif; font-size:.78rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--clay);
+  margin:0;
+}
+
+/* ---- links ---- */
+a{color:var(--maroon); text-decoration-color:rgba(185,138,46,.8); text-underline-offset:3px}
+a:hover{color:var(--clay-deep); text-decoration-thickness:2px}
+
+/* ---- jar ticker ---- */
+.ticker{
+  position:fixed; left:0; right:0; bottom:0; z-index:70;
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(44,22,8,.94), rgba(74,31,14,.96));
+  border-top:2px solid var(--brass);
+  box-shadow:0 -6px 20px rgba(74,31,14,.4);
+  padding:8px 0;
+}
+.ticker .track{
+  display:inline-block; white-space:nowrap;
+  font-family:"IM Fell English",serif; font-style:italic;
+  font-size:.98rem; color:var(--saffron-soft);
+  animation:tick 42s linear infinite;
+}
+.ticker .track b{color:var(--paper); font-style:normal; font-family:"Cinzel",serif; font-weight:600; letter-spacing:.08em; font-size:.85rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker:hover .track{animation-play-state:paused}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+  .voices{grid-template-columns:1fr}
+  .halo{width:100px; height:100px; right:-18px; top:-26px}
+  .set{padding:56px 16px 40px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition:none !important}
+  html{scroll-behavior:auto}
+}
