@@ -1,0 +1,142 @@
+:root {
+  --ink: #23201c;
+  --faint: #6f6a60;
+  --rule: #c9c2b4;
+  --paper: #f7f3ea;
+  --panel: #efe9dc;
+  --accent: #7a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #ece6d8; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.75rem 3rem;
+}
+
+.mono {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.cat-head {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.house {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.house .mono { letter-spacing: 0.06em; color: var(--faint); }
+
+.sale {
+  margin: 0;
+  color: var(--faint);
+}
+
+.rule {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  margin: 1.25rem auto;
+  max-width: 480px;
+}
+
+h1 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 2.9rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+
+.lot-title {
+  margin: 0 auto;
+  max-width: 560px;
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--faint);
+  line-height: 1.55;
+}
+
+.ital { font-style: italic; }
+
+.entry {
+  margin-bottom: 2.5rem;
+}
+
+.entry h2 {
+  font-size: 0.82rem;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+.dropcap-para::first-letter {
+  font-size: 3.1rem;
+  line-height: 0.85;
+  float: left;
+  padding: 0.12em 0.14em 0 0;
+  color: var(--accent);
+}
+
+span.dropcap { display: none; }
+
+.relettered {
+  display: block;
+  margin: 1.1rem 0 1.2rem 1.5rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--panel);
+  border-left: 3px double var(--accent);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.estimate {
+  margin: 1.4rem 0 1rem;
+  color: var(--accent);
+}
+
+.collate {
+  font-size: 0.86rem;
+  color: var(--faint);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+.cat-foot {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+.cat-foot p { margin: 0.5rem 0; }
