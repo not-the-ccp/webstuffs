@@ -1,0 +1,134 @@
+/* The Rear Watch Reading Club — Newsletter No. 14 */
+
+:root {
+  --ink: #23303b;
+  --paper: #f6f1e4;
+  --seal: #9a3b2e;
+  --brass: #8a6d3b;
+  --line: #d8cfb8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e7e0cd;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 18px rgba(35, 48, 59, 0.18);
+  padding: 2.2rem 2.4rem 1.6rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--seal);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.town {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.3rem;
+  color: var(--seal);
+  letter-spacing: 0.02em;
+}
+
+.issue {
+  font-style: italic;
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.sub {
+  font-size: 0.8rem;
+  color: var(--brass);
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.25rem;
+  margin-top: 1.6rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: var(--seal);
+}
+
+p { margin: 0.8rem 0; }
+a { color: var(--seal); }
+
+.news ul { padding-left: 1.2rem; }
+.news li { margin: 0.5rem 0; }
+
+/* The flagellum table */
+.calc {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  background: #fbf7ec;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+
+.rotor-wrap { flex: 0 0 auto; }
+
+#rotor {
+  width: 96px;
+  height: 96px;
+  display: block;
+}
+
+.r-frame { fill: none; stroke: var(--line); stroke-width: 2; }
+.r-screw {
+  fill: none;
+  stroke: var(--seal);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transform-origin: 60px 60px;
+}
+.r-cap { fill: var(--brass); }
+
+.calc-body { flex: 1 1 auto; }
+.calc-body label { font-weight: bold; display: block; margin-bottom: 0.3rem; }
+input[type="range"] { width: 100%; accent-color: var(--seal); }
+.rows { font-size: 0.95rem; }
+.compare {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--brass);
+  border-top: 1px dotted var(--line);
+  padding-top: 0.5rem;
+}
+
+.noscript { font-size: 0.92rem; }
+
+.colophon {
+  border-top: 3px double var(--seal);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  font-size: 0.88rem;
+}
+
+.slip { font-family: "Courier New", monospace; }
+.next { color: var(--brass); }

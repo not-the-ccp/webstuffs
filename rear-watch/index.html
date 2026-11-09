@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Rear Watch Reading Club — Newsletter No. 14 · Premià de Mar</title>
+<meta name="description" content="Newsletter No. 14 of the Rear Watch Reading Club, Premià de Mar: on rotating locomotion in living systems — why no animal has ever grown a wheel, the one rotating organ life has made, the bacterial flagellum, with the club's flagellum speed table and this month's shelf.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <p class="town">Premià de Mar · Maresme · Catalonia</p>
+    <h1>The Rear Watch Reading Club</h1>
+    <p class="issue">Newsletter No. 14 · Thursday, 12 November 2026 · Edited by Marta Vidal from the room above the chandler's, Carrer de la Riera 4</p>
+    <p class="sub">Twelve members · one table · the reading room above the chandler's · since 2019</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>On the Absence of Wheels</h2>
+
+      <p>A question has been with this club all month, and it began, as our questions usually do, with a child. Quim Puig's daughter, at the Saturday walk down to the cala, asked her father why the animals don't use wheels, since every car in the Maresme does. Her father — who is a boilermaker and not a biologist — said he didn't know, and came to the table on Tuesday with the question on it, and the question has been on it ever since. We have read what we could find, and this issue is our account of the finding.</p>
+
+      <p>It is first worth saying what the world actually has, because the shortage is real but not absolute. Several organisms do roll: the pill bug and the woodlouse curl into a wheel that is not a wheel but a body, and some scarab beetles that have fallen on their backs simply roll themselves back upright, a trick that costs them less than it looks. But no animal anywhere is known to carry a true wheel, and no animal carries a true propeller. The single exception the biologists allow is humble and microscopic: the <em>flagellum</em>, the corkscrew tail of many bacteria, which is a shaft that actually rotates, driven by a motor in the cell wall, turning — in the common <em>Escherichia coli</em> — at something like 6,000 to 12,000 revolutions a minute, and in a good stretch at up to a hundred thousand. It is the only thing in the history of living systems that has ever grown a bearing.</p>
+
+      <p>Given how thoroughly humans have installed the wheel in every corner of the planet, and given that nature has made wings, lenses, cameras, sonar and ice-cream scoops (the abalone), the blank space where an animal wheel should be has seemed, to many scientists, to demand an explanation. The broad answer is two factors. First, and most of it, there are several <strong>developmental</strong> obstacles that a wheel runs into before it has even started: a wheel must turn <em>inside</em> the body that carries it, which means an axle, which means a joint, and a joint that seals soft tissue from the outside while transmitting torque is a contradiction. Muscles cannot cross an axle. A wheel also cannot feed itself, cannot repair itself, and cannot feel itself. Second, and the rest of it, there is an <strong>environmental</strong> one: wheels are useless in water, where the first animals lived and where every swimming animal still lives, and the hard, smooth, load-bearing ground a wheel needs is a young and patchy surface even now. Nature had no road; it had mud, water, and leaf litter, and it grew accordingly.</p>
+
+      <p>Fiction, which is never short, has done better. H. G. Wells filled the Martian plain in 1898 with little wheeled machines, and the rolling machine has been a favourite of the genre ever since, a creature with the one part the living world refused to grow. We have filed our reading list under the wheel in the club drawer; it is a long one, and the children of the members are to blame for its length.</p>
+
+      <h3>The club's flagellum table</h3>
+      <p>Since the flagellum is the only rotor life has built, we have set a small table beside the coffee pot. Turn the dial for revolutions per minute, read the swim speed the turn buys a <em>coli</em>, and see how the little screw compares to the wheel it will never have. The figures are ours, after the literature; the pitch we have used, 4.4 micrometres per turn, is the measured pitch of the <em>E. coli</em> filament.</p>
+
+      <div class="calc" id="calc">
+        <div class="rotor-wrap" aria-hidden="true">
+          <svg id="rotor" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" class="r-frame"/>
+            <path class="r-screw" d="M60 12 q16 9 0 18 q-16 9 0 18 q16 9 0 18 q-16 9 0 18 q16 9 0 18"/>
+            <circle cx="60" cy="60" r="7" class="r-cap"/>
+          </svg>
+        </div>
+        <div class="calc-body">
+          <label for="rpm">Revolutions per minute <output id="rpm-out" for="rpm">6000</output> rpm</label>
+          <input type="range" id="rpm" min="100" max="100000" step="100" value="6000">
+          <p class="rows">
+            Turns per second: <strong id="hps">100</strong> Hz<br>
+            Distance per turn: <strong>4.4 &micro;m</strong><br>
+            Swim speed: <strong id="speed">440 &micro;m/s</strong><br>
+            Body lengths per second (<em>coli</em>, 2 &micro;m long): <strong id="bls">220</strong>
+          </p>
+          <p class="compare" id="compare">At this speed a <em>coli</em> crosses a human hair (about 70 &micro;m) in 0.16 seconds.</p>
+        </div>
+        <noscript><p class="noscript">Without the small script, use the printed figures: at 6,000 rpm the flagellum turns 100 times a second and carries the cell at 440 &micro;m/s — 220 body lengths per second, which is about how fast a person runs, expressed in the cell's own units. At the top of the scale, 100,000 rpm, the speed is 7,300 &micro;m/s and the rotor is turning 1,667 times a second.</p></noscript>
+      </div>
+
+      <p>Two things about the rotor are worth underlining. One is the number: a hundred thousand revolutions a minute is the speed of a watch balance, and the cell does it in fluid thinner than water cares about, with no oil, no metal, and a motor the size of a grain of pollen. The other is what the rotor is <em>not</em>: it is not a wheel. It touches the road — the membrane — nowhere. It is a screw in a nut that is the cell wall, and the cell wall is the only bearing the creature has. This is, we think, the whole argument in miniature: life can make a rotor that never touches what it rolls on, and it cannot make a wheel that does, because a wheel has to be hard, a joint has to be soft, and the two orders of material refuse to meet at the axle.</p>
+    </section>
+
+    <section class="news">
+      <h2>Club notes, this month</h2>
+      <ul>
+        <li>The reading room above the chandler's will be closed on the 24th, when the tide is high and the Riera runs brown; the table is moved to the back of the bar, and the kettle goes with it.</li>
+        <li>Luc&egrave;rnia Ferrer read the long list of wheelless creatures from the drawer and stopped, as she always does, at the woodlouse. The roll of the woodlouse is our house example now, and it has a place in the minutes.</li>
+        <li>Three members have taken the flagellum table to their own classes and workshops. The boilermaker reports that his apprentices can now name the one bearing an animal has ever grown, and will not stop.</li>
+        <li>Next month's question, from the daughter at the cala: why do wheels <em>need</em> a road, exactly? Bring something to measure. The sister newsletter from the boatmen up on the Kennet, <a href="../kennet-avon/">The Barge &amp; Bell, No. 12</a>, keeps a whole column of gauge readings that may help us think about what a surface is.</li>
+      </ul>
+    </section>
+
+    <section class="shelf">
+      <h2>Elsewhere on the shelf</h2>
+      <p>The club keeps one drawer for pages from outside the room. This month we point to two. The <a href="../ghent-eeklo/">Safety Data Sheet for Ghent-Eeklo</a>, filed by the Boundary &amp; Electoral Hazards Office, is a good example of what a closed line is for: a boundary that had force and then did not, struck through, and kept — which is exactly how we have come to think of the wheel, struck through in the body plans of every animal and kept in the record. And on the school shelf there is a term report from R&uuml;ja Street School on the <a href="../dainu-skapis/">Cabinet of Songs (Dainu skapis)</a>, a small wooden box that holds 125,000 songs — the opposite of our subject, an object that keeps without turning, and no smaller for it. The whole shelf, as always, begins at the <a href="../">front page</a>.</p>
+    </section>
+
+    <footer class="colophon">
+      <p>Set in the reading room, Premià de Mar, and printed in an edition of twelve. The file slip under the reserve copy of this issue reads, letter for letter as the office that scanned it gave it: <span class="slip">&ldquo;The Rear Watch Reading Club , Premià de Mar &middot; Newsletter No. 14 , and the reserve provides in the scan.&rdquo;</span> No member has yet persuaded the office to alter the slip, and the club's rule is that the slip is the record.</p>
+      <p class="next">Newsletter No. 15 will be on the first Thursday of December. The kettle stays in the chandler's.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="flagellum.js"></script>
+</body>
+</html>
