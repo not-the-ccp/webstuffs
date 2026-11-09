@@ -1,0 +1,156 @@
+/* The Fight — Timetable & Commentary
+   Schrute Line, Public Timetable No. 12
+   Webstuffs · restrained printed publication style */
+
+:root {
+  --paper: #faf7ec;
+  --ink: #221912;
+  --rail: #7c241c;
+  --rail-deep: #4e1312;
+  --muted: #6e6254;
+  --line: #d9d0c2;
+  --beet: #7a2130;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times", "Times New Roman", serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.62;
+}
+
+header.masthead {
+  text-align: center;
+  padding: 46px 22px 30px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--paper) 0%, #ece0c8 100%);
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 8px;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+.deck {
+  font-size: 0.82rem;
+  color: var(--muted);
+  max-width: 44ch;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 700px;
+  margin: 34px auto;
+  padding: 0 20px;
+}
+
+section { margin-bottom: 38px; }
+
+.timeline { margin-bottom: 30px; }
+
+h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rail);
+  margin: 0 0 11px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+}
+
+p { margin: 0 0 13px; }
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 8px;
+  font-size: 0.84rem;
+}
+
+table.timetable caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0 8px;
+}
+
+table.timetable th,
+table.timetable td {
+  border-bottom: 1px solid var(--line);
+  padding: 6px 4px;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.timetable th {
+  color: var(--muted);
+  font-weight: normal;
+  font-size: 0.76rem;
+}
+
+td.svc {
+  font-weight: bold;
+  color: var(--rail-deep);
+  white-space: nowrap;
+}
+
+.named {
+  font-style: italic;
+  color: var(--beet);
+}
+
+.table-intro {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.table-foot {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+footer.colophon {
+  border-top: 1px solid var(--line);
+  padding: 26px 22px 34px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+footer.colophon p { margin: 0 0 8px; }
+
+.fine {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+a { color: var(--rail); text-decoration: underline; text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--rail); outline-offset: 2px; }
+
+@media (max-width: 520px) {
+  main { padding: 0 14px; }
+  header.masthead { padding: 34px 16px 22px; }
+}
