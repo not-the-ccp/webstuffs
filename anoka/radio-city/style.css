@@ -1,0 +1,130 @@
+/* Station WANC — broadcast booth styling */
+:root {
+  --night: #10141c;
+  --panel: #1a2130;
+  --brass: #c9a24b;
+  --phosphor: #9fd6a8;
+  --paper: #e9e2cf;
+  --wire: #4a5468;
+  --red: #b8452f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--night);
+  background-image: repeating-linear-gradient(
+    0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px,
+    transparent 1px, transparent 3px);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.dial {
+  position: relative;
+  height: 64px;
+  background: linear-gradient(#232c3e, #161c28);
+  border-bottom: 3px solid var(--brass);
+  overflow: hidden;
+  font-family: "Courier New", monospace;
+}
+.dial .mark {
+  position: absolute;
+  bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--brass);
+  opacity: 0.8;
+}
+.dial .mark:nth-of-type(1) { left: 12%; }
+.dial .mark:nth-of-type(2) { left: 50%; color: var(--phosphor); }
+.dial .mark:nth-of-type(3) { right: 12%; }
+.dial .needle {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: var(--red);
+  left: 50%;
+  box-shadow: 0 0 8px rgba(220, 70, 45, 0.9);
+}
+
+.booth {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+.booth-head {
+  text-align: center;
+  border: 2px solid var(--brass);
+  outline: 1px solid var(--wire);
+  outline-offset: 5px;
+  padding: 28px 20px;
+  background: var(--panel);
+}
+.signoff {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--brass);
+  margin: 0 0 14px;
+}
+h1 {
+  font-size: 2.1rem;
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+}
+.dek {
+  font-style: italic;
+  color: #c8c0a8;
+  margin: 0 auto 14px;
+  max-width: 52ch;
+}
+.cast {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: var(--phosphor);
+  margin: 0;
+}
+
+.transcript { margin-top: 40px; }
+.line {
+  margin: 0 0 18px;
+  padding-left: 14px;
+  border-left: 3px solid var(--wire);
+}
+.who {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 4px;
+}
+.cue {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--phosphor);
+  opacity: 0.85;
+  margin: 0 0 18px;
+  padding: 8px 12px;
+  background: rgba(159, 214, 168, 0.06);
+  border: 1px dashed var(--wire);
+}
+
+.desk-notes {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--brass);
+  font-size: 0.92rem;
+  color: #c8c0a8;
+}
+.desk-notes a {
+  color: var(--phosphor);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.desk-notes a:hover { color: var(--brass); }
