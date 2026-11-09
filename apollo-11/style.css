@@ -1,0 +1,274 @@
+/* The Keeper's Diary — 20–21 July 1969 · EFT 69-01 Addendum */
+
+:root {
+  --ink: #d9d2bd;
+  --ink-dim: #9a927a;
+  --paper: #10141f;
+  --paper-deep: #070a12;
+  --moon: #e8e4d4;
+  --brass: #b99a5b;
+  --brass-bright: #e6c987;
+  --wine: #7a3b3b;
+  --sea: #1c2a3f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #22304e 0%, transparent 55%),
+    radial-gradient(ellipse 90% 50% at 85% 110%, #1a1526 0%, transparent 60%),
+    linear-gradient(180deg, var(--paper-deep) 0%, var(--paper) 30%, #0c1019 70%, var(--paper-deep) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.72;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Starfield canvas layer */
+#starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* The moon, fixed upper right */
+.moon {
+  position: fixed;
+  top: 7vh;
+  right: 8vw;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 38% 34%, #f6f2e2 0%, #d8d2ba 45%, #a89f85 75%, #6e6753 100%);
+  box-shadow:
+    0 0 34px 8px rgba(232, 228, 212, 0.28),
+    0 0 90px 30px rgba(232, 228, 212, 0.10),
+    inset -14px -12px 26px rgba(30, 28, 20, 0.55);
+  animation: moonbreath 9s ease-in-out infinite;
+}
+.moon::before, .moon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(70, 64, 48, 0.35);
+}
+.moon::before { width: 20px; height: 20px; top: 26%; left: 52%; box-shadow: 18px 26px 0 -4px rgba(70,64,48,.3); }
+.moon::after { width: 12px; height: 12px; top: 58%; left: 26%; }
+
+@keyframes moonbreath {
+  0%, 100% { box-shadow: 0 0 34px 8px rgba(232,228,212,.28), 0 0 90px 30px rgba(232,228,212,.10), inset -14px -12px 26px rgba(30,28,20,.55); }
+  50% { box-shadow: 0 0 48px 14px rgba(232,228,212,.38), 0 0 120px 44px rgba(232,228,212,.14), inset -14px -12px 26px rgba(30,28,20,.55); }
+}
+
+/* The journal sheet */
+.journal {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 3rem) clamp(1rem, 5vw, 3.5rem) 3rem;
+}
+
+.journal::before {
+  /* ruled ledger line running down the whole page, left of the text */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(clamp(1rem, 5vw, 3.5rem) - 1.4rem);
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(185, 154, 91, 0.35) 8%, rgba(185, 154, 91, 0.35) 92%, transparent);
+}
+
+/* Masthead */
+.masthead { text-align: center; padding-bottom: 1.4rem; }
+
+.plate-ornament { color: var(--brass); margin-bottom: 1.2rem; }
+.plate-ornament svg { opacity: 0.9; }
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", "Palatino Linotype", cursive;
+  font-size: clamp(3rem, 9vw, 5.2rem);
+  font-weight: 400;
+  color: var(--moon);
+  margin: 0.2rem 0 0.6rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 0 rgba(0,0,0,.5), 0 0 30px rgba(232,228,212,.22);
+}
+
+.sub {
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: 0.98rem;
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+/* Waxed seal */
+.seal {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 2rem auto 0;
+  display: grid;
+  place-items: center;
+}
+.seal-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #a04a44 0%, var(--wine) 45%, #4c2222 100%);
+  box-shadow: inset 0 0 0 5px rgba(0,0,0,.25), inset 0 0 22px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.5);
+  animation: sealspin 60s linear infinite;
+}
+@keyframes sealspin { to { transform: rotate(360deg); } }
+.seal-text {
+  position: relative;
+  z-index: 1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: #f0d9a0;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  animation: sealcounter 60s linear infinite;
+  max-height: 104px;
+  white-space: nowrap;
+}
+@keyframes sealcounter { to { transform: rotate(-180deg); } }
+
+/* Brass rule */
+.rule {
+  height: 10px;
+  margin: 0 0 2.2rem;
+  background:
+    linear-gradient(90deg, transparent, var(--brass) 12%, var(--brass-bright) 50%, var(--brass) 88%, transparent) 0 4px / 100% 2px no-repeat,
+    radial-gradient(circle at 50% 5px, var(--brass-bright) 2px, transparent 3px) 0 0 / 100% 10px no-repeat;
+  opacity: 0.85;
+}
+
+/* Entries */
+.entry { margin-bottom: 2.8rem; }
+
+.entry p {
+  margin: 0 0 1.35rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.entry .date {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.6rem;
+  color: var(--brass-bright);
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px dashed rgba(185, 154, 91, 0.4);
+  background: linear-gradient(90deg, rgba(185,154,91,.12), transparent 70%);
+  display: inline-block;
+}
+
+.entry strong { color: var(--moon); font-weight: 700; }
+.entry em { color: var(--brass-bright); }
+
+.entry a {
+  color: var(--brass-bright);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass);
+  transition: background 0.25s, color 0.25s;
+}
+.entry a:hover {
+  background: rgba(185, 154, 91, 0.18);
+  color: var(--moon);
+}
+
+/* The verbatim almanac line, set as a marginal pull */
+.entry p:nth-child(2) {
+  border-left: 3px double var(--brass);
+  padding-left: 1.1rem;
+  background: linear-gradient(90deg, rgba(28, 42, 63, 0.5), transparent 85%);
+}
+
+/* Margin numbers table */
+.ledger h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-align: center;
+  margin: 0 0 1.2rem;
+}
+
+.ledger table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: linear-gradient(180deg, rgba(16,20,31,.85), rgba(12,16,25,.85));
+  border: 1px solid rgba(185, 154, 91, 0.4);
+  box-shadow: 0 0 0 4px rgba(16,20,31,.4), 0 10px 30px rgba(0,0,0,.5);
+}
+
+.ledger caption {
+  caption-side: bottom;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  padding-top: 0.5rem;
+}
+
+.ledger td {
+  padding: 0.5rem 0.9rem;
+  border-bottom: 1px dotted rgba(185, 154, 91, 0.25);
+  vertical-align: top;
+}
+.ledger td:last-child {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--brass-bright);
+  white-space: nowrap;
+}
+.ledger tr:last-child td { border-bottom: none; }
+.ledger tr:hover td { background: rgba(185, 154, 91, 0.08); }
+
+/* Colophon */
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(185, 154, 91, 0.35);
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+}
+.colophon a {
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass);
+}
+.colophon a:hover { color: var(--moon); }
+
+/* Narrow screens: keep the moon small and off the text */
+@media (max-width: 640px) {
+  .moon { width: 54px; height: 54px; top: 4vh; right: 5vw; opacity: 0.8; }
+  .journal::before { display: none; }
+  .entry p { text-align: left; }
+  .ledger td:last-child { white-space: normal; }
+}
