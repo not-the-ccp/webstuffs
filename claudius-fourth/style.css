@@ -1,0 +1,214 @@
+/* The Correspondents' Board — Thread No. 54 */
+
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e9dcc0;
+  --ink: #2c2416;
+  --ink-soft: #5a4c33;
+  --rule: #b39a6a;
+  --seal: #8c2f1b;
+  --gauge: #34604f;
+  --card-bg: #fbf6e9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.masthead {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  border-bottom: 3px double var(--rule);
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(179, 154, 106, 0.25), transparent 60%),
+    var(--parchment-deep);
+}
+
+.board-mark {
+  font-family: "Special Elite", monospace;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(1.9rem, 5vw, 3.1rem);
+  line-height: 1.15;
+  margin: 0 0 0.8rem;
+}
+
+.thread-sub {
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--seal);
+}
+
+.sub {
+  max-width: 46rem;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.stamp-row {
+  margin: 1.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.stamp {
+  font-family: "Special Elite", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  border: 1.5px solid var(--seal);
+  color: var(--seal);
+  padding: 0.25rem 0.7rem;
+  transform: rotate(-1deg);
+  border-radius: 2px;
+}
+.stamp:nth-child(even) { transform: rotate(1.2deg); }
+
+.thread {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.post {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--gauge);
+  border-radius: 4px;
+  margin-bottom: 1.6rem;
+  padding: 1.2rem 1.4rem 1rem;
+  box-shadow: 3px 4px 0 rgba(44, 36, 22, 0.12);
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.poster {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--seal);
+}
+
+.post-meta {
+  font-family: "Special Elite", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.post-body p { margin: 0 0 0.9rem; }
+.post-body p:last-child { margin-bottom: 0; }
+
+blockquote.card-line {
+  font-family: "Special Elite", monospace;
+  font-size: 0.9rem;
+  background: var(--parchment-deep);
+  border-left: 4px solid var(--seal);
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0;
+  color: var(--ink);
+}
+
+.gauge {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.4rem;
+  margin: 2.2rem 0;
+}
+
+.gauge h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.6rem;
+}
+
+.gauge-intro {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.gauge-widget { margin-top: 1rem; }
+
+.gauge-label {
+  font-family: "Special Elite", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--ink-soft);
+}
+
+#year-slider {
+  width: 100%;
+  accent-color: var(--seal);
+  cursor: pointer;
+}
+
+.gauge-readout {
+  font-size: 1.02rem;
+  background: var(--parchment-deep);
+  border: 1px dashed var(--rule);
+  padding: 0.7rem 0.9rem;
+  min-height: 3.2rem;
+}
+
+.gauge-bar {
+  display: flex;
+  height: 14px;
+  margin-top: 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gauge-bar .seg { height: 100%; }
+.gauge-bar .seg-active { outline: 2px solid var(--seal); outline-offset: -2px; }
+
+.seg-0 { background: #9a8a63; flex: 17; }
+.seg-1 { background: #6b7d5e; flex: 41; }
+.seg-2 { background: #55707f; flex: 27; }
+.seg-3 { background: var(--seal); flex: 13; }
+.seg-4 { background: #7b5b80; flex: 14; }
+
+.post.close {
+  border-left-color: var(--seal);
+  background: var(--parchment-deep);
+}
+
+.colophon {
+  text-align: center;
+  border-top: 3px double var(--rule);
+  padding: 2rem 1.5rem 2.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  background: var(--parchment-deep);
+}
+
+a { color: var(--seal); }
+a:hover { color: var(--gauge); }
