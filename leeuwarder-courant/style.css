@@ -1,0 +1,211 @@
+/* Service LC · The Courant Line — Timetable & Commentary
+   Friesland blue, newsprint cream, departure-board amber. */
+
+:root{
+  --ink:        #1c1a14;
+  --news:       #efe8d4;
+  --news-deep:  #e3d8bb;
+  --fr-blk:     #0d1b3a;
+  --fr-blue:    #17306b;
+  --fr-sky:     #4a69a8;
+  --amber:      #ffb84d;
+  --amber-dim:  #8a5a14;
+  --line-red:   #a23122;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family: Georgia, "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-size:1.06rem;
+  line-height:1.62;
+  background:
+    radial-gradient(1200px 500px at 50% -80px, rgba(239,232,212,.14), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(239,232,212,.045) 0 2px, transparent 2px 26px),
+    linear-gradient(168deg, #0a1428 0%, var(--fr-blk) 34%, var(--fr-blue) 68%, #0d2a52 100%);
+  min-height:100vh;
+}
+
+/* halftone print texture, like a cheap daily */
+.halftone{
+  position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background-image: radial-gradient(rgba(239,232,212,.07) 1px, transparent 1.6px);
+  background-size: 7px 7px;
+  mix-blend-mode: screen;
+}
+
+/* moving sleepers under everything */
+.tracks{ position:fixed; left:0; right:0; bottom:0; height:34px; z-index:0; opacity:.55; pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(239,232,212,.35) 46px 50px),
+    linear-gradient(180deg, rgba(239,232,212,.16), rgba(239,232,212,.05));
+  border-top:2px solid rgba(239,232,212,.35);
+  background-position: 0 0;
+  animation: sleeper 6s linear infinite;
+}
+.tracks i{ position:absolute; left:0; right:0; top:14px; height:2px;
+  background: repeating-linear-gradient(90deg, rgba(239,232,212,.5) 0 60px, transparent 60px 90px);
+  animation: sleeper 6s linear infinite;
+}
+.tracks i:nth-child(2){ top:20px; animation-duration:4s; }
+@keyframes sleeper{ to{ background-position: 90px 0, 90px 0; } }
+
+.page{ position:relative; z-index:1; max-width:62em; margin:0 auto; padding:0 1.4em 5em; }
+
+/* ---------- masthead ---------- */
+.masthead{ position:relative; z-index:1; text-align:center; padding:2.6em 1em 1.6em; color:var(--news); }
+.mast-rule{ height:6px; max-width:40em; margin:.6em auto;
+  background:
+    linear-gradient(90deg, transparent, var(--news) 12%, var(--news) 88%, transparent) 0 0/100% 2px no-repeat,
+    linear-gradient(90deg, transparent, rgba(239,232,212,.6) 20%, rgba(239,232,212,.6) 80%, transparent) 0 100%/100% 1px no-repeat;
+  border-top:1px solid rgba(239,232,212,.5); border-bottom:1px solid rgba(239,232,212,.5);
+}
+.mast-top{
+  font-family:"Courier New", Courier, monospace; letter-spacing:.42em; font-size:.72rem;
+  margin:0; color:var(--fr-sky); text-transform:uppercase;
+}
+.mast-top .dot{ color:var(--amber); letter-spacing:0; }
+.mast-title{
+  font-size:clamp(3.4rem, 11vw, 7.2rem); margin:.1em 0 0;
+  font-family:"Times New Roman", Georgia, serif; font-weight:700; letter-spacing:.04em;
+  color:var(--news);
+  text-shadow: 0 0 26px rgba(255,184,77,.28), 3px 3px 0 var(--line-red), 6px 6px 0 rgba(0,0,0,.35);
+  animation: ink-in 1.2s ease-out both;
+}
+@keyframes ink-in{ from{ opacity:0; transform:translateY(14px); letter-spacing:.3em; } }
+.mast-sub{ font-size:1.25rem; font-style:italic; margin:.4em 0 0; color:var(--news); }
+.mast-since{
+  margin:.9em auto 0; max-width:38em; font-size:.95rem;
+  font-family:"Courier New", Courier, monospace; letter-spacing:.14em; color:var(--amber);
+}
+.mast-since strong{ color:var(--news); }
+.mast-since .dot{ color:var(--fr-sky); }
+.mast-mark{ margin:1em auto .2em; width:min(240px, 60vw); display:block; }
+
+/* ---------- lede & rules ---------- */
+.lede{
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.62em, rgba(28,26,20,.06) 1.62em calc(1.62em + 1px)),
+    linear-gradient(180deg, var(--news), var(--news-deep));
+  color:var(--ink); border:1px solid #b7a877;
+  box-shadow: 0 0 0 5px rgba(239,232,212,.12), 0 14px 30px rgba(0,0,0,.45);
+  padding:1.4em 1.7em; margin:1.8em 0 2.4em; font-size:1.08rem;
+  position:relative;
+}
+.lede::before, .lede::after{
+  content:"◆"; position:absolute; top:-12px; color:var(--amber); background:var(--fr-blk);
+  padding:0 .55em; border:1px solid var(--amber-dim); font-size:.8rem;
+}
+.lede::before{ left:8%; } .lede::after{ right:8%; }
+
+.rule{
+  display:flex; align-items:baseline; gap:.8em; margin:2.6em 0 .5em; color:var(--news);
+  border-bottom:2px solid rgba(239,232,212,.35); padding-bottom:.35em;
+  font-family:"Times New Roman", Georgia, serif; font-size:1.55rem; letter-spacing:.02em;
+}
+.rule span{
+  font-family:"Courier New", Courier, monospace; font-size:1rem; color:var(--fr-blk);
+  background:var(--amber); padding:.05em .5em; border:1px solid var(--amber-dim);
+  box-shadow: 2px 2px 0 rgba(0,0,0,.4);
+}
+.page p{ margin:.9em 0; }
+.page strong{ letter-spacing:.02em; }
+em{ color:#5a3413; background:linear-gradient(180deg, transparent 55%, rgba(255,184,77,.4) 55%); }
+
+/* ---------- departure board ---------- */
+.board-wrap{ margin:2.4em 0 1em; }
+.band{
+  font-family:"Courier New", Courier, monospace; letter-spacing:.3em; font-size:.85rem;
+  color:var(--fr-blk); background:linear-gradient(180deg, #f2ead2, #d9cb9e);
+  border:1px solid var(--amber-dim); border-top:5px double var(--amber-dim);
+  padding:.5em .9em; margin:0 0 .8em;
+}
+.band .band-num{ color:var(--line-red); }
+.board{
+  background:
+    radial-gradient(420px 120px at 20% 0, rgba(255,184,77,.12), transparent 70%),
+    linear-gradient(180deg, #070d1d, #0b1630);
+  border:2px solid #2c3f6e; border-radius:10px; overflow:hidden;
+  box-shadow: inset 0 0 40px rgba(0,0,0,.7), 0 16px 34px rgba(0,0,0,.5), 0 0 0 6px rgba(239,232,212,.08);
+  font-family:"Courier New", Courier, monospace;
+}
+.board-head, .board-row, .board-foot{
+  display:grid; grid-template-columns: 7em 12.5em repeat(6, minmax(5.2em, 1fr));
+  gap:0 0; align-items:center;
+}
+.board-head span{
+  padding:.7em .6em .4em; font-size:.68rem; letter-spacing:.18em; color:#6f86bd;
+  border-bottom:1px solid #2c3f6e;
+}
+.board-row span{ padding:.65em .6em; border-bottom:1px dashed rgba(111,134,189,.35); }
+.svc{ color:var(--news); font-weight:700; font-size:.95rem; letter-spacing:.05em; }
+.svc-name{ color:#c9d4ef; font-size:.82rem; font-style:italic; }
+.t{
+  color:var(--amber); font-size:1.28rem; font-weight:700; letter-spacing:.06em;
+  text-shadow: 0 0 12px rgba(255,184,77,.75), 0 0 2px rgba(255,210,140,.9);
+  white-space:nowrap;
+}
+.board-row.flash span{ animation: rowflash .8s ease-out; }
+@keyframes rowflash{ 0%{ background:rgba(255,184,77,.28); } 100%{ background:transparent; } }
+.board-foot{ display:grid; grid-template-columns: 1fr 3.5em; align-items:center;
+  padding:.55em .6em; border-top:1px solid #2c3f6e;
+}
+.foot-cell{ font-size:.66rem; letter-spacing:.22em; color:#8fa3d2; }
+.lamp{
+  width:14px; height:14px; border-radius:50%; margin:0 auto;
+  background:var(--amber); box-shadow:0 0 16px 4px rgba(255,184,77,.8);
+  animation: lamp 2.4s ease-in-out infinite;
+}
+@keyframes lamp{ 0%,100%{ opacity:1; } 50%{ opacity:.35; box-shadow:0 0 4px 1px rgba(255,184,77,.3); } }
+.board-note{
+  font-family:"Courier New", Courier, monospace; font-size:.8rem; letter-spacing:.12em;
+  color:var(--fr-sky); margin-top:.7em;
+}
+.count{ color:var(--amber); font-weight:700; }
+
+/* ---------- Lauwersoog notice ---------- */
+.notice{
+  margin:1.4em auto; max-width:46em; color:var(--fr-blk);
+  background:
+    repeating-linear-gradient(180deg, rgba(239,232,212,.5) 0 2px, transparent 2px 8px),
+    linear-gradient(160deg, #f4ecd6, #e5d9b4);
+  border:3px double var(--amber-dim); padding:1.2em 1.6em;
+  box-shadow: 6px 6px 0 rgba(13,27,58,.6), 0 0 0 8px rgba(239,232,212,.1);
+  position:relative;
+}
+.notice p{ font-family:"Courier New", Courier, monospace; font-size:1.05rem; line-height:1.8; letter-spacing:.02em; }
+.notice-src{ font-size:.74rem !important; color:var(--amber-dim); letter-spacing:.1em; border-top:1px solid rgba(138,90,20,.4); padding-top:.5em; }
+
+/* ---------- ornaments & footer ---------- */
+.orn-row{ display:flex; align-items:center; gap:1em; margin:3em 0 0; }
+.orn-row .rosette{ width:34px; height:34px; animation: spin 24s linear infinite; }
+.orn-row .rosette:last-child{ animation-direction:reverse; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.orn-rule{ flex:1; height:1px;
+  background:repeating-linear-gradient(90deg, rgba(239,232,212,.7) 0 10px, transparent 10px 18px); }
+
+.foot{ margin-top:2.4em; border-top:1px solid rgba(239,232,212,.35); padding-top:1.2em; }
+.foot-stamp{
+  font-family:"Courier New", Courier, monospace; font-size:.72rem; letter-spacing:.34em;
+  color:var(--fr-sky); margin:0 0 .8em;
+}
+.foot-links{ color:var(--news); font-size:.95rem; margin:0; }
+.foot-links a, .page a{
+  color:var(--amber); text-decoration:none; border-bottom:1px dotted var(--amber);
+  padding-bottom:1px;
+}
+.foot-links a:hover, .page a:hover{ color:var(--news); border-bottom-color:var(--news); background:rgba(255,184,77,.15); }
+
+@media (max-width: 760px){
+  .board-head, .board-row{ grid-template-columns: 5.5em repeat(3, minmax(4.6em,1fr)); row-gap:.2em; }
+  .board-head span:nth-child(n+5), .board-row span:nth-child(n+5){ display:none; }
+  .mast-top{ letter-spacing:.2em; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; }
+}
