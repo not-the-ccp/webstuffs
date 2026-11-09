@@ -1,0 +1,146 @@
+/* Two Parcels — Thread No. 212 · The Receiver's Board */
+
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b251d;
+  --ink-soft: #5c5344;
+  --rule: #cfc4a8;
+  --oxford: #1d3a63;
+  --oxblood: #7a2e26;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.board {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.masthead { text-align: center; margin-bottom: 3.5rem; }
+
+.crumbs {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+}
+
+h1 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 1rem;
+}
+
+.thread-title {
+  font-size: 2.1rem;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+
+.thread-meta {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.pinned { color: var(--oxford); }
+
+.post {
+  border-top: 3px double var(--rule);
+  padding: 1.75rem 0.25rem 2rem;
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.post-num {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--oxblood);
+}
+
+.poster {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--oxford);
+}
+
+.rank {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.post-head time {
+  margin-left: auto;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.post-body p { margin: 0 0 1rem; }
+.post-body p:last-child { margin-bottom: 0; }
+
+a { color: var(--oxford); }
+a:hover { color: var(--oxblood); }
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 2px solid var(--oxford);
+  color: var(--ink);
+}
+
+blockquote p { font-size: 0.95rem; color: var(--ink-soft); }
+
+.word-for-word {
+  font-style: italic;
+  font-size: 1.05rem !important;
+  color: var(--ink) !important;
+}
+
+.sig { font-style: italic; color: var(--ink-soft); }
+
+.post.closed { border-top: 1px solid var(--rule); }
+
+.rules {
+  margin-top: 3.5rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.rule-line { margin: 0 0 0.75rem; }
+
+.boardtime {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
