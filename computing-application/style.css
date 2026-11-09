@@ -1,0 +1,206 @@
+/* Specification No. 48,671-A — patent office paper */
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #ece4d0;
+  --ink: #23201a;
+  --rule: #6d5f45;
+  --seal: #8a1f1f;
+  --blue: #24456e;
+  --serif: Georgia, "Times New Roman", serif;
+  --mono: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(109,95,69,.05) 0 1px, transparent 1px 28px),
+    radial-gradient(ellipse at 50% -10%, #efe7d3 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 2.5rem auto 3rem;
+  background:
+    radial-gradient(ellipse at 85% 6%, rgba(138,31,31,.05), transparent 40%),
+    linear-gradient(180deg, #f7f2e6, #f2ecdc);
+  box-shadow: 0 1px 2px rgba(35,32,26,.25), 0 12px 40px rgba(35,32,26,.18);
+  border: 1px solid rgba(109,95,69,.4);
+}
+
+.rule-double { border-top: 3px double var(--rule); }
+
+.docket {
+  position: relative;
+  border-bottom: 3px double var(--rule);
+  background: linear-gradient(180deg, rgba(36,69,110,.06), transparent);
+  padding: 2.2rem 1.5rem 1.6rem;
+}
+
+.docket-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.docket .office {
+  margin: 0 0 .6rem;
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.docket h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: .01em;
+  color: var(--blue);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .4rem;
+}
+
+.docket .title {
+  margin: .8rem 0 0;
+  font-style: italic;
+  font-size: 1.06rem;
+}
+
+.fields {
+  margin: 0;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: .88rem;
+}
+
+.fields div {
+  border: 1px solid var(--rule);
+  border-width: 0 1px 1px 0;
+  padding: .4rem .55rem;
+}
+
+.fields div:last-child { border-width: 0 0 1px 0; }
+
+.fields dt {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 .1rem;
+}
+
+.fields dd { margin: 0; }
+
+.stamp {
+  position: absolute;
+  right: 1.2rem;
+  top: 1rem;
+  transform: rotate(-8deg);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-align: center;
+  color: var(--seal);
+  border: 2px solid var(--seal);
+  outline: 1px solid var(--seal);
+  outline-offset: 2px;
+  padding: .5rem .8rem;
+  opacity: .75;
+  mix-blend-mode: multiply;
+}
+
+.body { padding: 1.6rem 1.5rem 1rem; }
+
+.section {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border-top: 1px solid var(--rule);
+  padding-top: .5rem;
+  margin: 1.8rem 0 .8rem;
+}
+
+p { margin: 0 0 1rem; }
+
+strong { font-weight: 700; }
+
+a { color: var(--blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--seal); }
+
+blockquote.menu {
+  margin: 1rem 1.4rem 1.2rem;
+  padding: .9rem 1.1rem;
+  border-left: 3px double var(--seal);
+  background: rgba(138,31,31,.04);
+  font-style: italic;
+  color: #4a2020;
+}
+
+blockquote.menu p { margin: 0; }
+
+ol.claims {
+  list-style: none;
+  counter-reset: claim;
+  margin: 0;
+  padding: 0;
+}
+
+ol.claims li {
+  counter-increment: claim;
+  border-bottom: 1px dotted rgba(109,95,69,.6);
+  padding: .7rem 0 .7rem 3.4rem;
+  position: relative;
+}
+
+ol.claims li::before {
+  content: "CLM " counter(claim, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: .8rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  color: var(--seal);
+}
+
+ol.claims .no {
+  font-weight: 700;
+  font-style: italic;
+  color: var(--blue);
+}
+
+.colophon-line {
+  margin-top: 1.8rem;
+  text-align: center;
+  font-style: italic;
+  font-size: .92rem;
+  color: #4a4234;
+}
+
+.foot {
+  border-top: 3px double var(--rule);
+  margin-top: 1rem;
+  padding: 1rem 1.5rem 1.4rem;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-align: center;
+  color: #5a5142;
+}
+
+.foot .rule-double { margin: -1rem -1.5rem 1rem; }
+
+@media (max-width: 640px) {
+  .docket-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .stamp { position: static; display: inline-block; margin: 1rem 0 0; transform: rotate(-4deg); }
+}
