@@ -1,0 +1,188 @@
+/* The Timor Sea Diary, Book No. 21 — ruled surveyor's field book */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #eaddc0;
+  --ink: #2c3340;
+  --pencil: #4a5568;
+  --rule: #a8bdd1;
+  --margin-red: #c0605a;
+  --stamp-red: #a33327;
+  --stamp-navy: #33415c;
+  --desk: #22312b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(120% 90% at 50% 0%, #2c3f36 0%, var(--desk) 60%, #17211d 100%);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  padding: 2.5rem 1rem 4rem;
+}
+
+.desk {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.diary {
+  position: relative;
+  background:
+    linear-gradient(90deg, transparent 0 84px, rgba(192, 96, 90, 0.55) 84px 86px, transparent 86px),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    ),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  background-attachment: local;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.35);
+  padding: 2.5rem 2.5rem 2rem 6rem;
+  transform: rotate(-0.35deg);
+}
+
+/* worn corners and a tide stain */
+.diary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(140px 140px at 92% 4%, rgba(122, 96, 52, 0.28) 0%, rgba(122, 96, 52, 0.14) 45%, transparent 70%),
+    radial-gradient(90px 90px at 3% 96%, rgba(90, 70, 40, 0.22) 0%, transparent 70%),
+    radial-gradient(200px 120px at 80% 88%, rgba(96, 120, 140, 0.12) 0%, transparent 75%);
+}
+
+.cover {
+  position: relative;
+  margin-bottom: 1rem;
+  border-bottom: 3px double var(--stamp-navy);
+  padding-bottom: 1.5rem;
+}
+
+.book-line {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stamp-navy);
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: var(--stamp-navy);
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.owner-line {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--pencil);
+  font-style: italic;
+}
+
+.postmark {
+  position: absolute;
+  right: 0;
+  top: 0.2rem;
+  width: 96px;
+  height: 96px;
+  opacity: 0.75;
+  transform: rotate(-12deg);
+}
+.pm-outer { font-size: 11px; letter-spacing: 3px; fill: var(--stamp-navy); font-family: inherit; }
+.pm-inner { font-size: 10px; letter-spacing: 2px; fill: var(--stamp-navy); font-family: inherit; }
+
+.stamp {
+  position: absolute;
+  border: 2.5px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  transform: rotate(-8deg);
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  box-shadow: 0 0 0 1px rgba(163, 51, 39, 0.25) inset;
+}
+.stamp.received {
+  right: 3rem;
+  top: 3.4rem;
+}
+
+.entry {
+  padding: 0.4rem 0 1.6rem 0;
+}
+
+.date {
+  margin: 0 0 0.55rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  color: var(--stamp-navy);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(51, 65, 92, 0.35);
+  padding-bottom: 0.25rem;
+}
+
+.entry p {
+  margin: 0 0 0.9rem;
+  font-family: "Segoe Script", "Bradley Hand", "Snell Roundhand", "Comic Sans MS", cursive;
+  font-size: 1.02rem;
+  line-height: 32px; /* ride the ruling */
+  color: var(--ink);
+}
+
+.office-line {
+  margin: 1.1rem 0 1.1rem 0.4rem;
+  padding: 0.6rem 1rem 0.6rem 1.2rem;
+  border-left: 3px solid var(--stamp-red);
+  background: rgba(163, 51, 39, 0.06);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 32px;
+  color: var(--stamp-red);
+}
+
+a {
+  color: var(--stamp-navy);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(51, 65, 92, 0.12); }
+
+.colophon {
+  border-top: 1px solid rgba(51, 65, 92, 0.4);
+  margin-top: 1.2rem;
+  padding-top: 0.8rem;
+}
+.colophon p {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+
+@media (max-width: 640px) {
+  .diary { padding: 1.8rem 1.2rem 1.6rem 2.6rem; transform: none; }
+  .postmark { width: 72px; height: 72px; }
+  .stamp.received { right: 0.5rem; top: 4.4rem; }
+}
