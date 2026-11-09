@@ -1,0 +1,385 @@
+/* The Scioto Ledger — Classified Advertisements, Franklin County Edition */
+
+:root {
+  --paper: #f2e8d5;
+  --paper-dark: #e6d7ba;
+  --paper-deep: #d9c69d;
+  --ink: #231a12;
+  --ink-soft: #4a3a2a;
+  --press-red: #a3241c;
+  --press-red-dark: #7c150f;
+  --steel: #2e4a5b;
+  --steel-dark: #1d3340;
+  --brass: #9a7420;
+  --brass-light: #c79f3e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", Georgia, "Iowan Old Style", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(163, 36, 28, 0.10), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 100% 105%, rgba(46, 74, 91, 0.14), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(35, 26, 18, 0.035) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(35, 26, 18, 0.02) 0 1px, transparent 1px 4px),
+    radial-gradient(circle at 18% 22%, rgba(154, 116, 32, 0.07) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 64%, rgba(154, 116, 32, 0.07) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 88%, rgba(154, 116, 32, 0.07) 0 2px, transparent 3px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-dark) 70%, var(--paper-deep) 100%);
+  background-size: auto, auto, auto, auto, 57px 57px, 57px 57px, 57px 57px, auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- the ticker: the river, going by ---------- */
+.ticker {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 3px double var(--brass-light);
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  padding: 6px 0;
+  text-transform: uppercase;
+}
+.ticker-track {
+  display: inline-flex;
+  gap: 2.2em;
+  padding-left: 100%;
+  animation: ticker-scroll 46s linear infinite;
+  will-change: transform;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.tick-dot { color: var(--press-red); }
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 1rem;
+  text-align: center;
+}
+.dateline {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+.masthead-orn {
+  width: min(560px, 88%);
+  color: var(--press-red);
+  margin: 0 auto 0.4rem;
+  display: block;
+}
+.masthead-title {
+  font-family: "UnifrakturMaguntia", "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 11vw, 7.2rem);
+  line-height: 0.95;
+  margin: 0;
+  color: var(--ink);
+  text-shadow:
+    2px 2px 0 rgba(163, 36, 28, 0.22),
+    4px 4px 0 rgba(46, 74, 91, 0.10);
+  letter-spacing: 0.01em;
+}
+.masthead-title .scio {
+  color: var(--press-red);
+  display: inline-block;
+  animation: scio-settle 6s ease-in-out infinite;
+}
+@keyframes scio-settle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-0.6deg); }
+}
+.masthead-sub {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(0.95rem, 2.4vw, 1.25rem);
+  margin: 0.8rem 0 0.4rem;
+  color: var(--ink-soft);
+}
+.masthead-sub em { color: var(--press-red-dark); font-weight: 700; }
+.masthead-rule {
+  height: 14px;
+  width: min(760px, 92%);
+  margin: 1rem auto;
+  background:
+    linear-gradient(var(--ink), var(--ink)) center 3px / 100% 2px no-repeat,
+    linear-gradient(var(--ink), var(--ink)) center 11px / 78% 1px no-repeat,
+    radial-gradient(circle at 50% 7px, var(--press-red) 0 3px, transparent 4px);
+  position: relative;
+}
+.masthead-rule::before,
+.masthead-rule::after {
+  content: "✦";
+  position: absolute;
+  top: -4px;
+  color: var(--press-red);
+  font-size: 0.9rem;
+}
+.masthead-rule::before { left: -14px; }
+.masthead-rule::after { right: -14px; }
+.masthead-count {
+  font-size: 0.86rem;
+  max-width: 720px;
+  margin: 0.4rem auto 0;
+  color: var(--ink-soft);
+}
+.barometer {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 700;
+  color: var(--press-red-dark);
+  border-bottom: 1px dashed var(--press-red);
+}
+
+/* ---------- sheets & columns ---------- */
+.sheets {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.6rem 1.4rem 3rem;
+}
+.section-head {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(1.3rem, 3.6vw, 1.9rem);
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 2.6rem 0 1.4rem;
+  position: relative;
+  color: var(--ink);
+}
+.section-head::before,
+.section-head::after {
+  content: "";
+  display: inline-block;
+  width: 26%;
+  vertical-align: middle;
+  border-top: 2px solid var(--ink);
+  margin: 0 1em;
+}
+.section-head::after {
+  border-top-style: dashed;
+  border-top-width: 1px;
+}
+
+.brief p {
+  font-size: 1.06rem;
+  line-height: 1.75;
+  max-width: 74ch;
+  margin: 0 auto 1.1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.brief p:first-of-type::first-letter {
+  font-family: "UnifrakturMaguntia", Georgia, serif;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--press-red);
+}
+.brief a, .ad a, .colophon a {
+  color: var(--steel-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+.brief a:hover, .ad a:hover, .colophon a:hover { color: var(--press-red-dark); }
+
+.ads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.3rem;
+}
+
+/* ---------- individual ads ---------- */
+.ad {
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, rgba(35, 26, 18, 0.025) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(255, 252, 240, 0.85), rgba(240, 229, 204, 0.9));
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  padding: 1.15rem 1.15rem 1.3rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.62;
+  box-shadow: 5px 5px 0 rgba(35, 26, 18, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  break-inside: avoid;
+}
+.ad:hover {
+  transform: translate(-2px, -3px) rotate(-0.25deg);
+  box-shadow: 9px 10px 0 rgba(35, 26, 18, 0.30);
+}
+.ad-wide { grid-column: span 2; }
+@media (max-width: 640px) { .ad-wide { grid-column: span 1; } }
+
+/* corner ticks, the ledger's registration marks */
+.ad::before, .ad::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--press-red);
+}
+.ad::before { top: -7px; left: -7px; border-right: 0; border-bottom: 0; }
+.ad::after { bottom: -7px; right: -7px; border-left: 0; border-top: 0; }
+
+.ad-tag {
+  display: inline-block;
+  margin: 0 0 0.55rem;
+  background: var(--press-red);
+  color: var(--paper);
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 3px 10px 2px;
+  transform: rotate(-1.2deg);
+  box-shadow: 2px 2px 0 rgba(35, 26, 18, 0.35);
+}
+.ad:nth-child(even) .ad-tag { background: var(--steel-dark); transform: rotate(1deg); }
+
+.ad h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.12rem;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  border-bottom: 1px dotted var(--ink-soft);
+  padding-bottom: 0.4rem;
+}
+.ad p { margin: 0 0 0.7rem; }
+.ad p:last-child { margin-bottom: 0; }
+.ad em { font-family: "IM Fell English", Georgia, serif; font-size: 1.02em; }
+.ad strong { color: var(--press-red-dark); letter-spacing: 0.02em; }
+
+/* the featured lost line */
+.ad-featured {
+  border-color: var(--press-red-dark);
+  outline-color: var(--press-red-dark);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% 0%, rgba(163, 36, 28, 0.08), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(35, 26, 18, 0.025) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(255, 252, 240, 0.9), rgba(240, 229, 204, 0.95));
+}
+.lost-line {
+  margin: 0.9rem 0.4rem;
+  padding: 0.9rem 1rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background:
+    repeating-linear-gradient(transparent 0 22px, rgba(35, 26, 18, 0.12) 22px 23px),
+    linear-gradient(180deg, rgba(233, 219, 186, 0.9), rgba(222, 204, 165, 0.9));
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.06rem;
+  line-height: 23px;
+  color: var(--ink);
+}
+.lost-line.decoded { animation: line-settle 0.9s ease-out both; }
+@keyframes line-settle {
+  0% { opacity: 0.2; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* the rubber stamp */
+.stamp-block {
+  display: flex;
+  justify-content: center;
+  padding: 2.4rem 0 0.6rem;
+}
+.stamp {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--press-red);
+  border: 4px double var(--press-red);
+  padding: 0.5rem 1.2rem 0.5rem 1.5rem;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+  animation: stamp-throb 3.4s ease-in-out infinite;
+  text-align: center;
+  user-select: none;
+}
+.stamp small {
+  display: block;
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: none;
+  margin-top: 0.2rem;
+}
+@keyframes stamp-throb {
+  0%, 100% { transform: rotate(-8deg) scale(1); opacity: 0.85; }
+  50% { transform: rotate(-8deg) scale(1.035); opacity: 1; }
+}
+.ad.stamped::after {
+  content: "FILED";
+  position: absolute;
+  bottom: 0.4rem;
+  right: 0.5rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--press-red);
+  border: 2px double var(--press-red);
+  padding: 1px 7px 0;
+  transform: rotate(6deg);
+  opacity: 0.9;
+}
+
+/* ---------- colophon ---------- */
+.colophon {
+  margin-top: 3rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1.2rem;
+  text-align: center;
+}
+.colophon-line {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  margin: 0.4rem 0;
+}
+.colophon-line.small {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .masthead-title .scio, .stamp, .ad { animation: none !important; transition: none !important; }
+  .ticker-track { transform: none; padding-left: 0; }
+}
