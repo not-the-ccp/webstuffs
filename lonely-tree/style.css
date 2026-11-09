@@ -1,0 +1,175 @@
+/* The Lonely Tree — Player's Manual, 1st Powys Edition */
+
+:root {
+  --pine-dark: #2e5233;
+  --pine: #3a6540;
+  --pine-soft: #7a9a7f;
+  --bark: #5b4230;
+  --felt: #cfe0cd;
+  --paper: #f6f1e3;
+  --paper-edge: #e7dec8;
+  --storm: #8a9088;
+  --ink: #26302a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(46, 82, 51, 0.05) 34px 35px),
+    radial-gradient(circle at 15% 10%, rgba(122, 154, 127, 0.14), transparent 45%);
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.manual-cover {
+  border-bottom: 6px double var(--pine-dark);
+  background:
+    linear-gradient(180deg, var(--felt), rgba(207, 224, 205, 0.35));
+  padding: 2.2rem 1.5rem 1.6rem;
+  text-align: center;
+}
+
+.edition-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bark);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  color: var(--pine-dark);
+  margin: 0.2rem 0 0.4rem;
+  text-shadow: 1px 1px 0 var(--paper-edge);
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--bark);
+  margin: 0 0 1rem;
+}
+
+.pine-mark svg {
+  filter: drop-shadow(2px 3px 0 rgba(91, 66, 48, 0.25));
+}
+
+.manual {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.2rem 1.4rem 2.5rem;
+}
+
+.chapter {
+  background: var(--paper);
+  border: 2px dashed var(--pine-soft);
+  border-radius: 6px;
+  padding: 1.3rem 1.5rem 1.4rem;
+  margin: 1.6rem 0;
+  box-shadow: 3px 3px 0 var(--paper-edge);
+}
+
+.chapter h2 {
+  font-size: 1.35rem;
+  color: var(--pine-dark);
+  margin: 0 0 0.7rem;
+  border-bottom: 2px solid var(--pine-soft);
+  padding-bottom: 0.35rem;
+}
+
+.chapter-no {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  background: var(--pine-dark);
+  color: var(--paper);
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+  margin-right: 0.6rem;
+  vertical-align: 2px;
+  letter-spacing: 0.08em;
+}
+
+.rules {
+  padding-left: 1.4rem;
+}
+
+.rules li {
+  margin-bottom: 0.7rem;
+}
+
+.ruling-box {
+  margin: 1.2rem 0 0.4rem;
+  border: 2px solid var(--bark);
+  background: #efe6d2;
+  padding: 1rem 1.2rem;
+  border-radius: 4px;
+}
+
+.ruling-box h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--bark);
+}
+
+.contents ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contents li {
+  padding: 0.3rem 0 0.3rem 1.4rem;
+  position: relative;
+}
+
+.contents li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62rem;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 11px solid var(--pine);
+}
+
+a {
+  color: var(--pine-dark);
+  text-decoration-color: var(--bark);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  background: var(--felt);
+  color: var(--ink);
+}
+
+.small-type {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--bark);
+}
+
+.manual-footer {
+  border-top: 6px double var(--pine-dark);
+  background: var(--felt);
+  text-align: center;
+  padding: 1rem 1.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  color: var(--bark);
+  letter-spacing: 0.06em;
+}
+
+.sapling-row {
+  text-align: center;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--bark);
+}
