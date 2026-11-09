@@ -1,0 +1,124 @@
+/* The Three-Year Cake — Parma kitchen card */
+:root {
+  --ink: #2b241a;
+  --ink-soft: #5a4d3a;
+  --paper: #f4ecdc;
+  --paper-deep: #eadfca;
+  --ledger: #7a5c2e;
+  --rule: #b7a481;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.recipe-card {
+  max-width: 42rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(60, 45, 20, 0.18);
+  padding: 2.5rem 2.75rem 2rem;
+}
+
+.card-head { text-align: center; }
+
+.kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.rule {
+  border: 0;
+  border-top: 3px double var(--rule);
+  margin: 1.4rem 0;
+}
+
+section { margin: 1.75rem 0; }
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ledger);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-top: 0;
+}
+
+.for-eight { text-transform: none; letter-spacing: 0; font-size: 0.85rem; color: var(--ink-soft); }
+
+.preamble p { margin: 0 0 1.1rem; }
+
+.scale-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.scale-box label { display: block; margin-bottom: 0.4rem; }
+
+.scale-box output { font-weight: bold; color: var(--ledger); }
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--ledger);
+}
+
+table.measure {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+table.measure caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding-bottom: 0.4rem;
+}
+
+table.measure th, table.measure td {
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+table.measure th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+
+.amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.method ol { padding-left: 1.4rem; }
+.method li { margin-bottom: 0.9rem; }
+
+.term { font-variant: small-caps; letter-spacing: 0.04em; color: var(--ledger); }
+
+.notes p { font-size: 0.95rem; color: var(--ink-soft); }
+.notes a { color: var(--ledger); }
+
+.colophon { text-align: center; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
