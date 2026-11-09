@@ -1,0 +1,224 @@
+/* Lot 412 — Appomattox & Sons, Catalogue IX: a printed auction catalogue lot */
+
+:root {
+  --paper: #f5f0e2;
+  --paper-deep: #efe7d2;
+  --ink: #2a241c;
+  --ink-soft: #5a5043;
+  --rule: #b7a988;
+  --stamp: #9c3b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 62rem;
+  padding: 2.5rem 1.25rem 4rem;
+  background:
+    radial-gradient(ellipse at 20% 8%, rgba(255, 252, 240, 0.9), transparent 60%),
+    radial-gradient(ellipse at 85% 95%, rgba(120, 98, 60, 0.12), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  line-height: 1.62;
+  font-size: 1.03rem;
+}
+
+.lot { position: relative; }
+
+/* ---- catalogue head ---- */
+.lot-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  padding-bottom: 0.75rem;
+}
+
+.house-name {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.house-sub, .kicker, .sale-date {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.catno { text-align: right; }
+.kicker { color: var(--ink); font-weight: bold; }
+
+.rule-double {
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 5px;
+  margin: 0.6rem 0 1.6rem;
+}
+
+/* ---- lot card ---- */
+.lot-card {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-deep);
+  padding: 1.4rem 1.6rem 1.2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 3px 3px 0 rgba(42, 36, 28, 0.12);
+}
+
+.lotno {
+  margin: 0 0 0.3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.lot-card h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+.lot-title {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.hammer {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  transform: rotate(-9deg) scale(1);
+  opacity: 0;
+  transition: opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s;
+  pointer-events: none;
+}
+
+.hammer span {
+  display: block;
+  border: 2.5px solid var(--stamp);
+  color: var(--stamp);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(156, 59, 42, 0.05);
+}
+
+.lot-card.hammered .hammer { opacity: 0.85; transform: rotate(-9deg) scale(1); }
+.lot-card .hammer { transform: rotate(-9deg) scale(1.25); }
+
+/* ---- columns ---- */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 20rem;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+@media (max-width: 48rem) {
+  .columns { grid-template-columns: 1fr; }
+  .catno { text-align: left; }
+}
+
+.col-main h2, .condition h2 {
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 0.8rem;
+}
+
+.col-main h2:first-child, .condition h2 { margin-top: 0; }
+
+.col-main p { margin: 0 0 1rem; text-align: justify; hyphens: auto; }
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  font-weight: bold;
+}
+
+/* ---- side column ---- */
+.estimates {
+  margin: 0 0 1.8rem;
+  border: 1px solid var(--rule);
+  background: rgba(255, 253, 246, 0.5);
+}
+
+.estimates dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.8rem 0.1rem;
+  border-bottom: dotted 1px var(--rule);
+}
+
+.estimates dd {
+  margin: 0;
+  padding: 0 0.8rem 0.55rem;
+  border-bottom: dotted 1px var(--rule);
+  font-size: 0.95rem;
+}
+
+.estimates dt:last-of-type, .estimates dd:last-of-type { border-bottom: none; }
+
+.letter {
+  border: 1px dashed var(--rule);
+  background: #fbf8ec;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.8rem;
+  transform: rotate(-0.4deg);
+  font-size: 0.95rem;
+}
+
+.letter p { margin: 0 0 0.8rem; }
+.letter p:last-child { margin-bottom: 0; }
+
+.letter-from {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.7rem !important;
+}
+
+.condition {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  border-left: 2.5px solid var(--rule);
+  padding-left: 1rem;
+}
+
+/* ---- footer ---- */
+.lot-footer {
+  margin-top: 1.8rem;
+  padding-top: 0.9rem;
+  border-top: 3px double var(--ink);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.lot-footer p { margin: 0.35rem 0; }
+
+a { color: var(--stamp); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--ink); }
