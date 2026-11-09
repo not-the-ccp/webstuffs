@@ -1,0 +1,226 @@
+/* Page 27 of the rules — "Nobel", a game of patents, blasts, and one very large will.
+   Set to look like a printed rule-book page: cream paper, letterpress ink,
+   double rules, a red-ink referee's column, and a stamped corner. */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-edge: #e8dcc0;
+  --ink: #241d14;
+  --ink-soft: #4a4030;
+  --rule: #241d14;
+  --red: #9c2b1a;
+  --stamp: #264a8f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #cfc4a6;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 252, 240, 0.35), transparent 60%),
+    radial-gradient(ellipse at 90% 90%, rgba(70, 50, 20, 0.25), transparent 55%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.55;
+  padding: 2.5rem 1rem;
+}
+
+.page {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(120, 100, 60, 0.025) 2px 4px),
+    linear-gradient(160deg, #f7f0de 0%, var(--paper) 45%, var(--paper-edge) 100%);
+  border: 1px solid #b7a878;
+  box-shadow:
+    0 1px 0 #fff8 inset,
+    0 0 0 6px rgba(120, 100, 60, 0.12),
+    0 18px 40px rgba(40, 30, 10, 0.45);
+  padding: 3rem 3.25rem 2.25rem;
+}
+
+.masthead { text-align: center; }
+
+.plate-line {
+  margin: 0 0 0.75rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 0.35rem 0 0;
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.rule-thick {
+  height: 0;
+  margin: 0.9rem auto;
+  max-width: 34rem;
+  border-top: 3px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding-top: 2px;
+}
+
+.colophon-line {
+  margin: 0 auto;
+  max-width: 34rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.manual section { margin: 1.9rem 0; }
+
+h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+.sec-no { font-variant: normal; letter-spacing: 0; margin-right: 0.4rem; }
+
+p { margin: 0 0 0.8rem; text-align: justify; hyphens: auto; }
+
+strong { letter-spacing: 0.01em; }
+
+em { color: inherit; }
+
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { background: rgba(38, 74, 143, 0.12); }
+
+/* pieces table — the small rule-book table, thin rules, no shadows */
+table.pieces {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0.4rem;
+  font-size: 0.85rem;
+}
+
+table.pieces caption {
+  caption-side: top;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding-bottom: 0.3rem;
+  text-align: left;
+}
+
+table.pieces th,
+table.pieces td {
+  border-top: 1px solid rgba(36, 29, 20, 0.55);
+  border-bottom: 1px solid rgba(36, 29, 20, 0.3);
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.pieces thead th,
+table.pieces tr:first-child th { border-bottom: 2px solid var(--rule); }
+table.pieces tr:last-child td { border-bottom: 2px solid var(--rule); }
+table.pieces th { font-variant: small-caps; letter-spacing: 0.05em; }
+table.pieces td:nth-child(2) { text-align: center; width: 4rem; }
+
+/* the manifest line, read word for word */
+blockquote.manifest {
+  margin: 1rem 1.25rem;
+  padding: 0.8rem 1rem;
+  border: 1px dashed var(--ink-soft);
+  background: rgba(255, 253, 244, 0.6);
+  font-size: 0.98rem;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+blockquote.manifest::before {
+  content: "MANIFEST · LOT 41 · READ WORD FOR WORD";
+  display: block;
+  font-size: 0.62rem;
+  font-style: normal;
+  letter-spacing: 0.24em;
+  margin-bottom: 0.5rem;
+  color: var(--ink-soft);
+}
+
+/* the referee's red column */
+section.red-ink h2 { border-bottom-color: var(--red); color: var(--red); }
+
+.red-note {
+  font-style: italic;
+  color: var(--red);
+  font-size: 0.95rem;
+}
+
+.red-note.small { font-size: 0.82rem; }
+
+/* filed-near footer */
+.filed {
+  margin-top: 2.2rem;
+  padding-top: 0.8rem;
+  border-top: 3px double var(--rule);
+}
+
+.filed-line { font-size: 0.82rem; margin-bottom: 0.3rem; }
+.filed-small {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* the corner stamp */
+.stamp {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  width: 6.4rem;
+  height: 6.4rem;
+  display: grid;
+  place-items: center;
+  transform: rotate(-12deg);
+  color: var(--stamp);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.stamp-ring {
+  position: absolute;
+  inset: 0;
+  border: 2.5px solid currentColor;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4.5px currentColor;
+}
+
+.stamp-text {
+  grid-area: 1 / 1;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 40rem) {
+  .page { padding: 2rem 1.4rem 4rem; }
+  h1 { font-size: 2.4rem; }
+  blockquote.manifest { margin-left: 0.4rem; margin-right: 0.4rem; }
+}
