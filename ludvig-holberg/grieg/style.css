@@ -1,0 +1,149 @@
+/* Grieg, Kongsgata 47 — A Ledger of Dining Rooms, Entry No. 118 */
+
+:root {
+  --paper: #faf7f0;
+  --ink: #23201c;
+  --faint: #6f675c;
+  --hair: #d8d1c4;
+  --garnet: #7a1f1f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.review-head {
+  text-align: center;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.2rem;
+}
+
+.series {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--faint);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.7rem;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.95rem;
+  max-width: 34rem;
+  margin: 0 auto 1.3rem;
+  line-height: 1.5;
+}
+
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.4rem;
+  font-size: 0.82rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+.band em { font-style: italic; color: var(--garnet); }
+
+main section { margin-bottom: 2.4rem; }
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+h2::before,
+h2::after {
+  content: "— ";
+  color: var(--hair);
+}
+h2::after { content: " —"; }
+
+p { margin: 0 0 1.05rem; }
+
+a {
+  color: var(--garnet);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hair);
+}
+a:hover { border-bottom-color: var(--garnet); }
+
+.suite {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+.suite li {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--hair);
+}
+.suite li:last-child { border-bottom: 1px solid var(--hair); }
+.suite .mov {
+  font-style: italic;
+  color: var(--faint);
+  min-width: 1.4rem;
+  text-align: right;
+}
+.suite strong { font-weight: 600; }
+
+blockquote.unemended {
+  margin: 1.6rem 0;
+  padding: 1.2rem 1.4rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+.crossfiled {
+  font-size: 0.92rem;
+  color: var(--faint);
+  border-top: 1px solid var(--hair);
+  padding-top: 1.4rem;
+}
+.crossfiled h2 { margin-bottom: 0.7rem; }
+
+.colophon {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  color: var(--faint);
+  border-top: 1px solid var(--ink);
+  padding-top: 1.2rem;
+  margin-top: 1rem;
+}
