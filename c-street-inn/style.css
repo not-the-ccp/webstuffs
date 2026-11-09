@@ -1,0 +1,178 @@
+/* C Street Inn — Lost & Found Notice CS-11 */
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #e9e1cd;
+  color: #2c251e;
+  font-family: Georgia, "Times New Roman", Times, "Noto Serif", serif;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+.board {
+  max-width: 700px;
+  margin: 36px auto 60px;
+  padding: 34px 38px 42px;
+  background: #fbf6e6;
+  border: 16px solid #dcc98e;
+  border-top: 34px solid #dcc98e;
+  border-bottom: 6px solid #dcc98e;
+  box-shadow: 0 6px 0 #c9b97a, 0 10px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.board::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border-top: 6px solid #8a4b30;
+  border-left: 6px solid #8a4b30;
+}
+.board::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 24px;
+  height: 24px;
+  border-bottom: 6px solid #8a4b30;
+  border-right: 6px solid #8a4b30;
+}
+.stamp {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border: 3px dashed #8a4b30;
+  border-radius: 50%;
+  opacity: 0.55;
+}
+.stamp.top { top: -24px; left: 12%; }
+.stamp.bottom { bottom: -26px; right: 12%; transform: rotate(20deg); }
+.desk-desk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #b8a25f, #b8a25f 4px, transparent 4px, transparent 8px);
+}
+.masthead .service {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #6d5c3e;
+}
+.masthead h1 {
+  margin: 0 0 8px;
+  font-size: 1.9rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #3d2a1f;
+  border-bottom: 3px double #6d5c3e;
+  padding-bottom: 6px;
+}
+.masthead .sub {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #4a4033;
+}
+.notice-meta {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a4b30;
+  border-top: 1px solid #c9b882;
+  border-bottom: 1px solid #c9b882;
+  padding: 5px 0;
+}
+.intake {
+  font-size: 0.95rem;
+  color: #44392a;
+  border-left: 5px solid #8a4b30;
+  padding-left: 14px;
+  margin: 22px 0 30px;
+}
+.intake strong {
+  color: #742a18;
+}
+.item {
+  margin: 0 0 24px;
+  padding: 14px 18px;
+  border: 1px solid #d3c295;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  background: #fffaf0;
+}
+.item:first-child {
+  border-top: 1px solid #d3c295;
+  border-radius: 6px;
+}
+.item h2 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: #2c251e;
+}
+.tag {
+  display: inline-block;
+  min-width: 56px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px solid;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.found-tag { color: #3d5a3a; border-color: #3d5a3a; background: #f1f4ee; }
+.lost-tag { color: #7a2e1e; border-color: #7a2e1e; background: #fbeeea; }
+.item .meta {
+  margin: 4px 0 8px;
+  font-size: 0.82rem;
+  color: #6b5e49;
+}
+.item p {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+.item p:last-child { margin-bottom: 0; }
+.note {
+  margin: 0 0 26px;
+  padding: 16px 20px;
+  background: #f3ead9;
+  border: 1px solid #d9c7a6;
+  border-left: 6px solid #8a4b30;
+}
+.note h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #6d5c3e;
+}
+.note p { margin: 0 0 8px; font-size: 0.95rem; }
+.note p:last-child { margin-bottom: 0; }
+.foot {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 2px solid #c9b882;
+  font-size: 0.9rem;
+  color: #5a4f3e;
+}
+.foot .related a {
+  color: #742a18;
+  text-decoration: none;
+  border-bottom: 1px dotted #742a18;
+}
+.foot .related a:hover { border-bottom-style: solid; }
+@media (max-width: 560px) {
+  .board { margin: 20px auto 40px; padding: 26px 22px 32px; border-width: 12px; border-top-width: 26px; }
+  .masthead h1 { font-size: 1.5rem; }
+}
