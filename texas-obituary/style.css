@@ -1,0 +1,187 @@
+/* Obituary of the State of Texas — Register of the South-Central District */
+:root {
+  --ink: #2b2118;
+  --faded: #6d5c4b;
+  --paper: #f4ead8;
+  --star: #9a2b1f;
+  --rule: #b49a78;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e8dcc4;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+main.obit {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 2.25rem 2rem 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(43, 33, 24, 0.25);
+}
+
+.banner {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1rem;
+}
+
+.banner-rule {
+  color: var(--star);
+  letter-spacing: 0.6em;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.banner-line {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+  font-size: 0.85rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.dates {
+  margin: 0.3rem 0 0;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.pron {
+  margin: 0.1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--faded);
+}
+
+section {
+  margin: 1.8rem 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+section h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.8rem;
+}
+
+a { color: var(--star); }
+
+table.border-ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.8rem 0;
+}
+
+table.border-ledger caption {
+  caption-side: bottom;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.82rem;
+  padding-top: 0.4rem;
+}
+
+table.border-ledger th,
+table.border-ledger td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.55rem;
+  text-align: left;
+}
+
+table.border-ledger th {
+  background: rgba(180, 154, 120, 0.25);
+  font-variant: small-caps;
+}
+
+.instrument {
+  border: 1px dashed var(--rule);
+  padding: 1rem 1.1rem;
+  background: rgba(255, 252, 244, 0.6);
+  font-size: 0.98rem;
+}
+
+.instrument label {
+  display: block;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.instrument select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.4rem;
+  background: #fdf8ec;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  width: 100%;
+}
+
+.instrument output {
+  display: block;
+  margin-top: 0.7rem;
+  font-style: italic;
+  min-height: 2.6em;
+}
+
+.instrument output.measured {
+  font-style: normal;
+  font-weight: bold;
+  color: var(--star);
+}
+
+.smallprint {
+  font-size: 0.78rem;
+  color: var(--faded);
+  margin: 0.5rem 0 0;
+}
+
+blockquote.kept {
+  margin: 1rem 0;
+  padding: 1rem 1.4rem;
+  background: #efe3c8;
+  border-left: 4px solid var(--star);
+}
+
+blockquote.kept p {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin: 0;
+}
+
+blockquote.kept cite {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--faded);
+  font-style: normal;
+  margin-top: 0.6rem;
+}
+
+.ref-line {
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+footer.obit-foot {
+  border-top: 3px double var(--rule);
+  padding-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--faded);
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
