@@ -1,0 +1,153 @@
+/* The Dâmbovița Letter — No. 41 · The Lamplight Capitals Society
+   Palette: cream ledger paper, Dâmbovița ink-blue, old-lamp gold, barricade red */
+
+:root {
+  --paper: #f7f0dd;
+  --paper-deep: #efe4c8;
+  --ink: #22314f;
+  --river: #274690;
+  --gold: #c9a23b;
+  --red: #8e1e30;
+  --brown: #3b2f2a;
+  --faint: #8a7f74;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1c1a17;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(201, 162, 59, 0.22), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 4px),
+    #1c1a17;
+  pointer-events: none;
+}
+
+.letter {
+  position: relative;
+  max-width: 720px;
+  margin: 3rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse 120% 90% at 50% -10%, rgba(201, 162, 59, 0.14), transparent 55%),
+    repeating-linear-gradient(90deg, rgba(34, 49, 79, 0.02) 0 1px, transparent 1px 3px);
+  border: 1px solid var(--gold);
+  outline: 3px double var(--brown);
+  outline-offset: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  padding: 3rem 3.2rem 2.4rem;
+}
+
+/* Masthead */
+.mast { text-align: center; margin-bottom: 2rem; }
+
+.society {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--brown);
+}
+.society .thin { font-variant: normal; letter-spacing: 0.04em; font-style: italic; color: var(--faint); }
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0.6rem 0 0.3rem;
+  letter-spacing: 0.02em;
+  color: var(--river);
+  font-variant: small-caps;
+}
+
+.no {
+  margin: 0;
+  font-style: italic;
+  color: var(--red);
+  font-size: 0.98rem;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--brown);
+  margin: 1.1rem 0;
+}
+.rule-double {
+  border-top: 3px double var(--brown);
+}
+.rule-single {
+  border-top: 1px solid var(--gold);
+  margin: 2.2rem 0 1.4rem;
+}
+
+/* Lamp and moth */
+.lamp {
+  display: block;
+  margin: 1.6rem auto 0.6rem;
+  width: 190px;
+  filter: drop-shadow(0 0 14px rgba(242, 193, 78, 0.5));
+}
+.flame, .flame-inner { transform-origin: 110px 50px; animation: flicker 2.6s ease-in-out infinite; }
+.flame-inner { animation-duration: 1.9s; }
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  30% { transform: scale(1.06, 0.96) rotate(-2deg); opacity: 0.92; }
+  60% { transform: scale(0.95, 1.05) rotate(2deg); opacity: 0.98; }
+}
+.moth { transform-origin: 161px 28px; animation: hover 5.5s ease-in-out infinite; }
+@keyframes hover {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  40% { transform: translate(-9px, 6px) rotate(-8deg); }
+  70% { transform: translate(-4px, -5px) rotate(5deg); }
+}
+.wingtrace { opacity: 0.55; }
+
+/* Body */
+.body p { margin: 0 0 1.15rem; }
+
+.salutation { font-variant: small-caps; letter-spacing: 0.06em; }
+
+strong { color: var(--river); font-weight: bold; }
+
+em { color: var(--brown); }
+
+.ledger-line {
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.3rem;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--red);
+  border-right: 1px dashed var(--gold);
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--brown);
+  box-shadow: inset 0 0 12px rgba(59, 47, 42, 0.12);
+}
+
+.sig {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--red);
+  text-align: right;
+}
+
+a { color: var(--river); text-decoration-color: var(--gold); text-underline-offset: 2px; }
+a:hover { color: var(--red); }
+
+/* Colophon */
+.colophon { text-align: center; }
+.stamp {
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  color: var(--faint);
+  margin: 0 0 0.7rem;
+}
+.nav-line { font-size: 0.88rem; margin: 0.35rem 0; }
+.nav-line a { font-style: italic; }
