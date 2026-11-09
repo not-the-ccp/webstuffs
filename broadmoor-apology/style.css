@@ -1,0 +1,291 @@
+/* Broadmoor Hospital — Estates Office File 41/7
+   A letter of apology, set under the battlements. */
+
+:root {
+  --heather: #4a5a4e;
+  --moor: #2c3630;
+  --ink: #241d16;
+  --parchment: #efe6cf;
+  --parchment-deep: #e2d4b2;
+  --wax: #6e1220;
+  --wax-deep: #4a0b15;
+  --brass: #a5803c;
+  --flagstone: #8a8578;
+  --mist: #b9bdae;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(185, 189, 174, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 110%, rgba(74, 90, 78, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 110%, rgba(74, 90, 78, 0.55) 0%, transparent 55%),
+    linear-gradient(180deg, #6d7a6e 0%, #4a5a4e 34%, #3a463f 68%, #2c3630 100%);
+  min-height: 100vh;
+  line-height: 1.65;
+}
+
+/* ---- battlements ------------------------------------------------------- */
+
+.crenel { position: relative; color: var(--moor); line-height: 0; overflow: hidden; }
+.crenel svg { width: 100%; height: 40px; display: block; }
+.crenel.top {
+  background: linear-gradient(180deg, #1d2420 0%, var(--moor) 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  animation: battlement-drift 60s linear infinite;
+}
+.crenel.bottom {
+  background: linear-gradient(0deg, #1d2420 0%, var(--moor) 100%);
+  margin-top: 70px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.45);
+}
+@keyframes battlement-drift {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.18); }
+  100% { filter: brightness(1); }
+}
+
+/* ---- the letter sheet ---------------------------------------------------- */
+
+.letter-sheet {
+  position: relative;
+  max-width: 860px;
+  margin: 56px auto 0;
+  padding: 64px 72px 56px;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(120, 96, 50, 0.045) 0 2px, transparent 2px 5px),
+    radial-gradient(ellipse at 12% 8%, rgba(138, 110, 55, 0.16) 0%, transparent 40%),
+    radial-gradient(ellipse at 88% 92%, rgba(138, 110, 55, 0.2) 0%, transparent 42%),
+    radial-gradient(ellipse at 50% 50%, var(--parchment) 0%, var(--parchment-deep) 100%);
+  box-shadow:
+    0 0 0 1px rgba(74, 33, 10, 0.35),
+    0 0 0 10px rgba(60, 44, 20, 0.12),
+    0 34px 60px rgba(15, 12, 6, 0.6),
+    inset 0 0 90px rgba(120, 90, 40, 0.25);
+  border-radius: 3px;
+  animation: sheet-settle 1.6s ease-out both;
+}
+@keyframes sheet-settle {
+  from { opacity: 0; transform: translateY(-18px) rotate(-0.4deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+/* a red margin rule, as in a ledger */
+.letter-sheet::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 44px;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, rgba(110, 18, 32, 0.5) 8%, rgba(110, 18, 32, 0.5) 92%, transparent 100%);
+  pointer-events: none;
+}
+
+/* corner ornaments: small drawn gate-pickets */
+.letter-sheet::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(110, 64, 20, 0.4);
+  outline: 1px dashed rgba(110, 64, 20, 0.3);
+  outline-offset: 5px;
+  pointer-events: none;
+}
+
+/* ---- letterhead ----------------------------------------------------------- */
+
+.letterhead { text-align: center; margin-bottom: 26px; }
+
+.office {
+  font-family: "IM Fell English SC", "Iowan Old Style", Georgia, serif;
+  letter-spacing: 0.34em;
+  font-size: 0.78rem;
+  color: var(--wax);
+  margin: 0 0 10px;
+}
+
+h1.gothic {
+  font-family: "UnifrakturCook", "IM Fell English SC", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  margin: 0;
+  color: var(--moor);
+  text-shadow: 1px 2px 0 rgba(165, 128, 60, 0.35);
+  letter-spacing: 0.02em;
+}
+
+.place {
+  font-style: italic;
+  margin: 6px 0 14px;
+  color: #57482e;
+}
+
+.est, .trust {
+  max-width: 620px;
+  margin: 4px auto;
+  font-size: 0.86rem;
+  color: #4c4230;
+}
+
+/* ---- barbed wire divider --------------------------------------------------- */
+
+.wire { color: rgba(74, 54, 26, 0.65); margin: 26px 0 20px; }
+.wire svg { width: 100%; height: 26px; display: block; }
+
+/* ---- addresses, salute, body ------------------------------------------------ */
+
+.addresses {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(74, 54, 26, 0.4);
+  padding-bottom: 16px;
+  margin-bottom: 28px;
+}
+
+.to, .date { margin: 0; font-size: 0.95rem; color: #3c3222; }
+.date { text-align: right; font-style: italic; }
+
+.salute {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0 0 20px;
+}
+
+.letter-sheet p { margin: 0 0 20px; text-align: justify; }
+.letter-sheet p strong { color: var(--wax); letter-spacing: 0.02em; }
+
+.letter-sheet a {
+  color: var(--wax);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(110, 18, 32, 0.6);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.letter-sheet a:hover,
+.letter-sheet a:focus {
+  background: rgba(110, 18, 32, 0.12);
+  color: var(--wax-deep);
+}
+
+/* ---- signature & seal --------------------------------------------------------- */
+
+.close { font-style: italic; margin-bottom: 6px; }
+
+.signature {
+  font-family: "UnifrakturCook", "IM Fell English", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--moor);
+  margin: 0 0 26px;
+}
+.sig-title {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: #57482e;
+}
+
+.seal {
+  width: 120px;
+  margin: 10px 0 30px;
+  filter: drop-shadow(0 8px 14px rgba(60, 8, 16, 0.4));
+  transform-origin: 50% 50%;
+  animation: seal-stamp 0.9s 1s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+@keyframes seal-stamp {
+  0%   { opacity: 0; transform: scale(2.2) rotate(-14deg); }
+  70%  { opacity: 1; transform: scale(0.94) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+.seal-wax {
+  fill: var(--wax);
+  stroke: var(--wax-deep);
+  stroke-width: 3;
+}
+.seal-ring {
+  fill: none;
+  stroke: rgba(239, 230, 207, 0.5);
+  stroke-width: 1.5;
+}
+.seal-ring.thin { stroke-width: 1; }
+.seal-text {
+  fill: var(--parchment);
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+}
+.seal-text.small { font-size: 11px; }
+.seal:hover { animation: seal-wobble 0.7s ease-in-out; }
+@keyframes seal-wobble {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(-6deg); }
+  65% { transform: rotate(4deg); }
+}
+
+/* ---- postscript -------------------------------------------------------------- */
+
+.postscript {
+  margin-top: 40px;
+  padding: 24px 28px 22px;
+  background:
+    repeating-linear-gradient(90deg, rgba(110, 18, 32, 0.05) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, rgba(226, 212, 178, 0.9), rgba(214, 196, 152, 0.9));
+  border: 1px solid rgba(110, 64, 20, 0.45);
+  box-shadow: inset 0 0 30px rgba(120, 90, 40, 0.2);
+  position: relative;
+}
+.postscript::before {
+  content: "KEEP WITH THE FILE";
+  position: absolute;
+  top: -11px; left: 22px;
+  padding: 1px 10px;
+  background: var(--wax);
+  color: var(--parchment);
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.3em;
+}
+.ps-title {
+  font-style: italic;
+  margin: 0 0 12px;
+  color: var(--wax-deep);
+}
+.postscript p:last-child { margin-bottom: 0; }
+
+/* ---- drifting archive dust ----------------------------------------------------- */
+
+.dust { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.mote {
+  position: absolute;
+  top: -12px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(239, 230, 207, 0.5);
+  box-shadow: 0 0 6px rgba(239, 230, 207, 0.4);
+  animation: mote-fall linear infinite;
+}
+@keyframes mote-fall {
+  0%   { transform: translateY(-4vh) translateX(0); opacity: 0; }
+  12%  { opacity: 0.8; }
+  88%  { opacity: 0.8; }
+  100% { transform: translateY(108vh) translateX(6vw); opacity: 0; }
+}
+
+/* ---- small screens ------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .letter-sheet { margin: 32px 14px 0; padding: 44px 26px 40px; }
+  .letter-sheet::before { left: 12px; }
+  .date { text-align: left; }
+  .addresses { flex-direction: column; gap: 8px; }
+  .letter-sheet p { text-align: left; }
+}
