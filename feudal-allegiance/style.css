@@ -1,0 +1,247 @@
+/* A Handbook of Courtly Usage — Chapter IV */
+
+:root {
+  --parchment: #f4ecdc;
+  --vellum: #efe3c8;
+  --ink: #2a2119;
+  --faded: #6b5a44;
+  --seal: #7a1f1f;
+  --gold: #9c7a2f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(156, 122, 47, 0.12), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(122, 31, 31, 0.10), transparent 50%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.folio {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---------- folio head: oversized, offset ---------- */
+.folio-head {
+  position: relative;
+  padding: 3.5rem 0 1rem 4.5rem;
+  border-bottom: 3px double var(--ink);
+}
+
+.series {
+  margin: 0 0 2rem 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.chapter-title {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  line-height: 1.02;
+  font-weight: normal;
+  max-width: 16ch;
+}
+
+.chapter-title .amp {
+  font-style: italic;
+  font-size: 0.55em;
+  color: var(--seal);
+}
+
+.chapter-num {
+  position: absolute;
+  top: -1.2rem;
+  right: -0.5rem;
+  font-size: clamp(9rem, 22vw, 17rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(122, 31, 31, 0.35);
+  transform: rotate(-6deg);
+  z-index: 0;
+  user-select: none;
+}
+
+.epigraph {
+  margin: 2.2rem 0 0.5rem 0.25rem;
+  max-width: 46ch;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.epi-cite { display: block; margin-top: 0.6rem; font-size: 0.85em; font-style: normal; }
+
+/* ---------- asymmetric main grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  grid-template-areas:
+    "swear  tally"
+    "ranks  contrast"
+    "quote  contrast"
+    "lib    parting"
+    "lib    parting"
+    "cross  cross";
+  gap: 2.2rem;
+  padding-top: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.swear    { grid-area: swear; }
+.tally    { grid-area: tally; }
+.ranks    { grid-area: ranks; }
+.contrast { grid-area: contrast; }
+.pullquote{ grid-area: quote; }
+.library  { grid-area: lib; }
+.parting  { grid-area: parting; }
+.crossfiled{ grid-area: cross; }
+
+.panel, .contrast, .library, .parting {
+  background: var(--vellum);
+  border: 1px solid rgba(42, 33, 25, 0.25);
+  box-shadow: 0 2px 14px rgba(42, 33, 25, 0.10);
+  padding: 1.6rem 1.8rem 1.4rem;
+}
+
+.panel h2, .contrast h2, .library h2, .parting h2, .tally h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--seal);
+  border-bottom: 1px solid rgba(122, 31, 31, 0.35);
+  padding-bottom: 0.4rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+strong { font-weight: 600; }
+
+/* ---------- the tally aside, slightly tilted ---------- */
+.tally {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 1.6rem 1.5rem;
+  transform: rotate(1.2deg);
+  box-shadow: -6px 6px 0 rgba(42, 33, 25, 0.18);
+}
+
+.tally h2 { color: var(--gold); border-bottom-color: rgba(156, 122, 47, 0.5); }
+.tally-lead { font-size: 0.9rem; font-style: italic; color: rgba(244, 236, 220, 0.8); }
+
+.seals { list-style: none; margin: 1rem 0; padding: 0; }
+.seal {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(244, 236, 220, 0.5);
+  color: var(--parchment);
+  font: inherit;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  padding: 0.55rem 0.8rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.seal:hover { background: rgba(156, 122, 47, 0.25); }
+.seal:active { transform: scale(0.97); }
+.seal .count {
+  font-size: 1.2rem;
+  color: var(--gold);
+  min-width: 2ch;
+  text-align: right;
+}
+
+.tally-note { font-size: 0.85rem; font-style: italic; color: rgba(244, 236, 220, 0.7); margin: 0; }
+
+/* ---------- the ranks list ---------- */
+.ranks { list-style: none; counter-reset: rank; margin: 0; padding: 0; }
+.ranks li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.4rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed rgba(42, 33, 25, 0.3);
+}
+.ranks li:last-child { border-bottom: none; }
+.rank-no {
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ---------- rotated pull quote, overlapping ---------- */
+.pullquote {
+  margin: -1.5rem 0 0 18%;
+  transform: rotate(-2.5deg);
+  background: var(--seal);
+  color: var(--parchment);
+  padding: 1.8rem 1.6rem 1.4rem;
+  box-shadow: 8px -6px 0 rgba(42, 33, 25, 0.15);
+}
+.pullquote blockquote { margin: 0; font-size: 1.5rem; font-style: italic; line-height: 1.3; }
+.pullquote figcaption { margin: 0.8rem 0 0; font-size: 0.82rem; color: rgba(244, 236, 220, 0.75); }
+
+/* ---------- the conservator's margin ---------- */
+.conservators {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--gold);
+  background: rgba(156, 122, 47, 0.12);
+  font-style: italic;
+}
+.conservators p { margin: 0; }
+
+/* ---------- cross-filed ---------- */
+.crossfiled {
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+}
+.crossfiled h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.6rem;
+}
+a { color: var(--seal); }
+a:hover { color: var(--gold); }
+
+/* ---------- colophon ---------- */
+.colophon {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.colophon p { margin: 0; }
+
+/* ---------- narrow screens: single column reading path ---------- */
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "swear" "tally" "quote" "ranks"
+      "contrast" "lib" "parting" "cross";
+    gap: 1.6rem;
+  }
+  .folio-head { padding-left: 1rem; }
+  .chapter-num { top: 0; right: 0; }
+  .pullquote { margin-left: 4%; }
+}
