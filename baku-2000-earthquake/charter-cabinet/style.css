@@ -1,0 +1,149 @@
+/* The Charter Cabinet — workbench journal styling.
+   Palette: un-blue on warm bench paper, brass and graphite accents. */
+
+:root {
+  --unblue: #2a5fa8;
+  --unblue-deep: #1d4379;
+  --paper: #f6f1e3;
+  --paper-edge: #eadfc6;
+  --ink: #2b2620;
+  --pencil: #6d6355;
+  --brass: #a97e2f;
+  --seam: #cdbb92;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* drafting grid behind everything, faint */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(42, 95, 168, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 95, 168, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: 0;
+}
+
+/* olive-branch rosette, corner ornament */
+.rosette {
+  position: fixed;
+  top: -46px;
+  right: -46px;
+  width: 210px;
+  height: 210px;
+  color: rgba(42, 95, 168, 0.14);
+  z-index: 0;
+  animation: turn 90s linear infinite;
+}
+@keyframes turn { to { transform: rotate(360deg); } }
+
+.log {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 28px 48px;
+  background:
+    linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0)) top/100% 220px no-repeat,
+    var(--paper);
+  border: 1px solid var(--seam);
+  border-top: 10px solid var(--unblue);
+  box-shadow: 0 14px 40px rgba(43, 38, 32, 0.18);
+}
+
+.log-head { border-bottom: 3px double var(--brass); padding-bottom: 22px; }
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--unblue-deep);
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: 44px;
+  line-height: 1.08;
+  margin: 0 0 8px;
+  color: var(--unblue-deep);
+  letter-spacing: 0.01em;
+}
+
+.subhead {
+  margin: 0 0 14px;
+  color: var(--pencil);
+  font-style: italic;
+}
+
+.spec-line { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.spec {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  border: 1px solid var(--brass);
+  color: var(--brass);
+  padding: 2px 9px;
+  border-radius: 2px;
+  background: rgba(169, 126, 47, 0.06);
+}
+
+.entry {
+  margin: 34px 0;
+  padding-left: 22px;
+  border-left: 3px solid var(--paper-edge);
+  position: relative;
+}
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--brass);
+}
+
+.entry-meta {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--unblue-deep);
+  margin: 0 0 12px;
+  border-bottom: 1px dotted var(--seam);
+  padding-bottom: 6px;
+}
+
+.entry p { margin: 0 0 14px; }
+.entry p:last-child { margin-bottom: 0; }
+
+a { color: var(--unblue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--unblue-deep); background: rgba(42, 95, 168, 0.08); }
+
+em { color: var(--unblue-deep); }
+
+.colophon {
+  border-top: 3px double var(--brass);
+  margin-top: 40px;
+  padding-top: 18px;
+  font-size: 14px;
+  color: var(--pencil);
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 560px) {
+  h1 { font-size: 33px; }
+  .log { padding: 36px 18px; }
+  .rosette { width: 140px; height: 140px; }
+}
