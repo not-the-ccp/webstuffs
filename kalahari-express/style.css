@@ -1,0 +1,362 @@
+/* The Kalahari Express — line B/12, timetable with commentary */
+
+:root {
+  --night: #101b2c;
+  --night2: #182741;
+  --panel: #f6ecd8;
+  --paper: #efe0c6;
+  --ink: #33241a;
+  --ochre: #c07a2d;
+  --rust: #8f2d1c;
+  --brass: #d9a441;
+  --cream: #f2d9a4;
+  --khaki: #8a7a4e;
+  --track: #2c1c10;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% -8%, rgba(217, 164, 65, 0.22), transparent 60%),
+    radial-gradient(ellipse 60% 30% at 85% 110%, rgba(143, 45, 28, 0.25), transparent 65%),
+    repeating-linear-gradient(90deg, rgba(242, 217, 164, 0.028) 0 2px, transparent 2px 96px),
+    linear-gradient(180deg, var(--night) 0%, var(--night2) 46%, #241811 100%);
+  min-height: 100vh;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 26px auto 110px;
+  padding: 40px 34px 46px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(56, 40, 26, 0.04) 30px 31px),
+    radial-gradient(circle at 8% 4%, rgba(192, 122, 45, 0.14), transparent 30%),
+    var(--panel);
+  border-top: 10px solid var(--rust);
+  border-bottom: 10px solid var(--rust);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(56, 40, 26, 0.25),
+    inset 0 0 60px rgba(192, 122, 45, 0.10);
+  position: relative;
+}
+
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(90deg, var(--brass) 0 14px, var(--night) 14px 28px);
+  opacity: 0.85;
+}
+.sheet::before { top: 10px; }
+.sheet::after { bottom: 10px; }
+
+.stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--rust);
+  border: 2px solid var(--rust);
+  border-radius: 8px;
+  padding: 9px 14px;
+  text-align: center;
+  transform: rotate(-2.4deg);
+  width: max-content;
+  margin: 6px auto 28px;
+  opacity: 0.85;
+  box-shadow: 0 0 0 3px rgba(143, 45, 28, 0.12);
+}
+
+.masthead { text-align: center; border-bottom: 3px double var(--ochre); padding-bottom: 22px; }
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--khaki);
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-family: "Bodoni MT", "Didot", "Playfair Display", Georgia, serif;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--track);
+  text-shadow: 3px 3px 0 rgba(192, 122, 45, 0.35);
+}
+
+.sub {
+  font-style: italic;
+  color: #5c4630;
+  margin: 10px auto 0;
+  max-width: 640px;
+}
+
+.loco { width: min(520px, 100%); display: block; margin: 22px auto 6px; }
+.loco .puff circle {
+  fill: rgba(242, 217, 164, 0.75);
+  animation: puff 3.2s ease-out infinite;
+  transform-origin: center;
+}
+.loco .puff circle:nth-child(2) { animation-delay: 0.55s; }
+.loco .puff circle:nth-child(3) { animation-delay: 1.1s; }
+@keyframes puff {
+  0%   { opacity: 0; transform: translate(0 0) scale(0.5); }
+  30%  { opacity: 0.9; }
+  100% { opacity: 0; transform: translate(-16px -14px) scale(1.25); }
+}
+.loco .wheels circle {
+  fill: none;
+  stroke: var(--track);
+  stroke-width: 5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 1.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loco .rail { animation: rails 1.1s linear infinite; }
+@keyframes rails { to { stroke-dashoffset: -24; } }
+
+.legend {
+  font-size: 14px;
+  font-style: italic;
+  color: #5c4630;
+  max-width: 620px;
+  margin: 8px auto 0;
+}
+
+.prose { margin: 34px 0; }
+.prose h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rust);
+  border-bottom: 2px solid rgba(143, 45, 28, 0.4);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+}
+.prose p { margin: 0 0 14px; }
+
+/* ————— the timetable ————— */
+
+.timetable {
+  position: relative;
+  margin: 40px 0 10px;
+  border: 3px solid var(--track);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  background: var(--paper);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.thead {
+  display: grid;
+  grid-template-columns: 74px 168px 56px 150px 1fr;
+  gap: 14px;
+  padding: 12px 18px;
+  background:
+    repeating-linear-gradient(45deg, rgba(217, 164, 65, 0.22) 0 10px, transparent 10px 20px),
+    var(--track);
+  color: var(--cream);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 74px 168px 56px 150px 1fr;
+  gap: 14px;
+  padding: 16px 18px;
+  border-top: 1px dashed rgba(44, 28, 16, 0.45);
+  align-items: baseline;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+.row:first-of-type { border-top: none; }
+
+.row .t {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 17px;
+  color: var(--rust);
+  white-space: nowrap;
+}
+.row .s {
+  font-family: "Bodoni MT", "Didot", Georgia, serif;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--track);
+}
+.row .k {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  color: var(--khaki);
+}
+.row .p {
+  font-style: italic;
+  font-size: 14.5px;
+  color: #6b543c;
+}
+.row .c { font-size: 15.5px; line-height: 1.6; }
+.row .c a { color: var(--rust); }
+
+.row.current {
+  background:
+    linear-gradient(90deg, rgba(217, 164, 65, 0.22), rgba(217, 164, 65, 0.05) 70%, transparent);
+  box-shadow: inset 4px 0 0 var(--brass);
+}
+.row.current .t { color: #b4531f; }
+
+/* the moving marker */
+.marker {
+  position: absolute;
+  left: -14px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: top 0.9s cubic-bezier(0.6, 0, 0.3, 1);
+  pointer-events: none;
+}
+.lampdot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brass);
+  box-shadow: 0 0 10px 3px rgba(217, 164, 65, 0.8);
+  animation: blink 1.4s steps(2, jump-none) infinite;
+}
+@keyframes blink { 50% { background: var(--rust); box-shadow: 0 0 10px 3px rgba(143, 45, 28, 0.8); } }
+.marklabel {
+  position: absolute;
+  left: 22px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  background: var(--track);
+  color: var(--cream);
+  padding: 3px 8px;
+  white-space: nowrap;
+  border: 1px solid var(--brass);
+}
+
+/* ————— medical notice ————— */
+
+.notice {
+  margin: 22px 8px;
+  padding: 20px 26px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(143, 45, 28, 0.06) 26px 27px),
+    #f3e4c2;
+  border: 2px solid var(--rust);
+  position: relative;
+  transform: rotate(-0.5deg);
+  box-shadow: 0 8px 22px rgba(44, 28, 16, 0.22);
+}
+.notice::before {
+  content: "Nº 12";
+  position: absolute;
+  top: -14px;
+  right: 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 3px 10px;
+  transform: rotate(2deg);
+}
+.notice p {
+  font-family: "Bodoni MT", "Didot", Georgia, serif;
+  font-size: 21px;
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+  color: var(--track);
+}
+.notice-by {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11.5px !important;
+  letter-spacing: 1.5px;
+  font-style: normal !important;
+  color: var(--khaki) !important;
+  margin-top: 12px !important;
+}
+
+/* ————— colophon & platform ————— */
+
+.colophon {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 3px double var(--ochre);
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #5c4630;
+}
+.colophon p { margin: 6px 0; }
+.colophon .nav a {
+  color: var(--rust);
+  text-decoration: underline;
+  text-decoration-color: rgba(143, 45, 28, 0.4);
+  text-underline-offset: 3px;
+}
+.colophon .nav a:hover { color: var(--ochre); }
+
+.prose a { color: var(--rust); text-underline-offset: 3px; }
+.prose a:hover { color: var(--ochre); }
+
+.platform {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 22px;
+  background:
+    repeating-linear-gradient(90deg, var(--track) 0 26px, #3a2817 26px 30px),
+    var(--track);
+  border-top: 4px solid var(--brass);
+  font-family: "Courier New", Courier, monospace;
+  color: var(--cream);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.board {
+  color: var(--brass);
+  min-height: 1.3em;
+}
+.board.flash { animation: flash 0.9s steps(2, jump-none) 1; }
+@keyframes flash { 50% { color: var(--cream); } }
+.freq { white-space: nowrap; opacity: 0.85; }
+
+@media (max-width: 720px) {
+  .thead { display: none; }
+  .row { grid-template-columns: 70px 1fr; grid-auto-rows: auto; }
+  .row .k, .row .p { grid-column: 2; font-size: 13px; }
+  .row .s { grid-column: 2; }
+  .row .c { grid-column: 1 / -1; }
+  .freq { display: none; }
+  .marker { left: -10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loco .puff circle, .loco .wheels circle, .loco .rail, .lampdot, .marker { animation: none !important; transition: none !important; }
+}
