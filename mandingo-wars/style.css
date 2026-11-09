@@ -1,0 +1,225 @@
+/* Sale No. 123 — The West African Campaign Sale — Lot 131 */
+
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e9dcc0;
+  --ink: #2b2118;
+  --ink-soft: #5a4a38;
+  --indigo: #25335c;
+  --brass: #a9742a;
+  --brass-bright: #c99a4b;
+  --rust: #8a3b22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment) repeating-linear-gradient(
+    -45deg,
+    rgba(90, 74, 56, 0.03) 0 2px,
+    transparent 2px 9px
+  );
+  color: var(--ink);
+  font-family: "Spectral", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.border-frame {
+  position: fixed;
+  inset: 10px;
+  border: 2px solid var(--indigo);
+  outline: 1px solid var(--brass);
+  outline-offset: 3px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.masthead {
+  text-align: center;
+  padding: 56px 24px 18px;
+}
+
+.house {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--indigo);
+  margin: 0 0 4px;
+}
+
+.address {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin: 0 0 22px;
+}
+
+h1 {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-size: 2.4rem;
+  margin: 0;
+  color: var(--rust);
+}
+
+.sale-sub {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  margin: 6px auto 2px;
+  color: var(--ink-soft);
+}
+
+.date-line {
+  font-size: 0.85rem;
+  margin: 0 auto;
+  max-width: 620px;
+  color: var(--ink-soft);
+}
+
+.lot {
+  max-width: 760px;
+  margin: 12px auto 40px;
+  padding: 0 26px;
+}
+
+.lot-rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brass);
+  margin: 18px 0 26px;
+}
+
+.rule-line { flex: 1; height: 1px; background: var(--brass); }
+.rule-mark { font-size: 0.8rem; }
+
+.lot-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-top: 3px double var(--indigo);
+  border-bottom: 1px solid var(--indigo);
+  padding: 18px 0;
+  margin-bottom: 26px;
+}
+
+.lot-no {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.3em;
+  color: var(--rust);
+  font-size: 1rem;
+}
+
+.lot-figure {
+  font-size: 2rem;
+  font-weight: 600;
+  display: block;
+  writing-mode: horizontal-tb;
+}
+
+.lot-titles { flex: 1; }
+
+h2 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.lot-sub {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+.estimate {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--brass);
+  margin: 0;
+}
+
+.seal {
+  color: var(--indigo);
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  flex: none;
+  transition: transform 0.15s ease;
+  opacity: 0.85;
+}
+.seal:hover { transform: rotate(-8deg); }
+.seal.stamped { animation: stamp 0.35s ease; color: var(--rust); }
+@keyframes stamp {
+  0% { transform: scale(1.6) rotate(14deg); opacity: 0.2; }
+  60% { transform: scale(0.92) rotate(-3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.entry h3 {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--indigo);
+  border-bottom: 1px solid var(--brass-bright);
+  padding-bottom: 5px;
+  margin: 30px 0 12px;
+}
+
+.entry p { margin: 0 0 14px; }
+
+blockquote.card-line {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--rust);
+  border-left: 4px solid var(--brass);
+  background: var(--parchment-deep);
+  padding: 14px 20px;
+  margin: 18px 0;
+  quotes: none;
+}
+
+a {
+  color: var(--indigo);
+  text-decoration: underline;
+  text-decoration-color: var(--brass-bright);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--rust); }
+
+.small-print {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--brass);
+  padding-top: 12px;
+}
+
+.foot {
+  text-align: center;
+  padding: 18px 24px 48px;
+  border-top: 3px double var(--indigo);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.foot-line {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  margin: 0 0 4px;
+}
+
+.foot-sub {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
