@@ -1,0 +1,270 @@
+/* Ledger Folio 12-A — field notes on Alberta
+   A ruled ledger sheet: oversized marginal station numbers,
+   asymmetric two-column stations, an overlapping clip,
+   a rotated field stamp, and a thermometer that swings. */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #2b2a26;
+  --rule: #b9b09a;
+  --coal: #33312c;
+  --seam: #7a4a2b;
+  --cold: #4a6c7d;
+  --warm: #a4502a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(122, 74, 43, 0.10) 27px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.folio {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem 5.5rem;
+}
+
+/* the ledger's red margin line, doubled */
+.folio::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 4.25rem;
+  width: 3px;
+  background: linear-gradient(var(--seam), var(--seam));
+  opacity: 0.55;
+}
+.folio::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 4.45rem;
+  width: 1px;
+  background: var(--seam);
+  opacity: 0.3;
+}
+
+/* rotated field stamp, overlapping the masthead */
+.stamp {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.2rem;
+  padding: 0.35rem 0.9rem;
+  border: 3px double var(--coal);
+  color: var(--coal);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  transform: rotate(7deg);
+  opacity: 0.75;
+  background: rgba(244, 239, 227, 0.6);
+}
+
+/* the paper clip with the folio number, tilted over the corner */
+.clip {
+  position: absolute;
+  top: 0.4rem;
+  right: 4.6rem;
+  transform: rotate(-11deg);
+  background: var(--coal);
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  padding: 0.55rem 0.8rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  box-shadow: 3px 4px 0 rgba(43, 42, 38, 0.25);
+  z-index: 2;
+}
+
+.head {
+  position: relative;
+  margin-bottom: 2.5rem;
+  border-bottom: 4px double var(--coal);
+  padding-bottom: 1.5rem;
+}
+
+.club {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+/* oversized initial running off into the margin */
+h1 .oversized {
+  font-size: 2.4em;
+  margin-right: 0.05em;
+  transform: translateY(-0.18em) rotate(-4deg);
+  display: inline-block;
+  color: var(--coal);
+}
+
+.dateline {
+  font-style: italic;
+  max-width: 46rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.admin {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.6rem 2rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.admin dt {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--seam);
+}
+.admin dd { margin: 0.1rem 0 0.4rem; }
+.admin a { color: var(--cold); }
+
+/* stations: number column + entry, asymmetric on wide screens */
+.station {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0 1.25rem;
+  margin: 3rem 0;
+  position: relative;
+}
+
+.station .no {
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 0.9;
+  margin: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--coal);
+  transform: rotate(-3deg);
+  user-select: none;
+}
+
+/* every third station drifts right, breaking the grid's spine */
+.station.s3, .station.s5 {
+  margin-left: 12%;
+  margin-right: 0;
+}
+
+.entry h2 {
+  font-size: 1.45rem;
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.place {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--seam);
+  margin: 0 0 0.6rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+.entry a { color: var(--cold); }
+
+.margin {
+  margin: 1rem 0 0 2rem;
+  padding: 0.4rem 0.8rem;
+  border-left: 2px solid var(--rule);
+  font-size: 0.9rem;
+  transform: rotate(-0.6deg);
+  background: rgba(185, 176, 154, 0.18);
+}
+
+/* the registrar's slip: a torn card pinned in the margin */
+.slip {
+  margin: 1.25rem 0 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #efe7d2;
+  border: 1px solid var(--rule);
+  box-shadow: 4px 5px 0 rgba(43, 42, 38, 0.15);
+  transform: rotate(-1.4deg);
+  font-style: italic;
+  font-size: 1.05rem;
+  position: relative;
+}
+.slip::before {
+  content: "●";
+  position: absolute;
+  top: -0.45rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--seam);
+  font-size: 0.8rem;
+}
+
+/* the thermometer */
+.gauge {
+  margin: 1.5rem 0 0.5rem 1rem;
+  width: min(22rem, 100%);
+  position: relative;
+  padding: 1.25rem 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+}
+.gauge .tick {
+  display: block;
+  position: absolute;
+  left: 0;
+}
+.gauge .tick.up { top: 0.2rem; color: var(--warm); }
+.gauge .tick.down { bottom: 0.2rem; color: var(--cold); }
+.gauge .mercury {
+  position: absolute;
+  left: 7.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1.1rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(var(--warm), var(--warm) 45%, var(--cold) 45%, var(--cold));
+  transform-origin: bottom;
+  transform: scaleY(0.55);
+  transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.gauge.awake .mercury { transform: scaleY(1); }
+
+.foot {
+  margin-top: 3.5rem;
+  border-top: 4px double var(--coal);
+  padding-top: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+.foot a { color: var(--cold); }
+
+@media (max-width: 640px) {
+  .folio { padding: 2rem 1.25rem 3rem 2.75rem; }
+  .folio::before { left: 1.9rem; }
+  .folio::after { display: none; }
+  .station { grid-template-columns: 1fr; }
+  .station .no { font-size: 3rem; transform: none; margin-bottom: 0.25rem; }
+  .station.s3, .station.s5 { margin-left: 0; }
+  .clip { right: 1rem; top: 0.2rem; font-size: 0.85rem; }
+  .stamp { top: auto; bottom: 0.75rem; right: 1rem; font-size: 0.7rem; }
+  .gauge .mercury { left: 0; width: 1.1rem; }
+  .gauge .tick { width: 6.5rem; }
+}
