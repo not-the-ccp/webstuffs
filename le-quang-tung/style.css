@@ -1,0 +1,126 @@
+/* Application Summary, Serial No. 49,882,117 — examiner copy styling */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cfb8;
+  color: #2b2b26;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 760px;
+  margin: 2rem auto 4rem;
+  background: #f4efdf;
+  border: 1px solid #8a7f63;
+  box-shadow: 4px 5px 0 rgba(43, 43, 38, 0.25);
+  padding: 2.5rem 2.75rem 1.5rem;
+}
+
+.spec-head .serial {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  border-bottom: 2px solid #2b2b26;
+  padding-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.inventor, .assignee {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.block { margin-top: 2rem; }
+
+h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #8a7f63;
+  padding-bottom: 0.3rem;
+}
+
+blockquote.claim-quote {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: #eae2c8;
+  border-left: 4px solid #a4432e;
+  font-style: italic;
+}
+
+ol.claims { padding-left: 1.4rem; }
+ol.claims li { margin-bottom: 0.7rem; }
+.claim-no { font-weight: bold; white-space: nowrap; }
+
+.bench {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: #eae2c8;
+  border: 1px dashed #8a7f63;
+  padding: 1.25rem;
+}
+
+.gauge-wrap { flex: 0 0 220px; }
+.gauge { width: 100%; height: auto; display: block; }
+.g-label { font-size: 10px; font-family: "Courier New", monospace; }
+
+.bench-controls { flex: 1 1 260px; }
+.bench-controls label {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #a4432e;
+}
+
+.bench-readout { margin: 1rem 0 0; }
+.bench-readout div { display: flex; gap: 0.75rem; margin-bottom: 0.3rem; }
+.bench-readout dt {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  min-width: 120px;
+}
+.bench-readout dd { margin: 0; font-weight: bold; }
+
+#out-flag.flagged { color: #a4432e; }
+
+.bench-note {
+  font-size: 0.85rem;
+  margin: 1rem 0 0;
+  color: #5a5442;
+}
+
+a { color: #7a3b23; }
+
+.spec-ft {
+  margin-top: 2.5rem;
+  border-top: 2px solid #2b2b26;
+  padding-top: 0.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
