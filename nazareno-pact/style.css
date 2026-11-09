@@ -1,0 +1,181 @@
+/* Joint Council on Constitutional Reform — folio styling */
+
+:root {
+  --parchment: #f2e9d5;
+  --parchment-deep: #e9dcbe;
+  --ink: #2c2318;
+  --faded-ink: #5c5040;
+  --wax: #7a1f1f;
+  --wax-bright: #9c2b2b;
+  --rule: #b8a37a;
+}
+
+html { background: #d9cba8; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(122, 31, 31, 0.06), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(60, 45, 25, 0.12), transparent 60%),
+    var(--parchment);
+}
+
+.folio {
+  max-width: 760px;
+  margin: 2.5rem auto 4rem;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(184, 163, 122, 0.18) 31px,
+      rgba(184, 163, 122, 0.18) 32px
+    ),
+    var(--parchment);
+  border: 1px solid var(--rule);
+  outline: 3px double var(--rule);
+  outline-offset: 6px;
+  padding: 2.2rem 2.6rem 2.6rem;
+  box-shadow: 0 18px 40px rgba(44, 35, 24, 0.28);
+}
+
+.mace {
+  text-align: center;
+  border-bottom: 2px solid var(--wax);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.office, .folio-no {
+  margin: 0 0 0.3rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.86rem;
+  color: var(--faded-ink);
+}
+
+.folio-no { letter-spacing: 0.08em; }
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  margin: 0.6rem 0 0.4rem;
+}
+
+.venue {
+  margin: 0;
+  font-style: italic;
+  color: var(--faded-ink);
+  font-size: 0.95rem;
+}
+
+.seal {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  width: 92px;
+  height: 92px;
+  opacity: 0.85;
+  transform: rotate(-8deg);
+}
+
+.seal-ring {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  fill: var(--wax);
+}
+
+.entry { margin-bottom: 1.7rem; }
+
+.entry h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--wax);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.8rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+blockquote.verbatim {
+  margin: 1rem 1.4rem;
+  padding: 0.8rem 1.1rem;
+  border-left: 3px solid var(--wax);
+  background: var(--parchment-deep);
+  font-style: italic;
+  color: var(--faded-ink);
+}
+
+em { color: inherit; }
+
+a {
+  color: var(--wax);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--wax);
+}
+
+a:hover { background: rgba(122, 31, 31, 0.08); }
+
+.signatures {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+  border-top: 2px solid var(--rule);
+  padding-top: 1.2rem;
+}
+
+.sig { flex: 1 1 160px; }
+
+.sig-name {
+  font-family: "Snell Roundhand", "Brush Script MT", cursive;
+  font-size: 1.5rem;
+  margin: 0;
+  transform: rotate(-2deg);
+}
+
+.sig-role {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--faded-ink);
+}
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--faded-ink);
+}
+
+#stamp {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 2px solid var(--wax-bright);
+  color: var(--wax-bright);
+  padding: 0.3rem 0.7rem;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  transform: rotate(6deg);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+#stamp.shown { opacity: 0.75; }
