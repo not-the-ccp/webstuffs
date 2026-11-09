@@ -1,0 +1,173 @@
+/* FM-21 · Chapter 4 · Bass Guitar — low register */
+:root {
+  --paper: #efe9dc;
+  --ink: #21242a;
+  --low: #5b2117;
+  --wire: #8b8478;
+  --stamp: #7d2b1c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+.sheet {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-column-gap: 2.5rem;
+}
+
+/* oversized open strings, left rail, rotated */
+.strings {
+  grid-column: 1;
+  grid-row: 1 / 7;
+  position: sticky;
+  top: 3rem;
+  align-self: start;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.6rem;
+  font-size: 6.5rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.85;
+}
+.strings .s { display: inline-block; }
+.strings .s-e { color: var(--low); }
+.strings .s-a { color: #7a5c1e; }
+.strings .s-d { color: #4c5a3f; }
+.strings .s-g { color: #2f4a5c; }
+.strings .s-g { font-size: 3.4rem; }
+.strings .s-d { font-size: 4.4rem; }
+.strings .s-a { font-size: 5.4rem; }
+
+.head {
+  grid-column: 2;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.2rem;
+  position: relative;
+}
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--low);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 8vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+h1 .chap {
+  display: inline-block;
+  font-size: 0.42em;
+  vertical-align: super;
+  border: 2px solid var(--ink);
+  padding: 0.1em 0.3em;
+  transform: rotate(-4deg) translateY(-0.6em);
+}
+.sub {
+  margin: 0.9rem 0 0;
+  max-width: 46ch;
+  font-style: italic;
+  color: #40444c;
+}
+.stamp {
+  position: absolute;
+  right: 0;
+  top: -1rem;
+  transform: rotate(7deg);
+  border: 3px solid var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  padding: 0.35em 0.7em;
+  opacity: 0.75;
+}
+
+.block {
+  grid-column: 2;
+  margin-top: 2.6rem;
+  padding-left: 0;
+}
+.block h2 {
+  font-family: "Courier New", monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.7rem;
+  border-left: 6px solid var(--low);
+  padding-left: 0.7rem;
+}
+.sec-no { color: var(--low); margin-right: 0.5em; }
+p { margin: 0 0 1rem; max-width: 62ch; }
+
+/* asymmetric offsets: odd chapters drift right */
+.b-history { margin-left: 8%; }
+.b-handling { margin-left: -4%; }
+.b-storage { margin-left: 5%; }
+
+.ledger-line {
+  margin: 1.2rem 0 1.2rem 4%;
+  padding: 1rem 1.2rem 1rem 1.6rem;
+  border: 1px dashed var(--wire);
+  border-left: 5px solid var(--wire);
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 1.22rem;
+  font-style: italic;
+  transform: rotate(-0.6deg);
+  max-width: 66ch;
+}
+
+a { color: var(--low); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { background: rgba(91, 33, 23, 0.12); }
+
+.end {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 1.8rem;
+}
+
+.colophon {
+  grid-column: 1 / -1;
+  margin-top: 3.2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #40444c;
+}
+
+@media (max-width: 760px) {
+  .sheet { grid-template-columns: 1fr; }
+  .strings {
+    grid-column: 1;
+    grid-row: auto;
+    writing-mode: horizontal-tb;
+    transform: none;
+    position: static;
+    font-size: 2.6rem;
+    letter-spacing: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .block, .head { grid-column: 1; margin-left: 0 !important; }
+  .stamp { position: static; display: inline-block; margin-top: 0.8rem; }
+}
