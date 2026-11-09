@@ -1,0 +1,203 @@
+/* Apology to Max Wilhelm Dehn — custodian's desk, Göttingen, 1951 */
+
+:root {
+  --paper: #f1e7cf;
+  --paper-edge: #e3d5b2;
+  --ink: #2b2119;
+  --ink-faded: #5a4a38;
+  --vermilion: #a33b25;
+  --desk: #33261a;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background:
+    radial-gradient(ellipse at 50% -10%, #4a3826 0%, var(--desk) 55%, #211710 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 96px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.desk {
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(93deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(91deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 11px);
+  pointer-events: none;
+}
+
+.letter {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(120,90,40,0.10), transparent 45%),
+    radial-gradient(ellipse at 85% 96%, rgba(120,90,40,0.14), transparent 40%),
+    linear-gradient(178deg, var(--paper) 0%, #ede1c4 60%, var(--paper-edge) 100%);
+  border: 1px solid #c8b78d;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.45),
+    0 22px 55px rgba(0,0,0,0.55),
+    inset 0 0 60px rgba(150,120,60,0.10);
+  padding: 56px 62px 64px;
+  color: var(--ink);
+}
+
+.fold-top, .fold-bottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(90,70,40,0.35);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.35);
+}
+.fold-top { top: 30%; }
+.fold-bottom { bottom: 30%; }
+
+/* letterhead rules */
+.letterhead { margin-bottom: 28px; }
+.letterhead-line {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border-bottom: 1px solid rgba(90,70,40,0.25);
+  padding-bottom: 4px;
+}
+.letterhead-line.small {
+  text-transform: none;
+  letter-spacing: 0.03em;
+  font-style: italic;
+  font-size: 0.74rem;
+}
+
+/* stamp and postmark */
+.stamp {
+  position: absolute;
+  top: 40px;
+  right: 44px;
+  width: 108px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+.stamp.denom, .stamp text { font-family: Georgia, serif; }
+.stamp-denom { font-size: 15px; font-weight: bold; fill: #b3502e; }
+
+.postmark {
+  position: absolute;
+  top: 96px;
+  right: 26px;
+  transform: rotate(-11deg);
+  color: rgba(52, 62, 90, 0.75);
+  mix-blend-mode: multiply;
+}
+.postmark-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgba(52, 62, 90, 0.6);
+  border-radius: 50%;
+  width: 118px;
+  height: 118px;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background:
+    repeating-radial-gradient(circle, transparent 0 9px, rgba(52,62,90,0.35) 9px 10px);
+}
+.postmark-date { font-size: 0.6rem; letter-spacing: 0.08em; }
+.postmark-time { font-size: 0.58rem; }
+
+/* body text */
+.dateline {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin: 8px 0 22px;
+}
+
+.salutation {
+  font-size: 1.02rem;
+  margin: 0 0 18px;
+}
+
+.letter p {
+  font-size: 1.02rem;
+  line-height: 1.68;
+  margin: 0 0 18px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.letter em { font-style: italic; }
+
+.letter a {
+  color: var(--vermilion);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(163,59,37,0.45);
+}
+.letter a:hover { background: rgba(163,59,37,0.08); }
+
+.close { margin-top: 30px; font-style: italic; }
+
+.signature { margin-top: 26px; }
+.signer {
+  font-family: "Snell Roundhand", "Brush Script MT", "Segoe Script", cursive;
+  font-size: 1.7rem;
+  color: #1d2f4d;
+  margin: 0 0 6px;
+}
+.signer-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0;
+}
+
+.seal {
+  position: absolute;
+  bottom: 210px;
+  right: 52px;
+  width: 62px;
+  height: 62px;
+  border: 3px double var(--vermilion);
+  border-radius: 50%;
+  color: var(--vermilion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0.72;
+  transform: rotate(9deg);
+}
+
+.postscript {
+  margin-top: 42px;
+  border-top: 1px solid rgba(90,70,40,0.4);
+  padding-top: 16px;
+}
+.ps-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0 0 10px;
+}
+.postscript p { font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .letter { padding: 40px 22px 48px; }
+  .stamp { width: 78px; top: 24px; right: 18px; }
+  .postmark { top: 84px; right: 8px; transform: rotate(-11deg) scale(0.8); }
+  .seal { bottom: 150px; right: 20px; }
+  .letter p { text-align: left; }
+}
