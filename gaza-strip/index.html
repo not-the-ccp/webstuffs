@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaza Strip — The Green Line Limited, Timetable &amp; Commentary</title>
+<meta name="description" content="A train timetable with commentary on the Gaza Strip: the Green Line of the 1949 Armistice Agreements, Gaza City as capital and largest city, the Egyptian border at Rafah, the Mediterranean to the west, the All-Palestine Protectorate, and one court dispatch kept on the departure board — Exhibit A.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="station-header">
+  <span class="light" aria-hidden="true"></span>
+  <div class="station-name">Gaza City Yard &middot; Track 7 &middot; The Southern Levant Division</div>
+  <h1>The Green Line Limited</h1>
+  <p class="clock">Gaza Strip &middot; Timetable and commentary &middot; Yard clock <span id="yard-clock" aria-hidden="true">--:--:--</span> (UTC+2)</p>
+</header>
+
+<main class="platform">
+
+  <section class="service">
+    <h2>The Green Line Limited &mdash; Departure Board</h2>
+    <p class="service-note">All trains of the Green Line Limited run the boundary fixed by the Green Line of the 1949 Armistice Agreements, at the conclusion of the 1948 Palestine war. The Gaza Strip, also known simply as Gaza, is the smaller of the two Palestinian territories &mdash; the other being the West Bank &mdash; that make up the State of Palestine in the Southern Levant region of West Asia. It is bordered by Egypt on the southwest, Israel on the east and north, and the Mediterranean Sea to the west. The capital and largest city is Gaza City, where this yard stands. During the Egyptian period the line ran under the All-Palestine Protectorate, also known as All-Palestine, which was established with limited recognition. Times are kept in local time; the sea is always on time.</p>
+
+    <div class="filter" role="group" aria-label="Filter the timetable by line">
+      <button class="filter-btn is-active" data-filter="all" type="button">All services</button>
+      <button class="filter-btn" data-filter="limited" type="button">The Green Line</button>
+      <button class="filter-btn" data-filter="local" type="button">Locals</button>
+      <button class="filter-btn" data-filter="special" type="button">Specials</button>
+    </div>
+    <p class="filter-note" id="filter-note">Showing all services. Without the buttons, the full board above remains the board of record.</p>
+
+    <table class="timetable">
+      <caption>Gaza City Yard &middot; the 1949 boundary &middot; Rafah &middot; the sea &middot; services as certified</caption>
+      <thead>
+        <tr>
+          <th scope="col">Train</th>
+          <th scope="col">Service</th>
+          <th scope="col">From</th>
+          <th scope="col">Departs</th>
+          <th scope="col">Arrives</th>
+          <th scope="col">To</th>
+          <th scope="col">Platform</th>
+          <th scope="col">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-line="limited">
+          <td class="number">No. 1949GL</td>
+          <td class="service">The Green Line Limited</td>
+          <td class="place">Tel Aviv&ndash;Jaffa Junction</td>
+          <td class="time">1949 &middot; armistice</td>
+          <td class="time">1949</td>
+          <td class="place">Gaza City Yard</td>
+          <td class="platform">7</td>
+          <td class="notes">The founding service. The territorial boundaries of the line were established by the Green Line of the 1949 Armistice Agreements at the conclusion of the 1948 Palestine war, at which time Gaza was controlled by the Kingdom of Egypt. The boundary is not surveyed again; the schedule stands on 1949.</td>
+        </tr>
+        <tr data-line="local">
+          <td class="number">No. AP-49</td>
+          <td class="service">All-Palestine Local</td>
+          <td class="place">Rafah Siding</td>
+          <td class="time">Daily &middot; 06:15</td>
+          <td class="time">07:40</td>
+          <td class="place">Khan Younis</td>
+          <td class="platform">2</td>
+          <td class="notes">The local that carried the period of the All-Palestine Protectorate, also known as All-Palestine, established with limited recognition during the Egyptian administration. Conductor&rsquo;s remark: limited recognition is a ticket that is accepted, not a ticket that is celebrated.</td>
+        </tr>
+        <tr data-line="limited">
+          <td class="number">No. CC-07</td>
+          <td class="service">Capital Courier</td>
+          <td class="place">Gaza City Yard</td>
+          <td class="time">Daily &middot; 08:05</td>
+          <td class="time">08:55</td>
+          <td class="place">Gaza City, via Deir al-Balah</td>
+          <td class="platform">1</td>
+          <td class="notes">A city-to-itself service, because the capital and largest city of the Strip is also the yard. The Courier exists so that the capital can be confirmed, every morning, in its own platform echo.</td>
+        </tr>
+        <tr data-line="local">
+          <td class="number">No. SW-3</td>
+          <td class="service">Southwest Siding</td>
+          <td class="place">Rafah Gate</td>
+          <td class="time">On request</td>
+          <td class="time">No fixed hour</td>
+          <td class="place">Egypt</td>
+          <td class="platform">4</td>
+          <td class="notes">The line to the southwest neighbour. Departures are on request only; the gate keeps its own clock, and the timetable has learned to leave the cell blank. A blank is also a kind of arrival.</td>
+        </tr>
+        <tr data-line="local">
+          <td class="number">No. MED-88</td>
+          <td class="service">Mediterranean Packet</td>
+          <td class="place">Gaza harbour quayside</td>
+          <td class="time">Tide</td>
+          <td class="time">&mdash;</td>
+          <td class="place">The Mediterranean, to the west</td>
+          <td class="platform">5 (quay)</td>
+          <td class="notes">The west border is water, so the Packet boards at the tide and is not listed as arriving. What departs is not said to arrive; it is said to be at sea. This is the only service on the board with no terminus and no complaints.</td>
+        </tr>
+        <tr data-line="limited">
+          <td class="number">No. WB-2</td>
+          <td class="service">West Bank Connector</td>
+          <td class="place">Gaza City Yard</td>
+          <td class="time">Suspended</td>
+          <td class="time">&mdash;</td>
+          <td class="place">The West Bank</td>
+          <td class="platform">&mdash;</td>
+          <td class="notes">Reserved for the other of the two Palestinian territories, the West Bank, with which the Strip together makes up the State of Palestine. The Connector is held, not cancelled: a suspension is the timetable&rsquo;s way of saying the two territories are one sentence, even when only half of it runs.</td>
+        </tr>
+        <tr data-line="special">
+          <td class="number">No. EXA</td>
+          <td class="service">The Archivist&rsquo;s Special</td>
+          <td class="place">Courtroom 7, Tel Aviv&ndash;Jaffa</td>
+          <td class="time">1:05 p.m. &middot; 12 Feb 2020</td>
+          <td class="time">On call</td>
+          <td class="place">The record vault, Exhibit A</td>
+          <td class="platform">7</td>
+          <td class="notes">Runs only when a notebook must be kept as Exhibit A. The Special carries one manuscript and its margin lines, word for word. See the dispatch below, kept on the board under the clock.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <p class="divider" aria-hidden="true">&#167;</p>
+
+  <section class="dispatch">
+    <h2>Dispatch &mdash; from the District Court of Tel Aviv&ndash;Jaffa, Courtroom 7, held on the board</h2>
+    <p>Yard notice, posted beneath the clock and never taken down. In the hearing at Tel Aviv&ndash;Jaffa over the papers and the library kept at Kibbutz Hulda &mdash; the cause in which the notebook found inside <em>Panther in the Basement</em> was entered, word for word, with its line about the route, the raking, the Austin desk, five days minimum, and the butter, the proper ounce &mdash; the presiding judge&rsquo;s direction was transmitted to this yard and set into the board, to govern every Special that runs under it:</p>
+    <div class="verbatim-box">
+      <p class="verbatim-kicker">Transmitted to the yard, word for word</p>
+      <p class="verbatim">THE COURT: The notebook remains Exhibit A, and call the archivist.</p>
+    </div>
+    <p>The yard&rsquo;s reading of the dispatch is this: a record that has been entered stays entered; a route that is walked is walked a second time, more carefully, by the person whose work it is to keep things. The archivist is on this board as he was on that docket. When the Special is due, the yard calls him, and he comes, because the notebook remains Exhibit A &mdash; and because the proper ounce of anything, a margin line or a butter sample or a boundary fixed in 1949, is kept by someone, or by no one at all.</p>
+  </section>
+
+  <p class="divider" aria-hidden="true">&#167;</p>
+
+  <section class="platform-notes">
+    <h2>Platform Notes</h2>
+    <p>The board keeps its geography in plain figures. The Strip runs along the coast: the Mediterranean to the west, with the quayside at Platform 5 where the Packet boards at the tide; Israel on the east and north, which the Limited treats as a parallel track it does not merge with; Egypt on the southwest, where the Southwest Siding ends at a gate that departs on request only. At its largest the territory measures a little under 362 square kilometres &mdash; small enough that a courier can circle the capital and arrive in fifty minutes, and small enough that the yard, the port, and the gate are all within one voice of one another.</p>
+    <p>The yard&rsquo;s ledger is short because the story is. 1949: the Green Line is drawn and the schedule is written to it. 1949, again: Egypt holds the territory and the All-Palestine Protectorate, All-Palestine, is established with limited recognition; the local No. AP-49 takes the name and runs it daily. The boundaries, per the record, are those of the Green Line of the 1949 Armistice Agreements, at the conclusion of the 1948 Palestine war. The yard does not amend the 1949 row; it only adds footnotes to it, the way a conductor adds a line to the margin of a ledger and then leaves the margin be.</p>
+    <p>There is a companion record, kept in the same careful fashion, one border country over and half a century earlier: the 1942 Oregon athletic ledger, 138 points to 67, outscored but certified, its margin line left undisturbed by order of the Court. A timetable and a ledger are the same instrument &mdash; numbers that agree, one line in a private hand that refuses to. And for the sister schedule, kept in marble time and certified at a yard in the Bronx, see the Piccirilli board, where the trains depart in the same unarguing fashion.</p>
+  </section>
+
+  <p class="divider" aria-hidden="true">&#167;</p>
+
+  <footer class="colophon">
+    <p>The dispatch on this board was given in open court, and the case it governs is recorded at length in <a href="../amos-oz/">Amos Oz &mdash; District Court of Tel Aviv&ndash;Jaffa, Verbatim Record Excerpt</a>, Cause No. TA-3314/19, where the notebook was entered word for word and the order pronounced at 1:05 p.m. For the other certified record of this board&rsquo;s kind &mdash; a ledger closed over arithmetic that did not flatter it &mdash; see <a href="../ducks-1942/">In re the 1942 Oregon Ducks Football Ledger &mdash; Superior Court of Oregon, Verbatim Record Excerpt</a>. The sister schedule in marble time: <a href="../furio-piccirilli/">Furio Piccirilli &mdash; The Marble Limited, Timetable &amp; Commentary</a>. <a href="../">Return to Webstuffs</a>.</p>
+  </footer>
+
+</main>
+<script src="timetable.js"></script>
+</body>
+</html>

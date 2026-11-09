@@ -1,0 +1,208 @@
+/* The Green Line Limited — station board styling */
+
+:root {
+  --paper: #f6f1e3;
+  --ink: #23303a;
+  --line: #2f4b63;
+  --board: #1c2b23;
+  --board-ink: #efe7c8;
+  --accent: #8a5a2b;
+  --rule: #b9ad8e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.station-header {
+  background: var(--board);
+  color: var(--board-ink);
+  padding: 1.2rem 1.5rem 1.4rem;
+  border-bottom: 6px double var(--accent);
+}
+
+.station-header .light {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: #d9a441;
+  box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.25);
+  margin-bottom: 0.5rem;
+}
+
+.station-name {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #cfc49a;
+}
+
+.station-header h1 {
+  margin: 0.2rem 0 0.3rem;
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+}
+
+.clock {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  color: #e8dfba;
+}
+
+.platform {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1.8rem 1.4rem 3rem;
+}
+
+.service-note {
+  font-size: 0.98rem;
+  max-width: 58rem;
+}
+
+/* Filter buttons */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.2rem 0 0.4rem;
+}
+
+.filter-btn {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.8rem;
+  background: transparent;
+  color: var(--line);
+  border: 1.5px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filter-btn:hover { background: rgba(47, 75, 99, 0.1); }
+
+.filter-btn.is-active {
+  background: var(--line);
+  color: var(--paper);
+}
+
+.filter-note {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #5c6b76;
+  margin: 0 0 0.8rem;
+}
+
+/* Timetable */
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fbf8ef;
+  border: 1.5px solid var(--ink);
+  font-size: 0.88rem;
+}
+
+.timetable caption {
+  caption-side: top;
+  text-align: left;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.timetable th {
+  text-align: left;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 2px solid var(--ink);
+  background: #efe7cf;
+}
+
+.timetable td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.timetable tbody tr:nth-child(even) { background: #f3edd9; }
+
+.timetable td.number {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.timetable td.time {
+  font-family: "Courier New", monospace;
+  white-space: nowrap;
+}
+
+.timetable td.platform {
+  font-family: "Courier New", monospace;
+  text-align: center;
+}
+
+.timetable tr.is-hidden { display: none; }
+
+/* Verbatim dispatch box */
+.verbatim-box {
+  margin: 1.1rem 0;
+  padding: 0.9rem 1.1rem;
+  background: #efe4c2;
+  border-left: 5px solid var(--accent);
+}
+
+.verbatim-kicker {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.verbatim {
+  margin: 0;
+  font-size: 1.08rem;
+  font-style: italic;
+}
+
+/* Sections */
+h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.divider {
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.3rem;
+  margin: 2rem 0;
+}
+
+a { color: var(--line); }
+a:hover { color: var(--accent); }
+
+.colophon {
+  font-size: 0.9rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+}
