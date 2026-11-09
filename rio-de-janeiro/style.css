@@ -1,0 +1,242 @@
+/* A Canhoneira — dinner review. Iron and chart-paper, brass, river-dark. */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #eadfc4;
+  --ink: #23262b;
+  --iron: #3a3f45;
+  --rivet: #565d66;
+  --river: #7c2d1e;
+  --brass: #a67c2e;
+  --water: #4a5f6e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.62;
+  background:
+    repeating-linear-gradient(0deg, rgba(124, 45, 30, 0.028) 0 1px, transparent 1px 4px),
+    var(--paper);
+}
+
+.review {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+  border-left: 3px double var(--brass);
+  border-right: 3px double var(--brass);
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+}
+
+/* the iron band over the review */
+.rivets {
+  height: 26px;
+  margin: 0 -1.25rem;
+  background:
+    radial-gradient(circle 2.5px at 14px 13px, var(--rivet) 60%, transparent 62%) 0 0 / 44px 26px repeat-x,
+    var(--iron);
+  border-top: 2px solid #1e2024;
+  border-bottom: 2px solid #1e2024;
+}
+
+.masthead {
+  text-align: center;
+  padding: 1.75rem 0 1rem;
+}
+
+.eyebrow {
+  font-family: "Cinzel", serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--river);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--iron);
+}
+
+h1::first-letter { color: var(--river); }
+
+.sub {
+  font-style: italic;
+  margin: 0.5rem 0 0.25rem;
+  color: var(--iron);
+}
+
+.meta {
+  font-size: 0.82rem;
+  color: var(--ink);
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  padding: 0.5rem 0.25rem;
+  margin: 1rem 0 0;
+}
+
+.meta span {
+  font-family: "Cinzel", serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+section { padding: 1.25rem 0.25rem; }
+
+h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--river);
+  text-align: center;
+  margin: 0 0 0.9rem;
+}
+
+h2::before { content: "❖ "; color: var(--brass); }
+h2::after { content: " ❖"; color: var(--brass); }
+
+p { margin: 0 0 1rem; }
+
+strong { color: var(--river); }
+
+/* the menu card */
+.card-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.25rem 0 1.1rem;
+  background: rgba(255, 252, 240, 0.6);
+  border: 1px solid var(--iron);
+  box-shadow: 0 0 0 4px rgba(58, 63, 69, 0.12), 0 0 0 5px rgba(166, 124, 46, 0.35);
+}
+
+.card-table td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px dotted rgba(58, 63, 69, 0.45);
+  vertical-align: top;
+}
+
+.card-table tr:last-child td { border-bottom: none; }
+
+.course {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--iron);
+  white-space: nowrap;
+}
+
+.desc { font-size: 0.92rem; }
+
+.price {
+  text-align: right;
+  font-family: "Cinzel", serif;
+  color: var(--brass);
+  white-space: nowrap;
+}
+
+/* the night card */
+.nightcard {
+  background: rgba(74, 95, 110, 0.07);
+  border-left: 4px solid var(--water);
+  padding-left: 1rem;
+}
+
+blockquote.entry {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin: 1rem 0 1.1rem;
+  padding: 0.9rem 1rem;
+  background: #fbf4de;
+  border: 1px dashed var(--river);
+  color: var(--iron);
+  transform: rotate(-0.4deg);
+}
+
+/* the window wall of cups */
+.cups {
+  padding: 1rem 0.25rem 0.5rem;
+  text-align: center;
+}
+
+.cups-label {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--iron);
+  margin: 0 0 0.6rem;
+}
+
+.cup {
+  display: inline-block;
+  width: 0.62rem;
+  height: 0.9rem;
+  margin: 3px;
+  border: 1.5px solid var(--iron);
+  border-radius: 0 0 0.35rem 0.35rem;
+  background: transparent;
+  vertical-align: bottom;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.cup.window { border-color: var(--water); }
+
+.cup.lit {
+  background: var(--brass);
+  border-color: var(--brass);
+}
+
+.cup.window.lit {
+  background: var(--water);
+  border-color: var(--water);
+}
+
+.cup.rung { transform: translateY(-4px); }
+
+/* colophon */
+.colophon {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--iron);
+}
+
+.colophon .rule {
+  height: 2px;
+  width: 70%;
+  margin: 0 auto 1rem;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+
+.nav { margin-top: 0.9rem; }
+
+a {
+  color: var(--river);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--iron); }
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  h1 { font-size: 2.2rem; }
+  .meta { font-size: 0.74rem; }
+}
