@@ -1,0 +1,173 @@
+/* Clause & Order — Rulebook chapter styling, 2nd Printing, 1997 */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #e9ddc0;
+  --ink: #22304a;
+  --ink-soft: #4a5a78;
+  --gold: #a8791c;
+  --gold-bright: #c8962e;
+  --red-pencil: #9c2b1f;
+  --tape-grey: #b9b4a4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(34, 48, 74, 0.025) 0 2px, transparent 2px 28px),
+    #d8cfae;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.rulebook {
+  max-width: 760px;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 3px double var(--ink);
+  box-shadow: 0 0 0 6px var(--paper-deep), 0 14px 30px rgba(34, 48, 74, 0.35);
+  padding: 0 0 1.5rem;
+  position: relative;
+}
+
+/* Corner rivets, like a cardboard rulebook box */
+.rulebook::before,
+.rulebook::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #cfd6e4, #6b7893 70%);
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.4);
+}
+.rulebook::before { left: 10px; }
+.rulebook::after { right: 10px; }
+
+.chapter-head {
+  text-align: center;
+  padding: 2.5rem 2rem 1.5rem;
+  border-bottom: 3px double var(--ink);
+  background:
+    radial-gradient(ellipse at center, rgba(168, 121, 28, 0.10), transparent 70%);
+}
+
+.brand {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.35em;
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.brand-sub {
+  display: block;
+  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  font-weight: normal;
+  color: var(--gold);
+  margin-top: 0.35rem;
+}
+
+.head-rule {
+  height: 6px;
+  margin: 1rem auto;
+  width: 70%;
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 14px, transparent 14px 20px, var(--gold-bright) 20px 34px, transparent 34px 40px);
+}
+
+.chapter-kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--red-pencil);
+  margin: 0 0 0.75rem;
+}
+
+.chapter-head h1 {
+  font-size: 2.6rem;
+  margin: 0.2rem 0 0.5rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.chapter-sub {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.chapter-body { padding: 1.5rem 2.25rem 0.5rem; }
+
+.rule-block {
+  margin-bottom: 2rem;
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--gold-bright);
+}
+
+.rule-block h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+.rule-block p { margin: 0 0 0.9rem; }
+.rule-block strong { color: var(--red-pencil); }
+.rule-block a { color: var(--ink); text-decoration-color: var(--gold-bright); }
+
+/* The tape block: grey masking-tape banner behind the note */
+.rule-block.tape {
+  border-left-color: var(--tape-grey);
+  background: linear-gradient(180deg, rgba(185, 180, 164, 0.22), transparent 65%);
+  padding: 1rem 1.1rem 1rem 1.6rem;
+}
+
+.chart-note {
+  position: relative;
+  margin: 1.2rem 0 1.2rem 0.75rem;
+  padding: 0.9rem 1.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2c2a22;
+  background:
+    linear-gradient(178deg, rgba(185, 180, 164, 0.85), rgba(171, 166, 148, 0.85));
+  border-top: 2px dashed rgba(44, 42, 34, 0.5);
+  border-bottom: 2px dashed rgba(44, 42, 34, 0.5);
+  box-shadow: 0 3px 6px rgba(34, 48, 74, 0.25);
+  transform: rotate(-0.4deg);
+}
+.chart-note::before {
+  content: "CHART MARGIN NOTE — STANDING INTERPRETATION";
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: #55503e;
+  margin-bottom: 0.5rem;
+}
+
+.chapter-foot {
+  border-top: 3px double var(--ink);
+  margin: 1.5rem 2rem 0;
+  padding: 0.9rem 0 0.25rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 560px) {
+  .rulebook { margin: 1rem 0.5rem; }
+  .chapter-head, .chapter-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .chapter-foot { margin-left: 1.25rem; margin-right: 1.25rem; }
+}
