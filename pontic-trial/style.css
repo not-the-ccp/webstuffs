@@ -1,0 +1,373 @@
+/* The Straits v. The Pontic Record — Case No. 21, Smyrna bench, 14 January 1923 */
+
+:root {
+  --parchment: #efe3c8;
+  --parchment-deep: #e2d0a8;
+  --ink: #241a10;
+  --ink-soft: #4a3a26;
+  --oxblood: #6e1414;
+  --wax: #8c1f1f;
+  --brass: #9a7b2d;
+  --brass-bright: #c9a24a;
+  --sea: #1e3a35;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "IM Fell English", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.62;
+  background-color: #17130c;
+  background-image:
+    radial-gradient(ellipse at 20% -10%, rgba(201, 162, 74, 0.22), transparent 55%),
+    radial-gradient(ellipse at 85% 110%, rgba(110, 20, 20, 0.35), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #17130c 0%, #1d160d 45%, #120d07 100%);
+  min-height: 100vh;
+}
+
+/* ---- floating courtroom dust in the lamplight ---- */
+.mote-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle 1.5px at 12% 24%, rgba(230, 200, 130, 0.5), transparent 100%),
+    radial-gradient(circle 1px at 78% 12%, rgba(230, 200, 130, 0.4), transparent 100%),
+    radial-gradient(circle 2px at 55% 68%, rgba(230, 200, 130, 0.3), transparent 100%),
+    radial-gradient(circle 1px at 34% 82%, rgba(230, 200, 130, 0.4), transparent 100%),
+    radial-gradient(circle 1.5px at 90% 55%, rgba(230, 200, 130, 0.35), transparent 100%);
+  animation: motes 26s linear infinite alternate;
+  opacity: 0.8;
+}
+@keyframes motes {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-14px, 22px, 0); }
+}
+
+/* ---- header: the bench ---- */
+.bench-head {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--parchment);
+  padding: 34px 16px 22px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,162,74,0.28), transparent 60%),
+    linear-gradient(180deg, rgba(110,20,20,0.5), transparent 70%);
+  border-bottom: 3px double var(--brass);
+}
+
+.key-band {
+  height: 12px;
+  margin: 0 auto;
+  max-width: 640px;
+  background-image:
+    repeating-linear-gradient(90deg,
+      var(--brass-bright) 0 6px, transparent 6px 12px,
+      var(--brass-bright) 12px 18px, transparent 18px 24px),
+    repeating-linear-gradient(90deg,
+      transparent 0 6px, var(--brass) 6px 12px, transparent 12px 18px, var(--brass) 18px 24px);
+  background-size: 24px 4px, 24px 4px;
+  background-position: 0 2px, 0 8px;
+  background-repeat: repeat-x;
+  opacity: 0.85;
+}
+.key-band:last-child { margin-top: 14px; }
+
+.eagle {
+  width: 108px;
+  height: 108px;
+  margin: 6px auto 4px;
+  display: block;
+  animation: crest-breathe 7s ease-in-out infinite;
+}
+@keyframes crest-breathe {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(201,162,74,0.35)); }
+  50%      { transform: scale(1.04); filter: drop-shadow(0 0 14px rgba(201,162,74,0.6)); }
+}
+.crest-ring { fill: none; stroke: var(--brass-bright); stroke-width: 2.5; }
+.crest-ring.inner { stroke-width: 1; stroke-dasharray: 4 4; }
+.crest-cross { stroke: var(--brass); stroke-width: 1; opacity: 0.7; }
+.eagle-body { fill: var(--brass-bright); }
+.crest-word {
+  fill: var(--brass-bright);
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-anchor: middle;
+}
+
+.court-name {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 10px 0 4px;
+  color: var(--brass-bright);
+}
+.court-sub {
+  font-style: italic;
+  margin: 0 0 8px;
+  color: #d8c69a;
+  font-size: 1.02rem;
+}
+.docket-line {
+  margin: 0 auto;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  color: var(--parchment);
+  border-top: 1px solid rgba(201,162,74,0.5);
+  border-bottom: 1px solid rgba(201,162,74,0.5);
+  display: inline-block;
+  padding: 4px 18px;
+}
+
+/* ---- the sheet ---- */
+.sheet {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 40px auto 70px;
+  padding: 56px 62px 46px;
+  background-color: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255,252,240,0.9), transparent 55%),
+    radial-gradient(ellipse at 0% 100%, rgba(110,20,20,0.10), transparent 40%),
+    radial-gradient(ellipse at 100% 100%, rgba(30,58,53,0.12), transparent 45%),
+    repeating-linear-gradient(180deg, transparent 0 27px, rgba(74,58,38,0.09) 27px 28px),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  border: 2px solid var(--brass);
+  outline: 1px solid rgba(110,20,20,0.5);
+  outline-offset: 5px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.55),
+    inset 0 0 90px rgba(122, 90, 40, 0.22),
+    inset 0 0 8px rgba(255,250,235,0.8);
+}
+.sheet::before {
+  content: "ΑΔΙΚΗΜΑ · ΑΛΗΘΕΙΑ · ΜΗΛΕΤΗ";
+  position: absolute;
+  top: 10px; left: 0; right: 0;
+  text-align: center;
+  font-family: "IM Fell English", Georgia, serif;
+  letter-spacing: 0.5em;
+  font-size: 0.72rem;
+  color: rgba(74,58,38,0.55);
+}
+
+/* wax-seal stamp */
+.stamp {
+  position: absolute;
+  top: 34px;
+  right: 40px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #f2d9c4;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  background:
+    radial-gradient(circle at 32% 30%, rgba(255,190,150,0.5), transparent 45%),
+    radial-gradient(circle, var(--wax) 0%, #5c1010 78%, #3f0a0a 100%);
+  border: 3px solid #711616;
+  box-shadow:
+    0 8px 16px rgba(0,0,0,0.4),
+    inset 0 0 12px rgba(0,0,0,0.5),
+    inset 0 0 30px rgba(255,120,80,0.15);
+  transform: rotate(-11deg);
+  animation: seal-throb 5s ease-in-out infinite;
+}
+@keyframes seal-throb {
+  0%, 100% { box-shadow: 0 8px 16px rgba(0,0,0,0.4), inset 0 0 12px rgba(0,0,0,0.5); }
+  50%      { box-shadow: 0 8px 20px rgba(110,20,20,0.55), inset 0 0 16px rgba(0,0,0,0.6); }
+}
+
+.caption {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  text-align: center;
+  margin: 2px 0 6px;
+  color: var(--oxblood);
+  letter-spacing: 0.05em;
+}
+.case-title {
+  font-family: "UnifrakturCook", "IM Fell English", Georgia, serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: clamp(1.7rem, 4.2vw, 2.6rem);
+  line-height: 1.25;
+  margin: 0 0 14px;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255,250,235,0.7);
+}
+.parties {
+  text-align: center;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto 4px;
+}
+.hour {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  color: var(--oxblood);
+  margin-bottom: 18px;
+}
+
+.gold-rule {
+  border: 0;
+  height: 7px;
+  margin: 26px 0;
+  background:
+    linear-gradient(90deg, transparent, var(--brass-bright) 15%, #f0d891 50%, var(--brass-bright) 85%, transparent),
+    linear-gradient(180deg, var(--brass), transparent);
+  background-blend-mode: normal;
+  background-size: 100% 2px, 100% 2px;
+  background-position: 0 1px, 0 5px;
+  background-repeat: no-repeat;
+}
+
+/* ---- folios (the transcript) ---- */
+.folio { margin-bottom: 30px; position: relative; }
+.folio::before {
+  content: "";
+  position: absolute;
+  left: -34px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--wax), transparent);
+  opacity: 0.35;
+}
+
+.spk {
+  font-family: "IM Fell English", Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--oxblood);
+  margin: 18px 0 2px;
+  font-size: 1.02rem;
+}
+.line { margin: 4px 0 10px; }
+.line::first-letter {
+  font-family: "UnifrakturCook", "IM Fell English", serif;
+  font-size: 1.06em;
+}
+.witness { font-variant: small-caps; letter-spacing: 0.08em; color: var(--sea); font-weight: 700; }
+.witness.long { color: var(--sea); }
+.note {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: rgba(74,58,38,0.75);
+}
+em { color: var(--ink); }
+
+.record-line {
+  margin: 22px auto;
+  padding: 20px 26px;
+  max-width: 620px;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.35rem;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--wax);
+  border-top: 3px double var(--wax);
+  border-bottom: 3px double var(--wax);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(110,20,20,0.07), transparent 75%);
+  text-shadow: 0 1px 0 rgba(255,250,235,0.8);
+}
+
+/* ---- colophon & gavel ---- */
+.colophon {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+.colophon p:first-child {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.colophon-small { font-size: 0.88rem; font-style: italic; color: rgba(74,58,38,0.75); }
+
+.gavel {
+  margin: 14px auto 6px;
+  display: block;
+  font-family: "IM Fell English", Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1rem;
+  color: var(--parchment);
+  background: linear-gradient(180deg, #7d2020, #4c0e0e);
+  border: 2px solid var(--brass);
+  border-radius: 4px;
+  padding: 10px 26px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,200,150,0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.gavel:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,0.4); }
+.gavel:active { transform: translateY(1px) rotate(-2deg); }
+.gavel-count { margin: 4px 0 0; font-style: italic; font-size: 0.9rem; }
+
+/* ---- bottom ticker of the relay ---- */
+.ticker {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-top: 2px solid var(--brass);
+  border-bottom: 2px solid var(--brass);
+  background: linear-gradient(180deg, rgba(30,58,53,0.85), rgba(20,35,31,0.95));
+  color: var(--brass-bright);
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  padding: 8px 0;
+}
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: tick 40s linear infinite;
+}
+.ticker-track span { padding-right: 0; }
+@keyframes tick {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- gavel strike shake ---- */
+.shake { animation: desk-shake 0.4s ease; }
+@keyframes desk-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-0.4deg); }
+  40% { transform: translateX(5px) rotate(0.35deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+
+a { color: var(--oxblood); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+a:hover { color: var(--wax); background: rgba(201,162,74,0.18); }
+
+@media (max-width: 720px) {
+  body { font-size: 17px; }
+  .sheet { margin: 20px 12px 50px; padding: 44px 22px 36px; }
+  .folio::before { left: -12px; }
+  .stamp { width: 74px; height: 74px; top: 22px; right: 18px; font-size: 0.62rem; }
+}
