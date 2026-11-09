@@ -1,0 +1,117 @@
+/* Fjorton Krog — Stockholm dining notes, Review No. 4 of the season */
+:root {
+  --blue: #0052b8;
+  --blue-dark: #003d80;
+  --gold: #fecc00;
+  --gold-dark: #d4a300;
+  --paper: #f7f3ea;
+  --ink: #1c2b3d;
+  --muted: #405065;
+}
+html {
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+  padding: 1rem 1rem 3rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+article.krog {
+  max-width: 68ch;
+  margin: 0 auto;
+  background: #fff;
+  border: 8px solid var(--blue);
+  border-top: 24px solid var(--gold);
+  padding: 1.5rem 2rem 2rem;
+  box-shadow: 0 12px 34px rgba(0, 82, 184, 0.18);
+}
+header.krog-head {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+p.eyebrow {
+  color: var(--blue-dark);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.35rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  border-bottom: 4px double var(--gold);
+  padding-bottom: 0.45rem;
+  display: inline-block;
+}
+p.subtitle {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.55rem 0 0;
+}
+p.verdict {
+  background: var(--gold);
+  color: #3b3000;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  border-left: 7px solid var(--blue);
+  margin: 1rem 0 2rem;
+}
+h2 {
+  font-size: 1.12rem;
+  color: var(--blue-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 2.2rem 0 0.8rem;
+  border-left: 5px solid var(--blue);
+  padding-left: 0.7rem;
+}
+p {
+  margin: 0 0 1.05rem;
+  text-align: justify;
+}
+p.dropcap::first-letter {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: var(--blue-dark);
+  float: left;
+  margin: 0.05rem 0.55rem 0 0;
+  line-height: 0.9;
+}
+hr.islands {
+  border: none;
+  height: 16px;
+  margin: 2.2rem auto;
+  max-width: 55%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue) 20%, var(--gold) 20%, var(--gold) 26%, transparent 26%, transparent 100%);
+  background-size: 36px 100%;
+  background-repeat: repeat-x;
+}
+a {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+footer.colophon {
+  border-top: 2px solid #c8d2e0;
+  margin-top: 2.8rem;
+  padding-top: 1.1rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: justify;
+}
+@media (max-width: 560px) {
+  body { padding: 0.6rem 0.6rem 2rem; }
+  article.krog { border-width: 5px; border-top-width: 14px; padding: 1rem 1.2rem; }
+  p.dropcap::first-letter { font-size: 2rem; }
+  hr.islands { max-width: 70%; }
+}
