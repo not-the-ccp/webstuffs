@@ -1,0 +1,256 @@
+/* Flanders Street Weather Almanac — Entry No. 47 */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #1e2a3a;
+  --storm: #14342b;
+  --barometer: #8c2f2b;
+  --isobar: #3a5a6e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--storm);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(244, 239, 227, 0.06) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 40%, rgba(244, 239, 227, 0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 80%, rgba(244, 239, 227, 0.05) 0 2px, transparent 3px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.sheet {
+  max-width: 980px;
+  margin: 2.5rem auto;
+  padding: 2.5rem 2.5rem 3rem;
+  background: var(--paper);
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(30, 42, 58, 0.35), 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* faint isobar rings behind the whole sheet */
+.isobars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    repeating-radial-gradient(circle at 85% -10%,
+      transparent 0 56px,
+      rgba(58, 90, 110, 0.08) 56px 57px,
+      transparent 57px 120px,
+      rgba(58, 90, 110, 0.06) 120px 121px);
+}
+
+.masthead { position: relative; }
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--isobar);
+  border-bottom: 1px solid rgba(30, 42, 58, 0.3);
+  padding-bottom: 0.6rem;
+}
+
+.entry-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+.entry-number {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--barometer);
+  border: 3px solid var(--barometer);
+  padding: 0.7rem 0.9rem;
+  transform: rotate(-4deg);
+  background: rgba(140, 47, 43, 0.06);
+}
+
+.entry-title-block { min-width: 0; }
+
+.storm-class {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--isobar);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--storm);
+  font-weight: 700;
+}
+
+.aka {
+  margin: 0.7rem 0 0;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink);
+  max-width: 34em;
+}
+
+/* rotated observation stamp, overlapping the title */
+.stamp {
+  align-self: start;
+  transform: rotate(7deg);
+  border: 3px double var(--barometer);
+  color: var(--barometer);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 0.5rem 0.8rem;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+  margin-top: 1.2rem;
+}
+
+.masthead-rule {
+  height: 4px;
+  margin-top: 1.6rem;
+  background:
+    linear-gradient(90deg, var(--storm) 0 62%, var(--barometer) 62% 78%, transparent 78% 100%);
+}
+
+/* asymmetric two-column body: readings on the left, entry on the right */
+.almanac {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2.4rem;
+  margin-top: 2.2rem;
+}
+
+.obs-panel {
+  border: 1px solid rgba(30, 42, 58, 0.4);
+  background: rgba(58, 90, 110, 0.07);
+  padding: 1.1rem 1.1rem 1.3rem;
+  transform: rotate(-0.6deg);
+  align-self: start;
+}
+
+.obs-heading {
+  margin: 0 0 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--isobar);
+  border-bottom: 2px solid var(--isobar);
+  padding-bottom: 0.4rem;
+}
+
+.obs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+}
+
+.obs-table th {
+  text-align: left;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--barometer);
+  border-bottom: 1px solid var(--barometer);
+  padding-bottom: 0.25rem;
+}
+
+.obs-table td {
+  border-bottom: 1px dashed rgba(30, 42, 58, 0.3);
+  padding: 0.35rem 0.2rem;
+  vertical-align: top;
+}
+
+.obs-table td:first-child { white-space: nowrap; color: var(--storm); font-weight: 700; }
+
+.cell-data { margin: 1.1rem 0 0; }
+
+.cell-data dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--isobar);
+}
+
+.cell-data dd { margin: 0.05rem 0 0.55rem; font-size: 0.9rem; }
+
+.gust-line {
+  margin: 1.1rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 2px solid var(--storm);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--storm);
+}
+
+#gust { font-weight: 700; color: var(--barometer); }
+
+.entry-body { max-width: 44em; }
+
+.entry-body p { margin: 0 0 1.15rem; font-size: 1.02rem; }
+
+.entry-body .lede::first-letter {
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.8;
+  padding: 0.15rem 0.5rem 0 0;
+  color: var(--barometer);
+  font-weight: 700;
+}
+
+.entry-body a { color: var(--storm); }
+
+.entry-body a:hover { color: var(--barometer); }
+
+.colophon {
+  margin-top: 2.6rem;
+  border-top: 1px solid rgba(30, 42, 58, 0.3);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: rgba(30, 42, 58, 0.85);
+}
+
+.strip {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.5em;
+  color: var(--barometer);
+  font-size: 1rem;
+  margin: 0 0 0.6rem;
+}
+
+.footlinks { margin-top: 0.8rem; }
+
+.footlinks a { color: var(--storm); }
+.footlinks a:hover { color: var(--barometer); }
+
+@media (max-width: 720px) {
+  .sheet { margin: 0; padding: 1.5rem 1.2rem 2rem; }
+  .entry-row { grid-template-columns: 1fr; gap: 1rem; }
+  .stamp { margin: 0 0 0 auto; }
+  .almanac { grid-template-columns: 1fr; gap: 1.6rem; }
+  .obs-panel { transform: none; }
+}
