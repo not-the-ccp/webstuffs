@@ -1,0 +1,171 @@
+/* The Channel Six Signal — newsletter of the Pocatello Aerial & Frequency Keepers */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9dcbe;
+  --ink: #2b2a26;
+  --navy: #1f3a5f;
+  --red: #8c2f2f;
+  --line: #b7a878;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cfb4;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(43, 42, 38, 0.03) 0 1px, transparent 1px 26px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 0 var(--line), 0 14px 30px rgba(43, 42, 38, 0.25);
+  padding: 2.2rem 2.4rem 1.6rem;
+  position: relative;
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed var(--line);
+  pointer-events: none;
+}
+
+/* Masthead */
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--navy);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.channel-stamp {
+  position: absolute;
+  top: -0.4rem;
+  right: 0;
+  background: var(--red);
+  color: var(--paper);
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.7rem;
+  transform: rotate(4deg);
+  border: 1px solid var(--ink);
+  box-shadow: 2px 2px 0 rgba(43, 42, 38, 0.4);
+  font-size: 0.85rem;
+}
+
+.club-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--navy);
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 0.1rem 0 0.3rem;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.issue {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0;
+  color: #4c4738;
+}
+
+/* Tuning dial */
+.dial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0.9rem auto 0;
+  padding: 0.35rem 1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  width: 16rem;
+}
+
+.dial .tick {
+  width: 2px;
+  height: 10px;
+  background: var(--ink);
+  opacity: 0.6;
+}
+
+.dial .needle {
+  width: 3px;
+  height: 18px;
+  background: var(--red);
+  margin-left: auto;
+  transition: margin-left 2.4s ease-in-out;
+  box-shadow: 0 0 6px rgba(140, 47, 47, 0.8);
+}
+
+/* Body letters */
+.letter {
+  margin-bottom: 1.5rem;
+}
+
+.letter h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+.letter p {
+  margin: 0 0 0.8rem;
+}
+
+a {
+  color: var(--navy);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--red);
+}
+
+/* The log line */
+.logline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--red);
+  padding: 0.8rem 1rem;
+  margin: 0.9rem 0;
+  color: #3a2c2c;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* Colophon */
+.colophon {
+  border-top: 3px double var(--navy);
+  margin-top: 1.6rem;
+  padding-top: 0.8rem;
+  font-size: 0.78rem;
+  text-align: center;
+  color: #4c4738;
+}
+
+.colophon p {
+  margin: 0.3rem 0;
+}
