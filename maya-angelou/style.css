@@ -1,0 +1,178 @@
+/* Maya Angelou — diary entry: ruled paper, red margin, blue ink, one red date stamp */
+
+:root {
+  --paper: #f7f1e1;
+  --paper-shade: #efe6cf;
+  --rule: #a9c3d8;
+  --margin-red: #c94f3d;
+  --ink: #1e3a5f;
+  --ink-faded: #46618a;
+  --stamp: #b23a2e;
+  --card: #e9dfc4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #2b2118;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, #3a2e21 0%, #241c13 70%);
+  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", "Snell Roundhand", "Apple Chancery", cursive;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.book {
+  display: flex;
+  width: 100%;
+  max-width: 880px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* the dark blue cover peeking out at the left */
+.cover {
+  width: 64px;
+  flex: none;
+  background:
+    linear-gradient(90deg, #16213a 0%, #1d2c4e 60%, #101a30 100%);
+  color: #c9b98a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-radius: 6px 0 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.cover-stamp { font-size: 0.6rem; opacity: 0.75; }
+.cover-title { font-size: 0.95rem; writing-mode: vertical-rl; margin: 1rem 0; letter-spacing: 0.5em; }
+.cover-line { font-size: 0.5rem; writing-mode: vertical-rl; opacity: 0.6; letter-spacing: 0.18em; text-transform: lowercase; }
+
+/* ruled page */
+.page {
+  flex: 1;
+  background: var(--paper);
+  background-image:
+    linear-gradient(90deg, transparent 0, transparent 3.1rem, rgba(201, 79, 61, 0.5) 3.1rem, rgba(201, 79, 61, 0.5) calc(3.1rem + 2px), transparent calc(3.1rem + 2px)),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.55rem,
+      var(--rule) 1.55rem,
+      var(--rule) calc(1.55rem + 1px)
+    );
+  background-attachment: local;
+  padding: 2.75rem 3rem 3rem 4.25rem;
+  position: relative;
+  border-radius: 0 6px 6px 0;
+}
+
+/* coffee ring, upper right */
+.page::after {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  right: 2.2rem;
+  width: 88px;
+  height: 88px;
+  border: 7px solid rgba(150, 104, 48, 0.16);
+  border-radius: 50%;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+/* punched holes down the left margin */
+.page::before {
+  content: "";
+  position: absolute;
+  left: 1.35rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: 14px;
+  background-image: radial-gradient(circle at 7px 7px, #241c13 3.2px, transparent 3.8px);
+  background-size: 14px 3.2rem;
+  background-repeat: repeat-y;
+  pointer-events: none;
+}
+
+.masthead { margin-bottom: 1.2rem; }
+
+.date-stamp {
+  display: inline-block;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  border-radius: 4px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transform: rotate(-1.4deg);
+  font-family: Georgia, "Times New Roman", serif;
+  box-shadow: inset 0 0 6px rgba(178, 58, 46, 0.18);
+}
+
+.entry-title {
+  margin: 0.9rem 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.35;
+  border-bottom: 1.5px solid var(--ink-faded);
+  display: inline;
+}
+.entry-title .ink-name { color: var(--stamp); }
+
+.weather-line {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+}
+
+.diary p {
+  margin: 0 0 1.45rem;
+  line-height: 1.55rem;
+  font-size: 0.98rem;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.9;
+  padding: 0.12rem 0.35rem 0 0;
+  color: var(--stamp);
+}
+
+em { font-style: italic; }
+
+.specimen-label {
+  display: inline;
+  background: linear-gradient(0deg, rgba(233, 223, 196, 0.9), rgba(233, 223, 196, 0.9));
+  padding: 0 0.25rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(120, 96, 52, 0.35);
+  color: var(--ink-faded);
+}
+
+.further {
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--ink-faded);
+}
+
+.home-link a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ink-faded);
+}
+.home-link a:hover { color: var(--stamp); border-bottom-color: var(--stamp); }
+
+a { color: var(--stamp); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: #7d2317; }
+
+@media (max-width: 620px) {
+  .cover { display: none; }
+  .page { padding: 2rem 1.4rem 2.5rem 3.2rem; }
+}
