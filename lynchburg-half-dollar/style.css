@@ -1,0 +1,201 @@
+/* The Lynchburg Enquirer — Classifieds, Column 4, 23 October 1936 */
+
+:root {
+  --paper: #efe6cf;
+  --paper-deep: #e6dabf;
+  --ink: #2b2118;
+  --ink-faded: #5c4d3a;
+  --rule: #3a2f22;
+  --band: #2b2118;
+  --accent: #6e1f14;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #b7ad97;
+  background-image: radial-gradient(circle at 50% 0%, #c7bda6 0%, #a99e85 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Liberation Serif", serif;
+  line-height: 1.42;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 28px auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 18% 6%, rgba(90, 70, 40, 0.10), transparent 40%),
+    radial-gradient(ellipse at 88% 92%, rgba(90, 70, 40, 0.14), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(120, 100, 60, 0.03) 0 2px, transparent 2px 4px);
+  border: 1px solid #7d715a;
+  box-shadow: 0 14px 40px rgba(40, 30, 15, 0.45), inset 0 0 60px rgba(120, 95, 55, 0.18);
+  padding: 26px 30px 34px;
+}
+
+/* Masthead */
+.masthead { text-align: center; }
+
+.masthead-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-faded);
+  font-variant: small-caps;
+}
+
+.paper-name {
+  margin: 8px 0 2px;
+  font-size: 2.9rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-variant: small-caps;
+}
+
+.paper-sub {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-faded);
+}
+
+.rules { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.rules span { display: block; height: 2px; width: 100%; background: var(--rule); }
+.rules span:last-child { height: 1px; width: 96%; }
+
+.section-band {
+  margin: 12px 0 20px;
+  background: var(--band);
+  color: var(--paper);
+  font-size: 0.86rem;
+  letter-spacing: 0.14em;
+  font-variant: small-caps;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+/* Columns */
+.columns {
+  column-count: 2;
+  column-gap: 26px;
+  column-rule: 1px solid rgba(58, 47, 34, 0.55);
+}
+
+.ad {
+  break-inside: avoid;
+  margin-bottom: 18px;
+  border-bottom: 1px dashed rgba(58, 47, 34, 0.4);
+  padding-bottom: 14px;
+  font-size: 0.86rem;
+}
+
+.ad:last-of-type { border-bottom: none; }
+
+.ad-head {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+}
+
+.ad-cat {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+}
+
+.ad-price {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faded);
+  letter-spacing: 0.05em;
+}
+
+.ad p { margin: 0 0 8px; text-align: justify; }
+.ad p:last-child { margin-bottom: 0; }
+
+.quoted {
+  font-style: italic;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+  display: inline;
+}
+
+/* Coin figure */
+.coin-fig {
+  margin: 26px 0 0;
+  text-align: center;
+  break-inside: avoid;
+}
+
+.coin {
+  width: 190px;
+  height: 190px;
+  filter: drop-shadow(0 4px 6px rgba(40, 30, 15, 0.4));
+}
+
+.coin-txt {
+  font-family: Georgia, serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  fill: var(--ink-faded);
+}
+
+.coin-big {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  fill: var(--ink);
+}
+
+.coin-fig figcaption {
+  max-width: 520px;
+  margin: 10px auto 0;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--ink-faded);
+}
+
+/* Footer */
+.foot {
+  margin-top: 26px;
+  border-top: 3px double var(--rule);
+  padding-top: 10px;
+  text-align: center;
+}
+
+.foot-stamp {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  font-variant: small-caps;
+  color: var(--ink-faded);
+}
+
+.foot-links { margin: 0; font-size: 0.8rem; }
+.foot-links a, .ad a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 2px;
+}
+.foot-links a:hover, .ad a:hover { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .sheet { margin: 0; border: none; padding: 18px 14px 26px; }
+  .columns { column-count: 1; }
+  .paper-name { font-size: 2.1rem; }
+  .masthead-row { flex-direction: column; gap: 2px; }
+}
