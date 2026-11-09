@@ -1,0 +1,129 @@
+/* Route 448 — The Drawer Nine thread. Restrained board styling. */
+:root {
+  --paper: #f7f4ee;
+  --ink: #26231f;
+  --faint: #6d675c;
+  --line: #d8d1c2;
+  --rail: #7c2d1e;
+  --card: #fffdf8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 4rem;
+}
+
+.boardhead .board {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.4rem;
+}
+
+.crumbs {
+  font-size: 0.82rem;
+  color: var(--faint);
+  margin: 0 0 1.6rem;
+}
+.crumbs a { color: var(--faint); text-decoration: none; border-bottom: 1px dotted var(--line); }
+.crumbs a:hover { color: var(--ink); }
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.7rem;
+}
+
+.threadmeta {
+  font-size: 0.85rem;
+  color: var(--faint);
+  font-style: italic;
+  margin: 0 0 2.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.post {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  padding: 1.4rem 1.6rem 1.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.post header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.poster {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.rank { font-size: 0.75rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; }
+.date { margin-left: auto; font-size: 0.78rem; color: var(--faint); font-style: italic; }
+
+.body p { margin: 0 0 1rem; }
+.body p:last-child { margin-bottom: 0; }
+
+a { color: var(--rail); text-decoration: none; border-bottom: 1px solid rgba(124, 45, 30, 0.35); }
+a:hover { border-bottom-color: var(--rail); }
+
+.label {
+  margin: 1.1rem 0;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-style: italic;
+  font-size: 1.02rem;
+  position: relative;
+}
+.label::before {
+  content: "Drawer nine · label, kept verbatim";
+  position: absolute;
+  top: -0.55em;
+  left: 0.9rem;
+  background: var(--paper);
+  padding: 0 0.5rem;
+  font-size: 0.68rem;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.post-mod { border-left-color: var(--rail); }
+.post-mod .poster { color: var(--rail); }
+
+.boardfoot {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--ink);
+  font-size: 0.82rem;
+  color: var(--faint);
+}
+.boardfoot p { margin: 0; }
+.boardfoot a { color: var(--faint); }
+.boardfoot a:hover { color: var(--ink); }
