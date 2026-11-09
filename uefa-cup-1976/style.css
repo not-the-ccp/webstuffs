@@ -1,0 +1,245 @@
+/* The Two-Leg Tour — 1976 tourist brochure stylesheet */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #ece0c2;
+  --red: #b22234;
+  --bricks: #8f3b2c;
+  --navy: #1d3557;
+  --gold: #c9a227;
+  --ink: #2b2320;
+  --rule: #b22234;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #3a2f28;
+  background-image: radial-gradient(circle at 20% 10%, #4a3d34 0%, #3a2f28 60%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.paper {
+  max-width: 52rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(143, 59, 44, 0.04) 0 2px, transparent 2px 26px);
+  border: 3px double var(--bricks);
+  box-shadow: 0 0 0 6px var(--paper-deep), 0 18px 40px rgba(0, 0, 0, 0.45);
+  padding: 0 0 2rem;
+}
+
+/* Cover */
+.cover {
+  text-align: center;
+  padding: 2.2rem 2rem 1.4rem;
+  border-bottom: 3px double var(--bricks);
+  background:
+    linear-gradient(180deg, rgba(178, 34, 52, 0.08), transparent 70%);
+}
+
+.cover .issue {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bricks);
+  margin: 0 0 1rem;
+}
+
+.cover h1 {
+  font-size: 3.2rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+  color: var(--red);
+  text-shadow: 2px 2px 0 var(--paper-deep), 4px 4px 0 rgba(178, 34, 52, 0.15);
+}
+
+.cover-sub {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--navy);
+  font-size: 1.15rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.cover-rule {
+  color: var(--gold);
+  letter-spacing: 0.35em;
+  margin: 0.6rem 0 1rem;
+  font-size: 0.8rem;
+}
+
+.cover-lead {
+  max-width: 36rem;
+  margin: 0 auto;
+  font-style: italic;
+  color: #4a3f36;
+}
+
+/* Panels */
+.panel {
+  padding: 1.4rem 2.4rem 0.4rem;
+}
+
+.panel h2 {
+  font-size: 1.25rem;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin-top: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+/* Stops */
+.stop {
+  border: 1px dashed var(--bricks);
+  border-left: 6px solid var(--red);
+  background: rgba(255, 252, 240, 0.55);
+  padding: 1rem 1.2rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.stop-num {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--red);
+  color: var(--paper);
+  padding: 0.15rem 0.6rem;
+  margin-right: 0.6rem;
+}
+
+.stop h3 {
+  display: inline;
+  color: var(--bricks);
+  font-size: 1.05rem;
+}
+
+/* Scoreboard */
+.scoreboard {
+  margin: 1rem 0 0.4rem;
+  background: #10131a;
+  color: #e8e4d8;
+  border: 4px solid var(--gold);
+  outline: 2px solid var(--navy);
+  padding: 1rem 1.4rem 1.2rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.scoreboard-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.6rem;
+}
+
+.scoreboard-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.scoreboard-line .team {
+  letter-spacing: 0.1em;
+  flex: 0 0 11rem;
+  color: #f4ecd8;
+}
+
+.goal {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  line-height: 1.1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  transition: background 0.4s steps(2);
+}
+
+.scoreboard.show .goal {
+  background: var(--red);
+  color: var(--paper);
+  border-color: var(--red);
+}
+
+.scoreboard-note {
+  font-size: 0.7rem;
+  color: #9aa0ad;
+  margin: 0.4rem 0 0;
+}
+
+.bell {
+  display: block;
+  margin: 0 0 1.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: var(--paper);
+  border: 2px solid var(--gold);
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+}
+
+.bell:hover { background: var(--bricks); }
+
+/* Intercom log */
+.intercom {
+  margin: 1rem 0 1.2rem;
+  padding: 0.9rem 1.2rem;
+  background: #22303c;
+  color: #d7e0e8;
+  border-left: 6px solid var(--gold);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+}
+
+.intercom-label { font-size: 0.7rem; color: #9fb4c4; margin: 0 0 0.5rem; }
+
+.intercom-line {
+  margin: 0 0 0.5rem;
+  color: #ffd27a;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.intercom-note { margin: 0; font-size: 0.72rem; color: #8aa0b0; font-style: italic; }
+
+/* Colophon & foot */
+.colophon { padding-bottom: 1.6rem; }
+.colophon p { font-size: 0.9rem; }
+
+a { color: var(--red); }
+a:hover { color: var(--navy); }
+
+.brochure-foot {
+  text-align: center;
+  margin-top: 1.5rem;
+  border-top: 3px double var(--bricks);
+  padding-top: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--bricks);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.foot-rule { color: var(--gold); letter-spacing: 1em; }
+
+@media (max-width: 40rem) {
+  .paper { margin: 0.5rem; padding: 0 0 1.2rem; }
+  .panel { padding: 1rem 1.2rem 0.2rem; }
+  .cover h1 { font-size: 2.2rem; }
+  .scoreboard-line .team { flex-basis: 7rem; }
+}
