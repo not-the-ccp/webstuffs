@@ -1,0 +1,185 @@
+/* The Long Guide to Famous Evenings — No. 63: Rome, 27 May 2009 */
+
+:root {
+  --paper: #f5efdf;
+  --ink: #26211a;
+  --faded: #6b6152;
+  --rule: #b7a888;
+  --accent: #1e3a6d;
+  --scarlet: #8c1d18;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d2c0;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.35), transparent 60%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.guide {
+  max-width: 720px;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid #c9bfa4;
+  box-shadow: 0 2px 14px rgba(60, 50, 30, 0.25), inset 0 0 60px rgba(150, 130, 90, 0.12);
+  padding: 2.2rem 2.6rem 2.8rem;
+  position: relative;
+}
+
+.guide::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.guide-mast {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--accent);
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--scarlet);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 0.8rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+a { color: var(--accent); }
+a:hover { color: var(--scarlet); }
+
+.stamp {
+  position: absolute;
+  right: -6px;
+  top: 8px;
+  transform: rotate(8deg);
+  opacity: 0.75;
+}
+
+.stamp-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  border: 2px solid var(--scarlet);
+  border-radius: 50%;
+  width: 92px;
+  height: 92px;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--scarlet);
+}
+
+.stamp-ring span:first-child {
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+}
+
+.stamp-date {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  border-top: 1px solid var(--scarlet);
+  padding-top: 2px;
+}
+
+.minutes {
+  list-style: none;
+  margin: 0.4rem 0 1rem;
+  padding: 0;
+}
+
+.minutes li {
+  margin: 0 0 0.65rem;
+  padding-left: 3.4rem;
+  position: relative;
+}
+
+.min {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: #efe8d4;
+  padding: 0.05rem 0.35rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.practical {
+  border: 1px dashed var(--rule);
+  background: #efe8d4;
+  padding: 0.4rem 1.4rem 1.2rem;
+  margin-top: 2rem;
+}
+
+.practical h2 { margin-top: 0.6rem; }
+
+.practical dl {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.practical dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  align-self: center;
+}
+
+.practical dd { margin: 0; }
+
+.home {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+@media (max-width: 560px) {
+  .guide { margin: 0; padding: 1.6rem 1.1rem; }
+  .stamp { display: none; }
+  .practical dl { grid-template-columns: 1fr; gap: 0.1rem; }
+}
