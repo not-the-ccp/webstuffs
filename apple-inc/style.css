@@ -1,0 +1,119 @@
+/* Placard No. 421 — restrained, printed-publication setting */
+
+:root {
+  --paper: #f7f4ee;
+  --ink: #1d1b17;
+  --faint: #6e675c;
+  --rule: #c9c1b2;
+  --accent: #8a2f1d;
+  --card: #efe9dd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+main.placard {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.gallery {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.5rem;
+}
+
+.byline {
+  color: var(--faint);
+  font-style: italic;
+  margin: 0;
+}
+
+.object-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  margin: 0 0 2.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.object-card div {
+  display: flex;
+  gap: 1rem;
+  padding: 0.3rem 0;
+}
+
+.object-card dt {
+  flex: 0 0 7.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding-top: 0.3rem;
+}
+
+.object-card dd {
+  margin: 0;
+}
+
+section.entry {
+  margin-bottom: 2.5rem;
+}
+
+section.entry h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+em { font-style: italic; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+.colophon {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  border-top: 1px solid var(--rule);
+  padding: 1.25rem 1rem 3rem;
+}
