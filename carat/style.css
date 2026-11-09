@@ -1,0 +1,207 @@
+/* Notice No. 48 — The Carat (Mass) · A Letter of Apology, Tufton Vestry */
+
+:root {
+  --paper: #f7f2e7;
+  --paper-deep: #efe7d6;
+  --ink: #2b2620;
+  --ink-soft: #5c5344;
+  --rule: #c9bda3;
+  --seal: #8c2f24;
+  --slip: #fbf8f0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  font-weight: 400;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.letter-head,
+.letter,
+.letter-foot {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.letter-head { padding-top: 3.5rem; }
+
+.office {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin: 0 0 1.4rem;
+}
+.office span {
+  display: block;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 0.88rem;
+  margin-top: 0.25rem;
+}
+
+.no {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  line-height: 1.1;
+  margin: 0 0 0.8rem;
+}
+
+.object-line {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0 0 1.8rem;
+}
+
+.rule { border: 0; border-top: 1px solid var(--rule); }
+.rule--double { border-top: 3px double var(--rule); }
+
+.letter { padding-top: 2.2rem; padding-bottom: 3rem; }
+
+.addressed {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--rule);
+  padding-left: 1rem;
+  margin: 0 0 1.8rem;
+}
+.addressed p { margin: 0; line-height: 1.6; }
+
+.salutation {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.25rem;
+  margin: 0 0 1.4rem;
+}
+
+.letter p { margin: 0 0 1.3rem; }
+
+a {
+  color: var(--seal);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote.hand-line {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--seal);
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+blockquote.hand-line p { margin: 0 0 0.5rem; }
+blockquote.hand-line footer {
+  font-family: "Spectral", Georgia, serif;
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.close { margin-top: 2.2rem; margin-bottom: 0.4rem; }
+.signature {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.3rem;
+  margin: 0 0 0.4rem;
+}
+.sig-sub {
+  display: block;
+  font-family: "Spectral", Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.p.s { font-size: 0.95rem; color: var(--ink-soft); }
+
+/* the weighing slip */
+.slip {
+  margin: 2.6rem 0 0;
+  padding: 1.4rem 1.6rem 1.6rem;
+  background: var(--slip);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgba(43, 38, 32, 0.08);
+}
+.slip h2 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+}
+.slip-row {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.slip-row--struck .weight { text-decoration: line-through; text-decoration-color: var(--seal); }
+.slip-row--amend .weight {
+  color: var(--seal);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.slip-row--hand {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+.slip.is-filed .slip-row--amend { opacity: 0.35; }
+.slip.is-filed .slip-row--struck .weight { text-decoration-thickness: 2px; }
+
+.slip-toggle {
+  margin-top: 0.8rem;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--seal);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+}
+.slip-toggle:hover { border-color: var(--seal); }
+
+.letter-foot { padding-bottom: 4rem; }
+.related h2 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.8rem;
+}
+.related p { margin: 0 0 0.5rem; font-size: 0.92rem; }
+
+.sign-off {
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
