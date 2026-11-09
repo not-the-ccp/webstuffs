@@ -1,0 +1,170 @@
+/* Obituary No. 62 — The Cellar Register, Flanders Street */
+
+:root {
+  --paper: #efe6d3;
+  --paper-deep: #e6d9bf;
+  --ink: #221c14;
+  --ink-soft: #4a4030;
+  --amber: #6b4a1f;
+  --hop: #5c6b3c;
+  --rule: #221c14;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(107, 74, 31, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(34, 28, 20, 0.025) 0 2px, transparent 2px 6px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.65;
+  font-size: 1.06rem;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.4rem 3rem;
+}
+
+header.obit-header {
+  max-width: 46rem;
+  margin: 2.2rem auto 0;
+  padding: 1.4rem 1.4rem 1.1rem;
+  text-align: center;
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  background:
+    linear-gradient(rgba(107, 74, 31, 0.05), rgba(107, 74, 31, 0.05)),
+    var(--paper);
+}
+
+.obit-class {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+.obit-no {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  border: 1px solid var(--ink);
+  padding: 0.15rem 0.7rem;
+  margin-bottom: 0.9rem;
+  background: var(--paper-deep);
+}
+
+h1 {
+  font-size: clamp(2.6rem, 8vw, 4rem);
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  margin: 0.2rem 0 0.3rem;
+  text-transform: uppercase;
+}
+
+.dagger { color: var(--amber); font-weight: 400; }
+
+.obit-dates {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.leaf { color: var(--hop); margin-top: 0.9rem; }
+.leaf svg { display: inline-block; }
+
+section.obit-section {
+  margin: 2.1rem 0;
+  padding-left: 1.1rem;
+  border-left: 1px solid rgba(34, 28, 20, 0.35);
+}
+
+h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border-bottom: 1px solid var(--amber);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+  font-weight: 600;
+}
+
+p { margin: 0 0 1.05rem; }
+
+section.obit-section > p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--amber);
+}
+
+blockquote {
+  margin: 1.4rem 0.4rem;
+  padding: 1rem 1.3rem;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+a { color: var(--amber); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); background: rgba(107, 74, 31, 0.12); }
+
+em { color: var(--ink-soft); }
+
+section.closing {
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+section.closing h2 { display: none; }
+
+footer.obit-footer {
+  max-width: 46rem;
+  margin: 0 auto 2.5rem;
+  padding: 1rem 1.4rem;
+  text-align: center;
+  border-top: 3px double var(--rule);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+footer p { margin: 0; }
+
+/* rising carbonation */
+.bubbles {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 0;
+  width: 2rem;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+.bubbles span {
+  position: absolute;
+  bottom: -1.2rem;
+  border: 1px solid var(--amber);
+  border-radius: 50%;
+  background: rgba(107, 74, 31, 0.08);
+  animation: rise linear forwards;
+}
+@keyframes rise {
+  to { transform: translateY(-105vh) translateX(-0.6rem); opacity: 0; }
+}
