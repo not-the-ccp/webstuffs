@@ -1,0 +1,129 @@
+/* Grandma Odette's Sonic Wave Pudding — a lovingly tiled kitchen corner, est. 1956, posted to the web 1997 */
+
+body {
+  background-color: #000066;
+  color: #ffffcc;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0 8px 32px;
+}
+
+/* starry sky: tiny web-safe dots on navy */
+body {
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.5px),
+    radial-gradient(#99ccff 1px, transparent 1.5px);
+  background-size: 90px 70px, 60px 50px;
+  background-position: 0 0, 30px 25px;
+}
+
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* the scrolling welcome bar, in the old way */
+.marquee-bar {
+  background: #000000;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px dashed #999999;
+  margin-bottom: 14px;
+}
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 28s linear infinite;
+}
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.card {
+  background-color: #ffffcc;
+  color: #000033;
+  border: 4px outset #cccc99;
+  padding: 14px 18px;
+  margin: 0 0 16px;
+}
+
+h1 {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: #990000;
+  text-align: center;
+  font-size: 26px;
+  margin: 0 0 6px;
+}
+h2 {
+  color: #000066;
+  border-bottom: 2px dashed #990000;
+  font-size: 17px;
+}
+
+.byline { text-align: center; font-style: italic; color: #333399; }
+.recipe-count {
+  display: inline-block;
+  background: #990000;
+  color: #ffffcc;
+  font-style: normal;
+  padding: 2px 8px;
+  border: 2px inset #ff9999;
+  font-size: 12px;
+}
+
+.drop::first-letter {
+  font-size: 260%;
+  color: #990000;
+  float: left;
+  line-height: 0.9;
+  padding-right: 6px;
+  font-family: Georgia, serif;
+}
+
+ul li, ol li { margin: 6px 0; }
+strong { color: #990000; }
+
+.guest {
+  border-left: 3px solid #339933;
+  background: #eeffee;
+  padding: 6px 10px;
+  margin: 8px 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+}
+.guest-prompt {
+  text-align: center;
+  color: #006600;
+  font-style: italic;
+}
+.counter {
+  display: inline-block;
+  margin-top: 6px;
+  background: #000000;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  letter-spacing: 3px;
+  padding: 3px 10px;
+  border: 2px inset #666666;
+}
+
+.footer {
+  background: #ccccff;
+  text-align: center;
+  font-size: 13px;
+}
+.footer a, .guestbook a { color: #990000; }
+.tiny {
+  color: #333399;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.blink { animation: blinker 1s step-start infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
