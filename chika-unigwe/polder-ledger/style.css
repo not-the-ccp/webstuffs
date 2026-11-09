@@ -1,0 +1,197 @@
+/* The Polder Ledger — Cloth-Bound Edition No. 3
+   Palette: polder green cloth, sluice blue water, royal orange, gilt ochre, cream leaf */
+
+:root {
+  --cloth: #3d5a40;          /* polder green cloth */
+  --cloth-deep: #2b4230;
+  --water: #4a7a96;          /* sluice blue */
+  --water-deep: #2f566e;
+  --leaf: #f4eede;           /* cream leaf */
+  --leaf-dim: #e9e0c8;
+  --gilt: #c89b3c;           /* gilt ochre */
+  --orange: #e8611c;         /* royal orange, used sparingly */
+  --ink: #26221a;
+  --ink-soft: #4c463a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--leaf);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(74, 122, 150, .10) 26px 27px),
+    linear-gradient(180deg, var(--leaf) 0%, var(--leaf-dim) 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.55;
+}
+
+.shop-head {
+  background: var(--cloth);
+  color: var(--leaf);
+  padding: 2.2rem 1.5rem 1.8rem;
+  border-bottom: 6px double var(--gilt);
+}
+
+.shop-kicker {
+  margin: 0 0 1rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--gilt);
+}
+
+.shop-name-wrap { position: relative; max-width: 60rem; margin: 0 auto; }
+
+.shop-mark {
+  position: absolute;
+  top: -1.4rem; left: -.2rem;
+  width: 3.4rem; height: 3.4rem;
+  display: grid; place-items: center;
+  background: var(--orange);
+  color: var(--leaf);
+  font-size: 1.9rem; font-weight: bold;
+  border: 3px solid var(--gilt);
+  box-shadow: 4px 4px 0 var(--water-deep);
+}
+
+.shop-name {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: .04em;
+}
+.shop-name em { font-style: italic; color: var(--gilt); }
+.shop-sub { margin: .4rem 0 0; max-width: 46rem; font-size: .95rem; color: var(--leaf-dim); }
+
+.product { max-width: 60rem; margin: 0 auto; padding: 1.5rem; }
+
+.crumb { font-size: .85rem; color: var(--ink-soft); margin-bottom: 1.2rem; }
+.crumb a { color: var(--water-deep); }
+.crumb-here { font-weight: bold; color: var(--cloth); }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 2rem;
+}
+@media (max-width: 46rem) { .product-grid { grid-template-columns: 1fr; } }
+
+/* The cloth cover, with its blind-stamped windmill */
+.cover-figure { margin: 0; }
+.cover {
+  position: relative;
+  background:
+    linear-gradient(100deg, rgba(0,0,0,.22) 0 14%, transparent 14%),
+    var(--cloth);
+  border: 2px solid var(--cloth-deep);
+  box-shadow: 6px 6px 0 var(--water);
+  color: var(--gilt);
+  padding: 1.6rem 1.2rem 1.6rem 2.6rem;
+  min-height: 22rem;
+  overflow: hidden;
+}
+.cover-spine {
+  position: absolute; inset: 0 0 0 1.4rem;
+  border-right: 2px solid rgba(200, 155, 60, .5);
+}
+.cover-mill {
+  position: absolute; top: .9rem; right: 1rem;
+  width: 2.6rem; height: 2.6rem;
+  background:
+    linear-gradient(var(--gilt), var(--gilt)) 50% 0 / 6px 100% no-repeat,
+    linear-gradient(var(--gilt), var(--gilt)) 0 50% / 100% 6px no-repeat,
+    linear-gradient(var(--gilt), var(--gilt)) 50% 50% / 22px 22px no-repeat;
+  opacity: .55;
+}
+.cover-since { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--leaf-dim); margin: 0 0 1.2rem; }
+.cover-title { font-size: 1.7rem; line-height: 1.15; letter-spacing: .12em; margin: 0 0 1rem; }
+.cover-author { font-size: .8rem; letter-spacing: .28em; line-height: 1.5; color: var(--leaf-dim); }
+.cover-band {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: .55rem;
+  background: repeating-linear-gradient(90deg, var(--orange) 0 .8rem, var(--gilt) .8rem 1.6rem);
+}
+.cover-figure figcaption { font-size: .8rem; color: var(--ink-soft); margin-top: .8rem; font-style: italic; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .7rem;
+  color: var(--orange);
+  margin: 0 0 .3rem;
+}
+.product-title { margin: 0; font-size: 1.9rem; color: var(--cloth-deep); }
+.product-by { margin: .3rem 0 1rem; color: var(--ink-soft); font-size: .95rem; }
+.product-by a { color: var(--water-deep); }
+
+.price-line { margin: 0 0 1.2rem; }
+.price { font-size: 1.5rem; font-weight: bold; color: var(--cloth); }
+.price-alt { margin-left: .8rem; color: var(--ink-soft); font-size: .9rem; }
+.in-stock { color: var(--water-deep); font-weight: bold; }
+
+.product-copy p { margin: 0 0 1rem; max-width: 62ch; }
+.product-copy strong { color: var(--cloth-deep); }
+
+.spec-head {
+  margin: 1.6rem 0 .5rem;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--water-deep);
+  border-bottom: 2px solid var(--gilt);
+  padding-bottom: .25rem;
+}
+
+.spec-table { border-collapse: collapse; width: 100%; max-width: 56ch; font-size: .92rem; }
+.spec-table th {
+  text-align: left; vertical-align: top;
+  width: 8.5rem; color: var(--cloth-deep);
+  padding: .35rem .6rem .35rem 0;
+  border-bottom: 1px dotted var(--water);
+}
+.spec-table td { padding: .35rem 0; border-bottom: 1px dotted var(--water); }
+
+.ledger-line {
+  margin: 1.2rem 0;
+  padding: 1rem 1.2rem 1rem 1.4rem;
+  background: var(--leaf-dim);
+  border-left: 6px solid var(--orange);
+  border-top: 1px solid var(--gilt);
+  border-bottom: 1px solid var(--gilt);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+.ledger-line p { margin: 0; max-width: none; }
+
+.reviews {
+  margin-top: 2.2rem;
+  background: var(--cloth);
+  color: var(--leaf);
+  border: 2px solid var(--cloth-deep);
+  box-shadow: 6px 6px 0 var(--water);
+  padding: 1.4rem 1.5rem 1.2rem;
+}
+.reviews h2 { margin: 0 0 1rem; font-size: 1.1rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gilt); }
+.review { border-top: 1px dotted var(--gilt); padding: .8rem 0; }
+.review p { margin: 0 0 .3rem; font-style: italic; }
+.review-by { font-style: normal; font-size: .78rem; color: var(--leaf-dim); letter-spacing: .06em; }
+
+.shop-foot {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 6px double var(--gilt);
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+.shop-foot p { margin: .3rem 0; }
+.shop-foot a { color: var(--water-deep); }
+
+#gauge-note {
+  margin-top: 1rem;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--water-deep);
+}
+#gauge-note strong { color: var(--orange); }
