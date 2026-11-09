@@ -1,0 +1,167 @@
+/* The Clio & Lakes Line — timetable sheet, Form NHD-21 */
+
+:root {
+  --paper: #faf6ee;
+  --ink: #2b2620;
+  --faded: #6f675a;
+  --rule: #c9bfa8;
+  --accent: #7d4a32;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 3.5rem 1.5rem 4rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.subtitle {
+  font-style: italic;
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+}
+
+.force {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+  margin: 0;
+}
+
+.intro {
+  text-align: justify;
+  hyphens: auto;
+}
+
+section h2 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 2.5rem 0 1.2rem;
+}
+
+section h3 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  font-style: italic;
+  margin: 1.6rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  margin: 0.5rem 0 0.8rem;
+}
+
+table.timetable th,
+table.timetable td {
+  padding: 0.45rem 0.35rem;
+  text-align: center;
+  border-bottom: 1px dotted var(--rule);
+}
+
+table.timetable thead th {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--ink);
+  font-weight: normal;
+}
+
+table.timetable td.num,
+table.timetable th.num {
+  color: var(--faded);
+  font-size: 0.8rem;
+}
+
+table.timetable td:nth-child(2) {
+  text-align: left;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.foot {
+  font-size: 0.82rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+.closing {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.95rem;
+}
+
+.nav-line {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+
+#notice {
+  margin: 0 0 2rem;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
