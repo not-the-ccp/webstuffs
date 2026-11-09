@@ -1,0 +1,260 @@
+/* THE BUS STOP — thread 4411, a lovingly made board from the late '90s */
+
+body {
+  background-color: #000033;
+  color: #cccccc;
+  font-family: Verdana, Geneva, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+  padding: 12px;
+}
+
+.wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 12px 24px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 47px 90px, #99ccff 50%, transparent 51%),
+    radial-gradient(1px 1px at 80px 140px, #ffcc00 50%, transparent 51%),
+    radial-gradient(2px 2px at 130px 60px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 160px 190px, #cc99ff 50%, transparent 51%);
+  background-size: 190px 220px;
+  background-repeat: repeat;
+}
+
+.masthead {
+  text-align: center;
+  background-color: #330066;
+  border: 3px ridge #ff9900;
+  padding: 14px 10px;
+}
+.mast-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffcc00;
+  margin: 0;
+}
+.masthead h1 {
+  font-size: 34px;
+  color: #ffff00;
+  text-shadow: 2px 2px 0 #990000;
+  margin: 4px 0 2px;
+  letter-spacing: 4px;
+}
+.mast-sub {
+  font-style: italic;
+  color: #cc99ff;
+  margin: 0 0 8px;
+}
+.crumb {
+  font-size: 11px;
+  color: #99ccff;
+}
+
+.marquee-band {
+  background-color: #000000;
+  border-left: 3px ridge #339933;
+  border-right: 3px ridge #339933;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 6px 0 10px;
+  padding: 3px 0;
+}
+.mq {
+  display: inline-block;
+  padding-left: 100%;
+  color: #33ff33;
+  font-size: 11px;
+  letter-spacing: 1px;
+  animation: scroll 28s linear infinite;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.thread-title {
+  background-color: #663300;
+  border: 3px outset #cc9966;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+.thread-title h2 {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+.thread-meta {
+  margin: 0;
+  font-size: 11px;
+  color: #ffcc99;
+}
+
+.post {
+  background-color: #003366;
+  border: 3px bevel #99ccff;
+  margin: 0 0 14px;
+  padding: 0;
+}
+.post.bump {
+  background-color: #333300;
+  border-color: #cccc66;
+}
+.post-head {
+  background-color: #000033;
+  border-bottom: 2px groove #6699cc;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.post.bump .post-head {
+  border-bottom-color: #999966;
+}
+.user {
+  color: #ff9900;
+  font-weight: bold;
+  font-size: 13px;
+}
+.badge {
+  background-color: #339933;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 1px 5px;
+  border: 1px outset #66cc66;
+  margin: 0 6px;
+}
+.loc {
+  color: #99ccff;
+  font-size: 11px;
+  float: right;
+}
+.post-when {
+  padding: 3px 10px 0;
+  font-size: 10px;
+  color: #ffcc00;
+}
+.post-body {
+  padding: 8px 12px 12px;
+}
+.post-body p { margin: 0 0 10px; }
+.post-body p:last-child { margin-bottom: 0; }
+.post-body a { color: #33ff99; }
+.post-body a:visited { color: #cc66ff; }
+
+.court-paste {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #333333;
+  box-shadow: 4px 4px 0 #666633;
+  padding: 10px 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.guestbook {
+  background-color: #330033;
+  border: 3px ridge #ff66cc;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.guestbook h3 {
+  margin: 0 0 6px;
+  color: #ff99ff;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.gb-intro {
+  font-size: 11px;
+  color: #ffccff;
+  margin-top: 0;
+}
+.gb-entry {
+  background-color: #000033;
+  border: 2px inset #666699;
+  padding: 5px 8px;
+  margin: 5px 0;
+  font-size: 12px;
+}
+.gb-entry b { color: #ff9900; }
+.gb-form {
+  margin-top: 10px;
+  display: block;
+}
+.gb-form label {
+  display: block;
+  margin: 4px 0;
+  font-size: 12px;
+  color: #ccffcc;
+}
+.gb-form input[type="text"] {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px inset #999999;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  width: 70%;
+  margin-left: 4px;
+}
+.gb-form button {
+  background-color: #339933;
+  color: #ffffff;
+  border: 3px outset #66cc66;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.gb-form button:active {
+  border-style: inset;
+}
+.gb-thanks {
+  color: #33ff33;
+  font-size: 11px;
+  min-height: 16px;
+}
+
+.colophon {
+  text-align: center;
+  font-size: 10px;
+  color: #9999cc;
+  border-top: 2px groove #333366;
+  padding-top: 8px;
+}
+.colophon a { color: #66ccff; }
+.counter {
+  display: inline-block;
+  background-color: #000000;
+  border: 2px inset #999999;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 4px;
+  padding: 2px 8px;
+  margin: 4px 0;
+}
+.shelf { line-height: 1.7; }
+
+@keyframes blink {
+  50% { visibility: hidden; }
+}
+.thread-title h2::after {
+  content: " \25B6";
+  color: #ff0000;
+  animation: blink 1s step-start infinite;
+}
