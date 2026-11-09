@@ -1,0 +1,281 @@
+/* In re Typhoon Nepartak — court transcript excerpt, Case No. 2003-TY-021 */
+
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #e8dabf;
+  --ink: #22201a;
+  --faint: #5c5344;
+  --verdict: #8c201a;
+  --sea: #2b4a60;
+  --brass: #9a7b2f;
+  --wave: #43708c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #1c2b36; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(67, 112, 140, 0.28), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 100% 110%, rgba(140, 32, 26, 0.18), transparent 55%),
+    linear-gradient(180deg, #22384a 0%, #1c2b36 45%, #16222b 100%);
+  background-attachment: fixed;
+  padding: 3rem 1rem 5rem;
+  overflow-x: hidden;
+}
+
+/* drifting sea lines behind the sheet */
+.sea, .sea-two {
+  position: fixed;
+  left: 0; right: 0;
+  height: 130px;
+  pointer-events: none;
+  z-index: 0;
+}
+.sea { top: 12vh; animation: drift 26s linear infinite; }
+.sea svg { width: 200%; height: 100%; }
+.sea-two { bottom: 6vh; animation: drift 38s linear infinite reverse; }
+.sea-two svg { width: 200%; height: 100%; }
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* the transcript sheet */
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3.4rem 3.6rem 2.6rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(120, 96, 52, 0.05) 0 1px, transparent 1px 29px),
+    radial-gradient(ellipse 120% 30% at 50% 0%, rgba(154, 123, 47, 0.14), transparent 60%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #b7a37c;
+  outline: 3px double var(--brass);
+  outline-offset: -10px;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.35) inset,
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* red marginal rule rails, like a docket */
+.rail { position: absolute; top: 1.2rem; bottom: 1.2rem; width: 3px; }
+.rail-l { left: 1.4rem; background: linear-gradient(180deg, transparent, var(--verdict) 12%, var(--verdict) 88%, transparent); opacity: 0.5; }
+.rail-r { right: 1.4rem; background: linear-gradient(180deg, transparent, var(--verdict) 12%, var(--verdict) 88%, transparent); opacity: 0.5; }
+
+/* caption block */
+.caption-block { text-align: center; margin-bottom: 1.4rem; }
+.crest {
+  color: var(--verdict);
+  margin: 0 auto 0.4rem;
+  display: block;
+  animation: sway 9s ease-in-out infinite;
+  filter: drop-shadow(0 2px 2px rgba(140, 32, 26, 0.25));
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+.jurat {
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0.2rem 0 0.6rem;
+}
+h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.12;
+  margin: 0.2rem 0 0.6rem;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  color: #2a1310;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+h1 em { font-style: italic; font-variant: normal; color: var(--verdict); }
+h1 .aka { display: block; font-size: 0.45em; font-variant: small-caps; letter-spacing: 0.14em; color: var(--faint); margin-top: 0.35rem; }
+.case-line {
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0.2rem 0 0.5rem;
+  font-weight: bold;
+}
+.venue { font-size: 0.95rem; font-style: italic; color: var(--faint); margin: 0; }
+
+/* wavy divider rules */
+.rule-wave { color: var(--wave); margin: 1.6rem 0; }
+.rule-wave svg { width: 100%; height: 22px; display: block; }
+
+/* the record proper */
+.record { counter-reset: line; }
+.record p {
+  margin: 1.05rem 0;
+  padding-left: 1.6rem;
+  text-indent: -1.6rem;
+  position: relative;
+}
+.record p::before {
+  counter-increment: line;
+  content: counter(line, decimal-leading-zero);
+  position: absolute;
+  left: -2.4rem;
+  top: 0.32em;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+}
+.record .spk {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--sea);
+  font-weight: bold;
+  white-space: nowrap;
+}
+.record .spk::after { content: ": "; }
+.record .continues {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--faint);
+  text-align: center;
+  text-indent: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.record .continues::before { content: none; }
+.record strong { color: #3a1d12; font-weight: bold; }
+
+/* the routing line — Exhibit F-4 */
+.routing {
+  margin: 1.6rem 2.2rem;
+  padding: 1.3rem 1.5rem 1.2rem;
+  background:
+    repeating-linear-gradient(90deg, rgba(34, 32, 26, 0.045) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, #efe3c4, #e6d5ac);
+  border: 1px solid #a08a5a;
+  border-left: 5px solid var(--verdict);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  transform: rotate(-0.7deg);
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: #2c2118;
+  position: relative;
+}
+.routing::after {
+  content: "EXHIBIT F-4";
+  position: absolute;
+  top: -0.7rem;
+  right: 1rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  background: var(--verdict);
+  color: var(--paper);
+  padding: 0.18rem 0.6rem 0.14rem;
+}
+.routing .caret {
+  display: inline-block;
+  width: 0.55em;
+  border-bottom: 2px solid var(--verdict);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* exhibits list */
+.exhibits { margin: 1.8rem 0 0.4rem; }
+.exhibits h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--sea);
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+}
+.exhibits ul { list-style: none; margin: 0; padding: 0; }
+.exhibits li {
+  padding: 0.5rem 0.4rem 0.5rem 1.8rem;
+  position: relative;
+  font-size: 0.95rem;
+  border-bottom: 1px dotted #a08a5a;
+}
+.exhibits li:last-child { border-bottom: none; }
+.exhibits li::before {
+  content: "\2734";
+  position: absolute;
+  left: 0.3rem;
+  color: var(--verdict);
+}
+
+/* colophon */
+.colophon {
+  margin-top: 1.8rem;
+  padding: 1.2rem 1.4rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #4a4132;
+  background: rgba(67, 112, 140, 0.08);
+  border-top: 1px solid #b7a37c;
+  border-bottom: 1px solid #b7a37c;
+}
+.colophon a { color: var(--sea); font-weight: bold; }
+.colophon a:hover { color: var(--verdict); }
+a { color: var(--sea); }
+a:hover { color: var(--verdict); }
+
+/* footer + wax seal */
+.foot {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+#wax {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--verdict);
+  background: none;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+#wax:hover { transform: rotate(-2deg) scale(1.04); border-color: rgba(140, 32, 26, 0.4); }
+#wax svg { transition: transform 0.5s cubic-bezier(0.2, 1.6, 0.4, 1); }
+#wax.stamped svg { transform: rotate(-14deg) scale(1.25); animation: thunk 0.4s ease; }
+@keyframes thunk {
+  0% { transform: rotate(18deg) scale(0.4); }
+  60% { transform: rotate(-16deg) scale(1.45); }
+  100% { transform: rotate(-14deg) scale(1.25); }
+}
+#wax.stamped { border-color: var(--verdict); background: rgba(140, 32, 26, 0.07); }
+
+/* responsive */
+@media (max-width: 720px) {
+  body { padding: 1.4rem 0.5rem 3rem; }
+  .sheet { padding: 2.2rem 1.5rem 1.8rem; }
+  .rail { display: none; }
+  .record p { padding-left: 1rem; text-indent: -1rem; }
+  .record p::before { left: -1.9rem; }
+  .routing { margin: 1.4rem 0.4rem; }
+}
