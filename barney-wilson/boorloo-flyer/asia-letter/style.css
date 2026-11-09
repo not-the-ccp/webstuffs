@@ -1,0 +1,194 @@
+/* Editorial Page, The Boorloo Flyer — a letter to the editor on ruled paper */
+
+:root {
+  --paper: #f4eddc;
+  --ink: #2b2a26;
+  --maroon: #7a2e21;
+  --olive: #3c4a34;
+  --rule: #b9c4d6;
+  --margin: #a34434;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -100px, #efe4c8 0%, transparent 70%),
+    #e7dcc0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.ed-head {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.5rem 0.6rem;
+  text-align: center;
+  border-bottom: 3px double var(--maroon);
+}
+
+.ed-stamp {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  color: var(--maroon);
+  border: 1.5px solid var(--maroon);
+  border-radius: 4px;
+  padding: 0.35em 0.9em;
+  transform: rotate(-1.2deg);
+  background: rgba(244, 237, 220, 0.6);
+}
+
+.ed-kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--olive);
+  margin: 1rem 0 0.4rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 0.2rem 0 0.3rem;
+  color: var(--maroon);
+  letter-spacing: 0.02em;
+}
+
+.ed-dek {
+  font-style: italic;
+  font-size: 0.98rem;
+  color: #55503f;
+  margin: 0 1rem 1rem;
+}
+
+.ed-line { width: 100%; height: 40px; display: block; }
+
+.ed-main { max-width: 46rem; margin: 0 auto; padding: 1.4rem 1.5rem 2rem; }
+
+/* The letter: typewritten, on ruled paper with a red margin */
+.letter {
+  position: relative;
+  background:
+    linear-gradient(to right, transparent 2.6rem, var(--margin) 2.6rem, var(--margin) calc(2.6rem + 1px), transparent calc(2.6rem + 1px)),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.62rem,
+      var(--rule) 1.62rem,
+      var(--rule) calc(1.62rem + 1px)
+    ),
+    var(--paper);
+  border: 1px solid #cdbf9a;
+  box-shadow: 0 10px 26px rgba(60, 40, 10, 0.18);
+  padding: 2.2rem 1.8rem 2.4rem 4.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.62rem;
+}
+
+.letter p { margin: 0 0 1.62rem; }
+
+.salutation { font-weight: bold; }
+
+.dateline { color: #55503f; font-size: 0.85rem; }
+
+.letter a { color: var(--maroon); text-decoration-color: #c89b8f; }
+
+.signoff { margin-top: 2.4rem; }
+
+.sig {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.5rem;
+  color: #35507a;
+  letter-spacing: 0.02em;
+}
+
+/* Received stamp — inked over the paper, slightly turned */
+.rcv {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.2rem;
+  border: 2px solid var(--olive);
+  color: var(--olive);
+  border-radius: 6px;
+  padding: 0.45rem 0.8rem 0.35rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  line-height: 1.25;
+  transform: rotate(4deg);
+  opacity: 0;
+}
+
+.rcv span { display: block; }
+.rcv-date { font-size: 0.7rem; letter-spacing: 0.25em; }
+.rcv-time { font-size: 1.35rem; }
+.rcv-sta { font-size: 0.7rem; letter-spacing: 0.25em; }
+
+.rcv.is-inked {
+  opacity: 0.82;
+  animation: ink 700ms ease-out both;
+}
+
+@keyframes ink {
+  0%   { opacity: 0; transform: rotate(14deg) scale(1.6); }
+  55%  { opacity: 0.95; transform: rotate(3deg) scale(0.96); }
+  100% { opacity: 0.82; transform: rotate(4deg) scale(1); }
+}
+
+/* Filed list */
+.filed { margin-top: 2rem; }
+
+.filed h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--olive);
+  border-bottom: 1px dashed var(--olive);
+  padding-bottom: 0.3rem;
+}
+
+.filed-list { list-style: none; padding: 0; margin: 0.8rem 0 0; }
+
+.filed-list li {
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.filed-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--maroon);
+  border-radius: 50%;
+}
+
+.filed-list a { color: var(--maroon); }
+
+.filed-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #55503f;
+  margin-top: 1rem;
+}
+
+.ed-foot2 {
+  border-top: 3px double var(--maroon);
+  text-align: center;
+  padding: 1rem 1.5rem 2.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+}
+
+@media (max-width: 620px) {
+  .letter { padding-left: 3.4rem; font-size: 0.9rem; }
+  .rcv { top: 0.7rem; right: 0.7rem; }
+}
