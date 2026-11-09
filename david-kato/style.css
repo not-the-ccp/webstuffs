@@ -1,0 +1,150 @@
+/* Oneirocriticon of the East Africa Station — Entry No. 47 */
+
+:root {
+  --night: #10162b;
+  --night-deep: #0a0e1d;
+  --paper: #f5eeda;
+  --ink: #241f18;
+  --gold: #e8b64c;
+  --gold-dim: #b8892f;
+  --red: #a5342a;
+  --faded: #6f6249;
+}
+
+html {
+  background: var(--night-deep);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, #232d55 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 100%, #1c2547 0%, transparent 55%),
+    var(--night);
+  color: var(--paper);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.frame {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.lantern {
+  position: absolute;
+  top: -2.4rem;
+  left: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-left: -0.55rem;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow:
+    0 0 18px 6px rgba(232, 182, 76, 0.55),
+    0 0 70px 28px rgba(232, 182, 76, 0.18);
+  animation: flicker 5.2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  43% { opacity: 0.82; }
+  47% { opacity: 0.96; }
+  61% { opacity: 0.78; }
+  65% { opacity: 1; }
+}
+
+.entry {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--gold-dim);
+  outline: 3px double var(--gold-dim);
+  outline-offset: 5px;
+  padding: 2.8rem 3rem 2.4rem;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+}
+
+.entry-head {
+  border-bottom: 3px double var(--red);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.dictionary {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  margin: 0 0 0.5rem;
+  color: var(--night);
+  font-variant: small-caps;
+}
+
+.subtitle {
+  margin: 0;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.98rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  border-bottom: 1px solid var(--gold-dim);
+  padding-bottom: 0.3rem;
+  margin: 2rem 0 0.8rem;
+}
+
+p { margin: 0 0 1rem; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.08rem 0.55rem 0 0;
+  color: var(--gold-dim);
+  font-variant: small-caps;
+}
+
+.ledger-line {
+  background: #efe4c4;
+  border-left: 4px solid var(--red);
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0;
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--night);
+  box-shadow: inset 0 0 22px rgba(184, 137, 47, 0.15);
+}
+
+a {
+  color: var(--red);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--gold-dim); }
+
+.xrefs {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--red);
+  padding-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+@media (max-width: 40rem) {
+  .entry { padding: 1.8rem 1.3rem; }
+  h1 { font-size: 2rem; }
+}
