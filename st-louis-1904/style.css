@@ -1,0 +1,334 @@
+/* Turnverein & Sons Supply — Catalogue No. T&S-04-13 */
+:root {
+  --ink: #23150a;
+  --cloth: #4a2c14;
+  --gilt: #c9962e;
+  --gilt-bright: #f2c14e;
+  --paper: #f4e7c8;
+  --indigo: #2b3a67;
+  --hall: #1d1206;
+  --red: #8c1f18;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(201, 150, 46, 0.28), transparent 55%),
+    radial-gradient(ellipse at 12% 110%, rgba(140, 31, 24, 0.25), transparent 50%),
+    radial-gradient(ellipse at 88% 110%, rgba(43, 58, 103, 0.22), transparent 50%),
+    repeating-linear-gradient(45deg, rgba(201, 150, 46, 0.05) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(-45deg, rgba(201, 150, 46, 0.05) 0 2px, transparent 2px 14px),
+    linear-gradient(180deg, #241407 0%, #17100a 45%, #100b06 100%);
+  min-height: 100vh;
+}
+
+/* ── Marquee banner ─────────────────────────────── */
+.banner {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--red);
+  border-bottom: 3px double var(--gilt);
+  color: var(--paper);
+}
+.banner-band {
+  display: inline-flex;
+  gap: 2.5rem;
+  padding: 0.45rem 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  animation: marquee 38s linear infinite;
+}
+.banner-band span { flex: none; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Masthead ────────────────────────────────────── */
+.masthead {
+  text-align: center;
+  padding: 3rem 1.25rem 2rem;
+  color: var(--paper);
+  position: relative;
+}
+.crown-svg {
+  width: 220px;
+  max-width: 60vw;
+  color: var(--gilt-bright);
+  filter: drop-shadow(0 0 12px rgba(242, 193, 78, 0.45));
+  animation: crown-glow 4s ease-in-out infinite;
+}
+@keyframes crown-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(242, 193, 78, 0.3)); }
+  50%      { filter: drop-shadow(0 0 20px rgba(242, 193, 78, 0.65)); }
+}
+.over-title {
+  font-variant: small-caps;
+  letter-spacing: 0.32em;
+  color: var(--gilt-bright);
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+.over-title.small { font-size: 0.78rem; letter-spacing: 0.22em; color: var(--paper); opacity: 0.85; }
+h1 {
+  font-size: clamp(2.1rem, 6vw, 4rem);
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  text-shadow: 0 2px 0 var(--cloth), 0 0 30px rgba(242, 193, 78, 0.35);
+  font-weight: 700;
+}
+
+/* ── Shop layout ─────────────────────────────────── */
+.shop {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: 2rem;
+  align-items: start;
+  background:
+    linear-gradient(160deg, rgba(244, 231, 200, 0.06), transparent 60%),
+    rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(201, 150, 46, 0.45);
+  outline: 1px solid rgba(201, 150, 46, 0.18);
+  outline-offset: 6px;
+  padding: 1.75rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 0 80px rgba(74, 44, 20, 0.5);
+}
+@media (max-width: 720px) {
+  .product { grid-template-columns: 1fr; }
+}
+
+.plate { margin: 0; }
+.plate-frame {
+  aspect-ratio: 300 / 380;
+  background: linear-gradient(145deg, #5b3a1e, #3a2210 70%);
+  border: 4px double var(--gilt);
+  padding: 0.6rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  transform: rotate(-1.2deg);
+  transition: transform 0.5s ease;
+}
+.plate-frame:hover { transform: rotate(0deg) scale(1.02); }
+.plate-svg { width: 100%; height: 100%; display: block; }
+.plate-svg text { font-family: Georgia, serif; fill: var(--cloth); }
+.pl-t1 { font-size: 20px; letter-spacing: 2px; }
+.pl-t2 { font-size: 13px; letter-spacing: 1.5px; }
+.pl-t3 { font-size: 16px; letter-spacing: 2px; font-weight: bold; }
+.pl-t4 { font-size: 11px; letter-spacing: 2px; }
+.pl-t5 { font-size: 10px; letter-spacing: 2px; }
+.pl-t6 { font-size: 11px; letter-spacing: 1.5px; }
+.pl-num { font-size: 40px; font-weight: bold; fill: var(--red); }
+figcaption {
+  color: var(--paper);
+  opacity: 0.7;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.buy { color: var(--paper); }
+.price { margin: 0 0 0.9rem; }
+.price .amount {
+  font-size: 2.2rem;
+  color: var(--gilt-bright);
+  letter-spacing: 0.02em;
+}
+.price .cents {
+  font-size: 1.1rem;
+  color: var(--gilt-bright);
+  vertical-align: super;
+  margin-left: 0.2rem;
+}
+.price .asof {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  font-style: italic;
+}
+.stock { background: rgba(140, 31, 24, 0.25); border-left: 4px solid var(--red); padding: 0.6rem 0.9rem; font-size: 0.9rem; }
+.stock strong { color: var(--gilt-bright); font-size: 1.1rem; }
+.buy-row { display: flex; align-items: center; gap: 1rem; margin: 1.1rem 0 0.7rem; flex-wrap: wrap; }
+#add {
+  font-family: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--gilt-bright), var(--gilt) 70%);
+  border: 2px solid #7a5410;
+  padding: 0.7rem 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #6b4a10, 0 12px 24px rgba(0, 0, 0, 0.5);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+#add:hover { transform: translateY(2px); box-shadow: 0 4px 0 #6b4a10, 0 10px 20px rgba(0, 0, 0, 0.5); }
+#add:active { transform: translateY(6px); box-shadow: 0 0 0 #6b4a10; }
+.added { font-style: italic; opacity: 0.85; font-size: 0.9rem; }
+.warranty { font-size: 0.85rem; opacity: 0.8; font-style: italic; margin: 0.4rem 0 1rem; }
+
+.specs {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(201, 150, 46, 0.5);
+  margin: 0;
+}
+.specs > div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0.25rem;
+  border-bottom: 1px dotted rgba(201, 150, 46, 0.4);
+  font-size: 0.9rem;
+}
+.specs dt { font-variant: small-caps; letter-spacing: 0.1em; color: var(--gilt-bright); }
+.specs dd { margin: 0; }
+
+/* ── Prose ───────────────────────────────────────── */
+.prose {
+  background:
+    repeating-linear-gradient(0deg, rgba(138, 106, 59, 0.07) 0 1px, transparent 1px 30px),
+    linear-gradient(180deg, var(--paper), #eddbb6);
+  border: 1px solid #8a6a3b;
+  outline: 5px solid transparent;
+  outline-offset: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  padding: 2.25rem 2.5rem;
+  color: var(--ink);
+}
+@media (max-width: 720px) { .prose { padding: 1.5rem; } }
+.prose h2, .prize h2, .reviews h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--cloth);
+  border-bottom: 3px double var(--gilt);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+.prose p { line-height: 1.75; margin: 1rem 0; font-size: 1.02rem; }
+.prose p:first-of-type::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--red);
+  font-weight: bold;
+}
+
+/* ── Prize table ─────────────────────────────────── */
+.prize { color: var(--paper); }
+.prize h2 { color: var(--gilt-bright); border-bottom-color: var(--gilt); }
+.prize-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 150, 46, 0.5);
+  font-size: 0.92rem;
+}
+.prize-table caption {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  color: var(--gilt-bright);
+  padding: 0.5rem;
+  caption-side: top;
+}
+.prize-table th, .prize-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px dotted rgba(201, 150, 46, 0.35);
+}
+.prize-table thead th {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--gilt-bright);
+  border-bottom: 2px solid var(--gilt);
+}
+.prize-table tbody th { color: var(--gilt-bright); width: 2.5rem; }
+.prize-table tbody tr:first-child td, .prize-table tbody tr:first-child th {
+  background: rgba(201, 150, 46, 0.16);
+}
+.prize-table tbody tr { transition: background 0.15s ease; }
+.prize-table tbody tr:hover { background: rgba(242, 193, 78, 0.12); }
+.table-note { font-style: italic; opacity: 0.75; font-size: 0.85rem; }
+
+/* ── Reviews ─────────────────────────────────────── */
+.reviews { display: grid; gap: 1.25rem; }
+.reviews h2 { color: var(--gilt-bright); border-bottom-color: var(--gilt); }
+.reviews blockquote {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(201, 150, 46, 0.4);
+  border-left: 6px solid var(--gilt);
+  padding: 1.25rem 1.5rem;
+  position: relative;
+}
+.reviews blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.4rem;
+  left: 0.6rem;
+  font-size: 3.5rem;
+  color: var(--gilt);
+  background: var(--hall);
+  padding: 0 0.5rem;
+}
+.reviews p { line-height: 1.7; margin: 0; font-style: italic; }
+.reviews cite { display: block; margin-top: 0.8rem; font-style: normal; font-variant: small-caps; letter-spacing: 0.12em; color: var(--gilt-bright); font-size: 0.85rem; }
+
+/* ── Footer ──────────────────────────────────────── */
+.shop-foot {
+  border-top: 3px double var(--gilt);
+  padding-top: 1.5rem;
+  color: var(--paper);
+}
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.foot-nav a {
+  color: var(--gilt-bright);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gilt);
+  padding-bottom: 2px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.foot-nav a:hover { background: rgba(242, 193, 78, 0.15); color: #ffe3a1; }
+.foot-nav .dot { color: var(--gilt); }
+.fine { font-size: 0.8rem; opacity: 0.7; font-variant: small-caps; letter-spacing: 0.1em; line-height: 1.8; }
+
+/* ── Show-bag pop ────────────────────────────────── */
+.puff {
+  position: fixed;
+  pointer-events: none;
+  color: var(--gilt-bright);
+  font-weight: bold;
+  font-size: 1.3rem;
+  animation: puff-up 1.4s ease-out forwards;
+  z-index: 50;
+  text-shadow: 0 0 12px rgba(242, 193, 78, 0.8);
+}
+@keyframes puff-up {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-90px) scale(1.6) rotate(8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-band, .crown-svg, .puff { animation: none; }
+  .plate-frame { transition: none; }
+}
