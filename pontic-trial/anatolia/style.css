@@ -1,0 +1,242 @@
+/* FM-24, Chapter 3 — field manual sheet: khaki paper, stencil caps, rule-drawn sections */
+
+:root {
+  --paper: #e9e2cf;
+  --paper-deep: #ddd3b8;
+  --ink: #2b2a20;
+  --ink-soft: #4d4a3a;
+  --olive: #5b5b33;
+  --olive-dark: #3e3e24;
+  --red: #8a2f1d;
+  --line: #b7ad8d;
+  --stamp: rgba(138, 47, 29, 0.85);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(91, 91, 51, 0.045) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.fm-head {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3.2rem 1.5rem 1.6rem;
+  text-align: center;
+  border-bottom: 3px double var(--olive-dark);
+}
+
+.regmark { position: absolute; width: 14px; height: 14px; border: 1px solid var(--olive); }
+.regmark.tl { top: 14px; left: 14px; border-right: 0; border-bottom: 0; }
+.regmark.tr { top: 14px; right: 14px; border-left: 0; border-bottom: 0; }
+.regmark.bl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; }
+.regmark.br { bottom: 14px; right: 14px; border-left: 0; border-top: 0; }
+
+.fm-series {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--olive-dark);
+  margin: 0 0 1.2rem;
+}
+
+.crest { width: 118px; height: 118px; margin: 0 auto 0.6rem; display: block; }
+.crest-ring { fill: none; stroke: var(--olive-dark); stroke-width: 3; }
+.crest-ring.inner { stroke-width: 1; }
+.compass-star { fill: var(--olive); }
+.compass-hub { fill: var(--red); }
+.compass-ticks { stroke: var(--olive-dark); stroke-width: 3; }
+.crest-word { font-family: "Staatliches", sans-serif; font-size: 11px; letter-spacing: 2px; fill: var(--olive-dark); }
+
+.fm-title {
+  font-family: "Staatliches", "Arial Narrow", sans-serif;
+  font-size: 3.4rem;
+  letter-spacing: 0.14em;
+  margin: 0.2rem 0 0.1rem;
+  color: var(--olive-dark);
+  text-transform: uppercase;
+}
+
+.fm-subtitle {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  margin: 0.3rem 0 0.2rem;
+  color: var(--ink-soft);
+}
+
+.fm-note {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0.3rem 0 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  transform: rotate(12deg);
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.2em;
+  line-height: 1.15;
+  color: var(--stamp);
+  border: 3px double var(--stamp);
+  padding: 0.4rem 0.55rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 2.2rem auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.sect { margin-bottom: 2.6rem; }
+
+.sect h2 {
+  font-family: "Staatliches", "Arial Narrow", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.sect-no {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--red);
+  margin-right: 0.7rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--red); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { background: var(--paper-deep); }
+
+table.measures {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin: 0.4rem 0 1.1rem;
+  font-family: "Courier Prime", monospace;
+}
+
+table.measures th, table.measures td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.measures thead th {
+  background: var(--olive);
+  color: var(--paper);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+table.measures tbody tr:nth-child(even) { background: rgba(91, 91, 51, 0.07); }
+
+ol.orders { padding-left: 1.3rem; margin: 0 0 1rem; }
+ol.orders li { margin-bottom: 0.9rem; padding-left: 0.3rem; }
+ol.orders li::marker { font-family: "Courier Prime", monospace; font-weight: 700; color: var(--red); }
+ol.orders strong { font-family: "Staatliches", sans-serif; letter-spacing: 0.05em; color: var(--olive-dark); }
+
+blockquote.margin-line {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 5px solid var(--red);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--olive-dark);
+}
+
+.filed { font-size: 0.92rem; }
+
+.gold-rule {
+  border: 0;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--olive-dark) 0 12px, transparent 12px 18px);
+  margin: 2.4rem 0 0;
+}
+
+.colophon {
+  max-width: 860px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.gavel {
+  font-family: "Staatliches", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--paper);
+  background: var(--olive-dark);
+  border: 1px solid var(--olive-dark);
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  margin: 0.8rem 0 0.3rem;
+}
+
+.gavel:hover { background: var(--red); border-color: var(--red); }
+
+.gavel-count { margin: 0.2rem 0; font-size: 0.74rem; }
+
+.colophon-small { font-size: 0.7rem; font-style: italic; }
+
+.ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--olive-dark);
+  color: var(--paper);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  padding: 0.4rem 0;
+  animation: tick 46s linear infinite;
+}
+
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .stamp { position: static; display: inline-block; margin-top: 1rem; }
+  .fm-title { font-size: 2.4rem; }
+  table.measures { font-size: 0.74rem; }
+}
