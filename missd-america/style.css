@@ -1,0 +1,153 @@
+/* Build Log No. 47 — Atlantic City Bench Works
+   Palette: deep lagoon teal, gilded gold, boardwalk magenta, cream paper */
+
+:root {
+  --teal-deep: #0b3b3c;
+  --teal: #115658;
+  --gold: #e8b64c;
+  --gold-soft: #f3d791;
+  --magenta: #d4427e;
+  --paper: #f7efdd;
+  --ink: #241d14;
+  --ink-soft: #5a4f3d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--teal-deep);
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(232, 182, 76, 0.05) 0 2px, transparent 2px 90px),
+    repeating-linear-gradient(0deg,
+      rgba(255, 255, 255, 0.02) 0 3px, transparent 3px 64px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.board {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 3.5rem;
+}
+
+/* Marquee header — the pageant sign above the shop */
+.marquee {
+  text-align: center;
+  color: var(--gold);
+  border: 3px double var(--gold);
+  outline: 2px solid var(--magenta);
+  outline-offset: 6px;
+  padding: 1.6rem 1.2rem 1.3rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 66, 126, 0.25), transparent 60%),
+    var(--teal);
+  margin-bottom: 2.2rem;
+}
+
+.marquee-sub {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold-soft);
+  margin: 0 0 0.8rem;
+}
+
+.marquee h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.marquee h1 .hollow {
+  font-size: 1.05rem;
+  display: block;
+  margin-top: 0.5rem;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+  letter-spacing: 0.18em;
+}
+
+.keeper {
+  font-size: 0.85rem;
+  color: var(--gold-soft);
+  margin: 1rem 0 0.4rem;
+}
+
+.stars {
+  color: var(--gold);
+  letter-spacing: 0.6em;
+  font-size: 0.9rem;
+}
+
+/* The logbook */
+.logbook { display: block; }
+
+.entry {
+  background: var(--paper);
+  border: 1px solid #cbb98d;
+  border-left: 10px solid var(--magenta);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
+  padding: 1.1rem 1.4rem 1.2rem;
+  margin: 0 0 1.8rem;
+  position: relative;
+}
+
+/* second and third entries sit slightly off-axis, like paper on a bench */
+.entry:nth-of-type(2) { transform: rotate(0.35deg); }
+.entry:nth-of-type(3) { transform: rotate(-0.3deg); }
+
+.date-stub {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  background: var(--gold-soft);
+  border: 1px dashed var(--teal);
+  padding: 0.15rem 0.6rem;
+  margin: 0 0 0.7rem;
+}
+
+.entry h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.6rem;
+  color: var(--teal);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.3rem;
+}
+
+.entry p { margin: 0.55rem 0; font-size: 0.98rem; }
+
+.entry a { color: var(--magenta); }
+.entry a:hover { color: var(--teal); }
+
+.entry small, .entry.small { font-size: 0.88rem; }
+.entry.small { border-left-color: var(--gold); background: #efe5cb; }
+
+.colophon {
+  margin-top: 2.4rem;
+  text-align: center;
+  color: var(--gold-soft);
+  font-size: 0.8rem;
+}
+
+#tally {
+  margin-top: 0.9rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  background: transparent;
+  color: var(--gold);
+  border: 1px dashed var(--gold);
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+}
+
+#tally:hover { background: rgba(232, 182, 76, 0.15); }
