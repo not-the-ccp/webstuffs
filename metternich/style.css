@@ -1,0 +1,205 @@
+/* Field Notebook No. 12 — Princes metternichi
+   The Continental Fauna Survey, Hadramaut Station
+   A maximalist 19th-century naturalist's field notebook. */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e8d9b8;
+  --ink: #2a2019;
+  --ink-soft: #4c3b2c;
+  --red-ink: #8e2422;
+  --gold: #c9a96e;
+  --green: #3f4a3a;
+  --blue-night: #1d2a3d;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(201, 169, 110, 0.28) 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 14%, rgba(142, 36, 34, 0.14) 0%, transparent 38%),
+    radial-gradient(ellipse at 50% 100%, rgba(63, 74, 58, 0.20) 0%, transparent 55%),
+    repeating-linear-gradient(0deg, rgba(42, 32, 25, 0.035) 0 1px, transparent 1px 29px),
+    linear-gradient(178deg, #f7eed9 0%, var(--paper) 45%, var(--paper-deep) 100%);
+  background-attachment: fixed;
+}
+
+/* Faint ruled-paper lines across the whole sheet */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 8px, rgba(142, 36, 34, 0.10) 8px 9px, transparent 9px 100%);
+  z-index: 0;
+  animation: rule-drift 60s linear infinite;
+}
+@keyframes rule-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-9px); }
+}
+
+.seal-band { position: relative; z-index: 1; }
+.seal-band svg { display: block; width: 100%; height: 46px; }
+
+.masthead {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 1.2rem auto 0;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+.station-line {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 0.78rem;
+  color: var(--green);
+  margin: 0 0 0.4rem;
+}
+h1.species {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  margin: 0.2rem 0 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--blue-night);
+  text-shadow: 1px 1px 0 rgba(201, 169, 110, 0.55);
+}
+h1 .latin { font-style: italic; color: var(--red-ink); }
+.latin-common {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0 auto;
+  max-width: 640px;
+}
+.latin-common em { color: var(--red-ink); font-style: italic; }
+
+.plaque { margin: 1.1rem auto 0.4rem; width: 108px; }
+.plaque-svg { width: 108px; height: 108px; animation: plaque-turn 40s linear infinite; }
+@keyframes plaque-turn { to { transform: rotate(360deg); } }
+.plq-ring  { fill: none; stroke: var(--red-ink); stroke-width: 2; opacity: 0.75; }
+.plq-ring2 { fill: none; stroke: var(--gold); stroke-width: 1; stroke-dasharray: 3 4; opacity: 0.8; }
+.plq-compass { stroke: var(--gold); stroke-width: 1; opacity: 0.55; }
+.plq-leaf  { fill: rgba(63, 74, 58, 0.55); stroke: var(--green); stroke-width: 1; }
+.plq-eye   { fill: var(--red-ink); }
+.plq-branch { fill: none; stroke: var(--green); stroke-width: 2; stroke-linecap: round; }
+
+.notebook {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 1.6rem auto 0;
+  padding: 0 1.25rem 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 2.2rem;
+}
+@media (max-width: 720px) {
+  .notebook { grid-template-columns: 1fr; }
+  .marginia { order: 2; border-left: none; border-top: 1px dashed var(--gold); }
+}
+
+.entry {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 240, 0.85), rgba(244, 232, 203, 0.9));
+  border: 1px solid rgba(142, 36, 34, 0.28);
+  border-left: 5px double var(--red-ink);
+  box-shadow: 3px 4px 0 rgba(42, 32, 25, 0.14), inset 0 0 42px rgba(201, 169, 110, 0.18);
+  padding: 1.35rem 1.6rem 1.5rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+.entry::before {
+  content: attr(data-folio, "✦");
+  position: absolute;
+  top: -0.85rem;
+  left: 1rem;
+  background: var(--paper);
+  padding: 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--red-ink);
+}
+.entry h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.08rem;
+  color: var(--red-ink);
+  margin: 0 0 0.7rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.9);
+  padding-bottom: 0.35rem;
+}
+.entry p { margin: 0 0 0.85rem; }
+.entry p:last-child { margin-bottom: 0; }
+.entry strong { color: var(--red-ink); font-weight: 600; }
+.entry em { font-style: italic; }
+
+a {
+  color: var(--red-ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red-ink);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+a:hover, a:focus-visible {
+  color: var(--blue-night);
+  background: rgba(201, 169, 110, 0.35);
+  border-bottom-style: solid;
+  outline: none;
+}
+
+.marginia { position: sticky; top: 1.2rem; align-self: start; }
+.margin-note {
+  margin: 0;
+  padding: 0.9rem 0.9rem 1rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-left: 2px dashed var(--gold);
+  transform: rotate(-1.1deg);
+  background: linear-gradient(160deg, rgba(255, 252, 240, 0.6), rgba(232, 217, 184, 0.55));
+  line-height: 1.6;
+}
+.margin-note::first-letter { color: var(--red-ink); font-size: 1.5em; font-style: normal; }
+
+.colophon {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  padding: 0 1.25rem;
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--green);
+}
+.foot-rule {
+  border: 0;
+  height: 3px;
+  max-width: 420px;
+  margin: 0 auto 1rem;
+  background:
+    radial-gradient(circle at 50% 50%, var(--red-ink) 0 3px, transparent 4px) center / 420px 3px no-repeat,
+    linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Ink blot that follows the reader */
+.ink-blot {
+  position: fixed;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%;
+  background: radial-gradient(circle at 35% 30%, rgba(142, 36, 34, 0.85), rgba(42, 32, 25, 0.55) 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ink-blot.show { opacity: 0.55; }
