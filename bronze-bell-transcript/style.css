@@ -1,0 +1,154 @@
+/* The Bronze Bell — transcript excerpt. Printed-publication idiom. */
+
+:root {
+  --paper: #f6f2e8;
+  --ink: #211d17;
+  --faded: #5d5546;
+  --rule: #c9bea6;
+  --rule-dark: #8f8468;
+  --accent: #7c2f1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 3rem;
+}
+
+/* Caption block, ruled like a pleading */
+.caption {
+  text-align: center;
+  font-size: 0.95rem;
+}
+.caption .court-line {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule-dark);
+  margin: 0.9rem 2rem;
+}
+.parties {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.parties .plaintiff, .parties .defendant { color: var(--faded); font-style: italic; }
+.case-no {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.case-meta {
+  margin: 0.3rem 0 0;
+  color: var(--faded);
+  font-size: 0.85rem;
+}
+
+/* Lede */
+.lede {
+  font-size: 1.02rem;
+  color: var(--ink);
+  max-width: 42rem;
+  margin: 2.75rem auto 2.25rem;
+}
+
+.appearing dt {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+.appearing dd { margin: 0 0 0.25rem; }
+.appearing p { margin: 0.15rem 0; font-size: 0.95rem; }
+
+/* Transcript lines */
+.lines { margin-top: 2.25rem; }
+.line {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.4rem;
+}
+.who {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  padding-top: 0.3rem;
+  text-align: right;
+}
+.line p { margin: 0; }
+.omitted {
+  text-align: center;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.92rem;
+  margin: 1.6rem 0;
+}
+
+/* Exhibits schedule */
+.exhibits { margin-top: 3rem; }
+.exhibits h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  font-weight: 700;
+  border-bottom: 1px solid var(--rule-dark);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+th {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.schedule-note {
+  font-size: 0.85rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+/* Colophon */
+.colophon {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule-dark);
+  font-size: 0.88rem;
+  color: var(--faded);
+}
+.colophon a { color: var(--accent); }
+
+@media (max-width: 40rem) {
+  .line { grid-template-columns: 1fr; gap: 0.2rem; }
+  .who { text-align: left; padding-top: 0; }
+}
