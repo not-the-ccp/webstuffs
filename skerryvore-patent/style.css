@@ -1,0 +1,153 @@
+/* Skerryvore patent summary — office copy, summary form */
+
+:root {
+  --ink: #1c2530;
+  --faded: #5c6875;
+  --rule: #b9c2cb;
+  --paper: #f7f5f0;
+  --seal: #7c2d2d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+  font-size: 17px;
+}
+
+.doc-head {
+  max-width: 44rem;
+  margin: 3.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.office {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+
+.filed {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+}
+
+.head-rule {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 4px;
+  margin-bottom: 1.6rem;
+}
+
+.head-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.head-fields dt {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.head-fields dd {
+  margin: 0.1rem 0 0;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.5rem 1rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.45rem;
+  margin: 2.4rem 0 1rem;
+}
+
+h2 .no {
+  color: var(--seal);
+  margin-right: 0.6rem;
+}
+
+p { margin: 0 0 1.05rem; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.85;
+  padding: 0.08em 0.14em 0 0;
+  color: var(--seal);
+}
+
+.claims-list {
+  padding-left: 1.3rem;
+}
+
+.claims-list li {
+  margin-bottom: 0.8rem;
+}
+
+.appended {
+  border-left: 3px solid var(--seal);
+  background: #fffdf8;
+  padding: 0.85rem 1.1rem;
+  font-style: italic;
+  font-size: 1.08rem;
+  margin: 1.3rem 0 1rem;
+}
+
+.note-gloss {
+  font-size: 0.92rem;
+  color: var(--faded);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--seal);
+  text-decoration-color: var(--seal);
+}
+
+.colophon {
+  max-width: 44rem;
+  margin: 3rem auto 2.5rem;
+  padding: 1rem 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.colophon p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--faded);
+  font-style: italic;
+}
