@@ -1,0 +1,171 @@
+/* The Appetite Limited — Timetable No. 6, The Rose Pacific Railroad */
+
+:root {
+  --ink: #2b1d1a;
+  --paper: #f4ead8;
+  --paper-deep: #ecdcbc;
+  --maroon: #6e1f22;
+  --maroon-deep: #4c1214;
+  --brass: #b9862f;
+  --track: #3a3532;
+  --rule: #8a6a3b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(110,31,34,0.05) 0 2px, transparent 2px 14px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  border-left: 6px double var(--maroon);
+  border-right: 6px double var(--maroon);
+  background:
+    linear-gradient(rgba(110,31,34,0.035), transparent 180px),
+    var(--paper);
+  box-shadow: 0 0 40px rgba(76,18,20,0.25);
+}
+
+.head {
+  text-align: center;
+  border-bottom: 3px double var(--maroon);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.carrier {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--maroon-deep);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0.2rem 0;
+  color: var(--maroon-deep);
+  letter-spacing: 0.04em;
+}
+
+.route {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  margin: 0.4rem 0;
+}
+
+.route span { color: var(--brass); }
+
+.train-no {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0.4rem 0;
+}
+
+.orn {
+  color: var(--brass);
+  letter-spacing: 1em;
+  font-size: 0.8rem;
+}
+
+section { margin-bottom: 2rem; }
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--maroon-deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-top: 0;
+}
+
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+}
+
+.tt caption.sr {
+  position: absolute;
+  left: -9999px;
+}
+
+.tt th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: var(--maroon-deep);
+  color: var(--paper);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+}
+
+.tt td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+}
+
+.tt td:first-child {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--maroon);
+  white-space: nowrap;
+}
+
+.tt tbody tr:nth-child(even) { background: rgba(110,31,34,0.05); }
+.tt tbody tr:hover { background: rgba(185,134,47,0.12); }
+
+tr.live td { background: rgba(185,134,47,0.18); }
+tr.live td:first-child::before { content: "\25B8 "; color: var(--brass); }
+
+.commentary p { max-width: 72ch; }
+
+.fineprint {
+  font-size: 0.85rem;
+  border-left: 3px solid var(--brass);
+  padding-left: 0.9rem;
+  color: var(--track);
+}
+
+a {
+  color: var(--maroon);
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--maroon-deep); background: rgba(185,134,47,0.15); }
+
+.notices ol {
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.notices li { margin-bottom: 0.3rem; }
+
+.foot {
+  text-align: center;
+  border-top: 3px double var(--maroon);
+  padding-top: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--maroon-deep);
+}
+
+.dot { color: var(--brass); }
