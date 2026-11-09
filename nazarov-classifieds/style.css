@@ -1,0 +1,225 @@
+/* The Reagent Exchange — Column No. 22 */
+
+body {
+  background-color: #000033;
+  background-image: url("stars.svg");
+  background-repeat: repeat;
+  color: #ffffff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.marquee-band {
+  background-color: #cc3300;
+  border-top: 2px ridge #ffcc00;
+  border-bottom: 2px ridge #ffcc00;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: #ffffcc;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding: 4px 0;
+  animation: scrollleft 24s linear infinite;
+}
+
+@keyframes scrollleft {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+.board td {
+  background-color: #ffffcc;
+  color: #000033;
+  border: 4px ridge #9999ff;
+}
+
+.board {
+  border: 4px ridge #9999ff;
+  background-color: #ffffcc;
+}
+
+.masthead {
+  text-align: center;
+  background-color: #333399;
+  color: #ffff00;
+  padding: 14px 20px;
+  border-bottom: 3px groove #cc9900;
+}
+
+.masthead h1 {
+  margin: 0 0 6px 0;
+  font-family: "Comic Sans MS", "Times New Roman", serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000066;
+}
+
+.masthead .sub {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  color: #ccffcc;
+}
+
+.masthead .rule {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  color: #9999ff;
+  margin: 0;
+}
+
+.editorial {
+  margin: 14px 18px;
+  padding: 10px;
+  background-color: #ffffee;
+  border: 2px inset #999999;
+}
+
+.editorial h2 {
+  margin-top: 0;
+  color: #333399;
+  font-size: 18px;
+}
+
+.sectionhead {
+  color: #ffffff;
+  background-color: #cc3300;
+  border: 2px outset #ffcc00;
+  padding: 4px 10px;
+  margin: 22px 18px 10px 18px;
+  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 3px;
+}
+
+.ad {
+  margin: 0 18px 12px 18px;
+  padding: 10px 12px;
+  background-color: #ffffee;
+  border: 2px inset #999999;
+}
+
+.ad h3 {
+  margin: 0 0 8px 0;
+  color: #990000;
+  font-size: 15px;
+}
+
+.ad .price {
+  color: #006600;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+}
+
+.ad p { margin: 6px 0; }
+
+.ad-meta {
+  font-size: 11px;
+  color: #666666;
+  font-style: italic;
+  margin-bottom: 0 !important;
+}
+
+.ad--memorial {
+  background-color: #e6e6ff;
+  border-color: #333399;
+}
+
+.ad--memorial h3 { color: #333399; }
+
+.ad--ledger {
+  background-color: #e8ffe8;
+}
+
+.ad--ledger blockquote {
+  margin: 8px 12px;
+  padding: 8px;
+  background-color: #ffffcc;
+  border-left: 4px solid #cc3300;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+a { color: #0000cc; }
+a:visited { color: #660099; }
+a:hover { color: #cc0000; background-color: #ffff00; }
+
+.guestbook {
+  margin: 22px 18px;
+  padding: 12px;
+  background-color: #99ccff;
+  border: 3px ridge #333399;
+}
+
+.guestbook h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #333399;
+  font-family: "Comic Sans MS", "Times New Roman", serif;
+}
+
+.guestbook label {
+  display: block;
+  margin: 6px 0 2px 0;
+  font-size: 12px;
+  color: #000033;
+}
+
+.guestbook input {
+  border: 2px inset #ffffff;
+  background-color: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+}
+
+.guestbook button {
+  margin-top: 8px;
+  border: 2px outset #ffffff;
+  background-color: #cccccc;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+}
+
+.guestbook button:active { border-style: inset; }
+
+.guestbook ul {
+  margin: 12px 0 0 0;
+  padding-left: 20px;
+  background-color: #ffffff;
+  border: 2px inset #ffffff;
+  padding: 8px 8px 8px 28px;
+  font-size: 13px;
+}
+
+.gb-note {
+  font-size: 12px;
+  color: #990000;
+  min-height: 1em;
+}
+
+.counter-band {
+  text-align: center;
+  background-color: #000033;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  border-top: 3px groove #9999ff;
+  padding: 8px;
+}
+
+.blink { animation: blinker 1s step-start infinite; }
+
+@keyframes blinker { 50% { opacity: 0; } }
+
+.colophon {
+  text-align: center;
+  font-size: 11px;
+  color: #666666;
+  padding: 10px 18px 16px 18px;
+  margin: 0;
+}
