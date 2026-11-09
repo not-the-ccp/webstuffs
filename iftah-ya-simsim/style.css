@@ -1,0 +1,135 @@
+/* Iftah Ya Simsim — review page */
+:root {
+  --sesame: #f6efe2;
+  --plaster: #efe4cd;
+  --brick: #8c3b2e;
+  --ink: #2c241c;
+  --green: #3e5d3a;
+  --gold: #c9992e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sesame);
+  color: var(--ink);
+  font: 17px/1.65 Georgia, "Times New Roman", serif;
+}
+
+.review {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.review-head {
+  border-bottom: 3px double var(--brick);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.kicker {
+  font: 700 0.72rem/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.18em;
+  color: var(--brick);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  margin: 0 0 0.6rem;
+  color: var(--brick);
+}
+
+.loc {
+  font: 400 0.85rem/1.5 "Helvetica Neue", Arial, sans-serif;
+  color: #5a4d3c;
+  margin: 0 0 0.5rem;
+}
+
+.byline {
+  margin: 0;
+  font-style: italic;
+}
+
+.stars { color: var(--gold); font-style: normal; letter-spacing: 0.1em; }
+.stars .half { opacity: 0.45; }
+
+.lede { font-size: 1.08rem; }
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--green);
+  border-left: 4px solid var(--gold);
+  padding-left: 0.6rem;
+  margin: 2rem 0 0.75rem;
+}
+
+strong { color: var(--brick); }
+
+/* Season log */
+.log {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.log-year {
+  font: 700 0.95rem/1 "Helvetica Neue", Arial, sans-serif;
+  background: var(--plaster);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.log-year:hover { background: var(--gold); color: #fff; }
+.log-year[aria-pressed="true"] { background: var(--brick); border-color: var(--brick); color: #fff; }
+
+.log-entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.log-entry {
+  background: var(--plaster);
+  border: 1px solid #ddcda9;
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.log-entry .log-head {
+  display: inline-block;
+  font: 700 0.8rem/1 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  margin-right: 0.4rem;
+}
+
+.log-entry.is-active {
+  outline: 3px solid var(--gold);
+  outline-offset: 1px;
+  background: #f3e7c9;
+}
+
+.log-note { font-size: 0.95rem; font-style: italic; }
+
+.related { margin-top: 2.25rem; font-size: 0.98rem; }
+a { color: var(--brick); }
+a:hover { color: var(--green); }
+
+.review-foot {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--brick);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #5a4d3c;
+}
