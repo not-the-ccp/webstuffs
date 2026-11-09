@@ -1,0 +1,233 @@
+/* A Book of Etiquette for the Boroughs — Chapter I, the printed leaf */
+:root {
+  --paper: #f3ead6;
+  --paper-edge: #e5d7b8;
+  --ink: #2a2118;
+  --ink-soft: #5a4c3a;
+  --rule: #8a744f;
+  --seal: #7c1f1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1c1712;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 236, 190, 0.08), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 7px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem 5rem;
+}
+
+.spine {
+  display: none;
+}
+
+.chapter {
+  position: relative;
+  width: 100%;
+  max-width: 44rem;
+  background:
+    radial-gradient(ellipse at 85% 4%, rgba(140, 100, 40, 0.12), transparent 30%),
+    radial-gradient(ellipse at 8% 96%, rgba(120, 80, 30, 0.14), transparent 28%),
+    var(--paper);
+  border: 1px solid var(--paper-edge);
+  box-shadow:
+    inset 0 0 60px rgba(90, 60, 20, 0.18),
+    0 0 0 6px rgba(60, 44, 20, 0.25),
+    0 22px 60px rgba(0, 0, 0, 0.6);
+  padding: 3.2rem 3.4rem 2.6rem;
+}
+
+.chapter::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.1rem;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(124, 31, 26, 0.35) 8%, rgba(124, 31, 26, 0.35) 92%, transparent);
+  pointer-events: none;
+}
+
+.chapter-head { text-align: center; }
+
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.imprint {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0.2rem 0 0.8rem;
+}
+
+.house {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+
+.motto {
+  font-style: italic;
+  font-size: 1.02rem;
+  margin: 0 auto 1.4rem;
+  max-width: 28rem;
+}
+
+.seal {
+  width: 4.2rem;
+  height: 4.2rem;
+  margin: 0 auto 0.4rem;
+  border: 2px double var(--seal);
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(-8deg);
+  opacity: 0.75;
+}
+.seal::after {
+  content: "B · I";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  font-size: 1.05rem;
+  color: var(--seal);
+}
+
+.rule {
+  border: none;
+  height: 1px;
+  background: var(--rule);
+  margin: 1.7rem auto;
+  width: 68%;
+  position: relative;
+}
+
+main > em {
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  transform: translate(-50%, -50%);
+  background: var(--paper);
+  padding: 0 0.9rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.toc {
+  border: 1px solid var(--rule);
+  padding: 1rem 1.6rem 1.1rem;
+  margin: 0.4rem 0 2rem;
+  background: rgba(255, 250, 235, 0.4);
+}
+.toc h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 0.7rem;
+  color: var(--ink-soft);
+}
+.toc ol { margin: 0; padding-left: 1.4rem; }
+.toc li { margin: 0.25rem 0; font-size: 0.95rem; }
+.toc a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--rule); }
+.toc a:hover { color: var(--seal); border-color: var(--seal); }
+
+.entry { margin: 2.2rem 0; }
+.entry h2 {
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.28rem;
+  margin: 0 0 0.9rem;
+  text-align: center;
+}
+
+p { margin: 0 0 1rem; text-align: justify; }
+
+.dropcap-para { text-indent: 0; }
+.dropcap {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--seal);
+  font-family: Georgia, serif;
+}
+
+blockquote.clipping {
+  margin: 1.4rem 2.4rem;
+  padding: 1rem 1.4rem;
+  border: 1px dashed var(--rule);
+  background: rgba(255, 252, 240, 0.65);
+  font-style: italic;
+  text-align: center;
+}
+blockquote.clipping p { text-align: center; margin: 0; }
+blockquote.clipping::before {
+  content: "— from the drawer at the hall table —";
+  display: block;
+  font-size: 0.72rem;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+  font-style: normal;
+}
+
+strong { font-weight: 600; }
+
+.closing {
+  margin-top: 2.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.closing a { color: var(--ink); }
+
+a { color: var(--ink); }
+a:hover { color: var(--seal); }
+
+.fin {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.24em;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 2.4rem 0 0;
+}
+
+@media (min-width: 720px) {
+  .spine {
+    display: block;
+    width: 0.9rem;
+    background: linear-gradient(to right, #3d2c16, #6b4f27 40%, #3d2c16);
+    border-radius: 3px 0 0 3px;
+    margin-right: -1px;
+    align-self: stretch;
+  }
+  body { gap: 0; }
+}
