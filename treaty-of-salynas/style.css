@@ -1,0 +1,143 @@
+/* Obituary column, The Neman Almanac — Treaty of Salynas */
+
+:root {
+  --ink: #2a241c;
+  --paper: #f4efe3;
+  --rule: #b8a888;
+  --river: #3e5c58;
+  --river-deep: #24403d;
+  --ash: #6e6353;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.obituary {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.series {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  color: var(--ash);
+  text-transform: lowercase;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 0.4rem;
+  font-weight: normal;
+}
+
+.epitaph {
+  font-style: italic;
+  color: var(--river-deep);
+  margin: 0 0 0.6rem;
+}
+
+.dates {
+  color: var(--ash);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.rule {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 1.4rem 0;
+}
+
+p { margin: 0 0 1.1rem; }
+em { color: var(--river-deep); }
+
+.timeline {
+  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+}
+
+.timeline h2 {
+  font-size: 1.15rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+
+.timeline-note { font-size: 0.9rem; color: var(--ash); }
+
+.tl { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+
+.tl button {
+  font: inherit;
+  font-size: 0.95rem;
+  background: var(--paper);
+  color: var(--river-deep);
+  border: 1px solid var(--river);
+  border-radius: 2rem;
+  padding: 0.3rem 0.9rem;
+  cursor: pointer;
+}
+
+.tl button:hover { background: var(--river); color: var(--paper); }
+.tl button[aria-pressed="true"] {
+  background: var(--river-deep);
+  color: var(--paper);
+  border-color: var(--river-deep);
+}
+
+.tl-detail {
+  min-height: 3.2rem;
+  border-left: 3px solid var(--river);
+  padding: 0.4rem 0 0.4rem 1rem;
+  margin: 0 0 1rem;
+  color: var(--river-deep);
+}
+
+.tl-fallback {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.tl-fallback li {
+  padding: 0.25rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+
+.tl-fallback .tl-year { font-weight: bold; color: var(--river-deep); margin-right: 0.4rem; }
+
+.also {
+  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+}
+
+.also h2 {
+  font-size: 1.15rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+
+a { color: var(--river-deep); }
+a:hover { color: var(--ash); }
+
+.colophon {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--ash);
+}
