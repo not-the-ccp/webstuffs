@@ -1,0 +1,247 @@
+/* Specification No. 228,415 — A Memorial Structure for Railway Men */
+
+:root {
+  --paper: #efe7d2;
+  --paper-deep: #e6dcc0;
+  --ink: #2b2417;
+  --faint: #6d5f45;
+  --rule: #3a3020;
+  --stamp: #9c2b1e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d8cfb6; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 56rem;
+  margin: 2.5rem auto;
+  padding: 3rem 3.25rem 2.5rem;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(120, 96, 40, 0.10), transparent 46%),
+    radial-gradient(ellipse at 88% 96%, rgba(120, 96, 40, 0.14), transparent 40%),
+    var(--paper);
+  border: 1px solid #b3a67f;
+  box-shadow: 0 0 0 6px rgba(90, 74, 40, 0.08), 0 18px 40px rgba(60, 48, 20, 0.35);
+  position: relative;
+}
+
+/* faint ruled margins, like the old forms */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem 1.25rem;
+  border: 1px solid rgba(58, 48, 32, 0.35);
+  outline: 1px solid rgba(58, 48, 32, 0.18);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+.margin-note {
+  position: absolute;
+  top: 1.55rem;
+  right: 1.9rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* --- office head --- */
+.office-head { text-align: center; }
+
+.office-line {
+  margin: 0 0 0.15rem;
+  font-size: 1.02rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.office-sub {
+  margin: 0 0 1.4rem;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.office-head h1 {
+  font-size: 1.42rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 34rem;
+  margin: 0 auto 1.5rem;
+}
+
+.parties {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.parties td {
+  border-top: 1px solid rgba(58, 48, 32, 0.55);
+  padding: 0.4rem 0.5rem 0.4rem 0;
+  vertical-align: top;
+}
+
+.parties tr td:first-child {
+  width: 11rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.parties tr:last-child td { border-bottom: 1px solid rgba(58, 48, 32, 0.55); }
+
+/* --- sections --- */
+section { margin-top: 2.1rem; }
+
+h2 {
+  font-size: 0.98rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 3px double var(--rule);
+}
+
+h2::before,
+h2::after { content: "\2002"; }
+
+p { margin: 0 0 1rem; text-align: justify; }
+
+/* --- figures --- */
+.figures {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.figures li {
+  padding: 0.35rem 0 0.35rem 6.2rem;
+  text-indent: -6.2rem;
+  border-bottom: 1px dotted rgba(58, 48, 32, 0.4);
+  font-size: 0.93rem;
+}
+
+.fig {
+  float: left;
+  width: 5.6rem;
+  text-indent: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--faint);
+}
+
+.sign {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(58, 48, 32, 0.5);
+  padding: 0 0.28em;
+  border-radius: 2px;
+}
+
+/* --- the kept line --- */
+.kept {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40rem;
+}
+
+.kept-line {
+  margin: 0.2rem 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid var(--stamp);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* --- claims --- */
+.claim-list {
+  margin: 0;
+  padding-left: 0;
+  counter-reset: claim;
+  list-style: none;
+}
+
+.claim-list li {
+  counter-increment: claim;
+  position: relative;
+  padding: 0 0 0.85rem 3.2rem;
+  border-bottom: 1px dotted rgba(58, 48, 32, 0.35);
+  font-size: 0.95rem;
+}
+
+.claim-list li:last-child { border-bottom: none; }
+
+.claim-list li::before {
+  content: "Claim " counter(claim) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+/* --- foot --- */
+.office-foot {
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+}
+
+.stamp {
+  display: inline-block;
+  margin: 0.2rem 0 0.9rem;
+  padding: 0.35rem 1.1rem;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-size: 0.78rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  transform: rotate(-1.6deg);
+  opacity: 0.82;
+  background: rgba(156, 43, 30, 0.05);
+}
+
+.foot-note {
+  font-size: 0.8rem;
+  color: var(--faint);
+  text-align: justify;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: rgba(58, 48, 32, 0.55);
+}
+
+a:hover { background: rgba(156, 43, 30, 0.10); }
+
+@media (max-width: 52rem) {
+  .sheet { margin: 0; padding: 2.2rem 1.15rem; border-left: none; border-right: none; }
+  .office-head h1 { font-size: 1.15rem; }
+  .parties { font-size: 0.8rem; }
+  .figures li { padding-left: 0.4rem; text-indent: 0; }
+  .fig { float: none; width: auto; }
+}
