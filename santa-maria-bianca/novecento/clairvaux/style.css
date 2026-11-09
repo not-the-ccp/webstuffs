@@ -1,0 +1,202 @@
+/* The White Stone — Cistercian austerity: white stone, white linen, one red line. */
+
+:root {
+  --stone: #f5f1e8;
+  --linen: #fbf8f1;
+  --ink: #2b2620;
+  --rubric: #9e2b25;
+  --rule: #c9c0ae;
+  --shadow: #e4dcc9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--stone);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.010) 0 2px, transparent 2px 4px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.sheet {
+  position: relative;
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 var(--shadow), 0 14px 40px rgba(43, 38, 32, 0.12);
+  padding: 2.75rem 3rem 1.5rem 3.5rem;
+}
+
+/* the single red line at the margin — the whole palette of the order */
+.redline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.35rem;
+  width: 2px;
+  background: var(--rubric);
+  opacity: 0.85;
+}
+
+.masthead { text-align: center; }
+
+.seal { margin: 0 auto 0.9rem; width: 74px; height: 74px; }
+.seal img { width: 100%; height: 100%; display: block; }
+
+.kicker {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rubric);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  margin: 0.6rem auto 0;
+  max-width: 34rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #5c5346;
+}
+
+.rule {
+  height: 7px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin: 1.6rem 0 0.4rem;
+}
+.rule::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  margin-top: 3px;
+}
+
+.section { margin: 2rem 0; }
+
+h2 {
+  margin: 0 0 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rubric);
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--rubric); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { background: #f0e8d6; }
+
+blockquote {
+  margin: 1.2rem 1rem 1.2rem 1.6rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid var(--rubric);
+  background: #f3ecdb;
+  font-style: italic;
+  font-size: 1.05rem;
+  quotes: "\201C" "\201D";
+}
+
+/* the ledger */
+.ledger table, .vote {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+.ledger td {
+  padding: 0.45rem 0.6rem 0.45rem 0;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+}
+.ledger td:first-child {
+  width: 9rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: #5c5346;
+}
+
+/* the vote */
+.vote th {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5c5346;
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid var(--ink);
+  text-align: left;
+}
+.vote td {
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.tick-col { width: 2.4rem; text-align: center; }
+.vote input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 1px solid var(--ink);
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+}
+.vote input[type="checkbox"]:checked::after {
+  content: "\2713";
+  position: absolute;
+  left: 0.12rem;
+  top: -0.28rem;
+  font-size: 1.2rem;
+  color: var(--rubric);
+  font-family: Georgia, serif;
+}
+label { cursor: pointer; }
+.num { white-space: nowrap; color: #5c5346; }
+
+.desk {
+  margin-top: 0.8rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px dashed var(--rule);
+  background: #f3ecdb;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #5c5346;
+}
+
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.88rem;
+  color: #5c5346;
+}
+
+.plate { text-align: center; margin-top: 0.5rem; }
+.colophon-small {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8b8172;
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .sheet { padding: 2rem 1.4rem 1.2rem 2rem; margin: 0; }
+  .redline { left: 0.8rem; }
+  h1 { font-size: 2rem; }
+}
