@@ -1,0 +1,187 @@
+/* Route Pamphlet No. 1986-JL — printed tour brochure sheet */
+
+:root {
+  --paper: #f3ecd9;
+  --paper-edge: #e6dcbc;
+  --ink: #2b2b26;
+  --ink-faded: #5c5847;
+  --red: #9e2b1e;
+  --blue: #23486b;
+  --stamp: #9e2b1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #4b463c;
+  background-image: radial-gradient(ellipse at 50% 0%, #5a5448 0%, #413c33 75%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.pamphlet {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.05), transparent 12%, transparent 88%, rgba(0,0,0,0.07));
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45), inset 0 0 60px rgba(120,100,60,0.12);
+  padding: 2.6rem 2.8rem 2rem;
+  position: relative;
+}
+
+/* punched hole down the left, like a stapled brochure leaf */
+.punch {
+  position: absolute;
+  left: 0.55rem; top: 50%;
+  width: 0.8rem; height: 0.8rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #4b463c;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.7), 0 0 0 2px var(--paper-edge);
+}
+
+.cover { border-bottom: 3px double var(--ink); padding-bottom: 1.2rem; }
+
+.operator {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin: 0 0 1.4rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 0.95rem;
+}
+
+.route-card {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  padding: 0.9rem 1rem;
+  margin: 1.4rem 0;
+  background: rgba(255,255,255,0.25);
+}
+
+.route-card-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+.route-card-table th {
+  text-align: left;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faded);
+  padding: 0.15rem 0.8rem 0.15rem 0;
+  vertical-align: top;
+  width: 6rem;
+}
+.route-card-table td { padding: 0.15rem 0; border-bottom: 1px dotted rgba(43,43,38,0.35); }
+.route-card-table tr:last-child td { border-bottom: none; }
+
+.stamp {
+  position: absolute;
+  right: 0.7rem; bottom: 0.7rem;
+  transform: rotate(-8deg);
+  border: 2.5px solid var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  opacity: 0.75;
+  border-radius: 3px;
+}
+
+.headnote { font-size: 0.95rem; margin: 0.4rem 0 0; }
+
+.stops { padding-top: 1rem; }
+
+.stop {
+  padding: 0 0 0.4rem 1.6rem;
+  border-left: 2px dashed rgba(43,43,38,0.5);
+  margin-left: 0.4rem;
+  margin-bottom: 0.6rem;
+  transition: background 0.2s;
+}
+
+.stop.won {
+  background: rgba(158,43,30,0.05);
+  border-left-color: var(--red);
+}
+
+.stop-num {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  text-transform: uppercase;
+}
+.stop-num .walk { color: var(--ink-faded); font-weight: normal; }
+
+.stop h2 {
+  font-size: 1.12rem;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.stop p { margin: 0 0 0.7rem; font-size: 0.94rem; }
+
+.stop .vis {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  border: 1.5px solid var(--blue);
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  transform: rotate(-1.5deg);
+  cursor: pointer;
+  user-select: none;
+}
+
+.leg {
+  margin: 0 0 0.6rem 0.4rem;
+  padding-left: 1.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  border-left: 2px dashed rgba(35,72,107,0.5);
+  height: 1.4rem;
+}
+
+.back {
+  border-top: 3px double var(--ink);
+  margin-top: 1.6rem;
+  padding-top: 0.9rem;
+}
+.back-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  text-align: center;
+}
+.back-links { font-size: 0.82rem; text-align: center; margin-top: 0.5rem; }
+.back-links a { color: var(--blue); }
+.back-links a:hover { color: var(--red); }
