@@ -1,0 +1,243 @@
+/* Stoll's Two-Name Braise — recipe card, lamp-oil drawer */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dcbc;
+  --ink: #3b2d1c;
+  --ink-soft: #5c4a30;
+  --lamp: #ffb347;
+  --lamp-deep: #b97a1e;
+  --rule: #b39b6b;
+  --seal: #7a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -80px, rgba(255, 179, 71, 0.14), transparent 60%),
+    repeating-linear-gradient(0deg, #241b11 0px, #241b11 3px, #2a2015 3px, #2a2015 7px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 40px 16px 64px;
+}
+
+/* the card */
+.card-head,
+.card,
+.card-foot {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card-head {
+  position: relative;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  padding: 28px 32px 20px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--seal);
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.1;
+  color: var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.subhead {
+  margin: 12px auto 0;
+  max-width: 560px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.serves {
+  margin: 14px auto 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--lamp-deep);
+}
+
+/* the lamp */
+.lamp {
+  position: absolute;
+  top: -14px;
+  right: 44px;
+  width: 46px;
+  height: 88px;
+  cursor: pointer;
+}
+
+.lamp-stem {
+  position: absolute;
+  bottom: 0;
+  left: 21px;
+  width: 4px;
+  height: 66px;
+  background: linear-gradient(#6b5636, #3b2d1c);
+  border-radius: 2px;
+}
+
+.lamp-bulb {
+  position: absolute;
+  top: 12px;
+  left: 9px;
+  width: 28px;
+  height: 32px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at 50% 40%, #fff3d6, var(--lamp) 70%);
+  border: 1px solid var(--lamp-deep);
+}
+
+.lamp-glow {
+  position: absolute;
+  top: -14px;
+  left: -22px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.45), transparent 70%);
+  animation: flicker 4.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.75; }
+  43% { opacity: 0.55; }
+  47% { opacity: 0.9; }
+  52% { opacity: 0.6; }
+}
+
+.lamp.off .lamp-glow { display: none; }
+.lamp.off .lamp-bulb { background: radial-gradient(circle at 50% 40%, #cfc6ae, #8d8468 70%); }
+
+/* the card body */
+.card {
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--rule);
+  border-top: 1px dashed var(--rule);
+  border-bottom: none;
+  padding: 34px 44px 30px;
+}
+
+.card h2 {
+  font-size: 15px;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--seal);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+  margin: 0 0 16px;
+}
+
+section { margin-bottom: 34px; }
+section:last-child { margin-bottom: 6px; }
+
+p { margin: 0 0 14px; }
+
+/* names table */
+.names-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15.5px;
+}
+
+.names-table th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--seal);
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  padding: 4px 10px 6px 0;
+}
+
+.names-table td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 8px 10px 8px 0;
+  vertical-align: top;
+}
+
+.names-table td:last-child { white-space: nowrap; font-style: italic; }
+
+.table-note {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* method */
+.method ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.method li {
+  margin-bottom: 12px;
+  padding-left: 6px;
+}
+
+.method li::marker {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--seal);
+  font-weight: bold;
+}
+
+/* the pencilled margin */
+.margin-line {
+  margin: 0 0 14px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px dashed var(--rule);
+  border-left: 4px solid var(--lamp);
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #4a4a55;
+  transform: rotate(-0.4deg);
+}
+
+a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--seal);
+}
+
+a:hover { color: var(--lamp-deep); border-bottom-color: var(--lamp-deep); }
+
+/* footer */
+.card-foot {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px double var(--rule);
+  padding: 18px 28px 22px;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.card-foot p { margin: 0; }
+.foot-lamp { margin-top: 6px !important; color: var(--lamp-deep); }
