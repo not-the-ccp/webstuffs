@@ -1,0 +1,337 @@
+/* The Cadwaladr Walk — Itinerary No. 682, Gwynedd.
+   Palette: draco red, orichalcum gold, slate-stone, parchment. */
+
+:root {
+  --blood: #8a1f1f;
+  --blood-deep: #4d0f0f;
+  --gold: #c9973c;
+  --gold-bright: #e8c476;
+  --parch: #f2e6c9;
+  --parch-dim: #e5d5ae;
+  --stone: #3c4250;
+  --stone-deep: #23283a;
+  --ink: #2b1d10;
+  --sea: #3f6470;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  background-color: #2e2418;
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(138, 31, 31, 0.55), transparent 60%),
+    radial-gradient(ellipse 90% 50% at 10% 110%, rgba(63, 100, 112, 0.35), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(201, 151, 60, 0.06) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(201, 151, 60, 0.06) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, #35291a, #241b11 40%, #1d1710);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: inset 0 0 18vmin rgba(0, 0, 0, 0.65);
+}
+
+/* ---- knot bands ---- */
+.knot-band {
+  color: var(--gold);
+  opacity: 0.85;
+  line-height: 0;
+  height: 60px;
+  overflow: hidden;
+  animation: knotDrift 26s linear infinite alternate;
+}
+.knot-band svg { width: 200%; min-width: 1600px; }
+.knot-band-small { height: 34px; margin: 0 auto 14px; max-width: 900px; }
+@keyframes knotDrift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-12%); }
+}
+
+/* ---- masthead ---- */
+.masthead {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 44px 22px 26px;
+  text-align: center;
+  position: relative;
+}
+.series-line {
+  letter-spacing: 0.42em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 0 0 18px;
+}
+.masthead h1 {
+  font-size: clamp(3rem, 8vw, 5.4rem);
+  margin: 0;
+  line-height: 1.02;
+  color: var(--parch);
+  text-shadow:
+    0 0 22px rgba(232, 196, 118, 0.35),
+    3px 3px 0 var(--blood-deep),
+    6px 6px 14px rgba(0, 0, 0, 0.6);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.subtitle {
+  max-width: 720px;
+  margin: 18px auto 0;
+  font-size: 1.08rem;
+  color: var(--parch-dim);
+  font-style: italic;
+  line-height: 1.65;
+}
+.subtitle strong { color: var(--gold-bright); font-style: normal; }
+
+.route-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+  list-style: none;
+  padding: 0;
+}
+.route-meta p {
+  margin: 0;
+  border: 1px solid rgba(201, 151, 60, 0.55);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  color: var(--parch);
+  background: linear-gradient(180deg, rgba(138, 31, 31, 0.45), rgba(45, 30, 18, 0.45));
+  display: flex;
+  gap: 9px;
+  align-items: baseline;
+}
+.route-meta span {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.66rem;
+  color: var(--gold-bright);
+}
+.route-meta strong { font-size: 0.95rem; }
+
+/* ---- dragon ---- */
+.dragon {
+  width: 150px;
+  margin: 26px auto 0;
+  filter: drop-shadow(0 0 18px rgba(232, 196, 118, 0.45));
+  animation: breathe 5s ease-in-out infinite;
+}
+.dragon .body { fill: var(--blood); stroke: var(--gold); stroke-width: 2; }
+.dragon .tail { fill: var(--blood); stroke: var(--gold); stroke-width: 2; opacity: 0.9; }
+.dragon .wing { fill: var(--stone-deep); stroke: var(--gold-bright); stroke-width: 2; transform-origin: 100px 60px; }
+.dragon .w1 { animation: flapL 3.2s ease-in-out infinite; }
+.dragon .w2 { animation: flapR 3.2s ease-in-out infinite; }
+@keyframes breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-7px) scale(1.04); }
+}
+@keyframes flapL { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-14deg); } }
+@keyframes flapR { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(14deg); } }
+
+/* ---- pace bar ---- */
+.pacebar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, rgba(35, 26, 17, 0.97), rgba(35, 26, 17, 0.88));
+  border-bottom: 2px solid var(--gold);
+  padding: 8px 18px;
+}
+.pacebar-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(242, 230, 201, 0.15);
+  overflow: hidden;
+}
+.pacebar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blood), var(--gold-bright));
+  border-radius: 999px;
+  transition: width 0.25s ease-out;
+}
+.pacebar-label {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+/* ---- page body ---- */
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 22px 20px;
+}
+.page section, .stops {
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 29, 16, 0.035) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, var(--parch), var(--parch-dim));
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--blood);
+  outline-offset: 5px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(138, 31, 31, 0.08);
+  padding: 30px 34px;
+  margin-bottom: 56px;
+}
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--blood-deep);
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+.intro p { line-height: 1.8; font-size: 1.02rem; }
+.intro q {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--blood);
+  border-left: 4px solid var(--gold);
+  padding-left: 12px;
+}
+a { color: var(--blood); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--blood-deep); }
+
+/* ---- route map ---- */
+.route-map {
+  max-width: 860px;
+  margin: 0 auto 56px;
+  background:
+    radial-gradient(ellipse 80% 90% at 20% 20%, rgba(63, 100, 112, 0.18), transparent 60%),
+    linear-gradient(180deg, var(--parch), var(--parch-dim));
+  border: 2px solid var(--gold);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+  padding: 22px 26px 14px;
+}
+.route-map svg { width: 100%; display: block; }
+.route-line {
+  stroke: var(--blood);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 14 10;
+  animation: march 40s linear infinite;
+}
+@keyframes march { to { stroke-dashoffset: -960; } }
+.stop-dot circle { fill: var(--stone-deep); stroke: var(--gold-bright); stroke-width: 3; }
+.stop-dot text {
+  fill: var(--gold-bright);
+  font-family: Georgia, serif;
+  font-size: 12px;
+  text-anchor: middle;
+  font-weight: bold;
+}
+.route-map figcaption {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-align: center;
+  padding: 10px 0 4px;
+  border-top: 1px solid rgba(201, 151, 60, 0.6);
+  margin-top: 10px;
+}
+
+/* ---- stops ---- */
+.stops {
+  list-style: none;
+  padding: 0 34px 34px;
+  margin: 0 0 56px;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 29, 16, 0.035) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, var(--parch), var(--parch-dim));
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--blood);
+  outline-offset: 5px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(138, 31, 31, 0.08);
+}
+.stops h2 { padding: 30px 0 10px; margin: 0; }
+.stop {
+  position: relative;
+  padding: 24px 0 24px 46px;
+  border-bottom: 1px dashed rgba(138, 31, 31, 0.45);
+}
+.stop:last-child { border-bottom: none; }
+.stop::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--gold-bright), var(--blood));
+  border: 2px solid var(--stone-deep);
+  box-shadow: 0 0 12px rgba(201, 151, 60, 0.6);
+}
+.stop.lit::before { animation: ping 1.4s ease-out; }
+@keyframes ping {
+  0%   { box-shadow: 0 0 0 0 rgba(232, 196, 118, 0.9); }
+  100% { box-shadow: 0 0 0 26px rgba(232, 196, 118, 0); }
+}
+.stop-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.stop-no {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  color: var(--blood);
+  font-weight: bold;
+}
+.stop-time {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--stone);
+  border: 1px solid var(--stone);
+  border-radius: 999px;
+  padding: 2px 12px;
+}
+.stop h3 {
+  margin: 8px 0 6px;
+  font-size: 1.45rem;
+  color: var(--stone-deep);
+}
+.stop h3::before { content: "⚜ "; color: var(--gold); }
+.stop-where {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--sea);
+  margin: 0 0 12px;
+  letter-spacing: 0.02em;
+}
+.stop p:last-child { line-height: 1.8; font-size: 1.02rem; }
+
+/* ---- colophon & foot ---- */
+.colophon p { line-height: 1.8; }
+.foot {
+  text-align: center;
+  color: var(--parch-dim);
+  padding: 24px 16px 56px;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+.foot p { line-height: 1.9; }
+
+@media (max-width: 640px) {
+  section, .stops { padding-left: 22px; padding-right: 22px; }
+  .stops { padding-left: 22px; padding-right: 22px; }
+  .stop { padding-left: 34px; }
+}
