@@ -1,0 +1,243 @@
+/* Letter No. 9 — An Apology to the Philadelphia Phillies
+   Design: a sheet of cream stationery pinned to a deep-red wall,
+   stitched like a baseball, stamped like the front office. */
+
+:root {
+  --red: #a51212;
+  --red-deep: #5c0808;
+  --red-bright: #d92b2b;
+  --cream: #f7f1e3;
+  --paper: #fbf7ec;
+  --ink: #2a1410;
+  --gold: #c9973b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1100px 500px at 85% -5%, rgba(217, 43, 43, 0.55), transparent 60%),
+    radial-gradient(900px 600px at -10% 100%, rgba(201, 151, 59, 0.28), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255, 245, 230, 0.035) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.12) 0 2px, transparent 2px 26px),
+    linear-gradient(160deg, var(--red-deep) 0%, var(--red) 45%, #7c0d0d 100%);
+  background-attachment: fixed;
+}
+
+/* --- stitching rails --- */
+.stitch-rail {
+  height: 14px;
+  margin: 0 6vw;
+  background-image:
+    repeating-linear-gradient(90deg,
+      var(--cream) 0 14px, transparent 14px 22px);
+  border-top: 2px solid rgba(247, 241, 227, 0.55);
+  border-bottom: 2px solid rgba(247, 241, 227, 0.55);
+  border-radius: 7px;
+  animation: stitch-crawl 22s linear infinite;
+}
+.stitch-rail.top { margin-top: 10px; }
+.stitch-rail.bottom { margin-bottom: 10px; }
+@keyframes stitch-crawl { to { background-position: 220px 0; } }
+
+/* --- letterhead --- */
+.letterhead {
+  text-align: center;
+  padding: 34px 6vw 10px;
+  color: var(--cream);
+  position: relative;
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  color: #f0d9a8;
+}
+
+.ball {
+  width: 92px;
+  height: 92px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+  animation: ball-spin 14s linear infinite;
+  margin-bottom: 14px;
+}
+@keyframes ball-spin {
+  0%   { transform: rotate(0deg) translateY(0); }
+  50%  { transform: rotate(180deg) translateY(-12px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+.title {
+  font-size: clamp(2.1rem, 5.5vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  text-shadow:
+    2px 2px 0 var(--red-deep),
+    4px 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+.from {
+  font-style: italic;
+  margin: 16px auto 0;
+  max-width: 34em;
+  font-size: 1.02rem;
+  color: #f4e6cf;
+}
+
+.stamp {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--red-deep);
+  background: var(--cream);
+  border: 2px dashed var(--red);
+  transform: rotate(-2.4deg);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  animation: stamp-bob 6s ease-in-out infinite;
+}
+@keyframes stamp-bob {
+  0%, 100% { transform: rotate(-2.4deg) translateY(0); }
+  50%      { transform: rotate(-1.2deg) translateY(-5px); }
+}
+
+/* --- the sheet --- */
+.sheet {
+  max-width: 46rem;
+  margin: 26px auto 40px;
+  padding: clamp(28px, 5vw, 58px) clamp(24px, 6vw, 64px);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(165, 18, 18, 0.08) 31px 32px),
+    radial-gradient(120% 90% at 50% 0%, #fffdf7 0%, var(--paper) 55%, #f1e8d3 100%);
+  border: 1px solid #d8c9a8;
+  outline: 2px solid var(--red);
+  outline-offset: 6px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(165, 18, 18, 0.05);
+  position: relative;
+}
+
+/* tape corners */
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  width: 118px;
+  height: 34px;
+  background: rgba(247, 241, 227, 0.65);
+  border: 1px solid rgba(165, 18, 18, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+.sheet::before { left: 34px; transform: rotate(-5deg); }
+.sheet::after  { right: 34px; transform: rotate(4deg); }
+
+.sheet p { font-size: 1.06rem; line-height: 1.75; margin: 0 0 1.15em; }
+
+.dateline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  border-bottom: 1px solid rgba(165, 18, 18, 0.35);
+  padding-bottom: 10px;
+}
+
+.salutation {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.sheet a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 2px dotted var(--gold);
+  padding-bottom: 1px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.sheet a:hover, .sheet a:focus {
+  background: var(--red);
+  color: var(--paper);
+}
+
+.closing { margin-top: 1.8em; font-style: italic; }
+
+.signature {
+  font-family: "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive;
+  font-size: 2.1rem;
+  color: var(--red);
+  line-height: 1.15;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.sig-note {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: #7a5a3a;
+  text-transform: uppercase;
+}
+
+.ps {
+  margin-top: 2.2em;
+  padding: 18px 22px;
+  background: rgba(165, 18, 18, 0.05);
+  border: 1px solid rgba(165, 18, 18, 0.3);
+  border-left: 6px solid var(--red);
+  font-size: 0.98rem;
+}
+.ps-label {
+  margin: 0 0 0.6em;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: var(--red);
+}
+
+/* --- colophon --- */
+.colophon {
+  text-align: center;
+  padding: 0 6vw 34px;
+  color: #e8d5b5;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+.colophon p { margin: 0; }
+
+/* --- falling seams (JS drops these) --- */
+.seam {
+  position: fixed;
+  top: -20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 0 0 0 1px var(--red), 0 4px 8px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 50;
+  animation: seam-fall 3.2s ease-in forwards;
+}
+@keyframes seam-fall {
+  0%   { transform: translateY(0) rotate(0); opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateY(105vh) rotate(540deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ball, .stamp, .stitch-rail, .seam { animation: none; }
+}
