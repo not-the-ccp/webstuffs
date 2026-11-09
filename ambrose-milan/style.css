@@ -1,0 +1,144 @@
+/* Ambrose of Milan — letter to the editor, Chancery of the Hrazdan.
+   Palette: parchment, Tyrian purple ink, Milanese red wax, honey. */
+
+:root {
+  --parchment: #f4ecd8;
+  --parchment-deep: #e9dcbc;
+  --ink: #2c2418;
+  --tyrian: #5b2a6e;
+  --tyrian-soft: #7a4490;
+  --milanese: #8c1d2f;
+  --honey: #c8952f;
+  --rule: #b8a473;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(200, 149, 47, 0.14), transparent 45%),
+    radial-gradient(ellipse at 85% 92%, rgba(91, 42, 110, 0.10), transparent 50%),
+    #efe4c8;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.letter {
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  background: var(--parchment);
+  border: 1px solid var(--rule);
+  outline: 3px double var(--tyrian);
+  outline-offset: 6px;
+  box-shadow: 0 1px 0 #d8c99f, 0 14px 34px rgba(44, 36, 24, 0.22);
+  padding: 2.6rem 2.8rem 2rem;
+  position: relative;
+}
+
+/* comb motif down the left edge */
+.letter::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 10px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--honey) 0 6px,
+    transparent 6px 12px
+  );
+  opacity: 0.55;
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px double var(--tyrian);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.series {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--milanese);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
+  color: var(--tyrian);
+  margin: 0 0 0.6rem;
+  font-weight: normal;
+}
+
+.addressed {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #574a33;
+  margin: 0;
+}
+
+.body p {
+  margin: 0 0 1.15rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.dropcap::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--milanese);
+}
+
+.clipping {
+  background: var(--parchment-deep);
+  border-left: 4px solid var(--honey);
+  padding: 0.8rem 1.1rem;
+  font-style: italic;
+  font-size: 1.02rem;
+  margin: 0 0 1.15rem 1rem;
+  box-shadow: 2px 2px 0 rgba(44, 36, 24, 0.12);
+}
+
+a {
+  color: var(--tyrian-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--milanese); }
+
+.closing { margin-bottom: 0.2rem; }
+
+.signature {
+  font-style: italic;
+  color: var(--tyrian);
+  line-height: 1.5;
+}
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: #6b5c3f;
+  text-align: center;
+}
+
+/* wax seal */
+.colophon p::after {
+  content: "\2606";
+  display: block;
+  font-size: 1.5rem;
+  color: var(--milanese);
+  margin-top: 0.6rem;
+  letter-spacing: 0;
+}
