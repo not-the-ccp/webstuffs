@@ -1,0 +1,211 @@
+/* Webstuffs Pocket Guides — Guide to the Games, Entry 211 */
+
+:root {
+  --paper: #f6efdd;
+  --paper-deep: #efe4c9;
+  --ink: #22304e;
+  --ink-soft: #4a5570;
+  --red: #9c2b1e;
+  --rule: #c9b98f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cdb0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(120, 100, 60, 0.035) 0,
+    rgba(120, 100, 60, 0.035) 1px,
+    transparent 1px,
+    transparent 26px
+  );
+  border: 1px solid #b3a37c;
+  box-shadow: 0 10px 30px rgba(40, 30, 10, 0.35);
+  padding: 2.25rem 2.5rem 1.5rem;
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0.6rem;
+  border: 2px double var(--rule);
+  pointer-events: none;
+}
+
+/* Header */
+.guide-head { position: relative; text-align: center; }
+
+.series {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.9rem;
+}
+
+.entry-no { font-weight: bold; }
+
+.guide-head h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  font-weight: normal;
+}
+
+.guide-head h1 .place { font-style: italic; }
+
+.fr {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  max-width: 34rem;
+  margin: 0.7rem auto 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  transform: rotate(-8deg);
+  border: 3px double var(--red);
+  color: var(--red);
+  padding: 0.35rem 0.7rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  opacity: 0.85;
+  line-height: 1.35;
+}
+
+.stamp-city {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+}
+
+/* At a glance label */
+.at-a-glance {
+  background: var(--paper-deep);
+  border: 1px dashed #8d7c4f;
+  padding: 0.9rem 1.2rem 1rem;
+  margin: 1.6rem 0 2rem;
+  font-size: 0.92rem;
+}
+
+.at-a-glance h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.at-a-glance dl {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.at-a-glance dt {
+  font-weight: bold;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.at-a-glance dd { margin: 0; }
+
+/* Body */
+.guide-body h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 0.25rem;
+  margin: 2rem 0 0.8rem;
+}
+
+.guide-body p { margin: 0 0 1rem; }
+
+.guide-body a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red);
+}
+
+.guide-body a:hover { background: rgba(156, 43, 30, 0.08); }
+
+/* Provision card */
+.card {
+  margin: 1.2rem 1.5rem;
+  background: #fbf6e8;
+  border: 1px solid #9a8a5c;
+  box-shadow: 2px 3px 0 rgba(90, 75, 40, 0.25);
+  padding: 0.8rem 1.1rem 1rem;
+  transform: rotate(-0.4deg);
+}
+
+.card-rule {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.6rem;
+}
+
+.card-line {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Recipe line */
+.recipe {
+  font-style: italic;
+  border-left: 3px solid var(--red);
+  padding-left: 0.7rem;
+}
+
+/* Footer nav */
+.further {
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.guide-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.guide-foot p { margin: 0; }
