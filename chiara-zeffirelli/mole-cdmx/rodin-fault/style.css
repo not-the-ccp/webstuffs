@@ -1,0 +1,394 @@
+/* Fault 2240 — The Rodin Sheet
+   Zeffirelli–Aguilar Kitchen Atlas · Error Documentation
+   Palette: soot, marble cream, candle gold, kitchen-ink red */
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,600&display=swap');
+
+:root {
+  --soot: #14120f;
+  --soot-2: #1d1a15;
+  --marble: #efe6d3;
+  --marble-dim: #cfc3a8;
+  --gold: #c9a227;
+  --gold-bright: #e8c65a;
+  --inkred: #b3382c;
+  --inkred-deep: #7e1f16;
+  --chalk: #f5efe0;
+  --monospace: 'Courier Prime', 'Courier New', ui-monospace, monospace;
+  --display: 'Playfair Display', Didot, Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body.fault-page {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--marble);
+  font-family: var(--display);
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 60% at 15% -10%, rgba(201, 162, 39, 0.14), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 110%, rgba(179, 56, 44, 0.16), transparent 60%),
+    repeating-linear-gradient(112deg, rgba(239, 230, 211, 0.028) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(23deg, rgba(201, 162, 39, 0.03) 0 1px, transparent 1px 19px),
+    linear-gradient(160deg, var(--soot) 0%, var(--soot-2) 55%, #231e17 100%);
+  background-attachment: fixed;
+}
+
+/* marble veins drifting across the whole page */
+.veins {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    radial-gradient(2px 400px at 22% 30%, rgba(239, 230, 211, 0.05), transparent 60%),
+    radial-gradient(1px 600px at 68% 70%, rgba(201, 162, 39, 0.06), transparent 60%),
+    radial-gradient(2px 500px at 85% 20%, rgba(179, 56, 44, 0.05), transparent 60%);
+  transform: rotate(8deg);
+  animation: vein-drift 26s ease-in-out infinite alternate;
+}
+@keyframes vein-drift {
+  from { transform: rotate(8deg) translateY(-14px); }
+  to   { transform: rotate(9.5deg) translateY(14px); }
+}
+
+/* CRT-style scanlines, very faint, for the console feel */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 4px);
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 3rem auto 5rem;
+  padding: 3rem 3.5rem 2.5rem;
+  background:
+    linear-gradient(180deg, rgba(20, 18, 15, 0.92), rgba(29, 26, 21, 0.94)),
+    var(--soot-2);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  outline: 1px solid rgba(201, 162, 39, 0.15);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    inset 0 0 90px rgba(0, 0, 0, 0.5);
+}
+
+/* the gilded crack running down the sheet */
+.crack {
+  position: absolute;
+  top: 0;
+  right: 1.1rem;
+  height: 100%;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: crack-pulse 7s ease-in-out infinite;
+}
+@keyframes crack-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.7; }
+}
+
+/* ---------- header ---------- */
+
+.ledger {
+  font-family: var(--monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+  padding: 0.55rem 0.3rem;
+  margin: 0 0 1.6rem;
+  text-align: center;
+}
+
+.fault-banner {
+  display: grid;
+  gap: 0.2rem;
+  margin-bottom: 1.2rem;
+  padding: 1.1rem 1.3rem;
+  background:
+    linear-gradient(100deg, rgba(179, 56, 44, 0.28), rgba(179, 56, 44, 0.08) 55%, transparent),
+    repeating-linear-gradient(45deg, rgba(179, 56, 44, 0.1) 0 12px, transparent 12px 24px);
+  border-left: 6px solid var(--inkred);
+}
+
+.fault-code {
+  font-family: var(--monospace);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.12em;
+  color: var(--gold-bright);
+  text-shadow:
+    0 0 18px rgba(232, 198, 90, 0.35),
+    2px 2px 0 rgba(179, 56, 44, 0.55);
+  animation: code-flicker 5s steps(1) infinite;
+}
+@keyframes code-flicker {
+  0%, 93%, 100% { opacity: 1; }
+  94% { opacity: 0.55; }
+  95% { opacity: 1; }
+  97% { opacity: 0.7; }
+  98% { opacity: 1; }
+}
+
+.fault-name {
+  font-family: var(--monospace);
+  font-weight: 700;
+  font-size: clamp(1rem, 2.6vw, 1.35rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--chalk);
+}
+
+.fault-sev {
+  font-family: var(--monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--inkred);
+  filter: brightness(1.6);
+}
+
+.sub {
+  font-style: italic;
+  color: var(--marble-dim);
+  font-size: 1.02rem;
+  max-width: 46rem;
+}
+.sub a { color: var(--gold-bright); }
+
+/* ---------- sections ---------- */
+
+main section { margin: 2.6rem 0; }
+
+h2 {
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  color: var(--marble);
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--soot);
+  background: var(--gold);
+  padding: 0.15rem 0.55rem;
+  margin-right: 0.7rem;
+  box-shadow: 2px 2px 0 rgba(179, 56, 44, 0.7);
+}
+
+p { margin: 0 0 1rem; }
+a { color: var(--gold-bright); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--marble); background: rgba(201, 162, 39, 0.14); }
+strong { color: var(--chalk); }
+em { color: inherit; }
+
+/* §1 summary */
+.kv { margin: 0; }
+.kv > div {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1rem;
+  padding: 0.65rem 0.2rem;
+  border-bottom: 1px dashed rgba(201, 162, 39, 0.25);
+}
+.kv dt {
+  font-family: var(--monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 0.2rem;
+}
+.kv dd { margin: 0; color: var(--marble-dim); }
+@media (max-width: 640px) {
+  .kv > div { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+/* §3 console */
+.console {
+  margin: 0 0 0.8rem;
+  padding: 1.3rem 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)),
+    #0c0b09;
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+.console::before {
+  content: '▮';
+  position: absolute;
+  top: 0.55rem;
+  right: 0.9rem;
+  color: var(--gold-bright);
+  animation: cursor-blink 1.05s steps(1) infinite;
+}
+@keyframes cursor-blink { 50% { opacity: 0; } }
+.console code {
+  font-family: var(--monospace);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #d8cfa8;
+  white-space: pre-wrap;
+}
+.console code .last, .console code:has(+ p) { color: var(--gold-bright); }
+.console-note {
+  font-size: 0.88rem;
+  color: var(--marble-dim);
+  font-style: italic;
+}
+
+/* §4 fault list */
+.fault-list { list-style: none; margin: 0; padding: 0; counter-reset: faultrow; }
+.fault-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.1rem;
+  padding: 1rem 0.4rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.22);
+  position: relative;
+  transition: background 0.35s ease;
+}
+.fault-row:hover { background: rgba(201, 162, 39, 0.06); }
+.fault-row[data-seen]:hover::after {
+  content: 'FAULT REPRODUCED';
+  position: absolute;
+  right: 0.4rem;
+  top: 0.7rem;
+  font-family: var(--monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--inkred);
+  filter: brightness(1.7);
+}
+.err {
+  font-family: var(--monospace);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--soot);
+  background: var(--inkred);
+  filter: brightness(1.35);
+  align-self: start;
+  padding: 0.3rem 0.55rem;
+  text-align: center;
+  box-shadow: 3px 3px 0 rgba(201, 162, 39, 0.55);
+}
+.fault-row h3 {
+  margin: 0 0 0.4rem;
+  font-weight: 800;
+  font-size: 1.08rem;
+  color: var(--marble);
+}
+.fault-row p { margin: 0; font-size: 0.95rem; color: var(--marble-dim); }
+@media (max-width: 640px) {
+  .fault-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .err { justify-self: start; }
+}
+
+/* §5 mangled scan */
+.scanline {
+  margin: 1.2rem 0;
+  padding: 1.4rem 1.8rem;
+  font-family: var(--monospace);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--gold-bright);
+  background:
+    linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.08) 18%, transparent 30%),
+    repeating-linear-gradient(0deg, rgba(239, 230, 211, 0.03) 0 3px, transparent 3px 6px),
+    #0e0d0a;
+  border-left: 4px solid var(--gold);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7), 6px 6px 0 rgba(179, 56, 44, 0.35);
+  transform: rotate(-0.4deg);
+  animation: scan-jitter 9s steps(2) infinite;
+}
+@keyframes scan-jitter {
+  0%, 92%, 100% { transform: rotate(-0.4deg) translateX(0); }
+  93% { transform: rotate(-0.4deg) translateX(3px); }
+  95% { transform: rotate(-0.4deg) translateX(-2px); }
+  97% { transform: rotate(-0.4deg) translateX(0); }
+}
+
+/* §6 workaround */
+.workaround ol {
+  margin: 0;
+  padding-left: 1.4rem;
+  color: var(--marble-dim);
+}
+.workaround li { margin: 0 0 0.8rem; padding-left: 0.3rem; }
+.workaround li::marker {
+  font-family: var(--monospace);
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* §7 references */
+.hand {
+  font-family: var(--monospace);
+  font-style: italic;
+  color: var(--gold-bright);
+  font-size: 0.95rem;
+}
+.colophon {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 3px double rgba(201, 162, 39, 0.4);
+  font-size: 0.85rem;
+  color: var(--marble-dim);
+}
+.colophon a { color: var(--gold); }
+
+/* footer stamp */
+.sheet-foot {
+  margin-top: 3rem;
+  text-align: center;
+}
+.stamp {
+  display: inline-block;
+  font-family: var(--monospace);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: var(--inkred);
+  filter: brightness(1.6);
+  border: 3px double var(--inkred);
+  padding: 0.6rem 1.4rem;
+  transform: rotate(-3deg);
+  opacity: 0;
+  box-shadow: 0 0 24px rgba(179, 56, 44, 0.3);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+.stamp.stamped { opacity: 0.92; transform: rotate(-3deg) scale(1); }
+.foot-note {
+  margin-top: 1.2rem;
+  font-family: var(--monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(207, 195, 168, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veins, .crack, .fault-code, .scanline, .console::before { animation: none; }
+}
