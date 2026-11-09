@@ -1,0 +1,371 @@
+/* Lot 23 — Baines & Rotherfield, Sale No. 88
+   A Victorian catalogue in burgundy, gold and ink. */
+
+:root {
+  --ink: #2a1410;
+  --ink-soft: #4a2c22;
+  --gold: #c9a24b;
+  --gold-bright: #e8c876;
+  --burgundy: #4d1218;
+  --burgundy-deep: #330a0e;
+  --paper: #f3e9d2;
+  --paper-dim: #e9dcbd;
+  --red: #9c1f1f;
+  --serif: "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --display: "Didot", "Bodoni MT", "Playfair Display", var(--serif);
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--burgundy-deep); }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(232, 200, 118, 0.16), transparent 60%),
+    radial-gradient(ellipse 90% 40% at 50% 115%, rgba(0, 0, 0, 0.55), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(232, 200, 118, 0.028) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(-45deg, rgba(232, 200, 118, 0.028) 0 2px, transparent 2px 14px),
+    linear-gradient(180deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
+  min-height: 100vh;
+  padding: 34px 14px 60px;
+  line-height: 1.62;
+}
+
+/* drifting gold dust */
+.dust { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.dust i {
+  position: absolute;
+  top: -12px;
+  width: 4px; height: 4px;
+  background: var(--gold-bright);
+  opacity: 0;
+  transform: rotate(45deg);
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0%   { transform: translateY(0) rotate(45deg); opacity: 0; }
+  8%   { opacity: 0.7; }
+  85%  { opacity: 0.35; }
+  100% { transform: translateY(105vh) rotate(405deg); opacity: 0; }
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 20% 8%, rgba(201, 162, 75, 0.13), transparent 55%),
+    radial-gradient(ellipse at 85% 92%, rgba(156, 31, 31, 0.08), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(42, 20, 16, 0.022) 0 1px, transparent 1px 3px),
+    var(--paper);
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+  box-shadow:
+    0 0 0 8px var(--burgundy-deep),
+    0 0 0 9px var(--gold),
+    0 34px 70px rgba(0, 0, 0, 0.65);
+  padding: 44px clamp(20px, 5vw, 64px) 40px;
+}
+
+/* corner ornaments */
+.page::before, .page::after {
+  content: "";
+  position: absolute;
+  width: 54px; height: 54px;
+  border: 2px solid var(--gold);
+  pointer-events: none;
+}
+.page::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.page::after  { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+.rule-double {
+  height: 7px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+/* masthead */
+.masthead { text-align: center; }
+.masthead .rule-double { margin: 10px 0; }
+.house {
+  margin: 4px 0 2px;
+  font-family: var(--display);
+  font-size: clamp(30px, 5.4vw, 46px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.house .amp { font-style: italic; color: var(--red); }
+.house-sub {
+  margin: 0 0 8px;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.sale-line {
+  margin: 10px 0 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 10px;
+}
+.tag {
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  padding: 4px 10px;
+  background: var(--paper-dim);
+  box-shadow: inset 0 0 0 2px var(--paper), inset 0 0 0 3px var(--gold);
+}
+.crest { display: block; margin: 10px auto 0; width: 190px; max-width: 60%; }
+
+/* lot banner */
+.lot-banner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 26px 0 8px;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 10px 6px;
+}
+.lot-no {
+  font-family: var(--display);
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: 0.22em;
+  color: var(--burgundy);
+  text-shadow: 1px 1px 0 rgba(201, 162, 75, 0.55);
+}
+.lot-of {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* catalogue body */
+.catalogue h1 {
+  font-family: var(--display);
+  font-size: clamp(22px, 3.6vw, 31px);
+  line-height: 1.3;
+  margin: 22px 0 6px;
+  color: var(--ink);
+}
+.dek {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 15px;
+  border-left: 3px solid var(--gold);
+  padding-left: 12px;
+  margin: 0 0 4px;
+}
+.keys {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 12.5px;
+  color: var(--red);
+  margin: 2px 0 0 15px;
+}
+
+.prose p { margin: 0 0 14px; font-size: 15.5px; }
+.prose p:first-of-type::first-letter {
+  font-family: var(--display);
+  font-size: 58px;
+  float: left;
+  line-height: 0.86;
+  padding: 6px 8px 0 0;
+  color: var(--burgundy);
+  background:
+    linear-gradient(180deg, var(--gold-bright), var(--gold));
+  border: 1px solid var(--ink);
+  box-shadow: 2px 2px 0 rgba(42, 20, 16, 0.35);
+}
+
+h2.orn {
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--burgundy);
+  text-align: center;
+  margin: 30px 0 16px;
+  position: relative;
+}
+h2.orn::before, h2.orn::after {
+  content: "\2726";
+  color: var(--gold);
+  font-size: 11px;
+  position: relative;
+  top: -2px;
+  margin: 0 10px;
+}
+h2.orn::before { letter-spacing: 0; }
+
+/* inventory */
+.inv { list-style: none; margin: 0; padding: 0; }
+.inv li {
+  display: flex;
+  gap: 14px;
+  padding: 10px 8px;
+  border-bottom: 1px dotted rgba(42, 20, 16, 0.45);
+  font-size: 15px;
+}
+.inv li:nth-child(odd) { background: rgba(201, 162, 75, 0.1); }
+.inv .num {
+  font-family: var(--display);
+  font-style: italic;
+  min-width: 26px;
+  color: var(--red);
+}
+
+/* the margin note */
+blockquote.note {
+  margin: 6px 0 16px;
+  padding: 20px 26px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(42, 20, 16, 0.09) 26px 27px),
+    var(--paper-dim);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 rgba(42, 20, 16, 0.28);
+  transform: rotate(-0.6deg);
+}
+blockquote.note p {
+  margin: 0;
+  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 17.5px;
+  line-height: 27px;
+  color: var(--ink-soft);
+}
+blockquote.note .cite {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12.5px;
+  text-align: right;
+  color: var(--red);
+  line-height: 1.4;
+}
+
+/* estimate */
+.estimate { text-align: center; }
+.est {
+  font-family: var(--display);
+  font-size: clamp(24px, 4vw, 34px);
+  letter-spacing: 0.1em;
+  color: var(--burgundy);
+  border: 2px double var(--ink);
+  display: inline-block;
+  padding: 8px 26px;
+  background: var(--paper-dim);
+  margin: 4px 0 12px;
+}
+.terms { font-size: 13.5px; font-style: italic; color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
+
+/* cross references */
+.cross {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--gold);
+  font-size: 14.5px;
+}
+.cross a {
+  color: var(--burgundy);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.cross a:hover {
+  background: var(--gold);
+  color: var(--ink);
+  text-decoration-color: var(--ink);
+}
+
+/* the gavel */
+.gavel {
+  position: relative;
+  display: block;
+  width: 130px;
+  margin: 36px auto 8px;
+  background: none;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 50%;
+  padding: 14px 8px 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gavel:hover { transform: scale(1.05) rotate(-2deg); box-shadow: 0 0 24px rgba(232, 200, 118, 0.45); }
+.gavel svg { width: 78px; display: block; margin: 0 auto; }
+.gavel-head { transform-origin: 60px 45px; }
+.gavel-word {
+  display: block;
+  font-variant: small-caps;
+  letter-spacing: 0.25em;
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: 6px;
+}
+.gavel.hammering .gavel-head { animation: hammer 0.5s ease-in; }
+@keyframes hammer {
+  0%   { transform: rotate(0deg); }
+  35%  { transform: rotate(48deg); }
+  55%  { transform: rotate(40deg); }
+  75%  { transform: rotate(52deg); }
+  100% { transform: rotate(44deg); }
+}
+
+/* the SOLD stamp */
+.sold {
+  position: fixed;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  font-family: var(--display);
+  font-size: clamp(40px, 9vw, 84px);
+  letter-spacing: 0.3em;
+  text-align: center;
+  line-height: 1.25;
+  color: var(--red);
+  border: 5px double var(--red);
+  padding: 10px 30px;
+  background: rgba(243, 233, 210, 0.94);
+  transform: translate(-50%, -50%) rotate(-14deg) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+.sold.show { animation: stamp 1.6s ease-out forwards; }
+@keyframes stamp {
+  0%   { transform: translate(-50%, -50%) rotate(-14deg) scale(3); opacity: 0; }
+  18%  { transform: translate(-50%, -50%) rotate(-14deg) scale(1); opacity: 1; }
+  78%  { transform: translate(-50%, -50%) rotate(-14deg) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) rotate(-14deg) scale(1.06); opacity: 0; }
+}
+
+/* footer */
+.foot { margin-top: 40px; text-align: center; }
+.foot p {
+  margin: 12px 0 0;
+  font-size: 11.5px;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+}
+.foot .amp { font-style: italic; color: var(--red); }
+
+@media (max-width: 560px) {
+  .page { padding: 34px 18px; }
+  .lot-banner { flex-direction: column; }
+  .gavel { width: 110px; }
+}
