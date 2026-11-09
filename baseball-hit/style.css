@@ -1,0 +1,95 @@
+/* baseball-hit / style.css — term report sheet */
+/* Restrained, print-like palette: ink, cream, ruled line, gunpowder green. */
+:root {
+  --ink: #21211d;
+  --paper: #fbfaf4;
+  --rule: #c9c2b0;
+  --green: #48523f;
+  --muted: #6e6758;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+  line-height: 1.75;
+}
+.report {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.6rem 1.25rem 4rem;
+}
+.masthead {
+  border-top: 0.2rem solid var(--green);
+  border-bottom: 0.14rem solid var(--rule);
+  padding-bottom: 1.3rem;
+  margin-bottom: 2.2rem;
+}
+.masthead .issuer {
+  margin: 0 0 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead h1 {
+  margin: 0 0 0.55rem;
+  font-size: 1.85rem;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+.masthead .subtitle {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.byline {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  border-collapse: collapse;
+}
+.byline th {
+  text-align: left;
+  vertical-align: top;
+  padding-right: 0.9rem;
+  color: var(--muted);
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.14rem;
+}
+.byline td { color: var(--ink); }
+section { margin-bottom: 2rem; }
+section h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  color: var(--green);
+  border-bottom: 0.1rem solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+p { margin: 0 0 1.1rem; }
+blockquote {
+  margin: 1.4rem 0;
+  padding-left: 1rem;
+  border-left: 0.2rem solid var(--green);
+  font-style: italic;
+  color: #3a3832;
+}
+blockquote p { margin: 0; font-size: 1.05rem; }
+.sources {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 0.14rem solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+a { color: var(--green); text-decoration: underline; }
+.sources a { color: var(--green); text-decoration: none; border-bottom: 0.06rem dotted var(--green); }
+.sources a:hover { border-bottom-style: solid; }
