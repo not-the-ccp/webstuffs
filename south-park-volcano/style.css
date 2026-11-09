@@ -1,0 +1,223 @@
+/* The South Park Ledger — Classifieds, Tuesday, August 19, 1997 */
+
+:root {
+  --news: #f2ead6;
+  --ink: #241d14;
+  --faded: #5c5140;
+  --rule: #241d14;
+  --red: #a33424;
+  --band: #1e1811;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #cfc4a8; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 0.75rem 4rem;
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.paper {
+  max-width: 74rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(90, 70, 40, 0.08), transparent 45%),
+    radial-gradient(ellipse at 85% 95%, rgba(90, 70, 40, 0.10), transparent 40%),
+    var(--news);
+  border: 1px solid rgba(36, 29, 20, 0.55);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 14px 40px rgba(40, 30, 15, 0.35);
+  padding: 1.75rem 2rem 1.5rem;
+  position: relative;
+}
+
+/* Masthead */
+.mast-rule {
+  border-top: 4px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 6px;
+  margin-bottom: 0.6rem;
+}
+.mast-rule.thin {
+  border-top: 1px solid var(--rule);
+  height: 3px;
+  margin: 0.5rem 0 0.65rem;
+}
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0.4rem 0;
+}
+.mast-title {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 0.95;
+}
+.mast-sub {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0.35rem 0 0;
+  color: var(--faded);
+}
+
+.section-band {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: var(--band);
+  color: var(--news);
+  padding: 0.3rem 0.6rem;
+  margin: 0.8rem 0 1.2rem;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+}
+.section-band span:first-child {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+.band-note {
+  font-family: "Newsreader", serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+/* Columns */
+.columns {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+.col {
+  padding: 0.3rem 0 0.4rem;
+}
+.col + .col {
+  border-left: 1px solid var(--rule);
+  padding-left: 1.1rem;
+}
+@media (max-width: 54rem) {
+  .columns { grid-template-columns: 1fr; }
+  .col + .col { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1rem; }
+}
+
+.section-head {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 1.4rem 0 0.8rem;
+}
+.section-head:first-child { margin-top: 0.2rem; }
+.section-head::before,
+.section-head::after {
+  content: "";
+  display: inline-block;
+  width: 2.2rem;
+  border-top: 1px solid var(--rule);
+  vertical-align: middle;
+  margin: 0 0.6rem;
+}
+
+/* Ad blocks */
+.ad {
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px dotted rgba(36, 29, 20, 0.7);
+}
+.ad h2 {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 0.4rem;
+  text-align: center;
+}
+.ad-body {
+  font-size: 0.93rem;
+  line-height: 1.42;
+  text-align: justify;
+  hyphens: auto;
+  margin: 0;
+  column-gap: 1rem;
+}
+@media (min-width: 54rem) {
+  .col .ad-body { columns: 2; column-rule: 1px dotted rgba(36,29,20,0.35); }
+  .ad-note .ad-body, .ad-notice .ad-body { columns: 1; }
+}
+.ad-body strong { font-weight: 600; }
+
+.log-line {
+  font-style: italic;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.ad-notice .ad-body {
+  border: 1px solid var(--rule);
+  padding: 0.55rem 0.65rem;
+  background: rgba(163, 52, 36, 0.04);
+}
+.ad-notice h2 { color: var(--red); }
+.ad-notice a, .ad-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+
+/* Colophon */
+.colophon {
+  margin-top: 1.4rem;
+  border-top: 4px double var(--rule);
+  padding-top: 0.5rem;
+  text-align: center;
+}
+.col-line {
+  margin: 0.1rem 0;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+/* Press stamp */
+.stamp {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 4.6rem;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--red);
+  border: 3px double var(--red);
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.2rem;
+  transform: rotate(-11deg);
+  opacity: 0;
+  transition: opacity 0.9s ease 0.4s;
+  pointer-events: none;
+}
+.stamp.show { opacity: 0.8; }
