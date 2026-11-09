@@ -1,0 +1,250 @@
+/* Night Watch Council, Jastorf — minutes of the fourth meeting, 1948 */
+:root {
+  --night: #0a111f;
+  --night-2: #101c33;
+  --panel: #0e1830;
+  --ink: #e9e3d0;
+  --dim: #9aa8c0;
+  --brass: #c9a227;
+  --brass-dim: #8a6f1d;
+  --line: #2c3f63;
+  --radar: #57b48a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(1100px 480px at 72% -8%, #1a2b52 0%, rgba(26, 43, 82, 0) 62%),
+    radial-gradient(700px 380px at 8% 108%, #16233f 0%, rgba(22, 35, 63, 0) 55%),
+    var(--night);
+  min-height: 100vh;
+}
+
+/* the night sky: stars are placed by stars.js behind everything */
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.sky .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #dfe8ff;
+  opacity: 0.35;
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50%      { opacity: 0.85; transform: scale(1.25); }
+}
+
+header.masthead,
+main.minutes,
+footer.colophon {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.4rem;
+}
+
+/* masthead */
+.masthead {
+  text-align: center;
+  padding-top: 3.2rem;
+  border-bottom: 3px double var(--brass-dim);
+}
+.dept {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 1.6rem;
+}
+.seal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5.4rem;
+  height: 5.4rem;
+  border: 2px solid var(--brass);
+  border-radius: 50%;
+  outline: 1px solid var(--brass-dim);
+  outline-offset: -7px;
+  color: var(--brass);
+  margin: 0 0 1.2rem;
+  background: rgba(201, 162, 39, 0.06);
+  box-shadow: 0 0 24px rgba(201, 162, 39, 0.18);
+}
+.seal span {
+  font-size: 2.2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.seal i {
+  font-style: italic;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+}
+h1 {
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  margin: 0.4rem 0 0.8rem;
+}
+.sub {
+  color: var(--dim);
+  font-size: 0.98rem;
+  max-width: 38rem;
+  margin: 0 auto 0.8rem;
+}
+.recorder {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 1rem auto 0;
+  max-width: 36rem;
+}
+
+/* the minutes proper */
+.minutes { padding: 2.2rem 1.4rem 2.6rem; }
+.minutes section {
+  background: rgba(14, 24, 48, 0.55);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brass-dim);
+  border-radius: 2px;
+  padding: 1.2rem 1.5rem 1.35rem;
+  margin: 0 0 1.7rem;
+}
+.minutes h2 {
+  font-size: 1.02rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--brass);
+  margin: 0 0 0.9rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.5rem;
+}
+h2 .num {
+  display: inline-block;
+  min-width: 1.6rem;
+  text-align: center;
+  border: 1px solid var(--brass-dim);
+  border-radius: 50%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  margin-right: 0.55rem;
+  vertical-align: baseline;
+}
+.minutes p { margin: 0 0 0.95rem; }
+.minutes p:last-child { margin-bottom: 0; }
+.minutes em { color: #f0e9d2; }
+
+/* the watch ledger extract */
+table.tally {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  margin: 1rem 0 0.2rem;
+}
+table.tally caption {
+  caption-side: top;
+  text-align: left;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  padding-bottom: 0.4rem;
+}
+table.tally th {
+  text-align: left;
+  color: var(--brass);
+  border-bottom: 1px solid var(--line);
+  padding: 0.3rem 0.8rem 0.3rem 0;
+  font-weight: normal;
+}
+table.tally td {
+  border-bottom: 1px dotted var(--line);
+  padding: 0.35rem 0.8rem 0.35rem 0;
+  color: var(--ink);
+}
+
+/* the kept line */
+blockquote.kept-line {
+  margin: 1.1rem 0;
+  padding: 1rem 1.2rem;
+  background: var(--panel);
+  border: 1px solid var(--brass-dim);
+  border-top: 3px solid var(--brass);
+  box-shadow: inset 0 0 30px rgba(8, 12, 24, 0.7);
+}
+blockquote.kept-line p {
+  font-size: 1.06rem;
+  font-style: italic;
+  margin: 0 0 0.5rem;
+}
+blockquote.kept-line .quote-src {
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+}
+
+.signed {
+  margin-top: 1.1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+}
+
+/* footer */
+.colophon {
+  text-align: center;
+  padding-bottom: 3.5rem;
+  border-top: 3px double var(--brass-dim);
+}
+.colophon .orn {
+  color: var(--brass);
+  letter-spacing: 1em;
+  margin: 1.6rem 0 1rem;
+}
+.col-line {
+  font-size: 0.88rem;
+  color: var(--dim);
+  margin: 0.45rem 0;
+}
+.col-line a, .minutes a, .recorder a {
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass-dim);
+}
+.col-line a:hover, .minutes a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.reply-line {
+  margin-top: 1.3rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+}
+#last-read { color: var(--radar); }
