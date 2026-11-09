@@ -1,0 +1,241 @@
+/* Minutes of Session No. XV — The Council of the Fifteenth Collection */
+
+:root {
+  --ink: #1c1410;
+  --paper: #f2e7cf;
+  --paper-deep: #e7d8b8;
+  --gold: #a8842e;
+  --gold-bright: #d8b64f;
+  --veil: #3a2c4f;
+  --steel: #6f7d86;
+  --crimson: #7a1f2b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(58, 44, 79, 0.55), transparent 60%),
+    radial-gradient(ellipse 90% 45% at 85% 108%, rgba(122, 31, 43, 0.4), transparent 65%),
+    linear-gradient(178deg, #241a33 0%, #191024 34%, #101720 70%, #0b141b 100%);
+  min-height: 100vh;
+  padding: 3.5rem 1rem 5rem;
+}
+
+/* the falling veil of fog */
+.veil {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(240, 233, 218, 0.10), transparent 22%, transparent 78%, rgba(240, 233, 218, 0.08)),
+    repeating-linear-gradient(100deg, rgba(216, 182, 79, 0.05) 0 2px, transparent 2px 9px);
+  mix-blend-mode: screen;
+  animation: drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(-14px); opacity: 0.75; }
+  to   { transform: translateY(18px);  opacity: 1; }
+}
+
+/* the chainmail border, fixed at the top */
+.chain {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 28px;
+  z-index: 5;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(16, 12, 8, 0.9), rgba(16, 12, 8, 0));
+}
+.chain svg { width: 100%; height: 28px; animation: chainrun 40s linear infinite; }
+
+@keyframes chainrun {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-60px); }
+}
+
+.minutes {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168, 132, 46, 0.10), transparent 40%),
+    radial-gradient(circle at 90% 92%, rgba(122, 31, 43, 0.08), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(28, 20, 16, 0.035) 0 1px, transparent 1px 27px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--gold);
+  outline: 4px double rgba(168, 132, 46, 0.55);
+  outline-offset: 8px;
+  box-shadow:
+    0 0 0 1px rgba(216, 182, 79, 0.25),
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(90, 66, 24, 0.14);
+  padding: 3.2rem clamp(1.4rem, 5vw, 3.4rem) 2.6rem;
+}
+
+/* corner filigree */
+.minutes::before,
+.minutes::after {
+  content: "";
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--gold), var(--gold)) center/100% 2px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) center/2px 100% no-repeat;
+  opacity: 0.5;
+}
+.minutes::before { top: 14px; left: 14px; transform: rotate(45deg); }
+.minutes::after  { bottom: 14px; right: 14px; transform: rotate(45deg); }
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.seal {
+  width: 150px;
+  margin: 0 auto 1.2rem;
+  filter: drop-shadow(0 3px 6px rgba(28, 20, 16, 0.35));
+}
+.seal svg { width: 100%; height: auto; animation: sealturn 60s linear infinite; transform-origin: 50% 50%; }
+
+@keyframes sealturn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.office {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  color: var(--gold);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-family: "Bodoni MT", "Didot", Georgia, serif;
+  font-size: clamp(2.1rem, 6vw, 3.1rem);
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--ink);
+}
+h1::after {
+  content: " · Eye · ";
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 0.6em;
+  color: var(--crimson);
+  margin-top: 0.35rem;
+}
+
+.occasion {
+  font-style: italic;
+  margin: 0.5rem auto 0;
+  max-width: 34rem;
+}
+
+.date {
+  font-size: 0.88rem;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #4a3a24;
+  margin: 0.9rem 0 0;
+}
+
+section { margin-bottom: 2.2rem; }
+
+h2 {
+  font-family: "Bodoni MT", "Didot", Georgia, serif;
+  font-size: 1.28rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.9rem;
+}
+h2::before {
+  content: "◆ ";
+  color: var(--gold);
+  font-size: 0.8em;
+}
+
+strong { color: #3a2314; }
+
+em { font-style: italic; }
+
+/* the almanac line — carved into its own block */
+.item em:lang(en) { /* no-op guard */ }
+
+blockquote, .item p em {
+  font-style: italic;
+}
+
+.roll p:first-of-type, .item p { margin: 0 0 1rem; }
+
+/* highlight the almanac line wherever it sits */
+.minutes :is(p) em {
+  font-variant: normal;
+}
+
+.signatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2.2rem;
+  justify-content: center;
+  margin-top: 1.4rem;
+  font-style: italic;
+  color: #4a3a24;
+}
+.signatures span {
+  border-top: 1px solid var(--gold);
+  padding-top: 0.3rem;
+  min-width: 12rem;
+}
+
+.seealso {
+  font-size: 0.9rem;
+  border: 1px dashed var(--gold);
+  padding: 0.8rem 1rem;
+  background: rgba(168, 132, 46, 0.07);
+}
+
+a {
+  color: var(--crimson);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+a:hover, a:focus-visible {
+  color: var(--gold-bright);
+  background-color: var(--ink);
+  text-decoration: none;
+}
+
+/* item number plates */
+.item { position: relative; }
+.item h2 { position: relative; }
+
+@media (prefers-reduced-motion: reduce) {
+  .veil, .chain svg, .seal svg { animation: none; }
+}
+
+@media (max-width: 560px) {
+  body { padding: 2.6rem 0.5rem 3rem; }
+  .minutes { outline-offset: 5px; padding: 2.2rem 1.2rem 2rem; }
+  .signatures span { min-width: 100%; }
+}
