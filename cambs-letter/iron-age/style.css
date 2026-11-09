@@ -1,0 +1,113 @@
+body {
+  background: #faf6ee;
+  color: #24211c;
+  font-family: ui-serif, Georgia, "Times New Roman", "Liberation Serif", serif;
+  line-height: 1.62;
+  margin: 0;
+  padding: 2.2rem 1rem 4rem;
+}
+.sheet {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.masthead {
+  border-bottom: 1px solid #cfc8ba;
+  padding-bottom: 1rem;
+  margin-bottom: 2.2rem;
+}
+.club-line {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7e786d;
+  margin: 0 0 0.45rem;
+}
+.masthead h1 {
+  font-size: 1.65rem;
+  margin: 0 0 0.55rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+.issue-line {
+  font-size: 0.88rem;
+  color: #5f5a50;
+  margin: 0 0 0.5rem;
+}
+.mast-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #a89d8e;
+  font-size: 0.9rem;
+  margin: 0.7rem 0;
+}
+.mast-rule span {
+  flex: 1;
+  height: 1px;
+  background: #cfc8ba;
+}
+.est-line {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #6e685d;
+  margin-top: 0.9rem;
+}
+h2.sec {
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7a5e48;
+  margin: 2.4rem 0 1rem;
+  border-bottom: 1px solid #e4ddcf;
+  padding-bottom: 0.35rem;
+}
+.ads {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+.ad-kind {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #5a554b;
+  margin: 0 0 0.3rem;
+}
+.ad-body {
+  margin: 0;
+  font-size: 0.92rem;
+}
+.shelf {
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid #cfc8ba;
+  font-size: 0.9rem;
+  color: #4a453d;
+}
+.shelf a {
+  color: #5a4e3e;
+}
+.colophon {
+  margin-top: 3rem;
+  font-size: 0.78rem;
+  color: #6e685d;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.colophon p {
+  margin: 0.4rem 0;
+}
+a {
+  color: #5a4e3e;
+  text-decoration: underline;
+}
+a:focus-visible {
+  outline: 2px solid #7a5e48;
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  body {
+    padding: 1.4rem 0.8rem 3rem;
+  }
+}
