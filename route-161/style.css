@@ -1,0 +1,170 @@
+/* Specification No. NJ-1953-0161 — a printed patent summary */
+
+:root {
+  --paper: #f6f3ec;
+  --ink: #23211c;
+  --faint: #6d675c;
+  --rule: #c9c2b4;
+  --accent: #7c2d1c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.wrapper {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 2rem;
+  margin-bottom: 2.75rem;
+}
+
+.office {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.5rem;
+}
+
+.spec-no {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.6rem;
+  line-height: 1.18;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.98rem;
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.docket {
+  margin: 2rem auto 0;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  max-width: 34rem;
+}
+
+.docket th, .docket td {
+  text-align: left;
+  padding: 0.35rem 0.75rem 0.35rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+
+.docket th {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  width: 7.5rem;
+  font-weight: 600;
+}
+
+section {
+  margin-bottom: 2.75rem;
+}
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+p { margin: 0 0 1.1rem; }
+
+strong { font-weight: 600; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.82;
+  padding: 0.18rem 0.55rem 0 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+blockquote.traverse {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  background: #efeadd;
+  font-style: italic;
+  font-size: 1.04rem;
+}
+
+blockquote.traverse p { margin: 0; }
+
+ol.claims {
+  margin: 0 0 1.1rem;
+  padding-left: 1.4rem;
+}
+
+ol.claims li {
+  margin-bottom: 0.85rem;
+  padding-left: 0.3rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+.plate {
+  border-top: 3px double var(--rule);
+  padding-top: 1.4rem;
+  text-align: center;
+}
+
+.plate-line {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.plate-fine {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faint);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .wrapper { padding: 2.5rem 1.1rem 3.5rem; }
+  h1 { font-size: 1.6rem; }
+  .docket th { width: 5.5rem; }
+}
