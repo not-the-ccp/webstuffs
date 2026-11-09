@@ -1,0 +1,229 @@
+/* The Boiler Room — travel guide entry, Ozark Coaster Circuit */
+
+:root {
+  --iron: #2b2b30;
+  --brick: #a8452b;
+  --brine: #9db3a4;
+  --paper: #f4efe6;
+  --ink: #1f2420;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+/* ---------- masthead: oversized type beside the track ---------- */
+
+.masthead {
+  position: relative;
+  padding: 2.5rem 6vw 0;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.masthead .track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.masthead .track path {
+  stroke: var(--brine);
+  stroke-width: 3;
+  fill: none;
+  opacity: 0.7;
+}
+
+.masthead .track circle {
+  fill: var(--brick);
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--brick);
+  margin: 0 0 0.4rem;
+  position: relative;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  max-width: 7ch;
+  position: relative;
+  z-index: 1;
+  text-wrap: balance;
+}
+
+.standfirst {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  margin: 1.1rem 0 0 2rem;
+  font-size: 1.05rem;
+  border-left: 4px solid var(--brick);
+  padding-left: 0.9rem;
+}
+
+.stamp {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 1.2rem 0 1.6rem 2rem;
+  padding: 0.35rem 0.8rem;
+  border: 2px solid var(--iron);
+  transform: rotate(-2.2deg);
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  background: var(--paper);
+}
+
+/* ---------- body: asymmetric grid ---------- */
+
+main {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 2.2rem 3rem;
+  padding: 1rem 6vw 3rem;
+  counter-reset: entry;
+}
+
+.entry h2 {
+  counter-increment: entry;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  color: var(--brick);
+  border-bottom: 2px solid var(--iron);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.9rem;
+}
+
+.entry h2::before {
+  content: counter(entry, decimal-leading-zero) " — ";
+}
+
+.entry-left { padding-top: 1.4rem; }
+.entry-right { margin-top: -3.5rem; } /* staggered start, the valley of the layout */
+
+.entry p { margin: 0 0 0.9rem; }
+
+.g-num {
+  font-family: "Courier New", monospace;
+  color: var(--brick);
+  font-weight: bold;
+}
+
+.found-source {
+  font-style: italic;
+  font-size: 0.92rem;
+  background: #fff;
+  border: 1px dashed var(--iron);
+  padding: 0.7rem 0.9rem;
+  transform: rotate(0.6deg);
+}
+
+/* ---------- ledger clip: full width, rotated ticket ---------- */
+
+.entry-full {
+  grid-column: 1 / -1;
+  margin: 0.6rem 0 0 8vw;
+  max-width: 46rem;
+}
+
+.clip {
+  margin: 1.1rem 0 1.1rem -1rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--iron);
+  color: var(--paper);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  border: none;
+  transform: rotate(-1deg);
+  box-shadow: 6px 6px 0 var(--brine);
+}
+
+.clip::before {
+  content: "page 11, founding ledger —";
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brine);
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- practical notes: two columns ---------- */
+
+.practical {
+  grid-column: 1 / -1;
+  margin-top: 1.6rem;
+}
+
+.practical h2 {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  color: var(--brick);
+  border-bottom: 2px solid var(--iron);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.practical .cols {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 3rem;
+}
+
+.practical .cols li {
+  break-inside: avoid;
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--brine);
+}
+
+.practical a { color: var(--brick); }
+.practical a:hover { text-decoration-color: var(--iron); }
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  padding: 1.4rem 6vw 2.4rem;
+  border-top: 2px solid var(--iron);
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--iron);
+}
+
+/* ---------- small screens: single column, no overlap tricks ---------- */
+
+@media (max-width: 640px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding: 1rem 6vw 2rem;
+  }
+  .entry-right { margin-top: 0; }
+  .entry-full { margin-left: 0; }
+  .practical .cols { columns: 1; }
+  .masthead h1 { max-width: none; }
+}
