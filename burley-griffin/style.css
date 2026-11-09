@@ -1,0 +1,151 @@
+/* Aunt Marva's Lake Gratin — family recipe, Kell collection */
+
+body {
+  margin: 0;
+  background: #efe6d4;
+  background-image: repeating-linear-gradient(
+    0deg, rgba(122, 96, 54, 0.05) 0px, rgba(122, 96, 54, 0.05) 1px,
+    transparent 1px, transparent 28px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: #3a2c1a;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 44em;
+  margin: 2.5em auto;
+  background: #fbf5e8;
+  border: 1px solid #c9b48a;
+  box-shadow: 0 3px 14px rgba(58, 44, 26, 0.25);
+  padding: 2.2em 2.6em 1.6em;
+}
+
+.card-head .series {
+  font-size: 0.8em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a6036;
+  margin: 0 0 0.6em;
+}
+
+h1 {
+  font-size: 2.1em;
+  margin: 0 0 0.2em;
+  color: #55351c;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #6d5335;
+  margin: 0 0 1.2em;
+}
+
+table.meta {
+  border-collapse: collapse;
+  margin: 0 0 0.4em;
+  font-size: 0.92em;
+}
+
+table.meta th {
+  text-align: left;
+  padding: 0.25em 1em 0.25em 0;
+  white-space: nowrap;
+  color: #7a6036;
+}
+
+table.meta td { padding: 0.25em 0; }
+table.meta tr { border-bottom: 1px dotted #c9b48a; }
+
+.preamble h2 {
+  font-size: 1.25em;
+  color: #55351c;
+  border-bottom: 2px solid #c9b48a;
+  padding-bottom: 0.2em;
+  margin-top: 1.8em;
+}
+
+.preamble p { margin: 0 0 1.1em; }
+
+a { color: #6a4a1f; }
+a:hover { color: #8a2f14; }
+
+.ledger {
+  margin-top: 2.4em;
+  border-top: 3px double #c9b48a;
+  padding-top: 1em;
+}
+
+.ledger h2 {
+  border: none;
+  margin-top: 0;
+}
+
+.ledger-note {
+  font-size: 0.88em;
+  font-style: italic;
+  color: #6d5335;
+}
+
+.ledger-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0.8em 0 1em;
+}
+
+.ledger-buttons button {
+  font-family: inherit;
+  font-size: 0.9em;
+  padding: 0.3em 0.85em;
+  background: #f0e4c8;
+  color: #55351c;
+  border: 1px solid #b39a68;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ledger-buttons button:hover { background: #e6d5ac; }
+
+.ledger-buttons button.active {
+  background: #55351c;
+  color: #fbf5e8;
+  border-color: #55351c;
+}
+
+.water-box {
+  border: 1px solid #b39a68;
+  background: #fdfaf1;
+  padding: 1em;
+}
+
+.water {
+  position: relative;
+  height: 3.4em;
+  background: #d9cdb2;
+  border: 1px solid #a8916a;
+  overflow: hidden;
+}
+
+.water-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(#7fa8b8, #5d8ba0);
+  border-top: 2px solid #3f6a80;
+  transition: height 0.7s ease;
+}
+
+.water-caption {
+  margin: 0.8em 0 0;
+  font-size: 0.95em;
+}
+
+.card-foot {
+  margin-top: 2.2em;
+  padding-top: 0.8em;
+  border-top: 1px solid #c9b48a;
+  font-size: 0.85em;
+  color: #7a6036;
+  text-align: center;
+}
