@@ -1,0 +1,198 @@
+/* Taller del Cinturón — Build Log No. 11
+   Workshop-bench palette: dark wood, worktable paper, brass, lucha red & gold. */
+
+:root {
+  --wood: #2b1d12;
+  --wood-deep: #1c1209;
+  --paper: #f2e8d2;
+  --paper-dim: #e7dabb;
+  --ink: #241a10;
+  --brass: #c99a3f;
+  --brass-bright: #e8c56b;
+  --lucha-red: #a4232c;
+  --lucha-gold: #d9a53c;
+  --thread: #7a5a2e;
+  --stamp: #8c1f26;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--wood-deep);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 2px, transparent 2px 90px),
+    linear-gradient(180deg, #241811 0%, var(--wood-deep) 60%);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.62;
+}
+
+/* drifting sawdust */
+.dust {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(232,197,107,.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 64%, rgba(232,197,107,.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 82%, rgba(232,197,107,.07) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 12%, rgba(232,197,107,.09) 0 2px, transparent 3px);
+  animation: drift 26s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-14px); }
+}
+
+/* the shop bunting */
+.bunting {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; gap: 10px;
+  padding: 10px 0 0;
+}
+.pennant {
+  width: 0; height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 20px solid var(--lucha-red);
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,.5));
+}
+.pennant.p2 { border-top-color: var(--lucha-gold); }
+.pennant.p3 { border-top-color: var(--brass); }
+
+/* header plate */
+.bench-head {
+  position: relative; z-index: 2;
+  max-width: 860px; margin: 18px auto 0; padding: 26px 30px 20px;
+  background: linear-gradient(180deg, #33241698, #241a1098);
+  border: 3px double var(--brass);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.55), inset 0 0 40px rgba(0,0,0,.4);
+  color: var(--paper);
+  text-align: center;
+}
+.shop-name {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: .28em; text-transform: uppercase;
+  font-size: .78rem; color: var(--brass-bright);
+}
+.shop-sub {
+  margin: 4px 0 18px;
+  font-style: italic; font-size: .85rem; color: var(--paper-dim);
+}
+.bench-head h1 {
+  margin: 0;
+  font-size: 2.1rem; line-height: 1.18;
+  color: var(--brass-bright);
+  text-shadow: 0 2px 0 rgba(0,0,0,.6);
+  letter-spacing: .01em;
+}
+.bench-head .sub {
+  margin: 10px 0 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .8rem; letter-spacing: .08em;
+  color: var(--paper-dim);
+}
+
+/* ledger tables */
+.spec-table {
+  width: 100%; border-collapse: collapse;
+  font-family: 'Courier New', Courier, monospace; font-size: .86rem;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 4px 14px rgba(0,0,0,.5);
+}
+.spec-table th, .spec-table td {
+  border: 1px solid var(--thread);
+  padding: 7px 10px; text-align: left; vertical-align: top;
+}
+.spec-table th {
+  width: 26%;
+  background: var(--paper-dim);
+  letter-spacing: .06em; text-transform: uppercase; font-size: .74rem;
+}
+
+/* the log itself */
+.log {
+  position: relative; z-index: 2;
+  max-width: 860px; margin: 26px auto 0; padding: 0 14px 10px;
+}
+.entry {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid #b59a68;
+  border-left: 6px solid var(--lucha-red);
+  border-radius: 3px;
+  padding: 20px 26px 22px;
+  margin: 0 0 22px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.45);
+  background-image: repeating-linear-gradient(0deg, transparent 0 30px, rgba(122,90,46,.10) 30px 31px);
+}
+.entry::before {
+  /* stitch marks down the left seam */
+  content: "";
+  position: absolute; left: 8px; top: 10px; bottom: 10px; width: 6px;
+  background-image: repeating-linear-gradient(0deg, var(--thread) 0 7px, transparent 7px 15px);
+  opacity: .55;
+}
+.entry h2 {
+  margin: 6px 0 12px;
+  font-size: 1.35rem;
+  color: var(--stamp);
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 6px;
+}
+.entry p { margin: 0 0 12px; }
+.entry p:last-child { margin-bottom: 0; }
+.entry a { color: var(--lucha-red); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.entry a:hover { color: var(--stamp); background: rgba(201,154,63,.18); }
+
+.entry-date {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--thread); margin: 0 0 4px;
+}
+
+/* the museum ledger line, kept word for word */
+.ledger-line {
+  margin: 14px 0;
+  padding: 12px 18px;
+  background: var(--paper-dim);
+  border: 1px dashed var(--thread);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .92rem; letter-spacing: .02em;
+  color: #4a3418;
+  box-shadow: inset 0 0 12px rgba(122,90,46,.18);
+}
+
+/* rivet tally */
+.tally {
+  font-family: 'Courier New', Courier, monospace;
+  background: #241a10; color: var(--brass-bright);
+  padding: 2px 8px; border-radius: 3px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,.8);
+}
+
+/* closing entry */
+.entry.close { border-left-color: var(--brass); }
+.entry.close h2 { color: var(--thread); border-bottom-color: var(--lucha-red); }
+
+/* footer plate */
+.bench-foot {
+  position: relative; z-index: 2;
+  max-width: 860px; margin: 8px auto 30px;
+  padding: 16px 24px;
+  border-top: 3px double var(--brass);
+  color: var(--paper-dim);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .82rem; text-align: center;
+}
+.bench-foot a { color: var(--brass-bright); }
+.bench-foot .small { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #9a8258; }
+
+@media (max-width: 640px) {
+  .bench-head h1 { font-size: 1.5rem; }
+  .entry { padding: 16px 18px 18px 24px; }
+}
