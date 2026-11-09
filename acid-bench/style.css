@@ -1,0 +1,257 @@
+/* The Acid Bench — Garden Shed No. 4 */
+
+:root{
+  --acid: #7ddc4f;
+  --acid-deep: #3f8f1f;
+  --pit: #101c12;
+  --glass: #17301f;
+  --glass-2: #1e3a26;
+  --paper: #eef3df;
+  --hazard: #f2c230;
+  --red: #c8352b;
+  --ink: #1c2418;
+  --rust: #a05a2c;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  color:var(--paper);
+  font-family: Georgia, 'Times New Roman', serif;
+  background:
+    radial-gradient(1200px 500px at 70% -10%, rgba(125,220,79,.14), transparent 60%),
+    radial-gradient(900px 700px at -10% 110%, rgba(125,220,79,.10), transparent 55%),
+    repeating-linear-gradient(135deg, rgba(125,220,79,.035) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, #0c140e 0%, var(--pit) 45%, #0a110b 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* hazard stripes */
+.stripes{
+  height:14px;
+  background:repeating-linear-gradient(45deg, var(--hazard) 0 16px, #141414 16px 32px);
+  position:fixed; left:0; right:0; z-index:40;
+  box-shadow:0 0 18px rgba(242,194,48,.25);
+}
+.stripes.top{ top:0; }
+.stripes.bottom{ bottom:0; }
+
+/* the bath, fixed behind everything */
+.bath{
+  position:fixed; left:0; right:0; bottom:14px; height:44vh; z-index:0;
+  background:linear-gradient(180deg, rgba(125,220,79,0) 0%, rgba(125,220,79,.06) 30%, rgba(125,220,79,.22) 100%);
+  pointer-events:none; overflow:hidden;
+}
+.surface{
+  position:absolute; left:0; right:0; top:0; height:5px;
+  background:linear-gradient(90deg, transparent, rgba(196,255,150,.55), transparent);
+  animation:shimmer 7s linear infinite;
+}
+@keyframes shimmer{
+  0%{ transform:translateX(-8%); opacity:.5; }
+  50%{ transform:translateX(6%); opacity:1; }
+  100%{ transform:translateX(-8%); opacity:.5; }
+}
+.bubble{
+  position:absolute; bottom:-40px; border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, rgba(235,255,220,.95), rgba(125,220,79,.35) 55%, rgba(125,220,79,0) 72%);
+  animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{ transform:translateY(0) translateX(0) scale(.6); opacity:0; }
+  12%{ opacity:.9; }
+  50%{ transform:translateY(-22vh) translateX(14px) scale(.9); }
+  100%{ transform:translateY(-44vh) translateX(-10px) scale(1.15); opacity:0; }
+}
+.b1{ left:8%;  width:14px; height:14px; animation-duration:9s;  animation-delay:0s; }
+.b2{ left:22%; width:9px;  height:9px;  animation-duration:7s;  animation-delay:2s; }
+.b3{ left:37%; width:18px; height:18px; animation-duration:11s; animation-delay:1s; }
+.b4{ left:52%; width:11px; height:11px; animation-duration:8s;  animation-delay:4s; }
+.b5{ left:64%; width:22px; height:22px; animation-duration:13s; animation-delay:0.5s; }
+.b6{ left:78%; width:10px; height:10px; animation-duration:6.5s; animation-delay:3s; }
+.b7{ left:88%; width:15px; height:15px; animation-duration:10s; animation-delay:1.8s; }
+.b8{ left:45%; width:8px;  height:8px;  animation-duration:5.5s; animation-delay:5s; }
+
+/* the shed */
+.shed{
+  position:relative; z-index:10;
+  max-width:880px; margin:0 auto;
+  padding:56px 20px 60px;
+}
+
+.card{
+  position:relative;
+  background:linear-gradient(160deg, var(--glass-2), var(--glass) 60%, #14271b);
+  border:1px solid rgba(125,220,79,.35);
+  border-left:6px solid var(--acid);
+  box-shadow:0 14px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.07);
+  border-radius:6px;
+  padding:26px 30px 28px;
+  margin:0 0 26px;
+}
+.card::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:6px;
+  background:
+    radial-gradient(420px 120px at 90% 0%, rgba(125,220,79,.10), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 3px);
+  pointer-events:none;
+}
+
+.mast{ text-align:center; border-width:8px; border-color:var(--hazard); }
+.mast h1{
+  margin:.2em 0 .1em;
+  font-family:'Arial Black', 'Impact', sans-serif;
+  font-size:clamp(2.4rem, 7vw, 4.2rem);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#f2ffd9;
+  text-shadow:0 0 22px rgba(125,220,79,.65), 3px 3px 0 var(--acid-deep);
+}
+.mast .sub{
+  max-width:56ch; margin:14px auto 0;
+  font-style:italic; color:#cfe3b6; line-height:1.6;
+}
+.cardno{
+  font-family:'Courier New', monospace;
+  letter-spacing:.22em; font-size:.72rem;
+  color:var(--acid); margin:10px 0 4px;
+}
+.hazard{
+  display:inline-block;
+  font-family:'Arial Black', sans-serif;
+  font-size:.72rem; letter-spacing:.18em;
+  background:var(--hazard); color:#111;
+  padding:5px 14px; border-radius:3px;
+  transform:rotate(-1.4deg);
+  box-shadow:2px 2px 0 rgba(0,0,0,.5);
+}
+.hazard.big{ font-size:.8rem; transform:rotate(0); margin-bottom:14px; }
+
+.tag{
+  display:inline-block;
+  font-family:'Courier New', monospace;
+  font-size:.7rem; letter-spacing:.28em;
+  color:#0f1a10; background:var(--acid);
+  padding:4px 10px 3px; border-radius:2px;
+  margin-bottom:14px;
+  transform:rotate(-.6deg);
+}
+
+.entry p{ line-height:1.78; margin:0 0 1em; font-size:1.02rem; }
+.entry p:last-child{ margin-bottom:0; }
+.entry strong{ color:#e8ffce; }
+
+.ledger h2, .ph h2{
+  font-family:'Arial Black', sans-serif;
+  letter-spacing:.06em; color:var(--acid);
+  font-size:1.05rem; margin:0 0 14px;
+  text-transform:uppercase;
+}
+table{
+  width:100%; border-collapse:collapse;
+  font-family:'Courier New', monospace; font-size:.82rem;
+}
+th{
+  text-align:left; color:var(--hazard);
+  border-bottom:2px solid var(--acid-deep);
+  padding:6px 8px 5px; letter-spacing:.06em; text-transform:uppercase; font-size:.72rem;
+}
+td{
+  border-bottom:1px dashed rgba(125,220,79,.25);
+  padding:6px 8px; vertical-align:top; line-height:1.5;
+}
+tr:hover td{ background:rgba(125,220,79,.06); }
+
+.kept{
+  margin:18px 0;
+  padding:18px 22px;
+  border-left:6px solid var(--red);
+  border-right:1px dashed rgba(200,53,43,.5);
+  background:
+    repeating-linear-gradient(0deg, rgba(200,53,43,.05) 0 2px, transparent 2px 28px),
+    linear-gradient(120deg, #241a12, #1d150e);
+  font-family:'Courier New', monospace;
+  font-size:1.02rem; line-height:1.9;
+  color:#ffd9c8;
+  transform:rotate(-.4deg);
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
+}
+.kept::before{
+  content:"GARBLED LINE — KEPT STANDING";
+  display:block;
+  font-size:.62rem; letter-spacing:.3em; color:var(--red);
+  margin-bottom:10px;
+}
+
+/* pH box */
+.phbox{
+  background:rgba(0,0,0,.28);
+  border:1px solid rgba(125,220,79,.4);
+  border-radius:6px; padding:18px 20px 20px;
+}
+.phbox label{
+  font-family:'Courier New', monospace; letter-spacing:.08em;
+  display:block; margin-bottom:12px;
+}
+.phbox strong{ color:#e8ffce; font-size:1.2rem; }
+#ph{
+  width:100%; appearance:none; -webkit-appearance:none;
+  height:14px; border-radius:7px; outline:none;
+  background:linear-gradient(90deg,
+    #c8352b 0%, #e0632b 14%, #f2c230 28%, #b9d94e 42%,
+    #7ddc4f 50%, #3fbf8f 62%, #38a3c9 76%, #3567c9 88%, #5b3fb0 100%);
+  cursor:pointer;
+  box-shadow:inset 0 1px 4px rgba(0,0,0,.6);
+}
+#ph::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width:26px; height:26px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #fff, #cfd8c8 60%, #8b9a85);
+  border:2px solid #0f1a10; cursor:grab;
+  box-shadow:0 2px 8px rgba(0,0,0,.7);
+}
+#ph::-moz-range-thumb{
+  width:24px; height:24px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #fff, #cfd8c8 60%, #8b9a85);
+  border:2px solid #0f1a10; cursor:grab;
+}
+.phscale{
+  height:10px; margin-top:8px; border-radius:5px;
+  background:linear-gradient(90deg,
+    #c8352b 0%, #e0632b 14%, #f2c230 28%, #b9d94e 42%,
+    #7ddc4f 50%, #3fbf8f 62%, #38a3c9 76%, #3567c9 88%, #5b3fb0 100%);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.5);
+}
+.phout{
+  font-family:'Courier New', monospace; font-size:.86rem;
+  color:#cfe3b6; margin-top:12px; min-height:2.6em; line-height:1.6;
+}
+
+a{ color:var(--acid); text-decoration-thickness:2px; text-underline-offset:3px; }
+a:hover{ color:#d4ffae; text-shadow:0 0 12px rgba(125,220,79,.8); }
+
+.back{ border-left-color:var(--hazard); text-align:center; }
+.back p{ line-height:1.8; }
+.back a{ font-weight:bold; }
+
+@keyframes floatcard{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-4px); }
+}
+.mast{ animation:floatcard 9s ease-in-out infinite; }
+
+@media (max-width:640px){
+  .card{ padding:20px 18px 22px; }
+  .shed{ padding:46px 12px 50px; }
+  table{ font-size:.72rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bubble, .surface, .mast{ animation:none; }
+}
