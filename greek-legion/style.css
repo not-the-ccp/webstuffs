@@ -1,0 +1,172 @@
+/* The Bessarabian & Crimea Line — Form B, 1854. A military timetable, printed at Jassy. */
+
+:root {
+  --paper: #f1e8d2;
+  --paper-dark: #e7dabb;
+  --ink: #2b2418;
+  --faded: #5c5240;
+  --rule: #6b5c3f;
+  --stamp: #7a2e20;
+  --sea: #33485a;
+}
+
+html { background: #d8ccb0; }
+
+body {
+  margin: 0;
+  padding: 1.5rem 1rem 3rem;
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(122, 46, 32, 0.05), transparent 30%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(107, 92, 63, 0.06) 26px 27px),
+    var(--paper);
+  line-height: 1.55;
+}
+
+main, .linehead, .line-foot {
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Letterhead */
+.linehead {
+  text-align: center;
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.company {
+  font-size: 1.05rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.company-gr {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: var(--faded);
+  margin: 0.15rem 0 0.75rem;
+}
+.linehead h1 {
+  font-size: 1.9rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.4rem;
+}
+.subtitle {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 auto;
+  max-width: 42rem;
+}
+.date-line {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+  margin-top: 0.75rem;
+}
+
+/* Sections */
+section { margin-bottom: 2rem; }
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+p { margin: 0.7rem 0; }
+
+/* Timetable */
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper-dark);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  font-size: 0.95rem;
+}
+.tt th, .tt td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+  text-align: left;
+}
+.tt thead th {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--rule);
+  background: rgba(107, 92, 63, 0.12);
+}
+.station {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.station .gr {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--faded);
+  font-variant: normal;
+  letter-spacing: 0.05em;
+}
+.c-days, .c-out, .c-in { white-space: nowrap; }
+.c-out, .c-in { font-variant-numeric: tabular-nums; }
+.time { font-family: "Courier New", Courier, monospace; font-size: 1.02rem; }
+.note { font-size: 0.88rem; color: var(--faded); }
+tr.terminal th.station { color: var(--stamp); }
+tr.transfer th.station { color: var(--sea); }
+.tt-foot {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  margin-top: 0.5rem;
+}
+
+/* Cases */
+.case {
+  border-left: 3px solid var(--rule);
+  padding-left: 0.9rem;
+  margin: 1.1rem 0;
+}
+.case-no {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--stamp);
+}
+.case-d {
+  border-left-color: var(--stamp);
+  background: rgba(122, 46, 32, 0.06);
+  padding: 0.6rem 0.9rem;
+  font-style: italic;
+}
+.case-d-note { border-left-color: var(--stamp); font-size: 0.92rem; }
+
+/* Footer */
+.line-foot {
+  border-top: 4px double var(--rule);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+  text-align: center;
+}
+.line-foot a { color: var(--stamp); }
+.nav a { white-space: nowrap; }
+
+a { color: var(--stamp); }
+
+/* Service indicator set by board.js */
+.board-flag {
+  display: inline-block;
+  margin-left: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--stamp);
+  padding: 0.1rem 0.5rem;
+  vertical-align: middle;
+}
+.board-flag.cancelled { background: var(--sea); }
