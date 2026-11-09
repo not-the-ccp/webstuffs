@@ -1,0 +1,157 @@
+/* The Bellman corner — a late-90s personal homepage, lovingly bevelled. */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000033; /* web-safe night blue */
+}
+
+body {
+  color: #ffffff;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Tiled starry sky: a small SVG tile of stars, plus a darker tile offset. */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: #000033;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><rect width='120' height='120' fill='%23000033'/><circle cx='12' cy='20' r='1' fill='%23ffffcc'/><circle cx='70' cy='44' r='1.4' fill='%23ccccff'/><circle cx='98' cy='12' r='1' fill='%23ffffff'/><circle cx='40' cy='88' r='1' fill='%23ffff99'/><circle cx='86' cy='96' r='1.6' fill='%23ffffff'/><circle cx='22' cy='60' r='1' fill='%23ccccff'/><circle cx='110' cy='66' r='1' fill='%23ffffcc'/><path d='M58 5 l2 4 4 2 -4 2 -2 4 -2 -4 -4 -2 4 -2 z' fill='%23ffffff'/></svg>");
+  background-repeat: repeat;
+}
+
+.frame {
+  width: 100%;
+  max-width: 780px;
+  margin: 18px auto;
+}
+
+/* The classic bevelled panel. */
+.bevel {
+  background-color: #000066;
+  border: 4px outset #9999cc;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #666699;
+  padding: 14px 18px 20px;
+  margin: 0 8px 24px;
+}
+
+/* Scrolling welcome band. */
+.marquee-band {
+  background-color: #330066;
+  border: 3px inset #9999cc;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  color: #ffff00;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: scroll 28s linear infinite;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.mast { text-align: center; }
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  color: #ffff00;
+  margin: 10px 0 4px;
+  text-shadow: 2px 2px 0 #660066;
+  letter-spacing: 2px;
+}
+h1 .sub { font-size: 18px; color: #ff9900; letter-spacing: 4px; }
+.tagline { color: #99ffcc; font-size: 12px; }
+
+.blink { color: #ff3333; animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+/* Visitor counter. */
+.counter-box {
+  display: inline-block;
+  border: 3px inset #9999cc;
+  background-color: #000000;
+  padding: 6px 12px;
+  margin-top: 8px;
+}
+.counter-label { color: #99ccff; font-size: 11px; }
+.counter {
+  display: inline-block;
+  margin: 0 8px;
+  font-family: "Courier New", monospace;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ff00;
+  background-color: #000000;
+  border: 2px inset #333333;
+  letter-spacing: 4px;
+  padding: 1px 6px;
+}
+.counter-note { color: #666666; font-size: 10px; }
+
+.rule { border: none; border-top: 3px ridge #9999cc; margin: 16px 0; }
+
+/* The questions. */
+.q {
+  border: 3px outset #9999cc;
+  background-color: #333399;
+  margin: 12px 0;
+  padding: 10px 14px;
+}
+.q h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+.qnum {
+  display: inline-block;
+  background-color: #660066;
+  color: #ffff00;
+  border: 2px outset #cc99cc;
+  padding: 1px 8px;
+  margin-right: 8px;
+  font-size: 13px;
+}
+.q p { margin: 6px 0; }
+.q strong { color: #ffff66; }
+
+a { color: #ff9900; }
+a:visited { color: #ff6699; }
+a:hover { color: #00ffff; }
+
+/* Guestbook. */
+.guestbook {
+  border: 4px ridge #ffcc66;
+  background-color: #330066;
+  padding: 10px 14px;
+  margin-top: 18px;
+}
+.guestbook h3 {
+  color: #ffcc66;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 2px;
+  margin: 0 0 6px;
+}
+.gb { border-collapse: collapse; width: 100%; }
+.gb td {
+  border: 2px inset #9999cc;
+  padding: 4px 6px;
+  background-color: #663399;
+  color: #ffffff;
+}
+.gb-head td { background-color: #660066; color: #ffff99; font-weight: bold; }
+.gb-note { color: #99ccff; font-size: 11px; }
+
+.foot { text-align: center; margin-top: 16px; }
+.foot p { font-size: 12px; color: #99ccff; }
+.foot-small { color: #666666; font-size: 10px; }
