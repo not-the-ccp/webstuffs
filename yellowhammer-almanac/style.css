@@ -1,0 +1,160 @@
+/* The Yellowhammer Dispatch — club newsletter sheet */
+
+:root {
+  --paper: #f6efdd;
+  --paper-edge: #e8dfc6;
+  --ink: #2b2418;
+  --faded: #6b5f47;
+  --rule: #4a3f2c;
+  --stamp: #8c2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #26221b;
+  background-image: radial-gradient(circle at 50% 0%, #353025 0%, #26221b 70%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 2.5rem 1rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(var(--paper-edge) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 63, 44, 0.04) 1px, transparent 1px);
+  background-size: 100% 2.75rem, 0.75rem 100%;
+  border: 1px solid #55482f;
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.35), 0 18px 45px rgba(0, 0, 0, 0.5);
+  padding: 2.25rem 2.5rem 2rem;
+  position: relative;
+}
+
+/* Masthead */
+.masthead { text-align: center; }
+
+.club-line {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.9rem;
+}
+
+.mast {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 2.6rem;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.motto {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--faded);
+  margin: 0.5rem 0 0.9rem;
+}
+
+.mast-rule, .foot-rule {
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 5px;
+  margin: 0 0 0.5rem;
+}
+.foot-rule { margin: 0 0 0.5rem; }
+
+.mast-figs {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Club post stamp */
+.stamp {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.4rem;
+  width: 5.4rem;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  outline: 1px dashed var(--stamp);
+  outline-offset: 2px;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.5;
+  padding: 0.4rem 0.2rem;
+  transform: rotate(-7deg);
+  opacity: 0.75;
+  font-family: "Courier New", monospace;
+}
+
+/* Body columns */
+.cols {
+  column-count: 2;
+  column-gap: 2.2rem;
+  column-rule: 1px solid rgba(74, 63, 44, 0.45);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 40rem) {
+  .cols { column-count: 1; }
+  .stamp { display: none; }
+  .sheet { padding: 1.5rem 1.25rem; }
+  .mast { font-size: 1.9rem; }
+}
+
+.item {
+  break-inside: avoid-column;
+  margin-bottom: 1.5rem;
+}
+
+.item h2 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.6rem;
+}
+
+.item p { margin: 0 0 0.7rem; }
+
+a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--stamp); }
+
+blockquote.kept {
+  margin: 0.9rem 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 3px solid var(--stamp);
+  background: rgba(140, 47, 36, 0.06);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+.signed { font-style: italic; color: var(--faded); }
+
+/* Footer */
+.foot { margin-top: 1.2rem; }
+
+.foot p {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--faded);
+  text-align: center;
+  margin: 0.3rem 0 0;
+}
