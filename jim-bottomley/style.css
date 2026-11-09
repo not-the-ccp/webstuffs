@@ -1,0 +1,423 @@
+/* Paddock & Anvil Memorabilia Co. — Lot 66, the Bottomley Stone Box */
+
+:root {
+  --stone-green: #2c4f39;
+  --stone-green-deep: #1d3a29;
+  --cardinal: #8c1f28;
+  --cardinal-bright: #b3242e;
+  --cream: #f6efdd;
+  --paper: #fbf6e8;
+  --ink: #2b2318;
+  --tan: #c9b48a;
+  --shadow: 6px 6px 0 rgba(43, 35, 24, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  background-color: var(--cream);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(140, 31, 40, 0.05) 0 2px, transparent 2px 46px),
+    repeating-linear-gradient(90deg, rgba(140, 31, 40, 0.05) 0 2px, transparent 2px 46px),
+    radial-gradient(circle at 18% 8%, rgba(44, 79, 57, 0.14), transparent 42%),
+    radial-gradient(circle at 85% 90%, rgba(140, 31, 40, 0.12), transparent 46%),
+    linear-gradient(180deg, #f3e9d0 0%, var(--cream) 40%, #efe4c8 100%);
+  background-attachment: fixed;
+}
+
+/* ---------- marquee ---------- */
+
+.marquee {
+  overflow: hidden;
+  background: var(--stone-green-deep);
+  color: var(--cream);
+  border-bottom: 4px double var(--cardinal);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.45rem 0;
+}
+
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: slide 40s linear infinite;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  background:
+    repeating-radial-gradient(circle at 50% 130%, transparent 0 58px, rgba(246, 239, 221, 0.05) 58px 60px),
+    linear-gradient(180deg, var(--stone-green), var(--stone-green-deep));
+  color: var(--cream);
+  text-align: center;
+  padding: 2.6rem 1rem 2rem;
+  border-bottom: 8px solid var(--cardinal);
+  box-shadow: 0 10px 30px rgba(29, 58, 41, 0.35);
+}
+
+.masthead-inner { max-width: 720px; margin: 0 auto; }
+
+.shop-mark {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  letter-spacing: 0.28em;
+  font-weight: bold;
+  text-shadow: 3px 3px 0 var(--cardinal);
+}
+
+.shop-sub {
+  margin: 0.5rem 0 1.4rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--tan);
+}
+
+.crumbs {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.crumbs a { color: var(--cream); text-decoration-color: var(--cardinal-bright); }
+.crumbs span { color: var(--tan); margin: 0 0.4rem; }
+.crumbs em { color: #fff; }
+
+/* ---------- layout ---------- */
+
+.lot {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 5fr) minmax(300px, 6fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+}
+
+.box-plate {
+  position: relative;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 85%, rgba(29, 58, 41, 0.35), transparent 60%),
+    linear-gradient(160deg, #efe3c4, #e4d3ab);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.2rem 1rem;
+  animation: settle 1.2s ease-out both;
+}
+
+@keyframes settle {
+  from { transform: translateY(18px) rotate(-1.5deg); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+.box-plate svg { width: 100%; height: auto; display: block; }
+
+.box-plate figcaption {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.8rem;
+  color: #5a4a32;
+}
+
+.badge {
+  position: absolute;
+  top: -0.9rem;
+  right: -0.9rem;
+  background: var(--cardinal);
+  color: #fff;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  padding: 0.45rem 0.8rem;
+  border: 2px solid var(--cream);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(6deg);
+  animation: wobble 5s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(6deg); }
+  50%      { transform: rotate(2deg); }
+}
+
+/* ---------- buy box ---------- */
+
+.buy-box {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 1.6rem 1.5rem;
+  position: relative;
+}
+
+.buy-box::before {
+  content: "66";
+  position: absolute;
+  top: -1.6rem;
+  left: -1.4rem;
+  font-size: 3.4rem;
+  font-weight: bold;
+  color: var(--cardinal);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  width: 3.4rem;
+  height: 3.4rem;
+  display: grid;
+  place-items: center;
+  transform: rotate(-8deg);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.lot-no {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--cardinal);
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--stone-green-deep);
+}
+
+.catchline { margin: 0 0 1rem; font-style: italic; color: #55452e; }
+
+.stars { margin: 0 0 0.9rem; color: var(--cardinal-bright); font-size: 1.2rem; }
+.stars .star { opacity: 0.25; }
+.stars .star.lit { opacity: 1; text-shadow: 1px 1px 0 var(--tan); }
+.stars small { color: #7a6a4d; margin-left: 0.6rem; font-size: 0.8rem; }
+
+.price {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--ink);
+  font-family: "Courier New", monospace;
+}
+
+.price .cur { color: var(--cardinal); }
+.price small { font-size: 0.85rem; font-family: Georgia, serif; font-weight: normal; color: #7a6a4d; }
+
+.stock {
+  margin: 0.6rem 0 1.2rem;
+  font-size: 0.9rem;
+  color: var(--stone-green-deep);
+}
+
+.stock .dot {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--stone-green);
+  margin-right: 0.4rem;
+  box-shadow: 0 0 0 3px rgba(44, 79, 57, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(44, 79, 57, 0.2); }
+  50%      { box-shadow: 0 0 0 7px rgba(44, 79, 57, 0.05); }
+}
+
+.btn-row { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+.btn {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+.btn.primary {
+  background: var(--cardinal);
+  color: #fff;
+  animation: glow 2.4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { background: var(--cardinal); }
+  50%      { background: var(--cardinal-bright); }
+}
+
+.trust {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  font-size: 0.88rem;
+  color: #55452e;
+}
+
+.trust li { padding-left: 1.3rem; position: relative; margin-bottom: 0.35rem; }
+.trust li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: var(--stone-green);
+  font-size: 0.7rem;
+  top: 0.2rem;
+}
+
+/* ---------- sections ---------- */
+
+.entry {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 1.8rem 1.7rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+}
+
+.entry::after {
+  content: "• • •";
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 0 0.7rem;
+  color: var(--cardinal);
+  letter-spacing: 0.5em;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.45rem;
+  color: var(--cardinal);
+  border-bottom: 3px double var(--stone-green);
+  padding-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+p { margin: 0 0 1rem; }
+
+/* provenance ledger */
+
+.prov { list-style: none; margin: 0; padding: 0; counter-reset: prov; }
+
+.prov li {
+  counter-increment: prov;
+  position: relative;
+  padding: 0.9rem 0 0.9rem 3.4rem;
+  border-bottom: 1px dashed var(--tan);
+}
+
+.prov li:last-child { border-bottom: none; }
+
+.prov li::before {
+  content: counter(prov, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: #fff;
+  background: var(--stone-green);
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* spec table */
+
+.spec { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+
+.spec th {
+  text-align: left;
+  vertical-align: top;
+  width: 160px;
+  color: var(--stone-green-deep);
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  padding: 0.55rem 0.8rem 0.55rem 0;
+}
+
+.spec td { padding: 0.55rem 0.8rem 0.55rem 0.4rem; }
+
+.spec tr { border-bottom: 1px solid var(--tan); }
+.spec tr:nth-child(odd) { background: rgba(201, 180, 138, 0.18); }
+
+/* notices */
+
+.notice {
+  margin: 0 0 1.2rem;
+  padding: 0.9rem 1.2rem 0.9rem 2.6rem;
+  position: relative;
+  background: rgba(201, 180, 138, 0.25);
+  border-left: 6px solid var(--cardinal);
+  font-style: italic;
+}
+
+.notice p { margin: 0 0 0.3rem; }
+.notice cite { font-size: 0.85rem; color: #7a6a4d; font-style: normal; }
+.notice::before {
+  content: "“";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.1rem;
+  font-size: 2.4rem;
+  color: var(--cardinal);
+}
+
+/* cross-filed */
+
+.crossfile a { color: var(--cardinal); text-decoration-color: var(--stone-green); text-underline-offset: 3px; }
+.crossfile a:hover { background: rgba(140, 31, 40, 0.08); }
+
+/* footer */
+
+.foot {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  border-top: 8px double var(--stone-green);
+  color: var(--stone-green-deep);
+}
+
+.foot-line { margin: 0 0 0.4rem; letter-spacing: 0.08em; }
+.foot-small { margin: 0; font-style: italic; font-size: 0.85rem; color: #7a6a4d; }
