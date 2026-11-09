@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triton, Geology — Safety Data Sheet · Webstuffs Geologic Desk, Cold Storage</title>
+<meta name="description" content="Safety data sheet for the geology of Triton, Neptune's captured moon: density 2.061 g/cm³, 15–35% water ice by mass, differentiated crust over a subsurface ocean, nitrogen-frost surface, cryovolcanic vents, and the Voyager 2 flyby of 14 August 1989.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="neptune-field" aria-hidden="true">
+  <div class="stars stars-a"></div>
+  <div class="stars stars-b"></div>
+  <div class="band band-1"></div>
+  <div class="band band-2"></div>
+  <canvas id="frost" class="frost-canvas"></canvas>
+</div>
+
+<div class="orbit-ring" aria-hidden="true">
+  <svg viewBox="0 0 480 120">
+    <path id="orbitpath" d="M10 60 C 120 8, 360 8, 470 60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 6"/>
+    <circle id="satellite" r="6" fill="currentColor"></circle>
+    <text x="14" y="98" class="orbit-label">Neptune</text>
+    <text x="414" y="98" class="orbit-label">Triton · retrograde</text>
+  </svg>
+</div>
+
+<main class="sds">
+<header class="sds-header">
+  <p class="doc-id">SAFETY DATA SHEET · COLD STORAGE · SECTIONS 1–16 · GHS Rev. 9 (EXTENDED, EXOTERRESTRIAL SUPPLEMENT) · WEBSTUFFS GEOLOGIC DESK</p>
+  <div class="titleblock">
+    <svg class="triton-mark" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <radialGradient id="tgrad" cx="38%" cy="32%" r="80%">
+          <stop offset="0%" stop-color="#e8f7ff"/>
+          <stop offset="45%" stop-color="#9fd8f0"/>
+          <stop offset="75%" stop-color="#4f86c9"/>
+          <stop offset="100%" stop-color="#1d2f6e"/>
+        </radialGradient>
+      </defs>
+      <circle cx="60" cy="60" r="44" fill="url(#tgrad)" stroke="#bfe6ff" stroke-width="1.5"/>
+      <path d="M28 46 Q 60 38 92 47 M24 62 Q 60 72 96 60 M30 78 Q 62 86 90 77" fill="none" stroke="#1d2f6e" stroke-width="2" opacity="0.5"/>
+      <ellipse cx="46" cy="52" rx="9" ry="4.5" fill="#dcefff" opacity="0.7"/>
+      <path d="M70 72 l6 -8 5 8 -5 6 z" fill="#0e1840" opacity="0.65"/>
+      <path d="M66 64 L70 72 L75 64" fill="none" stroke="#7fd4ff" stroke-width="1.5"/>
+    </svg>
+    <div>
+      <h1>Triton — Geology</h1>
+      <p class="product-id">Product identifier: <strong>Geology of Triton</strong>, surface, interior and history of Neptune's largest natural satellite · Other names: Triton I, Neptune I, Nereid-sibling (disputed), the Captured One, the Cold Sheet</p>
+      <p class="sheet-no">Sheet Nº WSD-COLD-019 · Cold Storage, Shelf 9, Bin −215 °C · Revision 2.1</p>
+    </div>
+  </div>
+  <span class="signal">DANGER</span>
+  <span class="signal signal-sub">COLD</span>
+  <span class="signal signal-sub">RETROGRADE</span>
+</header>
+
+<section class="sds-section" id="section-1">
+<h2><span class="secnum">1</span> Identification of the substance/state and of the supplier</h2>
+<p><strong>Recommended use:</strong> Study of captured-body geology; demonstration of tidal heating; comparison against the differentiated state; archive of nitrogen-frost surface processes; long-term storage of the Voyager 2 encounter imagery of 14 August 1989.</p>
+<p><strong>Restrictions on use:</strong> One flyby per half-century, minimum. Do not attempt a second encounter until the Cold Storage budget is restored; the previous attempt (a private probe, 2031, name withheld) ended with the probe shelved unclaimed on our own Shelf 3 at the Big Bend Mercantile, beside the lost Tropical Storm Alberto of 2006 — see <a href="../alberto-2006/">Notice Nº 106, Big Bend Mercantile</a>, if you wish to read how the office kept it.</p>
+<p><strong>Supplier:</strong> Webstuffs Geologic Desk, Cold Storage Annex, Shelf 9, Bin −215 °C · <strong>Emergency telephone:</strong> none staffed; the relay at 13.5 GHz is answered by a phonograph.</p>
+<p><strong>Related document:</strong> The Desk keeps one terrestrial sheet of the same form for a state that shares our habit of storing things that shake — <a href="../california-sds/">California — Safety Data Sheet</a>. It is filed across the annex, in the warm room, and must not be mixed with this sheet under any circumstances.</p>
+</section>
+
+<section class="sds-section" id="section-2">
+<h2><span class="secnum">2</span> Hazards identification</h2>
+<div class="ghs">
+  <div class="diamond d-health"><div class="d-face">3<br>HEALTH</div></div>
+  <div class="diamond d-flame"><div class="d-face">2<br>FLAMMABILITY</div></div>
+  <div class="diamond d-instability"><div class="d-face">1<br>INSTABILITY</div></div>
+  <div class="diamond d-cryo"><div class="d-face">−215<br>CRYOGENIC</div></div>
+</div>
+<p><strong>Classification (GHS Rev. 9, exterrestrial supplement):</strong> Cryogenic hazard — Category A (surface temperature 38 K; contact produces instantaneous brittle fracture of any material not below its ductile-to-brittle transition). Simple asphyxiant potential (nitrogen frost, in enclosed habitats). Flammable component present (methane, trace to local in the surface inventory). Instability — not GHS-classified; local rating: vigorous.</p>
+<p><strong>Signal word:</strong> <span class="signal">DANGER</span> <span class="signal signal-sub">COLD</span></p>
+<p><strong>Hazard statements:</strong> H261 Heats strongly and may burn (methane, in contact with an ignition source). H304 May be fatal if inhaled (nitrogen, displacing breathable atmosphere in enclosed habitats). H-HVO Hazardous to very old objects: surface geology is vigorous and ongoing; assume every frost layer moved since you last looked. H-CAP Captured body: orbital energy of the same order as a small planet's; do not open the system without a scattering disc on hand.</p>
+<p><strong>Precautionary statements:</strong> P201 Obtain special instructions before use. P202 Do not open the nitrogen frost until the habitat pressure is verified. P273 Keep nitrogen, methane and carbon monoxide frost segregated from open flame and from each other in the presence of tholin. P305+P351+P338 IF IN EYES: Rinse cautiously; remove contact lenses; the eyes were designed for warmer places. P405 Store locked up, at or below 38 K, away from any orbit that turns the wrong way around the wrong star. P501 Do not dispose of in an inner-system landfill; the frost will outlive the landfill.</p>
+</section>
+
+<section class="sds-section" id="section-3">
+<h2><span class="secnum">3</span> Composition / information on ingredients</h2>
+<p><strong>Substance/mixture:</strong> Differentiated natural satellite, heterogeneous. Mean density <strong>2.061 g/cm³</strong>; roughly <strong>15–35% water ice by mass</strong>, the rest silicate and rock. Not a pure substance; composition varies from the core to the frost.</p>
+<table>
+<tr><th>Component</th><th>Approximate share / extent</th></tr>
+<tr><td>Rocky core</td><td>Central; radius on the order of 900 km of silicate, holding the bulk of the 2.061 g/cm³ mean</td></tr>
+<tr><td>Water-ice shell</td><td>~600 km thick on a conservative reading of the density; the solid crust stands on it</td></tr>
+<tr><td>Subsurface ocean (liquid)</td><td>Probable; sandwiched between rock and ice, kept thin by brine and pressure and by the heat that capture put in the body</td></tr>
+<tr><td>Nitrogen frost (N₂)</td><td>Dominant surface component; cap, plain, and seasonally migrating polar layer, with frost lines that shift across the globe as the 165-year orbit carries the satellite from sun to anti-sun</td></tr>
+<tr><td>Methane (CH₄) &amp; carbon monoxide (CO) frost</td><td>Trace to local; the tholin-darkening agent in small doses, a flammable agent in large ones</td></tr>
+<tr><td>Water-ice geology, driven by</td><td>Volatiles: nitrogen and methane dynamics set the surface in motion; the ice supplies the structure and the vent</td></tr>
+</table>
+<p><strong>History of the composition:</strong> Triton is a differentiated body — icy solid crust, liquid below, rock at the bottom — and its surface geology is largely driven by the dynamics of water ice and other volatiles such as nitrogen and methane. The body's history of capture, its high internal heat for its size, and its thin but significant atmosphere make its geology vigorous, in the way a caught-and-held thing is vigorous, and it has been and continues to be so. Nearly nothing was known of Triton's geology before the flyby; everything on this sheet after Section 9 is built from that single pass and forty-odd years of patient looking back.</p>
+</section>
+
+<section class="sds-section" id="section-4">
+<h2><span class="secnum">4</span> First-aid measures</h2>
+<p><strong>Inhalation (nitrogen atmosphere, 1.4–1.9 Pa):</strong> The atmosphere as found is too thin to matter at the surface; the hazard is concentration. In habitat settings, move to breathable air and ventilate. Do not chase the plume.</p>
+<p><strong>Skin contact (nitrogen frost, 38 K):</strong> Do not remove by rubbing. Insulate the affected limb, warm slowly, and treat as deep cold injury with the expectation that the frost will sublimate and leave the wound cleaner than it took it. Log the exposure time against the vent log.</p>
+<p><strong>Eye contact:</strong> Rinse cautiously with warm saline for at least fifteen minutes. The tholin film gives a violet cast to everything, including the cornea; if the cast remains after rinsing, see Section 11.</p>
+<p><strong>Ingestion:</strong> Do not drink the subsurface ocean. It is brine, it is under pressure, and it has a core to answer to. If any frost is swallowed, rinse the mouth, do not induce vomiting, and obtain medical advice in a warm room.</p>
+<p><strong>Most important symptoms and effects:</strong> Brittle fracture of tools; frostbite; disorientation from the retrograde orbit (see Section 8); violet afterimage. <strong>Advice to physicians:</strong> Treat symptomatically. There is no specific antidote for a captured moon; keep the patient away from 38 K and, if possible, from the relay's phonograph.</p>
+</section>
+
+<section class="sds-section" id="section-5">
+<h2><span class="secnum">5</span> Fire-fighting measures</h2>
+<p><strong>Suitable extinguishing media:</strong> Inert gas flood (argon preferred; nitrogen acceptable if the habitat pressure budget allows). At 38 K the fire problem is mostly a supply problem — smother the fuel, do not cool it.</p>
+<p><strong>Specific hazards arising from the substance:</strong> Methane frost ignites readily against any spark and burns quietly blue against a darker background; in the 1.4–1.9 Pa nitrogen atmosphere a surface fire cannot sustain, which is why the geology does not burn — it vents instead. Distinguish the cryovolcanic plume from a fire: the plume rises eight kilometres and is violet at its crown, and it does not come down where it was struck.</p>
+<p><strong>Advice for firefighters:</strong> Wear full cryogenic ensemble and self-contained breathing apparatus. Civilians should stay out of the plume shadow and remember that the eruption is geological, not chemical: you do not put it out, you wait for the vent to empty, which on this sheet's clock is a matter of seasons.</p>
+</section>
+
+<section class="sds-section" id="section-6">
+<h2><span class="secnum">6</span> Accidental release measures</h2>
+<p><strong>Personal precautions:</strong> A release of nitrogen frost at 38 K forms a ground-hugging fog that is denser than any air a habitat provides; keep your boots off the plain and your instruments out of the fog. Do not walk the frost line; it migrates, and it does not stop for the slow.</p>
+<p><strong>Environmental precautions:</strong> The environment is the product. Containment is not available and is not attempted; the frost will redeposit, the tholin will darken it, and the next season will move it again, which is the intended behaviour and not a failure of the sheet.</p>
+<p><strong>Methods and materials for containment:</strong> None. Observe, record the frost line against the reference grid of the flyby images, and note the hour of the relay. Reference to other sections: see 8 and 13.</p>
+</section>
+
+<section class="sds-section" id="section-7">
+<h2><span class="secnum">7</span> Handling and storage</h2>
+<p><strong>Precautions for safe handling:</strong> Handle only at or below 38 K. The surface pressure is 1.4–1.9 Pa of nitrogen; any container that is opened above that pressure will lose its frost to the air with audible sighing, which the phonograph relay is tuned to record and which the Desk regards as the body speaking, not the container failing. Do not store Triton in a system with an inner rocky planet of any mass; it will not be in the same place twice, and its orbit is already the wrong way round.</p>
+<p><strong>Conditions for safe storage, including incompatibilities:</strong> Keep tidally locked, face-to-Neptune, at a mean orbital radius of about 354,800 km. Incompatible materials: anything with a prograde habit, anything that wants a day to last more than 5.877 of its own, and the warm room of the Geologic Desk, where the California sheet is kept and where this sheet's frost has been known to weep at the door. Storage life: indefinite; the geology will outlast the storage. Tidal stress from Neptune's 0.78 m/s² gravity at the surface and the 165-year orbital cycle should be assumed to be doing the body's handling on the body's behalf at all times.</p>
+</section>
+
+<section class="sds-section" id="section-8">
+<h2><span class="secnum">8</span> Exposure controls / personal protection</h2>
+<p><strong>Control parameters:</strong> No occupational exposure limit is established for a moon; the nearest analogue is the cold-storage rating of this annex, held at −215 °C (38 K) with the door closed. Solar radiation at 30 AU is a tenth of an inner-system day's — but the ultraviolet is unfiltered, and it is the ultraviolet that turns the methane into tholin and the surface into its violet cast.</p>
+<p><strong>Appropriate engineering controls:</strong> Habitat pressure verified before any frost work; argon inerting of sample cabinets; relay line at 13.5 GHz kept clear; the phonograph, which plays the encounter audio, kept behind a double door, because the 14 August 1989 pass, played at full volume, has twice been mistaken for a venting event by unaccustomed staff.</p>
+<p><strong>Individual protection measures:</strong> Full cryogenic ensemble; N2-inerted suits; polarised violet-corrected optics; a compass that has been recalibrated for a retrograde sky, or none at all — the satellite's own day is shorter than the staff's patience, and its night is a 38 K night, and a compass that insists on north will be found facing Neptune by morning, which is correct and unsettling in equal measure.</p>
+<p><strong>Hygiene measures:</strong> De-frost in sequence, never by heat; wash tholin off the optics before the wash; do not keep samples in the pocket you keep your warm things in.</p>
+</section>
+
+<section class="sds-section" id="section-9">
+<h2><span class="secnum">9</span> Physical and chemical properties</h2>
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>Appearance</td><td>Cyan-violet sphere, 2,707 km in diameter, banded with frost lines; cantaloupe terrain in the southern highlands; a dark equatorial band of tholin dust; a bright polar cap that is, most of the orbit, the winter pole</td></tr>
+<tr><td>Odour</td><td>None, as found. In the Cold Storage annex the bin smells faintly of the ozone of the display case, which is the annex's own doing</td></tr>
+<tr><td>pH</td><td>Not applicable at the surface; the subsurface ocean, if sampled, is expected to be basic, the way seas that sit on warm rock tend to be</td></tr>
+<tr><td>Melting point / freezing point</td><td>Nitrogen frost sublimates at 35.6 K at 1 atm; at the surface's 1.4–1.9 Pa the frost does not melt so much as migrate. Water ice below, at the ocean's ceiling, freezes at the pressure of a few kilobars</td></tr>
+<tr><td>Boiling point</td><td>Not applicable at the surface pressure; the plume does not boil, it is blown</td></tr>
+<tr><td>Flash point</td><td>Methane: −188 °C; at 38 K the surface is comfortably below its own fuel's flash point, which is to say the fuel is a solid and the fire is a rumour</td></tr>
+<tr><td>Solubility in water</td><td>The body is partly water; the question is inverted. Nitrogen dissolves in the subsurface ocean in the quantities that keep the ocean thin</td></tr>
+<tr><td>Density</td><td>2.061 g/cm³ (mean); 0.78 m/s² surface gravity; 1.455 km/s escape velocity — low enough that the vents keep working, which is the whole argument of this sheet</td></tr>
+<tr><td>Vapour pressure</td><td>1.4–1.9 Pa, all of it nitrogen, with traces of methane and carbon monoxide; thin, significant, and the only weather on the body</td></tr>
+</table>
+</section>
+
+<section class="sds-section" id="section-10">
+<h2><span class="secnum">10</span> Stability and reactivity</h2>
+<p><strong>Reactivity:</strong> Stable in orbit; the retrograde path costs the satellite a small fraction of its height each revolution, a slow leak that no handler can see and that the sheet lists anyway. Reacts vigorously to its own heat: the interior, warmed by the mechanics of capture and by the decay of heavy elements in a body that was not built for this distance from a star, drives the surface. Cryovolcanic vents are the signature — Sverdrup Patera, the large vent plain, and the plume recorded by the flyby rising roughly eight kilometres with a violet crown, are the standing examples, and the geology is described as vigorous and continues to be described that way in each revision of this sheet.</p>
+<p><strong>Chemical stability:</strong> Stable under recommended storage conditions. The nitrogen frost is in permanent, seasonal motion — deposited on the winter pole, sublimed from the summer, migrating across the plains — and this sheet has stopped trying to mark it as static.</p>
+<p><strong>Conditions to avoid:</strong> Inner-system temperatures; prograde handling; long exposure of the tholin layer to a strong ultraviolet source, which will age the surface faster than its own orbit does. Capture events: none scheduled; in the unlikely event of one, see the whole of Section 14.</p>
+<p><strong>Incompatible materials:</strong> Open flame (methane); warm hands (everything); optimism about a second flyby (see Section 16).</p>
+<p><strong>Hazardous decomposition products:</strong> Tholin, under ultraviolet action; carbon dioxide ice in trace, in the cold traps. Nothing worse than a colour.</p>
+</section>
+
+<section class="sds-section" id="section-11">
+<h2><span class="secnum">11</span> Toxicological information</h2>
+<p><strong>Routes of exposure:</strong> Inhalation (concentrated nitrogen in habitat work); dermal (frost contact); ocular (tholin film, ultraviolet); ingestion (accidental frost, ocean brine in the hypothetical sample).</p>
+<p><strong>Acute toxicity:</strong> Nitrogen is a simple asphyxiant at concentration; lethal only where someone has enclosed a great deal of it with a person. Methane likewise, with the fire problem added. The surface itself, at 1.4–1.9 Pa, is not a poison; it is an absence, and the body knows the difference.</p>
+<p><strong>Chronic effects:</strong> Disorientation from the retrograde orbit (documented in three staff, all of whom now carry no compass); violet afterimage in the ultraviolet-heavy gaze; a persistent and well-founded expectation, in cold-storers, that the bin is colder than the sign says, which the annex cannot confirm because it refuses to calibrate below the sign.</p>
+<p><strong>Target organs:</strong> Skin, eyes, lungs, patience. <strong>Signs and symptoms:</strong> frostbite, violet cast, cough from fine frost, the particular silence of the phonograph room after the 1989 pass has been played and no one has yet said whether the plume in the audio is a plume.</p>
+<p><strong>Medical attention:</strong> See Section 4. There is no specific antidote; warm the patient, correct the optics, and file the incident against the vent log.</p>
+</section>
+
+<section class="sds-section" id="section-12">
+<h2><span class="secnum">12</span> Ecological information</h2>
+<p><strong>Ecotoxicity:</strong> None to report; there is no ecology to harm, and the sheet says so rather than staying silent about it. The frost, the tholin, and the vent plain are the whole of the biotic claim, and it is a claim the body makes against its own interior, not against anything outside it.</p>
+<p><strong>Notable features (in lieu of taxa):</strong> Cantaloupe terrain — the pitted, ridged plains of the southern highlands, their origin argued between collapse of a subsurface layer and the slow freezing of a warmer skin; Sverdrup Patera and the vent plains; the dark equatorial band; the seasonal polar caps; a possible thin, patchy ozone signature in the ultraviolet, which the Desk lists and does not believe.</p>
+<p><strong>Ecological note:</strong> The geology is the habitat. What this sheet calls an ecosystem, the interior would call a working: rock at the bottom, brine in the middle, frost on top, heat moving up through all of it, and a thin atmosphere doing the weather of one season a year. For a terrestrial comparison of how a surface argues with its interior, the Desk cross-files the <a href="../extinction-event/">report on the extinction event</a>, Class 8C, Coopers' Lane School — the five endings kept in the rock are the same argument, at a higher temperature, and the family still bakes.</p>
+<p><strong>Persistence and degradability:</strong> The frost is permanent on any human clock; the tholin persists longer. Degradability: the geology degrades the sheet, not the other way round.</p>
+<p><strong>Bioaccumulative potential / mobility in soil:</strong> Not determined; the soil is 38 K and the bio is a rumour, on both sides of the fraction.</p>
+</section>
+
+<section class="sds-section" id="section-13">
+<h2><span class="secnum">13</span> Disposal considerations</h2>
+<p><strong>Disposal methods:</strong> None. Triton is not waste and this sheet is not a certificate to that effect, but the body will not accept the paperwork; it is 2,707 km in diameter, tidally locked, and scheduled to be outlasted by whatever you meant to put it in. Samples, if any exist, return to the bin at −215 °C in inerted containers, labelled against the vent log, with the hour of the relay.</p>
+<p><strong>Contaminated packaging:</strong> De-frost in sequence; do not warm; do not open the argon until the habitat pressure is verified.</p>
+<p><strong>Waste treatment methods:</strong> None applicable. The frost will outlive the treatment.</p>
+</section>
+
+<section class="sds-section" id="section-14">
+<h2><span class="secnum">14</span> Transport information</h2>
+<p><strong>UN number:</strong> UN 3209 (cryogenic, natural satellite, n.o.s.), assigned provisionally by the annex.</p>
+<p><strong>UN proper shipping name:</strong> Triton, geology, solid, n.o.s., with atmosphere in original packaging.</p>
+<p><strong>Transport hazard class(es):</strong> 9 (miscellaneous) plus the annex's own class R (retrograde). <strong>Packing group:</strong> I, on the cold side.</p>
+<p><strong>Environmental hazards:</strong> Marine pollution not applicable; orbital pollution is, and the satellite is committed to it. The one completed transport of record is the Voyager 2 encounter of <strong>14 August 1989</strong> — closest approach about 11,000 km, a single pass, at a relative speed that does not permit a second look — whose imagery, audio, and the plume in question are kept at the relay. No handler has since been permitted to open the approach corridor, and the sheet notes, for the record, that the body's own transport history — from wherever the scattered disc kept it, into the capture that made it Neptune's, on a retrograde path it has not left — is the only shipment the supplier has completed without a manifest, and it arrived with the interior warm and the frost already moving.</p>
+<p><strong>Transport in bulk:</strong> Not applicable; the bulk is 2.061 g/cm³ and 2,707 km, and it declines.</p>
+</section>
+
+<section class="sds-section" id="section-15">
+<h2><span class="secnum">15</span> Regulatory information</h2>
+<p><strong>Regulations specific to the substance:</strong> Annex Cold Storage Ordinance 9 (storage at or below 38 K; no prograde handling); the Voyager Encounter Archive Act (imagery of 14 August 1989 held in trust; the plume question remains open and is not to be closed by anyone without a second pass); the Retrograde Notation Rule (all charts of the body to show the orbit as found, wrong way round, without apology).</p>
+<p><strong>Not classified as a hazardous material</strong> under any inner-system code when transported in its intact state as a moon, which it does not.</p>
+<p><strong>Chemical safety assessment:</strong> Not required; geological safety assessment performed each season of the orbit, at the 165-year mark, and noted as vigorous.</p>
+</section>
+
+<section class="sds-section" id="section-16">
+<h2><span class="secnum">16</span> Other information</h2>
+<p><strong>Version:</strong> 2.1 · <strong>Issue date:</strong> 14 August 2054, the anniversary, as the annex keeps it · <strong>Prepared by:</strong> Webstuffs Geologic Desk, Cold Storage Annex · <strong>Supersedes:</strong> Revision 2.0, which called the geology "active" and has been pulled from Shelf 9 because the body objects to understatement.</p>
+<p><strong>Key or legend to abbreviations and acronyms:</strong> GHS — Globally Harmonized System of Classification and Labelling of Chemicals · Patera — vent plain, the sheet's word for the cryovolcanic field · tholin — the dark product of ultraviolet on methane, the surface's colour · n.o.s. — not otherwise specified · class R — retrograde, annex rating.</p>
+<p><strong>Register note:</strong> The annex keeps a borrowings book for terms taken from other sheets and other systems, and the following line appears in it, entered in the hand of Kefilwe M., a former clerk of the Desk who left the annex in 2031 and whose register the annex still keeps open, because a register kept open is the only kind the annex knows how to keep: <em class="marginal">The phrase Kefilwe borrowed, the solar system of morphology and a position to answer.</em> The Desk has not been able to parse it — solar system is not a word for morphology's neighbour in any catalogue we hold, and no position on the sheet is marked as one to answer — and it is kept verbatim for that reason: a safety data sheet records what it cannot explain at the temperature it found it, and this was found at 38 K, where nothing is required to mean anything yet.</p>
+<p><strong>References:</strong> <a href="../california-sds/">California — Safety Data Sheet</a> (sibling sheet, warm room, do not mix); <a href="../extinction-event/">The Extinction Event — Report, Class 8C</a> (terrestrial comparison, Section 12); <a href="../alberto-2006/">Notice Nº 106 — Tropical Storm Alberto, Big Bend Mercantile</a> (the 2031 probe, shelved, Section 1); <a href="../">Return to Webstuffs</a>.</p>
+<p class="disclaimer">This safety data sheet is offered as guidance only. The body is neither a substance nor a mixture; treat its orbit, its vents, and its one flyby of record with caution. In an emergency, ring the relay at 13.5 GHz and wait for the phonograph. If the phonograph plays, the vent is empty. If it does not, see Section 5.</p>
+</section>
+
+<footer class="sds-foot">
+  <p class="bin-mark">COLD STORAGE · SHELF 9 · BIN −215 °C · DO NOT WARM · DO NOT PROGRADE · DO NOT CLOSE THE 1989 PLUME QUESTION</p>
+  <p class="see-also">Filed on the same shelf: <a href="../california-sds/">California — Safety Data Sheet</a> · <a href="../extinction-event/">The Extinction Event — Report, Class 8C</a> · <a href="../">Webstuffs</a></p>
+</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

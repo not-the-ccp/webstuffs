@@ -1,0 +1,449 @@
+/* Triton, Geology — Safety Data Sheet · Cold Storage · Webstuffs Geologic Desk */
+:root {
+  --deep:      #060a1f;
+  --deep-2:    #0b1233;
+  --neptune:   #1d2f6e;
+  --band:      #3a5fc0;
+  --frost:     #bfe6ff;
+  --frost-2:   #7fd4ff;
+  --ice:       #e8f7ff;
+  --tholin:    #9a6fc0;
+  --tholin-2:  #5c3a86;
+  --cryo:      #d8f4ff;
+  --signal:    #ff5533;
+  --paper:     #0d1533;
+  --ink:       #dceaff;
+  --ink-dim:   #8ea6d8;
+  --rule:      #2b3f7e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.55;
+  background:
+    radial-gradient(1200px 700px at 78% -10%, #16234f 0%, rgba(22, 35, 79, 0) 60%),
+    radial-gradient(900px 900px at 12% 110%, #101a44 0%, rgba(16, 26, 68, 0) 55%),
+    linear-gradient(178deg, #04061a 0%, var(--deep) 26%, var(--deep-2) 58%, #0a0f2c 100%);
+  background-attachment: fixed;
+}
+
+/* ---------- the field behind everything ---------- */
+.neptune-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.4px 1.4px at 8% 12%, rgba(232, 247, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 34%, rgba(232, 247, 255, 0.6) 50%, transparent 51%),
+    radial-gradient(1.8px 1.8px at 41% 8%,  rgba(232, 247, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(1px 1px at 57% 26%, rgba(232, 247, 255, 0.5) 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 71% 15%, rgba(232, 247, 255, 0.75) 50%, transparent 51%),
+    radial-gradient(1px 1px at 84% 31%, rgba(232, 247, 255, 0.55) 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 93% 9%,  rgba(232, 247, 255, 0.85) 50%, transparent 51%),
+    radial-gradient(1px 1px at 14% 58%, rgba(232, 247, 255, 0.4) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 66% 66%, rgba(232, 247, 255, 0.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 78%, rgba(232, 247, 255, 0.3) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 90% 74%, rgba(232, 247, 255, 0.45) 50%, transparent 51%),
+    radial-gradient(1px 1px at 50% 92%, rgba(232, 247, 255, 0.35) 50%, transparent 51%);
+  animation: drift 140s linear infinite;
+}
+.stars-b {
+  background-position: 340px 120px;
+  opacity: 0.7;
+  animation: drift 210s linear infinite reverse;
+}
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-360px, 140px, 0); }
+}
+
+/* the great dark spot, slowly turning */
+.band {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+}
+.band-1 {
+  width: 46vw; height: 20vw;
+  right: -12vw; top: 6vh;
+  background: radial-gradient(closest-side, rgba(58, 95, 192, 0.55), rgba(58, 95, 192, 0) 70%);
+  animation: spin-band 90s ease-in-out infinite alternate;
+}
+.band-2 {
+  width: 34vw; height: 14vw;
+  left: -10vw; bottom: 4vh;
+  background: radial-gradient(closest-side, rgba(154, 111, 192, 0.4), rgba(154, 111, 192, 0) 70%);
+  animation: spin-band 120s ease-in-out infinite alternate-reverse;
+}
+@keyframes spin-band {
+  from { transform: rotate(-8deg) scale(1); }
+  to   { transform: rotate(10deg) scale(1.18); }
+}
+
+.frost-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* ---------- the orbit banner ---------- */
+.orbit-ring {
+  width: min(680px, 88vw);
+  margin: 2rem auto 0;
+  color: var(--frost-2);
+  opacity: 0.85;
+  text-align: center;
+}
+.orbit-ring svg { width: 100%; height: auto; }
+.orbit-label {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 11px;
+  fill: var(--ink-dim);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------- the sheet ---------- */
+.sds {
+  width: min(920px, 94vw);
+  margin: 0 auto 6rem;
+  background:
+    linear-gradient(180deg, rgba(13, 21, 51, 0.92), rgba(9, 14, 36, 0.94)),
+    repeating-linear-gradient(0deg, rgba(127, 212, 255, 0.03) 0 1px, transparent 1px 34px);
+  border: 1px solid var(--rule);
+  outline: 1px solid rgba(127, 212, 255, 0.22);
+  outline-offset: 6px;
+  box-shadow:
+    0 0 0 2px rgba(6, 10, 31, 0.9),
+    0 30px 90px rgba(2, 4, 14, 0.85),
+    inset 0 0 120px rgba(20, 34, 84, 0.5);
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.4rem) 2.2rem;
+  position: relative;
+}
+
+/* frost-rimed corners of the sheet */
+.sds::before,
+.sds::after {
+  content: "";
+  position: absolute;
+  width: 130px; height: 130px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.sds::before {
+  top: -1px; left: -1px;
+  background:
+    linear-gradient(135deg, rgba(216, 244, 255, 0.5) 0%, rgba(127, 212, 255, 0.12) 34%, transparent 55%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.sds::after {
+  bottom: -1px; right: -1px;
+  background:
+    linear-gradient(315deg, rgba(154, 111, 192, 0.5) 0%, rgba(127, 212, 255, 0.1) 34%, transparent 55%);
+  clip-path: polygon(100% 100%, 0 100%, 100% 0);
+}
+
+/* ---------- header ---------- */
+.sds-header {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.doc-id {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--frost-2);
+  margin: 0 0 1.2rem;
+}
+
+.titleblock {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.triton-mark {
+  width: 118px;
+  height: 118px;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 18px rgba(127, 212, 255, 0.45));
+  animation: bob 9s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-7px) rotate(2deg); }
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.3rem;
+  color: var(--ice);
+  text-shadow: 0 0 26px rgba(127, 212, 255, 0.35);
+}
+
+.product-id {
+  font-size: 1.05rem;
+  color: var(--ink-dim);
+  margin: 0 0 0.4rem;
+  max-width: 62ch;
+}
+.product-id strong { color: var(--frost); }
+
+.sheet-no {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--tholin);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* signal words — the cold-stamp treatment */
+.signal {
+  display: inline-block;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--signal);
+  border: 2.5px solid var(--signal);
+  padding: 0.35rem 0.9rem 0.3rem 1.1rem;
+  transform: rotate(-2deg);
+  margin: 1rem 0.9rem 0 0;
+  background: repeating-linear-gradient(-45deg, rgba(255, 85, 51, 0.1) 0 8px, transparent 8px 16px);
+  text-shadow: 0 0 12px rgba(255, 85, 51, 0.5);
+  animation: flicker 7s steps(2, jump-none) infinite;
+}
+@keyframes flicker {
+  0%, 92%, 100% { opacity: 1; }
+  94% { opacity: 0.55; }
+  96% { opacity: 1; }
+  98% { opacity: 0.7; }
+}
+.signal-sub {
+  color: var(--frost-2);
+  border-color: var(--frost-2);
+  background: repeating-linear-gradient(-45deg, rgba(127, 212, 255, 0.1) 0 8px, transparent 8px 16px);
+  text-shadow: 0 0 12px rgba(127, 212, 255, 0.5);
+  transform: rotate(1.5deg);
+  animation: none;
+}
+
+/* ---------- sections ---------- */
+.sds-section {
+  margin: 0 0 2.1rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 1px solid rgba(43, 63, 126, 0.55);
+  position: relative;
+}
+.sds-section:last-of-type { border-bottom: none; }
+
+.sds-section h2 {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-weight: 500;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--frost);
+  margin: 0 0 0.9rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.secnum {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.05rem;
+  color: var(--deep);
+  background: linear-gradient(135deg, var(--frost), var(--frost-2));
+  transform: rotate(45deg);
+  position: relative;
+  transition: transform 0.45s ease, background 0.45s ease;
+}
+.secnum > * {}
+/* keep the number upright: wrap text back-rotated by the browser via a nested span is overkill; instead rotate the number */
+.sds-section h2 .secnum { transform: rotate(45deg); }
+.sds-section:hover h2 .secnum {
+  transform: rotate(225deg);
+  background: linear-gradient(135deg, var(--tholin), var(--frost-2));
+}
+
+.sds-section p { margin: 0 0 0.75rem; max-width: 74ch; }
+.sds-section strong { color: var(--ice); }
+
+.marginal {
+  color: var(--tholin);
+  font-size: 1.08rem;
+  text-shadow: 0 0 14px rgba(154, 111, 192, 0.45);
+}
+
+/* ---------- tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--rule);
+  vertical-align: top;
+}
+th {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--frost-2);
+  background: rgba(29, 47, 110, 0.55);
+}
+td:first-child {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--frost);
+  white-space: normal;
+  width: 32%;
+}
+tbody tr, tr { transition: background 0.25s ease; }
+tr:hover { background: rgba(127, 212, 255, 0.06); }
+
+/* ---------- GHS diamonds ---------- */
+.ghs {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.2rem;
+}
+.diamond {
+  width: 92px;
+  height: 92px;
+  position: relative;
+  animation: diamond-breathe 6s ease-in-out infinite;
+}
+.diamond:nth-child(2) { animation-delay: 1.5s; }
+.diamond:nth-child(3) { animation-delay: 3s; }
+.diamond:nth-child(4) { animation-delay: 4.5s; }
+@keyframes diamond-breathe {
+  0%, 100% { transform: rotate(0.001deg) scale(1); }
+  50%      { transform: scale(1.05); }
+}
+.diamond::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  transform: rotate(45deg);
+  border: 3px solid currentColor;
+  box-shadow: 0 0 18px rgba(127, 212, 255, 0.25), inset 0 0 14px rgba(127, 212, 255, 0.15);
+  background: rgba(9, 14, 36, 0.7);
+}
+.d-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 1;
+}
+.d-health     { color: #ff8f6b; }
+.d-flame      { color: #ffc86b; }
+.d-instability{ color: #ff6b8f; }
+.d-cryo       { color: var(--frost-2); }
+
+/* ---------- links ---------- */
+a {
+  color: var(--frost-2);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(127, 212, 255, 0.5);
+  transition: color 0.25s ease, border-color 0.25s ease, text-shadow 0.25s ease;
+}
+a:hover {
+  color: var(--ice);
+  border-bottom-color: var(--ice);
+  text-shadow: 0 0 12px rgba(216, 244, 255, 0.6);
+}
+a:active { color: var(--tholin); }
+
+/* ---------- footer ---------- */
+.sds-foot {
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+}
+.bin-mark {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--tholin);
+  text-align: center;
+  margin: 0 0 0.8rem;
+  animation: bin-pulse 5s ease-in-out infinite;
+}
+@keyframes bin-pulse {
+  0%, 100% { opacity: 0.65; }
+  50%      { opacity: 1; text-shadow: 0 0 14px rgba(154, 111, 192, 0.6); }
+}
+.see-also {
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+  text-align: center;
+  margin: 0;
+}
+
+.disclaimer {
+  font-style: italic;
+  color: var(--ink-dim) !important;
+  border-left: 3px solid var(--tholin-2);
+  padding-left: 0.9rem;
+}
+
+/* small screens */
+@media (max-width: 640px) {
+  body { font-size: 17.5px; }
+  .titleblock { flex-direction: column; align-items: flex-start; }
+  td:first-child { width: 40%; }
+  .sds { outline-offset: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars, .band, .triton-mark, .diamond, .signal, .bin-mark { animation: none !important; }
+}
