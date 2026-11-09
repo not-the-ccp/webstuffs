@@ -1,0 +1,131 @@
+/* In re the Decline of the Atlantic Puffin — verbatim record sheet */
+
+:root {
+  --ink: #23211c;
+  --paper: #f4efe3;
+  --rule: #b8ad95;
+  --rust: #9c3b22;
+  --sea: #2c4a52;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+/* rotated court stamp, overlapping the sheet corner */
+.stamp {
+  position: fixed;
+  top: 26px;
+  right: -42px;
+  transform: rotate(14deg);
+  background: rgba(156, 59, 34, 0.09);
+  color: var(--rust);
+  border: 2px solid var(--rust);
+  padding: 6px 52px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  z-index: 5;
+}
+
+/* asymmetric record: narrow caption spine + wide transcript */
+.record {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 72px 28px 64px;
+  display: grid;
+  grid-template-columns: 268px minmax(0, 1fr);
+  gap: 44px;
+  position: relative;
+}
+
+/* caption spine */
+.caption {
+  border-right: 1px solid var(--rule);
+  padding-right: 30px;
+  position: sticky;
+  top: 32px;
+  align-self: start;
+}
+
+.cap-court {
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  margin: 0 0 14px;
+}
+
+.cap-case {
+  margin: 26px 0 4px;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+  color: var(--sea);
+}
+
+.cap-party {
+  margin: 10px 0 18px;
+  font-size: 17px;
+}
+
+.latin { font-style: italic; }
+
+.caption p { margin: 0 0 12px; font-size: 14.5px; color: #4c463a; }
+
+/* transcript column */
+.transcript {
+  max-width: 720px;
+}
+
+.transcript .t {
+  margin: 0 0 15px;
+  text-indent: -2.2em;
+  padding-left: 2.2em;
+}
+
+.speaker { font-weight: bold; }
+
+.t.chair .speaker { color: var(--sea); }
+.t.counsel .speaker { color: #6b5a2e; }
+
+/* exhibit heads set oversized across the column */
+.ex-head {
+  margin: 42px 0 20px;
+  font-size: 27px;
+  font-weight: bold;
+  line-height: 1.15;
+  border-top: 3px double var(--rule);
+  padding-top: 16px;
+  transform: rotate(-0.6deg);
+  color: var(--ink);
+}
+
+.clerk { font-style: italic; }
+
+.sig {
+  margin-top: 46px;
+  font-style: italic;
+  color: #4c463a;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+
+a { color: var(--rust); }
+a:hover { color: var(--sea); }
+
+@media (max-width: 760px) {
+  .record { grid-template-columns: 1fr; gap: 26px; padding-top: 88px; }
+  .caption { border-right: none; border-bottom: 1px solid var(--rule); padding-right: 0; padding-bottom: 22px; position: static; }
+  .cap-case { font-size: 36px; }
+  .stamp { right: -30px; }
+}
