@@ -1,0 +1,352 @@
+/* ============================================================
+   MINUTES NO. 14 — COUNCIL OF THE BENELUX UNION
+   ledger paper, three flags, one rosette, zero degrees of heat
+   ============================================================ */
+
+:root {
+  --be-black: #1c1c1e;
+  --be-yellow: #f4c300;
+  --be-red: #c8102e;
+  --ne-red: #ae1c28;
+  --ne-white: #f4efe6;
+  --ne-blue: #21468b;
+  --lux-red: #ed2939;
+  --lux-light: #00a1de;
+  --paper: #f3ecda;
+  --paper-deep: #e9dfc4;
+  --ink: #2a2118;
+  --ink-soft: #5c5040;
+  --rule: #b7a375;
+  --seal: #8a2b1d;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.72;
+  background:
+    radial-gradient(1100px 500px at 85% -5%, rgba(244, 195, 0, 0.16), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(33, 70, 139, 0.12), transparent 55%),
+    radial-gradient(800px 500px at 110% 70%, rgba(0, 161, 222, 0.10), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(183, 163, 117, 0.28) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, #efe6cf 0%, var(--paper) 22%, var(--paper-deep) 100%);
+  background-attachment: fixed;
+}
+
+::selection { background: var(--be-yellow); color: var(--be-black); }
+
+/* ---------------- flag band ---------------- */
+
+.flagband {
+  display: flex;
+  height: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 2px 10px rgba(28, 28, 30, 0.35);
+}
+.flagband .flag { flex: 1 1 0; }
+.flag.be {
+  background: linear-gradient(90deg,
+    var(--be-black) 0 33.4%, var(--be-yellow) 33.4% 66.7%, var(--be-red) 66.7% 100%);
+}
+.flag.ne {
+  background: linear-gradient(180deg, var(--ne-red) 0 33.4%, #fff 33.4% 66.7%, var(--ne-blue) 66.7% 100%);
+}
+.flag.lux {
+  background: linear-gradient(180deg, var(--lux-red) 0 33.4%, #fff 33.4% 66.7%, var(--lux-light) 66.7% 100%);
+}
+.flag { animation: flagheat 6s ease-in-out infinite alternate; }
+.flag.ne { animation-delay: 2s; }
+.flag.lux { animation-delay: 4s; }
+@keyframes flagheat {
+  from { filter: saturate(1) brightness(1); }
+  to   { filter: saturate(1.25) brightness(1.08); }
+}
+
+/* ---------------- head ---------------- */
+
+.minute-head {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4.2rem 1.6rem 2.4rem;
+  text-align: center;
+}
+
+.rosette {
+  display: inline-block;
+  color: var(--seal);
+  animation: rosette-spin 90s linear infinite;
+  filter: drop-shadow(0 0 1px rgba(138, 43, 29, 0.4));
+}
+@keyframes rosette-spin { to { transform: rotate(360deg); } }
+
+.min-file {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--seal);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  margin: 1.6rem 0 1.4rem;
+  background: rgba(255, 252, 242, 0.6);
+}
+
+h1 {
+  font-family: "UnifrakturMaguntia", "Libre Baskerville", serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  line-height: 1.12;
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+  text-shadow:
+    1px 0 0 rgba(174, 28, 40, 0.16),
+    -1px 0 0 rgba(33, 70, 139, 0.16),
+    0 2px 0 rgba(244, 195, 0, 0.35);
+}
+
+.minute-sub {
+  max-width: 62ch;
+  margin: 0 auto;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+.minute-meta {
+  margin: 2.2rem auto 0;
+  border-collapse: collapse;
+  max-width: 640px;
+  font-size: 0.92rem;
+  background: rgba(255, 252, 242, 0.65);
+  box-shadow: 0 1px 0 var(--rule), 0 14px 30px -18px rgba(42, 33, 24, 0.5);
+}
+.minute-meta th, .minute-meta td {
+  text-align: left;
+  padding: 0.5rem 0.9rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.minute-meta th {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--seal);
+  width: 118px;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.minute-meta tr:last-child th, .minute-meta tr:last-child td { border-bottom: none; }
+
+/* ---------------- body items ---------------- */
+
+.minute-body {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.4rem 3rem;
+}
+
+.item {
+  position: relative;
+  margin: 2.6rem 0;
+  padding: 1.4rem 1.6rem 1.5rem 3.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 242, 0.75), rgba(255, 252, 242, 0.45)),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(183, 163, 117, 0.35) 27px 28px);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--ink-soft);
+  box-shadow: 0 18px 40px -26px rgba(42, 33, 24, 0.55);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.item.in { opacity: 1; transform: translateY(0); }
+
+.item:nth-child(3n + 1) { border-left-color: var(--be-yellow); }
+.item:nth-child(3n + 2) { border-left-color: var(--ne-blue); }
+.item:nth-child(3n)     { border-left-color: var(--lux-light); }
+
+.item::before {
+  content: attr(data-no, "");
+  position: absolute;
+  left: -1.05rem;
+  top: 1.05rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--paper);
+  background: var(--ink);
+  transform: rotate(-4deg);
+  box-shadow: 2px 3px 0 rgba(42, 33, 24, 0.25);
+}
+
+.item-head {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 0.9rem;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.45rem;
+}
+
+.item-text { margin: 0 0 1rem; }
+.item-text:last-child { margin-bottom: 0; }
+
+.item a {
+  color: var(--ne-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--be-yellow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background 0.2s ease;
+}
+.item a:hover { background: rgba(244, 195, 0, 0.4); }
+
+/* ---------------- record line & votes ---------------- */
+
+.record-line {
+  margin: 1.4rem 0;
+  padding: 1.2rem 1.4rem 1.2rem 1.6rem;
+  font-size: 1.18rem;
+  font-style: italic;
+  color: var(--ink);
+  border-left: 5px solid var(--seal);
+  background:
+    linear-gradient(90deg, rgba(138, 43, 29, 0.08), rgba(138, 43, 29, 0)),
+    rgba(255, 252, 242, 0.7);
+  position: relative;
+}
+.record-line::before {
+  content: "READ INTO THE RECORD";
+  position: absolute;
+  top: -0.7rem;
+  left: 0.9rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-style: normal;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--seal);
+  background: var(--paper);
+  padding: 0 0.4rem;
+}
+
+.vote {
+  display: inline-block;
+  margin-top: 0.7rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--paper);
+  background: var(--seal);
+  padding: 0.3rem 0.7rem;
+  transform: rotate(-1.5deg);
+  box-shadow: 2px 2px 0 rgba(42, 33, 24, 0.2);
+}
+.vote.carry { color: var(--be-black); background: var(--be-yellow); }
+
+.signoff {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---------------- foot & stamp ---------------- */
+
+.minute-foot {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.6rem 1.6rem 4rem;
+  border-top: 3px double var(--rule);
+}
+
+.stamp {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--seal);
+  border: 3px double var(--seal);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  text-align: center;
+  transform: rotate(8deg) scale(0.4);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.2, 1.6, 0.4, 1), opacity 0.4s ease;
+  mix-blend-mode: multiply;
+  background: rgba(255, 252, 242, 0.35);
+}
+.stamp.stamped { transform: rotate(-7deg) scale(1); opacity: 0.92; }
+
+.foot-line {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0 0 1.6rem;
+}
+
+.related p { margin: 0.45rem 0; font-size: 0.92rem; color: var(--ink-soft); }
+.related a { color: var(--seal); text-decoration-thickness: 1px; }
+
+/* running margin note, large, quiet */
+.minute-body::before {
+  content: "B \00b7 N \00b7 L";
+  position: fixed;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.6em;
+  color: rgba(92, 80, 64, 0.4);
+  pointer-events: none;
+}
+.minute-body::after {
+  content: "SOMEWHERE NOBODY OWNS";
+  position: fixed;
+  right: 0.6rem;
+  bottom: 1rem;
+  writing-mode: vertical-rl;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  color: rgba(138, 43, 29, 0.35);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .item { padding-left: 1.6rem; }
+  .item::before { left: -0.55rem; top: 0.8rem; }
+  .minute-body::before, .minute-body::after { display: none; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+}
