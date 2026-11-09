@@ -1,0 +1,243 @@
+/* Hoffecker & Hoffecker — the unstruck coin, 1930.
+   Palette: desert ochre, Gadsden yellow, rattle-bone, veto crimson. */
+
+:root {
+  --ochre: #b98a2f;
+  --gold: #c9a227;
+  --parchment: #f3e6c3;
+  --paper: #f8efd6;
+  --crimson: #7a1f1f;
+  --ink: #2c1d10;
+  --rail: #3d2b1f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(201, 162, 39, 0.35), transparent 55%),
+    radial-gradient(ellipse at 85% 110%, rgba(122, 31, 31, 0.28), transparent 50%),
+    repeating-linear-gradient(115deg, rgba(185, 138, 47, 0.10) 0 3px, transparent 3px 26px),
+    linear-gradient(180deg, #e8d5a3 0%, #d9bf82 40%, #c2a166 100%);
+  min-height: 100vh;
+  padding: 3rem 1rem 5rem;
+}
+
+/* The rattlesnake field behind the letter */
+.field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.field-snake {
+  position: absolute;
+  bottom: -6rem;
+  left: 0;
+  width: 140%;
+  height: 60%;
+}
+.field-snake path { stroke-dasharray: 12 16; animation: slither 30s linear infinite; }
+@keyframes slither {
+  to { stroke-dashoffset: -560; }
+}
+.field-rattle {
+  position: absolute;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f0d98c, #9a7524);
+  box-shadow: 0 0 0 2px rgba(122, 31, 31, 0.35);
+  opacity: 0.5;
+  animation: rattle 3.2s ease-in-out infinite;
+}
+.rattle-one { top: 12%; left: 8%; animation-delay: 0s; }
+.rattle-two { top: 70%; right: 9%; animation-delay: 1.6s; }
+@keyframes rattle {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  25% { transform: rotate(-18deg) translateX(-4px); }
+  50% { transform: rotate(14deg) translateX(3px); }
+  75% { transform: rotate(-8deg) translateX(-2px); }
+}
+
+/* The envelope / letter sheet */
+.envelope {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(61, 43, 31, 0.028) 0 2px, transparent 2px 34px),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 252, 240, 0.9), transparent 70%),
+    var(--paper);
+  border: 3px double var(--rail);
+  outline: 1px solid var(--gold);
+  outline-offset: 6px;
+  box-shadow:
+    0 24px 60px rgba(44, 29, 16, 0.45),
+    inset 0 0 90px rgba(185, 138, 47, 0.22);
+  padding: 3rem 3.2rem 2.4rem;
+}
+.envelope::before,
+.envelope::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.4rem;
+  letter-spacing: 1.2rem;
+  padding-left: 1.2rem;
+}
+.envelope::before { top: -0.9rem; }
+.envelope::after { bottom: -0.9rem; }
+
+/* Letterhead */
+.letterhead {
+  position: relative;
+  text-align: center;
+  border-bottom: 4px double var(--crimson);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin: 0 0 0.6rem;
+}
+h1 {
+  font-family: "UnifrakturCook", "Blackadder ITC", "Old English Text MT", "IM Fell English", serif;
+  font-size: clamp(2.6rem, 8vw, 4rem);
+  margin: 0;
+  color: var(--crimson);
+  text-shadow: 2px 2px 0 rgba(201, 162, 39, 0.45);
+}
+h1 .amp {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--gold);
+  text-shadow: none;
+  font-size: 0.7em;
+}
+.letterhead-sub {
+  margin: 0.4rem 0 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  color: var(--rail);
+}
+.postmark {
+  position: absolute;
+  top: -1.2rem;
+  right: -0.6rem;
+  transform: rotate(12deg);
+  opacity: 0.8;
+  filter: sepia(0.4) saturate(1.6);
+}
+.postmark svg { animation: stamp 4s ease-in-out infinite; }
+@keyframes stamp {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4deg); }
+}
+.pm-top { font-size: 12px; letter-spacing: 2px; fill: var(--crimson); font-family: Georgia, serif; }
+.pm-mid { font-size: 15px; letter-spacing: 3px; fill: var(--crimson); font-weight: bold; font-family: Georgia, serif; }
+.pm-bot { font-size: 9px; letter-spacing: 2px; fill: var(--crimson); font-family: Georgia, serif; }
+
+.dateline {
+  font-style: italic;
+  color: var(--rail);
+  margin: 0 0 1.2rem;
+  font-size: 0.98rem;
+}
+.salutation {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.6rem;
+}
+.you {
+  display: inline-block;
+  border-bottom: 2px solid var(--gold);
+  padding: 0 0.3rem;
+}
+
+/* Body of the letter */
+.letter p { margin: 0 0 1.25rem; }
+.letter p:first-child::first-letter {
+  font-family: "UnifrakturCook", "Blackadder ITC", "Old English Text MT", serif;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding-right: 0.14em;
+  color: var(--crimson);
+  text-shadow: 2px 2px 0 rgba(201, 162, 39, 0.5);
+}
+.letter strong { color: var(--crimson); }
+.letter a {
+  color: var(--crimson);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.letter a:hover {
+  background: rgba(201, 162, 39, 0.28);
+  color: var(--rail);
+}
+
+.postscript {
+  border-top: 1px dashed var(--gold);
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.signature { margin-bottom: 0.2rem; }
+.signed .script {
+  font-family: "UnifrakturCook", "Old English Text MT", "IM Fell English", cursive;
+  font-size: 2.2rem;
+  color: #1f3a5f;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+.signed { line-height: 1.4; }
+
+/* Colophon & wax seal */
+.colophon {
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 4px double var(--crimson);
+  text-align: center;
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--rail);
+}
+.colophon a { color: var(--crimson); border-bottom: 1px dotted var(--gold); }
+.seal {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(3px 4px 4px rgba(44, 29, 16, 0.4));
+  transition: transform 0.4s ease;
+}
+.seal:hover { transform: rotate(-10deg) scale(1.06); }
+.seal-t { font-size: 15px; letter-spacing: 3px; fill: #f0d98c; font-family: Georgia, serif; }
+.seal-s { font-size: 11px; letter-spacing: 2px; fill: #f0d98c; font-family: Georgia, serif; }
+
+/* Ink fade-in for the paragraphs (progressive; text is readable without JS) */
+.letter p { opacity: 0; transform: translateY(8px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.letter p.shown { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .letter p { opacity: 1; transform: none; transition: none; }
+  .field-snake path, .field-rattle, .postmark svg { animation: none; }
+}
+@media (max-width: 640px) {
+  .envelope { padding: 2rem 1.3rem; }
+  .postmark { position: static; transform: rotate(6deg) scale(0.8); margin: 1rem auto 0; width: fit-content; }
+}
