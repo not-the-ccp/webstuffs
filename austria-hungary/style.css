@@ -1,0 +1,249 @@
+/* An Apology to the Dual Monarchy — Gallery 4, imperial stationery */
+:root {
+  --ink: #1c1410;
+  --paper: #f3e9d2;
+  --paper-deep: #e8dab8;
+  --gold: #c9a24b;
+  --gold-deep: #8a6a1f;
+  --oxblood: #8f1d1d;
+  --danube: #2e4a5a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "IM Fell English", Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  background-color: #14100c;
+  background-image:
+    radial-gradient(ellipse at 20% -10%, rgba(201, 162, 75, 0.16), transparent 55%),
+    radial-gradient(ellipse at 85% 110%, rgba(143, 29, 29, 0.22), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(201, 162, 75, 0.03) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(201, 162, 75, 0.03) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, #1b1610 0%, #14100c 40%, #0f0c08 100%);
+  min-height: 100vh;
+}
+
+.desk {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 42%, transparent 30%, rgba(0, 0, 0, 0.55) 100%);
+  z-index: 3;
+}
+
+.envelope {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 3.5rem auto 4rem;
+  background:
+    linear-gradient(160deg, rgba(255, 250, 235, 0.55), transparent 40%),
+    repeating-linear-gradient(0deg, rgba(122, 92, 40, 0.045) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border: 1px solid #b39b6a;
+  box-shadow:
+    0 0 0 6px rgba(201, 162, 75, 0.10),
+    0 0 0 7px rgba(201, 162, 75, 0.35),
+    0 34px 70px rgba(0, 0, 0, 0.7);
+  padding: 0 0 2.4rem;
+  animation: unseal 1.6s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+@keyframes unseal {
+  0%   { transform: translateY(48px) rotate(-1.2deg); opacity: 0; }
+  60%  { transform: translateY(-6px) rotate(0.3deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+/* ---- letterhead ---- */
+.letterhead {
+  position: relative;
+  padding: 3.2rem 2.8rem 1.6rem;
+  text-align: center;
+  border-bottom: 4px double var(--gold-deep);
+  background:
+    linear-gradient(90deg, transparent 8%, rgba(201, 162, 75, 0.14) 8%, rgba(201, 162, 75, 0.14) 12%, transparent 12%),
+    linear-gradient(90deg, transparent 88%, rgba(201, 162, 75, 0.14) 88%, rgba(201, 162, 75, 0.14) 92%, transparent 92%);
+}
+
+.eagle {
+  width: 7.5rem;
+  height: auto;
+  margin: 0 auto 0.6rem;
+  display: block;
+  animation: wings 9s ease-in-out infinite alternate;
+  transform-origin: 50% 60%;
+}
+
+@keyframes wings {
+  0%   { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.04) rotate(0.8deg); }
+}
+
+.office-line {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5.5vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0 0 1.3rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.address-block {
+  margin: 0 auto;
+  max-width: 26rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #4a3a24;
+}
+
+.to-the-thrones {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-family: "Special Elite", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--oxblood);
+  border-top: 1px solid var(--oxblood);
+  border-bottom: 1px solid var(--oxblood);
+  padding: 0.2rem 0.6rem;
+}
+
+/* ---- rules & ornaments ---- */
+.imperial-rule {
+  border: none;
+  height: 22px;
+  margin: 1.6rem 3rem 0;
+  background:
+    radial-gradient(circle at 50% 50%, var(--gold-deep) 0 3px, transparent 4px) center / 100% 100% no-repeat,
+    linear-gradient(90deg, var(--gold-deep), transparent 18%, transparent 82%, var(--gold-deep)) center / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 8%, var(--gold) 8% 12%, transparent 12% 88%, var(--gold) 88% 92%, transparent 92%) center / 100% 2px no-repeat;
+}
+
+/* ---- prose ---- */
+.prose { padding: 1.4rem 2.8rem 0; }
+
+.prose p { margin: 0 0 1.25rem; }
+
+.drop-cap::first-letter {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 3.6em;
+  float: left;
+  line-height: 0.78;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--oxblood);
+}
+
+.folio-slip {
+  margin: 1.4rem auto;
+  max-width: 30rem;
+  padding: 1.1rem 1.4rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #241a0e;
+  background:
+    linear-gradient(100deg, rgba(46, 74, 90, 0.12) 0 30%, transparent 30%),
+    repeating-linear-gradient(0deg, rgba(30, 20, 10, 0.06) 0 22px, transparent 22px 23px),
+    #efe3c4;
+  border: 1px solid #a08a58;
+  box-shadow: 4px 5px 0 rgba(30, 20, 10, 0.25);
+  transform: rotate(-1.1deg);
+  position: relative;
+}
+
+.folio-slip::before,
+.folio-slip::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 22px;
+  background: rgba(220, 205, 165, 0.9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  top: -11px;
+}
+
+.folio-slip::before { left: 12%; transform: rotate(-4deg); }
+.folio-slip::after  { right: 12%; transform: rotate(5deg); }
+
+.folio-slip .mark-wash {
+  background: linear-gradient(90deg, transparent, rgba(46, 74, 90, 0.35), transparent);
+}
+
+.closing-line { font-style: italic; }
+
+.signature { margin-top: 1rem; }
+.signer {
+  font-family: "Special Elite", monospace;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: #4a3a24;
+}
+
+/* ---- footer, seal ---- */
+.letter-foot {
+  text-align: center;
+  padding: 1.8rem 2.8rem 0;
+  font-family: "Special Elite", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: #4a3a24;
+}
+
+.letter-foot p { margin: 0.9rem 0 0; }
+
+.seal {
+  width: 6.2rem;
+  margin: 0.4rem auto 0.8rem;
+  position: relative;
+  animation: stamp 0.9s 1.4s cubic-bezier(0.5, 1.6, 0.4, 1) both;
+}
+
+.seal svg { width: 100%; height: auto; transform: rotate(-8deg); }
+
+@keyframes stamp {
+  0%   { transform: scale(2.6); opacity: 0; }
+  70%  { transform: scale(0.94); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.home a,
+.prose a {
+  color: var(--danube);
+  text-decoration: underline;
+  text-decoration-color: rgba(46, 74, 90, 0.45);
+  text-underline-offset: 3px;
+}
+
+.home a:hover,
+.prose a:hover {
+  background: rgba(201, 162, 75, 0.28);
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .envelope { margin: 1.2rem 0.6rem 2.5rem; }
+  .letterhead { padding: 2.2rem 1.3rem 1.2rem; }
+  .prose { padding: 1.2rem 1.3rem 0; }
+  .imperial-rule { margin: 1.4rem 1.3rem 0; }
+  .letter-foot { padding: 1.6rem 1.3rem 0; }
+  .folio-slip { transform: rotate(0); }
+}
