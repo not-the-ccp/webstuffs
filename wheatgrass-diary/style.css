@@ -1,0 +1,245 @@
+/* Diary of the Wheatgrass Bench — winter of 1925 */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e7d8b8;
+  --ink: #2a2418;
+  --ink-soft: #4a4130;
+  --blue-ink: #26334f;
+  --red-rule: #a5563f;
+  --grass: #5c7a2c;
+  --grass-bright: #94b455;
+  --stain: rgba(112, 74, 30, 0.16);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "IM Fell English", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255, 244, 214, 0.9), rgba(0,0,0,0) 60%),
+    repeating-linear-gradient(0deg, rgba(60, 40, 15, 0.05) 0 2px, rgba(0,0,0,0) 2px 5px),
+    linear-gradient(160deg, #b8a37e 0%, #94805c 30%, #6f5f42 62%, #4c4230 100%);
+  background-attachment: fixed;
+  padding: clamp(1rem, 4vw, 3.5rem) 1rem 4rem;
+  line-height: 1.75;
+}
+
+/* drifting seed particles, filled by diary.js */
+.sprigfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.sprigfield .seed {
+  position: absolute;
+  top: -6vh;
+  width: 9px;
+  height: 16px;
+  background: linear-gradient(180deg, var(--grass-bright), var(--grass));
+  border-radius: 60% 60% 55% 55% / 90% 90% 40% 40%;
+  opacity: 0.35;
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0%   { transform: translate(0, -6vh) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.4; }
+  92%  { opacity: 0.35; }
+  100% { transform: translate(var(--sway, 6vw), 108vh) rotate(540deg); opacity: 0; }
+}
+
+/* the diary itself */
+.diary {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at 12% 8%, var(--stain), rgba(0,0,0,0) 22%),
+    radial-gradient(circle at 88% 94%, rgba(90, 62, 22, 0.14), rgba(0,0,0,0) 26%),
+    radial-gradient(circle at 78% 12%, rgba(120, 90, 40, 0.1), rgba(0,0,0,0) 18%),
+    linear-gradient(175deg, var(--paper) 0%, var(--paper-deep) 70%, #dcc9a0 100%);
+  border: 1px solid #7a643c;
+  border-radius: 6px 14px 14px 6px;
+  box-shadow:
+    0 2px 0 rgba(255,250,230,0.5) inset,
+    0 -14px 30px rgba(70, 50, 20, 0.25) inset,
+    0 24px 60px rgba(20, 15, 5, 0.55);
+  padding: clamp(1.4rem, 5vw, 4rem) clamp(1.2rem, 6vw, 5rem);
+}
+
+/* stitched spine */
+.diary::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 4%;
+  bottom: 4%;
+  width: 3px;
+  background-image: repeating-linear-gradient(180deg, #8a6f3e 0 10px, transparent 10px 22px);
+  opacity: 0.7;
+}
+.diary::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(110, 84, 40, 0.5);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* cover */
+.cover {
+  position: relative;
+  text-align: center;
+  padding: 1rem 0 2.4rem;
+  border-bottom: 3px double #8a6f3e;
+  margin-bottom: 2.4rem;
+}
+.corner { position: absolute; top: -1.2rem; }
+.corner.tl { left: 0; }
+.corner.tr { right: 0; transform: scaleX(-1); }
+.cover .owner {
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  margin: 0.4rem 0 0.2rem;
+  color: var(--ink-soft);
+}
+.cover .ink {
+  color: var(--blue-ink);
+  background: linear-gradient(transparent 78%, rgba(148, 180, 85, 0.5) 0);
+  padding: 0 0.3em;
+}
+.cover h1 {
+  font-family: "IM Fell English SC", "IM Fell English", serif;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  margin: 0.2em 0 0.1em;
+  letter-spacing: 0.06em;
+  color: #3a2f1a;
+  text-shadow: 0 1px 0 rgba(255, 250, 225, 0.8), 0 2px 3px rgba(80, 60, 20, 0.3);
+}
+.cover .sub {
+  font-style: italic;
+  margin: 0 auto 1.2rem;
+  max-width: 34ch;
+  color: var(--ink-soft);
+}
+.stamps { display: flex; gap: 1.2rem; justify-content: center; align-items: center; }
+.stamp {
+  font-family: "IM Fell English SC", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  color: var(--red-rule);
+  border: 2px solid var(--red-rule);
+  border-radius: 4px;
+  padding: 0.45em 0.8em 0.35em;
+  transform: rotate(-6deg);
+  opacity: 0.75;
+  box-shadow: 0 0 0 2px rgba(165, 86, 63, 0.15);
+  text-align: center;
+  line-height: 1.4;
+}
+.stamp.small {
+  font-size: 1.3rem;
+  border-radius: 50%;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-content: center;
+  padding: 0;
+  transform: rotate(9deg);
+  border-width: 3px;
+}
+
+/* ruled entry page */
+.entry {
+  position: relative;
+  background:
+    repeating-linear-gradient(180deg,
+      rgba(90, 70, 40, 0) 0 31px,
+      rgba(108, 124, 190, 0.28) 31px 32px),
+    linear-gradient(90deg, rgba(0,0,0,0) 64px, rgba(165, 86, 63, 0.4) 64px 66px, rgba(0,0,0,0) 66px);
+  padding: 0.6rem 0.8rem 1rem 78px;
+  border-radius: 2px;
+}
+.entry p { margin: 0 0 32px; font-size: 1.12rem; }
+.entry .dateline {
+  font-family: "Caveat", cursive;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--blue-ink);
+  margin-bottom: 40px;
+}
+.entry strong { color: #1f2d12; background: linear-gradient(transparent 74%, rgba(148, 180, 85, 0.45) 0); }
+.entry em { color: var(--ink-soft); }
+.entry a {
+  color: var(--blue-ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--blue-ink);
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+.entry a:hover, .entry a:focus-visible {
+  background: linear-gradient(transparent 60%, rgba(148, 180, 85, 0.55) 0);
+  border-bottom-color: var(--grass);
+  color: #1c2a10;
+}
+.entry .postscript {
+  font-family: "Caveat", cursive;
+  font-size: 1.45rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.signature { margin-top: 1.4rem; opacity: 0.9; }
+
+/* back cover */
+.backcover {
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 3px double #8a6f3e;
+  text-align: center;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.backcover p { margin: 0.3rem 0; }
+.wayhome a {
+  font-family: "IM Fell English SC", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--grass);
+  text-decoration: none;
+  border: 1px solid var(--grass);
+  padding: 0.55em 1.1em;
+  border-radius: 999px;
+  display: inline-block;
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.wayhome a:hover, .wayhome a:focus-visible {
+  background: var(--grass);
+  color: var(--paper);
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 0 8px 18px rgba(60, 90, 30, 0.4);
+}
+
+/* gentle breathing of the page */
+.diary { animation: settle 14s ease-in-out infinite; }
+@keyframes settle {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(0.35deg) translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sprigfield .seed, .diary { animation: none !important; }
+}
+
+@media (max-width: 560px) {
+  .entry { padding-left: 64px; background: repeating-linear-gradient(180deg, rgba(90,70,40,0) 0 31px, rgba(108,124,190,0.28) 31px 32px), linear-gradient(90deg, rgba(0,0,0,0) 46px, rgba(165,86,63,0.4) 46px 48px, rgba(0,0,0,0) 48px); }
+  .entry p { font-size: 1.02rem; }
+  .stamps { flex-direction: column; }
+}
