@@ -1,0 +1,192 @@
+/* Al-Buss refugee camp — encyclopedia article skin, after the Vector look */
+
+:root {
+  --link: #36c;
+  --link-visited: #795cb2;
+  --red-link: #d33;
+  --rule: #a2a9b1;
+  --box-bg: #f8f9fa;
+  --box-line: #a2a9b1;
+  --text: #202122;
+  --muted: #54595d;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #eaecf0; }
+
+body.article {
+  margin: 0 auto;
+  padding: 0;
+  color: var(--text);
+  background: #fff;
+  font: 15px/1.65 "Helvetica Neue", Arial, sans-serif;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1.4rem;
+  border-bottom: 1px solid var(--rule);
+  background: #fff;
+  font-size: 12px;
+  color: var(--muted);
+}
+.topbar .brand { margin: 0; font-weight: bold; color: var(--text); }
+.topbar .edit-line { margin: 0; align-self: center; }
+
+.content { padding: 1rem 1.6rem 2rem; }
+
+h1 {
+  font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: normal;
+  margin: 0.2rem 0 0.3rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h2 {
+  font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: normal;
+  margin: 1.6rem 0 0.5rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 { font-size: 16px; margin: 1rem 0 0.3rem; }
+
+p { margin: 0.5rem 0; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: var(--link-visited); }
+
+.hatnote {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0.4rem 0 0.8rem;
+}
+.hatnote::before { content: "⚠ "; color: #b3802b; }
+
+/* Infobox */
+.infobox {
+  float: right;
+  clear: right;
+  width: 300px;
+  margin: 0.2rem 0 1rem 1.2rem;
+  border-collapse: collapse;
+  background: var(--box-bg);
+  border: 1px solid var(--box-line);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.infobox caption {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0.35rem;
+}
+.infobox th {
+  background: #eaecf0;
+  text-align: left;
+  font-size: 12px;
+  padding: 0.2rem 0.5rem;
+  border-top: 1px solid #c8ccd1;
+}
+.infobox td { padding: 0.2rem 0.5rem; vertical-align: top; }
+.infobox .infobox-img { padding: 0.5rem; }
+
+.photo {
+  background: #d8dcdf;
+  border: 1px solid #c8ccd1;
+  padding: 0.3rem;
+}
+.photo-blocks {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 88px;
+  padding: 0 0.4rem;
+}
+.photo-blocks i {
+  flex: 1;
+  background: #95a0a8;
+  display: block;
+}
+.photo-note {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 0.4rem 0.1rem 0.1rem;
+}
+
+/* Table of contents */
+.toc {
+  clear: both;
+  margin: 1rem 0;
+  padding: 0.5rem 0.9rem;
+  width: 260px;
+  background: var(--box-bg);
+  border: 1px solid var(--box-line);
+}
+.toc-head { font-weight: bold; font-size: 14px; margin-bottom: 0.25rem; }
+.toc-toggle {
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 12px;
+  color: var(--link);
+}
+.toc-list { margin: 0.2rem 0 0.2rem 1.1rem; padding: 0; }
+.toc-list li { margin: 0.15rem 0; }
+.toc.collapsed .toc-list { display: none; }
+
+/* Prose */
+.sec p:first-of-type { margin-top: 0.3rem; }
+em, .em { font-style: italic; }
+
+blockquote.archive-quote {
+  margin: 1rem 2rem;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid var(--rule);
+  background: var(--box-bg);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.seealso { margin: 0.4rem 0; }
+.seealso li { margin: 0.2rem 0; }
+
+.refs {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.4rem;
+}
+.refs h2 { border-bottom: none; }
+.refs ol { font-size: 13px; color: var(--muted); padding-left: 1.4rem; }
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  padding: 0.8rem 1.6rem 1.4rem;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 720px) {
+  .infobox { float: none; width: 100%; margin: 0.5rem 0 1rem; }
+  .content { padding: 0.8rem 1rem 1.5rem; }
+  blockquote.archive-quote { margin: 1rem 0.5rem; }
+}
