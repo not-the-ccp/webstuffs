@@ -1,0 +1,203 @@
+/* The Bristol Parliamentary Weather Almanac — Entry 14 */
+
+:root {
+  --paper: #f4efe3;
+  --paper-dark: #e9e1cd;
+  --ink: #2b2620;
+  --faded: #6d6353;
+  --rule: #3a342a;
+  --green: #40583c;
+  --stamp: #8c2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #241f18;
+  background-image: radial-gradient(ellipse at 50% 0%, #35302a 0%, #241f18 70%);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0 2px, transparent 2px 4px),
+    linear-gradient(160deg, #f6f1e6 0%, var(--paper) 55%, var(--paper-dark) 100%);
+  border: 1px solid #b9ac90;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 18px 60px rgba(0,0,0,0.5);
+  padding: 3rem 3.25rem 2.25rem;
+  position: relative;
+}
+
+/* faint margin rule, as on an almanac plate */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.4rem;
+  border-left: 1px solid rgba(140,47,36,0.25);
+}
+
+.masthead { text-align: center; }
+
+.almanac-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  margin: 0 0 0.4rem;
+  color: var(--faded);
+  text-transform: uppercase;
+}
+
+.masthead-sub {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+.rule-thick {
+  height: 4px;
+  border-top: 3px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 1.5rem 1.4rem;
+}
+
+h1 {
+  font-size: 1.55rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+  font-variant: small-caps;
+}
+
+.entry-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--green);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.plate-row {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  margin: 1.75rem 0 0.5rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.dial { width: 150px; flex: none; }
+.dial-arc { fill: none; stroke: var(--rule); stroke-width: 1.5; }
+.dial-tick { stroke: var(--rule); stroke-width: 1; }
+.dial-needle { stroke: var(--stamp); stroke-width: 2; transform-origin: 60px 62px; }
+.dial-hub { fill: var(--rule); }
+.dial-word { font-size: 6.5px; letter-spacing: 0.12em; fill: var(--faded); font-family: inherit; }
+
+.station { margin: 0; flex: 1; }
+.station > div {
+  display: flex;
+  border-bottom: 1px dotted rgba(58,52,42,0.35);
+  padding: 0.28rem 0;
+  font-size: 0.82rem;
+}
+.station > div:last-child { border-bottom: none; }
+.station dt {
+  width: 170px; flex: none;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  color: var(--faded);
+  padding-top: 0.14rem;
+  text-transform: uppercase;
+}
+.station dd { margin: 0; }
+
+.prose h2, .record h2, .advisory h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.25rem 0 1rem;
+  font-variant: small-caps;
+}
+
+.prose p { margin: 0 0 1rem; text-align: justify; font-size: 0.98rem; }
+
+.record table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.record th {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+}
+.record td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px dotted rgba(58,52,42,0.3);
+  vertical-align: top;
+}
+.record td:first-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+a { color: var(--green); text-underline-offset: 2px; }
+a:hover { color: var(--stamp); }
+
+.advisory {
+  margin: 2.25rem 0 0;
+  padding: 1.1rem 1.4rem 1.2rem;
+  border: 1px solid var(--rule);
+  box-shadow: 3px 3px 0 rgba(58,52,42,0.18);
+  position: relative;
+}
+.advisory h2 { margin-top: 0; }
+.adv-lead { font-size: 0.9rem; margin-bottom: 0.75rem; }
+.kept {
+  display: inline;
+  font-style: italic;
+  background: rgba(64,88,60,0.08);
+  box-shadow: 0 0 0 1px rgba(64,88,60,0.35);
+  padding: 0.1em 0.25em;
+}
+.adv-note { font-size: 0.85rem; color: var(--faded); margin-bottom: 0; }
+
+.advisory::after {
+  content: "ENTRY 14";
+  position: absolute;
+  top: -0.65rem;
+  right: 0.9rem;
+  background: var(--paper);
+  border: 1.5px solid var(--stamp);
+  color: var(--stamp);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  padding: 0.12rem 0.5rem;
+  transform: rotate(2deg);
+}
+
+.colophon {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.7rem;
+  text-align: center;
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  color: var(--faded);
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .sheet { margin: 0; padding: 2rem 1.25rem; border-left: none; border-right: none; }
+  .sheet::before { display: none; }
+  .plate-row { flex-direction: column; }
+  .station dt { width: 140px; }
+}
