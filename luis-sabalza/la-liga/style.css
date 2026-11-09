@@ -1,0 +1,241 @@
+/* Lot 38 — La Liga, Sale No. 402, Pamplona & Echarri, Auctioneers */
+
+:root {
+  --paper: #f6f1e6;
+  --ink: #2b2620;
+  --rule: #b3a68c;
+  --green: #1e5637;
+  --white: #f9f7f0;
+  --accent: #8c1d18;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.catalogue {
+  max-width: 760px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.sale-head {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auctioneers {
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.15rem;
+}
+
+.address {
+  margin: 0 0 1rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #5c5344;
+}
+
+.sale-head h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.02em;
+}
+
+.lot-line {
+  margin: 0.75rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.lot-no {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.terms {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #5c5344;
+}
+
+.lot-body {
+  margin-bottom: 1.75rem;
+}
+
+.panel-tag {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-top: 0;
+}
+
+.blockquote, blockquote {
+  margin: 1rem 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rule);
+  font-style: italic;
+}
+
+.starbuck-line {
+  border-left-color: var(--accent);
+  font-size: 1.05rem;
+}
+
+/* Title ledger table */
+table.titles {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+table.titles th {
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  padding: 0.3rem 0.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+table.titles td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.35rem 0.5rem;
+}
+
+table.titles td:nth-child(2) {
+  text-align: center;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #5c5344;
+}
+
+/* Matchday calculator */
+.calculator {
+  border: 1px solid var(--rule);
+  background: var(--white);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.record-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.4rem;
+  align-items: center;
+}
+
+.record-form label {
+  font-size: 0.9rem;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.record-form input {
+  width: 4rem;
+  padding: 0.25rem 0.35rem;
+  margin-left: 0.4rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.record-form button,
+.hammer-btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--green);
+  color: var(--white);
+  border: 1px solid var(--green);
+  cursor: pointer;
+}
+
+.record-form button:hover,
+.hammer-btn:hover {
+  background: #16402a;
+}
+
+.calc-warning {
+  min-height: 1.2em;
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+}
+
+.calc-result {
+  margin-top: 0.75rem;
+  border-top: 1px dotted var(--rule);
+  padding-top: 0.6rem;
+}
+
+.points {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+.placed {
+  margin: 0.25rem 0 0;
+  font-style: italic;
+}
+
+.calc-note {
+  font-size: 0.8rem;
+  color: #5c5344;
+  margin-bottom: 0;
+}
+
+/* Terms and footer */
+a { color: var(--green); }
+
+a:hover { color: var(--accent); }
+
+.catalogue-foot {
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.hammer-line {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
+
+.hammer-note {
+  min-height: 1.2em;
+  font-style: italic;
+  color: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .record-form { flex-direction: column; align-items: flex-start; }
+  .catalogue { margin: 1.5rem auto; }
+}
