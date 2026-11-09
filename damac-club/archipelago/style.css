@@ -1,0 +1,402 @@
+/* One Thousand Islands — THP-20 · The Tea House Pressing
+   A record-sleeve liner notes sheet for the Croatian archipelago:
+   Adriatic blue, salt white, sun yellow, and the dark line of the ferry. */
+
+:root {
+  --deep: #06202e;
+  --sea: #0d4a63;
+  --shallow: #1f7a97;
+  --foam: #dceef2;
+  --salt: #f5efe2;
+  --sun: #f2b53a;
+  --sun-hot: #e2591f;
+  --ink: #10222b;
+  --deck: #dceef2;
+  --string: #c9452c;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 40% at 50% -6%, rgba(242, 181, 58, 0.35), transparent 60%),
+    linear-gradient(180deg, #0a3446 0%, var(--sea) 14%, var(--shallow) 34%, #4fa3b8 52%, #7ec3cf 64%, var(--foam) 78%, var(--salt) 100%);
+  min-height: 100vh;
+  font-family: Georgia, 'Times New Roman', 'Iowan Old Style', serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ---------- the sea behind everything ---------- */
+.sea {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    repeating-linear-gradient(178deg,
+      transparent 0px, transparent 34px,
+      rgba(220, 238, 242, 0.05) 34px, rgba(220, 238, 242, 0.05) 36px);
+  animation: swell 14s linear infinite;
+}
+@keyframes swell {
+  from { background-position-y: 0; }
+  to   { background-position-y: 72px; }
+}
+
+/* the sun, drawn in CSS, slowly breathing */
+.sun {
+  position: fixed;
+  top: 7vh;
+  right: 8vw;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  z-index: -1;
+  background: radial-gradient(circle at 38% 34%, #ffe9a8 0%, var(--sun) 55%, var(--sun-hot) 100%);
+  box-shadow:
+    0 0 40px 12px rgba(242, 181, 58, 0.55),
+    0 0 120px 40px rgba(226, 89, 31, 0.25);
+  animation: breathe 7s ease-in-out infinite;
+}
+.sun::after {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  border: 2px dashed rgba(242, 181, 58, 0.65);
+  animation: turn 60s linear infinite;
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+@keyframes turn { to { transform: rotate(360deg); } }
+
+/* the wave that laps the top of the page */
+.wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  color: #083246;
+  z-index: 1;
+  animation: lap 6s ease-in-out infinite;
+}
+@keyframes lap {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ---------- the sleeve (masthead) ---------- */
+.sleeve {
+  position: relative;
+  max-width: 860px;
+  margin: 56px auto 0;
+  padding: 56px 56px 44px;
+  background:
+    repeating-linear-gradient(90deg, rgba(16, 34, 43, 0.03) 0 2px, transparent 2px 90px),
+    linear-gradient(160deg, var(--salt) 0%, #efe6d0 55%, #e8dcbf 100%);
+  border: 3px double var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+  box-shadow: 14px 14px 0 rgba(16, 34, 43, 0.28);
+  color: var(--ink);
+}
+
+/* the record sticking out of the sleeve */
+.spindle {
+  position: absolute;
+  top: -118px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  transform: translateY(96px);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--salt) 0 26px, transparent 27px),
+    repeating-radial-gradient(circle at 50% 50%, #141414 0 3px, #1d1d1d 3px 5px);
+  box-shadow: 0 -8px 24px rgba(6, 32, 46, 0.45);
+  animation: spin 9s linear infinite;
+  z-index: -1;
+}
+.spindle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 92%;
+  height: 2px;
+  margin: -1px 0 0 -46%;
+  background: rgba(220, 238, 242, 0.12);
+}
+.spindle span:nth-child(2) { transform: rotate(60deg); }
+@keyframes spin { to { transform: translateY(96px) rotate(360deg); } }
+
+.kicker {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--string);
+  margin: 0 0 18px;
+}
+
+.sleeve h1 {
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 9vw, 5.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  margin: 0 0 14px;
+  text-shadow: 3px 3px 0 rgba(242, 181, 58, 0.5);
+}
+
+.sub {
+  font-style: italic;
+  font-size: 1.06rem;
+  margin: 0 0 18px;
+  color: #3c3423;
+}
+
+.standfirst {
+  font-size: 1.02rem;
+  margin: 0 0 26px;
+  padding-left: 18px;
+  border-left: 4px solid var(--sun);
+}
+
+.plate {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.plate li {
+  flex: 1 1 150px;
+  text-align: center;
+  padding: 10px 8px;
+  border: 1.5px solid var(--ink);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 3px 3px 0 rgba(16, 34, 43, 0.35);
+}
+.plate strong {
+  display: block;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.plate span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* ---------- tracklists ---------- */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.side {
+  margin-top: 56px;
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 34, 43, 0.025) 0 2px, transparent 2px 34px),
+    linear-gradient(150deg, rgba(245, 239, 226, 0.94), rgba(233, 222, 194, 0.94));
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 rgba(16, 34, 43, 0.25);
+  padding: 30px 34px 22px;
+  position: relative;
+}
+.side::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(16, 34, 43, 0.4);
+  pointer-events: none;
+}
+
+.side-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+}
+.side-letter {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 1.7rem;
+  color: var(--salt);
+  background: radial-gradient(circle at 35% 30%, var(--shallow), var(--deep));
+  border: 2px solid var(--ink);
+  box-shadow: 0 0 0 4px rgba(242, 181, 58, 0.4);
+}
+
+.tracklist { list-style: none; margin: 0; padding: 0; }
+
+.track {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr auto;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 12px 8px;
+  border-bottom: 1px solid rgba(16, 34, 43, 0.3);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.tracklist--b .track { border-bottom: 1px dotted rgba(16, 34, 43, 0.3); }
+.track:last-child { border-bottom: none; }
+.track:hover {
+  background: linear-gradient(90deg, rgba(242, 181, 58, 0.28), rgba(220, 238, 242, 0.45));
+  transform: translateX(6px);
+}
+.track .no {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: var(--string);
+}
+.track .name {
+  font-family: 'Didot', Georgia, serif;
+  font-size: 1.18rem;
+  font-style: italic;
+}
+.track .time {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  color: #3c3423;
+}
+.track .note {
+  grid-column: 2 / -1;
+  font-size: 0.92rem;
+  color: #33424a;
+}
+.track.playing { background: linear-gradient(90deg, rgba(242,181,58,.35), transparent); }
+.track.playing .time::after { content: " ●"; color: var(--sun-hot); }
+
+/* ---------- the one line ---------- */
+.one-line {
+  margin-top: 56px;
+  padding: 34px 36px;
+  background: linear-gradient(160deg, var(--deep), #0b3a50);
+  color: var(--foam);
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 rgba(16, 34, 43, 0.4);
+}
+.one-line h2 {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+  color: var(--sun);
+  margin: 0 0 18px;
+}
+.one-line p { font-size: 1rem; }
+.one-line a { color: var(--sun); }
+
+.verbatim {
+  margin: 26px auto;
+  padding: 26px 26px 22px;
+  max-width: 640px;
+  background: var(--salt);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  position: relative;
+  transform: rotate(-1.1deg);
+  box-shadow: 6px 6px 0 rgba(242, 181, 58, 0.6);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  font-style: normal;
+}
+.verbatim::before {
+  content: "ferry ticket · no. 44";
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  background: var(--string);
+  color: var(--salt);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+}
+.verbatim::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  right: 14px;
+  width: 46px;
+  height: 8px;
+  border-bottom: 2px solid var(--string);
+  transform: rotate(-4deg);
+}
+
+/* ---------- pressing notes ---------- */
+.practical {
+  margin-top: 56px;
+  padding: 30px 34px;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.35) 0 14px, transparent 14px 28px), rgba(245, 239, 226, 0.9);
+  border: 2px dashed var(--ink);
+  box-shadow: 10px 10px 0 rgba(16, 34, 43, 0.2);
+}
+.practical h2 {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+  margin: 0 0 16px;
+}
+.practical ul { margin: 0; padding-left: 20px; }
+.practical li { margin-bottom: 10px; font-size: 0.95rem; }
+.practical a { color: var(--string); }
+
+/* ---------- colophon with the little ferry ---------- */
+.colophon {
+  max-width: 860px;
+  margin: 20px auto 60px;
+  padding: 26px 20px 40px;
+  text-align: center;
+  color: var(--foam);
+  position: relative;
+}
+.colophon p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.colophon a { color: var(--sun); }
+.ferry {
+  width: 120px;
+  height: 60px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  animation: bob 5s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@media (max-width: 640px) {
+  .sleeve { margin: 40px 12px 0; padding: 40px 24px 32px; }
+  .spindle { width: 150px; height: 150px; margin-left: -75px; top: -92px; }
+  @keyframes spin { to { transform: translateY(72px) rotate(360deg); } }
+  .sun { width: 70px; height: 70px; right: 4vw; }
+  .side, .one-line, .practical { padding: 22px 18px; }
+}
