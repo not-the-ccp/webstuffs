@@ -1,0 +1,170 @@
+/* Hellenica — player's manual, Supplement No. 11 */
+:root {
+  --paper: #f4edda;
+  --ink: #23201a;
+  --olive: #5a6236;
+  --honey: #c98a2d;
+  --aegean: #2e5668;
+  --rule: #b9a97e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e0c8;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+/* the greek fret, top and bottom of the page */
+.fret {
+  height: 14px;
+  background-image:
+    repeating-linear-gradient(90deg,
+      var(--honey) 0 10px, transparent 10px 14px);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background-color: transparent;
+}
+.fret.bottom { transform: scaleY(-1); }
+
+.manual {
+  max-width: 720px;
+  margin: 2.2rem auto 3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 3px 14px rgba(35, 32, 26, 0.18);
+}
+
+.plate {
+  text-align: center;
+  padding: 2.2rem 2rem 1.2rem;
+  border-bottom: 3px double var(--ink);
+}
+.publine {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1.1rem;
+  color: var(--olive);
+}
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
+.sub {
+  margin: 0.5rem auto 0.4rem;
+  max-width: 34rem;
+  font-style: italic;
+  color: var(--aegean);
+}
+.edition {
+  font-size: 0.8rem;
+  margin: 0.9rem 0 0;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.text { padding: 0.4rem 2.4rem 1.6rem; }
+.text h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--olive);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin-top: 2rem;
+}
+.dropcap::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.04em 0.12em 0 0;
+  color: var(--honey);
+}
+p { margin: 0.9rem 0; }
+
+.components { list-style: none; padding-left: 0.2rem; }
+.components li {
+  margin: 0.55rem 0;
+  padding-left: 1.4rem;
+  text-indent: -1.4rem;
+}
+.components strong { color: var(--aegean); }
+
+/* the keeper's test */
+.test {
+  margin: 2rem 0 1rem;
+  padding: 1.1rem 1.3rem 1.3rem;
+  background: #efe5c6;
+  border: 1px solid var(--honey);
+}
+.test-head {
+  margin: 0 0 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.test .score {
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  color: var(--aegean);
+}
+.test label {
+  display: block;
+  margin: 0.7rem 0 0.3rem;
+  font-size: 0.95rem;
+}
+.test .opts { padding-left: 1.3rem; font-size: 0.9rem; }
+.test .opts label { display: inline-block; margin: 0 0.9rem 0 0; }
+.test button {
+  margin-top: 1rem;
+  padding: 0.45rem 1.4rem;
+  font: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  background: var(--olive);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+.test button:hover { background: var(--aegean); }
+.test .test-verdict {
+  margin: 1rem 0 0;
+  font-style: italic;
+  min-height: 1.4em;
+}
+.test .right { color: var(--olive); font-weight: bold; }
+.test .wrong { color: #8a3324; }
+
+.fineprint {
+  font-size: 0.85rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  color: var(--ink);
+  opacity: 0.85;
+}
+a { color: var(--aegean); }
+a:hover { color: var(--honey); }
+
+.colophon {
+  text-align: center;
+  border-top: 3px double var(--ink);
+  padding: 1rem 2rem 1.6rem;
+  font-size: 0.8rem;
+}
+.plate-mark {
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  color: var(--honey);
+  margin: 0 0 0.4rem;
+}
+.colophon p { margin: 0.2rem 0; }
