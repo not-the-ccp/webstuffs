@@ -1,0 +1,155 @@
+:root {
+  --paper: #f5f0e4;
+  --ink: #2a231d;
+  --ink-soft: #5b5044;
+  --copper: #a85f2f;
+  --line: #cfc5af;
+  --amber: #7a5a1f;
+}
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.newsletter {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 3rem;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.masthead-rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  width: 4rem;
+  margin: 0 auto 1.75rem;
+}
+
+.club-name {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+
+.issue-stamp {
+  margin: 0.6rem 0 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.dek {
+  margin: 1rem auto 0;
+  max-width: 30rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.masthead-sign {
+  margin: 1.75rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+}
+
+.letter h2 {
+  margin: 2.75rem 0 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+
+.letter h2::before {
+  content: "\2014";
+  margin-right: 0.6em;
+  color: var(--line);
+}
+
+.letter p { margin: 0 0 1.15rem; }
+
+.letter p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.1em;
+  line-height: 0.9;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--copper);
+}
+
+em { font-style: italic; }
+
+sup { font-size: 0.68em; }
+
+a {
+  color: var(--copper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+a:hover { border-bottom-color: var(--copper); }
+
+.ledger {
+  margin: 2.75rem 0;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 246, 0.55);
+}
+
+.ledger-title {
+  margin: 0 0 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.ledger-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ledger-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.ledger-list li:last-child { border-bottom: none; }
+
+.tail {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.tail p { margin: 0.3rem 0; }
