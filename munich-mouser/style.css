@@ -1,0 +1,180 @@
+/* The Munich Mouser — Term Report, Class 5A · Kingsmead Primary School
+   Palette: river-ink navy, manila paper, ledger red, mint brass. */
+
+:root {
+  --ink: #1e3a5f;
+  --ink-deep: #14283f;
+  --paper: #f3ead3;
+  --paper-plain: #efe4c8;
+  --red: #a63a2b;
+  --brass: #a3782a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(30, 58, 95, 0.05) 0 1px, transparent 1px 28px),
+    var(--paper-plain);
+  color: var(--ink-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2rem 1rem 4rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(90deg, transparent 0 2.4rem, rgba(166, 58, 43, 0.55) 2.4rem calc(2.4rem + 2px), transparent calc(2.4rem + 2px)),
+    var(--paper);
+  border: 1px solid rgba(30, 58, 95, 0.4);
+  box-shadow: 0 1px 0 rgba(30, 58, 95, 0.25), 0 14px 34px rgba(20, 40, 63, 0.22);
+  padding: 2.6rem 2.4rem 2rem 4.2rem;
+  position: relative;
+}
+
+/* Paw strip along the top edge: small brass paw prints. */
+.paw-strip {
+  position: absolute;
+  top: 0.55rem; left: 4.2rem; right: 2.4rem;
+  height: 1rem;
+  background-image:
+    radial-gradient(circle at 1px 2px, var(--brass) 1.4px, transparent 2px),
+    radial-gradient(circle at 8px 2px, var(--brass) 1.4px, transparent 2px),
+    radial-gradient(circle at 4.5px 7px, var(--brass) 2.2px, transparent 2.8px);
+  background-size: 46px 1rem;
+  background-repeat: repeat-x;
+  opacity: 0.65;
+}
+
+.report-head { border-bottom: 3px double var(--ink); padding-bottom: 1.1rem; margin-bottom: 1.4rem; }
+
+.school {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.35rem;
+  color: var(--ink-deep);
+}
+
+.tagline {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 40rem;
+}
+
+dl.admin {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.2rem 1.2rem;
+  margin: 0;
+  font-size: 0.92rem;
+}
+dl.admin dt {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  padding-top: 0.15rem;
+}
+dl.admin dd { margin: 0; }
+
+section.lines { padding: 0.9rem 0 0.2rem; }
+section.lines h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(166, 58, 43, 0.5);
+  padding-bottom: 0.25rem;
+  margin: 0.4rem 0 0.8rem;
+}
+section.lines p { margin: 0 0 0.9rem; text-align: justify; }
+section.lines a { color: var(--ink); }
+section.lines a:hover { color: var(--red); }
+
+aside.teacher-note {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--red);
+  border-left: 3px solid var(--red);
+  background: rgba(166, 58, 43, 0.06);
+  padding: 0.5rem 0.9rem;
+  margin: 0.2rem 0 1rem;
+}
+
+footer.marking {
+  border-top: 3px double var(--ink);
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  position: relative;
+}
+.mark-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+.grade {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--red);
+  border: 2px solid var(--red);
+  padding: 0 0.5rem;
+  line-height: 1.4;
+}
+
+/* Rubber stamp, rotated, brass-ink. */
+.stamp {
+  position: absolute;
+  right: 0; top: 0.6rem;
+  transform: rotate(-9deg);
+  opacity: 0.85;
+}
+.stamp-inner {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--brass);
+  border: 3px double var(--brass);
+  border-radius: 4px;
+  padding: 0.45rem 0.7rem;
+  line-height: 1.5;
+  transition: transform 0.9s ease-out;
+}
+@keyframes stamp-in {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 0.9; }
+}
+.stamp.animate .stamp-inner { animation: stamp-in 0.5s ease-out both; }
+
+nav.nav-line {
+  margin-top: 1.4rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(30, 58, 95, 0.35);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink);
+}
+nav.nav-line p { margin: 0; }
+
+@media (max-width: 30rem) {
+  .sheet { padding-left: 3.4rem; }
+  .stamp { position: static; display: block; margin-top: 1rem; transform: rotate(-4deg); }
+}
