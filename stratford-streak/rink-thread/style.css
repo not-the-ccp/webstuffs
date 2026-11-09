@@ -1,0 +1,177 @@
+/* The Montrose Arena Notice Board — Thread Nº 218 */
+
+:root {
+  --ice: #eef4f9;
+  --ice-deep: #d7e6f0;
+  --slate: #12324a;
+  --slate-soft: #2c4a63;
+  --board-red: #8a1f2b;
+  --puck: #14181d;
+  --paper: #f7f4ec;
+  --line: #b9cddd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(18, 50, 74, 0.035) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, var(--ice) 0%, var(--ice-deep) 100%);
+  color: var(--slate);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.masthead,
+.thread {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.masthead {
+  border-bottom: 4px double var(--slate);
+  padding-top: 2rem;
+  padding-bottom: 1.25rem;
+}
+
+.board-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-soft);
+  margin: 0 0 0.9rem;
+}
+
+.thread-head h1 {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.3rem;
+  color: var(--board-red);
+}
+
+.thread-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+}
+
+.thread-meta {
+  font-size: 0.88rem;
+  color: var(--slate-soft);
+  margin: 0 0 1rem;
+}
+
+.mark {
+  display: block;
+  margin: 0.5rem auto 0;
+  max-width: 240px;
+}
+
+.mark-label {
+  font-family: "Courier New", monospace;
+  font-size: 8px;
+  fill: var(--slate-soft);
+}
+
+.who { font-weight: bold; }
+
+.post {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--board-red);
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  box-shadow: 3px 3px 0 rgba(18, 50, 74, 0.12);
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: baseline;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.85rem;
+}
+
+.post-head time {
+  margin-left: auto;
+  color: var(--slate-soft);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
+.badge {
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--ice-deep);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+  color: var(--slate-soft);
+}
+
+.post-body p { margin: 0 0 0.85rem; }
+.post-body p:last-child { margin-bottom: 0; }
+.post-body a { color: var(--board-red); }
+
+.ledger-line {
+  margin: 0.9rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--ice);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--slate);
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: var(--puck);
+}
+
+.ticker {
+  margin: 2rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--puck);
+  color: var(--ice);
+  border-top: 3px solid var(--board-red);
+}
+
+.ticker h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--ice-deep);
+}
+
+.periods {
+  font-family: "Courier New", monospace;
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
+}
+
+.periods .p { margin-right: 1rem; }
+.periods .done { opacity: 0.45; text-decoration: line-through; }
+.periods .live { color: #ffd766; }
+.periods .ovr { opacity: 0.6; }
+
+.fineprint {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--slate-soft);
+}
+
+.ticker .fineprint { color: var(--ice-deep); }
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+  border-top: 4px double var(--slate);
+  font-size: 0.85rem;
+  color: var(--slate-soft);
+}
