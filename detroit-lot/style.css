@@ -1,0 +1,396 @@
+/* Lot 143 — Detroit: A River, a Bridge, and a Ledger
+   The Southern Branch Auction, Catalogue B.
+   Deep river at night, gilt at the bend, pencil where it matters. */
+
+:root{
+  --river-deep:#0d1b2e;
+  --river:#14243a;
+  --steel:#2e5a88;
+  --gilt:#c9a227;
+  --gilt-bright:#e8c85a;
+  --paper:#f3e9cf;
+  --paper-warm:#efe3c4;
+  --ink:#14243a;
+  --brick:#8e2f2f;
+  --monospace:"IBM Plex Mono", "Courier New", monospace;
+  --display:"Abril Fatface", Georgia, serif;
+  --text:"Libre Caslon Text", Georgia, serif;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:var(--text);
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(201,162,39,.16), transparent 60%),
+    linear-gradient(180deg, #081120 0%, var(--river-deep) 34%, #122740 68%, #0a1424 100%);
+  min-height:100vh;
+  line-height:1.65;
+}
+
+/* ---------- the river backdrop ---------- */
+.river-backdrop{
+  position:fixed;
+  inset:auto 0 0 0;
+  height:34vh;
+  min-height:220px;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+.wave{
+  position:absolute;
+  left:-5%;
+  width:110%;
+  height:120px;
+  bottom:0;
+}
+.wave path{ fill:rgba(46,90,136,.30); }
+.wave-a{ bottom:52px; animation:drift 26s linear infinite; }
+.wave-a path{ fill:rgba(46,90,136,.20); }
+.wave-b{ animation:drift 17s linear infinite reverse; }
+@keyframes drift{
+  from{ transform:translateX(-4%); }
+  50%{ transform:translateX(3%); }
+  to{ transform:translateX(-4%); }
+}
+.skyline{
+  position:absolute;
+  left:50%;
+  bottom:120px;
+  width:min(1100px,96vw);
+  transform:translateX(-50%);
+  animation:glow 9s ease-in-out infinite;
+}
+@keyframes glow{
+  0%,100%{ opacity:.75; }
+  50%{ opacity:1; }
+}
+
+/* ---------- the catalogue card ---------- */
+.catalogue{
+  position:relative;
+  z-index:1;
+  max-width:880px;
+  margin:0 auto;
+  padding:clamp(18px, 4vw, 44px);
+  background:
+    repeating-linear-gradient(0deg, rgba(20,36,58,.035) 0 2px, transparent 2px 6px),
+    radial-gradient(600px 300px at 85% 8%, rgba(201,162,39,.14), transparent 65%),
+    linear-gradient(175deg, #f7efdb 0%, var(--paper) 40%, #eadcbd 100%);
+  border:3px double var(--ink);
+  outline:1px solid var(--ink);
+  outline-offset:6px;
+  box-shadow:
+    0 0 0 1px rgba(201,162,39,.5),
+    0 24px 60px rgba(0,0,0,.55),
+    inset 0 0 90px rgba(142,47,47,.06);
+}
+
+/* corner tacks */
+.catalogue::before,
+.catalogue::after,
+.plate::before,
+.plate::after{
+  content:"";
+  position:absolute;
+  width:14px; height:14px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--gilt-bright), var(--gilt) 55%, #6d5610 100%);
+  box-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+.catalogue::before{ top:-7px; left:-7px; }
+.catalogue::after{ top:-7px; right:-7px; }
+.plate::before{ bottom:-7px; left:-7px; }
+.plate::after{ bottom:-7px; right:-7px; }
+
+/* ---------- the lot head ---------- */
+.lot-head{
+  text-align:center;
+  padding:8px 12px 18px;
+  border-bottom:3px double var(--gilt);
+  margin-bottom:22px;
+}
+.lot-head-rule{
+  height:8px;
+  margin:10px auto;
+  max-width:520px;
+  background:
+    linear-gradient(90deg, transparent, var(--ink) 12%, var(--ink) 88%, transparent),
+    repeating-linear-gradient(45deg, var(--gilt) 0 6px, transparent 6px 12px);
+  background-blend-mode:multiply;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+.auction-name{
+  font-family:var(--monospace);
+  font-size:.78rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--brick);
+  margin:6px 0 2px;
+}
+.lot-eyebrow{
+  font-style:italic;
+  font-size:.9rem;
+  color:#5a4a1e;
+  margin:2px 0 10px;
+}
+h1{
+  font-family:var(--display);
+  font-size:clamp(3.4rem, 11vw, 6.2rem);
+  line-height:.95;
+  margin:8px 0 4px;
+  color:var(--ink);
+  letter-spacing:.02em;
+  text-shadow:
+    2px 2px 0 rgba(201,162,39,.55),
+    4px 4px 0 rgba(142,47,47,.22);
+}
+.lot-title{
+  font-family:var(--display);
+  font-size:clamp(1.5rem, 4.6vw, 2.4rem);
+  margin:0 0 4px;
+  color:var(--steel);
+}
+.lot-title em{ color:var(--brick); }
+.pronunciation{
+  font-family:var(--monospace);
+  font-size:.78rem;
+  letter-spacing:.14em;
+  color:#4c421f;
+  margin:6px 0 4px;
+}
+
+/* the hammer line */
+.hammer-line{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-top:14px;
+}
+.hammer{
+  display:inline-grid;
+  place-items:center;
+  width:52px; height:52px;
+  border-radius:50%;
+  border:2px solid var(--ink);
+  background:radial-gradient(circle at 32% 28%, #2a4a6e, var(--river) 70%);
+  color:var(--gilt-bright);
+  font-size:1.5rem;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
+  user-select:none;
+}
+.hammer:hover{ transform:rotate(-14deg) scale(1.06); box-shadow:0 0 0 4px rgba(201,162,39,.35); }
+.hammer:active{ transform:rotate(-30deg) scale(.96); }
+.hammer-word{
+  font-family:var(--monospace);
+  font-weight:600;
+  font-size:1rem;
+  letter-spacing:.1em;
+  color:var(--brick);
+  border:1.5px dashed var(--brick);
+  padding:6px 14px;
+  background:rgba(142,47,47,.06);
+}
+.hammer-word.sold{
+  animation:stamp .45s cubic-bezier(.2, 2.4, .4, 1) both;
+  color:var(--paper);
+  background:var(--brick);
+  border-style:solid;
+}
+@keyframes stamp{
+  0%{ transform:scale(2.2) rotate(-9deg); opacity:0; }
+  60%{ transform:scale(.94) rotate(2deg); opacity:1; }
+  100%{ transform:scale(1) rotate(0); }
+}
+
+/* ---------- plate ---------- */
+.plate{
+  position:relative;
+  margin:0 auto 26px;
+  max-width:560px;
+  background:var(--paper-warm);
+  border:2px solid var(--ink);
+  padding:14px;
+  box-shadow:8px 8px 0 rgba(20,36,58,.25);
+}
+.plate svg{ display:block; width:100%; height:auto; }
+.plate figcaption{
+  font-family:var(--monospace);
+  font-size:.74rem;
+  line-height:1.5;
+  color:#4c421f;
+  margin-top:10px;
+  border-top:1px solid rgba(20,36,58,.35);
+  padding-top:8px;
+}
+
+/* ---------- body sections ---------- */
+.lot-body, .ledger{
+  margin:0 0 30px;
+  padding:0 6px;
+}
+h2{
+  font-family:var(--display);
+  font-size:clamp(1.3rem, 3.6vw, 1.8rem);
+  color:var(--ink);
+  margin:0 0 10px;
+  padding-bottom:6px;
+  border-bottom:1px solid var(--gilt);
+  position:relative;
+  letter-spacing:.02em;
+}
+h2::after{
+  content:"\25C6";
+  position:absolute;
+  right:0; bottom:6px;
+  color:var(--gilt);
+  font-size:.7rem;
+}
+p{ margin:0 0 14px; font-size:1.02rem; }
+a{
+  color:var(--steel);
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+  text-decoration-color:var(--gilt);
+  transition:background .15s ease, color .15s ease;
+}
+a:hover{ background:rgba(201,162,39,.28); color:var(--river); }
+
+/* ---------- the ledger leaf ---------- */
+.ledger{
+  background:
+    repeating-linear-gradient(180deg, transparent 0 27px, rgba(46,90,136,.28) 27px 28px),
+    linear-gradient(180deg, #f6eed7, #f1e4c2);
+  border:1.5px solid var(--ink);
+  box-shadow:
+    inset 3px 0 0 rgba(214,69,69,.55),
+    6px 6px 0 rgba(20,36,58,.2);
+  padding:20px 22px;
+  margin-bottom:30px;
+  transform:rotate(-.35deg);
+}
+.ledger-dek{
+  font-style:italic;
+  font-size:.95rem;
+  color:#4c421f;
+}
+.count-table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:var(--monospace);
+  font-size:.82rem;
+  margin:14px 0 16px;
+}
+.count-table th{
+  text-align:left;
+  font-size:.68rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--brick);
+  border-bottom:2px solid var(--ink);
+  padding:4px 8px;
+}
+.count-table td{
+  border-bottom:1px dotted rgba(20,36,58,.4);
+  padding:7px 8px;
+  vertical-align:top;
+}
+.count-table td:nth-child(2){
+  font-weight:600;
+  color:var(--river);
+  white-space:nowrap;
+}
+.count-table tr:hover td{ background:rgba(201,162,39,.12); }
+.ledger-tail{ font-size:.92rem; color:#4c421f; margin-bottom:0; }
+
+/* ---------- the slip ---------- */
+.slip-note{
+  margin:16px auto;
+  max-width:520px;
+  padding:16px 20px;
+  background:
+    linear-gradient(100deg, rgba(201,162,39,.16), transparent 40%),
+    #fbf4de;
+  border:1px solid var(--ink);
+  box-shadow:5px 5px 0 rgba(142,47,47,.28);
+  font-size:1.15rem;
+  font-style:italic;
+  text-align:center;
+  transform:rotate(1.1deg);
+  position:relative;
+}
+.slip-note::before{
+  content:"";
+  position:absolute;
+  top:-11px; left:50%;
+  width:64px; height:20px;
+  transform:translateX(-50%) rotate(-2deg);
+  background:rgba(201,162,39,.45);
+  border:1px solid rgba(109,86,16,.4);
+}
+.slip-source{
+  font-family:var(--monospace);
+  font-size:.76rem;
+  line-height:1.6;
+  color:#4c421f;
+  max-width:560px;
+}
+
+/* ---------- terms & colophon ---------- */
+.sale-terms{
+  border-top:3px double var(--gilt);
+  padding-top:18px;
+}
+.sale-terms ul{
+  margin:0 0 18px;
+  padding-left:1.3em;
+}
+.sale-terms li{ margin-bottom:8px; font-size:.95rem; }
+.sale-terms li::marker{ color:var(--brick); }
+.colophon{
+  font-family:var(--monospace);
+  font-size:.76rem;
+  letter-spacing:.08em;
+  text-align:center;
+  color:#4c421f;
+  border-top:1px solid rgba(20,36,58,.35);
+  padding-top:14px;
+  margin-top:8px;
+}
+
+/* the crate-lid stamp, shown when the hammer falls */
+.lid{
+  position:fixed;
+  right:18px; bottom:18px;
+  z-index:2;
+  font-family:var(--monospace);
+  font-size:.68rem;
+  letter-spacing:.18em;
+  color:var(--gilt-bright);
+  background:rgba(13,27,46,.85);
+  border:1px solid var(--gilt);
+  padding:8px 12px;
+  transform:rotate(-3deg);
+  pointer-events:none;
+}
+.lid.show{ animation:stamp .5s cubic-bezier(.2, 2.4, .4, 1) both; }
+
+@media (max-width:560px){
+  .plate{ box-shadow:4px 4px 0 rgba(20,36,58,.25); }
+  .ledger{ transform:none; padding:16px 12px; }
+  .count-table{ font-size:.72rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .wave, .skyline, .hammer-word.sold, .lid.show{ animation:none; }
+  html{ scroll-behavior:auto; }
+}
