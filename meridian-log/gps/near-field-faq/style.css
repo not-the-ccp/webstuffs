@@ -1,0 +1,206 @@
+/* FM-9 Addendum B — the ten-metre chapter, bench-keeping copy */
+:root {
+  --ink: #101720;
+  --paper: #eef1f4;
+  --panel: #f7f9fa;
+  --band: #0f1d33;
+  --band-2: #16304f;
+  --signal: #7fd7c4;
+  --signal-deep: #2e8b78;
+  --amber: #e8a13c;
+  --rule: #2a4258;
+  --mono: "Courier New", Courier, monospace;
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+/* the near field, drawn as three quiet arcs */
+.field {
+  position: relative;
+  height: 64px;
+  background: var(--band);
+  overflow: hidden;
+}
+.wave {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  height: 340px;
+  margin: -170px 0 0 -170px;
+  border: 1px solid var(--signal);
+  border-radius: 50%;
+  opacity: .28;
+}
+.wave-b { transform: scale(.66); opacity: .45; }
+.wave-c { transform: scale(.34); opacity: .65; border-style: dashed; }
+
+.cover {
+  background: linear-gradient(180deg, var(--band-2) 0%, var(--band) 100%);
+  color: #e9f2f4;
+  padding: 2.2rem 1.4rem 1.6rem;
+  text-align: center;
+  border-bottom: 4px double var(--signal);
+}
+.stamp {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  color: var(--amber);
+  border: 1px dashed var(--amber);
+  padding: .2rem .6rem;
+  transform: rotate(-2deg);
+  margin-bottom: .8rem;
+}
+.tape {
+  width: 180px;
+  height: 10px;
+  margin: 0 auto .9rem;
+  background: repeating-linear-gradient(45deg, var(--signal-deep) 0 8px, transparent 8px 16px);
+  opacity: .7;
+}
+.agency, .code {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  margin: .2rem 0;
+  color: #b8ccd8;
+}
+.cover h1 {
+  margin: .6rem 0 .2rem;
+  font-size: 2.6rem;
+  letter-spacing: .06em;
+}
+.subtitle {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: #cfe3e8;
+}
+.dial {
+  position: relative;
+  height: 34px;
+  max-width: 560px;
+  margin: 0 auto;
+  border-bottom: 2px solid var(--signal);
+}
+.dial .tick {
+  position: absolute;
+  bottom: 4px;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: var(--signal);
+}
+.dial .tick::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  width: 1px;
+  height: 7px;
+  background: var(--signal);
+}
+
+main { max-width: 60rem; margin: 0 auto; padding: 1.2rem 1.2rem 2rem; }
+
+.drop::first-letter {
+  font-size: 3.1rem;
+  float: left;
+  line-height: .85;
+  padding: .15rem .45rem 0 0;
+  color: var(--signal-deep);
+  font-weight: bold;
+}
+
+.qa {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--signal-deep);
+  margin: 1.1rem 0;
+  padding: .3rem 1.2rem 1rem;
+  box-shadow: 3px 3px 0 rgba(16, 23, 32, .12);
+}
+.qa h2 {
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  letter-spacing: .04em;
+  color: var(--band-2);
+  border-bottom: 1px dotted var(--rule);
+  padding: .7rem 0 .45rem;
+}
+.qa .no {
+  display: inline-block;
+  background: var(--band-2);
+  color: var(--signal);
+  padding: .08rem .5rem;
+  margin-right: .55rem;
+  font-size: .8rem;
+}
+.qa p { margin: .55rem 0; }
+.qa a { color: var(--signal-deep); }
+
+.range-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--mono);
+  font-size: .82rem;
+  margin: .7rem 0;
+}
+.range-table caption {
+  caption-side: bottom;
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: .8rem;
+  color: #5a6b78;
+  padding-top: .3rem;
+}
+.range-table th, .range-table td {
+  border: 1px solid var(--rule);
+  padding: .4rem .6rem;
+  text-align: left;
+}
+.range-table thead th { background: var(--band); color: #e9f2f4; }
+.range-table tbody tr:nth-child(even) { background: #e9eef1; }
+
+.kept {
+  margin: .9rem 0 .9rem 0;
+  padding: .8rem 1.1rem;
+  background: #fdf6e8;
+  border-left: 4px solid var(--amber);
+  font-style: italic;
+}
+.kept p { margin: 0; font-size: 1.08rem; }
+.kept cite {
+  display: block;
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: #8a6a2c;
+  margin-top: .4rem;
+}
+
+.manual-footer {
+  margin-top: 2.4rem;
+  padding: 1rem 1.2rem;
+  background: var(--band);
+  color: #c8d8e0;
+  font-family: var(--mono);
+  font-size: .78rem;
+  border-top: 4px double var(--signal);
+}
+.manual-footer a { color: var(--signal); }
+
+@media (max-width: 480px) {
+  .cover h1 { font-size: 2rem; }
+  .dial .tick { font-size: .58rem; }
+}
