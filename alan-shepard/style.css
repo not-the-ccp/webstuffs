@@ -1,0 +1,194 @@
+/* The Annapolis Courier — Letters to the Editor
+   A newsprint letter page: cream paper, hairline rules,
+   a typewriter body, and two rubber-stamp marks. */
+
+:root {
+  --paper: #f4efe3;
+  --paper-dark: #ece5d3;
+  --ink: #26231d;
+  --ink-soft: #4c463a;
+  --rule: #b9b09a;
+  --stamp-red: #a33b2e;
+  --stamp-blue: #2f4d7a;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --mono: "Courier Prime", "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #1f1c17; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: var(--serif);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.paper {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(120, 100, 60, 0.06), rgba(120, 100, 60, 0) 12rem),
+    repeating-linear-gradient(0deg, rgba(90, 80, 50, 0.025) 0 2px, transparent 2px 4px),
+    var(--paper);
+  border: 1px solid #d8cfb8;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 14px 40px rgba(0, 0, 0, 0.55);
+  padding: 2.25rem 2.5rem 2rem;
+}
+
+/* --- Masthead --------------------------------------------------------- */
+
+.masthead { text-align: center; }
+
+.masthead-fine {
+  margin: 0 0 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.masthead-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.4rem 0 0.3rem;
+}
+
+.masthead-sub {
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* --- Stamps ----------------------------------------------------------- */
+
+.stamp {
+  position: absolute;
+  top: 5.4rem;
+  right: 1.6rem;
+  transform: rotate(8deg);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.55rem;
+  opacity: 0.78;
+  mix-blend-mode: multiply;
+}
+
+.stamp--post {
+  top: 3.1rem;
+  right: 4.6rem;
+  transform: rotate(-6deg);
+  color: var(--stamp-blue);
+  border-color: var(--stamp-blue);
+  opacity: 0.7;
+}
+
+/* --- Rules ------------------------------------------------------------ */
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 1.6rem 0;
+}
+
+.rule--thick {
+  border-top: 3px double var(--ink);
+}
+
+/* --- The letter ------------------------------------------------------- */
+
+.letter-dek {
+  margin: 0.5rem 0 1rem;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.letter p {
+  margin: 0 0 1.05rem;
+  font-size: 1.02rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.letter p::first-letter {
+  font-variant: small-caps;
+}
+
+.ledger-line {
+  margin: 1.2rem 1.5rem;
+  padding: 0.7rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--rule);
+  background: var(--paper-dark);
+  box-shadow: 2px 2px 0 rgba(90, 80, 50, 0.12);
+}
+
+.signed {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+
+.signature {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.fine { font-size: 0.78rem; color: var(--ink-soft); }
+
+/* --- Colophon --------------------------------------------------------- */
+
+.colophon {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.colophon a {
+  color: var(--stamp-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.back-link {
+  margin: 0.9rem 0 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* --- Small screens ---------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .paper { padding: 1.6rem 1.2rem 1.4rem; }
+  .stamp { display: none; }
+  .letter p { text-align: left; }
+  .ledger-line { margin: 1.2rem 0.4rem; }
+}
