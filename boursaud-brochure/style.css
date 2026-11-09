@@ -1,0 +1,180 @@
+/* The Boursaud Trail — late-1990s brochure styling, Chestnut Hill Press */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000033;
+  background-image: url("stars.svg");
+  background-repeat: repeat;
+  color: #ffffcc;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.stars {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: #ffff99;
+  font-size: 10px;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.25; }
+  to   { opacity: 1; }
+}
+
+.cover {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 24px auto;
+  padding: 12px;
+  background-color: #ffffcc;
+  color: #000066;
+  border: 6px ridge #ffcc00;
+  box-shadow: 0 0 24px #000066;
+}
+
+.masthead {
+  text-align: center;
+  background-color: #660066;
+  color: #ffffcc;
+  border: 4px outset #993399;
+  padding: 14px 18px;
+}
+
+.masthead .est {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #ffcc99;
+  margin: 0 0 6px 0;
+}
+
+.masthead h1 {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 44px;
+  letter-spacing: 2px;
+  margin: 4px 0;
+  color: #ffffcc;
+  text-shadow: 2px 2px 0 #003366;
+}
+
+.subtitle {
+  font-size: 13px;
+  font-style: italic;
+  color: #ccffcc;
+  margin: 6px 0 0 0;
+}
+
+.banner {
+  background-color: #000066;
+  color: #00ff00;
+  border: 3px inset #336699;
+  margin: 10px 0;
+  padding: 4px 0;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.banner-line { color: #ffcc00; }
+
+.panel {
+  background-color: #ffffee;
+  border: 4px bevel #cccc99;
+  margin: 14px 0;
+  padding: 12px 16px;
+}
+
+.panel-head {
+  font-family: "Impact", "Arial Black", sans-serif;
+  color: #660066;
+  border-bottom: 2px dashed #660066;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.panel p { margin: 8px 0; }
+
+.panel a { color: #0000cc; font-weight: bold; }
+.panel a:visited { color: #660099; }
+.panel a:hover { color: #ff0000; }
+
+.lost-found {
+  background-color: #eef5ee;
+  border-style: double;
+  border-width: 6px;
+}
+
+.counter-record {
+  font-family: "Courier New", monospace;
+  background-color: #000000;
+  color: #33ff33;
+  border: 3px inset #666666;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.facts div { margin: 6px 0; }
+.facts dt { font-weight: bold; color: #660066; }
+.facts dd { margin: 0 0 0 1em; }
+
+.guestbook {
+  background-color: #eef3ff;
+}
+
+.counter {
+  font-family: "Courier New", monospace;
+  background-color: #000000;
+  color: #00ff00;
+  border: 2px inset #666666;
+  padding: 1px 6px;
+  letter-spacing: 2px;
+}
+
+.gb-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.gb-form label { font-size: 12px; font-weight: bold; color: #660066; }
+.gb-form input {
+  border: 2px inset #999999;
+  background-color: #ffffff;
+  font-family: "Courier New", monospace;
+  padding: 3px;
+}
+.gb-form button {
+  background-color: #660066;
+  color: #ffffcc;
+  border: 4px outset #993399;
+  font-family: "Impact", "Arial Black", sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 4px 12px;
+}
+.gb-form button:active { border-style: inset; }
+
+.gb-entries {
+  font-size: 13px;
+  border: 2px dotted #660066;
+  background-color: #fffff8;
+  padding: 8px 8px 8px 24px;
+}
+
+.colophon {
+  text-align: center;
+  font-size: 12px;
+  border-top: 2px dashed #660066;
+  padding-top: 10px;
+}
+
+.tiny { font-size: 10px; color: #666666; }
