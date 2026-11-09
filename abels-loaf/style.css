@@ -1,0 +1,143 @@
+/* Abel's Loaf — Family Receipts of the Abell Household */
+
+:root {
+  --ink: #2b2620;
+  --faint: #6e655a;
+  --paper: #f6f1e7;
+  --leaf: #efe7d6;
+  --rule: #2b2620;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.72;
+}
+
+.plate {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 4rem;
+}
+
+.rule-double {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 4px;
+  margin: 1.4rem 0;
+}
+
+.recipe-head { text-align: center; }
+
+.book-title {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.imprint {
+  margin: 0.5rem 0 1.75rem;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.motto {
+  margin: 1rem 0 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--faint);
+}
+
+main p { margin: 0 0 1.25rem; }
+
+.section {
+  margin-top: 2.25rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: center;
+}
+
+.drop { margin-top: 0.5rem; }
+
+.cap {
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  font-weight: 400;
+}
+
+strong { font-weight: 600; }
+
+blockquote.ledger {
+  margin: 1.5rem 1.5rem 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--leaf);
+  border-left: 3px double var(--rule);
+  border-right: 3px double var(--rule);
+  font-style: italic;
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+blockquote.ledger p { margin: 0; }
+
+ol.method {
+  margin: 0 0 1.25rem;
+  padding-left: 1.4rem;
+}
+
+ol.method li { margin-bottom: 0.8rem; }
+
+ol.method li::marker {
+  font-variant-numeric: oldstyle-nums;
+  color: var(--faint);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(43, 38, 32, 0.4);
+}
+
+a:hover { text-decoration-color: var(--ink); }
+
+.foot {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.foot p { margin: 1rem 0 0; }
+
+[dir="rtl"] { font-size: 1.05em; }
+
+@media (max-width: 40rem) {
+  .plate { padding: 2.5rem 1.25rem 3rem; }
+  h1 { font-size: 2.1rem; }
+  blockquote.ledger { margin-left: 0.5rem; margin-right: 0.5rem; }
+}
