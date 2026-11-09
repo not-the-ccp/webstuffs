@@ -1,0 +1,249 @@
+/* Crossroads of America — White River Records WRC-582 */
+
+:root {
+  --racing: #0e3d2e;
+  --racing-deep: #08251c;
+  --cream: #f3ead6;
+  --cream-dark: #e4d6b8;
+  --brass: #b98a2f;
+  --brass-light: #d9b45c;
+  --ink: #1d1710;
+  --blush: #c86a4a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(217, 180, 92, 0.28), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 110%, rgba(14, 61, 46, 0.35), transparent 65%),
+    repeating-linear-gradient(115deg, rgba(14, 61, 46, 0.05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-115deg, rgba(185, 138, 47, 0.05) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+  min-height: 100vh;
+}
+
+/* checker strips — the backstretch, top and bottom */
+.checker {
+  height: 34px;
+  background:
+    linear-gradient(45deg, var(--ink) 25%, transparent 25%) -16px 0,
+    linear-gradient(-45deg, var(--ink) 25%, transparent 25%) -16px 0,
+    linear-gradient(45deg, transparent 75%, var(--ink) 75%) -16px 0,
+    linear-gradient(-45deg, transparent 75%, var(--ink) 75%);
+  background-size: 34px 34px;
+  background-color: var(--cream);
+  border-bottom: 3px solid var(--racing);
+  animation: checker-run 14s linear infinite;
+}
+.checker.bottom { border-bottom: none; border-top: 3px solid var(--racing); animation-direction: reverse; }
+@keyframes checker-run {
+  from { background-position: -16px 0, -16px 0, -16px 0, -16px 0; }
+  to   { background-position: 32px 0, 32px 0, 32px 0, 32px 0; }
+}
+
+.sleeve-top {
+  text-align: center;
+  padding: 3rem 1rem 1.6rem;
+  background:
+    radial-gradient(ellipse 60% 120% at 50% 100%, rgba(14, 61, 46, 0.10), transparent 70%),
+    linear-gradient(180deg, rgba(14, 61, 46, 0.92), rgba(14, 61, 46, 0.86));
+  color: var(--cream);
+  border-bottom: 6px double var(--brass);
+}
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--brass-light);
+  margin: 0 0 1.1rem;
+}
+.sleeve-top h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.02;
+  text-shadow: 0 3px 0 var(--racing-deep), 0 0 40px rgba(217, 180, 92, 0.25);
+}
+.pronunciation {
+  margin: 1rem auto 0;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--cream-dark);
+}
+.oval-ornament {
+  width: min(420px, 84vw);
+  color: var(--brass-light);
+  margin-top: 1.4rem;
+  filter: drop-shadow(0 0 8px rgba(217, 180, 92, 0.4));
+}
+
+.sleeve {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.2rem 2rem;
+}
+
+.chapter {
+  background:
+    linear-gradient(180deg, rgba(243, 234, 214, 0.96), rgba(243, 234, 214, 0.9));
+  border: 1px solid rgba(29, 23, 16, 0.35);
+  border-left: 8px solid var(--racing);
+  box-shadow: 6px 6px 0 rgba(14, 61, 46, 0.18);
+  padding: 1.4rem 1.6rem 1.6rem;
+  margin: 2.2rem 0;
+  position: relative;
+}
+.chapter::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: 14px;
+  width: 46px; height: 10px;
+  background:
+    linear-gradient(45deg, var(--ink) 25%, transparent 25%) 0 0,
+    linear-gradient(-45deg, var(--ink) 25%, transparent 25%) 0 0,
+    linear-gradient(45deg, transparent 75%, var(--ink) 75%) 0 0,
+    linear-gradient(-45deg, transparent 75%, var(--ink) 75%) 0 0;
+  background-size: 10px 10px;
+  background-color: var(--cream);
+}
+.chapter h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.95rem;
+  color: var(--racing);
+  border-bottom: 3px double var(--brass);
+  padding-bottom: 0.55rem;
+  margin: 0 0 1rem;
+}
+.chapter p { line-height: 1.72; font-size: 1.02rem; margin: 0 0 1rem; }
+.chapter a { color: var(--racing); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.chapter a:hover { background: var(--brass-light); color: var(--racing-deep); }
+
+/* tracklist */
+.tracks { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+.tracks li {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px dashed rgba(29, 23, 16, 0.4);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.tracks li:hover { background: rgba(185, 138, 47, 0.14); transform: translateX(6px); }
+.tracks .side {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--blush);
+  min-width: 2.2rem;
+  letter-spacing: 0.1em;
+}
+.tracks li.playing {
+  background: linear-gradient(90deg, rgba(14, 61, 46, 0.14), transparent 80%);
+  border-left: 5px solid var(--racing);
+  padding-left: 0.5rem;
+}
+.tracks li.playing .side::after {
+  content: " \25B6";
+  font-size: 0.7rem;
+}
+
+/* recipe card */
+.recipe-card {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.55rem, rgba(185, 138, 47, 0.35) 1.55rem 1.6rem),
+    linear-gradient(160deg, #f7efdc, #efe2c4);
+  border: 1px solid rgba(29, 23, 16, 0.4);
+  box-shadow: 3px 4px 0 rgba(29, 23, 16, 0.25);
+  padding: 1rem 1.2rem 1.3rem;
+  transform: rotate(-1.1deg);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 2.2rem;
+  margin: 1.2rem 0.4rem;
+}
+.card-title {
+  display: block;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--racing);
+  border-bottom: 1px solid rgba(29, 23, 16, 0.5);
+  line-height: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+.gravy-line { color: var(--blush); font-weight: 700; }
+
+/* the disc */
+.disc-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0 1rem;
+  cursor: pointer;
+}
+.disc {
+  width: min(260px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.22), transparent 26%),
+    repeating-radial-gradient(circle, #141210 0 2px, #221f1a 2px 4px);
+  box-shadow:
+    0 14px 30px rgba(8, 37, 28, 0.45),
+    inset 0 0 0 6px #0c0b09,
+    0 0 0 2px var(--brass);
+  animation: spin 4.5s linear infinite;
+  position: relative;
+}
+.disc.paused { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.disc-label {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, var(--brass-light), var(--brass) 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--racing-deep);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  box-shadow: inset 0 0 0 2px rgba(8, 37, 28, 0.5);
+}
+.disc-label::after {
+  content: "";
+  position: absolute;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: inset 0 0 3px rgba(29, 23, 16, 0.7);
+}
+.disc-label small { font-weight: 400; font-size: 0.62rem; margin-top: 0.25rem; }
+
+.colophon {
+  text-align: center;
+  padding: 1.6rem 1rem 2.6rem;
+}
+.colophon-line {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--racing);
+  margin: 0.4rem 0;
+}
+.colophon-line.small { font-size: 0.62rem; color: rgba(29, 23, 16, 0.6); }
+
+@media (prefers-reduced-motion: reduce) {
+  .checker, .disc { animation: none; }
+}
