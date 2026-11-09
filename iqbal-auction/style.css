@@ -1,0 +1,196 @@
+/* The Sialkot Rooms — Evening Sale No. 31, Lot 214 */
+
+:root {
+  --paper: #f4ead6;
+  --paper-deep: #ece0c6;
+  --ink: #2c2417;
+  --rule: #b49a6a;
+  --gold: #8a6d1f;
+  --moss: #4a5a3a;
+  --card-paper: #faf3e0;
+  --card-line: #d96a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.catalogue {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.sale-head {
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 1.25rem;
+}
+
+.rooms {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+}
+
+.sale-sub {
+  font-style: italic;
+  max-width: 36rem;
+  margin: 0 auto 0.75rem;
+}
+
+.sale-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+section { margin-top: 2.25rem; }
+
+.lot {
+  position: relative;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+.lot-stamp {
+  position: absolute;
+  top: -0.9rem;
+  right: 1rem;
+  width: 4.2rem;
+  height: 4.2rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--gold);
+  font-size: 1.35rem;
+  font-weight: bold;
+  transform: rotate(6deg);
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.35;
+  margin: 0 0 1rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.lot-line { font-weight: bold; }
+
+.estimate {
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+.cards-intro { font-size: 0.95rem; }
+
+.card-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.card-tab {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--paper-deep);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+.card-tab[aria-selected="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--paper);
+}
+
+.card-case { display: grid; gap: 0.75rem; }
+
+.album-card {
+  background: var(--card-paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--moss);
+  padding: 0.9rem 1.1rem 0.75rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 1.7rem,
+    rgba(217, 106, 90, 0.35) 1.7rem
+  );
+}
+
+.card-no {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 0.25rem;
+  color: var(--moss);
+}
+
+.card-leg {
+  font-style: italic;
+  margin: 0 0 0.4rem;
+}
+
+.card-fare {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+  color: var(--gold);
+}
+
+.card-final { border-left-color: var(--gold); }
+
+.card-note { font-size: 0.88rem; font-style: italic; }
+
+q { color: var(--moss); font-style: italic; }
+
+.cross p, .provenance p { max-width: 44rem; }
+
+a { color: var(--gold); }
+
+a:hover { color: var(--moss); }
+
+.catalogue-foot {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--gold);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.foot-rule {
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--moss);
+}
