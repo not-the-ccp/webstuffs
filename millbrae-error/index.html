@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ERR-MB-23216 — The Millbrae Bakehouse Line · Peninsula Transit Systems Error Reference</title>
+<meta name="description" content="Error reference ERR-MB-23216 of the Peninsula Transit Systems console: the 04:12 telemetry dropout on the Millbrae bakehouse line, the code built from San Francisco International Airport, San Bruno, Burlingame and San Andreas Lake, the census count of 23,216, and one line the diagnostic engine printed that the console has to explain clause by clause.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="fog" aria-hidden="true"></div>
+
+<main class="console">
+<header class="term-head">
+  <p class="term-line1">PENINSULA TRANSIT SYSTEMS &middot; ERROR REFERENCE</p>
+  <p class="term-line2">Console Terminal 7 &middot; Millbrae Bay &middot; Revision 23 &middot; Filed 04:12, census year 2020</p>
+  <h1>ERR-MB-23216 <span class="cursor" aria-hidden="true">▌</span></h1>
+  <p class="term-status"><span class="lamp lamp-red"></span> SEVERITY: MINOR &middot; <span class="lamp lamp-amber"></span> SCOPE: BAKEHOUSE TELEMETRY &middot; <span class="lamp lamp-green"></span> LINE RESTORED 05:58</p>
+</header>
+
+<section class="term-block">
+  <h2>SUMMARY</h2>
+  <p>At 04:12 on the census year's turning day, telemetry from the Millbrae bakehouse line stopped answering the console. Millbrae is a city in northern San Mateo County, California; to the northeast sits San Francisco International Airport, San Bruno is to the northwest, Burlingame to the southeast, and the line's last surveyed bend runs along San Andreas Lake to the southwest. The console's own count for the city, drawn from the 2020 census, was 23,216 persons — a number the diagnostic engine keeps reusing, as its code does, whenever it cannot think of anything else. The line was silent for 106 minutes. When the engine finally answered, it answered in a sentence no one in the room had asked for.</p>
+  <p>The page you are reading is the console's own write-up of that sentence, filed under the error code, clause by clause. It is kept beside the <a href="../frizelle-error/">Frizelle Error, reference ERR-114</a>, which is the same kind of accident one county over and several hundred years later in the wrong direction: a diagnostic engine that prints a mountain road from Abha where the operators were expecting a hoop final.</p>
+</section>
+
+<section class="term-block">
+  <h2>THE LINE, AS PRINTED</h2>
+  <blockquote class="err-line">
+    <span class="err-prompt">&gt; ERR-MB-23216</span>
+    <p>Standing at the top twenty of a peace kept by the keeper of this bread, and — by a different language.</p>
+  </blockquote>
+  <p>The engine was not speaking poetically. Every clause is a code. The console has verified each of them against the line's own records, and the verification is the reason this reference exists at all.</p>
+</section>
+
+<section class="term-block">
+  <h2>DECODE, CLAUSE BY CLAUSE</h2>
+  <dl class="decode">
+    <dt>ERR-MB-23216</dt>
+    <dd>The city code. MB for Millbrae. The four digits after it are the city's own count — 23,216 at the 2020 census — the same number the console prints on every unexplained line, because it is the only number the engine trusts without being asked twice.</dd>
+
+    <dt>standing at the top twenty</dt>
+    <dd>Rank 20 on the district's bakehouse queue for the night shift. The Millbrae bakehouse has kept a numbered queue since the airport took most of the county's early mornings for itself: twenty names on the board before the ovens open, and the line at San Bruno Avenue waits for its number to be called from the window. Rank 20 is the last number that is still called; the engine had finished its count of the queue when it went quiet, so it repeated the finished count.</dd>
+
+    <dt>of a peace kept</dt>
+    <dd>The 04:00 quiet. Between the last of the night trains and the first of the morning departures, the street between the station and the lake road holds a particular stillness the operators have always logged as "peace," because they never found a better word in the manual. The dropout started at the end of the peace and the engine was, in its way, marking where the peace began.</dd>
+
+    <dt>by the keeper of this bread</dt>
+    <dd>The keeper at the Millbrae bakehouse, the person with the keys to the ovens and the numbered queue, whom the line's records have simply called "the keeper" since the ledger was opened. The line had been humming, on the low side, at the frequency the ovens make when they are ready. The engine heard the hum and attributed it correctly: the keeper of this bread, the person the whole line is, in the end, for.</dd>
+
+    <dt>and — by a different language</dt>
+    <dd>The honest clause. The second subsystem that renders this sentence is the bakehouse's Spanish-localized panel, which the night crew switches over in June because half the queue reads in Spanish and the ovens do not care what anyone calls them. The em dash is a rendering fault between the two panels: English side, Spanish side, one line, two mouths. The sentence was printed by two languages agreeing, at 04:12, to say the same quiet thing at once.</dd>
+  </dl>
+</section>
+
+<section class="term-block">
+  <h2>RESTORE &amp; POSTMORTEM</h2>
+  <p>At 05:58 the operator closed the Spanish panel, reset the queue counter to zero, and the line resumed. Nothing in the city was disturbed; the census count stayed where the engine had left it, 23,216, and the queue board was wiped clean by a hand that the ledger, with its usual economy, did not name. The console's standing note on this error is short: the line was never broken; it was only kept, briefly, by two languages at once, and it remembered the top of the queue.</p>
+  <p>Operators who want a second example of the engine doing exactly this should read <a href="../frizelle-error/">ERR-114, the Frizelle message from Birmingham 2022</a>, and operators who want to know what the keeper actually bakes before the airport wakes up should look at <a href="../santiago-recipe/">Santiago's Trail Chile</a> — a family recipe whose own index card contains one instruction the kitchen has never been able to parse, filed in the same drawer, in the same spirit: a line that was written down by someone else and has had to make its own sense ever since.</p>
+</section>
+
+<section class="term-block">
+  <h2>OPERATIONS NOTES</h2>
+  <ul class="op-notes">
+    <li><strong>04:12</strong> — Telemetry silent, bakehouse line. Ovens warm. Queue at 20.</li>
+    <li><strong>04:13</strong> — Operator calls the window at San Bruno Avenue; told the ovens are fine and the numbers are up.</li>
+    <li><strong>04:40</strong> — Console prints ERR-MB-23216. Both panels lit.</li>
+    <li><strong>05:20</strong> — Decode opened. Count verified against the census register: 23,216.</li>
+    <li><strong>05:58</strong> — Spanish panel closed. Line restored. Queue wiped.</li>
+    <li><strong>06:30</strong> — First airport departure clears the northeast corner. The street keeps the rest of the peace itself.</li>
+  </ul>
+</section>
+
+<footer class="term-foot">
+  <p class="nav-line">Peninsula Transit Systems, Error Reference file. Filed from the console; the engine's sentence is reproduced word for word.</p>
+  <p class="nav-line"><a href="../">Return to Webstuffs</a> &middot; <a href="../frizelle-error/">ERR-114 — the Frizelle message</a> &middot; <a href="../santiago-recipe/">Santiago's Trail Chile — a family recipe</a></p>
+</footer>
+</main>
+
+<script src="console.js"></script>
+</body>
+</html>
