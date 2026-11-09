@@ -1,0 +1,201 @@
+/* The Thirty-Two — bench log styling */
+
+:root {
+  --walnut: #241a13;
+  --walnut-deep: #1a120c;
+  --kraft: #e8d9ae;
+  --kraft-dim: #cdbb8d;
+  --brass: #8a6d3f;
+  --brass-bright: #c9a24b;
+  --oxblood: #6b1d1d;
+  --lamp-blue: #3d6ea8;
+  --lamp-red: #b03a2e;
+  --lamp-amber: #f3c14b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 90px),
+    var(--walnut-deep);
+  color: var(--kraft);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.outer {
+  max-width: 760px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
+  position: relative;
+}
+
+/* corner screws on the workboard */
+.screw {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d8c084, #6e5527 70%);
+  border: 1px solid #3a2c15;
+}
+.screw::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 1px; bottom: 1px;
+  width: 1.5px;
+  margin-left: -0.75px;
+  background: #3a2c15;
+}
+.screw--tl { top: 0; left: 0; }
+.screw--tr { top: 0; right: 0; }
+.screw--bl { bottom: 0; left: 0; }
+.screw--br { bottom: 0; right: 0; }
+
+.nameplate {
+  border: 3px double var(--brass);
+  background: linear-gradient(180deg, #2e2019, #201510);
+  padding: 1.5rem 1.75rem 1.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+  margin: 0 0 0.75rem;
+}
+h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  letter-spacing: 0.04em;
+  color: var(--kraft);
+}
+.sub {
+  margin: 0.35rem 0 1rem;
+  font-style: italic;
+  color: var(--kraft-dim);
+}
+.namebar { display: flex; justify-content: center; }
+.plate { width: 220px; max-width: 100%; }
+
+.log .entry {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), transparent 40%),
+    #2b2018;
+  border: 1px solid #4a3823;
+  border-left: 6px solid var(--oxblood);
+  padding: 1.25rem 1.5rem 1rem;
+  margin: 0 0 1.75rem;
+}
+.log h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.9rem;
+  color: var(--brass-bright);
+}
+.log h2 .date { color: var(--lamp-amber); }
+.log p { margin: 0 0 1rem; }
+.log p:last-child { margin-bottom: 0; }
+
+a { color: var(--lamp-amber); }
+a:hover { color: #ffe08a; }
+
+.keeper {
+  margin: 1rem 0;
+  padding: 0.9rem 1.1rem 0.9rem 1.3rem;
+  border-left: 4px solid var(--lamp-amber);
+  background: rgba(243, 193, 75, 0.08);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.98rem;
+}
+.keeper p { margin: 0; }
+
+.parts {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 1rem;
+  background: var(--walnut-deep);
+  border: 1px dashed var(--brass);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.88rem;
+}
+.parts .qty {
+  display: inline-block;
+  min-width: 2.2em;
+  color: var(--lamp-amber);
+}
+
+/* the board itself */
+.board {
+  margin: 1.25rem 0 0.5rem;
+  padding: 1rem 1.1rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0 3px, transparent 3px 26px),
+    #33241a;
+  border: 4px solid #4a3823;
+  border-radius: 4px;
+}
+.board .row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.lamp {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #12100d;
+  border: 2px solid #57493a;
+  box-shadow: inset 0 0 4px #000;
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+}
+.lamp.on-blue { background: var(--lamp-blue); border-color: #7fa8d8; box-shadow: 0 0 10px 2px rgba(61,110,168,0.7); }
+.lamp.on-red  { background: var(--lamp-red);  border-color: #e08a7d; box-shadow: 0 0 10px 2px rgba(176,58,46,0.7); }
+.lamp.on-amber{ background: var(--lamp-amber);border-color: #ffe08a; box-shadow: 0 0 12px 3px rgba(243,193,75,0.8); }
+
+.knife {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--kraft);
+  background: var(--oxblood);
+  border: 1px solid #8a3535;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+.knife:hover { background: #7d2424; }
+
+.tprinter {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0.6rem 0.8rem;
+  min-height: 2.4em;
+  background: #f0e6c8;
+  color: #2a2018;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  border: 1px solid #b9a76f;
+  max-height: 9em;
+  overflow-y: auto;
+}
+.tprinter:empty { display: none; }
+.tprinter li { margin: 0 0 2px; }
+
+.bench {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-top: 1px solid var(--brass);
+  padding-top: 0.9rem;
+}
