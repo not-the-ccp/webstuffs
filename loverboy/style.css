@@ -1,0 +1,213 @@
+/* Glitter District — official brochure sheet */
+:root {
+  --paper: #fff7ee;
+  --ink: #2a1020;
+  --magenta: #d6006e;
+  --gold: #e8a013;
+  --deep: #4a0d3c;
+  --rule: #e8c8b0;
+}
+* { box-sizing: border-box; }
+body.brochure {
+  margin: 0 auto;
+  max-width: 880px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  box-shadow: 0 0 0 1px var(--rule), 0 18px 50px rgba(74, 13, 60, .25);
+}
+
+/* ---------- cover ---------- */
+.cover {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(232, 160, 19, .18), transparent 34%),
+    radial-gradient(circle at 88% 78%, rgba(214, 0, 110, .16), transparent 40%),
+    var(--paper);
+  border-bottom: 6px double var(--magenta);
+  padding: 1.1rem 1.6rem 1.4rem;
+}
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .5rem;
+}
+.kicker {
+  margin: 1.6rem 0 0;
+  font-size: .8rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  font-weight: bold;
+}
+.title {
+  margin: .2rem 0 0;
+  font-family: "Arial Black", "Franklin Gothic Heavy", Impact, sans-serif;
+  font-size: clamp(3rem, 11vw, 6.4rem);
+  line-height: .92;
+  letter-spacing: -.02em;
+}
+.t-lover { color: var(--magenta); -webkit-text-stroke: 0; }
+.t-boy {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--deep);
+}
+.byline {
+  margin: .8rem 0 1.2rem;
+  font-style: italic;
+  color: var(--deep);
+}
+.cover-row { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
+.stamp {
+  flex: 0 0 auto;
+  width: 118px; height: 118px;
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  transform: rotate(-8deg);
+  outline: 2px dashed var(--gold);
+  outline-offset: 5px;
+  color: var(--deep);
+  background: rgba(232, 160, 19, .07);
+}
+.stamp-ring { font-size: .5rem; letter-spacing: .18em; margin: 0; }
+.stamp-mid {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 1.25rem;
+  margin: .15rem 0;
+  color: var(--magenta);
+}
+.facts { list-style: none; margin: 0; padding: 0; flex: 1 1 320px; }
+.facts li {
+  display: flex; justify-content: space-between; gap: 1rem;
+  border-bottom: 1px dotted var(--rule);
+  padding: .3rem 0;
+  font-size: .85rem;
+}
+.facts li span {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .66rem;
+  color: var(--deep);
+  padding-top: .15rem;
+}
+.tearline {
+  margin: 1.2rem 0 0;
+  color: var(--magenta);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: .7;
+}
+
+/* ---------- body ---------- */
+main { padding: 1.4rem 1.6rem 0; }
+h2 {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--deep);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: .3rem;
+  margin: 0 0 .9rem;
+}
+.lede p { max-width: 62ch; }
+
+/* itinerary */
+.stops { list-style: none; margin: 0; padding: 0; position: relative; }
+.stops::before {
+  content: "";
+  position: absolute;
+  left: 15px; top: 8px; bottom: 8px;
+  border-left: 3px dashed var(--magenta);
+}
+.stop {
+  position: relative;
+  padding: 0 0 1.2rem 3.4rem;
+}
+.pin {
+  position: absolute;
+  left: 0; top: .1rem;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--magenta);
+  color: #fff;
+  font-family: "Arial Black", Impact, sans-serif;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--gold);
+}
+.stop h3 {
+  margin: .1rem 0 .3rem;
+  font-size: 1rem;
+  color: var(--magenta);
+}
+.stop p { margin: 0; max-width: 64ch; }
+
+/* two-panel grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 1.6rem;
+}
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+.panel {
+  background: #fff;
+  border: 2px solid var(--deep);
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: 5px 5px 0 rgba(214, 0, 110, .25);
+}
+.panel h2 { border-bottom-width: 2px; margin-bottom: .7rem; }
+.numbers dl { margin: 0; }
+.numbers div {
+  display: flex; gap: .8rem; align-items: baseline;
+  border-bottom: 1px dotted var(--rule);
+  padding: .35rem 0;
+}
+.numbers dt {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  min-width: 2.2rem;
+}
+.numbers dd { margin: 0; font-size: .88rem; }
+.hours p { font-size: .9rem; margin: 0; }
+
+/* neighbors */
+.neighbors { margin-top: 1.8rem; background: var(--deep); color: #ffe9f2; padding: 1.1rem 1.3rem; }
+.neighbors h2 { color: #ffe9f2; border-bottom-color: var(--gold); }
+.neighbors p { max-width: 68ch; font-size: .92rem; }
+.neighbors a { color: var(--gold); }
+.neighbors a:hover { color: #fff; }
+
+/* back cover */
+.back-cover {
+  margin-top: 1.6rem;
+  border-top: 6px double var(--magenta);
+  padding: 1rem 1.6rem 1.4rem;
+  text-align: center;
+}
+.fine {
+  margin: .2rem 0;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+.fine.small { font-size: .62rem; opacity: .75; }
+
+a { color: var(--magenta); }
+a:hover { color: var(--deep); }
