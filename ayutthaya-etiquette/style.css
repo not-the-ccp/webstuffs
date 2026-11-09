@@ -1,0 +1,166 @@
+/* Chapter XIV — Of the Proper Presentation of a Kingdom */
+:root {
+  --parchment: #f4ecd9;
+  --ink: #2e2418;
+  --gold: #a67c1b;
+  --river: #3d5a6c;
+  --seal: #7a2e2e;
+}
+
+body {
+  margin: 0;
+  background: #e9dfc6;
+  background-image: radial-gradient(circle at 20% 10%, rgba(166, 124, 27, 0.08), transparent 45%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.book {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  background: var(--parchment);
+  box-shadow: 0 0 40px rgba(46, 36, 24, 0.25);
+  border-top: 6px double var(--gold);
+  border-bottom: 6px double var(--gold);
+}
+
+.chapter-head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.series {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--seal);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--seal);
+  font-variant: small-caps;
+}
+
+.chapter-title {
+  font-size: 1.15rem;
+  font-style: italic;
+  max-width: 34rem;
+  margin: 0.75rem auto 0;
+}
+
+.thai { font-style: italic; }
+
+.gold-rule {
+  width: 8rem;
+  height: 3px;
+  margin: 1.25rem auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.register {
+  margin: 1.5rem auto 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+.register th {
+  text-align: right;
+  padding: 0.25rem 1rem 0.25rem 0;
+  color: var(--river);
+  font-weight: normal;
+  white-space: nowrap;
+}
+.register td { padding: 0.25rem 0; }
+.register tr + tr { border-top: 1px dotted rgba(46, 36, 24, 0.3); }
+
+section { margin-bottom: 2.25rem; }
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--river);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin-top: 0;
+}
+
+.doors li { margin-bottom: 0.4rem; }
+
+blockquote.banquet-card {
+  margin: 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #efe4c3;
+  border-left: 4px solid var(--seal);
+  font-style: italic;
+  box-shadow: 2px 2px 0 rgba(122, 46, 46, 0.15);
+}
+blockquote.banquet-card p { margin: 0; }
+
+.calculator {
+  background: #efe4c3;
+  border: 1px solid var(--gold);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+.calculator label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.calculator select {
+  width: 100%;
+  padding: 0.45rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--parchment);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+}
+#greeting {
+  margin: 0.75rem 0 0;
+  font-style: italic;
+  color: var(--seal);
+}
+
+.tribute-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 1rem;
+}
+.tribute-table th, .tribute-table td {
+  border: 1px solid rgba(166, 124, 27, 0.5);
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+.tribute-table thead th {
+  background: var(--river);
+  color: var(--parchment);
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+.tribute-table tbody tr:nth-child(even) { background: rgba(166, 124, 27, 0.07); }
+.tribute-table tbody tr.lit {
+  background: rgba(122, 46, 46, 0.14);
+  outline: 2px solid var(--seal);
+  outline-offset: -2px;
+}
+
+a { color: var(--seal); }
+a:hover { color: var(--gold); }
+
+.colophon {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--river);
+  border-top: 1px solid var(--gold);
+  padding-top: 1rem;
+}
+.fine-print { font-size: 0.75rem; font-style: italic; color: #6b5d45; }
