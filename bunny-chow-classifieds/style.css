@@ -1,0 +1,138 @@
+/* The Durban Evening Ledger — Classified & Personal Columns, 14 July 1999 */
+
+:root {
+  --paper: #efe6cf;
+  --paper-dark: #e4d7b8;
+  --ink: #2b2419;
+  --ink-soft: #4a4131;
+  --rule: #3a3122;
+  --red: #8c2f1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #6b6152;
+  background-image: radial-gradient(circle at 30% 20%, rgba(0,0,0,.18), rgba(0,0,0,.35) 80%);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--ink);
+  padding: 2rem 0.75rem 3rem;
+}
+
+.sheet {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(120,90,40,.12), transparent 45%),
+    radial-gradient(ellipse at 88% 92%, rgba(120,90,40,.14), transparent 50%),
+    linear-gradient(180deg, rgba(255,255,255,.25), transparent 12%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.5), inset 0 0 60px rgba(140,110,60,.18);
+  border: 1px solid #b9a97f;
+  padding: 1.4rem 1.6rem 1.2rem;
+}
+
+/* Masthead */
+.mast-rule { border-top: 1px solid var(--rule); }
+.mast-rule.double-top { border-top: 3px double var(--rule); margin-bottom: .4rem; }
+.mast-rule.double-bottom { border-bottom: 3px double var(--rule); margin-top: .5rem; margin-bottom: .4rem; }
+.mast-date {
+  text-align: center;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.mast-title {
+  text-align: center;
+  font-size: 2.9rem;
+  line-height: 1;
+  margin: .3rem 0 .2rem;
+  font-variant: small-caps;
+  letter-spacing: .02em;
+  font-weight: 700;
+}
+.mast-sub {
+  text-align: center;
+  font-size: .85rem;
+  margin: 0 0 .4rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.mast-note {
+  text-align: center;
+  font-size: .74rem;
+  font-style: italic;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* Section bars */
+.section-bar {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: .22rem .4rem;
+  margin: 1rem 0 .7rem;
+  border: 1px solid var(--rule);
+}
+.section-bar.small { font-size: .68rem; margin-top: .9rem; }
+.section-num {
+  display: inline-block;
+  border: 1px solid var(--paper);
+  padding: 0 .35rem;
+  margin-right: .5rem;
+  font-weight: 700;
+}
+
+/* Columns */
+.cols {
+  column-count: 3;
+  column-gap: 1.1rem;
+  column-rule: 1px solid #a5946b;
+}
+@media (max-width: 860px) { .cols { column-count: 2; } }
+@media (max-width: 560px) { .cols { column-count: 1; } }
+
+.ad {
+  break-inside: avoid;
+  margin-bottom: .95rem;
+  border-bottom: 1px dashed #a5946b;
+  padding-bottom: .6rem;
+}
+.ad h2 {
+  font-size: .88rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin: 0 0 .3rem;
+  font-variant: small-caps;
+}
+.ad p {
+  font-size: .8rem;
+  line-height: 1.45;
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+}
+.ad p:first-letter { font-weight: 700; }
+
+/* Colophon */
+.colophon { margin-top: 1.2rem; }
+.colophon p {
+  font-size: .74rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-align: justify;
+}
+.colophon a { color: var(--red); text-decoration: underline; }
+.colophon-line {
+  text-align: center;
+  font-style: italic;
+  letter-spacing: .06em;
+  margin: .6rem 0 0;
+  font-size: .68rem;
+}
