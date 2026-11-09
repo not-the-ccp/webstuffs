@@ -1,0 +1,136 @@
+/* The Four-Day Ireland — Walking Guide No. 3, leaf for Glasnevin */
+
+:root {
+  --paper: #efe6d2;
+  --paper-deep: #e6dabf;
+  --ink: #2b2620;
+  --ink-faded: #5c5346;
+  --rule: #8a7a5c;
+  --red: #8c2f1e;
+  --green: #3e5238;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #6d6151
+    radial-gradient(ellipse at 20% 10%, #7b6f5d 0%, #6d6151 55%, #57503f 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 2rem 0.75rem 4rem;
+  line-height: 1.55;
+}
+
+.leaf {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(138,122,92,0.05) 26px 27px),
+    radial-gradient(ellipse at 50% 0%, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #b6a785;
+  box-shadow:
+    0 2px 3px rgba(0,0,0,0.35),
+    0 12px 32px rgba(0,0,0,0.45),
+    inset 0 0 60px rgba(122,102,64,0.28);
+  padding: 2.2rem 2.4rem 2.4rem;
+  position: relative;
+}
+
+.leaf::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+.masthead { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1rem; margin-bottom: 1.4rem; }
+
+.masthead-rule {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.masthead-sub {
+  font-style: italic;
+  color: var(--ink-faded);
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.masthead-ornament { color: var(--rule); letter-spacing: 0.6em; margin-top: 0.5rem; font-size: 0.85rem; }
+
+.entry { margin-bottom: 1.6rem; }
+
+.entry h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+
+.entry h2::before { content: "§ "; color: var(--red); }
+
+.entry p { margin-bottom: 0.8rem; text-align: justify; hyphens: auto; }
+
+.pron { font-size: 0.85em; color: var(--ink-faded); font-style: italic; }
+
+.route { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+
+.route caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin-bottom: 0.4rem;
+}
+
+.route th {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  text-align: left;
+  border-bottom: 2px solid var(--rule);
+  padding: 0.25rem 0.4rem;
+}
+
+.route td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.3rem 0.4rem;
+  vertical-align: top;
+}
+
+.route td:first-child { color: var(--red); font-weight: 700; width: 2.5rem; }
+
+a { color: var(--green); text-decoration: underline dotted; text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+
+.colophon { border-top: 3px double var(--rule); padding-top: 1rem; text-align: center; }
+
+.colophon-line { letter-spacing: 0.5em; color: var(--rule); }
+
+.colophon p { font-size: 0.85rem; color: var(--ink-faded); font-style: italic; }
+
+.colophon-small {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-style: normal;
+  margin-top: 0.6rem !important;
+}
