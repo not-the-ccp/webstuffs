@@ -1,0 +1,103 @@
+/* Kingpin of the Orioles — Joe Kelley · radio play stylesheet */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 1.5rem 1rem 4rem;
+  background: #193526;
+  color: #3a2e1e;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.7;
+}
+main.play {
+  max-width: 64ch;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2rem;
+  background: #f5f0de;
+  border: 7px solid #7c5331;
+  outline: 3px solid #193526;
+  outline-offset: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.55), inset 0 0 22px rgba(124,83,49,.22);
+}
+.broadcast {
+  border-bottom: 3px double #7c5331;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.station {
+  font-size: .8rem;
+  letter-spacing: .4rem;
+  text-transform: uppercase;
+  color: #a4302c;
+  margin: 0 0 .5rem;
+}
+.pilot {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin: .6rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: .9rem;
+  color: #7c5331;
+}
+.dot {
+  width: .65rem;
+  height: .65rem;
+  border-radius: 50%;
+  background: #c0241e;
+  box-shadow: 0 0 10px #c0241e;
+  animation: blink 1.2s ease-in-out infinite alternate;
+}
+@keyframes blink { from { opacity: .35; } to { opacity: 1; } }
+h1 {
+  font-size: 2rem;
+  margin: .55rem 0 .25rem;
+  letter-spacing: .05rem;
+  color: #222;
+}
+.byline {
+  font-size: .95rem;
+  color: #5a4a33;
+  margin: 0;
+}
+.scene { margin-bottom: 2rem; }
+.cue {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .85rem;
+  font-style: italic;
+  color: #5c4a33;
+  background: #e8e0c8;
+  border-left: 4px solid #7c5331;
+  padding: .55rem .85rem;
+  margin: 0 0 1rem;
+}
+.line {
+  margin: 0 0 .85rem;
+  padding-left: 1.2rem;
+  text-indent: -1.2rem;
+}
+.character {
+  font-weight: bold;
+  color: #6d1f1e;
+  font-size: .95rem;
+}
+.sfx { color: #8a6d3b; font-style: italic; }
+.shelf {
+  border-top: 3px double #7c5331;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: .95rem;
+  color: #5a4a33;
+}
+.shelf-mark {
+  font-size: .8rem;
+  letter-spacing: .3rem;
+  text-transform: uppercase;
+  color: #a4302c;
+  margin: 0 0 .75rem;
+}
+.shelf a { color: #a4302c; text-decoration: underline; }
+.shelf a:hover { color: #193526; }
+a { color: #a4302c; }
