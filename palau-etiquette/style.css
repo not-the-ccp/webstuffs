@@ -1,0 +1,209 @@
+/* Chapter XXVII - Of the Japanese in Palau
+   A Book of Etiquette - late-twentieth-century waiting-room styling */
+
+html {
+  background-color: #000033;
+}
+
+body {
+  margin: 0;
+  padding: 24px 12px 40px;
+  background-color: #000033;
+  background-image:
+    radial-gradient(circle at 12% 22%, #ffffcc 1px, transparent 2px),
+    radial-gradient(circle at 78% 14%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 45% 64%, #9999ff 1px, transparent 2px),
+    radial-gradient(circle at 90% 80%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 28% 88%, #ffffcc 1px, transparent 2px);
+  background-size: 240px 240px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #000000;
+}
+
+.frame {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: #ffffcc;
+  border: 6px ridge #999966;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 18px 22px;
+}
+
+.plaque {
+  text-align: center;
+  border-bottom: 3px double #663300;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.press {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #663300;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #330000;
+  letter-spacing: 3px;
+}
+
+h2 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  font-style: italic;
+  color: #003366;
+}
+
+.rule {
+  margin: 0;
+  color: #996600;
+  letter-spacing: 8px;
+}
+
+.marquee-bar {
+  background-color: #003366;
+  border: 3px inset #cccccc;
+  color: #ffffff;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 4px 0;
+  margin-bottom: 16px;
+}
+
+.chapter-body h3 {
+  background-color: #ffcc00;
+  border: 2px outset #ffffff;
+  padding: 4px 8px;
+  font-size: 15px;
+  color: #330000;
+}
+
+.chapter-body p {
+  line-height: 1.55;
+  text-align: justify;
+}
+
+a {
+  color: #0000cc;
+}
+
+a:visited {
+  color: #660099;
+}
+
+blockquote.register-line {
+  margin: 14px 8px;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  border: 3px inset #999966;
+  font-style: italic;
+}
+
+blockquote.register-line p {
+  margin: 4px 0;
+  text-align: left;
+}
+
+.counter-box,
+.guestbook {
+  margin: 18px 0;
+  padding: 10px 14px;
+  background-color: #ccffcc;
+  border: 4px ridge #339933;
+}
+
+.counter-box {
+  text-align: center;
+}
+
+h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #330000;
+}
+
+.odometer {
+  margin: 6px 0;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  letter-spacing: 6px;
+  color: #00ff00;
+  background-color: #000000;
+  border: 3px inset #999999;
+  display: inline-block;
+  padding: 2px 14px;
+}
+
+.counter-note {
+  font-size: 11px;
+  color: #336633;
+}
+
+.guest-form label {
+  display: block;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.guest-form input {
+  border: 2px inset #cccccc;
+  background-color: #ffffff;
+  font-family: "Courier New", monospace;
+}
+
+.guest-form button {
+  background-color: #cccccc;
+  border: 3px outset #ffffff;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  padding: 2px 12px;
+}
+
+.guest-form button:active {
+  border-style: inset;
+}
+
+.reply {
+  min-height: 16px;
+  font-style: italic;
+  color: #330000;
+}
+
+.gb-keeper {
+  font-size: 11px;
+  color: #336633;
+}
+
+.colophon {
+  border-top: 3px double #663300;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.tiny {
+  font-size: 11px;
+  font-style: italic;
+  color: #663300;
+}
+
+.foot {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #999900;
+}
+
+.blink {
+  animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
