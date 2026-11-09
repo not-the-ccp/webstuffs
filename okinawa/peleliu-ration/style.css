@@ -1,0 +1,160 @@
+/* Card No. 44 — the Peleliu Ration: a family recipe card, salt-stained, coral and sea-foam */
+
+:root {
+  --paper: #f6ead2;
+  --paper-edge: #e9d8b4;
+  --ink: #33291c;
+  --ink-soft: #5c4a33;
+  --coral: #b4552d;
+  --sea: #3f6b62;
+  --butter: #d9a441;
+  --plank: #7a5b3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    repeating-linear-gradient(0deg, rgba(63,107,98,.06) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, #2e4f4a 0%, #3f6b62 45%, #4d7d72 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem 4rem;
+}
+
+/* the reef band along the top — a row of coral, the row-locks */
+.reef {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 14px;
+  background:
+    radial-gradient(circle at 10px -4px, var(--coral) 9px, transparent 10px) repeat-x,
+    radial-gradient(circle at 30px -6px, #c96a3f 7px, transparent 8px) repeat-x;
+  background-size: 40px 14px, 40px 14px;
+  opacity: .8;
+}
+
+.card {
+  position: relative;
+  max-width: 46rem;
+  width: 100%;
+  background: var(--paper);
+  border: 2px solid var(--plank);
+  border-radius: 4px;
+  box-shadow:
+    0 2px 0 var(--paper-edge),
+    0 18px 40px rgba(0,0,0,.35);
+  padding: 3.25rem 3rem 2.5rem;
+  /* salt stains */
+  background-image:
+    radial-gradient(ellipse 90px 40px at 88% 6%, rgba(180,85,45,.08), transparent 70%),
+    radial-gradient(ellipse 70px 60px at 6% 82%, rgba(63,107,98,.10), transparent 70%);
+}
+
+/* the doily scallop at the top of the card */
+.doily {
+  position: absolute;
+  top: 8px; left: 8px; right: 8px;
+  height: 10px;
+  background: radial-gradient(circle at 10px 12px, var(--paper) 9px, transparent 10px) repeat-x, var(--butter);
+  background-size: 20px 10px;
+  opacity: .9;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.6rem; right: 1.4rem;
+  transform: rotate(7deg);
+  border: 2px double var(--coral);
+  color: var(--coral);
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  padding: .3rem .55rem;
+  opacity: .85;
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0 0 .4rem;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 .3rem;
+  color: var(--ink);
+}
+
+h1 em { color: var(--coral); font-style: italic; }
+
+.pos {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: .95rem;
+  margin: 0 0 1.1rem;
+}
+
+.plimsoll {
+  border: none;
+  border-top: 1px solid var(--butter);
+  border-bottom: 1px solid var(--butter);
+  height: 5px;
+  margin: 0 0 1.5rem;
+}
+
+.section-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--coral);
+  border-bottom: 1px dashed var(--plank);
+  padding-bottom: .3rem;
+  margin: 2rem 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+p strong { color: var(--coral); }
+
+a { color: var(--sea); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--coral); }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: .45rem; }
+
+ul.ingredients li::marker { content: "\25CF  "; color: var(--coral); font-size: .7em; }
+ol.method li::marker {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--sea);
+  font-weight: bold;
+}
+
+li.ing { transition: opacity .25s; }
+li.ing.picked { opacity: .45; text-decoration: line-through; }
+li.ing.picked::after { content: "  \2014  in the pot"; font-family: "Courier New", monospace; font-size: .8em; color: var(--sea); }
+
+.sign-off {
+  margin-top: 2.4rem;
+  padding-top: 1.1rem;
+  border-top: 2px double var(--plank);
+  font-size: .88rem;
+  color: var(--ink-soft);
+}
+
+.sign-off p:last-child { margin-bottom: 0; }
+
+@media (max-width: 600px) {
+  .card { padding: 2.4rem 1.4rem 1.8rem; }
+  h1 { font-size: 1.55rem; }
+  .stamp { top: 1.2rem; right: 1rem; }
+}
