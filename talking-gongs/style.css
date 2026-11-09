@@ -1,0 +1,228 @@
+/* The Kulintang Room — Desk No. 12: the gandingan */
+
+:root {
+  --brass: #c8a24a;
+  --brass-dark: #8a6d2f;
+  --walnut: #3a2a1c;
+  --walnut-deep: #241a10;
+  --paper: #f4ead8;
+  --paper-line: #e2d3b4;
+  --ink: #2b2117;
+  --red: #8a3324;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--walnut-deep);
+  background-image:
+    radial-gradient(ellipse at 50% -10%, #4a3623 0%, var(--walnut-deep) 62%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 9px);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.room-head {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1.5rem;
+  border-bottom: 3px double var(--brass-dark);
+}
+
+.plate {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.room-head h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+
+.room-head .of { color: var(--brass); font-style: italic; font-size: 1.6rem; }
+
+.pron {
+  margin: 0.75rem 0 0;
+  color: #cbb894;
+  font-style: italic;
+}
+
+.pron-label {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.faq {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.intro {
+  font-size: 1.06rem;
+  color: #e9dcc2;
+  border-left: 3px solid var(--brass);
+  padding-left: 1.1rem;
+}
+
+.q {
+  margin: 2.2rem 0;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper-line);
+  border-radius: 4px;
+  padding: 1.3rem 1.5rem 1.4rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.q h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  font-weight: normal;
+  border-bottom: 1px solid var(--paper-line);
+  padding-bottom: 0.55rem;
+}
+
+.q h2 .mark {
+  display: inline-block;
+  min-width: 2.4rem;
+  margin-right: 0.5rem;
+  color: var(--brass);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+.q q { color: var(--red); font-style: italic; }
+
+.gong-name { color: var(--brass-dark); font-style: italic; }
+
+/* the gong-board */
+
+.gong-board {
+  margin: 2.2rem 0;
+  background: #1c130b;
+  border: 2px solid var(--brass-dark);
+  border-radius: 6px;
+  padding: 1.4rem 1.4rem 1.2rem;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
+}
+
+.gongs {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.gong {
+  flex: 1 1 8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem;
+}
+
+.gong-face {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #6d5322 0 12%, transparent 12.5%),
+    radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.35) 56% 58%, transparent 58.5%),
+    repeating-radial-gradient(circle at 50% 50%, #c8a24a 0 7px, #b58e3c 7px 14px);
+  border: 3px solid #5c451f;
+  box-shadow: 0 8px 14px rgba(0,0,0,0.55), inset 0 -8px 14px rgba(0,0,0,0.3);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.gong[data-note="do-low"] .gong-face { width: 6.8rem; height: 6.8rem; }
+
+.gong:hover .gong-face { box-shadow: 0 8px 20px rgba(200,162,74,0.45), inset 0 -8px 14px rgba(0,0,0,0.3); }
+
+.gong.struck .gong-face {
+  transform: scale(0.955);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7), inset 0 -6px 12px rgba(0,0,0,0.45);
+}
+
+.gong .gong-name {
+  color: var(--brass);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+
+.board-note {
+  margin: 1.1rem 0 0.9rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #cbb894;
+  font-style: italic;
+  min-height: 1.4em;
+}
+
+.messages {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--brass-dark);
+}
+
+.messages li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed #5c451f;
+}
+
+.msg-name { font-style: italic; color: var(--paper); min-width: 11rem; }
+
+.msg-pattern { color: #a58f66; font-size: 0.88rem; flex: 1 1 14rem; }
+
+.strike {
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--walnut-deep);
+  background: var(--brass);
+  border: 1px solid var(--brass-dark);
+  border-radius: 3px;
+  padding: 0.28rem 0.85rem;
+  cursor: pointer;
+}
+
+.strike:hover { background: #dcb95e; }
+
+.strike:disabled { opacity: 0.55; cursor: wait; }
+
+.desk-foot {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--brass-dark);
+  padding-top: 1.1rem;
+  font-size: 0.92rem;
+  color: #cbb894;
+}
+
+.desk-foot a { color: var(--brass); }
+
+.desk-foot .fine { font-style: italic; color: #8f7c56; margin: 0.4rem 0 0; }
+
+@media (max-width: 40rem) {
+  .room-head h1 { font-size: 2rem; }
+  .msg-name { min-width: 100%; }
+}
