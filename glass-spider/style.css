@@ -1,0 +1,67 @@
+/* Galley Card No. 41 — Glass Spider Cakes */
+:root {
+  --paper: #f7f1e4;
+  --ink: #2b2118;
+  --red: #9e2b25;
+  --gold: #b98a2f;
+  --faint: #6d5c48;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #e8dfcb;
+  background-image: repeating-linear-gradient(0deg, rgba(158,43,37,0.03) 0 2px, transparent 2px 26px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.sheet {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem 1.5rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(43,33,24,0.25);
+  position: relative;
+}
+.mast { text-align: center; border-bottom: 3px double var(--ink); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.press { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin: 0 0 0.5rem; }
+h1 { font-size: 2.3rem; margin: 0; color: var(--red); letter-spacing: 0.02em; }
+.sub { font-style: italic; color: var(--faint); margin: 0.5rem 0 0; }
+.orn { color: var(--gold); letter-spacing: 0.5em; margin-top: 0.75rem; }
+h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); border-bottom: 1px solid var(--gold); padding-bottom: 0.3rem; }
+section { margin-bottom: 2rem; }
+p.charge {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--red);
+  border-left: 4px solid var(--gold);
+  padding-left: 1rem;
+  margin: 1.25rem 0 1.25rem 0.5rem;
+}
+a { color: var(--red); }
+a:hover { color: var(--gold); }
+.ingredients li, .method li { margin-bottom: 0.4rem; }
+.ingredients { list-style: none; padding-left: 0; }
+.ingredients li::before { content: "\274A  "; color: var(--gold); }
+.prep { font-style: italic; color: var(--faint); }
+/* the reckoner */
+.ledger { background: rgba(185,138,47,0.08); border: 1px solid var(--gold); padding: 1rem 1.25rem; }
+#reckoner { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin: 0.75rem 0; }
+#reckoner label { font-weight: bold; font-size: 0.9rem; }
+#show { width: 6rem; padding: 0.3rem 0.5rem; font: inherit; border: 1px solid var(--ink); background: #fffdf6; }
+#reckoner button {
+  font: inherit;
+  background: var(--red);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 0.3rem 0.9rem;
+  cursor: pointer;
+}
+#reckoner button:hover { background: var(--gold); color: var(--ink); }
+.result-line { font-size: 1.05rem; margin: 0.75rem 0 0.5rem; }
+.result-bar { height: 10px; background: #ded2b8; border: 1px solid var(--ink); }
+.bar-fill { display: block; height: 100%; background: repeating-linear-gradient(45deg, var(--red) 0 8px, var(--gold) 8px 16px); transition: width 0.35s ease; }
+.result-note { color: var(--faint); font-size: 0.9rem; }
+.colophon-box { border-top: 3px double var(--ink); font-size: 0.95rem; }
+.ft { text-align: center; font-size: 0.8rem; color: var(--faint); letter-spacing: 0.12em; }
