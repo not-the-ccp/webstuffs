@@ -1,0 +1,159 @@
+/* Gatehouse Games — Manual No. 9, The Rodrigues Solitaire */
+
+:root {
+  --paper: #f4efe2;
+  --ink: #2b3440;
+  --faded: #6b7480;
+  --sea: #31465c;
+  --pale: #e9e4d4;
+  --band: #ded9c4;
+  --road: #8a6d3b;
+  --lagoon: #5d7d72;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1.25rem;
+  text-align: center;
+  border-bottom: 3px double var(--sea);
+}
+
+.firm {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0.4rem 0 0.2rem;
+  color: var(--sea);
+  letter-spacing: 0.02em;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.4rem auto 1rem;
+  max-width: 36rem;
+}
+
+.mark { width: 160px; }
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+}
+
+section { margin: 2rem 0; }
+
+h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--sea);
+  border-bottom: 1px solid var(--band);
+  padding-bottom: 0.3rem;
+}
+
+p { margin: 0.9rem 0; }
+
+a { color: var(--sea); }
+
+blockquote.kept-line {
+  margin: 1.4rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--pale);
+  border-left: 4px solid var(--road);
+  font-style: italic;
+}
+
+blockquote.kept-line p { margin: 0.4rem 0; }
+blockquote.kept-line .attrib { font-size: 0.85rem; color: var(--faded); font-style: normal; }
+
+/* The Pale Centre */
+.game {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #efe9d8;
+  border: 1px solid var(--band);
+}
+
+.game-status { margin: 0 0 1rem; font-style: italic; color: var(--faded); }
+
+.track {
+  position: relative;
+  height: 2.6rem;
+  background: linear-gradient(90deg, #cfd6d2, #e5e7df 40%, #e5e7df 60%, #cfd6d2);
+  border: 2px solid var(--sea);
+  overflow: hidden;
+}
+
+.band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  width: 20%;
+  background: var(--pale);
+  border-left: 1px solid var(--road);
+  border-right: 1px solid var(--road);
+}
+
+.clapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: var(--road);
+  transform: translateX(-2px);
+}
+
+.game-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.45rem 1.1rem;
+  background: var(--sea);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+}
+
+button:hover { background: #3f5a75; }
+button:disabled { background: var(--faded); cursor: default; }
+
+.tally { font-size: 0.85rem; color: var(--faded); letter-spacing: 0.04em; }
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-top: 3px double var(--sea);
+}
