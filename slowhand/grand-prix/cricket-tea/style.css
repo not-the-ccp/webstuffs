@@ -1,0 +1,199 @@
+/* Card 17 — Loaf for the Long Innings
+   Set to read as a card index leaf from a family recipe book:
+   cream stock, ruled lines, brown-ink handwriting, one keep stamp,
+   two coffee rings, worn corners. */
+
+:root {
+  --paper: #f3ead6;
+  --page: #e9dfc7;
+  --ink: #3a2c20;
+  --ink-soft: #5c4936;
+  --rule: #b7a684;
+  --stain: rgba(122, 84, 44, 0.18);
+  --red: #8a3b2a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--page); }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.album-page {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* the card leaf */
+.card {
+  position: relative;
+  background:
+    /* ruled lines, faint, every 1.55em under the text blocks */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(1.55em - 1px),
+      var(--rule) calc(1.55em - 1px),
+      var(--rule) 1.55em
+    ),
+    /* coffee rings */
+    radial-gradient(circle at 86% 12%, transparent 0 3.1rem, var(--stain) 3.15rem 3.35rem, transparent 3.45rem),
+    radial-gradient(circle at 10% 88%, transparent 0 2.2rem, var(--stain) 2.25rem 2.4rem, transparent 2.5rem),
+    var(--paper);
+  border: 1px solid #cbb98f;
+  box-shadow:
+    0 1px 0 #fff inset,
+    0 10px 24px rgba(58, 44, 32, 0.28);
+  padding: 2.2rem 2.4rem 2.6rem;
+  transform: rotate(-0.35deg);
+  /* worn, slightly torn top edge */
+  clip-path: polygon(
+    0 0.5%, 8% 0.1%, 17% 0.6%, 29% 0%, 41% 0.5%, 55% 0.1%,
+    68% 0.6%, 81% 0%, 92% 0.5%, 100% 0.2%,
+    100% 100%, 0 100%
+  );
+}
+
+/* card head strip: no, book name, date */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.55rem;
+  margin-bottom: 1.4rem;
+}
+
+.card-no { font-weight: 700; color: var(--red); }
+
+/* handwritten-style title */
+.recipe-title {
+  margin: 0.2rem 0 0.3rem;
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 2.7rem;
+  line-height: 1.05;
+  color: var(--ink);
+  transform: rotate(-0.8deg);
+}
+
+.recipe-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0 0 1.4rem;
+}
+
+/* the KEEP stamp */
+.keepstamp {
+  position: absolute;
+  top: 1.6rem;
+  right: 2rem;
+  transform: rotate(9deg);
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  padding: 0.15rem 0.55rem 0.15rem 0.85rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+  mix-blend-mode: multiply;
+}
+
+.preamble-head {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  margin: 1.2rem 0 0.6rem;
+}
+
+p { margin: 0 0 1em; }
+
+.preamble p:first-of-type { text-indent: 0; }
+
+/* hand-underline for the kept line */
+.preamble em {
+  font-style: italic;
+  background: linear-gradient(transparent 68%, rgba(138, 59, 42, 0.25) 68%);
+}
+
+h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 0.8rem;
+}
+
+/* ingredients like a pencilled column */
+.ingredients ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.98rem;
+}
+
+.ingredients li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.ingredients li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--rule);
+}
+
+/* method, numbered like overs */
+.method ol {
+  margin: 0;
+  padding-left: 1.6rem;
+}
+
+.method li {
+  margin-bottom: 0.7rem;
+  font-size: 0.98rem;
+}
+
+.method li::marker {
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* colophon, pencilled small */
+.colophon {
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+a {
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-style: solid; }
+
+@media (max-width: 40rem) {
+  .card { padding: 1.6rem 1.3rem 2rem; transform: none; }
+  .keepstamp { right: 1rem; top: 1.2rem; }
+  .recipe-title { font-size: 2.1rem; }
+}
