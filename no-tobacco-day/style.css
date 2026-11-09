@@ -1,0 +1,165 @@
+/* Ruling 87-14 — Courtroom 3, the Old Customs House */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000033 url("stars.svg") repeat;
+  color: #000000;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.frame {
+  max-width: 720px;
+  margin: 18px auto 30px auto;
+  background: #FFFFCC;
+  border: 6px outset #C0C0C0;
+  box-shadow: 8px 8px 0 #000066;
+}
+
+.starbar {
+  height: 10px;
+  background: repeating-linear-gradient(90deg,
+    #000080 0 14px, #FFFF00 14px 28px, #FF00FF 28px 42px);
+  border-bottom: 3px ridge #808080;
+}
+
+.masthead {
+  text-align: center;
+  padding: 16px 20px 8px 20px;
+  background: #C0C0FF;
+  border-bottom: 3px ridge #808080;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin: 0 0 6px 0;
+  color: #333399;
+}
+
+h1 {
+  margin: 4px 0;
+  font-size: 26px;
+  color: #660000;
+  text-shadow: 2px 2px 0 #FFFF99;
+}
+
+.docket {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: #003300;
+  margin: 2px 0 6px 0;
+}
+
+.ornament {
+  letter-spacing: 8px;
+  color: #993300;
+  margin: 4px 0 0 0;
+}
+
+.record {
+  padding: 14px 24px 6px 24px;
+}
+
+table.parties {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 16px 0;
+  background: #FFFFF0;
+  border: 3px inset #C0C0C0;
+}
+
+table.parties th, table.parties td {
+  border: 2px groove #C0C0C0;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 13px;
+}
+
+table.parties th {
+  font-family: "Courier New", monospace;
+  white-space: nowrap;
+  color: #333399;
+}
+
+.body p {
+  text-indent: 2em;
+  margin: 0 0 12px 0;
+}
+
+.body p.caption {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  background: #FFFF99;
+  border: 2px dashed #996600;
+  text-indent: 0;
+  padding: 8px 10px;
+}
+
+.body em {
+  color: #660000;
+}
+
+.guestbook {
+  margin: 20px 0 14px 0;
+  padding: 12px 14px;
+  background: #99CCFF;
+  border: 4px ridge #336699;
+}
+
+.guestbook h2 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #003366;
+}
+
+.guestbook blockquote {
+  margin: 0 0 8px 0;
+  padding: 4px 10px;
+  background: #CCF2FF;
+  border-left: 6px double #003366;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.colophon {
+  margin: 16px 0 6px 0;
+  padding-top: 8px;
+  border-top: 3px double #996600;
+  font-size: 13px;
+}
+
+.colophon a { color: #333399; }
+
+a { color: #0000CC; }
+a:visited { color: #660099; }
+
+.footer {
+  text-align: center;
+  padding: 10px 16px 16px 16px;
+  background: #C0C0C0;
+  border-top: 3px ridge #808080;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.counter {
+  display: inline-block;
+  background: #000000;
+  color: #00FF00;
+  border: 3px inset #808080;
+  padding: 3px 10px;
+  letter-spacing: 2px;
+}
+
+.blink {
+  margin: 8px 0 4px 0;
+  color: #660000;
+  font-weight: bold;
+}
+
+.blink.on { color: #CC0000; }
