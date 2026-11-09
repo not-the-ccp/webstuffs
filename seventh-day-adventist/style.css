@@ -1,0 +1,153 @@
+/* Obituary — The Seventh-day Adventist Church */
+
+:root {
+  --paper: #f7f4ed;
+  --ink: #211d18;
+  --faded: #6e6455;
+  --hairline: #cfc6b6;
+  --accent: #5a3327;
+  --link: #3f5a6b;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.obituary {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 4rem;
+}
+
+.obituary-header {
+  text-align: center;
+}
+
+.masthead {
+  margin: 0 0 2.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.in-memoriam {
+  display: inline-block;
+  margin: 0 auto 1.6rem;
+  padding: 0.35rem 1.1rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 0.9rem;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5.5vw, 2.7rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.dates {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--faded);
+}
+
+.ornament {
+  margin: 2.6rem auto 2.4rem;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.body-copy p {
+  margin: 0 0 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.body-copy p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover { color: var(--ink); }
+
+.services {
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 3px double var(--hairline);
+}
+
+.services h2 {
+  margin: 0 0 1rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.services ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.services li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.3rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.services li:last-child { border-bottom: none; }
+
+.services li::before {
+  content: "\203A";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--accent);
+}
+
+.obituary-footer {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+}
+
+.obituary-footer p {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--faded);
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
