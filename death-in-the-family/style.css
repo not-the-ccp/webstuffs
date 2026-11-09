@@ -1,0 +1,109 @@
+/* The Family — Gotham Ledger dining column */
+
+:root {
+  --ink: #14121a;
+  --paper: #f4efe6;
+  --cowl: #1d2340;
+  --green: #2f5d3a;
+  --red: #7c2424;
+  --rule: #b7ab94;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: #2a2530;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 2.2rem 1.8rem 1.4rem;
+  box-shadow: 0 0 40px rgba(0,0,0,.6);
+}
+
+.masthead { border-bottom: 3px double var(--cowl); padding-bottom: 1rem; }
+
+.paper-line {
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6d6575;
+  margin: 0 0 .6rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: .04em;
+  color: var(--cowl);
+}
+
+.address { font-style: italic; color: #575060; margin: .3rem 0 0; }
+
+.scorebar { margin-top: .6rem; font-size: 1.1rem; }
+.star { color: var(--rule); }
+.star.filled { color: var(--cowl); }
+.score-note { font-size: .8rem; font-style: italic; margin-left: .6rem; color: #6d6575; }
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cowl);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .2rem;
+  margin: 1.6rem 0 .7rem;
+}
+
+.lede { font-size: 1.05rem; }
+
+a { color: var(--cowl); }
+
+/* The poll reckoner */
+.poll {
+  background: #21202b;
+  color: #e9e3d5;
+  padding: 1rem 1.2rem 1.2rem;
+  margin-top: 2rem;
+  border: 1px solid #000;
+}
+.poll h2 { color: #e9e3d5; border-bottom-color: #4a4658; }
+.poll-controls { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin: .6rem 0; }
+.poll-controls label { font-family: "Courier New", monospace; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+.poll-controls input {
+  font: inherit;
+  padding: .25rem .4rem;
+  width: 8rem;
+  background: #f4efe6;
+  color: #14121a;
+  border: 1px solid var(--rule);
+}
+.poll-controls button {
+  font: inherit;
+  padding: .3rem .9rem;
+  background: var(--cowl);
+  color: #f4efe6;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.poll-controls button:hover { background: #2c3460; }
+.poll-result p { margin: .3rem 0; font-family: "Courier New", monospace; font-size: .95rem; }
+.green { color: #8fd0a0; }
+.red { color: #e58f8f; }
+.margin-line { color: #b9b2a0; font-size: .85rem; }
+.no-js { font-size: .8rem; color: #9a93a8; }
+
+.foot {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-size: .8rem;
+  color: #6d6575;
+  font-style: italic;
+}

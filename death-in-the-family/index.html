@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Family — Restaurant Review · Gotham Ledger, Dining Column</title>
+<meta name="description" content="A four-star restaurant review of The Family, the Gotham diner at 429 Bowery Lane: a four-course dinner served once a season, four issues of the menu from August to November, the phone in the corner booth, and the ledger that opens in 1875.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <p class="paper-line">GOTHAM LEDGER &middot; DINING COLUMN &middot; FILED OCTOBER 1988 &middot; TASTE, NOT JUSTICE</p>
+  <h1>The Family</h1>
+  <p class="address">429 Bowery Lane, Gotham City &middot; Four tables, one telephone, four courses &middot; Dinner only, August through November</p>
+  <div class="scorebar" aria-label="Rating: four out of five">
+    <span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star">&#9733;</span>
+    <span class="score-note">Four of five. The fifth star is reserved for the night the phone goes quiet.</span>
+  </div>
+</header>
+
+<main>
+  <p class="lede">There is a diner at 429 Bowery Lane with a black façade painted by a man who signs with a single M &mdash; Mignola, according to the plaque by the door &mdash; and inside, four tables only, numbered <strong>426, 427, 428, and 429</strong>. The house is called <em>The Family</em>, it has been open since 1875, and it serves one dinner in its whole history that repeats each autumn like a service that will not cancel itself: a four-course meal, one course per issue, from August to November, written by the late head of the menu committee, Jim Starlin, and plated in ink-black by the kitchen&rsquo;s legendary chef de cuisine, Jim Aparo. I dined table 428, the second from the window, and I have thought about it every day since.</p>
+
+  <h2>The Room</h2>
+  <p>The room is narrow and dark in the way Gotham allows restaurants to be dark. The wallpaper is a rain pattern that does not quite repeat, the chairs are the colour of a cowl, and at the far end of the room, bolted to the wall beside a small chalkboard, is a telephone. It is the telephone. The chalkboard carries the house&rsquo;s single house rule in three words: <em>the phone decides</em>. Whatever course is on the pass when the phone rings, that course is what the room eats next, and the waiter hangs up before the third tone, which is a discipline I have not seen in any kitchen anywhere, including the sell-out grassy-field service at <a href="../sesiwn-fawr/">Sesiwn Fawr</a>, which at least had five thousand places to hide a mistake.</p>
+
+  <h2>The Four Courses</h2>
+  <p>The <strong>August</strong> starter &mdash; a cold plate of oysters, one per guest, arranged like a row of incisors with fine spaces between them &mdash; arrived at 19:04, which the staff will tell you is the minute the line leaves the platform, if you have read the <a href="../toothcomb-limited/">timetable and commentary of the Toothcomb Limited</a> and believe that anything on this route is ever on time. The <strong>September</strong> course is the house roast, carved tableside by a waiter who narrates the cut in a flat voice and stops at the fourth cut no matter what you say. The <strong>October</strong> course arrived as a bowl of something dark and sweet I could not name, served in a cup with a handle the size of a grinning hand; I have since learned the recipe is not published and that asking is impolite. The <strong>November</strong> course, the fourth, is the one the room is built around: a plain piece of toast, no butter, set in the centre of the table with the phone beside it. The toast is excellent. It is also, by custom, the last meal of someone the family will not say the name of, a young man who wore a green jacket and was, by the kitchen&rsquo;s own unprintable account, unpopular at the pass after 1986 &mdash; too quick, too impulsive, too fond of striking the iron when the pan was still warm.</p>
+
+  <h2>The Telephone and the Ledger</h2>
+  <p>At 21:17 on my night, the phone rang. The chalkboard was turned, and the house began its autumn census: a tally of the room&rsquo;s calls, the whole dining room invited to weigh in, the waiter writing green and red strokes on the board the way a clerk keeps a ledger. The final count stood at 551 green to 449 red &mdash; 55.14 to 44.86, the exact ratio the house has recorded every autumn since, and the ratio the front of house now keeps in a framed card above the till. The proprietor, Mr. Dent, who has answered that phone himself every October since the founding, keeps the founding ledger in a glass case by the door. The first <em>yes</em> he ever wrote down &mdash; the first night the owner of the house agreed, on a ringing line, that the November course would be what it is &mdash; is written in the first volume, and the volume opens in 1875. His single most examined act lies in 1875 . Guests are invited to look; the glass is fogged every afternoon, which Mr. Dent declines to fix, on the ground that a ledger should be read, not admired.</p>
+
+  <h2>Service, Prices, Verdict</h2>
+  <p>Service is punctual to the minute and indifferent to the guest, which is a combination I find I have come to want. The four-course dinner is 42.60 a head in August, rising by one cent a month, so that the November seat costs exactly 42.90 &mdash; the price of the fourth table. Book the second Saturday of August if you want table 426, which faces the window and the rain pattern, and do not ask what the toast is for. You will receive your answer in a green or a red stroke on a chalkboard, and the waiter will have hung up before the third tone. Four stars. The fifth is waiting for a night the phone does not ring, and the house has never yet allowed one.</p>
+
+  <section class="poll" id="poll">
+    <h2>Count the Calls Yourself</h2>
+    <p>The house keeps the autumn ratio at 55.14&ndash;44.86. Set the total number of calls below &mdash; the chalkboard on my night took <strong>1,000</strong> &mdash; and the reckoner will split the room the way the ledger splits it, green against red, to the stroke.</p>
+    <div class="poll-controls">
+      <label for="calls">Total calls</label>
+      <input type="number" id="calls" min="1" max="100000" step="1" value="1000">
+      <button type="button" id="reckon">Reckon the room</button>
+    </div>
+    <div class="poll-result" id="pollResult" aria-live="polite">
+      <p><span class="green">Green &mdash; the house course stands: <strong id="greenCount">551</strong> calls</span></p>
+      <p><span class="red">Red &mdash; hold the toast, ring again: <strong id="redCount">449</strong> calls</span></p>
+      <p class="margin-line">Margin: <strong id="marginCount">102</strong> calls &middot; the ledger ratio, held to two places, 55.14 : 44.86.</p>
+      <p class="no-js">Without the reckoner, the standing count for a 1,000-call night is 551 green to 449 red, margin 102.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>Gotham Ledger, Dining Column &middot; filed from table 428, 429 Bowery Lane &middot; the reviewer dined alone and hung up before the third tone &middot; for the paper&rsquo;s front page, <a href="../">the Ledger itself</a></p>
+</footer>
+
+</div>
+<script src="reckon.js"></script>
+</body>
+</html>
