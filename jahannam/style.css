@@ -1,0 +1,181 @@
+/* The Council of the Lantern — Minutes No. 43 */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #ece0c4;
+  --ink: #2b2118;
+  --faded: #6b5d49;
+  --ember: #8a3b1e;
+  --line: #c9b98f;
+  --chip: #e5d8b6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  background: linear-gradient(var(--paper) 0%, var(--paper-deep) 100%);
+  min-height: 100vh;
+  box-shadow: 0 0 3rem rgba(43, 33, 24, 0.25) inset;
+}
+
+.masthead {
+  border-bottom: 3px double var(--line);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.office {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0.25rem 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.subject {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ember);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+  margin: 2rem 0 0.9rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--ember); }
+a:hover { color: var(--ink); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ledger {
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 240, 0.55);
+  padding: 1rem;
+  margin: 1.25rem 0;
+}
+
+.ledger-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.ledger-controls label {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+#level-search {
+  flex: 1 1 14rem;
+  padding: 0.45rem 0.6rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+.chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.chip {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  color: var(--ink);
+  background: var(--chip);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chip:hover { background: #dccfa8; }
+.chip.is-active {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: #f7f0dd;
+}
+
+#level-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+#level-table th, #level-table td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+#level-table thead th {
+  background: var(--chip);
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+#level-table tbody tr:nth-child(even) { background: rgba(201, 185, 143, 0.18); }
+
+.ledger-count {
+  margin: 0.75rem 0 0;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.9rem;
+}
+
+.noscript-note { font-style: italic; color: var(--faded); }
+
+.closing {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-style: italic;
+  color: var(--faded);
+}
+
+.sheet-foot {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-top: 3px double var(--line);
+  padding-top: 1rem;
+}
