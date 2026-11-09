@@ -1,0 +1,78 @@
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b2620;
+  --rule: #8a7a5c;
+  --accent: #7c3b21;
+  --slip: #efe7cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #ded5bf;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.book {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 2.5rem 3rem 2rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(43, 38, 32, 0.25);
+}
+
+.plate { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1.2rem; }
+.series { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; margin: 0 0 0.4rem; color: var(--accent); }
+.plate h1 { font-size: 2.3rem; margin: 0.2rem 0; font-variant: small-caps; }
+.rule { color: var(--accent); letter-spacing: 0.6em; margin: 0; }
+.byline { font-style: italic; font-size: 0.92rem; margin: 0.6rem 0 0; }
+
+.chapter h2 { font-size: 1.25rem; margin: 2rem 0 0.6rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
+.chapter p { margin: 0 0 1rem; }
+.chapter ol { padding-left: 1.4rem; }
+.chapter li { margin-bottom: 0.4rem; }
+
+a { color: var(--accent); }
+a:hover { color: #4c2412; }
+
+.margin-slip {
+  background: var(--slip);
+  border-left: 4px solid var(--accent);
+  padding: 0.8rem 1.1rem;
+  font-style: italic;
+  transform: rotate(-0.4deg);
+}
+
+.ledger {
+  margin-top: 2.4rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px dashed var(--rule);
+  background: #f2ecdb;
+}
+.ledger h2 { margin: 0 0 0.5rem; font-variant: small-caps; }
+.ledger p { font-size: 0.95rem; }
+.ledger label { display: block; margin: 0.6rem 0; }
+.ledger select { font-family: inherit; font-size: 1rem; padding: 0.25rem 0.4rem; background: #fbf7ea; border: 1px solid var(--rule); }
+.ledger button {
+  margin-top: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.4rem 1.2rem;
+  background: var(--accent);
+  color: #f6f1e4;
+  border: none;
+  cursor: pointer;
+}
+.ledger button:hover { background: #4c2412; }
+.ledger output { display: block; margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); font-style: italic; }
+
+.colophon { margin-top: 2.5rem; padding-top: 0.8rem; border-top: 3px double var(--rule); font-size: 0.85rem; text-align: center; }
+.colophon p { margin: 0.2rem 0; }
+
+@media (max-width: 40rem) {
+  .book { margin: 0; padding: 1.5rem 1.2rem; border-left: none; border-right: none; }
+}
