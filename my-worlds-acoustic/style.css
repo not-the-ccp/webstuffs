@@ -1,0 +1,123 @@
+/* Placard No. 88 — Case 3, The Retail Shelf */
+
+:root {
+  --paper: #f6f2ea;
+  --ink: #2b2925;
+  --faint: #7c766b;
+  --line: #c9c1b2;
+  --accent: #8a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #ece7dc;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.placard {
+  max-width: 40rem;
+  margin: 4rem auto 5rem;
+  padding: 3.5rem 3rem 2.5rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 #fff inset, 0 14px 40px rgba(43, 41, 37, 0.12);
+}
+
+.plate { text-align: center; }
+
+.case-line {
+  margin: 0 0 1.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0 0 0.6rem;
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.attrib {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--faint);
+}
+
+.rule {
+  width: 3.5rem;
+  height: 1px;
+  margin: 1.8rem auto 0;
+  background: var(--accent);
+}
+
+section { margin-top: 2.4rem; }
+
+h2 {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.provenance dl {
+  margin: 0;
+  display: grid;
+  gap: 0.55rem 1.4rem;
+}
+
+.provenance dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0;
+}
+
+.provenance dd {
+  margin: 0 0 0.15rem;
+}
+
+.sleeve-quote {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 2px solid var(--accent);
+  background: #efe9dd;
+  font-style: italic;
+}
+
+.sleeve-quote p { margin: 0 0 0.6rem; }
+
+.sleeve-quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+
+.colophon {
+  margin-top: 2.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+
+.colophon a { color: var(--ink); }
+a { color: var(--accent); }
+
+@media (max-width: 40rem) {
+  .placard { margin: 0; padding: 2.2rem 1.4rem; border: none; }
+}
