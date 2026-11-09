@@ -1,0 +1,282 @@
+/* Galatians — a letter to the editor. Set under the drip. */
+
+:root {
+  --paper: #f4eddd;
+  --ink: #26221b;
+  --faded: #6d6455;
+  --red: #8a2f22;
+  --rule: #b9ad93;
+  --shadow: #d8cdb4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1d1a15;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 1060px;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(138, 47, 34, 0.05), transparent 40%),
+    radial-gradient(ellipse at 88% 92%, rgba(0, 0, 0, 0.06), transparent 45%);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+  padding: 2.2rem clamp(1.1rem, 4vw, 3rem) 1.6rem;
+}
+
+/* --- masthead: the big Greek word, off-grid on purpose --- */
+
+.masthead {
+  position: relative;
+  padding-top: 0.4rem;
+}
+
+.masthead-rule {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.45rem 0;
+}
+
+.to-line {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin: 1.6rem 0 0 0.2rem;
+}
+
+.giant {
+  font-size: clamp(4rem, 15vw, 9.5rem);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: -0.4rem 0 0.6rem -0.18em;
+  color: var(--ink);
+  text-shadow: 4px 4px 0 var(--shadow);
+}
+
+.letter-sub {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0 0.2rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+}
+
+/* --- the stamp, rotated, over the corner --- */
+
+.stamp {
+  position: absolute;
+  top: 4.1rem;
+  right: clamp(0.8rem, 3vw, 2.2rem);
+  transform: rotate(-11deg);
+  border: 3px double var(--red);
+  color: var(--red);
+  padding: 0.5rem 0.9rem;
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.stamp-ring {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+/* --- asymmetric grid: letter wide, margin narrow --- */
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(230px, 1fr);
+  gap: clamp(1.2rem, 3.5vw, 2.6rem);
+  margin-top: 2.2rem;
+}
+
+.letter p {
+  margin: 0 0 1.15rem;
+  max-width: 62ch;
+}
+
+.salutation {
+  font-size: 1.1rem;
+  margin-left: -0.2rem;
+}
+
+.letter em, .letter .gloss {
+  font-style: italic;
+}
+
+.letter strong {
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, rgba(138, 47, 34, 0.18) 62%);
+}
+
+.close { margin-top: 1.8rem; font-style: italic; }
+
+.signature {
+  margin: 0.1rem 0 0 -0.2rem;
+  font-size: 1.35rem;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  transform: rotate(-2deg);
+}
+
+.signature .age {
+  font-family: Georgia, serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--faded);
+  transform: none;
+  display: inline-block;
+  margin-left: 0.6rem;
+}
+
+.ps {
+  border-left: 3px solid var(--red);
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  color: #4a4335;
+  font-size: 0.93rem;
+  transform: rotate(-0.4deg);
+}
+
+a {
+  color: var(--red);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover { background: rgba(138, 47, 34, 0.12); }
+
+/* --- the margin column: stacked, slightly askew cards --- */
+
+.margin {
+  display: grid;
+  gap: 1.4rem;
+  align-content: start;
+}
+
+.margin-card {
+  background: #efe6d0;
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1rem 1rem;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.margin-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.shelf-card { transform: rotate(0.8deg); }
+.count-card { transform: rotate(-0.7deg); }
+.greek-card { transform: rotate(0.5deg); background: #ece1c6; }
+
+.shelf-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.shelf-card em { color: var(--red); }
+
+.count-card p {
+  margin: 0.35rem 0;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.count-card .big {
+  font-size: 1.7rem;
+  line-height: 1;
+  min-width: 2.2ch;
+  color: var(--red);
+}
+
+.greek-card .gk {
+  font-size: 1.15rem;
+  margin: 0.2rem 0 0.3rem;
+  color: var(--ink);
+}
+
+.greek-card .gloss {
+  font-size: 0.75rem;
+  color: var(--faded);
+  margin: 0 0 0.7rem;
+}
+
+.hush-btn {
+  font: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: none;
+  padding: 0.55rem 0.7rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hush-btn:hover { background: var(--red); }
+
+/* the hush: a short dimming of the margin while the chair hears */
+@keyframes hush {
+  0% { opacity: 1; }
+  40% { opacity: 0.25; }
+  100% { opacity: 1; }
+}
+
+.hushing .margin-card {
+  animation: hush 2.6s ease-in-out;
+}
+
+.hushing .greek-card {
+  border-color: var(--red);
+}
+
+/* --- colophon --- */
+
+.colophon {
+  margin-top: 2.6rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 0.8rem;
+  font-size: 0.78rem;
+  color: var(--faded);
+}
+
+.colophon p { margin: 0; max-width: 90ch; }
+
+/* --- small screens: one column, stamp tucked in --- */
+
+@media (max-width: 760px) {
+  .letter-grid { grid-template-columns: 1fr; }
+  .stamp { position: static; display: inline-block; margin: 1rem 0 0; transform: rotate(-4deg); }
+  .giant { text-shadow: 2px 2px 0 var(--shadow); }
+  .margin { order: -1; }
+}
