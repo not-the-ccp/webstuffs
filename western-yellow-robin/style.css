@@ -1,0 +1,141 @@
+/* Western Yellow Robin — School Report, Natural History, Coopers' Lane School */
+:root {
+  --paper: #f6f1e3;
+  --ink: #2c2a24;
+  --rule: #b9ae8f;
+  --grey: #6f757c;
+  --yellow: #f2c94c;
+  --deep: #4a4436;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --serif: "Source Serif 4", Georgia, serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(120, 105, 70, 0.10) 30px 31px),
+    #efe8d6;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.leaf {
+  display: flex;
+  justify-content: center;
+  padding: 28px 16px 0;
+}
+.leaf svg {
+  width: min(320px, 60vw);
+  height: auto;
+  filter: drop-shadow(0 3px 4px rgba(60, 50, 30, 0.25));
+}
+.sheet {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  background: var(--paper);
+  border: 2px solid var(--deep);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  box-shadow: 0 10px 24px rgba(60, 50, 30, 0.28);
+}
+.masthead {
+  padding: 30px 40px 20px;
+  border-bottom: 4px double var(--deep);
+  background:
+    linear-gradient(180deg, rgba(242, 201, 76, 0.14), rgba(242, 201, 76, 0) 70%);
+}
+.office {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 0 0 8px;
+  color: var(--grey);
+}
+h1 {
+  font-size: 34px;
+  margin: 0 0 4px;
+  letter-spacing: 0.5px;
+}
+.latin {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--deep);
+}
+table.meta {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+table.meta td {
+  border: 1px solid var(--rule);
+  padding: 5px 8px;
+  vertical-align: top;
+}
+table.meta td:first-child {
+  background: rgba(111, 117, 124, 0.12);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 11px;
+  white-space: nowrap;
+}
+main { padding: 8px 40px 20px; }
+.prose { padding: 18px 0 6px; }
+.prose h2 {
+  font-size: 19px;
+  margin: 0 0 10px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+}
+.num {
+  font-family: var(--mono);
+  color: var(--deep);
+  margin-right: 8px;
+  background: var(--yellow);
+  border: 1px solid var(--deep);
+  padding: 0 6px;
+  display: inline-block;
+  font-size: 14px;
+  transform: translateY(-1px);
+}
+p { margin: 0 0 14px; }
+.oddline {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  background: rgba(242, 201, 76, 0.30);
+  border-left: 4px solid var(--yellow);
+  padding: 2px 6px;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.oddline.marked {
+  background: var(--yellow);
+  border-left-color: var(--deep);
+}
+a { color: var(--deep); }
+a:hover { background: rgba(242, 201, 76, 0.5); }
+.plate {
+  border-top: 4px double var(--deep);
+  padding: 16px 40px 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: var(--deep);
+}
+.plate p { margin: 4px 0; }
+.plate-bot {
+  background: var(--yellow);
+  border: 1px solid var(--deep);
+  padding: 5px 8px;
+  display: inline-block;
+}
+.footlinks { font-size: 11px; letter-spacing: 0; }
+.footlinks a { text-decoration: none; }
+@media (max-width: 560px) {
+  .masthead, main, .plate { padding-left: 18px; padding-right: 18px; }
+  h1 { font-size: 26px; }
+}
