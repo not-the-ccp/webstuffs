@@ -1,0 +1,188 @@
+/* Criminal Case No. 312 of 2023 &mdash; High Court of Kenya at Nairobi &mdash; certified transcript sheet */
+:root {
+  --ink: #1b1713;
+  --parchment: #f6f2e5;
+  --gavel: #7a2620;
+  --seal: #a57b32;
+  --navy: #232931;
+  --rule: #bdad94;
+  --muted: #5c5548;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14.5px;
+  line-height: 1.6;
+  padding: 46px 42px 60px;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(var(--rule) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+.docket {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; width: 44px;
+  pointer-events: none; z-index: -1;
+}
+.docket::before, .docket::after, .docket b {
+  content: "";
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 14px; height: 14px;
+  border: 2px solid var(--gavel); border-radius: 50%; opacity: 0.65;
+}
+.docket::before { top: 46px; }
+.docket b { top: 50%; transform: translate(-50%, -50%); }
+.docket::after { bottom: 46px; }
+header.bench {
+  border-top: 4px double var(--gavel);
+  border-bottom: 3px solid var(--navy);
+  padding: 22px 4px 26px;
+  position: relative;
+  margin-bottom: 34px;
+}
+.seal {
+  position: absolute;
+  top: 6px; right: 4px;
+  width: 78px; height: 78px;
+  border: 2px solid var(--seal);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d9c28a, transparent 60%), var(--parchment);
+  color: var(--seal);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  line-height: 1.15;
+  padding: 8px 6px;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0.92;
+  box-shadow: 0 0 0 1px var(--parchment), 3px 3px 0 rgba(0,0,0,0.08);
+  transform: rotate(-6deg);
+}
+.seal-word { position: absolute; bottom: 6px; right: 8px; font-size: 10px; font-weight: bold; }
+.gavel {
+  position: absolute;
+  top: 14px; left: -6px;
+  font-size: 34px;
+  line-height: 1;
+  opacity: 0.85;
+  transform: rotate(-10deg);
+}
+.court-block { padding-right: 110px; }
+.republic {
+  font-family: Georgia, "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 12.5px;
+  color: var(--gavel);
+  margin: 0 0 6px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.coram {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.caption {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin: 0 0 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--gavel);
+  padding: 2px 8px;
+  margin-right: 8px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gavel);
+  transform: rotate(-7deg);
+}
+.sittings p { margin: 0 0 14px; text-align: justify; }
+.speaker {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gavel);
+  margin: 0 0 3px;
+}
+.holding {
+  margin-top: 42px;
+  padding: 18px 22px;
+  border: 1px solid var(--rule);
+  border-top: 3px double var(--gavel);
+  background: #fdfaf0;
+}
+.holding h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gavel);
+  margin: 0 0 10px;
+}
+.adjournment {
+  margin-top: 30px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+}
+.references {
+  margin-top: 40px;
+  font-size: 12.5px;
+}
+.references p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gavel);
+  margin: 0 0 10px;
+}
+.references li { margin: 0 0 8px; list-style: square outside var(--rule); }
+a { color: var(--gavel); text-decoration: underline; }
+.colophon {
+  margin-top: 52px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+@media (max-width: 600px) {
+  body { padding: 30px 18px; }
+  .seal, .gavel { position: static; display: inline-block; transform: none; margin: 0 0 10px; }
+  .court-block { padding-right: 0; display: block; }
+}
