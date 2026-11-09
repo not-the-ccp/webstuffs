@@ -1,0 +1,150 @@
+/* Prairie Grove — Field Thread No. 191 */
+:root {
+  --board-paper: #f4efe3;
+  --board-ink: #2b2419;
+  --board-rule: #b3a284;
+  --board-slate: #3e4a41;
+  --board-brass: #8a6d2f;
+  --board-blood: #7a3b2e;
+  --post-face: #fbf7ec;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--board-paper);
+  color: var(--board-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.board {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.board-masthead {
+  border-bottom: 3px double var(--board-rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.board-name {
+  margin: 0;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--board-brass);
+}
+
+.board-crumbs {
+  font-size: 0.85rem;
+  color: var(--board-slate);
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.thread-sub {
+  margin: 0;
+  font-style: italic;
+  color: #6a5f4c;
+}
+
+a { color: var(--board-blood); }
+
+.post {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1rem;
+  background: var(--post-face);
+  border: 1px solid var(--board-rule);
+  border-left: 4px solid var(--board-slate);
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+}
+
+.post.op { border-left-color: var(--board-blood); }
+
+.post-side {
+  border-right: 1px solid var(--board-rule);
+  padding-right: 1rem;
+  font-size: 0.85rem;
+}
+
+.post-side p { margin: 0.15rem 0; }
+.poster { font-weight: bold; font-size: 0.95rem; }
+.post-num { color: var(--board-brass); }
+.posted { color: #6a5f4c; font-style: italic; }
+
+.post-body h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
+  color: var(--board-slate);
+}
+
+.log-line {
+  border-left: 4px solid var(--board-blood);
+  background: #f0e6d2;
+  padding: 0.6rem 1rem;
+  font-style: italic;
+}
+
+/* Night clock */
+.night-clock {
+  background: var(--board-slate);
+  color: #efe9d8;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.clock-face {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px dashed #7c8a7f;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.clock-time {
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: #e8d9a0;
+}
+
+.clock-place { font-style: italic; font-size: 0.9rem; }
+.clock-text { min-height: 3.5em; margin: 0 0 0.6rem; }
+
+.clock-controls button {
+  font: inherit;
+  background: transparent;
+  color: #efe9d8;
+  border: 1px solid #7c8a7f;
+  border-radius: 3px;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+}
+
+.clock-controls button:hover { background: #4d5b50; }
+.clock-count { font-size: 0.8rem; color: #a8b5aa; }
+
+.clock-fallback li { margin-bottom: 0.35rem; }
+
+.board-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--board-rule);
+  padding-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #6a5f4c;
+}
+
+@media (max-width: 40rem) {
+  .post { grid-template-columns: 1fr; }
+  .post-side { border-right: 0; border-bottom: 1px solid var(--board-rule); padding: 0 0 0.4rem; }
+}
