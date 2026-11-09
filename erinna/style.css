@@ -1,0 +1,199 @@
+/* Callimachou kitchen ledger — a kept family recipe card */
+
+:root {
+  --paper: #f4e9d3;
+  --paper-deep: #ecdcbc;
+  --ink: #3b2f22;
+  --ink-faint: #6b5b45;
+  --red: #a03a28;
+  --rule: #b8a47f;
+  --script: "Snell Roundhand", "Brush Script MT", "Segoe Script", cursive;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #7c6a52;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 244, 214, 0.25), transparent 55%),
+    repeating-linear-gradient(95deg, rgba(0,0,0,0.06) 0 3px, transparent 3px 9px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 3rem 1rem 4rem;
+}
+
+.card {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 82% 94%, rgba(151, 111, 58, 0.35), transparent 30%),
+    linear-gradient(178deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #c9b48c;
+  box-shadow: 0 18px 40px rgba(30, 20, 8, 0.55), 0 2px 6px rgba(30, 20, 8, 0.4);
+  padding: 3.25rem 3rem 2.25rem;
+  transform: rotate(-0.4deg);
+}
+
+.tape {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 190px;
+  height: 44px;
+  transform: translateX(-50%) rotate(-1.2deg);
+  background: rgba(250, 243, 220, 0.55);
+  border-left: 1px dashed rgba(120, 100, 70, 0.4);
+  border-right: 1px dashed rgba(120, 100, 70, 0.4);
+  box-shadow: 0 2px 4px rgba(30, 20, 8, 0.25);
+}
+
+.punch {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #7c6a52;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6), 0 0 0 2px #d8c39c;
+}
+
+.stain {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(140, 90, 30, 0.16), transparent 70%);
+}
+.stain-a { width: 240px; height: 200px; top: 8%; right: -60px; }
+.stain-b { width: 160px; height: 160px; bottom: 4%; left: -50px; }
+
+.plate {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: var(--script);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--red);
+  font-weight: 400;
+  transform: rotate(-0.6deg);
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin: 0.5rem 0 0;
+  font-size: 1.02rem;
+}
+
+.rules {
+  height: 7px;
+  margin: 1.4rem 0 1.8rem;
+  border-top: 2px solid var(--red);
+  border-bottom: 1px solid var(--red);
+}
+
+.preamble p {
+  line-height: 1.65;
+  margin: 0 0 1.1rem;
+  font-size: 1rem;
+}
+
+.kept {
+  font-family: "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 46% 54% 50% 50% / 8%;
+  padding: 0.8rem 1.1rem;
+  transform: rotate(-0.5deg);
+  background: rgba(255, 250, 235, 0.4);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+ul, ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+li { margin-bottom: 0.45rem; }
+
+.notes {
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+}
+.notes p { line-height: 1.6; font-size: 0.95rem; }
+
+.filing {
+  margin-top: 1.6rem;
+  background: rgba(120, 96, 60, 0.08);
+  border: 1px dashed var(--rule);
+  padding: 1rem 1.2rem;
+}
+.filing p { line-height: 1.6; font-size: 0.9rem; margin: 0.5rem 0 0; }
+
+a { color: #7a331f; }
+a:hover { color: var(--red); }
+
+.foot {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--red);
+  padding-top: 0.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.stamp {
+  color: var(--red);
+  border: 2px solid var(--red);
+  padding: 0.25rem 0.6rem;
+  transform: rotate(-2deg);
+  opacity: 0.85;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .card { padding: 2.5rem 1.25rem 1.5rem; transform: none; }
+  .columns { grid-template-columns: 1fr; }
+  h1 { font-size: 2.6rem; }
+}
