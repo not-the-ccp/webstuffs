@@ -1,0 +1,326 @@
+/* The Beechwood Branch — Service SCB-1, Hudson Valley Local */
+:root {
+  --ink: #1c2b23;
+  --paper: #f4ead2;
+  --paper-deep: #ecdcb8;
+  --green: #1c3a2e;
+  --green-dark: #10241c;
+  --gold: #c8a24a;
+  --gold-bright: #e8c56a;
+  --oxblood: #7a2e22;
+  --cream: #f9f2dd;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --display: "Playfair Display", Georgia, serif;
+  --body: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1.22rem;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 15% -10%, rgba(232,197,106,0.22), transparent 45%),
+    radial-gradient(ellipse at 85% 110%, rgba(122,46,34,0.25), transparent 50%),
+    repeating-linear-gradient(90deg, rgba(28,58,46,0.045) 0 2px, transparent 2px 90px),
+    linear-gradient(175deg, #23483a 0%, var(--green) 18%, #20412f 45%, #17332a 72%, var(--green-dark) 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* drifting river haze */
+.haze {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    repeating-linear-gradient(104deg, transparent 0 60px, rgba(244,234,210,0.05) 60px 62px, transparent 62px 140px);
+  animation: drift 46s linear infinite;
+}
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 900px 0; }
+}
+
+/* painted hills behind everything */
+.tunnel {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 30vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.tunnel svg { width: 100%; height: 100%; }
+
+/* ============ the departure board ============ */
+.board {
+  position: relative;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(232,197,106,0.12), transparent 60%),
+    linear-gradient(180deg, #0c1a14 0%, #142b21 60%, #0e2019 100%);
+  border-bottom: 6px double var(--gold);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  padding: 2.2rem 1rem 2rem;
+}
+.board-inner {
+  max-width: 62rem;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 0 2.5rem;
+}
+.crest {
+  position: absolute;
+  top: 0.4rem; left: 0;
+  width: 78px; height: 78px;
+  animation: crestspin 60s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(232,197,106,0.5));
+}
+@keyframes crestspin { to { transform: rotate(360deg); } }
+.crest text { animation: none; }
+@media (max-width: 700px) { .crest { display: none; } .board-inner { padding: 0; } }
+
+.board-line1 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  color: var(--gold-bright);
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  color: var(--cream);
+  margin: 0.1em 0 0.25em;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 22px rgba(232,197,106,0.35), 0 3px 0 rgba(0,0,0,0.4);
+}
+.board-sub {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--paper);
+  letter-spacing: 0.14em;
+  margin: 0.2em 0 0.4em;
+  line-height: 1.7;
+}
+.board-sub .arrow { color: var(--gold-bright); }
+.board-note {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #9fc4a8;
+  margin: 0;
+  min-height: 1.2em;
+}
+#status { color: var(--gold-bright); animation: blinklamp 2.4s steps(1) infinite; }
+@keyframes blinklamp { 0%, 68% { opacity: 1; } 69%, 100% { opacity: 0.25; } }
+
+/* ============ the sheet ============ */
+.sheet {
+  position: relative;
+  z-index: 2;
+  max-width: 56rem;
+  margin: -1.4rem auto 4rem;
+  padding: 0 0.9rem;
+}
+
+.card, .prose {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(28,58,46,0.05) 30px 31px),
+    radial-gradient(circle at 100% 0%, rgba(200,162,74,0.16), transparent 40%),
+    linear-gradient(180deg, var(--cream) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border: 1px solid #b5985f;
+  outline: 3px solid var(--gold);
+  outline-offset: -9px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 14px 34px rgba(0,0,0,0.5);
+  padding: 1.6rem 1.7rem 1.5rem;
+  margin: 0 0 1.6rem;
+  position: relative;
+}
+.card::before, .card::after, .prose::before, .prose::after {
+  content: "✳";
+  position: absolute;
+  color: var(--gold);
+  font-size: 1rem;
+  top: 0.45rem;
+}
+.card::before, .prose::before { left: 0.5rem; }
+.card::after, .prose::after { right: 0.5rem; }
+
+.cardhead {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.55rem;
+  color: var(--green);
+  margin: 0 0 0.9rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 0.5rem;
+}
+.cardhead .num {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--oxblood);
+  letter-spacing: 0.2em;
+  border: 1px solid var(--oxblood);
+  padding: 0.15em 0.5em;
+  transform: translateY(-0.2em);
+  white-space: nowrap;
+}
+
+.tableintro {
+  font-size: 1.12rem;
+  font-style: italic;
+  color: #40503f;
+  margin: 0 0 1rem;
+}
+
+/* ============ the tables ============ */
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+table.tt thead th {
+  background: linear-gradient(180deg, var(--green) 0%, var(--green-dark) 100%);
+  color: var(--gold-bright);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  padding: 0.55rem 0.6rem;
+  border-bottom: 2px solid var(--gold);
+}
+table.tt td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px dashed #b5985f;
+  vertical-align: top;
+}
+table.tt tbody tr { transition: background 0.25s; }
+table.tt tbody tr:hover { background: rgba(232,197,106,0.22); }
+tr.south { background: rgba(28,58,46,0.045); }
+tr.north { background: rgba(122,46,34,0.04); }
+.svc {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--oxblood);
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+}
+.svc em { display: block; font-family: var(--body); font-style: italic; font-weight: 500; font-size: 1rem; color: #40503f; }
+.stn { font-weight: 500; color: var(--green); white-space: nowrap; }
+.time {
+  color: var(--oxblood);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+tr.final td { border-bottom: 3px double var(--gold); }
+tr.now { background: rgba(200,162,74,0.32) !important; }
+tr.now .stn::after { content: " ◂ now"; font-size: 0.62rem; color: var(--oxblood); letter-spacing: 0.12em; }
+
+@media (max-width: 620px) {
+  table.tt { font-size: 0.72rem; }
+  table.tt td, table.tt th { padding: 0.4rem 0.35rem; }
+}
+
+/* ============ commentary prose ============ */
+.prose p {
+  margin: 0 0 1.05rem;
+  line-height: 1.68;
+  text-wrap: pretty;
+}
+.prose p:last-child { margin-bottom: 0.2rem; }
+.prose strong { color: var(--green-dark); font-weight: 600; }
+.prose em { color: var(--oxblood); }
+.prose a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+.prose a:hover { background: rgba(232,197,106,0.4); color: var(--oxblood); }
+
+/* the odd line */
+.prose.odd { border-left: 6px solid var(--oxblood); }
+.oddline {
+  display: block;
+  margin: 0.9rem 0 1rem;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--oxblood);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 22px, rgba(122,46,34,0.07) 22px 23px),
+    linear-gradient(180deg, #fbf5e3, #f1e2bd);
+  border: 1px solid var(--oxblood);
+  box-shadow: 4px 4px 0 rgba(122,46,34,0.25);
+  transform: rotate(-0.4deg);
+}
+.oddline::before { content: "❧ "; color: var(--gold); }
+
+/* ============ the platform plate ============ */
+.plate {
+  position: relative;
+  z-index: 2;
+  max-width: 56rem;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #0c1a14, #142b21);
+  border: 2px solid var(--gold);
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.5);
+}
+.plate-top, .plate-bot {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-bright);
+  text-align: center;
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+}
+.plate-bot { margin: 0.7rem 0 0; color: #9fc4a8; }
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 0.45rem 0;
+  background: rgba(0,0,0,0.35);
+}
+.ticker span {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  animation: tickerroll 38s linear infinite;
+}
+@keyframes tickerroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .haze, .crest, .ticker span, #status { animation: none; }
+}
