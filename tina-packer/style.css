@@ -1,0 +1,122 @@
+/* Standing Ovation — Field & Table Manual, Chapter 7 */
+:root {
+  --ink: #2a2118;
+  --paper: #f6f0e2;
+  --card: #fffdf6;
+  --rule: #b39b6b;
+  --accent: #7a1f1f;
+  --faint: #6e5f49;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.chapter {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+.series {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--faint);
+  margin: 0 0 0.75rem;
+}
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+}
+.byline {
+  font-style: italic;
+  color: var(--faint);
+  margin: 0;
+}
+.section { margin-bottom: 2rem; }
+h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+p { margin: 0.9rem 0; }
+strong { color: var(--accent); }
+.cue-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  box-shadow: 3px 3px 0 rgba(179, 155, 107, 0.35);
+}
+.cue-card p { margin: 0; font-size: 1.06rem; font-style: italic; }
+.cue-num {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.ledger {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 1.1rem 1.25rem;
+  box-shadow: 3px 3px 0 rgba(179, 155, 107, 0.35);
+}
+.ledger-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1.4rem;
+}
+.ledger-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ledger-grid input {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+  margin-top: 0.3rem;
+}
+#settle {
+  grid-column: 1 / -1;
+  justify-self: start;
+  font: inherit;
+  font-weight: bold;
+  color: var(--paper);
+  background: var(--accent);
+  border: none;
+  padding: 0.5rem 1.4rem;
+  cursor: pointer;
+}
+#settle:hover { background: #5d1616; }
+.ledger-note {
+  font-style: italic;
+  color: var(--faint);
+  min-height: 1.4em;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.6rem;
+}
+.errata a { color: var(--accent); }
+a { color: var(--accent); }
+@media (max-width: 520px) {
+  .ledger-grid { grid-template-columns: 1fr; }
+}
