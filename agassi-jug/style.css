@@ -1,0 +1,168 @@
+/* Hawthorne & Sons Silverworks — Catalogue Card No. 70 */
+:root {
+  --ivory: #f4ecd9;
+  --paper: #efe4c9;
+  --ink: #2a2419;
+  --court: #1e4d3b;
+  --court-deep: #14382c;
+  --silver: #9a938a;
+  --gold: #b08a2e;
+  --brick: #8c1d18;
+}
+
+* { box-sizing: border-box; }
+
+body.card-page {
+  margin: 0;
+  background: var(--court-deep);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(244, 236, 217, 0.05) 0 2px, transparent 2px 120px),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 2px, transparent 2px 120px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.catalogue {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--ivory);
+  border: 2px solid var(--ink);
+  box-shadow: 0 0 0 6px var(--ivory), 0 0 0 8px var(--gold), 14px 14px 0 rgba(0, 0, 0, 0.35);
+  padding: 2.25rem 2.5rem 1.75rem;
+  position: relative;
+}
+
+.catalogue::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--silver);
+  pointer-events: none;
+}
+
+.card-head {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.firm-line {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  margin: 0 0 0.75rem;
+  color: var(--court);
+}
+
+.card-no {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0 0 1rem;
+  color: var(--brick);
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.dek {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0 auto;
+  max-width: 52ch;
+  color: #4a4232;
+}
+
+.jug-mark {
+  width: 190px;
+  margin: 1.25rem auto 0.25rem;
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--silver);
+  padding: 0.5rem;
+}
+
+.block {
+  margin: 1.75rem 0;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--brick);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.85rem;
+}
+
+a { color: var(--court); text-decoration-color: var(--gold); }
+a:hover { color: var(--brick); }
+
+.care {
+  list-style: none;
+  counter-reset: careline;
+  padding: 0;
+  margin: 1rem 0;
+  background: var(--paper);
+  border: 1px dashed var(--silver);
+  padding: 1rem 1.25rem;
+}
+
+.care li {
+  counter-increment: careline;
+  padding: 0.3rem 0 0.3rem 2.4rem;
+  position: relative;
+  border-bottom: 1px dotted var(--silver);
+}
+
+.care li:last-child { border-bottom: none; }
+
+.care li::before {
+  content: "line " counter(careline) ".";
+  position: absolute;
+  left: 0;
+  font-size: 0.75rem;
+  font-variant: small-caps;
+  color: var(--brick);
+  top: 0.55rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+td {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--silver);
+  vertical-align: top;
+}
+
+td:first-child {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  width: 130px;
+  background: var(--paper);
+}
+
+.card-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  font-size: 0.88rem;
+}
+
+.card-foot p.ledger { margin: 0.5rem 0; }
+
+@media (max-width: 560px) {
+  .catalogue { padding: 1.5rem 1.1rem; }
+  h1 { font-size: 2.2rem; }
+}
