@@ -1,0 +1,152 @@
+/* Warship Deck — thread style, "Iron and Sail" theme */
+/* Palette: navy, haze gray, parchment, signal-rope gold, depth ink */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  color: #1c2f3d;
+  background: #e9e3d4;
+  line-height: 1.55;
+}
+.bbs-frame {
+  max-width: 780px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  border: 16px double #425160;
+  outline: 3px solid #8c7b5f;
+  outline-offset: 8px;
+  background: #f5f1e2;
+  box-shadow: 0 0 0 1px #243547;
+}
+.board-masthead {
+  background: #263d57;
+  color: #e8ddc7;
+  padding: 1rem 1.25rem;
+  border-bottom: 6px double #a98f4e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.board-name {
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #0e1b26;
+}
+.waves { color: #9fb3c8; }
+.crumbs { font-size: 0.85rem; color: #b9c7d6; }
+button.watch {
+  background: transparent;
+  color: #e8ddc7;
+  border: 1px solid #a98f4e;
+  padding: 0.25rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+button.watch:hover { background: #a98f4e; color: #142430; }
+.thread-bar {
+  border-top: 4px double #5c4a3a;
+  border-bottom: 4px double #5c4a3a;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  color: #3d4c5a;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.t-title { font-weight: bold; color: #162736; }
+main.thread { padding: 1rem 0; }
+.post {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  border-top: 2px solid #8c7b5f;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+.post:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.side {
+  font-size: 0.8rem;
+  color: #546370;
+  border-right: 1px dotted #a89b7c;
+  padding-right: 1rem;
+}
+.avatar {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #5c4a3a;
+  border-radius: 50%;
+  background: #c9bda3;
+  color: #263d57;
+  font-weight: bold;
+  font-size: 1.4rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.who { font-weight: bold; color: #162736; font-size: 1rem; }
+.posted { font-size: 0.75rem; color: #6e7d89; margin-bottom: 0.5rem; }
+.re { color: #8c5a2e; font-weight: bold; }
+.new-tag {
+  background: #8c5a2e;
+  color: #f5f1e2;
+  font-size: 0.65rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  margin-left: 0.4rem;
+}
+body p { margin: 0.6rem 0; }
+.op {
+  border-left: 4px solid #a98f4e;
+  padding-left: 0.8rem;
+  font-style: italic;
+  color: #243547;
+}
+blockquote.scan {
+  background: #efe7d4;
+  border: 1px solid #9a8c6c;
+  margin: 0.8rem 0;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+}
+.board-footer {
+  border-top: 6px double #a98f4e;
+  padding: 1rem 1.25rem;
+  font-size: 0.8rem;
+  color: #546370;
+  background: #ede4c9;
+  margin-top: 2rem;
+}
+.foot-line { margin: 0.4rem 0; }
+a { color: #6e5a2e; text-decoration: underline; }
+a:hover { color: #162736; }
+/* Night watch — dark deck lighting */
+body.night-watch { background: #0e1b26; color: #c8d6df; }
+body.night-watch .bbs-frame { background: #142430; border-color: #3d4c5a; outline-color: #5c6b7a; box-shadow: 0 0 0 1px #071018; }
+body.night-watch .board-masthead,
+body.night-watch .thread-bar { background: #0c1621; color: #c8d6df; border-bottom-color: #5c6b7a; }
+body.night-watch .board-name { text-shadow: 1px 1px 0 #000000; }
+body.night-watch .crumbs { color: #8fb3c8; }
+body.night-watch button.watch { border-color: #8fb3c8; color: #8fb3c8; }
+body.night-watch button.watch:hover { background: #3d4c5a; color: #ffffff; }
+body.night-watch .post { border-top-color: #3d4c5a; }
+body.night-watch .side { border-right-color: #3d4c5a; color: #8fb3c8; }
+body.night-watch .who { color: #c8d6df; }
+body.night-watch .posted { color: #6e8297; }
+body.night-watch .re { color: #c9a870; }
+body.night-watch .avatar { background: #2d4457; color: #8fb3c8; border-color: #6e8297; }
+body.night-watch .op { color: #a8c4d4; }
+body.night-watch blockquote.scan { background: #1c2d3b; border-color: #3d4c5a; color: #c8d6df; }
+body.night-watch .board-footer { background: #1a2d3c; color: #8fb3c8; border-top-color: #5c6b7a; }
+body.night-watch .foot-line { color: #8fb3c8; }
+body.night-watch a { color: #b8b080; }
+body.night-watch a:hover { color: #ffffff; }
+@media (max-width: 600px) {
+  .post { grid-template-columns: 1fr; }
+  .side { border-right: none; border-bottom: 1px dotted #a89b7c; padding-right: 0; padding-bottom: 0.5rem; }
+}
