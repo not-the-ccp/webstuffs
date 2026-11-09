@@ -1,0 +1,161 @@
+/* The Back Bench Bulletin — Thread No. 88, East 233rd Street */
+:root {
+  --paper: #efe7d6;
+  --paper-dark: #e3d8bd;
+  --ink: #2b2117;
+  --green: #1f4d3a;
+  --green-deep: #12301f;
+  --orange: #ef7c1a;
+  --yellow: #f5c518;
+  --rule: #b9a578;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.025) 0 2px, transparent 2px 5px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+a { color: var(--green); }
+a:hover { color: var(--orange); }
+
+.masthead {
+  background: var(--green-deep);
+  color: #f2ecd9;
+  padding: 2rem 1rem 1.4rem;
+  border-bottom: 6px double var(--yellow);
+}
+.mast-small {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin: 0 0 0.4rem;
+}
+.masthead h1 {
+  text-align: center;
+  margin: 0.2rem 0;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  letter-spacing: 0.06em;
+}
+.mast-tag {
+  text-align: center;
+  font-style: italic;
+  margin: 0 0 1rem;
+  color: #d9d2b8;
+}
+.crumbs {
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(245, 197, 24, 0.4);
+  padding-top: 0.6rem;
+}
+.crumbs a { color: var(--yellow); }
+
+.thread {
+  max-width: 52rem;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.thread-head {
+  background: var(--green);
+  color: #f2ecd9;
+  border: 2px solid var(--green-deep);
+  border-radius: 6px 6px 0 0;
+  padding: 1rem 1.2rem;
+}
+.thread-badges { margin-bottom: 0.5rem; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 0.95rem;
+  margin-right: 0.4rem;
+  color: #fff;
+  border: 2px solid rgba(0,0,0,0.25);
+}
+.badge-five { background: var(--orange); }
+.badge-two  { background: #00933c; }
+.badge-pkwy { width: auto; padding: 0 0.6rem; border-radius: 1rem; background: var(--green-deep); font-size: 0.7rem; }
+.thread-title { margin: 0.2rem 0 0.4rem; font-size: 1.35rem; }
+.thread-meta { margin: 0; font-size: 0.82rem; color: #cfc7a8; font-family: Verdana, Arial, sans-serif; }
+
+.post {
+  display: flex;
+  gap: 1rem;
+  background: #f6f0e0;
+  border: 1px solid var(--rule);
+  border-top: none;
+  padding: 1rem 1.1rem;
+}
+.post:last-of-type { border-radius: 0 0 6px 6px; }
+.post-side {
+  flex: 0 0 8.5rem;
+  border-right: 1px dashed var(--rule);
+  padding-right: 0.9rem;
+  font-size: 0.82rem;
+}
+.post-side p { margin: 0 0 0.3rem; }
+.handle { font-weight: 700; color: var(--green-deep); }
+.rank { font-style: italic; color: #6d5c40; }
+.when { font-family: Verdana, Arial, sans-serif; font-size: 0.72rem; color: #7a6a4d; }
+.postno {
+  display: inline-block;
+  background: var(--green);
+  color: #f2ecd9;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 0.68rem;
+}
+.post-body { flex: 1; }
+.post-body p { margin: 0 0 0.7rem; }
+.post-body p:last-child { margin-bottom: 0; }
+
+.post-scrap { background: #efe2c4; }
+.scrap {
+  margin: 0.8rem 0;
+  background: #fffdf4;
+  border: 1px solid #cbb98a;
+  box-shadow: 2px 3px 0 rgba(60, 40, 10, 0.18);
+  padding: 0.8rem 1rem;
+  transform: rotate(-0.6deg);
+}
+.scrap p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  color: #4a3a20;
+}
+.scrap p::before { content: "“"; }
+.scrap p::after  { content: "”"; }
+
+.sign { font-style: italic; color: #6d5c40; }
+
+.thread-foot {
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-bottom: 6px double var(--green);
+  border-radius: 0 0 6px 6px;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.8rem;
+  background: var(--paper-dark);
+}
+.thread-foot p { margin: 0; }
+
+@media (max-width: 480px) {
+  .post { flex-direction: column; }
+  .post-side { flex: none; border-right: none; border-bottom: 1px dashed var(--rule); padding: 0 0 0.5rem; }
+}
