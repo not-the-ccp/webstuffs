@@ -1,0 +1,303 @@
+/* The Kot — Dream Dictionary, Entry 732 */
+
+:root {
+  --ink: #efe4cf;
+  --ink-dim: #c9b795;
+  --night: #120a08;
+  --night-2: #1d100b;
+  --maroon: #4a120f;
+  --maroon-deep: #2b0906;
+  --blood: #8e2f1e;
+  --brass: #c9973f;
+  --brass-bright: #f0c46b;
+  --marigold: #f5a623;
+  --marigold-soft: #e8b96a;
+  --gate: #0c0705;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.28rem;
+  line-height: 1.72;
+  background-color: var(--night);
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(201, 151, 63, 0.16), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 110%, rgba(142, 47, 30, 0.22), transparent 65%),
+    repeating-linear-gradient(45deg, rgba(201, 151, 63, 0.028) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(245, 166, 35, 0.022) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, var(--night-2) 0%, var(--night) 40%, var(--maroon-deep) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#petals {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main.entry {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.6rem 5rem;
+}
+
+/* ---- the gate ornament ---- */
+
+.gate {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.gate svg {
+  width: 9.5rem;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(245, 166, 35, 0.25));
+  animation: gate-breathe 9s ease-in-out infinite;
+}
+
+@keyframes gate-breathe {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(245, 166, 35, 0.2)); }
+  50% { filter: drop-shadow(0 0 18px rgba(245, 166, 35, 0.45)); }
+}
+
+.gate-line {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.gate-key {
+  fill: none;
+  stroke: var(--marigold);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* ---- heading ---- */
+
+.entry-head {
+  text-align: center;
+  margin-bottom: 2.6rem;
+}
+
+.series {
+  font-family: "Cinzel", "Trajan Pro", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-family: "Cinzel", "Trajan Pro", serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 4.6rem);
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--brass-bright);
+  text-shadow:
+    0 0 22px rgba(245, 166, 35, 0.35),
+    0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.devanagari {
+  font-family: "Noto Serif Devanagari", "Mukta Tamil", serif;
+  font-size: 1.7rem;
+  color: var(--marigold);
+  margin: 0.4rem 0 0.2rem;
+  text-shadow: 0 0 14px rgba(245, 166, 35, 0.4);
+}
+
+.part-of-speech {
+  font-style: italic;
+  color: var(--ink-dim);
+  margin: 0.5rem 0 1.2rem;
+  font-size: 1.05rem;
+}
+
+.brassline {
+  border: none;
+  height: 6px;
+  width: min(20rem, 80%);
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at 50% 50%, var(--marigold) 0 3px, transparent 4px),
+    linear-gradient(90deg, transparent, var(--brass) 20%, var(--brass-bright) 50%, var(--brass) 80%, transparent);
+  background-size: 12px 6px, 100% 2px;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+}
+
+/* ---- body text ---- */
+
+p { margin: 0 0 1.35rem; }
+
+dfn {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--brass-bright);
+  border-bottom: 1px dotted var(--brass);
+}
+
+strong { color: var(--brass-bright); font-weight: 600; }
+
+a {
+  color: var(--marigold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245, 166, 35, 0.4);
+  transition: color 0.25s, border-color 0.25s, text-shadow 0.25s;
+}
+
+a:hover {
+  color: var(--brass-bright);
+  border-color: var(--brass-bright);
+  text-shadow: 0 0 10px rgba(240, 196, 107, 0.5);
+}
+
+h2 {
+  font-family: "Cinzel", "Trajan Pro", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 2.8rem 0 1.1rem;
+  text-align: center;
+  position: relative;
+}
+
+h2::before, h2::after {
+  content: "\2740";
+  color: var(--marigold);
+  font-size: 0.9rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h2::before { left: calc(50% - 8.5rem); }
+h2::after { right: calc(50% - 8.5rem); }
+
+/* ---- the flyleaf line ---- */
+
+.flyleaf {
+  margin: 2.2rem auto;
+  padding: 1.8rem 2rem;
+  max-width: 36rem;
+  text-align: center;
+  font-size: 1.42rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--brass-bright);
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  background:
+    radial-gradient(ellipse 60% 120% at 50% 50%, rgba(245, 166, 35, 0.08), transparent 70%),
+    linear-gradient(180deg, rgba(43, 9, 6, 0.55), rgba(28, 12, 8, 0.55));
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.55), 0 0 26px rgba(245, 166, 35, 0.1);
+  animation: lamp 7s ease-in-out infinite;
+}
+
+@keyframes lamp {
+  0%, 100% { box-shadow: inset 0 0 30px rgba(0,0,0,0.55), 0 0 22px rgba(245,166,35,0.08); }
+  50% { box-shadow: inset 0 0 30px rgba(0,0,0,0.55), 0 0 40px rgba(245,166,35,0.22); }
+}
+
+/* ---- imagery list ---- */
+
+.imagery {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.imagery li {
+  padding: 0.55rem 0 0.55rem 2.1rem;
+  position: relative;
+  border-bottom: 1px dashed rgba(201, 151, 63, 0.25);
+}
+
+.imagery li::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.95rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, var(--marigold-soft), var(--marigold) 55%, var(--blood));
+  box-shadow: 0 0 8px rgba(245, 166, 35, 0.5);
+}
+
+/* ---- dream report ---- */
+
+.dream-report {
+  margin: 0 0 1rem;
+  padding: 1.6rem 1.9rem;
+  font-style: italic;
+  color: var(--ink);
+  border-left: 3px solid var(--marigold);
+  background: linear-gradient(90deg, rgba(74, 18, 15, 0.35), transparent 80%);
+}
+
+.dream-report p { margin: 0; }
+
+.report-attrib {
+  margin-top: 1rem !important;
+  font-style: normal;
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-align: right;
+}
+
+/* ---- see also & sign-off ---- */
+
+.see-also {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(201, 151, 63, 0.35);
+}
+
+.see-also p {
+  font-size: 1.02rem;
+  color: var(--ink-dim);
+  margin-bottom: 0.7rem;
+}
+
+.sign-off {
+  margin-top: 3rem;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brass);
+  opacity: 0.85;
+}
+
+/* ---- small screens ---- */
+
+@media (max-width: 620px) {
+  body { font-size: 1.16rem; }
+  h2::before, h2::after { display: none; }
+  main.entry { padding: 3rem 1.1rem 4rem; }
+}
