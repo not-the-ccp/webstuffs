@@ -1,0 +1,338 @@
+/* West Hillsdale Junior High — Form 9R, Community Studies
+   A report kept on ruled paper, with a lantern by the margin. */
+
+:root {
+  --ink: #1e2a44;
+  --pencil: #46536e;
+  --rule: #9db4d8;
+  --paper: #f7f2e4;
+  --paper-deep: #efe7d1;
+  --seal: #a63d3d;
+  --lantern: #e8a33d;
+  --lantern-deep: #b4691e;
+  --circle: #4c6f5b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 18% -8%, rgba(232, 163, 61, 0.20), transparent 46%),
+    radial-gradient(ellipse at 88% 108%, rgba(76, 111, 91, 0.16), transparent 50%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(157, 180, 216, 0.14) 46px 47px),
+    linear-gradient(160deg, #22314e 0%, #2c3a58 40%, #24304a 100%);
+  background-attachment: fixed;
+  padding: 34px 14px 60px;
+}
+
+/* faint drifting circles behind the paper — the room the loss is kept in */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 90px at 12% 30%, transparent 88px, rgba(232,163,61,0.07) 89px, transparent 91px),
+    radial-gradient(circle 140px at 85% 62%, transparent 138px, rgba(247,242,228,0.08) 139px, transparent 141px),
+    radial-gradient(circle 60px at 70% 15%, transparent 58px, rgba(166,61,61,0.06) 59px, transparent 61px);
+  animation: drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, -26px, 0); }
+}
+
+.paper {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(157, 180, 216, 0.35) 30px 31px),
+    linear-gradient(176deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #d8cfae;
+  box-shadow:
+    0 0 0 6px rgba(30, 42, 68, 0.12),
+    0 34px 70px rgba(10, 16, 30, 0.55),
+    inset 0 0 90px rgba(180, 150, 90, 0.14);
+  padding: 0 0 34px;
+}
+
+/* red margin line, like a ruled exam sheet */
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 64px;
+  width: 2px;
+  background: rgba(166, 61, 61, 0.38);
+}
+
+.paper::after {
+  content: "FORM 9R";
+  position: absolute;
+  top: 46px; right: -38px;
+  transform: rotate(90deg);
+  transform-origin: top right;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(30, 42, 68, 0.28);
+  white-space: nowrap;
+}
+
+.ribbon {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background:
+    linear-gradient(180deg, #33436a 0%, #26345300 140%),
+    repeating-linear-gradient(45deg, rgba(232,163,61,0.10) 0 8px, transparent 8px 16px),
+    #2c3a58;
+  color: #efe7d1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-bottom: 3px double var(--lantern-deep);
+}
+
+.lantern {
+  position: absolute;
+  top: 78px;
+  right: 26px;
+  width: 92px;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 6px 18px rgba(232, 163, 61, 0.35));
+  animation: sway 7s ease-in-out infinite;
+  transform-origin: 100px 8px;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-2.4deg); }
+  50%      { transform: rotate(2.4deg); }
+}
+
+.lantern-wire, .lantern-base, .lantern-wisp { stroke: var(--ink); fill: none; stroke-width: 3; }
+.lantern-body { fill: rgba(232, 163, 61, 0.28); stroke: var(--lantern-deep); stroke-width: 4; }
+.lantern-inner { fill: none; stroke: rgba(180, 105, 30, 0.5); stroke-width: 2;
+  stroke-dasharray: 6 7; animation: dash 9s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -104; } }
+
+.lantern-flame {
+  fill: var(--lantern);
+  animation: flicker 2.8s ease-in-out infinite;
+  transform-origin: 100px 130px;
+}
+.lantern-flame-core { fill: #f6e3b8; animation: flicker 2.8s ease-in-out infinite reverse; }
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  38%      { opacity: 0.82; transform: scale(0.96, 1.03); }
+  71%      { opacity: 0.92; transform: scale(1.02, 0.97); }
+}
+
+.form-head { padding: 34px 40px 6px 96px; }
+
+.office {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--pencil);
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 5.4vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  text-shadow: 2px 2px 0 rgba(232, 163, 61, 0.28);
+}
+
+.form-title {
+  margin: 10px 0 22px;
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--seal);
+  border-bottom: 1px solid var(--seal);
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.reg { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.reg th, .reg td {
+  text-align: left;
+  border: 1px solid var(--rule);
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.34);
+}
+.reg th {
+  width: 150px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pencil);
+  background: rgba(157, 180, 216, 0.16);
+}
+
+.report { padding: 10px 44px 0 96px; }
+
+.report section { margin: 30px 0; }
+
+.report h2 {
+  font-size: 1.24rem;
+  letter-spacing: 0.4px;
+  margin: 0 0 12px;
+  color: var(--ink);
+  border-bottom: 3px double var(--lantern-deep);
+  padding-bottom: 6px;
+}
+
+.orn { color: var(--seal); margin-right: 8px; font-size: 1rem; }
+
+.report p { margin: 0 0 14px; line-height: 1.68; }
+
+.report strong { color: #31415f; }
+
+/* the ledger of numbers — a card pinned to the page */
+.ledger {
+  list-style: none;
+  margin: 18px 0;
+  padding: 18px 22px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(157,180,216,0.4) 34px 35px),
+    linear-gradient(180deg, #fdfaf0, #f3ecd8);
+  border: 1px solid var(--rule);
+  box-shadow: 3px 4px 0 rgba(30, 42, 68, 0.14);
+  transform: rotate(-0.4deg);
+}
+
+.ledger li {
+  padding: 6px 2px;
+  font-size: 0.97rem;
+  line-height: 22px;
+}
+
+.ledger li strong {
+  display: inline-block;
+  min-width: 64px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.15rem;
+  color: var(--seal);
+  border-bottom: 1px solid rgba(166, 61, 61, 0.4);
+}
+
+/* the register line — kept word for word */
+.verbatim {
+  margin: 20px auto;
+  max-width: 560px;
+  padding: 18px 24px 16px;
+  background:
+    linear-gradient(180deg, rgba(166, 61, 61, 0.06), transparent),
+    #f4e9f0;
+  border: 2px solid var(--seal);
+  position: relative;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.04rem;
+  line-height: 1.7;
+  color: #4a2c34;
+  box-shadow: 4px 5px 0 rgba(166, 61, 61, 0.18);
+  transform: rotate(0.35deg);
+}
+
+.verbatim::before {
+  content: "REGISTER, PERIOD 4 — VERBATIM";
+  position: absolute;
+  top: -11px; left: 14px;
+  background: var(--seal);
+  color: #f7f2e4;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  padding: 3px 10px;
+}
+
+/* the "filed" stamp that appears over the verbatim line */
+.stamp {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--seal);
+  border: 2px solid var(--seal);
+  padding: 4px 10px;
+  transform: rotate(-7deg);
+  opacity: 0.85;
+  animation: stampIn 0.4s ease-out both;
+}
+
+@keyframes stampIn {
+  from { transform: rotate(-7deg) scale(1.8); opacity: 0; }
+  to   { transform: rotate(-7deg) scale(1); opacity: 0.85; }
+}
+
+/* teacher's comment — handwriting */
+.comment {
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: #2f4b73;
+  background: rgba(157, 180, 216, 0.12);
+  border-left: 4px solid var(--rule);
+  padding: 12px 18px;
+  transform: rotate(-0.3deg);
+}
+
+.report a {
+  color: var(--circle);
+  text-decoration: underline;
+  text-decoration-color: rgba(76, 111, 91, 0.45);
+  text-underline-offset: 3px;
+}
+
+.report a:hover {
+  background: rgba(76, 111, 91, 0.12);
+  text-decoration-color: var(--circle);
+}
+
+/* a wax-seal mark of 7 of 8 */
+.report section::first-letter { color: var(--seal); }
+
+.form-foot {
+  margin: 34px 44px 0 96px;
+  border-top: 3px double var(--lantern-deep);
+  padding-top: 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+
+.form-foot p { margin: 4px 0; }
+
+.form-foot .back a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--seal);
+}
+
+@media (max-width: 640px) {
+  .paper::before { left: 14px; }
+  .paper::after { display: none; }
+  .form-head, .report, .form-foot { padding-left: 40px; padding-right: 24px; }
+  .lantern { width: 64px; top: 66px; right: 10px; }
+}
