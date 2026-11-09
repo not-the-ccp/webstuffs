@@ -1,0 +1,180 @@
+/* Exhibit No. 7 — The Director as Tool · placard sheet */
+
+:root {
+  --ink: #1c1a17;
+  --paper: #f3efe6;
+  --card: #faf7ef;
+  --rule: #b9b0a0;
+  --stamp: #7a2d1d;
+  --accent: #23404d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.placard-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.exhibit-head {
+  position: relative;
+  border-top: 4px double var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0 1.75rem 0;
+  margin-bottom: 2.5rem;
+}
+
+.room-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: #5c554a;
+}
+
+.exhibit-no {
+  position: absolute;
+  top: 1.25rem;
+  right: 0;
+  writing-mode: vertical-rl;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: var(--stamp);
+  transform: rotate(90deg);
+  transform-origin: top right;
+}
+
+h1.h-display {
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  margin: 0.25rem 0 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 .kana {
+  display: block;
+  font-size: 0.42em;
+  letter-spacing: 0.6em;
+  color: var(--accent);
+  margin-top: 0.6rem;
+  font-weight: 400;
+}
+
+.dates {
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0;
+  color: #4a443b;
+}
+
+.lead {
+  font-size: 1.08rem;
+  max-width: 46rem;
+  margin: 0 0 3rem 0.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 1.4rem 1.4rem 1.6rem;
+  position: relative;
+  box-shadow: 4px 5px 0 rgba(28, 26, 23, 0.12);
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  margin: 0.1rem 0 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.card p { margin: 0 0 0.7rem; font-size: 0.95rem; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-no {
+  font-size: 1.6rem;
+  font-style: italic;
+  margin: 0;
+  color: var(--stamp);
+}
+
+.card-fog      { grid-column: 1 / span 5; }
+.card-dark     { grid-column: 7 / span 6; transform: rotate(-0.6deg); }
+.card-axe      { grid-column: 2 / span 5; transform: rotate(0.5deg); }
+.card-patience { grid-column: 8 / span 4; }
+.card-card     { grid-column: 1 / span 12; background: #f6f1e2; border-left: 6px solid var(--stamp); }
+
+.card-fog { margin-top: 2rem; }
+.card-patience { margin-top: 3.5rem; }
+
+.kept-line {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--paper);
+  border: 1px dashed var(--stamp);
+  padding: 0.8rem 1rem;
+  transform: rotate(-0.4deg);
+}
+
+.catalog {
+  margin-top: 2.75rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.8rem 0.25rem;
+}
+
+.catalog-line {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0.3rem 0;
+  color: #5c554a;
+}
+
+.placard-foot {
+  margin-top: 2.5rem;
+  max-width: 48rem;
+}
+
+.placard-foot a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.foot-rule {
+  letter-spacing: 1em;
+  text-align: center;
+  color: var(--rule);
+  margin: 1.5rem 0 0;
+}
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr; }
+  .card-fog, .card-dark, .card-axe, .card-patience, .card-card {
+    grid-column: 1 / -1;
+    transform: none;
+    margin-top: 0;
+  }
+  .exhibit-no { writing-mode: horizontal-tb; transform: none; top: auto; }
+}
