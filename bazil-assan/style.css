@@ -1,0 +1,139 @@
+/* The Calarogazi Post & Ledger Register — letter pages */
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b2620;
+  --faded: #6d6353;
+  --rule: #b3a486;
+  --seal: #7a2e1d;
+  --wash: #efe7d2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.letter {
+  max-width: 720px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.masthead {
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.desk {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.25rem 0;
+}
+
+.dateline {
+  color: var(--faded);
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+}
+
+h1 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin: 0 0 1.25rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+p { margin: 0 0 1rem; }
+
+.salutation, .signature { font-style: italic; }
+.signature { margin-top: 1.5rem; }
+
+a { color: var(--seal); }
+a:hover { text-decoration-style: dotted; }
+
+/* Voyage ledger */
+.ledger-section { margin-top: 2rem; }
+
+.ledger-note {
+  color: var(--faded);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.filters { margin: 0.75rem 0 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.filter {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--wash);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+}
+
+.filter:hover { background: var(--rule); color: var(--paper); }
+
+.filter.active {
+  background: var(--seal);
+  border-color: var(--seal);
+  color: var(--paper);
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ledger th, .ledger td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ledger thead th {
+  background: var(--wash);
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.ledger tbody tr:nth-child(even) { background: #f1ead9; }
+
+.ledger tbody tr.landing {
+  background: #e8dfc6;
+  box-shadow: inset 3px 0 0 var(--seal);
+}
+
+.ledger td:first-child { white-space: nowrap; }
+
+tr[hidden] { display: none; }
+
+/* Cross-filed notes */
+.crossfiled { margin-top: 2.5rem; border-top: 3px double var(--rule); padding-top: 1.25rem; }
+
+.letter-foot { margin-top: 2.5rem; text-align: center; color: var(--faded); font-size: 0.85rem; }
+.letter-foot p { margin: 0; }
