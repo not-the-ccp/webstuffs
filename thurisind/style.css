@@ -1,0 +1,71 @@
+/* Sirmia Hydrometic & Meteoric Office — almanac folio styling */
+:root{
+  --ink:#2b3340;
+  --paper:#efe6d3;
+  --paper-deep:#e6d9bd;
+  --river:#3d6b7a;
+  --river-deep:#274b57;
+  --frost:#cfe0e4;
+  --seal:#8c3b2e;
+  --line:#9b8b6a;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:
+    repeating-linear-gradient(0deg, rgba(43,51,64,.03) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color:var(--ink);
+  font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+  line-height:1.65;
+}
+.page{
+  max-width:46rem;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 4rem;
+  background:linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border-left:3px double var(--line);
+  border-right:3px double var(--line);
+  box-shadow:0 0 40px rgba(43,51,64,.18);
+}
+.masthead{ text-align:center; border-bottom:none; }
+.mast-top{
+  font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--river-deep); margin:0 0 1rem;
+}
+h1{
+  font-size:2.9rem; letter-spacing:.06em; margin:.2rem 0 .4rem;
+  color:var(--river-deep); font-variant:small-caps;
+}
+.mast-sub{ font-style:italic; margin:.2rem 0; color:var(--ink); }
+.mast-sub.small{ font-size:.85rem; font-style:normal; color:#5b6472; }
+.no{ font-style:normal; font-weight:bold; color:var(--seal); }
+.rule.double{
+  border:none; border-top:3px double var(--line); margin:1.8rem 0;
+}
+.entry h2{
+  font-size:1.05rem; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--seal); border-bottom:1px solid var(--line);
+  padding-bottom:.3rem; margin:2rem 0 1rem;
+}
+.entry p{ margin:0 0 1rem; }
+strong{ color:var(--river-deep); }
+.table{ background:rgba(61,107,122,.06); padding:1rem 1.2rem; border:1px solid var(--line); }
+table{ width:100%; border-collapse:collapse; font-size:.9rem; }
+th{
+  text-align:left; text-transform:uppercase; letter-spacing:.08em;
+  font-size:.72rem; color:var(--river-deep); border-bottom:2px solid var(--line);
+  padding:.35rem .4rem;
+}
+td{ padding:.35rem .4rem; border-bottom:1px dotted var(--line); }
+tr:nth-child(even) td{ background:rgba(207,224,228,.35); }
+.colophon{ font-size:.88rem; color:#5b6472; border-top:none; }
+.colophon-line small, .small{ font-size:.85rem; }
+a{ color:var(--river); text-decoration-thickness:1px; text-underline-offset:2px; }
+a:hover{ color:var(--seal); }
+em{ color:inherit; }
+@media (max-width:600px){
+  h1{ font-size:2.1rem; }
+  .page{ border-left-width:1px; border-right-width:1px; padding:1.5rem 1rem 3rem; }
+  .table{ overflow-x:auto; }
+}
