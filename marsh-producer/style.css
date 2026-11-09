@@ -1,0 +1,156 @@
+/* Field Notes, Notebook No. 4 — the marsh palette: wet paper, iron gall ink, moss, grease pencil */
+
+:root {
+  --paper: #efe6d3;
+  --paper-deep: #e6dabf;
+  --ink: #2c2118;
+  --ink-faded: #5c4d3c;
+  --moss: #4d5d38;
+  --anise: #8a3b2a;
+  --grease: #b8a24a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(77, 93, 56, 0.05) 30px 31px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.spine {
+  position: fixed;
+  top: 0; bottom: 0; left: 0;
+  width: 14px;
+  background: linear-gradient(90deg, var(--moss) 0 6px, var(--paper-deep) 6px 10px, var(--moss) 10px);
+  z-index: 2;
+}
+
+.cover {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2rem calc(1.5rem + 14px);
+  text-align: center;
+  border-bottom: 3px double var(--ink-faded);
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: var(--moss);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: normal;
+  margin: 0.2rem 0;
+  line-height: 1.15;
+}
+
+h1 em { color: var(--anise); font-style: italic; }
+
+.latin {
+  font-style: italic;
+  color: var(--ink-faded);
+  margin: 0.4rem 0 1.8rem;
+}
+
+.specimen {
+  display: inline-block;
+  text-align: left;
+  background: var(--paper-deep);
+  border: 1.5px dashed var(--ink-faded);
+  padding: 1rem 1.3rem;
+  transform: rotate(-0.6deg);
+  cursor: pointer;
+  max-width: 34rem;
+  box-shadow: 3px 3px 0 rgba(44, 33, 24, 0.15);
+}
+
+.spec-label {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.18em;
+  color: var(--anise);
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+}
+
+.specimen p { margin: 0.2rem 0; }
+
+.notes {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem calc(1.5rem + 14px);
+}
+
+.entry {
+  margin-bottom: 2.4rem;
+  border-left: 2px solid rgba(77, 93, 56, 0.35);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.entry::before {
+  content: "\25CF";
+  position: absolute;
+  left: -8px; top: 0.35rem;
+  color: var(--moss);
+  font-size: 0.8rem;
+}
+
+.date-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--moss);
+  margin: 0 0 0.8rem;
+  border-bottom: 1px solid rgba(92, 77, 60, 0.3);
+  display: inline-block;
+  padding-bottom: 0.15rem;
+}
+
+blockquote.log-line {
+  margin: 1.4rem 0.5rem;
+  padding: 1.1rem 1.4rem;
+  background: rgba(184, 162, 74, 0.14);
+  border-left: 5px solid var(--grease);
+  font-style: italic;
+  transform: rotate(0.4deg);
+}
+
+blockquote.log-line p { margin: 0 0 0.5rem; }
+
+blockquote.log-line cite {
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--ink-faded);
+  font-family: "Courier New", Courier, monospace;
+}
+
+a { color: var(--anise); }
+a:hover { background: rgba(138, 59, 42, 0.12); }
+
+.colophon-note { border-left-style: dashed; }
+
+footer.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3.5rem calc(1.5rem + 14px);
+  border-top: 3px double var(--ink-faded);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-faded);
+}
+
+@media (max-width: 600px) {
+  .spine { width: 8px; background: var(--moss); }
+  .cover, .notes, footer.colophon { padding-left: 1.2rem; }
+  h1 { font-size: 1.9rem; }
+}
