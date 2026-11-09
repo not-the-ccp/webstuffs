@@ -1,0 +1,259 @@
+/* Timetable No. 9/35 — the Nuremberg Special */
+
+:root {
+  --ink: #1c1a17;
+  --paper: #f3ead8;
+  --board: #22301f;
+  --board-ink: #f5f1e6;
+  --red: #a4262c;
+  --line: #8a7c60;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(28, 26, 23, 0.03) 0 1px, transparent 1px 7px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.board {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  position: relative;
+  background: var(--board);
+  color: var(--board-ink);
+  padding: 3rem 2.5rem 4rem;
+  margin: -1rem -0.5rem 3rem;
+  box-shadow: 8px 8px 0 rgba(28, 26, 23, 0.18);
+}
+
+.mast-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.series {
+  grid-column: 1 / -1;
+  margin: 0 0 2rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(245, 241, 230, 0.4);
+  padding-bottom: 0.75rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.big {
+  display: block;
+  font-size: clamp(4rem, 12vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: #e8c14a;
+  font-weight: 700;
+  transform: rotate(-1.2deg);
+  transform-origin: left top;
+}
+
+.route-line {
+  margin: 1.5rem 0 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+}
+
+.dates {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.stamp {
+  position: absolute;
+  right: 2.2rem;
+  bottom: -1.6rem;
+  transform: rotate(9deg);
+  border: 3px double var(--red);
+  color: var(--red);
+  background: var(--paper);
+  padding: 0.6rem 1.4rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  font-size: 0.9rem;
+  box-shadow: 3px 3px 0 rgba(28, 26, 23, 0.25);
+  z-index: 2;
+}
+
+/* ---------- intro ---------- */
+
+.intro {
+  font-size: 1.05rem;
+  max-width: 46rem;
+  margin: 3.5rem 0 2.5rem 0.5rem;
+}
+
+/* ---------- timetables ---------- */
+
+.timetable {
+  margin: 3rem 0;
+  break-inside: avoid;
+}
+
+.timetable h2 {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  border-left: 6px solid var(--red);
+  padding-left: 0.9rem;
+}
+
+.leg {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.7rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: 0.86rem;
+  background: #fbf6ea;
+  border: 2px solid var(--ink);
+}
+
+thead th {
+  text-align: left;
+  background: var(--ink);
+  color: var(--board-ink);
+  padding: 0.45rem 0.7rem;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+tbody td {
+  padding: 0.55rem 0.7rem;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) { background: rgba(138, 124, 96, 0.09); }
+
+td.dep, td.arr {
+  white-space: nowrap;
+  font-weight: 700;
+  width: 4.5rem;
+}
+
+td.sta { font-weight: 700; }
+
+td.rem { color: #3d382f; font-size: 0.8rem; }
+
+.session tbody tr:hover { background: rgba(164, 38, 44, 0.07); }
+
+.board-note {
+  margin: 0.8rem 0 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: #5a5040;
+  border-top: 1px dashed var(--line);
+  padding-top: 0.5rem;
+}
+
+/* ---------- commentary ---------- */
+
+.commentary {
+  background: #efe4c9;
+  border: 1px solid var(--line);
+  padding: 1.6rem 2rem 1.2rem;
+  margin: 3.5rem 0 3.5rem 3.5rem;
+  box-shadow: -6px 6px 0 rgba(28, 26, 23, 0.1);
+}
+
+.commentary:nth-of-type(even) {
+  margin-left: 0;
+  margin-right: 3.5rem;
+  box-shadow: 6px 6px 0 rgba(28, 26, 23, 0.1);
+}
+
+.commentary h2 {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 1rem;
+}
+
+.commentary p { margin: 0 0 1rem; }
+
+.cross-ref {
+  font-size: 0.92rem;
+  color: #4a4234;
+  border-top: 1px dotted var(--line);
+  padding-top: 0.9rem;
+}
+
+a { color: #7a2c14; }
+a:hover { color: var(--red); }
+
+/* ---------- footer ---------- */
+
+.board-foot {
+  margin-top: 3rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+}
+
+.foot-stamp {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+
+.foot-note {
+  font-size: 0.8rem;
+  color: #5a5040;
+  margin: 0;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px) {
+  .mast-grid { grid-template-columns: 1fr; }
+  .stamp { position: static; display: inline-block; margin-top: 1rem; }
+  .commentary,
+  .commentary:nth-of-type(even) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1.2rem 1rem;
+  }
+  .dep, .arr, thead th.arr { width: auto; }
+}
