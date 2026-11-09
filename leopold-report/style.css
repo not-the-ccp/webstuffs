@@ -1,0 +1,179 @@
+/* The Elk Years — Player's Manual, page 12
+   Belford & Pines Games, 1967. Field copy, 2-pause typewriter sheet. */
+
+:root {
+  --paper: #efe7d3;
+  --paper-deep: #e4d9bd;
+  --ink: #2a2620;
+  --faded: #5c5344;
+  --rule: #8a7d63;
+  --stamp: #9c3b2a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #cfc4a6; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: var(--ink);
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,.25), transparent 55%),
+    linear-gradient(160deg, #d6cbae, #c4b795);
+}
+
+.manual {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2.8rem 3rem 2.2rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(90,75,45,.05) 26px 27px),
+    linear-gradient(175deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #b3a684;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.5) inset,
+    0 14px 30px rgba(40,30,10,.35);
+  transform: rotate(-.25deg);
+}
+
+/* faint coffee ring and edge wear */
+.manual::before {
+  content: "";
+  position: absolute;
+  top: 2rem; right: 2.2rem;
+  width: 7.5rem; height: 7.5rem;
+  border: 3px solid rgba(122,86,32,.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.manual::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: .6rem;
+  background: linear-gradient(rgba(60,45,20,0), rgba(60,45,20,.18));
+  pointer-events: none;
+}
+
+/* rubber stamps */
+.stamp {
+  position: absolute;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: .35em .8em;
+  text-transform: uppercase;
+  opacity: .8;
+  transform: rotate(-7deg);
+  mix-blend-mode: multiply;
+}
+.stamp--top { top: 1rem; left: 1.4rem; transform: rotate(-6deg); }
+.stamp--bottom { bottom: .9rem; right: 1.4rem; transform: rotate(3deg); opacity: .55; }
+
+.manual-head { margin-bottom: 1.4rem; }
+.series {
+  margin: 0 0 .4rem;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+h1 {
+  margin: 0 0 .3rem;
+  font-size: 1.9rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.class {
+  margin: 0;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--faded);
+}
+.plimsoll {
+  border: none;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 5px;
+  margin: 1rem 0 0;
+}
+
+.definition { font-size: .95rem; }
+.df { }
+dfn { font-style: normal; font-weight: 700; }
+strong { font-weight: 700; }
+
+h2 {
+  font-size: .92rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: .3rem;
+  margin: 1.8rem 0 .8rem;
+}
+
+.procedure {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+  font-size: .92rem;
+}
+.procedure li { margin-bottom: .55rem; }
+
+.register {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+  margin: .4rem 0 1rem;
+}
+.register th {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  border-bottom: 2px solid var(--rule);
+  padding: .3rem .5rem;
+}
+.register td {
+  border-bottom: 1px solid rgba(138,125,99,.5);
+  padding: .35rem .5rem;
+  vertical-align: top;
+}
+.register tbody tr:nth-child(odd) { background: rgba(138,125,99,.08); }
+
+.caution {
+  border: 2px solid var(--stamp);
+  padding: .9rem 1.1rem .6rem;
+  margin: 1.4rem 0;
+  transform: rotate(.3deg);
+  background: rgba(156,59,42,.04);
+}
+.caution-head {
+  margin: 0 0 .5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .8rem;
+  color: var(--stamp);
+}
+.caution p { font-size: .88rem; margin: 0 0 .6rem; }
+.caution em { font-style: italic; }
+
+.see-also p { font-size: .85rem; margin: .35rem 0; }
+.see-also a { color: var(--ink); }
+a { color: var(--ink); text-decoration-color: var(--stamp); text-underline-offset: 2px; }
+a:hover { color: var(--stamp); }
+
+.sign-off {
+  margin-top: 2rem;
+  padding-top: .6rem;
+  border-top: 1px solid var(--rule);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  color: var(--faded);
+}
