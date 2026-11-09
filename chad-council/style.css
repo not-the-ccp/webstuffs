@@ -1,0 +1,336 @@
+/* Council of Rivers, Borders & Names — Session I, N'Djamena
+   Palette: Sahel dusk over the Chari, ink, brass, and the green of Lake Chad. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --dusk-top: #141a33;
+  --dusk-mid: #3a3a5e;
+  --dusk-low: #a06a3c;
+  --sand: #e8d9b0;
+  --paper: #f4ead2;
+  --paper-deep: #eadfc0;
+  --ink: #2b1d0e;
+  --ink-soft: #55422a;
+  --brass: #b8862b;
+  --brass-deep: #8a5f17;
+  --lake: #2e6f7e;
+  --lake-deep: #1d4a55;
+  --rule: #c9b078;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 1.14rem;
+  line-height: 1.62;
+  background:
+    radial-gradient(120% 60% at 50% 108%, rgba(160, 106, 60, 0.55), transparent 60%),
+    linear-gradient(180deg, var(--dusk-top) 0%, var(--dusk-mid) 42%, #6d5a58 62%, var(--dusk-low) 78%, #d9a86a 100%);
+  background-attachment: fixed;
+}
+
+/* shifting heat-haze over the sky */
+.haze {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 14px, rgba(255, 230, 180, 0.028) 14px 16px),
+    radial-gradient(60% 30% at 50% 74%, rgba(255, 205, 130, 0.16), transparent 70%);
+  animation: shimmer 9s ease-in-out infinite alternate;
+}
+@keyframes shimmer {
+  from { transform: translateY(0); opacity: 0.85; }
+  to   { transform: translateY(-14px); opacity: 1; }
+}
+
+/* the visitor of 16:42 — a moth that reads the dark */
+.moth {
+  position: fixed;
+  width: 26px;
+  height: 16px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.moth.seen { opacity: 0.92; }
+.moth .wing {
+  position: absolute;
+  top: 2px;
+  width: 13px;
+  height: 13px;
+  background: radial-gradient(circle at 50% 50%, #6b5138 0%, #4a3624 55%, #33261a 100%);
+  border-radius: 78% 22% 78% 22%;
+  animation: flap 0.28s ease-in-out infinite alternate;
+}
+.moth .wing-l { left: 1px; transform-origin: right center; }
+.moth .wing-r { right: 1px; transform-origin: left center; border-radius: 22% 78% 22% 78%; }
+@keyframes flap {
+  from { transform: rotateY(12deg) scale(1); }
+  to   { transform: rotateY(-34deg) scale(0.86); }
+}
+.moth.perched .wing { animation: none; }
+
+.masthead {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3.2rem 1rem 1.4rem;
+  color: var(--sand);
+}
+.seal {
+  width: 118px;
+  height: 118px;
+  margin-bottom: 0.6rem;
+  filter: drop-shadow(0 0 14px rgba(232, 217, 176, 0.35));
+}
+.seal-ring { fill: none; stroke: var(--sand); stroke-width: 2.4; }
+.seal-ring-2 { stroke-width: 1; stroke-dasharray: 3 4; opacity: 0.8; }
+.seal-sun { fill: var(--brass); }
+.seal-hill { fill: none; stroke: var(--sand); stroke-width: 1.6; }
+.seal-lake { fill: var(--lake); }
+.seal-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7.4px;
+  letter-spacing: 0.22em;
+  fill: var(--sand);
+  text-anchor: middle;
+}
+.paper-title {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.3rem);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 18px rgba(20, 26, 51, 0.7);
+}
+.paper-sub {
+  margin: 0.5rem 0 0;
+  font-size: 1.02rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--sand);
+  opacity: 0.9;
+}
+.paper-line {
+  margin: 0.8rem 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d9c48f;
+}
+.paper-line::before, .paper-line::after {
+  content: " ✦ ";
+  color: var(--brass);
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto 4rem;
+  padding: 2.6rem clamp(1.3rem, 5vw, 3.2rem) 2.2rem;
+  background:
+    repeating-linear-gradient(180deg, rgba(184, 134, 43, 0.035) 0 2px, transparent 2px 34px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 70%, #e2d3ae 100%);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 0 0 6px rgba(244, 234, 210, 0.14),
+    0 0 0 7px var(--brass),
+    0 30px 70px rgba(10, 12, 28, 0.55);
+}
+/* corner ornaments: the four bearings of the hexagon */
+.sheet::before, .sheet::after {
+  content: "";
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border: 2px solid var(--brass);
+}
+.sheet::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.sheet::after { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+.deck {
+  text-align: center;
+  padding-bottom: 1.4rem;
+  border-bottom: 3px double var(--brass);
+}
+.notice-kind {
+  margin: 0 0 0.6rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+}
+.deck h1 {
+  margin: 0;
+  font-size: clamp(3rem, 10vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.full-name {
+  margin: 0.3rem 0 0;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.dates {
+  margin: 0.7rem 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--lake-deep);
+}
+
+.present {
+  width: 100%;
+  margin: 1.6rem 0;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+  background: rgba(184, 134, 43, 0.07);
+  border: 1px solid var(--rule);
+}
+.present th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: left;
+  vertical-align: top;
+  color: var(--brass-deep);
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.present td {
+  padding: 0.55rem 0.7rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.present tr:last-child th, .present tr:last-child td { border-bottom: 0; }
+
+.item { margin: 2rem 0; }
+.item h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: 0 0 0.7rem;
+  font-size: 1.28rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+.item h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--brass) 0%, var(--rule) 60%, transparent 100%);
+}
+.item .no {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--brass-deep);
+  border: 1.4px solid var(--brass);
+  border-radius: 50%;
+  min-width: 1.55rem;
+  height: 1.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-0.1rem);
+}
+.item p { margin: 0 0 0.9rem; }
+.item p:last-child { margin-bottom: 0; }
+em { font-style: italic; color: var(--ink-soft); }
+a {
+  color: var(--lake-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--brass-deep); background: rgba(184, 134, 43, 0.12); }
+
+/* Article 7 — the line kept word for word, with the pour */
+.rule {
+  position: relative;
+  margin: 1.1rem 0 0.4rem;
+  padding: 1.2rem 1.4rem 1.1rem;
+  background:
+    linear-gradient(180deg, rgba(46, 111, 126, 0.08), rgba(184, 134, 43, 0.1)),
+    repeating-linear-gradient(90deg, transparent 0 26px, rgba(184, 134, 43, 0.08) 26px 27px);
+  border-left: 4px solid var(--lake);
+  overflow: hidden;
+}
+.rule-line {
+  margin: 0;
+  font-size: 1.32rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  cursor: help;
+}
+.rule-note {
+  margin: 0.7rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+/* the tea, when a name is ready */
+.pour {
+  position: absolute;
+  top: 0;
+  left: var(--pour-x, 50%);
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--lake), var(--lake-deep));
+  opacity: 0.85;
+  transition: height 0.7s cubic-bezier(0.5, 0, 0.8, 1), opacity 0.4s;
+}
+.rule.pouring .pour { height: 100%; opacity: 0.7; }
+.rule.pouring .rule-line { animation: survive 1.6s ease; }
+@keyframes survive {
+  0%, 100% { transform: none; color: var(--ink); }
+  20%, 60% { transform: translateX(2px); color: var(--lake-deep); }
+}
+
+.sheet-foot {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1rem 3rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #d9c48f;
+  opacity: 0.85;
+}
+
+.notice-foot {
+  margin-top: 2.4rem;
+  padding-top: 1.1rem;
+  border-top: 3px double var(--brass);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.notice-foot p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .haze, .moth .wing, .rule-line { animation: none !important; }
+  .moth { display: none; }
+}
