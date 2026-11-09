@@ -1,0 +1,85 @@
+/* Letter of apology — anhydrous ammonia · Mammoth Whistle Stop, Field Annex No. 7 */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Apple Garamond", "Times New Roman", serif;
+  color: #262420;
+  background: #cdd6d4;
+  line-height: 1.7;
+}
+.letter {
+  max-width: 640px;
+  margin: 42px auto;
+  padding: 48px 40px 58px 40px;
+  background: #fbfaf4;
+  border: 1px solid #afb9b4;
+  border-top: 4px solid #7a8c7f;
+  border-left: 4px solid #7a8c7f;
+  box-shadow: 10px 10px 0 #a3ada8, 0 14px 30px rgba(30, 38, 34, 0.15);
+  position: relative;
+  background-image: repeating-linear-gradient(transparent, transparent 29px, #dbe4df 29px, #dbe4df 30px);
+  background-size: 100% 31px;
+}
+.letter::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background: repeating-linear-gradient(90deg, #5a695f, #5a695f 2px, transparent 2px, transparent 4px);
+}
+.letterhead { border-bottom: 3px double #4a3728; padding-bottom: 16px; margin-bottom: 20px; }
+.railway {
+  margin: 0 0 8px;
+  font-size: 10.5px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #4a3728;
+}
+.ref {
+  margin: 0 0 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: #5c6e66;
+}
+.date { margin: 14px 0 0; font-style: italic; color: #59574e; }
+.address { margin-bottom: 20px; }
+.address p {
+  margin: 0 0 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.salutation {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #262420;
+}
+p { margin: 0 0 17px; text-align: justify; }
+p strong { color: #3d4a3f; }
+.particulars p { margin: 0 0 13px; text-align: left; padding-left: 26px; text-indent: -26px; }
+.particulars p::before { content: "¶ "; color: #7a8c7f; font-weight: bold; }
+.signature { margin-top: 34px; }
+.signature p { margin: 0 0 5px; text-align: left; }
+.signature .name { font-style: italic; font-size: 15.5px; color: #262420; }
+.signature .rank { font-size: 12px; color: #5c5a4e; font-family: "Courier New", Courier, monospace; letter-spacing: 0.4px; }
+.seal {
+  position: absolute; bottom: -30px; right: -28px;
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 2px solid #8a6d3b;
+  background: radial-gradient(circle at 32% 38%, #efe3c4 0%, #efe3c4 30%, #c9a85b 65%, #8a6d3b 100%);
+  font: 10px/64px "Courier New", Courier, monospace;
+  text-align: center; letter-spacing: 2px; color: #5a431c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.ps {
+  margin-top: 30px;
+  padding-top: 14px;
+  border-top: 1px solid #c9d1cc;
+  font-size: 13px;
+}
+.ps p { text-align: left; margin: 0 0 8px; }
+a { color: #5a695f; text-decoration: underline dotted #98a59d; }
+a:hover { color: #3d4a3f; text-decoration-style: solid; }
