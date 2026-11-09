@@ -1,0 +1,243 @@
+/* The Chronicle Route — Brochure No. 987 · maximalist Ukrainian palette */
+:root {
+  --blue: #1e40af;
+  --deep-blue: #122a6e;
+  --sky: #0057b8;
+  --gold: #ffd500;
+  --gold-soft: #f5c518;
+  --paper: #fdf6e3;
+  --ink: #1c2340;
+  --brick: #a33b2e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 213, 0, 0.05) 0 12px, transparent 12px 24px),
+    radial-gradient(ellipse at 15% 10%, #2a4bb5 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, #7a5a00 0%, transparent 50%),
+    linear-gradient(160deg, #0d1f5c 0%, #1e40af 45%, #12306e 100%);
+  background-attachment: fixed;
+  line-height: 1.65;
+}
+
+/* ---- tryzub watermarks ---- */
+.tryzub-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+}
+.tryzub-bg svg {
+  width: 42vmin;
+  height: 50vmin;
+  margin: 12vmin 18vw;
+  animation: drift 60s linear infinite;
+}
+@keyframes drift {
+  from { transform: translateY(-6vmin) rotate(-4deg); }
+  50%  { transform: translateY(4vmin) rotate(3deg); }
+  to   { transform: translateY(-6vmin) rotate(-4deg); }
+}
+
+/* ---- ornamental bands (peasant-embroidery cross-stitch) ---- */
+.band-top, .band-bottom {
+  height: 26px;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--gold) 0 10px, transparent 10px 20px,
+      var(--brick) 20px 30px, transparent 30px 40px),
+    repeating-linear-gradient(0deg,
+      rgba(255, 213, 0, 0.35) 0 2px, transparent 2px 13px),
+    var(--deep-blue);
+  box-shadow: 0 0 22px rgba(255, 213, 0, 0.35);
+}
+.band-top { position: fixed; top: 0; left: 0; right: 0; z-index: 5; }
+.band-bottom { position: fixed; bottom: 0; left: 0; right: 0; z-index: 5; }
+
+/* ---- the brochure body ---- */
+.brochure {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 60px auto 60px;
+  padding: 0 22px;
+}
+
+.cover {
+  text-align: center;
+  padding: 48px 26px 34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 213, 0, 0.28), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
+  border: 3px double var(--deep-blue);
+  outline: 1px solid var(--gold-soft);
+  outline-offset: 6px;
+  box-shadow: 0 18px 50px rgba(0, 0, 20, 0.55), inset 0 0 60px rgba(255, 213, 0, 0.18);
+}
+.cover .series {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brick);
+  margin: 0 0 18px;
+}
+.cover .cyr {
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  color: var(--deep-blue);
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+.cover h1 {
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  margin: 0.05em 0 0.15em;
+  color: var(--deep-blue);
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 var(--gold), 4px 4px 0 rgba(30, 64, 175, 0.25);
+}
+.cover .subtitle {
+  font-size: 1.05rem;
+  color: #33354e;
+  max-width: 34em;
+  margin: 0.8em auto 0.4em;
+}
+.cover .tagline {
+  font-style: italic;
+  color: var(--brick);
+  font-size: 1.1rem;
+  margin: 0 0 18px;
+}
+.tryzub-mark svg {
+  width: 84px;
+  height: 100px;
+  animation: pulse 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 213, 0, 0.7));
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07) rotate(1.5deg); }
+}
+
+/* ---- spreads ---- */
+.spread {
+  margin: 30px 0;
+  padding: 26px 30px 22px;
+  background:
+    repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.035) 0 1px, transparent 1px 28px),
+    linear-gradient(180deg, #fffdf6 0%, var(--paper) 100%);
+  border-left: 6px solid var(--gold);
+  border-right: 2px solid rgba(30, 64, 175, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 20, 0.45);
+  position: relative;
+}
+.spread::before {
+  content: "✦";
+  position: absolute;
+  top: -14px;
+  left: 22px;
+  color: var(--gold);
+  background: var(--deep-blue);
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(255, 213, 0, 0.6);
+}
+
+.spread h2 {
+  font-size: 1.45rem;
+  color: var(--deep-blue);
+  border-bottom: 3px double var(--gold-soft);
+  padding-bottom: 8px;
+  margin-top: 0;
+  letter-spacing: 0.03em;
+}
+
+.dropcap-para::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding: 4px 10px 0 0;
+  color: var(--sky);
+  background: var(--gold);
+  box-shadow: 3px 3px 0 var(--deep-blue);
+}
+
+.ledger-line {
+  margin: 22px auto;
+  padding: 20px 26px;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+  color: #fff;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0 8px, transparent 8px 16px),
+    linear-gradient(135deg, var(--deep-blue), var(--sky));
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 26px rgba(255, 213, 0, 0.45), inset 0 0 30px rgba(0, 0, 0, 0.35);
+}
+.ledger-line::before,
+.ledger-line::after {
+  content: "❦";
+  display: block;
+  color: var(--gold);
+  font-style: normal;
+  font-size: 1.1rem;
+}
+.ledger-line::after { margin-top: 6px; }
+
+.canada { border-left-color: var(--brick); }
+.canada::before { background: var(--brick); }
+.canada h2 { border-bottom-color: var(--brick); color: #6e2418; }
+
+.practical {
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 213, 0, 0.14) 0 10px, transparent 10px 20px),
+    linear-gradient(180deg, #fff9df 0%, #fff3c4 100%);
+}
+
+.spread a {
+  color: var(--sky);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--gold-soft);
+  text-underline-offset: 3px;
+  transition: background-color 0.15s, color 0.15s;
+}
+.spread a:hover {
+  background: var(--gold);
+  color: var(--deep-blue);
+}
+
+.cyr-small { color: var(--brick); font-style: italic; }
+
+.run-off {
+  text-align: center;
+  padding: 20px 0 8px;
+}
+.fine {
+  color: var(--gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .brochure { margin: 44px 10px; }
+  .spread { padding: 22px 18px; }
+  .tryzub-bg svg { margin: 8vmin 6vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tryzub-bg svg, .tryzub-mark svg { animation: none; }
+}
