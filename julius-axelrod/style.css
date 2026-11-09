@@ -1,0 +1,288 @@
+/* The Webstuffs Weather Almanac — Entry 2004/363
+   A maximalist season-book page: layered winter skies, barometer,
+   hair-rule ornament, and a falling snow of almanac dots. */
+
+:root {
+  --ink: #1d2430;
+  --ink-soft: #3c4658;
+  --paper: #f4f1e8;
+  --paper-deep: #eae5d6;
+  --rule: #9a8f74;
+  --vermilion: #a63d2a;
+  --prussian: #23405f;
+  --brass: #8a6a2f;
+  --night-sky: #16213a;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --display: "Baskerville", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: "Iowan Old Style", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.075rem;
+  line-height: 1.72;
+  background:
+    radial-gradient(1100px 500px at 50% -80px, rgba(166, 61, 42, 0.14), transparent 65%),
+    linear-gradient(180deg, var(--night-sky) 0%, #22355c 22%, #4a6488 42%, #9db0c4 62%, var(--paper) 78%, var(--paper-deep) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- drifting cloud layer ------------------------------------------------ */
+.sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.cloud {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(22px);
+  opacity: 0.35;
+  background: radial-gradient(closest-side, rgba(244, 241, 232, 0.85), rgba(244, 241, 232, 0));
+  animation: drift 70s linear infinite;
+}
+.c1 { width: 420px; height: 110px; top: 8%;  left: -20%; animation-duration: 85s; }
+.c2 { width: 560px; height: 140px; top: 16%; left: -35%; animation-duration: 130s; animation-delay: -40s; opacity: 0.25; }
+.c3 { width: 340px; height: 90px;  top: 4%;  left: -15%; animation-duration: 100s; animation-delay: -70s; }
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(160vw); }
+}
+
+/* --- falling dot canvas ---------------------------------------------------- */
+#fall {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* --- masthead -------------------------------------------------------------- */
+.masthead {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2rem;
+  text-align: center;
+  color: var(--paper);
+}
+.masthead-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  margin: 0 0 1.6rem;
+  color: #cfd8e6;
+}
+.masthead h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  margin: 0.4rem 0 0.8rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 22px rgba(22, 33, 58, 0.55);
+}
+.masthead-tagline {
+  font-style: italic;
+  font-size: 1rem;
+  color: #dbe3ee;
+  margin: 0 auto 1.4rem;
+  max-width: 34rem;
+}
+.masthead-figures {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  display: inline-block;
+  padding: 0.35rem 1.1rem;
+  border-top: 1px solid rgba(219, 227, 238, 0.5);
+  border-bottom: 1px solid rgba(219, 227, 238, 0.5);
+  color: #eef2f8;
+}
+
+/* --- barometer ------------------------------------------------------------- */
+.barometer {
+  width: 130px;
+  margin: 0 auto 0.4rem;
+}
+.barometer svg { display: block; width: 100%; height: auto; }
+.dial-ring { fill: none; stroke: rgba(244, 241, 232, 0.8); stroke-width: 2; }
+.dial-ring.thin { stroke-width: 1; stroke-dasharray: 3 5; }
+.ticks line { stroke: rgba(244, 241, 232, 0.75); stroke-width: 2; }
+.dial-word {
+  fill: var(--paper);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-anchor: middle;
+}
+.dial-word.small { font-size: 7px; letter-spacing: 0.18em; fill: #c8d2e2; }
+.needle {
+  stroke: var(--vermilion);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transform-origin: 60px 60px;
+  animation: needle-settle 9s ease-in-out infinite alternate;
+}
+.needle-hub { fill: var(--brass); stroke: var(--paper); stroke-width: 1; }
+@keyframes needle-settle {
+  from { transform: rotate(-7deg); }
+  to   { transform: rotate(7deg); }
+}
+
+/* --- entries ---------------------------------------------------------------- */
+main {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+.entry {
+  background:
+    linear-gradient(180deg, rgba(244, 241, 232, 0.97), rgba(244, 241, 232, 0.93));
+  border: 1px solid var(--rule);
+  outline: 1px solid rgba(154, 143, 116, 0.4);
+  outline-offset: 5px;
+  box-shadow: 0 14px 34px rgba(22, 33, 58, 0.28);
+  padding: 2rem 2.25rem 2.25rem;
+  margin: 0 0 2.4rem;
+  position: relative;
+}
+.entry::before,
+.entry::after {
+  content: "\2736"; /* ❆ */
+  position: absolute;
+  color: var(--vermilion);
+  font-size: 0.8rem;
+  top: 0.4rem;
+}
+.entry::before { left: 0.6rem; }
+.entry::after { right: 0.6rem; }
+.entry h2 {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+  color: var(--prussian);
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.55rem;
+}
+.entry p { margin: 0 0 1rem; }
+.entry strong { color: var(--vermilion); font-weight: 600; }
+
+/* drop cap on the first prose paragraph of each entry */
+.entry p + p:first-of-type,
+.entry .reading + p {
+  text-indent: 0;
+}
+.entry > p:not(.reading):first-of-type::first-letter {
+  font-family: var(--display);
+  font-size: 3.3em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--vermilion);
+}
+
+/* --- observation "reading" lines ------------------------------------------- */
+.reading {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--prussian);
+  padding: 0.7rem 1rem 0.75rem;
+  margin: 0 0 1.3rem;
+  color: var(--ink-soft);
+}
+.reading span {
+  color: var(--brass);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+/* --- verbatim block ---------------------------------------------------------- */
+.verbatim {
+  margin: 1.4rem 0;
+  padding: 1.4rem 1.6rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(154, 143, 116, 0.16) 0 1px, transparent 1px 28px),
+    var(--paper-deep);
+  border: none;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--display);
+  font-size: 1.22rem;
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--ink);
+  position: relative;
+}
+.verbatim::before,
+.verbatim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background:
+    radial-gradient(circle at 6px 2.5px, var(--vermilion) 1.4px, transparent 2px) left / 18px 5px repeat-x;
+}
+.verbatim::before { top: -3px; }
+.verbatim::after { bottom: -3px; }
+
+/* --- links -------------------------------------------------------------------- */
+a { color: var(--prussian); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--vermilion); }
+
+/* --- colophon entry & nav ------------------------------------------------------ */
+.colophon-entry {
+  background:
+    linear-gradient(180deg, rgba(35, 64, 95, 0.97), rgba(22, 33, 58, 0.97));
+  color: var(--paper);
+  border-color: rgba(244, 241, 232, 0.35);
+}
+.colophon-entry h2 { color: #e8d9a8; border-bottom-color: rgba(232, 217, 168, 0.5); }
+.colophon-entry a { color: #bcd4ea; }
+.colophon-entry a:hover { color: #f0c9a8; }
+
+.nav-line {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 0 auto 3.5rem;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+.nav-line .nav {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(244, 241, 232, 0.6);
+  color: var(--paper);
+  text-decoration: none;
+}
+.nav-line .nav:hover { background: rgba(166, 61, 42, 0.85); color: #fff; }
+
+/* --- small screens --------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .entry { padding: 1.4rem 1.2rem 1.6rem; outline-offset: 3px; }
+  .masthead { padding-top: 3.2rem; }
+}
