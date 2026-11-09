@@ -1,0 +1,308 @@
+/* ————— Le Journal Français — a diary ruled in two tongues ————— */
+
+:root {
+  --bleu: #1c2e5c;
+  --blanc: #f6efdd;
+  --rouge: #a41e22;
+  --ink: #26314f;
+  --ink-soft: #4a5578;
+  --gold: #b08a3c;
+  --rule: rgba(74, 85, 120, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(28, 46, 92, 0.55), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 100% 110%, rgba(164, 30, 34, 0.35), transparent 70%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.015) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #101a33 0%, #17264a 45%, #221a2a 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* the tricolore ribbon */
+.tricolore {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  height: 9px;
+  z-index: 50;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+.tricolore span { flex: 1; }
+.tricolore span:nth-child(1) { background: linear-gradient(180deg, #2a4a9e, #1c2e5c); }
+.tricolore span:nth-child(2) { background: linear-gradient(180deg, #fbf4e2, #e9dfc4); }
+.tricolore span:nth-child(3) { background: linear-gradient(180deg, #c22b30, #8c1519); }
+
+/* the great fleuron watermark */
+.fleur-watermark {
+  position: fixed;
+  right: -60px;
+  bottom: -70px;
+  width: 420px;
+  height: 580px;
+  color: rgba(176, 138, 60, 0.10);
+  z-index: 0;
+  pointer-events: none;
+  animation: fleurSway 14s ease-in-out infinite;
+}
+@keyframes fleurSway {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-14px); }
+}
+
+/* the ruled page */
+.journal {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 56px auto 64px;
+  padding: 0 18px;
+}
+
+.journal .sheet,
+.journal {
+  background:
+    /* the red margin rule */
+    linear-gradient(90deg, transparent 62px, rgba(164, 30, 34, 0.45) 62px, rgba(164, 30, 34, 0.45) 64px, transparent 64px),
+    /* the blue ruled lines */
+    repeating-linear-gradient(180deg, transparent 0 30px, var(--rule) 30px 31px),
+    /* the paper itself */
+    radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.5), transparent 60%),
+    linear-gradient(180deg, #f8f2e0, #f1e7cd 55%, #e9dcc0);
+}
+
+.journal::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(135deg, var(--bleu), var(--gold) 50%, var(--rouge));
+  opacity: 0.9;
+  z-index: -1;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.journal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 60px rgba(87, 60, 20, 0.25);
+  z-index: 2;
+}
+
+/* masthead */
+.masthead {
+  padding: 48px 40px 8px 84px;
+  text-align: center;
+}
+.keeper {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rouge);
+  margin: 0 0 14px;
+}
+h1 {
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", "Comic Sans MS", cursive;
+  font-size: clamp(52px, 9vw, 84px);
+  line-height: 1;
+  margin: 0;
+  color: var(--bleu);
+  text-shadow: 2px 2px 0 rgba(176, 138, 60, 0.35);
+}
+.subtitle {
+  margin: 12px auto 0;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 560px;
+}
+.years {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--rouge);
+}
+.motto {
+  display: inline-block;
+  min-width: 150px;
+  border-bottom: 1px dotted var(--gold);
+  color: var(--gold);
+}
+.rule-note {
+  margin: 16px auto 0;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* fleuron dividers */
+.fleur-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 40px 0 84px;
+}
+.fleur-line {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.fleur-mid {
+  font-size: 26px;
+  color: var(--gold);
+  transform: rotate(90deg);
+  animation: fleurTurn 9s linear infinite;
+}
+@keyframes fleurTurn { to { transform: rotate(459deg); } }
+
+/* entries (dimmed only while the script is running; readable without JS) */
+html.js .entry {
+  opacity: 0.55;
+  transform: translateY(8px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.entry {
+  padding: 26px 44px 10px 84px;
+}
+html.js .entry.inked { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .entry { opacity: 1; transform: none; transition: none; }
+}
+.entry-date {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  background: linear-gradient(90deg, var(--bleu), #2a4a9e);
+  padding: 5px 14px;
+  border: 1px solid var(--gold);
+  box-shadow: 2px 2px 0 rgba(176, 138, 60, 0.5);
+  margin: 0 0 14px;
+}
+.entry h2 {
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  font-size: 30px;
+  color: var(--rouge);
+  margin: 0 0 12px;
+}
+.entry p {
+  font-size: 17.5px;
+  line-height: 30px;
+  margin: 0 0 22px;
+  hyphens: auto;
+}
+.entry p.def {
+  background: rgba(28, 46, 92, 0.06);
+  border-left: 3px solid var(--bleu);
+  padding: 14px 18px;
+}
+.ipa {
+  font-family: "Courier New", monospace;
+  font-size: 0.85em;
+  color: var(--rouge);
+  letter-spacing: 0.02em;
+}
+.entry p:first-of-type::first-letter {
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  float: left;
+  font-size: 64px;
+  line-height: 0.8;
+  padding: 6px 8px 0 0;
+  color: var(--rouge);
+  text-shadow: 2px 2px 0 rgba(176, 138, 60, 0.4);
+}
+
+a {
+  color: var(--bleu);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+a:hover {
+  color: var(--rouge);
+  text-decoration-color: var(--rouge);
+}
+
+/* the recipe card */
+.recipe-card {
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(164, 30, 34, 0.12), transparent 50%),
+    linear-gradient(180deg, #fbf6e6, #f3e9cf);
+  border: 1px solid var(--gold);
+  outline: 1px dashed rgba(176, 138, 60, 0.5);
+  outline-offset: -7px;
+  box-shadow: 6px 8px 0 rgba(28, 46, 92, 0.25);
+  padding: 22px 26px;
+  margin: 0 0 22px;
+  transform: rotate(-0.8deg);
+  transition: transform 0.35s ease;
+}
+.recipe-card:hover { transform: rotate(0.2deg) translateY(-3px); }
+.card-head {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rouge);
+}
+.card-line {
+  font-family: "Courier New", monospace;
+  font-size: 16.5px !important;
+  line-height: 28px !important;
+  color: #1d1608 !important;
+  background: rgba(255, 252, 240, 0.8);
+  padding: 12px 14px;
+  border: 1px solid rgba(176, 138, 60, 0.45);
+  box-shadow: inset 2px 2px 8px rgba(120, 90, 30, 0.18);
+}
+.card-foot {
+  font-size: 15px !important;
+  font-style: italic;
+  color: var(--ink-soft) !important;
+}
+
+.postscript {
+  font-size: 15px !important;
+  color: var(--ink-soft) !important;
+  font-style: italic;
+}
+
+/* colophon */
+.colophon {
+  padding: 8px 40px 42px 84px;
+  text-align: center;
+}
+.ledger {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bleu);
+}
+.tiny {
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 620px) {
+  .journal { margin: 30px 8px 40px; }
+  .masthead, .entry, .colophon, .fleur-divider { padding-left: 20px; padding-right: 20px; }
+  .journal .sheet, .journal {
+    background:
+      repeating-linear-gradient(180deg, transparent 0 30px, var(--rule) 30px 31px),
+      linear-gradient(180deg, #f8f2e0, #f1e7cd 55%, #e9dcc0);
+  }
+  .fleur-watermark { display: none; }
+}
