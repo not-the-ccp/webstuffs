@@ -1,0 +1,240 @@
+/* Letter of apology — Karen Records Archive, Room 3 */
+
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #e9dcc2;
+  --ink: #2a2420;
+  --faded: #6d5f4b;
+  --ledger: #8c1d1d;
+  --stamp: #b03a2e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #211c16; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 30% 10%, #3a3228 0%, #211c16 55%, #16120d 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 4rem 1rem 5rem;
+}
+
+.desk { position: relative; }
+
+/* --- the letter sheet, set off-axis --- */
+
+.letter {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 0 0 2.5rem;
+  background:
+    linear-gradient(175deg, var(--paper) 0%, var(--paper) 60%, var(--paper-deep) 100%);
+  border: 1px solid #c9b98f;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 4px 14px rgba(0, 0, 0, 0.4);
+  transform: rotate(-0.6deg);
+  padding: 3.5rem 3.25rem 3rem;
+}
+
+.letter::before,
+.letter::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 26px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 18px,
+    rgba(42, 36, 32, 0.06) 18px 36px
+  );
+  pointer-events: none;
+}
+.letter::before { top: 0; }
+.letter::after { bottom: 0; }
+
+/* --- the paperclip, the tape, the coffee ring --- */
+
+.paperclip {
+  position: absolute;
+  top: -34px;
+  left: 8%;
+  width: 14px;
+  height: 74px;
+  border: 3px solid #9aa0a6;
+  border-radius: 8px;
+  border-right-color: transparent;
+  transform: rotate(14deg);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.15);
+}
+
+.tape {
+  position: absolute;
+  width: 118px;
+  height: 30px;
+  background: rgba(224, 214, 178, 0.5);
+  border: 1px solid rgba(160, 140, 90, 0.35);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+.tape--one { top: -14px; right: 14%; transform: rotate(-7deg); }
+.tape--two { top: 22%; left: -46px; transform: rotate(78deg); }
+
+.coffee {
+  position: absolute;
+  bottom: 9%;
+  right: 4%;
+  width: 92px;
+  height: 92px;
+  border: 10px solid rgba(112, 74, 30, 0.18);
+  border-radius: 50%;
+  transform: rotate(12deg);
+}
+
+/* --- margin note, running vertically off the sheet --- */
+
+.margin-note {
+  position: fixed;
+  left: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  color: rgba(243, 234, 216, 0.42);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .margin-note { display: none; }
+}
+
+/* --- header, oversized --- */
+
+.head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  border-bottom: 3px double var(--faded);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.from {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.to {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--faded);
+}
+
+/* --- the catalogue stamp, overlapping the text --- */
+
+.stamp {
+  position: absolute;
+  top: 11rem;
+  right: -1.4rem;
+  transform: rotate(9deg);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  color: var(--stamp);
+  border: 3px solid var(--stamp);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* --- body prose --- */
+
+.letter p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin: 0 0 1.15rem;
+}
+
+.letter p em { font-style: italic; }
+
+.letter p strong {
+  color: var(--ledger);
+  font-style: italic;
+  border-bottom: 2px solid rgba(140, 29, 29, 0.35);
+}
+
+.close { margin-top: 2rem; }
+
+.signature {
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+/* --- colophon: asymmetric two-column footer --- */
+
+.colophon {
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--faded);
+  display: grid;
+  grid-template-columns: minmax(9rem, 11rem) 1fr;
+  gap: 1.4rem;
+}
+
+@media (max-width: 620px) {
+  .colophon { grid-template-columns: 1fr; }
+}
+
+.shelf-kicker {
+  grid-column: 1;
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.colophon p:last-of-type {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--faded);
+}
+
+.colophon a {
+  color: var(--ledger);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ledger);
+}
+.colophon a:hover { background: rgba(140, 29, 29, 0.1); }
+
+.fine {
+  grid-column: 1 / -1;
+  font-family: "Courier New", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
