@@ -1,0 +1,174 @@
+/* Verbatim Record — court transcript styling for the Bleed American file */
+
+:root {
+  --paper: #efe6cf;
+  --paper-deep: #e5d9ba;
+  --ink: #26221a;
+  --ink-faded: #5c5342;
+  --red-ink: #8c1d18;
+  --rule: #8a7c5c;
+  --stamp: #7c1a14;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #33302a;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 6px);
+  color: var(--ink);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  line-height: 1.55;
+}
+
+.folio {
+  max-width: 780px;
+  margin: 2rem auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 18% 8%, rgba(120,90,40,0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(120,90,40,0.12), transparent 50%);
+  border: 1px solid #b7a980;
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.25), 0 18px 40px rgba(0,0,0,0.55);
+  padding: 2.4rem 2.6rem 1.8rem;
+  position: relative;
+}
+
+.ribbon {
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red-ink);
+  color: #f4ecd9;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  padding: 0.35rem 1.1rem;
+  border: 1px solid #5c120f;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.35);
+}
+
+/* Caption block */
+.caption { text-align: center; }
+.court-line {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  margin: 0 0 0.9rem;
+  color: var(--ink-faded);
+}
+h1 {
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 0 auto 0.7rem;
+  max-width: 56ch;
+  letter-spacing: 0.02em;
+}
+.case-no {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  margin: 0.2rem 0;
+}
+.caption-sub {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-faded);
+  margin: 0.4rem 0 1rem;
+}
+table.attend {
+  margin: 0 auto 0.4rem;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+table.attend th, table.attend td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+}
+table.attend th { background: var(--paper-deep); letter-spacing: 0.08em; }
+
+/* Rules */
+.rule-double {
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 6px;
+  margin: 1.3rem 0;
+}
+
+/* The record itself */
+.record p {
+  margin: 0.12rem 0;
+  font-size: 0.92rem;
+  padding-left: 2.2rem;
+  text-indent: 0;
+}
+.record .line {
+  display: inline-block;
+  width: 1.7rem;
+  margin-left: -2.2rem;
+  color: #9a8b68;
+  font-size: 0.78rem;
+  text-align: right;
+  user-select: none;
+}
+.record .side-head {
+  font-style: italic;
+  color: var(--ink-faded);
+  padding-left: 2.2rem;
+  margin: 0.5rem 0;
+  font-size: 0.86rem;
+}
+.record .quote-line {
+  color: var(--red-ink);
+  font-weight: 700;
+}
+
+/* Footer */
+.file-foot { text-align: center; }
+.stamp-seal {
+  display: inline-block;
+  color: var(--stamp);
+  border: 3px double var(--stamp);
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  transform: rotate(-4deg);
+  margin: 0.6rem 0 0.8rem;
+  opacity: 0.85;
+  background: rgba(124,26,20,0.04);
+}
+.foot-note {
+  font-size: 0.76rem;
+  color: var(--ink-faded);
+  max-width: 60ch;
+  margin: 0.4rem auto;
+}
+.related {
+  font-size: 0.8rem;
+  max-width: 64ch;
+  margin: 0.9rem auto;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border: 1px dashed var(--rule);
+  background: rgba(138,124,92,0.07);
+}
+.related a {
+  color: var(--red-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.related a:hover { background: rgba(140,29,24,0.1); }
+.foot-tail {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--ink-faded);
+  margin: 1rem 0 0;
+}
+
+/* JS-driven touches (page is fully readable without them) */
+html.js .folio .record p { opacity: 0; transform: translateY(2px); transition: opacity 0.5s ease, transform 0.5s ease; }
+html.js .folio.reading .record p { opacity: 1; transform: none; }
+html.js .folio.reading .record p:hover { background: rgba(140,29,24,0.05); }
