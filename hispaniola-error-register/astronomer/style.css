@@ -1,0 +1,205 @@
+/* Astronomer — liner notes, La Caleta Tapes LCT-48671 */
+
+:root {
+  --night: #0b1120;
+  --night-2: #101a33;
+  --ink: #d9b36c;
+  --ink-dim: #9a8f77;
+  --paper: #f4ecd8;
+  --rule: #2a3a5f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, #16234a 0%, var(--night) 55%),
+    var(--night);
+  color: var(--paper);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6;
+}
+
+.sheet {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* star band above the header */
+.sky {
+  position: relative;
+  height: 90px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.sky .star {
+  position: absolute;
+  color: var(--ink);
+  font-size: 0.7rem;
+  animation: twinkle 3.4s ease-in-out infinite;
+  user-select: none;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+/* header, set like a sleeve front */
+.lp-head { text-align: center; padding: 1.5rem 0 1rem; }
+.lp-head .office {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin: 0 0 0.35rem;
+}
+.lp-head .imprint {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-dim);
+  margin: 0 0 1.25rem;
+}
+.glyph {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 1rem;
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.glyph span { font-size: 2rem; color: var(--ink); }
+.lp-head h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0.25rem 0;
+}
+.lp-head .artist {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0.25rem 0 1rem;
+}
+.lp-head .motto {
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  margin: 0;
+}
+
+/* body layout */
+.grid {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+@media (max-width: 44rem) {
+  .grid { grid-template-columns: 1fr; }
+  .margincol { order: 2; }
+}
+
+.margincol { font-size: 0.82rem; color: var(--ink-dim); }
+.stamp {
+  border: 1px dashed var(--ink);
+  color: var(--ink);
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  padding: 0.5rem 0.4rem;
+  transform: rotate(-2deg);
+  margin-bottom: 1.25rem;
+}
+.side-note { margin: 0 0 1rem; font-style: italic; }
+
+main p { margin: 0 0 1.1rem; }
+.drop { text-indent: 0; font-size: 1.02rem; }
+.drop .cap {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.08rem 0.55rem 0 0;
+  color: var(--ink);
+}
+
+.section {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 1rem;
+}
+
+/* track listing, set like a sleeve back with dotted leaders */
+.tracks {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0 0 1.5rem;
+}
+.tracks th {
+  text-align: left;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.3rem 0.5rem 0.3rem 0;
+  font-weight: 400;
+}
+.tracks td {
+  padding: 0.42rem 0.5rem 0.42rem 0;
+  vertical-align: baseline;
+}
+.tracks td:nth-child(2) { font-style: italic; }
+.tracks td:nth-child(3) { color: var(--ink-dim); font-size: 0.85rem; }
+.tracks td:last-child {
+  text-align: right;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.side-mark {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+blockquote.menu {
+  margin: 0 0 1.1rem;
+  padding: 0.7rem 1.1rem;
+  border-left: 3px solid var(--ink);
+  background: var(--night-2);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+blockquote.menu p { margin: 0; }
+
+a { color: var(--ink); text-underline-offset: 3px; }
+a:hover { color: #f0cf8a; }
+
+.credits { font-size: 0.88rem; color: #c9c0aa; }
+em { color: #e8d9b5; }
+
+.colophon-line {
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-dim);
+  margin-top: 2.2rem;
+}
+
+.rule-double {
+  border-top: 3px double var(--ink);
+  margin: 1.5rem 0 0.75rem;
+}
+.foot { text-align: center; font-size: 0.78rem; color: var(--ink-dim); }
+.foot p { margin: 0.2rem 0 0; }
