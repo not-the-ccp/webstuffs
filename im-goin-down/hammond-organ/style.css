@@ -1,0 +1,236 @@
+/* Field Manual FM-21, Chapter 7 — The Hammond Organ */
+
+:root {
+  --paper: #f2ead9;
+  --paper-deep: #e9dec5;
+  --ink: #2b2519;
+  --ink-soft: #5c5340;
+  --rule: #8a6f3c;
+  --red: #9c3b22;
+  --key: #1d1a14;
+  --key-ink: #e8dfc8;
+  --pull: #b98a2f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.65;
+  max-width: 52rem;
+}
+
+.manual {
+  background: #f7f1e2;
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(60, 45, 15, 0.18);
+  padding: 2.25rem 2.5rem;
+}
+
+.kicker {
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.dek {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+h2 {
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.25rem 0 0.9rem;
+}
+
+p { margin: 0 0 1rem; }
+
+code {
+  font-family: ui-monospace, 'Courier New', monospace;
+  background: var(--paper-deep);
+  padding: 0.05rem 0.3rem;
+  font-size: 0.9em;
+}
+
+.rule-double {
+  border-top: 3px double var(--rule);
+  margin: 1.75rem 0;
+}
+
+.masthead {
+  position: relative;
+  padding-right: 8.5rem;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.6rem;
+  right: 0;
+  width: 7.5rem;
+  text-align: center;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-family: ui-monospace, 'Courier New', monospace;
+  transform: rotate(4deg);
+  padding: 0.5rem 0.4rem;
+  opacity: 0.85;
+}
+.stamp-text { display: block; font-size: 0.95rem; letter-spacing: 0.1em; font-weight: bold; }
+.stamp-sub { display: block; font-size: 0.58rem; letter-spacing: 0.08em; margin-top: 0.3rem; }
+
+.fact-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 0.75rem 1rem;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.85rem;
+  margin: 1.25rem 0;
+}
+.fact-box p { margin: 0.2rem 0; }
+.fact-box strong { color: var(--red); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Console */
+.console-frame {
+  border: 2px solid var(--key);
+  background: #26221a;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.db { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.db-label {
+  font-family: ui-monospace, 'Courier New', monospace;
+  color: var(--key-ink);
+  font-size: 0.72rem;
+  margin-bottom: 0.2rem;
+}
+.cell {
+  width: 100%;
+  min-height: 1.35rem;
+  border: 1px solid #4a4335;
+  background: var(--key);
+  color: var(--key-ink);
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.75rem;
+  padding: 0.1rem 0;
+  cursor: pointer;
+}
+.cell:hover { background: #35301f; }
+.cell.active { background: var(--pull); color: #241d0a; font-weight: bold; }
+.cell.zero { background: #37332a; color: #8d8468; font-style: italic; }
+.cell.zero.active { background: #6b6250; color: #1d1a14; font-weight: bold; }
+.db-value {
+  font-family: ui-monospace, 'Courier New', monospace;
+  color: var(--pull);
+  font-weight: bold;
+  min-height: 1.2rem;
+}
+
+.readout {
+  border-top: 1px dashed #5a5140;
+  padding-top: 0.9rem;
+}
+.readout-setting {
+  font-family: ui-monospace, 'Courier New', monospace;
+  color: var(--key-ink);
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.25rem;
+}
+.readout-preset {
+  font-family: ui-monospace, 'Courier New', monospace;
+  color: var(--pull);
+  font-size: 0.88rem;
+  margin: 0 0 0.75rem;
+  min-height: 1.2rem;
+}
+.preset-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.preset-btn {
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.72rem;
+  background: #37332a;
+  color: var(--key-ink);
+  border: 1px solid #5a5140;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+.preset-btn:hover { background: var(--pull); color: #241d0a; }
+
+.console-note { font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+/* Settings table */
+table.settings {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.82rem;
+  margin: 1rem 0 0.5rem;
+}
+table.settings th {
+  text-align: left;
+  background: var(--paper-deep);
+  border-bottom: 2px solid var(--rule);
+  padding: 0.35rem 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+}
+table.settings td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.35rem 0.5rem;
+}
+table.settings td:nth-child(3) { letter-spacing: 0.12em; }
+.tabnote { font-size: 0.85rem; color: var(--ink-soft); }
+
+blockquote.errata-quote {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.25rem;
+  border-left: 4px solid var(--red);
+  background: var(--paper-deep);
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 1.05rem;
+  color: var(--red);
+}
+
+ul.refs { list-style: none; padding: 0; margin: 0; }
+ul.refs li {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+a { color: var(--red); }
+a:hover { color: #7a2c17; }
+
+.colophon {
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.colophon .nav { margin-top: 0.4rem; }
