@@ -1,0 +1,267 @@
+/* The Six-String Route — sunburst, lacquer, fret markers */
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap');
+
+:root {
+  --ink: #2b1204;
+  --amber: #f3c05a;
+  --gold: #d9a441;
+  --lacquer: #7a2d0d;
+  --deep: #3a1406;
+  --cream: #f6e7c1;
+  --fret: rgba(217, 164, 65, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--cream);
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 118px,
+      var(--fret) 118px 121px),
+    radial-gradient(ellipse 120% 90% at 50% -10%,
+      #f3c05a 0%, #e09a30 18%, #b25a14 42%, #7a2d0d 68%, #3a1406 100%);
+  background-attachment: fixed;
+}
+
+/* --- marquee band --- */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--deep);
+  border-bottom: 3px double var(--gold);
+  font-family: 'Special Elite', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  padding: 0.45rem 0;
+  text-transform: uppercase;
+}
+.marquee-track {
+  display: inline-block;
+  animation: slide 40s linear infinite;
+}
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --- brochure sheet --- */
+.brochure {
+  max-width: 880px;
+  margin: 2.2rem auto 4rem;
+  padding: 3rem clamp(1.2rem, 5vw, 3.6rem) 2.4rem;
+  background:
+    radial-gradient(ellipse 160% 40% at 50% 0%, rgba(243, 192, 90, 0.12), transparent 70%),
+    repeating-linear-gradient(0deg,
+      transparent 0 96px,
+      rgba(43, 18, 4, 0.35) 96px 98px),
+    linear-gradient(180deg, #1f0c02 0%, #2b1204 55%, #170a02 100%);
+  border: 10px solid var(--deep);
+  outline: 2px solid var(--gold);
+  outline-offset: -18px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    inset 0 0 120px rgba(0, 0, 0, 0.55);
+}
+
+/* --- front matter --- */
+.front { text-align: center; }
+
+.issuer {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+.fret-dots {
+  font-size: 0.9rem;
+  letter-spacing: 1.2em;
+  text-indent: 1.2em;
+  color: var(--gold);
+  margin: 1.1rem 0;
+}
+
+h1 {
+  font-family: 'Rye', 'IM Fell English', serif;
+  font-size: clamp(2.6rem, 9vw, 5.2rem);
+  line-height: 1.02;
+  margin: 0.4rem 0 0.8rem;
+  color: var(--amber);
+  text-shadow:
+    0 0 18px rgba(243, 192, 90, 0.35),
+    3px 3px 0 var(--deep),
+    -2px -2px 0 rgba(217, 164, 65, 0.25);
+}
+
+.kicker {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(246, 231, 193, 0.85);
+  margin: 0 0 1.6rem;
+}
+
+/* --- hero instrument --- */
+.hero { margin: 1.4rem 0 0.4rem; }
+.hero svg {
+  width: min(480px, 86%);
+  height: auto;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.55));
+  cursor: pointer;
+}
+.hero figcaption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(246, 231, 193, 0.65);
+  margin-top: 0.6rem;
+}
+
+/* strings vibrate when strummed */
+.strings line { transform-box: fill-box; transform-origin: center; }
+.strum .s1 { animation: buzz 0.5s 0.00s ease-in-out; }
+.strum .s2 { animation: buzz 0.5s 0.06s ease-in-out; }
+.strum .s3 { animation: buzz 0.5s 0.12s ease-in-out; }
+.strum .s4 { animation: buzz 0.5s 0.18s ease-in-out; }
+.strum .s5 { animation: buzz 0.5s 0.24s ease-in-out; }
+.strum .s6 { animation: buzz 0.5s 0.30s ease-in-out; }
+.strum .pick { animation: flick 1.1s 0.05s ease-in-out; }
+@keyframes buzz {
+  0%, 100% { transform: scaleY(1); }
+  25%      { transform: scaleY(5); }
+  50%      { transform: scaleY(0.4); }
+  75%      { transform: scaleY(3); }
+}
+@keyframes flick {
+  0%   { transform: translate(330px, 40px) rotate(20deg); }
+  35%  { transform: translate(150px, 118px) rotate(-12deg); }
+  60%  { transform: translate(80px, 160px) rotate(8deg); }
+  100% { transform: translate(330px, 40px) rotate(20deg); }
+}
+.pick { transform: translate(330px, 40px) rotate(20deg); }
+
+.strum-btn, .strum {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: 'Special Elite', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--lacquer);
+  border: 2px solid var(--gold);
+  padding: 0.5rem 1.3rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.strum-btn:hover, .strum:hover { background: var(--deep); }
+.strum-btn:active, .strum:active { transform: translateY(2px); }
+
+/* --- stops --- */
+.stop {
+  margin: 3rem 0;
+  padding: 1.6rem 1.7rem 1.4rem;
+  border: 1px solid rgba(217, 164, 65, 0.45);
+  border-left: 8px solid var(--gold);
+  background:
+    linear-gradient(180deg, rgba(243, 192, 90, 0.06), transparent 40%),
+    rgba(23, 10, 2, 0.5);
+  position: relative;
+}
+.stop::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(217, 164, 65, 0.3);
+  pointer-events: none;
+}
+.stop.final { border-left-color: var(--amber); }
+
+.stop-no {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-family: 'Rye', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--amber);
+  margin: 0 0 0.9rem;
+  line-height: 1.2;
+}
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-decoration-color: rgba(243, 192, 90, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+a:hover { text-decoration-color: var(--amber); }
+
+/* --- practical part (ticket stub) --- */
+.facts {
+  margin: 3.2rem 0 0;
+  padding: 1.4rem 1.6rem;
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(243, 192, 90, 0.05) 0 12px,
+      transparent 12px 24px),
+    #170a02;
+  border-top: 2px dashed var(--gold);
+  border-bottom: 2px dashed var(--gold);
+  transform: rotate(-0.4deg);
+}
+.facts-title {
+  font-family: 'Rye', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.7rem;
+}
+.facts ul { list-style: none; margin: 0; padding: 0; }
+.facts li {
+  margin: 0.45rem 0;
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 1rem;
+}
+.facts li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.7rem;
+  top: 0.32em;
+}
+
+/* --- colophon --- */
+.colophon {
+  margin-top: 2.8rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(246, 231, 193, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .strum .s1, .strum .s2, .strum .s3,
+  .strum .s4, .strum .s5, .strum .s6, .strum .pick {
+    animation: none !important;
+  }
+}
