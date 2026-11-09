@@ -1,0 +1,189 @@
+/* Lost & Found Bulletin LF-94/NO-037 — The Rink, Lillehammer */
+
+:root {
+  --paper: #f4eede;
+  --paper-edge: #e9e1cc;
+  --ink: #211c14;
+  --faint: #6b6250;
+  --red: #a3271d;
+  --rule: #211c14;
+  --type: "Courier New", "American Typewriter", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #cfc7b2; }
+
+body {
+  margin: 0;
+  font-family: var(--type);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% 8%, rgba(112, 74, 32, 0.14) 0 6%, transparent 7%),
+    radial-gradient(circle at 82% 8%, rgba(112, 74, 32, 0.10) 0 9%, transparent 10%),
+    linear-gradient(#d8d0ba, #cfc7b2 40%, #c6bda6);
+  line-height: 1.55;
+  padding: 3rem 1rem 5rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid #b7ad92;
+  box-shadow: 0 1px 0 #fff inset, 0 14px 34px rgba(40, 30, 10, 0.35);
+  padding: 2.6rem 2.8rem 2.2rem;
+  position: relative;
+}
+
+/* folded corner + tape */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  border-style: solid;
+  border-width: 0 2.4rem 2.4rem 0;
+  border-color: #cfc7b2 #cfc7b2 var(--paper-edge) transparent;
+}
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: -14px; left: 50%;
+  width: 150px; height: 30px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(214, 202, 168, 0.75);
+  border-left: 1px dashed rgba(120, 110, 84, 0.5);
+  border-right: 1px dashed rgba(120, 110, 84, 0.5);
+}
+
+/* ---- head ---- */
+.desk-line {
+  margin: 0 0 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+.stamp-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.lost-word {
+  margin: 0;
+  font-size: clamp(3rem, 10vw, 4.6rem);
+  line-height: 1;
+  color: var(--red);
+  letter-spacing: 0.18em;
+  border: 0.14em solid var(--red);
+  padding: 0.05em 0.35em 0.02em;
+  transform: rotate(-3deg);
+  text-transform: uppercase;
+}
+
+.lost-sub {
+  margin: 0;
+  font-size: 0.8rem;
+  max-width: 16rem;
+  transform: rotate(1.5deg);
+}
+
+.no-line {
+  text-align: center;
+  font-size: 0.78rem;
+  margin: 1.1rem 0 1.4rem;
+  color: var(--faint);
+}
+.no-line strong { color: var(--ink); }
+
+/* ---- claim table ---- */
+.claim-table {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.claim-table .row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: 0.65rem 0.1rem;
+  border-bottom: 1px dotted #8d8468;
+}
+.claim-table .row:last-child { border-bottom: none; }
+
+.claim-table dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--faint);
+  padding-top: 0.15rem;
+  border-right: 1px dotted #8d8468;
+  padding-right: 0.6rem;
+}
+
+.claim-table dd { margin: 0; font-size: 0.92rem; }
+
+@media (max-width: 30rem) {
+  .claim-table .row { grid-template-columns: 1fr; }
+  .claim-table dt { border-right: none; border-bottom: none; padding-right: 0; }
+}
+
+/* ---- statement ---- */
+.statement { margin-top: 2rem; }
+
+.statement h2 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-align: center;
+  margin: 0 0 1rem;
+  color: var(--faint);
+}
+.statement h2::before,
+.statement h2::after { content: " \2014\2014\2014 "; color: #8d8468; }
+
+.statement p {
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.statement em { font-style: italic; }
+
+a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: 2px; }
+a:hover { color: var(--red); }
+
+/* ---- foot ---- */
+.bulletin-foot {
+  margin-top: 2.2rem;
+  text-align: center;
+}
+
+.stamp-unclaimed {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.3rem 1rem;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  transform: rotate(-4deg);
+  opacity: 0.85;
+  transition: transform 0.25s ease;
+}
+.stamp-unclaimed:hover { transform: rotate(-1deg) scale(1.03); }
+
+.foot-note {
+  font-size: 0.72rem;
+  color: var(--faint);
+  border-top: 3px double var(--rule);
+  padding-top: 0.6rem;
+  margin: 0;
+}
