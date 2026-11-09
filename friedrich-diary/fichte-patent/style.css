@@ -1,0 +1,223 @@
+/* Application No. 1794/0519 — the Jena docket, kept at the Old Fire Station */
+
+:root {
+  --paper: #ece3cf;
+  --paper-deep: #e3d8bd;
+  --ink: #2b241a;
+  --ink-soft: #4d4231;
+  --rule: #8a7a58;
+  --seal: #8c2f1e;
+  --fog: rgba(244, 240, 228, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  padding: 0 1rem 4rem;
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255,252,242,0.6), transparent 60%),
+    var(--paper-deep);
+}
+
+/* the morning mist drifting behind the docket */
+.fog {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 22% at 20% 78%, var(--fog), transparent 70%),
+    radial-gradient(ellipse 60% 18% at 80% 30%, var(--fog), transparent 70%);
+  opacity: 0;
+  animation: fog-in 6s ease 0.5s forwards;
+}
+
+@keyframes fog-in { to { opacity: 1; } }
+
+.docket {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+  margin: 2.5rem auto 0;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  outline: 3px double var(--rule);
+  outline-offset: 6px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px rgba(43, 36, 26, 0.28);
+  padding: 2.75rem 3rem 2rem;
+}
+
+@media (max-width: 620px) {
+  .docket { padding: 1.75rem 1.25rem 1.5rem; outline-offset: 3px; }
+}
+
+.masthead {
+  text-align: center;
+  position: relative;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.office {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  margin: 0.2rem 0 0.4rem;
+  font-variant: small-caps;
+}
+
+.inventor {
+  font-size: 0.95rem;
+  margin: 0.2rem 0 0.9rem;
+}
+
+.title-of-invention {
+  font-size: 1.08rem;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.45;
+  max-width: 40rem;
+  margin: 0 auto 0.7rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.55rem 0.5rem;
+}
+
+.filed {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* the red deposit seal */
+.stamp-seal {
+  position: absolute;
+  top: -0.75rem;
+  right: 0.75rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  border: 3px double var(--seal);
+  border-radius: 50%;
+  color: var(--seal);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-14deg);
+  opacity: 0;
+  background: rgba(140, 47, 30, 0.04);
+}
+
+.stamp-seal span { font-size: 0.66rem; letter-spacing: 0.1em; }
+
+.stamp-seal.sealed {
+  animation: stamp-in 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+}
+
+@keyframes stamp-in {
+  0%   { opacity: 0; transform: rotate(-14deg) scale(2.2); }
+  60%  { opacity: 0.95; transform: rotate(-14deg) scale(0.94); }
+  100% { opacity: 0.85; transform: rotate(-14deg) scale(1); }
+}
+
+.doc section {
+  margin-bottom: 1.6rem;
+}
+
+.doc h3 {
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+.doc p { margin: 0 0 0.7rem; }
+
+.doc a {
+  color: var(--seal);
+  text-decoration-color: rgba(140, 47, 30, 0.4);
+  text-underline-offset: 3px;
+}
+
+.doc a:hover { background: rgba(140, 47, 30, 0.08); }
+
+/* first section gets a drop cap */
+.field p::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  font-variant: small-caps;
+  color: var(--seal);
+}
+
+/* the claims, ruled like a patent form */
+.claims .claim-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--rule);
+  background: rgba(255, 252, 242, 0.5);
+}
+
+.claims li {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px dashed var(--rule);
+  font-size: 0.95rem;
+}
+
+.claims li:last-child { border-bottom: none; }
+
+.cno {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+  color: var(--seal);
+  white-space: nowrap;
+  margin-right: 0.4rem;
+}
+
+/* the examiner's certificate */
+.certificate {
+  border-left: 4px double var(--rule);
+  padding-left: 1.1rem;
+  font-size: 0.97rem;
+}
+
+.certificate p strong { font-variant: small-caps; }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  margin-top: 1.75rem;
+  padding-top: 0.9rem;
+  text-align: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.colophon a { color: var(--ink-soft); }
