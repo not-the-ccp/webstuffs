@@ -1,0 +1,91 @@
+:root {
+  --ink: #1d1a16;
+  --paper: #f5f1e8;
+  --faded: #6e6558;
+  --rule: #b9ad97;
+  --sea: #274449;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.page {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.mast {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.dates {
+  margin: 1rem 0 0;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--faded);
+}
+
+.prose p {
+  margin: 0 0 1.4rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.prose p:first-of-type::first-letter {
+  font-size: 3.4em;
+  line-height: 0.9;
+  float: left;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--sea);
+}
+
+a {
+  color: var(--sea);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover {
+  border-bottom-color: var(--sea);
+}
+
+.foot {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.rule {
+  width: 3rem;
+  height: 1px;
+  margin: 0 auto 1.4rem;
+  background: var(--rule);
+  border: 0;
+}
