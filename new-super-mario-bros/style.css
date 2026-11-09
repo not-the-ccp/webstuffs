@@ -1,0 +1,90 @@
+/* The Mushroom Exchange — classified section */
+html {
+  font-family: "Times New Roman", Times, serif;
+}
+body {
+  margin: 0;
+  padding: 0 14px;
+  background: #e8ecd8;
+  color: #1a1a1a;
+  line-height: 1.45;
+}
+.page {
+  max-width: 740px;
+  margin: 22px auto;
+  background: #fff;
+  border: 1px solid #9aa57d;
+  box-shadow: 2px 2px 0 #cdd9a8;
+  padding: 18px 22px;
+}
+.exchange-head .masthead {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #4a5d3a;
+  margin: 0 0 4px;
+}
+.exchange-head h1 {
+  font-size: 19px;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-bottom: 3px double #4a5d3a;
+  padding-bottom: 7px;
+}
+.exchange-head .issue {
+  font-size: 10px;
+  color: #555;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+.ads {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 560px) {
+  .ads {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 14px;
+  }
+}
+.ad {
+  border-top: 1px solid #4a5d3a;
+  padding-top: 8px;
+  font-size: 12px;
+}
+.ad h2 {
+  font-size: 12.5px;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: bold;
+}
+.ad p {
+  margin: 0 0 6px;
+  text-align: justify;
+}
+.tag {
+  font-size: 9.5px;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+.exchange-foot {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid #4a5d3a;
+  font-size: 11px;
+  color: #444;
+}
+.paperwork {
+  margin: 0 0 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.nav {
+  margin: 0 0 6px;
+}
