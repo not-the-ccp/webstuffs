@@ -1,0 +1,207 @@
+/* The Centennial Circular — vault styling, No. 26 */
+
+body {
+  background-color: #000033;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.6px),
+    radial-gradient(#9999cc 1px, transparent 1.6px);
+  background-size: 90px 70px, 140px 110px;
+  background-position: 0 0, 45px 55px;
+  margin: 0;
+  padding: 12px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
+  color: #000033;
+}
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #000000;
+  border: 3px ridge #999999;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  padding: 3px 0;
+  margin-bottom: 10px;
+}
+
+.ticker-run {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker-scroll 28s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.page {
+  max-width: 780px;
+  margin: 0 auto 20px;
+  background-color: #ffffcc;
+  border: 4px outset #cccccc;
+  padding: 14px 18px 10px;
+}
+
+.masthead h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  margin: 4px 0 2px;
+  color: #cc0000;
+  text-shadow: 2px 2px 0 #999999;
+  letter-spacing: 1px;
+}
+
+.mast-sub {
+  margin: 2px 0;
+  font-size: 12px;
+  color: #333399;
+}
+
+.issue {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-top: 1px dashed #999999;
+  border-bottom: 1px dashed #999999;
+  padding: 3px 2px;
+  color: #000033;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.new {
+  color: #cc0000;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+}
+
+.block {
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.block h2 {
+  background-color: #333399;
+  color: #ffffcc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  margin: 0 0 8px;
+  padding: 4px 8px;
+  border: 3px outset #9999cc;
+}
+
+.block p { margin: 0 0 10px; line-height: 1.55; }
+
+.block a { color: #cc0000; }
+.block a:visited { color: #660066; }
+
+table {
+  border-collapse: collapse;
+  margin: 0 0 10px;
+  border: 3px inset #999999;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+th, td {
+  border: 2px groove #cccccc;
+  padding: 4px 8px;
+  font-size: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #9999cc;
+  color: #ffffff;
+}
+
+tr:nth-child(even) td { background-color: #eeeeee; }
+
+.register {
+  margin: 0 0 10px;
+  padding-left: 22px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.register li { margin-bottom: 6px; }
+
+.guestbook {
+  border: 3px inset #cccccc;
+  background-color: #ffffff;
+  padding: 10px 12px;
+}
+
+.guestbook form {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.guestbook label { font-weight: bold; }
+
+.guestbook input {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  background-color: #ffffcc;
+  border: 2px inset #999999;
+  padding: 2px 4px;
+}
+
+.guestbook input[name="line"] { width: 60%; }
+
+.guestbook button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  background-color: #9999cc;
+  color: #ffffff;
+  border: 3px outset #cccccc;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+.guestbook button:active { border-style: inset; }
+
+.guestbook ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.guestbook li { margin-bottom: 4px; }
+
+.colophon {
+  border-top: 3px double #999999;
+  margin-top: 6px;
+  padding-top: 8px;
+  font-size: 11px;
+  color: #333366;
+  line-height: 1.6;
+}
+
+.colophon a { color: #cc0000; }
+
+.counter {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #000000;
+  color: #00ff00;
+  border: 2px inset #999999;
+  padding: 1px 6px;
+  letter-spacing: 2px;
+}
+
+.small { color: #666699; font-size: 10px; }
