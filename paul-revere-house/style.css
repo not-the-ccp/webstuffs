@@ -1,0 +1,358 @@
+/* Nineteen North Square — a review set at night, in the North End, under two lanterns. */
+
+:root {
+  --night: #101522;
+  --night-deep: #0a0e18;
+  --ink: #231c12;
+  --parchment: #f2e6c9;
+  --parchment-dim: #e4d3ab;
+  --wax: #8c2f1e;
+  --wax-bright: #c0402a;
+  --brass: #c9a24b;
+  --brass-bright: #e8c56d;
+  --lantern: #ffcf6e;
+  --sage: #5c6b52;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night-deep); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 70% -10%, rgba(255, 207, 110, 0.10), transparent 60%),
+    radial-gradient(900px 700px at 10% 110%, rgba(92, 107, 82, 0.18), transparent 60%),
+    linear-gradient(180deg, #0a0e18 0%, #131a2b 40%, #171423 100%);
+  font-family: "IM Fell English", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ---------- the night over the North End ---------- */
+
+.night {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 3px double var(--brass);
+  background:
+    radial-gradient(2px 2px at 12% 30%, rgba(255,255,255,.9) 40%, transparent 41%),
+    radial-gradient(2px 2px at 28% 62%, rgba(255,255,255,.7) 40%, transparent 41%),
+    radial-gradient(1.5px 1.5px at 44% 22%, rgba(255,255,255,.8) 40%, transparent 41%),
+    radial-gradient(2px 2px at 63% 55%, rgba(255,255,255,.6) 40%, transparent 41%),
+    radial-gradient(1.5px 1.5px at 78% 18%, rgba(255,255,255,.85) 40%, transparent 41%),
+    radial-gradient(2px 2px at 91% 44%, rgba(255,255,255,.7) 40%, transparent 41%),
+    linear-gradient(180deg, #070a13 0%, #10182b 70%, #1a2340 100%);
+}
+
+.moon {
+  position: absolute;
+  top: 28px; right: 9%;
+  width: 74px; height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #fdf6dd 0%, #ecd9a6 55%, #c9b078 100%);
+  box-shadow: 0 0 34px 10px rgba(253, 246, 221, 0.35), 0 0 90px 30px rgba(253, 246, 221, 0.12);
+  animation: moon-breathe 9s ease-in-out infinite;
+}
+
+@keyframes moon-breathe {
+  0%, 100% { box-shadow: 0 0 34px 10px rgba(253,246,221,.35), 0 0 90px 30px rgba(253,246,221,.12); }
+  50%      { box-shadow: 0 0 44px 14px rgba(253,246,221,.45), 0 0 110px 40px rgba(253,246,221,.16); }
+}
+
+.stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 8% 80%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 88%, rgba(255,255,255,.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 76%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 84% 82%, rgba(255,255,255,.45) 50%, transparent 51%);
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle { from { opacity: .5; } to { opacity: 1; } }
+
+.horse-track {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 34px;
+  height: 70px;
+  pointer-events: none;
+}
+
+.horse {
+  position: absolute;
+  bottom: 0;
+  left: -160px;
+  color: #05070d;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,.6));
+  animation: ride 22s linear infinite;
+}
+
+@keyframes ride {
+  0%   { transform: translateX(0) translateY(0); }
+  25%  { transform: translateX(calc(50vw)) translateY(-3px); }
+  50%  { transform: translateX(100vw) translateY(0); }
+  75%  { transform: translateX(150vw) translateY(-3px); }
+  100% { transform: translateX(calc(200vw + 320px)) translateY(0); }
+}
+
+/* ---------- the review page ---------- */
+
+.review {
+  position: relative;
+  max-width: 880px;
+  margin: -60px auto 70px;
+  padding: 0 22px;
+}
+
+.masthead {
+  text-align: center;
+  color: var(--parchment);
+  padding: 34px 10px 8px;
+}
+
+.kicker {
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--brass-bright);
+  border-top: 1px solid rgba(201,162,75,.5);
+  border-bottom: 1px solid rgba(201,162,75,.5);
+  display: inline-block;
+  padding: 7px 18px;
+  margin-bottom: 18px;
+}
+
+.masthead h1 {
+  margin: 26px 0 6px;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: .02em;
+  color: var(--parchment);
+  text-shadow: 0 0 26px rgba(255, 207, 110, 0.35), 0 2px 0 #000;
+}
+
+.address {
+  margin: 4px auto 14px;
+  max-width: 620px;
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--parchment-dim);
+}
+
+.score {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  color: var(--brass-bright);
+  text-shadow: 0 0 12px rgba(232, 197, 109, .5);
+}
+
+.score-note {
+  display: block;
+  font-size: .78rem;
+  font-style: italic;
+  color: var(--parchment-dim);
+  text-shadow: none;
+}
+
+/* ---------- the steeple with its two lanterns ---------- */
+
+.steeple {
+  display: inline-block;
+  margin: 6px auto 4px;
+  text-align: center;
+  color: #0c101d;
+}
+
+.roof {
+  width: 0; height: 0;
+  margin: 0 auto;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
+  border-bottom: 44px solid var(--brass);
+  filter: drop-shadow(0 0 8px rgba(201,162,75,.4));
+}
+
+.steeple-body {
+  position: relative;
+  width: 84px;
+  height: 92px;
+  margin: 0 auto;
+  background:
+    linear-gradient(90deg, #3a3020 0 8%, #57482c 8% 92%, #2c2517 92%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,.15) 0 3px, transparent 3px 12px);
+  border: 3px solid var(--brass);
+  box-shadow: 0 0 18px rgba(201,162,75,.35), inset 0 0 22px rgba(0,0,0,.55);
+}
+
+.lantern-window {
+  position: absolute;
+  top: 14px;
+  width: 26px; height: 30px;
+  background: #05070d;
+  border: 2px solid var(--brass);
+  border-radius: 13px 13px 3px 3px;
+  overflow: hidden;
+}
+
+#lantern-one { left: 14px; }
+#lantern-two { right: 14px; }
+
+.lantern-glow {
+  position: absolute; inset: 3px;
+  border-radius: 10px 10px 2px 2px;
+  background: radial-gradient(circle at 50% 70%, var(--lantern) 0%, rgba(255,207,110,.35) 55%, transparent 75%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+.lantern-window.lit .lantern-glow {
+  opacity: 1;
+  transform: translateY(0);
+  animation: flicker 2.4s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  42% { opacity: .78; }
+  55% { opacity: .95; }
+  68% { opacity: .7; }
+}
+
+.steeple-door {
+  position: absolute;
+  bottom: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 24px; height: 34px;
+  background: #171008;
+  border: 2px solid var(--brass);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+}
+
+.signal-panel {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 14px 12px;
+  background: rgba(10, 14, 24, 0.72);
+  border: 1px solid rgba(201, 162, 75, 0.55);
+  box-shadow: inset 0 0 18px rgba(0,0,0,.6);
+}
+
+.signal-panel button {
+  font-family: inherit;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  color: var(--parchment);
+  background: linear-gradient(180deg, #5c1f12, #3d130b);
+  border: 1px solid var(--wax-bright);
+  border-radius: 3px;
+  padding: 7px 14px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+
+.signal-panel button:hover {
+  background: linear-gradient(180deg, #7c2a18, #4d1a0f);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(192, 64, 42, 0.4);
+}
+
+.signal-panel button:active { transform: translateY(1px); }
+
+.signal-read {
+  display: block;
+  margin-top: 9px;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--brass-bright);
+  min-height: 1.2em;
+}
+
+/* ---------- the parchment page ---------- */
+
+.block {
+  position: relative;
+  margin: 34px 0;
+  padding: 30px 34px 26px;
+  background:
+    radial-gradient(600px 200px at 20% 0%, rgba(140, 47, 30, 0.06), transparent 70%),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dim) 100%);
+  border: 1px solid #b39b63;
+  box-shadow:
+    0 0 0 4px rgba(10, 14, 24, 0.9),
+    0 0 0 5px var(--brass),
+    0 18px 44px rgba(0, 0, 0, 0.55);
+}
+
+.block::before,
+.block::after {
+  content: "\2756";
+  position: absolute;
+  color: var(--wax);
+  font-size: 1.05rem;
+  letter-spacing: 4px;
+}
+
+.block::before { top: 9px; left: 14px; }
+.block::after  { bottom: 9px; right: 14px; }
+
+.block h2 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  letter-spacing: .06em;
+  color: var(--wax);
+  border-bottom: 2px solid var(--brass);
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.block p { margin: 0 0 16px; }
+.block p:last-child { margin-bottom: 0; }
+
+.block strong { color: #33210e; }
+
+.block a {
+  color: var(--wax);
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+  transition: color .15s ease;
+}
+
+.block a:hover { color: var(--wax-bright); }
+
+/* a wax seal at the end of the verdict */
+
+.block:last-of-type::after {
+  content: "";
+  position: absolute;
+  bottom: -18px; right: 26px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, #b23a26 0%, var(--wax) 45%, #5d1c10 85%);
+  box-shadow: 0 4px 10px rgba(0,0,0,.5), inset 0 0 0 5px rgba(0,0,0,.18);
+  display: block;
+  font-size: 0;
+}
+
+.foot {
+  text-align: center;
+  margin-top: 46px;
+  color: var(--parchment-dim);
+  font-size: .85rem;
+  font-style: italic;
+  border-top: 1px solid rgba(201, 162, 75, 0.5);
+  padding-top: 16px;
+}
+
+@media (max-width: 560px) {
+  .block { padding: 24px 18px 22px; }
+  .moon { right: 4%; width: 54px; height: 54px; }
+}
