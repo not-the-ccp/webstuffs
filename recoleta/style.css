@@ -1,0 +1,122 @@
+/* Recoleta — Brochure No. 31 · restrained printed-publication design */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #26231e;
+  --muted: #6f675a;
+  --rule: #cfc6b4;
+  --accent: #5c5340;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #ece7db; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+}
+
+.deck {
+  font-style: italic;
+  color: var(--muted);
+  max-width: 34rem;
+  margin: 0 auto;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.rule-double {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  height: 4px;
+  width: 6rem;
+  margin: 2rem auto 0;
+}
+
+.section {
+  margin: 0 0 2.75rem;
+}
+
+.section h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+
+p { margin: 0 0 1.05rem; }
+strong { font-weight: normal; font-variant: small-caps; letter-spacing: 0.02em; }
+
+.route {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.route li {
+  margin: 0 0 1rem;
+  padding-left: 4.2rem;
+  position: relative;
+}
+
+.route span {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-color: var(--ink); }
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
