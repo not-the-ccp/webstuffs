@@ -1,0 +1,71 @@
+/* Avebury Road School · Form 5 English Project · The Premier League report sheet */
+html { font-family: "Times New Roman", Times, serif; color: #221f18; }
+body { margin: 0; background: #7c5e3b; padding: 18mm 4mm; }
+.sheet {
+  max-width: 178mm;
+  margin: 0 auto 14mm;
+  padding: 20mm 20mm 24mm 25mm;
+  background: #fdf7ea;
+  border: 1.1px solid #a89b81;
+  box-shadow: 0 0 0 1px #fff, 9px 9px 22px rgba(0, 0, 0, 0.28);
+  position: relative;
+  font-size: 11.5pt;
+  line-height: 1.52;
+}
+.margin-rule {
+  position: absolute; top: 0; bottom: 0; left: 20mm; width: 0.7px;
+  background: #c9c2b3; z-index: 1;
+}
+.binder {
+  position: absolute; top: 12mm; left: 0; width: 20mm; height: 4px; background: #5c4e3a;
+}
+.hole {
+  position: absolute; width: 7px; height: 7px; border: 1.3px solid #5c4e3a;
+  border-radius: 50%; background: #fdf7ea; top: -4px;
+}
+.hole:nth-child(1) { left: 2mm; } .hole:nth-child(2) { left: 9mm; } .hole:nth-child(3) { left: 16mm; }
+.stain {
+  position: absolute; right: 12mm; bottom: 11mm; width: 36mm; height: 20mm;
+  background: radial-gradient(circle at 35% 40%, rgba(90, 50, 30, 0.18) 0%, rgba(90, 50, 30, 0.05) 45%, transparent 70%);
+  z-index: 0;
+}
+.stamp {
+  position: absolute; top: 6mm; right: 9mm; width: 32mm; height: 32mm;
+  border: 1.5px double #741b1b; border-radius: 50%; text-align: center;
+  color: #741b1b; padding-top: 8mm; font-weight: bold; letter-spacing: 1.6px;
+  font-size: 12.5pt; z-index: 3;
+}
+.stamp-ring { position: absolute; top: 7mm; left: 7mm; right: 7mm; bottom: 7mm;
+  border: 1px dashed #741b1b; border-radius: 50%; font-size: 8pt; line-height: 24mm; }
+.stamp-initials { position: absolute; bottom: 4mm; left: 0; right: 0; font-size: 7.5pt; letter-spacing: 0; }
+.report-head { margin-bottom: 8mm; }
+.school {
+  font-size: 8.5pt; letter-spacing: 1.4px; text-transform: uppercase;
+  color: #5c4e3a; margin: 0 0 3mm 0;
+}
+h1 { font-size: 15pt; margin: 0 0 2mm 0; letter-spacing: 0.3px; }
+.subtitle { font-size: 9.5pt; font-style: italic; color: #4a4438; margin: 0; }
+.admin { margin: 4mm 0 0 0; font-size: 9.5pt; }
+.admin div { margin: 0 0 1.2mm 0; clear: left; }
+.admin dt { float: left; width: 40mm; font-weight: bold; color: #741b1b; }
+.admin dd { margin-left: 42mm; text-align: left; }
+.rule {
+  height: 1.4px; background: #3d352a; border: none; margin: 0 0 7mm 0;
+}
+.report section { margin: 0 0 7.5mm 0; }
+h2 {
+  font-size: 11pt; margin: 0 0 2.5mm 0; padding-bottom: 1mm;
+  border-bottom: 0.8px solid #b8ada0; text-transform: uppercase;
+  letter-spacing: 1px; color: #3d352a;
+}
+p { margin: 0 0 3mm 0; text-align: justify; }
+blockquote.weird {
+  margin: 2mm 6mm 3mm 6mm; padding: 2.5mm 3mm 2.5mm 7mm;
+  border-left: 2.2px solid #741b1b; background: #f4eadf; font-style: italic;
+  font-size: 10.5pt; color: #3a332a;
+}
+.report-foot {
+  margin-top: 9mm; padding-top: 4mm; border-top: 1px solid #b8ada0;
+  font-size: 8.5pt; color: #5c4e3a; text-align: center;
+}
+.mark { font-size: 10pt; letter-spacing: 2px; color: #741b1b; margin: 0 0 2mm 0; }
