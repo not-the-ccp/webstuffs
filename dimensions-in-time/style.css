@@ -1,0 +1,177 @@
+/* Dimensions in Time — a diary from the loop, November 1993 */
+
+:root {
+  --paper: #f4edda;
+  --rule: #c9bfa4;
+  --ink: #2b2620;
+  --faded: #6b6152;
+  --time-blue: #14213d;
+  --time-blue-2: #1f3a5f;
+  --stamp-red: #b3402e;
+  --mustard: #d9a404;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--time-blue); }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* faint television static over the surround, never over the paper */
+.static {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 4px);
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.journal {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.1rem;
+}
+
+/* the notebook */
+main.journal > header,
+main.journal > article,
+main.journal > footer {
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
+.cover {
+  border: 3px double var(--time-blue-2);
+  border-radius: 6px 6px 2px 2px;
+  padding: 2.2rem 2rem 1.6rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+  background-image:
+    linear-gradient(rgba(31,58,95,0.05) 1px, transparent 1px);
+  background-size: 100% 1.65rem;
+}
+
+.spine-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--stamp-red);
+  margin: 0 0 1rem;
+}
+
+.cover h1 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  margin: 0 0 0.8rem;
+  color: var(--time-blue);
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+
+/* a strip of tape holding the cover down */
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 9rem;
+  height: 28px;
+  background: rgba(217, 164, 4, 0.28);
+  border-left: 1px dashed rgba(255,255,255,0.5);
+  border-right: 1px dashed rgba(255,255,255,0.5);
+}
+
+.vhs {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--time-blue-2);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.7rem;
+  margin: 0;
+}
+
+#rec { color: var(--stamp-red); font-weight: bold; }
+#rec.blinking { animation: recblink 1.4s steps(1) infinite; }
+@keyframes recblink { 50% { opacity: 0.15; } }
+
+/* diary entries on ruled paper */
+.entry {
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--mustard);
+  border-radius: 0 4px 4px 0;
+  padding: 0.4rem 1.6rem 1.2rem;
+  margin-bottom: 1.6rem;
+  background-image:
+    linear-gradient(rgba(107, 97, 82, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 3.4rem, rgba(179, 64, 46, 0.25) 3.4rem, rgba(179, 64, 46, 0.25) 3.5rem, transparent 3.5rem);
+  background-size: 100% 1.65rem, 100% 100%;
+}
+
+.entry-date {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--stamp-red);
+  text-transform: uppercase;
+  margin: 0.9rem 0 0.9rem;
+  padding-left: 3.6rem;
+}
+
+.entry p {
+  margin: 0 0 1.1rem;
+  text-align: justify;
+}
+
+.entry em { color: var(--time-blue-2); }
+
+a {
+  color: var(--time-blue-2);
+  text-decoration: underline;
+  text-decoration-color: var(--mustard);
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(217, 164, 4, 0.18); }
+
+.p.s {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+.colophon {
+  border: none;
+  border-top: 3px double var(--time-blue-2);
+  padding: 1.2rem 1.6rem 0;
+  background: transparent !important;
+  box-shadow: none;
+  color: #e8e0c8;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.colophon a { color: #fff3c4; }
+.colophon p { margin: 0; }
+
+@media (max-width: 640px) {
+  .cover h1 { font-size: 1.8rem; }
+  .entry { background: none; padding: 0.4rem 0.9rem 1rem; }
+  .entry-date { padding-left: 0; }
+}
