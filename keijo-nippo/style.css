@@ -1,0 +1,134 @@
+/* Keijō Nippō — The Guide to the Dining Rooms */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #24211c;
+  --ink-soft: #57503f;
+  --rule: #cfc6b2;
+  --vermilion: #a03a24;
+}
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.review {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.mast {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.kicker {
+  font-family: "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 2.7rem;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.7rem;
+}
+
+.sub {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.3rem;
+}
+
+.verdict-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  margin: 0;
+}
+
+.stars {
+  color: var(--vermilion);
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.stars .open { color: var(--rule); }
+
+.verdict-text {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+section { margin-bottom: 2.4rem; }
+
+h2 {
+  font-family: "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+strong { font-weight: 600; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--vermilion);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--vermilion); }
+
+blockquote.card {
+  margin: 1.6rem 0;
+  padding: 1.4rem 1.6rem;
+  background: #fbf9f2;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--vermilion);
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+blockquote.card p { margin: 0; }
+
+.colophon {
+  border-top: 3px double var(--ink);
+  padding-top: 1.2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.colophon p {
+  margin: 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
