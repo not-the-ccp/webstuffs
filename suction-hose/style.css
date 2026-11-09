@@ -1,0 +1,141 @@
+/* Chapter 11 · Suction Hose — Drafting Manual FM-8 */
+
+:root {
+  --paper: #f5f2e9;
+  --ink: #2c2a24;
+  --faint: #6d6a5e;
+  --band: #9c2b1f;
+  --rule: #b9b3a0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+}
+
+.masthead p.bureau {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.rule {
+  border-top: 3px double var(--rule);
+  margin: 1.1rem 0;
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.chapter-sub {
+  color: var(--faint);
+  font-style: italic;
+  font-size: 0.98rem;
+  max-width: 34rem;
+}
+
+/* gauge */
+.gauge {
+  margin: 2rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.gauge-face {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: #efeadd;
+  flex: none;
+}
+
+.tick {
+  position: absolute;
+  background: var(--faint);
+}
+.t1 { width: 1.5px; height: 9px; left: 4px;  top: 40%; }
+.t2 { width: 9px; height: 1.5px; left: 40%; top: 4px; }
+.t3 { width: 1.5px; height: 9px; right: 4px; top: 40%; }
+.t4 { width: 9px; height: 1.5px; left: 40%; bottom: 4px; }
+
+.needle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 40px;
+  background: var(--band);
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) rotate(-70deg);
+}
+
+.hub {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+
+.gauge-read {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--ink);
+}
+.gauge-cap { color: var(--faint); }
+
+/* body */
+.clause { margin: 2.2rem 0; }
+
+.clause h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--band);
+  margin-bottom: 0.8rem;
+}
+
+.clause p { margin-bottom: 1rem; }
+.clause p:last-child { margin-bottom: 0; }
+
+strong { font-weight: bold; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--band);
+  text-underline-offset: 3px;
+}
+a:hover { background: #ece5d2; }
+
+.colophon { margin-top: 3rem; }
+.colophon p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  text-align: center;
+}
