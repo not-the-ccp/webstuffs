@@ -1,0 +1,211 @@
+/* To the Editor — The National Chronicle, Canberra: letterhead paper, received stamp, faithful ink */
+:root {
+  --paper: #f6efe0;
+  --paper-deep: #ede2c9;
+  --ink: #2e2a24;
+  --rust: #8a3b1f;
+  --rust-deep: #5e2814;
+  --ochre: #c98a2b;
+  --eucalypt: #4c5a3f;
+  --rule: #b9a274;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(138, 59, 31, 0.12), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(76, 90, 63, 0.14), transparent 50%),
+    #221610;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.68;
+  padding: 2.2rem 0.9rem 3rem;
+}
+
+.sheet {
+  max-width: 40rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 33px, rgba(61, 43, 31, 0.05) 33px 34px),
+    linear-gradient(165deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--rule);
+  outline: 1px dashed rgba(94, 40, 20, 0.45);
+  outline-offset: 6px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  padding: 2.4rem 2.6rem 2rem;
+  position: relative;
+}
+
+/* the folded top edge of a submitted letter */
+.sheet::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 10px;
+  background: linear-gradient(180deg, rgba(94, 40, 20, 0.35), transparent);
+}
+
+/* red seal, lower left, as if pressed on submission */
+.sheet::after {
+  content: "NCC \00B7 L-2417";
+  position: absolute;
+  left: 1.1rem;
+  bottom: 4.6rem;
+  width: 4.6rem;
+  height: 4.6rem;
+  border: 3px double rgba(138, 59, 31, 0.55);
+  border-radius: 50%;
+  color: rgba(138, 59, 31, 0.6);
+  font-family: 'Courier New', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.35;
+  transform: rotate(-11deg);
+  pointer-events: none;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rust);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
+}
+
+.kicker {
+  font-family: 'Courier New', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--eucalypt);
+  margin: 0 0 0.7rem;
+}
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--rust);
+  color: var(--rust);
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  padding: 0.25rem 0.7rem;
+  transform: rotate(-2deg);
+  margin-bottom: 0.8rem;
+  background: rgba(138, 59, 31, 0.06);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.02em;
+  margin: 0.1rem 0 0.3rem;
+  color: var(--rust-deep);
+  font-variant: small-caps;
+}
+
+.dek {
+  font-style: italic;
+  margin: 0;
+  color: #5a4433;
+}
+
+.coords {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--eucalypt);
+  margin: 0.7rem 0 0;
+}
+
+.letter p {
+  margin: 0 0 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.salutation {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.3rem;
+}
+
+p:first-of-type::first-letter {
+  font-size: 3.1rem;
+  line-height: 0.9;
+  float: left;
+  padding: 0.12rem 0.4rem 0 0;
+  color: var(--rust-deep);
+}
+
+strong { color: var(--rust-deep); }
+em { color: #4a3524; }
+
+a {
+  color: var(--rust);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--rust-deep);
+  text-decoration-style: solid;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 1.6rem;
+}
+
+.script {
+  font-family: 'Segoe Script', 'Brush Script MT', cursive;
+  font-size: 1.7rem;
+  color: var(--rust-deep);
+  display: inline-block;
+  transform: rotate(-3deg);
+}
+
+.address {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.ps {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #5a4433;
+  display: block;
+  margin-top: 0.7rem;
+  max-width: 24rem;
+  margin-left: auto;
+  text-align: left;
+}
+
+.colophon {
+  border-top: 3px double var(--rust);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #5a4433;
+  margin-top: 1.8rem;
+}
+
+.colophon .nav {
+  margin-top: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 2rem 1.2rem 1.6rem; }
+  .letter p { text-align: left; }
+  .sheet::after { width: 3.8rem; height: 3.8rem; font-size: 0.5rem; }
+}
