@@ -1,0 +1,158 @@
+/* Webstuffs · Travel Guide No. 41 — Jules Verne, the Extraordinary Voyages circuit */
+
+.guide {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #3a3025;
+  background: #f6f0e2;
+  line-height: 1.65;
+}
+
+.guide-header {
+  border-bottom: 3px double #8a6f3c;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: #8a6f3c;
+  margin: 0 0 0.5rem;
+}
+
+.guide h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+
+.dek {
+  font-style: italic;
+  color: #6b5a3e;
+  margin: 0;
+}
+
+.compass {
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+  width: 84px;
+  height: 84px;
+  opacity: 0.85;
+}
+
+.stop, .overview, .walk, .planner, .practical {
+  margin-bottom: 2.25rem;
+}
+
+.stop h2, .overview h2, .walk h2, .planner h2, .practical h2 {
+  font-size: 1.25rem;
+  color: #5c4a26;
+  border-left: 4px solid #b89a5e;
+  padding-left: 0.6rem;
+  margin: 0 0 0.9rem;
+}
+
+.standing-note {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.25rem;
+  background: #efe6cf;
+  border-left: 3px solid #8a6f3c;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.planner-box {
+  background: #fffaf0;
+  border: 1px solid #b89a5e;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.planner-box label {
+  display: block;
+  font-weight: bold;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.planner-box select, .planner-box input {
+  width: 100%;
+  max-width: 22rem;
+  padding: 0.4rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1px solid #b89a5e;
+  background: #fff;
+  color: #3a3025;
+}
+
+.planner-box button {
+  margin-top: 0.9rem;
+  padding: 0.45rem 1.1rem;
+  background: #8a6f3c;
+  color: #f6f0e2;
+  border: 1px solid #5c4a26;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.planner-box button:hover {
+  background: #5c4a26;
+}
+
+.planner-out {
+  margin-top: 0.9rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed #b89a5e;
+  font-style: italic;
+}
+
+.pace-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 1rem;
+}
+
+.pace-table caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  color: #6b5a3e;
+  padding-bottom: 0.4rem;
+}
+
+.pace-table th, .pace-table td {
+  border: 1px solid #cbb98e;
+  padding: 0.35rem 0.55rem;
+  text-align: left;
+}
+
+.pace-table th {
+  background: #efe6cf;
+}
+
+.guide-footer {
+  border-top: 3px double #8a6f3c;
+  padding-top: 1rem;
+  font-size: 0.92rem;
+}
+
+.nav-line {
+  margin: 0.4rem 0;
+}
+
+a {
+  color: #5c4a26;
+}
+
+a:hover {
+  color: #8a6f3c;
+}
