@@ -1,0 +1,226 @@
+/* The Ferry Post — food column, No. 118 · The Allele
+   Palette: brine green on aged paper, acid yellow accents, ledger ink. */
+
+:root {
+  --paper: #f3eedd;
+  --paper-deep: #e9e1c8;
+  --ink: #22301f;
+  --brine: #3e5a2e;
+  --brine-dark: #27391d;
+  --acid: #d8c93a;
+  --brine-mist: #c9d3b4;
+  --seal: #7c2d1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse 120% 40% at 50% -10%, rgba(62, 90, 46, 0.14), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(34, 48, 31, 0.03) 0 1px, transparent 1px 28px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.brine-edge {
+  height: 10px;
+  background:
+    linear-gradient(90deg, var(--brine) 0 6px, var(--acid) 6px 9px, var(--brine-dark) 9px 100%);
+  border-bottom: 3px double var(--brine-dark);
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.4rem 3rem;
+}
+
+.masthead {
+  border-top: 4px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-top: .8rem;
+  margin-bottom: 1.6rem;
+}
+
+.paper-line {
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 .2rem;
+  color: var(--brine-dark);
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: .6rem 0 .4rem;
+  font-variant: small-caps;
+}
+
+.byline {
+  font-style: italic;
+  font-size: .9rem;
+  margin: .2rem 0 .6rem;
+}
+
+.score-line {
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+  border-top: 1px dotted var(--ink);
+  padding-top: .5rem;
+  flex-wrap: wrap;
+}
+
+.stars { font-size: 1.3rem; letter-spacing: .18em; color: var(--brine); }
+.star.empty { color: var(--brine-mist); }
+.score-note { font-size: .8rem; font-style: italic; }
+
+.label {
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.lede p:first-of-type::first-letter {
+  font-size: 3.1rem;
+  float: left;
+  line-height: .9;
+  padding-right: .45rem;
+  color: var(--brine);
+  font-family: Georgia, serif;
+}
+
+.courses { margin-top: 1.8rem; }
+
+.courses h2, .verdict h2, .tickets h2 {
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  border-bottom: 2px solid var(--brine);
+  padding-bottom: .25rem;
+  margin: 0 0 1rem;
+}
+
+.course {
+  border: 1px solid var(--brine-mist);
+  border-left: 5px solid var(--brine);
+  background: var(--paper-deep);
+  padding: .9rem 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.course-tag {
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 .2rem;
+}
+
+.course h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.15rem;
+  font-variant: small-caps;
+}
+
+.card-quote {
+  display: inline-block;
+  font-style: italic;
+  background: var(--acid);
+  background: linear-gradient(transparent 55%, var(--acid) 55% 90%, transparent 90%);
+  padding: 0 .15em;
+}
+
+.verdict p { margin: 0 0 1rem; }
+strong { color: var(--brine-dark); }
+
+.tickets ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px dotted var(--ink);
+}
+
+.tickets li {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: .8rem;
+  padding: .45rem 0;
+  border-bottom: 1px dotted var(--ink);
+  font-size: .95rem;
+}
+
+.tickets li span {
+  font-variant: small-caps;
+  color: var(--brine-dark);
+  font-weight: bold;
+}
+
+.count-box {
+  margin-top: 1.8rem;
+  border: 3px double var(--brine);
+  background: var(--paper-deep);
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+
+.count-box .kicker {
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 .4rem;
+}
+
+.seq {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 1.05rem;
+  letter-spacing: .12em;
+  color: var(--brine-dark);
+  min-height: 1.6em;
+}
+
+.seq .dim { color: #6b6a58; font-size: .85rem; letter-spacing: normal; }
+.stream { color: var(--brine); letter-spacing: .12em; }
+
+.gavel {
+  margin-top: .6rem;
+  font-family: inherit;
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  font-size: .95rem;
+  color: var(--paper);
+  background: var(--brine);
+  border: 1px solid var(--brine-dark);
+  box-shadow: 2px 2px 0 var(--brine-dark);
+  padding: .35rem 1rem;
+  cursor: pointer;
+}
+
+.gavel:hover { background: var(--brine-dark); }
+.gavel:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--brine-dark); }
+
+.result {
+  margin: .7rem 0 0;
+  font-style: italic;
+  color: var(--seal);
+}
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 4px double var(--ink);
+  padding-top: .7rem;
+  font-size: .85rem;
+  font-style: italic;
+}
+
+a { color: var(--brine-dark); }
+a:hover { color: var(--seal); }
+
+@media (max-width: 40rem) {
+  .tickets li { grid-template-columns: 1fr; gap: .1rem; }
+}
