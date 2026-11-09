@@ -1,0 +1,180 @@
+:root {
+  --paper: #f4ecdc;
+  --paper-deep: #ece0c8;
+  --ink: #241c14;
+  --ink-soft: #4a3d2e;
+  --red: #8f2d1c;
+  --tuff: #e0a184;
+  --tuff-deep: #b96a4d;
+  --basalt: #2e2a26;
+  --line: #b3a488;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, var(--tuff) 0%, rgba(224, 161, 132, 0) 60%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.65;
+}
+
+/* Tuff-pink top border, the colour of the city's stone */
+body::before {
+  content: "";
+  display: block;
+  height: 10px;
+  background: linear-gradient(90deg, var(--tuff-deep), var(--tuff) 40%, #f0c9b4 50%, var(--tuff) 60%, var(--tuff-deep));
+}
+
+.sds {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4.5rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  border-bottom: 3px double var(--basalt);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.series {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--basalt);
+}
+
+.product-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* GHS-style hazard diamond, printed in red on the paper */
+.haz {
+  flex: none;
+  width: 62px;
+  height: 62px;
+  transform: rotate(45deg);
+  border: 2.5px solid var(--red);
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+}
+
+.haz-inner {
+  transform: rotate(-45deg);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.product {
+  color: var(--ink-soft);
+}
+
+/* ---------- sections ---------- */
+
+.sec {
+  margin-bottom: 2.4rem;
+}
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  color: var(--basalt);
+  margin: 0 0 0.9rem;
+  padding: 0.45rem 0.8rem;
+  background: linear-gradient(90deg, var(--paper-deep), rgba(236, 224, 200, 0));
+  border-left: 4px solid var(--red);
+}
+
+h2 .no {
+  display: inline-block;
+  min-width: 1.6em;
+  font-weight: bold;
+  color: var(--red);
+  margin-right: 0.6em;
+}
+
+.sec p {
+  margin: 0 0 0.8rem;
+  font-size: 0.96rem;
+}
+
+.sec p:last-child { margin-bottom: 0; }
+
+/* ---------- data tables ---------- */
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+table.data th,
+table.data td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.data th {
+  width: 32%;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--ink-soft);
+  background: rgba(224, 161, 132, 0.14);
+}
+
+/* ---------- details ---------- */
+
+a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red);
+}
+
+a:hover { color: var(--basalt); border-bottom-color: var(--basalt); }
+
+.signal {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  color: var(--paper);
+  background: var(--red);
+  padding: 0.15rem 0.6rem 0.1rem;
+}
+
+.revision {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+em { font-style: italic; }
