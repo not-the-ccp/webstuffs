@@ -1,0 +1,171 @@
+/* The Arbitration Questions — standing FAQ, Sir William Randal Cremer (1828–1908) */
+
+:root {
+  --bench: #20503d;
+  --bench-deep: #163a2c;
+  --gold: #b98a2e;
+  --gold-pale: #eadd9c;
+  --paper: #f7f3e9;
+  --paper-old: #efe4cf;
+  --ink: #24241e;
+  --ink-soft: #5c5546;
+  --seal: #8c2d2d;
+  --rule: #a98750;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bench);
+  color: var(--ink);
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.archive {
+  max-width: 44rem;
+  margin: 1.6rem auto;
+  padding: 2.2rem 1.5rem 3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 5px solid var(--bench);
+  border-bottom: 5px solid var(--bench);
+  box-shadow: 0 0 0 4px var(--gold-pale), 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.masthead {
+  position: relative;
+  padding-left: 9rem;
+  min-height: 7rem;
+}
+
+.seal {
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  width: 7.2rem;
+  height: 7.2rem;
+  border: 2px solid var(--seal);
+  border-radius: 50%;
+  background: repeating-conic-gradient(var(--seal) 0% 6%, transparent 6% 12%) var(--gold-pale);
+  box-shadow: 0 0 0 2px var(--paper), 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.seal::after {
+  content: "1903";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--seal);
+}
+
+.shelf {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0.9rem 0 0.4rem;
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  margin: 0.2rem 0 0.3rem;
+  letter-spacing: 0.02em;
+  color: var(--bench-deep);
+}
+
+.byline {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.6rem;
+}
+
+.faq {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 1.5rem;
+}
+
+.qa {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.1rem 0;
+}
+
+.question {
+  font-size: 1.05rem;
+  margin: 0 0 0.55rem;
+  color: var(--bench-deep);
+}
+
+.q {
+  display: inline-block;
+  min-width: 3.4rem;
+  color: var(--gold);
+  font-weight: bold;
+  border: 1px solid var(--gold);
+  border-radius: 0.3rem;
+  padding: 0.05rem 0.45rem;
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.answer {
+  margin: 0 0 0.5rem 3.95rem;
+}
+
+.answer p:first-child { margin-top: 0; }
+
+.toggle {
+  float: right;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  background: var(--bench);
+  color: var(--gold-pale);
+  border: 1px solid var(--gold);
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+  margin-top: 0.1rem;
+}
+
+.toggle:hover { background: var(--bench-deep); }
+
+.scar {
+  margin: 0 0 0.7rem;
+  padding: 0.5rem 0.7rem;
+  border-left: 3px solid var(--seal);
+  background: rgba(140, 45, 45, 0.08);
+  font-size: 0.92rem;
+}
+
+.scar em { color: var(--seal); font-style: italic; }
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.colophon a { color: var(--bench-deep); text-decoration: underline; }
+
+a { color: var(--gold); }
+
+@media (max-width: 48rem) {
+  .masthead { padding-left: 0; }
+  .seal { position: static; display: block; margin: 0 auto 1rem; }
+  .answer { margin-left: 0; margin-top: 0.5rem; }
+}
