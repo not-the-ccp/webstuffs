@@ -1,0 +1,185 @@
+/* The ferry master's shed, lost & found shelf — a paper notice */
+
+:root {
+  --paper: #efe6d2;
+  --paper-dark: #e4d7ba;
+  --ink: #2c2a26;
+  --faded: #6b6353;
+  --red: #9e3b2e;
+  --rule: #b3a684;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 3rem 1rem;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(120, 96, 54, 0.18), transparent 42%),
+    radial-gradient(circle at 84% 88%, rgba(96, 76, 40, 0.22), transparent 46%),
+    #4a4238;
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(90, 74, 44, 0.05) 27px 28px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-dark) 100%);
+  border: 1px solid #8f8262;
+  box-shadow:
+    0 2px 0 rgba(255, 250, 230, 0.35) inset,
+    0 14px 34px rgba(0, 0, 0, 0.45);
+  padding: 2.4rem 2.6rem 1.6rem;
+  position: relative;
+  transform: rotate(-0.35deg);
+}
+
+/* torn / worn top edge */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 7px;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--paper-dark) 0 14px,
+      var(--paper) 14px 22px,
+      var(--paper-dark) 22px 31px);
+  opacity: 0.7;
+}
+
+.paper-top {
+  margin: 0 0 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  text-align: center;
+}
+
+.masthead {
+  position: relative;
+  border: 2px solid var(--ink);
+  padding: 1rem 1.2rem 1.2rem;
+}
+
+.shelf-line {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0.2rem 0 0.3rem;
+  font-size: 2.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.noted-sub {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--faded);
+}
+
+.stamp {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.9rem;
+  width: 7.2rem;
+  text-align: center;
+  border: 3px double var(--red);
+  border-radius: 6px;
+  color: var(--red);
+  opacity: 0.82;
+  transform: rotate(-8deg);
+}
+
+.stamp span {
+  display: block;
+  padding: 0.45rem 0.4rem 0.55rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+}
+
+.form-rule {
+  border-top: 1px dashed var(--rule);
+  border-bottom: 1px dashed var(--rule);
+  height: 7px;
+  margin: 1.4rem 0;
+}
+
+dl.fields {
+  margin: 0;
+}
+
+dt {
+  margin-top: 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+dd {
+  margin: 0.55rem 0 0;
+}
+
+dd.contents ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+}
+
+dd.contents li {
+  margin-bottom: 0.45rem;
+}
+
+dd.contents li::marker {
+  color: var(--red);
+  content: "§ ";
+}
+
+blockquote {
+  margin: 0.8rem 0 0.4rem 1.4rem;
+  padding: 0.5rem 0.9rem;
+  border-left: 3px solid var(--red);
+  background: rgba(158, 59, 46, 0.06);
+  font-style: italic;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--red);
+}
+
+em {
+  font-style: italic;
+}
+
+.colophon {
+  margin-top: 0.2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--faded);
+}
+
+.colophon p {
+  margin: 0.3rem 0 0;
+}
