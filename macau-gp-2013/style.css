@@ -1,0 +1,213 @@
+/* The Courier's Restaurant Pages — newsprint treatment */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ece5d3;
+  --ink: #1d1a14;
+  --ink-soft: #4a4436;
+  --rule: #1d1a14;
+  --red: #9c2b1e;
+  --star: #b98a1d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 252, 240, 0.55), transparent 60%),
+    radial-gradient(ellipse at 90% 100%, rgba(120, 100, 60, 0.18), transparent 55%),
+    #e8e0cb;
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 22px 40px;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0 2px, transparent 2px 4px),
+    var(--paper);
+  border-left: 1px solid rgba(60, 50, 30, 0.35);
+  border-right: 1px solid rgba(60, 50, 30, 0.35);
+  box-shadow: 0 18px 50px rgba(40, 30, 10, 0.35), inset 0 0 90px rgba(150, 120, 60, 0.12);
+}
+
+/* Masthead */
+.masthead { text-align: center; margin-bottom: 10px; }
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 6px 2px;
+}
+.paper-name {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  letter-spacing: 0.01em;
+  margin: 4px 0 2px;
+  line-height: 1.05;
+}
+.paper-name span { font-style: italic; font-weight: 700; }
+.masthead-rule {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 22px;
+}
+.masthead-rule span { height: 3px; background: var(--rule); flex: 1; }
+.masthead-rule span + span { height: 1px; }
+
+/* Layout: verdict rail + review columns */
+.review {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0 34px;
+  border-top: 3px double var(--rule);
+  padding-top: 22px;
+}
+
+/* Verdict rail */
+.verdict {
+  border-right: 1px solid var(--rule);
+  padding-right: 26px;
+  align-self: start;
+  position: sticky;
+  top: 16px;
+}
+.verdict-kicker {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: var(--red);
+}
+.stars {
+  margin: 0 0 2px;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--star);
+  letter-spacing: 0.18em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.stars .star { display: inline-block; transition: transform 0.4s ease, color 0.4s ease; }
+.stars .star.lit { transform: translateY(-3px) rotate(-4deg); color: #a04d14; }
+.stars .half::first-line { color: inherit; }
+.score {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 4px 0 14px;
+}
+.ticket {
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+.ticket dt {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 8px;
+}
+.ticket dd {
+  margin: 1px 0 6px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.ticket dd + dt { border-top: 1px dotted rgba(29, 26, 20, 0.5); }
+
+/* Review body */
+article { min-width: 0; }
+.standfirst {
+  font-family: "Playfair Display", serif;
+  font-size: 1.22rem;
+  font-style: italic;
+  line-height: 1.45;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.byline {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+article h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 26px 0 8px;
+}
+article h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  background: var(--red);
+  margin-top: 4px;
+}
+article p { margin: 0 0 14px; }
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--red);
+  text-underline-offset: 3px;
+}
+article a:hover { color: var(--red); }
+
+.fineprint {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px dotted rgba(29, 26, 20, 0.5);
+  padding-top: 12px;
+}
+.signature {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 500;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+/* Colophon */
+.colophon {
+  margin-top: 26px;
+  border-top: 3px double var(--rule);
+  padding-top: 10px;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .review { grid-template-columns: 1fr; }
+  .verdict {
+    position: static;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 0 0 20px;
+    margin-bottom: 22px;
+  }
+  .ticket { columns: 2; column-gap: 20px; }
+}
