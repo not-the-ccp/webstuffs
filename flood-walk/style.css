@@ -1,0 +1,181 @@
+/* Route No. 9 — The Flood, walking book sheet */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #23241f;
+  --wall: #4c5a52;
+  --spore: #8a6f3c;
+  --line: #d8d2c2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.frame {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 28px 72px;
+}
+
+.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 28px; }
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wall);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 19px;
+  font-style: italic;
+  color: #4a4a42;
+  margin: 0;
+}
+
+.meta-strip {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 34px;
+  padding: 18px 0 0;
+  margin: 26px 0 0;
+  border-top: 1px solid var(--line);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+}
+
+.meta-strip span {
+  display: block;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--spore);
+  margin-bottom: 2px;
+}
+
+h2 {
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  margin: 52px 0 14px;
+  border-left: 4px solid var(--wall);
+  padding-left: 12px;
+}
+
+p { margin: 0 0 18px; }
+
+.way { color: #4a4a42; }
+
+a { color: var(--wall); }
+a:hover { color: var(--spore); }
+
+.stop {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 26px;
+  margin: 0 0 44px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.stop-no {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--spore);
+  padding-top: 5px;
+}
+
+.stop-body h3 {
+  font-size: 21px;
+  margin: 0 0 12px;
+}
+
+.stop-body .dist {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--wall);
+  white-space: nowrap;
+}
+
+.details {
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px dotted var(--line);
+}
+
+.details div { margin: 0 0 8px; }
+
+.details dt {
+  display: inline;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--spore);
+}
+
+.details dd {
+  display: inline;
+  margin: 0 0 0 8px;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 14px 20px;
+  border-left: 3px solid var(--spore);
+  background: #efe9db;
+  font-style: italic;
+}
+
+.provisions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.provisions li {
+  padding: 7px 0 7px 22px;
+  position: relative;
+  border-bottom: 1px dotted var(--line);
+}
+
+.provisions li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--wall);
+}
+
+.colophon {
+  margin-top: 56px;
+  padding-top: 18px;
+  border-top: 2px solid var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #5a5a50;
+}
+
+@media (max-width: 560px) {
+  .stop { grid-template-columns: 1fr; gap: 8px; }
+  h1 { font-size: 40px; }
+}
