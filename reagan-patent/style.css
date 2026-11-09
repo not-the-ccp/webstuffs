@@ -1,0 +1,222 @@
+/* Patent application summary — form 43-S, summary-only copy */
+
+:root {
+  --ink: #1c1a17;
+  --faded: #57504a;
+  --paper: #f7f4ec;
+  --card: #fffdf6;
+  --rule: #2b2823;
+  --stamp: #8c2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0,0,0,.05), transparent 42%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.form {
+  max-width: 860px;
+  margin: 2.5rem auto 4rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgba(0,0,0,.15), 0 14px 34px rgba(40,32,20,.18);
+  padding: 2.2rem 2.6rem 1.6rem;
+  position: relative;
+}
+
+.form::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(43,40,35,.35);
+  pointer-events: none;
+}
+
+/* ---- office header ---- */
+.office-head {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.4rem;
+  align-items: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.2rem;
+}
+
+.seal svg { display: block; width: 120px; height: 120px; }
+.ring { fill: none; stroke: var(--ink); stroke-width: 2.5; }
+.ring.inner { stroke-width: 1; }
+.ring-text {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  fill: var(--ink);
+}
+
+.agency {
+  margin: 0 0 .2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+}
+
+.extract {
+  margin: .35rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  color: var(--faded);
+}
+
+.stamp {
+  grid-column: 2;
+  justify-self: end;
+  align-self: start;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: .95rem;
+  letter-spacing: 4px;
+  color: var(--stamp);
+  border: 3px solid var(--stamp);
+  padding: .35rem .8rem;
+  transform: rotate(-6deg);
+  opacity: .8;
+  text-align: center;
+}
+
+/* ---- bibliographic table ---- */
+.biblio {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.3rem 0 1.6rem;
+  font-size: .92rem;
+}
+.biblio th, .biblio td {
+  border: 1px solid var(--rule);
+  padding: .45rem .7rem;
+  text-align: left;
+  vertical-align: top;
+}
+.biblio th {
+  width: 160px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #efe9da;
+}
+
+/* ---- sections ---- */
+main h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+  margin: 1.8rem 0 .9rem;
+}
+
+main h3 {
+  font-size: 1rem;
+  margin: 1.1rem 0 .4rem;
+}
+
+p { margin: 0 0 .9rem; }
+
+a { color: var(--ink); text-decoration-color: rgba(43,40,35,.5); }
+a:hover { text-decoration-color: var(--ink); }
+
+/* ---- claims ---- */
+.claims-list {
+  padding-left: 0;
+  margin: 0;
+  counter-reset: none;
+  list-style: none;
+}
+.claims-list li {
+  padding: .45rem .2rem .45rem 0;
+  border-bottom: 1px dotted rgba(43,40,35,.45);
+  font-size: .95rem;
+}
+.claims-list li strong {
+  font-family: "Courier New", Courier, monospace;
+  margin-right: .5rem;
+}
+
+/* ---- references ---- */
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.ref-table caption {
+  caption-side: top;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: 2px;
+  color: var(--faded);
+  text-align: left;
+  padding-bottom: .4rem;
+}
+.ref-table th, .ref-table td {
+  border: 1px solid var(--rule);
+  padding: .5rem .6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.ref-table thead th {
+  background: #efe9da;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.ref-table td:first-child {
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+}
+
+/* ---- examiner's remarks ---- */
+.recorded {
+  display: block;
+  margin: 1rem 0;
+  padding: .8rem 1rem;
+  border-left: 3px solid var(--stamp);
+  background: rgba(140,47,34,.05);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* ---- footer ---- */
+.file-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: .8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .72rem;
+  letter-spacing: 1px;
+  color: var(--faded);
+}
+.file-foot p { margin: 0; }
+
+@media (max-width: 640px) {
+  .form { margin: 0; padding: 1.4rem 1.1rem; }
+  .office-head { grid-template-columns: 1fr; }
+  .seal svg { width: 90px; height: 90px; }
+  .stamp { position: absolute; top: .8rem; right: .8rem; }
+}
