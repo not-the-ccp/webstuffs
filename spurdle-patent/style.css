@@ -1,0 +1,166 @@
+/* Patent application summary — printed gazette sheet */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: #3b3a36; }
+
+body {
+  background: #3b3a36;
+  font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+  color: #241f18;
+  line-height: 1.55;
+  padding: 3rem 1rem 4rem;
+}
+
+.fence-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  opacity: 0.06;
+  pointer-events: none;
+}
+.fence-watermark circle { stroke: #241f18; stroke-width: 3; }
+.fence-watermark rect { fill: #241f18; }
+.fence-watermark path { stroke: #241f18; stroke-width: 2.5; }
+
+.patent-head,
+.patent-body,
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.patent-head {
+  background: #f4efdf;
+  border: 1px solid #b7ad8f;
+  box-shadow: 0 0 0 6px #f4efdf, 0 14px 34px rgba(0,0,0,.45);
+  padding: 2.4rem 2.6rem 2rem;
+  position: relative;
+}
+
+.head-rule {
+  height: 6px;
+  border-top: 3px solid #241f18;
+  border-bottom: 1px solid #241f18;
+  margin-bottom: 0.9rem;
+}
+.patent-head .head-rule:last-child { margin-top: 1.2rem; }
+
+.head-line {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5a4c33;
+  margin-bottom: 1.1rem;
+}
+
+.head-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 1.4rem;
+}
+.head-table th,
+.head-table td {
+  border: 1px solid #8a7c58;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.head-table th {
+  background: #e9e1c8;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 9rem;
+}
+
+.patent-head h1 {
+  font-size: 1.45rem;
+  line-height: 1.35;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.patent-head h1 .subtitle {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 0.6rem;
+  color: #4a3f2c;
+}
+
+.class-line {
+  text-align: center;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a4c33;
+}
+
+.patent-body {
+  background: #f4efdf;
+  border-left: 1px solid #b7ad8f;
+  border-right: 1px solid #b7ad8f;
+  padding: 2.2rem 2.6rem 2.6rem;
+  margin-top: 1px;
+}
+
+.pat-sec { margin-bottom: 2rem; }
+
+.pat-sec h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #241f18;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.pat-sec p { margin-bottom: 0.9rem; text-align: justify; }
+
+.figs { list-style: none; }
+.figs li {
+  margin-bottom: 0.55rem;
+  padding-left: 4.5rem;
+  text-indent: -4.5rem;
+}
+.figs strong { font-style: italic; letter-spacing: 0.04em; }
+
+.claims { list-style: none; counter-reset: claim; }
+.claims li {
+  counter-increment: claim;
+  margin-bottom: 0.8rem;
+  padding-left: 2.2rem;
+  text-indent: -2.2rem;
+  text-align: justify;
+}
+.claims li::before {
+  content: counter(claim) ". ";
+  font-weight: 700;
+  font-style: italic;
+}
+
+.colophon {
+  background: #f4efdf;
+  border: 1px solid #b7ad8f;
+  border-top: none;
+  margin-top: 1px;
+  padding: 1.1rem 2.6rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5a4c33;
+}
+
+a { color: #5a3a14; text-decoration-color: #b7ad8f; }
+a:hover { background: #e9e1c8; }
