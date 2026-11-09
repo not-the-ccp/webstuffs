@@ -1,0 +1,171 @@
+/* Field Manual FM-112, Chapter IX — of assault and battery.
+   Platform office ink on khaki stock; stencil heads; registry rules. */
+
+:root {
+  --paper: #e9e2cc;
+  --paper-deep: #ddd3b4;
+  --ink: #2b2a22;
+  --faded: #5c5847;
+  --olive: #55502f;
+  --stamp: #8c2f22;
+  --rule: #3d3a2c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(85, 80, 47, 0.05) 34px 35px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Courier New", "Courier", monospace;
+  line-height: 1.55;
+}
+
+.manual {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 3px double var(--rule);
+  box-shadow: 10px 10px 0 rgba(61, 58, 44, 0.18);
+  padding: 2rem 2.25rem 2.5rem;
+}
+
+.plate {
+  border-bottom: 3px solid var(--rule);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  position: relative;
+  text-align: center;
+}
+
+.plate-top {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+  line-height: 1.15;
+}
+
+.plate-sub {
+  font-size: 0.9rem;
+  color: var(--faded);
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.stamp {
+  display: inline-block;
+  margin-top: 1.1rem;
+  padding: 0.3rem 0.9rem;
+  border: 3px solid var(--stamp);
+  color: var(--stamp);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  opacity: 0.25;
+  cursor: pointer;
+  user-select: none;
+}
+
+.stamp.stamped {
+  opacity: 1;
+  box-shadow: 2px 2px 0 rgba(140, 47, 34, 0.25);
+}
+
+section {
+  margin-bottom: 1.9rem;
+  border-left: 4px solid var(--olive);
+  padding-left: 1.1rem;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin: 0 0 0.75rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+a { color: var(--stamp); text-decoration: underline dotted; }
+a:hover { color: var(--ink); text-decoration-style: solid; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.5rem 0 1rem;
+  background: var(--paper-deep);
+}
+
+caption {
+  caption-side: top;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  padding: 0 0 0.4rem;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.55rem;
+  text-align: left;
+}
+
+th {
+  background: var(--olive);
+  color: var(--paper);
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.kept-line {
+  border: 2px dashed var(--rule);
+  background: var(--paper-deep);
+  padding: 0.8rem 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+ol.drill {
+  margin: 0.5rem 0 0;
+  padding-left: 1.4rem;
+}
+
+ol.drill li {
+  margin-bottom: 0.65rem;
+  padding-left: 0.3rem;
+}
+
+ol.drill li::marker {
+  color: var(--stamp);
+  font-weight: bold;
+}
+
+.colophon {
+  border-top: 3px solid var(--rule);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--faded);
+  text-align: center;
+}
