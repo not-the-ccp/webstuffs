@@ -1,0 +1,143 @@
+/* The Gorkha Path Bulletin Board — Thread No. 62
+   Tent-canvas and field-green board, stitched post borders */
+
+:root {
+  --canvas: #f2ecd9;
+  --canvas-deep: #e8dfc2;
+  --tent: #2e4632;
+  --tent-deep: #1f3324;
+  --field: #5b7a3a;
+  --soil: #5a4630;
+  --ochre: #b0782a;
+  --marble: #cfd6d2;
+  --ink: #23201a;
+  --ink-soft: #4c463a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(94, 74, 46, 0.05) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(94, 74, 46, 0.05) 0 1px, transparent 1px 28px),
+    var(--canvas);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.62;
+}
+
+.board {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.masthead {
+  border: 3px double var(--tent);
+  background: var(--canvas-deep);
+  padding: 1.5rem 1.75rem 1.25rem;
+  position: relative;
+}
+
+/* stitched corners, like tent canvas */
+.masthead::before, .masthead::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 2px dashed var(--field);
+}
+.masthead::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+.masthead::after { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+
+.org {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--field);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.35rem;
+  color: var(--tent-deep);
+  letter-spacing: 0.01em;
+}
+h1 em { font-style: italic; color: var(--ochre); }
+
+.sub {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--soil);
+  margin: 0 0 0.9rem;
+}
+
+.note { font-size: 0.92rem; color: var(--ink-soft); margin: 0.4rem 0 0; }
+.note a { color: var(--tent); }
+
+/* posts */
+.post {
+  background: #faf6ea;
+  border: 1px solid #c9bd9c;
+  border-left: 6px solid var(--field);
+  margin-top: 1.4rem;
+  box-shadow: 3px 3px 0 rgba(46, 70, 50, 0.12);
+}
+.post.clerk  { border-left-color: var(--soil); }
+.post.cook   { border-left-color: var(--ochre); }
+.post.chair  { border-left-color: var(--tent); }
+
+.posthead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  padding: 0.55rem 1rem 0.45rem;
+  border-bottom: 2px dashed #d8cba6;
+  background: linear-gradient(180deg, var(--canvas-deep), #f4eeda);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.who {
+  font-weight: bold;
+  font-size: 0.92rem;
+  color: var(--tent-deep);
+  letter-spacing: 0.02em;
+}
+.rank  { font-size: 0.7rem; color: var(--field); text-transform: uppercase; letter-spacing: 0.1em; }
+.when  { font-size: 0.7rem; color: var(--ink-soft); margin-left: auto; }
+
+.postbody { padding: 0.9rem 1.15rem 1.05rem; }
+.postbody p { margin: 0 0 0.8rem; }
+.postbody p:last-child { margin-bottom: 0; }
+
+.ledger {
+  border: 1px dashed var(--soil);
+  background: var(--marble);
+  padding: 0.6rem 0.9rem;
+  margin: 0.4rem 0 0.9rem;
+  font-style: italic;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+.ledger p { margin: 0; }
+
+.pin {
+  margin-top: 1.2rem;
+  padding-top: 0.7rem;
+  border-top: 2px solid var(--tent);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--tent-deep);
+  text-align: center;
+}
+.pin a { color: var(--ochre); }
+
+.post a { color: var(--tent); text-decoration: underline; text-decoration-style: dotted; }
+.post a:hover { background: var(--canvas-deep); }
+
+::selection { background: var(--field); color: var(--canvas); }
