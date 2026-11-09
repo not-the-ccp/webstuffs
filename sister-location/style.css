@@ -1,0 +1,157 @@
+/* Field notes &mdash; Circus Baby's Entertainment and Rental. Entry 09. */
+:root {
+  --paper: #f2ebe0;
+  --paper-deep: #e3d9c8;
+  --ink: #1a1410;
+  --ink-soft: #5a4a3e;
+  --rule: #8a6d55;
+  --crimson: #7b1113;
+  --crimson-dim: #4a0a0b;
+  --neon: #ffb400;
+  --stage: rgba(123, 17, 19, 0.07);
+}
+
+* { box-sizing: border-box; }
+
+html { background: #0c0a08; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 500px at 20% 0%, rgba(123, 17, 19, 0.16), transparent 45%),
+    radial-gradient(700px 450px at 90% 100%, rgba(255, 180, 0, 0.10), transparent 40%),
+    #12100d;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.sheet {
+  max-width: 940px;
+  margin: 3rem auto 4rem;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgba(123, 17, 19, 0.06) 27px 28px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 4px double var(--crimson-dim);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 0 90px var(--stage);
+  position: relative;
+  overflow: hidden;
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 10px;
+  background: repeating-linear-gradient(90deg, var(--crimson), var(--crimson) 12px, #000 12px, #000 24px);
+}
+.sheet::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 10px;
+  background: repeating-linear-gradient(90deg, #000, #000 12px, var(--crimson) 12px, var(--crimson) 24px);
+}
+
+.spine {
+  background: linear-gradient(180deg, var(--crimson-dim), #000);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  border-right: 1px solid rgba(123, 17, 19, 0.45);
+}
+.spine-top { font-weight: 700; }
+.spine-mid { opacity: 0.75; }
+
+.page {
+  padding: 2rem 2.5rem 3rem;
+}
+
+.masthead-row { display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.25em; opacity: 0.8; margin-bottom: 0.5rem; }
+.kicker { margin: 0; text-transform: uppercase; }
+.entry-no { margin: 0; }
+
+h1 {
+  font-family: "Special Elite", "Courier New", Courier, monospace;
+  font-size: 1.9rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 3px double var(--crimson);
+  padding-bottom: 0.35rem;
+  text-shadow: 0 0 14px var(--stage);
+}
+
+.specimen-line {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--crimson);
+  padding-left: 0.6rem;
+}
+
+.metadata {
+  margin: 0 0 2rem;
+  font-size: 0.82rem;
+}
+.metadata div { display: grid; grid-template-columns: 9em 1fr; margin: 0.28rem 0; }
+.metadata dt { font-weight: 700; color: var(--crimson-dim); }
+.metadata dd { margin: 0; color: var(--ink-soft); }
+
+.notes p { margin: 0 0 1.1rem; text-align: justify; }
+.drop-cap { font-family: "Special Elite", "Courier New", Courier, monospace; font-size: 1.15rem; color: var(--crimson); }
+strong { color: var(--crimson); }
+
+.stage-glow {
+  position: absolute; top: 10%; right: 6%;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(255, 180, 0, 0.09) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.page { position: relative; z-index: 1; }
+
+.crossrefs {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  text-align: justify;
+}
+.crossrefs a { color: var(--crimson-dim); text-decoration: none; border-bottom: 1px dotted var(--rule); }
+.crossrefs a:hover { color: var(--crimson); border-bottom-style: solid; }
+
+.stamp-area {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--crimson-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--crimson-dim);
+  padding: 0.5rem 0.9rem;
+  margin-bottom: 0.5rem;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--crimson-dim);
+}
+.stamp-line { display: block; text-align: center; }
+.stamp-line.big { font-weight: 700; font-size: 1.1rem; color: var(--crimson); text-shadow: 0 0 10px var(--stage); }
+.colophon { margin-top: 0.9rem; font-style: italic; border-top: 1px solid var(--rule); padding-top: 0.6rem; }
+
+@media (max-width: 640px) {
+  .sheet { margin: 1rem; border-width: 2px; }
+  .page { padding: 1.2rem 1.4rem; }
+  .spine { padding: 0.9rem 0; font-size: 0.55rem; }
+}
