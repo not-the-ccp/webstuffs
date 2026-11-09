@@ -1,0 +1,200 @@
+/* Storm Room FAQ — Season Sheet No. 21 */
+:root {
+  --paper: #f4efe3;
+  --ink: #23282b;
+  --sea: #1f4e5f;
+  --squall: #a53f2b;
+  --eye: #e9e1cd;
+  --faint: #8d8570;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.62;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(31,78,95,.05) 118px 120px),
+    repeating-linear-gradient(0deg, transparent 0 118px, rgba(31,78,95,.05) 118px 120px);
+}
+
+/* ---------- masthead ---------- */
+.mast {
+  position: relative;
+  padding: 3rem 1.5rem 2.2rem;
+  overflow: hidden;
+  border-bottom: 3px double var(--sea);
+}
+
+.mast-office {
+  margin: 0;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--sea);
+  font-weight: bold;
+}
+
+.mast-title {
+  margin: .4rem 0 .3rem;
+  font-size: clamp(3.2rem, 11vw, 7.5rem);
+  line-height: .92;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+
+.mast-title .spin-word {
+  color: var(--sea);
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.mast-sub {
+  margin: .2rem 0 0;
+  max-width: 34rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.dial {
+  position: absolute;
+  right: 1.2rem;
+  top: 2.4rem;
+  width: 130px;
+  text-align: center;
+}
+
+.dial svg {
+  width: 100%;
+  animation: turn 26s linear infinite;
+}
+
+@keyframes turn { to { transform: rotate(360deg); } }
+
+.dial-label {
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin-top: .3rem;
+  transform: rotate(3deg);
+}
+
+/* ---------- room layout: asymmetric two columns ---------- */
+.room {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.rail {
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+}
+
+.rail-card {
+  background: var(--eye);
+  border: 1px solid var(--ink);
+  border-left: 5px solid var(--squall);
+  padding: .9rem 1rem;
+  font-size: .88rem;
+  line-height: 1.5;
+  transform: rotate(-1.4deg);
+  box-shadow: 4px 4px 0 rgba(35,40,43,.14);
+}
+
+.rail-note {
+  margin-top: 1.6rem;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--faint);
+  transform: rotate(.6deg);
+  border-top: 1px dashed var(--faint);
+  padding-top: .7rem;
+}
+
+/* ---------- question blocks, staggered reading path ---------- */
+.qa-col {
+  display: grid;
+  gap: 2.4rem;
+  align-content: start;
+}
+
+.qa {
+  border-top: 2px solid var(--sea);
+  padding-top: .9rem;
+}
+
+.qa-shift {
+  margin-left: 6%;
+  border-top-color: var(--squall);
+}
+
+.qa h2,
+.ledger h2 {
+  margin: 0 0 .7rem;
+  font-size: 1.22rem;
+  line-height: 1.35;
+  letter-spacing: .01em;
+}
+
+.qnum {
+  display: inline-block;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  color: var(--squall);
+  border: 1px solid var(--squall);
+  padding: .1rem .45rem;
+  margin-right: .55rem;
+  vertical-align: middle;
+  transform: rotate(-2deg);
+}
+
+.qa p { margin: .5rem 0; max-width: 60ch; }
+
+.ledger {
+  margin-left: 6%;
+  background: var(--eye);
+  border: 1px solid var(--ink);
+  padding: 1.4rem 1.6rem 1.2rem;
+  transform: rotate(.5deg);
+  box-shadow: 6px 6px 0 rgba(31,78,95,.12);
+}
+
+.ledger-line {
+  margin: 1rem 0 1rem 3rem;
+  padding: .8rem 1rem;
+  font-size: 1.15rem;
+  font-style: italic;
+  border-left: 4px solid var(--squall);
+  color: var(--sea);
+}
+
+/* ---------- footer ---------- */
+.tail {
+  max-width: 1050px;
+  margin: 1rem auto 0;
+  padding: 1.4rem 1.5rem 2.5rem;
+  border-top: 3px double var(--sea);
+  font-size: .82rem;
+  color: var(--faint);
+}
+
+.tail a { color: var(--sea); }
+
+.colophon { letter-spacing: .08em; }
+
+/* ---------- small screens: single column, rail first ---------- */
+@media (max-width: 720px) {
+  .room { grid-template-columns: 1fr; gap: 2rem; }
+  .rail { position: static; }
+  .qa-shift, .ledger { margin-left: 0; }
+  .dial { display: none; }
+}
