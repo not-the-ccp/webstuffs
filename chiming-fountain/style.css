@@ -1,0 +1,155 @@
+/* Chiming Fountain — Lost & Found Notice No. 891 */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ece5d2;
+  --ink: #26221b;
+  --ink-soft: #5c5648;
+  --vermilion: #7a2e22;
+  --hairline: #b9b09a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { background: #e9e2cf; }
+
+body {
+  background: #e9e2cf;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+  padding: 3.5rem 1.25rem 4rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  outline: 1px solid var(--hairline);
+  outline-offset: 5px;
+  padding: 3.25rem 3rem 2.75rem;
+}
+
+.office { text-align: center; margin-bottom: 2.75rem; }
+
+.office-rule {
+  font-size: 0.6rem;
+  color: var(--vermilion);
+  letter-spacing: 0.5em;
+}
+
+.office-line {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0.9rem 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin: 0.1rem 0 0.7rem;
+}
+
+.office-sub {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.dot {
+  color: var(--vermilion);
+  font-style: normal;
+  padding: 0 0.35em;
+}
+
+.notice { margin-bottom: 2.75rem; }
+
+.band {
+  font-size: 0.78rem;
+  font-weight: normal;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.band-mark { font-size: 0.85rem; margin-right: 0.55em; }
+
+.label {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+p + p { margin-top: 1.05rem; }
+
+strong { font-weight: normal; letter-spacing: 0.01em; color: var(--ink); }
+
+em { color: var(--ink-soft); }
+
+.ledger-line {
+  margin: 1.6rem 0.5rem 0.4rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--paper-deep);
+  border-left: 3px double var(--vermilion);
+  border-right: 3px double var(--vermilion);
+}
+
+.ledger-line p { font-size: 1.28rem; font-style: italic; text-align: center; line-height: 1.5; }
+
+.ledger-src {
+  font-size: 0.75rem !important;
+  font-style: normal !important;
+  color: var(--ink-soft);
+  margin-top: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.orn-row {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  color: var(--vermilion);
+  margin: 0 1rem 2rem;
+}
+
+.orn-rule { flex: 1; border-top: 1px solid var(--hairline); }
+
+.droplet { width: 22px; height: 22px; flex: none; }
+
+.foot { text-align: center; }
+
+.foot-stamp {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+  margin-bottom: 1.2rem;
+}
+
+.foot-links {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.foot-links a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.foot-links a:hover { color: var(--vermilion); border-bottom-color: var(--vermilion); }
+
+@media (max-width: 620px) {
+  .sheet { padding: 2.25rem 1.4rem 2rem; }
+  h1 { font-size: 2rem; }
+}
