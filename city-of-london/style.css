@@ -1,0 +1,135 @@
+:root {
+  --paper: #f8f4ea;
+  --ink: #221d15;
+  --faint: #6d6250;
+  --hair: #cdc2ab;
+  --ox: #7c2d1e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.masthead {
+  border-bottom: 3px double var(--hair);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.tagline {
+  color: var(--faint);
+  font-style: italic;
+  font-size: 0.98rem;
+  margin: 0;
+  max-width: 38rem;
+}
+
+.panel p { margin: 0 0 1.25rem; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.12em 0.14em 0 0;
+  color: var(--ox);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.92rem;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+table.roll th {
+  width: 9.5rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+table.marks thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.4rem;
+}
+
+table.marks td:last-child { white-space: nowrap; }
+
+.remarks {
+  border-top: 1px solid var(--hair);
+  padding-top: 1.25rem;
+  margin-top: 2rem;
+}
+
+.shelf {
+  margin-top: 3rem;
+  border-top: 3px double var(--hair);
+  padding-top: 1.25rem;
+  font-size: 0.88rem;
+}
+
+.shelf p { margin: 0 0 0.5rem; }
+
+.shelf a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--hair);
+  text-underline-offset: 3px;
+}
+
+.shelf a:hover { text-decoration-color: var(--ox); }
+
+.built {
+  color: var(--faint);
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+a { color: inherit; }
+
+em { font-style: italic; }
+strong { font-weight: bold; letter-spacing: 0.01em; }
