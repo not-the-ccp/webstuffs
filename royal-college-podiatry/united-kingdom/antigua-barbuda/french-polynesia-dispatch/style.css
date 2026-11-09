@@ -1,0 +1,203 @@
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b2a26;
+  --faded: #6c665a;
+  --rule: #b8ae97;
+  --teal: #1f5f5b;
+  --seal: #8a3324;
+  --card: #fffdf6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 62rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 0 1.25rem 3rem;
+}
+
+.stamp-top {
+  border: 1.5px solid var(--seal);
+  color: var(--seal);
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.7rem;
+  width: max-content;
+  margin: 1.2rem auto 1.6rem;
+  transform: rotate(-1.2deg);
+  font-family: "Courier New", monospace;
+}
+
+.masthead { text-align: center; margin-bottom: 2rem; }
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  margin: 0 0 0.6rem;
+}
+
+.subtitle {
+  color: var(--faded);
+  font-style: italic;
+  max-width: 44rem;
+  margin: 0 auto 0.8rem;
+  font-size: 0.98rem;
+}
+
+.wire-rule { color: var(--teal); }
+.wire-rule svg { width: 24rem; max-width: 90%; height: 18px; }
+
+.thread { display: grid; gap: 1.4rem; }
+
+.post {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--teal);
+  padding: 1.1rem 1.4rem 1.2rem;
+  box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.08);
+}
+
+.post-opener { border-left-color: var(--seal); }
+.post-close { border-left-color: var(--faded); }
+
+.post-head {
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.7rem;
+}
+
+.poster {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+.meta {
+  margin: 0.15rem 0 0;
+  font-size: 0.74rem;
+  color: var(--faded);
+  font-family: "Courier New", monospace;
+}
+
+.post-body h2 {
+  font-size: 1.15rem;
+  margin: 0.2rem 0 0.6rem;
+}
+
+.post-body p { margin: 0 0 0.85rem; }
+.post-body p:last-child { margin-bottom: 0; }
+
+.ship { font-style: italic; }
+
+.kept-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  padding: 0.55rem 0.8rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0.4rem 0 0.85rem;
+}
+
+.gauge-block {
+  border: 1px solid var(--rule);
+  background: var(--card);
+  padding: 1.1rem 1.4rem;
+}
+
+.gauge-block h2 { font-size: 1.1rem; margin: 0 0 0.5rem; }
+
+.gauge-note {
+  font-size: 0.88rem;
+  color: var(--faded);
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.gauge-wrap {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.gauge {
+  width: 150px;
+  height: 150px;
+  flex: 0 0 auto;
+  color: var(--teal);
+}
+
+#gauge-needle {
+  transform-origin: 60px 60px;
+  transition: transform 0.7s cubic-bezier(0.34, 1.3, 0.5, 1);
+}
+
+.gauge-read {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  border: 1px dashed var(--rule);
+  padding: 0.55rem 0.8rem;
+  background: var(--paper);
+}
+
+.gauge-read p { margin: 0.15rem 0; }
+.gauge-group { font-weight: bold; color: var(--teal); }
+.gauge-detail { color: var(--faded); }
+
+.groups {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.groups th, .groups td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+
+.groups th {
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--paper);
+}
+
+.groups tbody tr { cursor: pointer; transition: background 0.15s; }
+.groups tbody tr:hover { background: #eef3ef; }
+.groups tbody tr.selected { background: #e2ebe4; outline: 1.5px solid var(--teal); }
+
+.groups tfoot td {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--faded);
+  background: var(--paper);
+}
+
+.foot {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.76rem;
+  color: var(--faded);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+}
