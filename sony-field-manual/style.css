@@ -1,0 +1,206 @@
+/* Field Manual FM-21, Chapter 9 — field manual chapter styling */
+
+:root {
+  --paper: #f4edda;
+  --paper-deep: #ece2c8;
+  --ink: #2b2620;
+  --ink-soft: #5a5040;
+  --rule: #8a7c5e;
+  --stamp: #a03c2c;
+  --accent: #274a68;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #cfc4a6;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #d6ccb0 0%, #c8bd9e 100%);
+  color: var(--ink);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  font-size: 16px;
+  line-height: 1.65;
+  padding: 2.5rem 0.75rem 4rem;
+}
+
+.quire {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(90deg, rgba(120,100,60,0.06) 0, transparent 6%, transparent 94%, rgba(120,100,60,0.08) 100%),
+    radial-gradient(ellipse at 18% 8%, rgba(150,120,70,0.10), transparent 42%),
+    radial-gradient(ellipse at 85% 92%, rgba(120,90,50,0.12), transparent 40%);
+  border: 1px solid #9a8c6c;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 18px 40px rgba(40,30,10,0.35);
+  padding: 3rem 3.25rem 2.25rem;
+  position: relative;
+}
+
+/* punched hole and binder ring along the left edge */
+.quire::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0.9rem;
+  width: 0.85rem; height: 100%;
+  background-image:
+    radial-gradient(circle, #cfc4a6 0 0.28rem, rgba(90,70,40,0.55) 0.28rem 0.34rem, transparent 0.34rem);
+  background-size: 0.85rem 5.5rem;
+  background-repeat: repeat-y;
+  opacity: 0.9;
+}
+
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.service {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.coords {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  max-width: 46rem;
+}
+
+.stamp {
+  position: absolute;
+  top: 0.4rem; right: 0;
+  padding: 0.45rem 0.7rem;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  opacity: 0.85;
+  background: rgba(160,60,44,0.04);
+}
+
+.byline {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.7rem;
+  margin-bottom: 1.6rem;
+}
+
+.sec { margin-bottom: 1.7rem; }
+
+h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+p { margin: 0 0 0.95rem; }
+
+a { color: var(--accent); }
+a:hover { color: var(--stamp); }
+
+strong { color: inherit; }
+
+table.measures {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 0.4rem 0 1.1rem;
+  background: var(--paper-deep);
+}
+
+table.measures caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 0 0.4rem;
+}
+
+table.measures th,
+table.measures td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.measures thead th {
+  background: #e2d6b4;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+table.measures tbody tr:nth-child(even) { background: rgba(255,255,255,0.25); }
+
+blockquote.axiom {
+  margin: 1.1rem 0.5rem 1.1rem 1.4rem;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--stamp);
+  background: rgba(160,60,44,0.05);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.sign-off {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.tail {
+  border-top: 3px double var(--rule);
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.see-head {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.colophon {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .quire { padding: 2rem 1.4rem 1.6rem; }
+  h1 { font-size: 1.9rem; }
+  .stamp { position: static; display: inline-block; margin-top: 0.8rem; }
+  .quire::before { display: none; }
+}
