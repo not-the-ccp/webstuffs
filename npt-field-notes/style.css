@@ -1,0 +1,316 @@
+/* Geneva Station — Notebook No. 44 · field notes styling */
+
+:root {
+  --ink: #1d2a25;
+  --ink-soft: #33463d;
+  --paper: #f3ecd8;
+  --paper-deep: #e9dfc2;
+  --lake: #2e5f6e;
+  --lake-deep: #16394a;
+  --brass: #b07d2e;
+  --brass-bright: #d9a441;
+  --rust: #8a3b2a;
+  --line: #b9a97e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% -5%, rgba(217, 164, 65, 0.22), transparent 60%),
+    linear-gradient(160deg, #14333f 0%, #1e4a55 28%, #2e5f6e 55%, #16394a 82%, #0d2530 100%);
+  min-height: 100vh;
+  padding: 0 0 6rem;
+}
+
+/* layered field background: water + survey grid + fog */
+.field-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(243, 236, 216, 0.045) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(90deg, rgba(243, 236, 216, 0.045) 0 1px, transparent 1px 56px),
+    radial-gradient(circle at 18% 78%, rgba(243, 236, 216, 0.10), transparent 34%),
+    radial-gradient(circle at 84% 30%, rgba(176, 125, 46, 0.14), transparent 40%);
+  animation: fogdrift 46s linear infinite alternate;
+}
+
+@keyframes fogdrift {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to   { background-position: 56px 56px, 56px 56px, 40px -60px, -50px 30px; }
+}
+
+/* the notebook */
+.notebook {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 2.2rem 2.5rem;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 2.05rem, rgba(185, 169, 126, 0.35) 2.05rem 2.1rem),
+    radial-gradient(ellipse 120% 60% at 50% 0%, rgba(255, 252, 240, 0.55), transparent 55%),
+    linear-gradient(175deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #7c6f4c;
+  outline: 3px double rgba(124, 111, 76, 0.55);
+  outline-offset: 6px;
+  box-shadow:
+    0 2rem 4rem rgba(0, 0, 0, 0.45),
+    inset 0 0 6rem rgba(148, 122, 66, 0.18);
+}
+
+/* left margin: binding of the field notebook */
+.notebook::before {
+  content: "";
+  position: absolute;
+  left: 1.35rem;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 2px solid rgba(138, 59, 42, 0.35);
+}
+
+/* header plate */
+.plate {
+  text-align: center;
+  border-bottom: 3px double var(--line);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.plate .agency {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0 0 0.9rem;
+}
+
+.plate h1 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--lake-deep);
+}
+
+.plate .subtitle {
+  margin: 0 auto 0.8rem;
+  max-width: 36rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.plate .observer {
+  margin: 0.9rem auto 0;
+  max-width: 34rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--lake-deep);
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  padding: 0.45rem 0.2rem;
+}
+
+/* entries */
+.entry { position: relative; margin-bottom: 2.2rem; padding-left: 0.6rem; }
+
+.entry-head {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 0.8rem;
+  break-after: avoid;
+}
+
+.entry-head::before {
+  content: "\25C6 ";
+  color: var(--rust);
+}
+
+p.drop::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--lake-deep);
+  font-family: "IM Fell English SC", "IM Fell English", Georgia, serif;
+}
+
+em.verbatim {
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.94em;
+  color: var(--rust);
+  background: rgba(176, 125, 46, 0.10);
+  box-shadow: inset 0 0 0 1px rgba(138, 59, 42, 0.25);
+  padding: 0.05em 0.25em;
+}
+
+a {
+  color: var(--lake);
+  text-decoration: underline;
+  text-decoration-color: rgba(46, 95, 110, 0.45);
+  text-underline-offset: 3px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+a:hover, a:focus {
+  color: var(--brass);
+  background: rgba(217, 164, 65, 0.18);
+  text-decoration-color: var(--brass);
+}
+
+/* field log table */
+.log { margin-bottom: 2.4rem; }
+
+table.fix-log {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  background: rgba(255, 252, 240, 0.5);
+  border: 1px solid var(--line);
+}
+
+table.fix-log caption {
+  caption-side: bottom;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 0.5rem;
+}
+
+table.fix-log thead th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--paper);
+  background: var(--lake-deep);
+  padding: 0.5rem 0.7rem;
+}
+
+table.fix-log tbody td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px dotted var(--line);
+  vertical-align: top;
+}
+
+table.fix-log tbody tr:nth-child(odd) { background: rgba(233, 223, 194, 0.4); }
+table.fix-log tbody tr:hover { background: rgba(217, 164, 65, 0.14); }
+
+/* footer collar */
+.collar {
+  border-top: 3px double var(--line);
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  text-align: center;
+}
+
+.collar-rule {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.4em;
+  font-size: 0.75rem;
+  color: var(--rust);
+  margin: 0 0 0.8rem;
+}
+
+.collar p { margin: 0.5rem 0; font-size: 0.92rem; }
+
+.collar-fine {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.82rem !important;
+}
+
+/* the notebook stamp */
+.stamp {
+  position: absolute;
+  top: -2.4rem;
+  right: -1.2rem;
+  z-index: 2;
+  width: 8.5rem;
+  height: 8.5rem;
+  transform: rotate(-12deg);
+  animation: stampwobble 9s ease-in-out infinite;
+}
+
+@keyframes stampwobble {
+  0%, 100% { transform: rotate(-12deg) scale(1); }
+  50%      { transform: rotate(-9deg) scale(1.02); }
+}
+
+.stamp-ring { position: relative; display: block; width: 100%; height: 100%; }
+
+.ring-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.ring-outer { fill: none; stroke: var(--rust); stroke-width: 3; opacity: 0.8; }
+.ring-inner { fill: none; stroke: var(--rust); stroke-width: 1.2; stroke-dasharray: 5 4; opacity: 0.65; }
+.ring-ticks { stroke: var(--rust); stroke-width: 2; opacity: 0.7; }
+
+.stamp-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  color: var(--rust);
+  opacity: 0.85;
+}
+
+/* radar sweep ornament, purely decorative */
+.sweep {
+  position: absolute;
+  left: -3rem;
+  bottom: -3rem;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 164, 65, 0.5);
+  background:
+    conic-gradient(from 0deg, rgba(217, 164, 65, 0.35), transparent 22%),
+    radial-gradient(circle, transparent 58%, rgba(217, 164, 65, 0.16) 59% 60%, transparent 61%),
+    radial-gradient(circle, transparent 32%, rgba(217, 164, 65, 0.16) 33% 34%, transparent 35%);
+  animation: sweepturn 14s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes sweepturn {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-bg, .stamp, .sweep { animation: none; }
+}
+
+@media (max-width: 620px) {
+  .notebook { padding: 2.4rem 1.2rem 2rem; margin: 0 0.6rem; }
+  .stamp { width: 6rem; height: 6rem; top: -1.6rem; right: -0.6rem; }
+  .stamp-text { font-size: 0.58rem; }
+  .sweep { display: none; }
+}
