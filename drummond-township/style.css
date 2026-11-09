@@ -1,0 +1,125 @@
+/* Minutes No. 118 — Township of Drummond, printed-publication style */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #24211c;
+  --faded: #6b6459;
+  --rule: #b6ac98;
+  --seal: #7d2b1e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #e9e4d8;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 3rem 1rem;
+}
+
+.sheet {
+  max-width: 40rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 18px 40px -24px rgba(36, 33, 28, 0.45);
+  padding: 3.25rem 3rem 2.5rem;
+}
+
+.masthead { text-align: center; margin-bottom: 2.25rem; }
+
+.county {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin: 0.6rem 0 0.4rem;
+}
+
+.sub {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--faded);
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.rule {
+  width: 100%;
+  border-top: 3px double var(--rule);
+  margin: 1.5rem 0 1.1rem;
+}
+
+.quorum {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faded);
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.minutes { margin-bottom: 2rem; }
+
+.item { margin-bottom: 1.9rem; }
+
+h2 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+p { margin-bottom: 0.85rem; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 700; }
+
+.signature {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.signature span {
+  display: inline-block;
+  min-width: 12rem;
+  border-bottom: 1px solid var(--ink);
+  padding: 0.1rem 0.4rem 0 0;
+  margin-bottom: 0.9rem;
+  font-style: italic;
+}
+
+.colophon {
+  border-top: 3px double var(--rule);
+  padding-top: 1.1rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faded);
+  text-align: center;
+}
+
+.footlinks { margin-top: 0.8rem; }
+.footlinks a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125, 43, 30, 0.35);
+}
+.footlinks a:hover { border-bottom-color: var(--seal); }
+
+a { color: var(--seal); }
+
+@media (max-width: 480px) {
+  .sheet { padding: 2rem 1.4rem; }
+  h1 { font-size: 1.7rem; }
+}
