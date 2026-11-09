@@ -1,0 +1,282 @@
+/* Tour leaflet S-16 — Sixteen States in One Morning (Betwa Provisions & Record-Keepers) */
+
+@page { size: A4; margin: 15mm; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: #f6f1e8;
+  color: #23211a;
+  font-family: "Noto Serif", "Liberation Serif", Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+.leaflet {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #fbf8ee;
+  border: 1.4px solid #a8936f;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  position: relative;
+  padding: 42px 36px 52px 36px;
+  overflow: hidden;
+}
+
+.leaflet::before {
+  content: "S-16";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  left: 14px;
+  border-top: 1.4px solid #a8936f;
+  padding-top: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: #8a7752;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.leaflet::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #a8936f 45%, #a8936f 55%, transparent);
+  z-index: 1;
+}
+
+.stain {
+  position: absolute;
+  top: 340px;
+  left: 110px;
+  width: 150px;
+  height: 90px;
+  background: radial-gradient(circle at 40% 40%, rgba(110, 70, 40, 0.14), rgba(110, 70, 40, 0.02) 70%);
+  border-radius: 60% 40% 55% 50% / 50% 60% 45% 55%;
+  transform: rotate(-6deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.leaflet-header {
+  border-bottom: 2px solid #8a6d3b;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  position: relative;
+  z-index: 3;
+}
+
+.office {
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6e6454;
+  margin: 0 0 10px 0;
+  font-variant: small-caps;
+}
+
+h1 {
+  font-size: 29px;
+  letter-spacing: 0.01em;
+  margin: 0 0 8px 0;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+.dek {
+  font-size: 12px;
+  color: #5c5244;
+  margin: 0;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 14.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #8a6d3b;
+  margin: 30px 0 12px 0;
+  border-bottom: 1px solid #d8cfb9;
+  padding-bottom: 4px;
+  position: relative;
+  z-index: 3;
+}
+
+.intro p {
+  margin: 0 0 12px 0;
+  text-align: justify;
+}
+
+.route-table {
+  position: relative;
+  z-index: 3;
+}
+
+.route-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  margin-bottom: 10px;
+}
+
+.route-table caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: 10.5px;
+  color: #6e6454;
+  letter-spacing: 0.08em;
+  padding-top: 6px;
+}
+
+.route-table th,
+.route-table td {
+  border-bottom: 1px solid #d8cfb9;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.route-table th {
+  color: #8a6d3b;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  border-bottom: 1.4px solid #a8936f;
+}
+
+.route-table td:first-child,
+.route-table th:first-child {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: #5c4a2e;
+}
+
+.route-note {
+  font-size: 11.5px;
+  color: #5c5244;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.stops {
+  position: relative;
+  z-index: 3;
+}
+
+.stop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.stop {
+  border: 1px solid #d8cfb9;
+  padding: 14px 16px;
+  background: #fffcf6;
+  position: relative;
+}
+
+.stop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background: #b08d4c;
+}
+
+.stop h3 {
+  font-size: 13px;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.04em;
+  color: #23211a;
+}
+
+.time {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11.5px;
+  color: #6e6454;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px 0;
+}
+
+.stop p {
+  margin: 0 0 8px 0;
+  font-size: 12.5px;
+}
+
+.stamp {
+  display: inline-block;
+  border: 1.6px dashed #7a5c33;
+  background: #efe4d0;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: #5c4a2e;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  z-index: 3;
+  position: relative;
+}
+
+.notes {
+  position: relative;
+  z-index: 3;
+}
+
+.notes p {
+  margin: 0 0 12px 0;
+  text-align: justify;
+  font-size: 12.5px;
+}
+
+.colophon {
+  margin-top: 34px;
+  padding-top: 16px;
+  border-top: 2px solid #a8936f;
+  font-size: 11px;
+  color: #6e6454;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 3;
+}
+
+.colophon p {
+  margin: 0 0 6px 0;
+}
+
+.colophon a {
+  color: #8a6d3b;
+  text-decoration: none;
+  border-bottom: 0.6px dotted #8a6d3b;
+}
+
+.colophon a:hover,
+.colophon a:focus {
+  border-bottom-style: solid;
+  color: #5c4a2e;
+}
+
+@media print {
+  body { background: #ffffff; }
+  .leaflet { box-shadow: none; border: none; }
+  .stain { display: none; }
+}
+
+@media (max-width: 560px) {
+  body { padding: 12px; }
+  .leaflet { padding: 30px 18px 40px 18px; }
+  .stop-grid { grid-template-columns: 1fr; }
+}
