@@ -1,0 +1,185 @@
+/* The Rees Ledger — a field diary, bound like one */
+:root {
+  --paper: #efe6cf;
+  --paper-deep: #e4d7b8;
+  --ink: #2e2a22;
+  --pencil: #5c584d;
+  --rule: #b9c4b4;
+  --margin: #c26a5a;
+  --stamp: #8e3b2f;
+  --cover: #4a4034;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 10%, #3a3428 0%, #2b2620 55%, #211d18 100%);
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 80px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.notebook {
+  width: 100%;
+  max-width: 780px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.18) 0, rgba(0,0,0,0) 3%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.35),
+    0 18px 40px rgba(0,0,0,.55),
+    inset 0 0 60px rgba(94, 74, 44, .28);
+  border-radius: 4px 10px 10px 4px;
+  position: relative;
+}
+
+/* worn corner */
+.notebook::after {
+  content: "";
+  position: absolute;
+  right: -2px; bottom: -2px;
+  width: 46px; height: 46px;
+  background: linear-gradient(315deg, #211d18 48%, #cdbf9d 50%, #b6a67e 60%, transparent 70%);
+  border-radius: 0 0 10px 0;
+}
+
+.cover {
+  text-align: center;
+  padding: 56px 24px 34px;
+  background:
+    linear-gradient(180deg, var(--cover) 0%, #3c342b 100%);
+  color: #e8dfc8;
+  border-bottom: 6px double #6d5f49;
+  border-radius: 4px 10px 0 0;
+}
+
+.cover h1 {
+  font-size: 2.4rem;
+  letter-spacing: .14em;
+  margin: 18px 0 10px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.cover-sub {
+  font-style: italic;
+  margin: 6px 0 22px;
+  line-height: 1.6;
+  color: #cfc4a6;
+}
+
+.owner {
+  font-size: .85rem;
+  letter-spacing: .06em;
+  color: #b3a684;
+  margin: 0;
+}
+
+.stamp {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: .22em;
+  color: var(--stamp);
+  border: 2.5px solid var(--stamp);
+  padding: 5px 12px;
+  transform: rotate(-4deg);
+  opacity: .8;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+.cover .stamp { color: #d8c9a4; border-color: #d8c9a4; }
+
+.small { font-size: .65rem; }
+
+.pages {
+  padding: 34px 0 20px;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      var(--rule) 30px,
+      var(--rule) 31px
+    );
+}
+
+.entry {
+  margin: 0 56px 8px 74px;
+  position: relative;
+  padding-bottom: 22px;
+  border-left: none;
+}
+
+/* red diary margin line */
+.pages::before {
+  content: "";
+  position: absolute;
+  left: 58px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: var(--margin);
+  opacity: .55;
+}
+.pages { position: relative; }
+
+.date {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: .08em;
+  color: #47506b;
+  font-size: .95rem;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+.entry p {
+  line-height: 31px; /* ride the ruled lines */
+  margin: 0 0 26px;
+  font-size: 1.02rem;
+}
+
+.entry em { font-style: italic; color: var(--pencil); }
+
+/* coffee ring */
+.entry:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 40px;
+  width: 74px;
+  height: 74px;
+  border: 7px solid rgba(112, 78, 36, .22);
+  border-radius: 50%;
+  transform: rotate(12deg) scale(1.02, .96);
+}
+
+.colophon {
+  text-align: center;
+  padding: 26px 40px 40px;
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--pencil);
+  background: linear-gradient(180deg, transparent 0%, rgba(94,74,44,.14) 100%);
+}
+
+.colophon a {
+  color: #4a5a86;
+  text-decoration: underline dotted;
+}
+
+.colophon .stamp { margin-bottom: 14px; }
+
+@media (max-width: 560px) {
+  .pages { background-image: none; }
+  .entry { margin-left: 22px; margin-right: 22px; }
+  .pages::before { left: 14px; }
+  .entry p { line-height: 1.55; }
+}
