@@ -1,0 +1,209 @@
+/* Botham Express — station board styling, Timetable No. 24 */
+:root {
+  --ink: #23211d;
+  --paper: #f4efe4;
+  --board: #1f2a24;
+  --line: #b8b0a0;
+  --red: #a8321f;
+  --amber: #e8b23a;
+}
+
+body.station {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.board {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.masthead {
+  border-bottom: 4px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.mast-top {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.sub {
+  font-style: italic;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.keeper {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  margin: 0 0 0.75rem;
+}
+
+.roundel {
+  float: right;
+  width: 5.5rem;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  text-align: center;
+  padding: 0.75rem 0.25rem 0.5rem;
+  color: var(--red);
+  margin: 0 0 0.75rem 1rem;
+}
+
+.roundel-num {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.roundel-cap {
+  display: block;
+  font-size: 0.6rem;
+  line-height: 1.25;
+  margin-top: 0.35rem;
+}
+
+.signals {
+  float: left;
+  width: 6rem;
+  color: var(--board);
+  margin: 0 1rem 0.5rem 0;
+}
+
+.tally {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--red);
+}
+
+h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.25rem;
+}
+
+.filter { margin: 0 0 1.5rem; }
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.filter-buttons button {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  cursor: pointer;
+}
+
+.filter-buttons button:hover { background: var(--amber); }
+
+.filter-buttons button.on {
+  background: var(--board);
+  color: var(--paper);
+  border-color: var(--board);
+}
+
+.filter-note {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #6b6355;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  background: #fbf8f0;
+  border: 1.5px solid var(--ink);
+}
+
+th {
+  background: var(--board);
+  color: var(--paper);
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: normal;
+}
+
+td {
+  padding: 0.45rem 0.5rem;
+  border-top: 1px dotted var(--line);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) { background: #f3eee1; }
+
+tbody tr.hidden { display: none; }
+
+td:nth-child(1), td:nth-child(3) { white-space: nowrap; }
+
+tr.held td:nth-child(4) strong { color: var(--red); }
+
+tr.held td { background: #f6e7df; }
+
+tr.held td + td { background: inherit; }
+
+.notes { margin: 2rem 0; }
+
+.notes p { margin: 0 0 1rem; }
+
+.garbled {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--board);
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  border-left: 4px solid var(--red);
+}
+
+.garbled p { margin: 0 0 0.5rem; }
+
+.garbled-src { color: var(--amber); font-size: 0.75rem; }
+
+.colophon {
+  border-top: 4px double var(--ink);
+  padding-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.colophon a { color: var(--red); }
+
+.foot {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: #6b6355;
+}
+
+a { color: var(--red); }
+
+@media (max-width: 560px) {
+  .roundel, .signals { float: none; margin: 0 0 0.75rem; }
+  h1 { font-size: 2.2rem; }
+}

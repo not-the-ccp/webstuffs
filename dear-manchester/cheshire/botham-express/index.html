@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botham — Timetable No. 24, The Express from Taunton to Lords</title>
+<meta name="description" content="A train timetable with commentary, compiled at the bench below 56 Clerkenwell Close, for Ian Terence Botham, Baron Botham: the all-rounder's career set down as one red-ink line, Taunton signal box to the Lords platform, fourteen wickets at Old Trafford, two World Cup losers' platforms, and one line the radio left behind.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="station">
+<div class="board" role="document">
+  <main>
+    <header class="masthead">
+      <p class="mast-top">Somerset &amp; England Railway &middot; seasonal timetable &middot; compiled at the bench below 56 Clerkenwell Close</p>
+      <h1>Botham</h1>
+      <p class="sub">Timetable No. 24 &middot; the express from Taunton to Lords &middot; one line, red ink, no lay-bys</p>
+      <p class="keeper">Compiled by David Chen, keeper of the Cheshire log &middot; Mabel Ellison, dockside blend, in attendance</p>
+      <div class="roundel" aria-hidden="true">
+        <span class="roundel-num">24</span>
+        <span class="roundel-cap">line keeps its number from the day, 24 November 1955, and keeps it to the minute</span>
+      </div>
+      <svg class="signals" viewBox="0 0 120 60" aria-hidden="true">
+        <line x1="10" y1="55" x2="110" y2="55" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="30" y1="55" x2="30" y2="12" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="30" cy="8" r="4" fill="currentColor"/>
+        <circle cx="38" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1"/>
+        <line x1="80" y1="55" x2="80" y2="12" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="72" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="80" cy="8" r="4" fill="currentColor"/>
+        <text x="10" y="14" font-size="7">CLEAR</text>
+        <text x="90" y="14" font-size="7">SWUNG</text>
+      </svg>
+      <p class="tally">services on the line: <span id="visible">13</span> &middot; held at the last minute: <span id="held">2</span> &middot; the rest ran to time</p>
+    </header>
+
+    <section class="filter" aria-label="filter services">
+      <h2>Route filter</h2>
+      <div class="filter-buttons" id="filter-buttons">
+        <button type="button" class="on" data-filter="all">All services</button>
+        <button type="button" data-filter="test">Test</button>
+        <button type="button" data-filter="odi">One-Day Intl</button>
+        <button type="button" data-filter="county">County</button>
+        <button type="button" data-filter="later">Later services</button>
+      </div>
+      <p class="filter-note">Without the filter, the whole line runs: thirteen services, all classes, as printed below.</p>
+    </section>
+
+    <section class="timetable" aria-label="timetable">
+      <h2>The line, stop by stop</h2>
+      <table id="timetable">
+        <thead>
+          <tr><th scope="col">Svce</th><th scope="col">Class</th><th scope="col">Dep</th><th scope="col">Stop</th><th scope="col">Delays &amp; remarks</th></tr>
+        </thead>
+        <tbody>
+          <tr data-class="county">
+            <td>B-00</td><td>County</td><td>05:52</td><td>Taunton signal box</td>
+            <td>First light on the line. Ian Terence Botham is born, 24 November 1955; the express takes its number from the day and keeps it ever since. No delay has ever been reported against this service.</td>
+          </tr>
+          <tr data-class="county">
+            <td>B-01</td><td>County</td><td>06:14</td><td>The County Ground, Taunton &mdash; first-class debut, summer 1975</td>
+            <td>The conductor arrives already an all-rounder: an aggressive right-hander with a will of his own, and a right-arm fast-medium delivery that swung in both directions. He is fielding close to the wicket from the very first stop, predominantly in the slips, where most of his life stays.</td>
+          </tr>
+          <tr data-class="odi">
+            <td>B-02</td><td>One-Day Intl</td><td>07:31</td><td>New Zealand tour, 1977 &mdash; the ODI line opens</td>
+            <td>First One-Day International service of the career. The swing is booked as the headline; the batting is booked as the headline the next morning. Both are true; the timetable has had to print both.</td>
+          </tr>
+          <tr data-class="test">
+            <td>B-03</td><td>Test</td><td>08:04</td><td>The Oval, 28 June 1978 &mdash; Test debut, against Australia</td>
+            <td>3 for 32 in the first innings, 19 to bat. The express announces its two purposes on the first full journey and then proceeds to spend fifty-two Tests doing both of them: 3,848 runs and 270 wickets, which is the only reason the column is called &ldquo;all-round&rdquo; in the first place.</td>
+          </tr>
+          <tr data-class="odi" class="held">
+            <td>B-04</td><td>One-Day Intl</td><td>09:17</td><td>Lord&rsquo;s &mdash; 1979 World Cup final</td>
+            <td><strong>Held at the last minute by the West Indies</strong> and released to the losers&rsquo; platform. Runners-up, the first of two. The express does not run late; it simply loses, and gets back on the line.</td>
+          </tr>
+          <tr data-class="test">
+            <td>B-05</td><td>Test</td><td>10:29</td><td>Old Trafford &mdash; Third Test, the 1981 Ashes</td>
+            <td>Fourteen wickets for 149 runs and 102 not out in a single match; the fastest all-round service ever booked into any timetable. Delays: none. The series is won three matches to nil, and this stop is the one the line is named for. The platform at Manchester is still crowded on matchdays; I have a seat on the other side of town, see the <a href="../">letter to Manchester, and its apology</a>.</td>
+          </tr>
+          <tr data-class="test">
+            <td>B-06</td><td>Test</td><td>11:44</td><td>Lord&rsquo;s &mdash; Third Test, the 1987 Ashes</td>
+            <td>152 in the middle of a match in which the express is also booked to bowl: 1 wicket for 137 in the same innings. The remark against this stop reads simply <em>again</em>, which is all the commentary the line needs.</td>
+          </tr>
+          <tr data-class="odi" class="held">
+            <td>B-07</td><td>One-Day Intl</td><td>12:58</td><td>Birmingham &mdash; 1992 World Cup final</td>
+            <td><strong>Held at the last minute</strong>, second time, by Australia. Runners-up again; the express declines to run late and, by a small margin, declines to lose twice to the same platform in one life. The ticket stubs are kept.</td>
+          </tr>
+          <tr data-class="county">
+            <td>B-08</td><td>County</td><td>13:31</td><td>Branch lines &mdash; Worcester, Chester-le-Street, Brisbane</td>
+            <td>Worcestershire, Durham, and Queensland: the branch lines, all run to time. But the main line is Somerset; most of the first-class mileage is booked there, and the line always goes home through Taunton.</td>
+          </tr>
+          <tr data-class="later">
+            <td>B-09</td><td>Later service</td><td>15:06</td><td>The commentary booth, Sky Sports</td>
+            <td>The man moves from the field to the platform and stays on it: England&rsquo;s cricket commentator, calling the line he used to run. The booth is close to the wicket, as ever; from the slips.</td>
+          </tr>
+          <tr data-class="later">
+            <td>B-10</td><td>Later service</td><td>16:44</td><td>Durham County Cricket Club, chairman&rsquo;s office</td>
+            <td>2017 to the present. The Chester-le-Street branch, promoted to main line; the conductor who fielded in the slips now keeps the whole club&rsquo;s signal box. Term of office: as long as the line runs.</td>
+          </tr>
+          <tr data-class="later">
+            <td>B-11</td><td>Later service</td><td>18:11</td><td>The Lords platform, 2011</td>
+            <td>Baron Botham of Taunton, the House of Lords: the station above the station, reached without changing trains. He takes his seat without ceremony and gives his name to no stop but his own.</td>
+          </tr>
+          <tr data-class="later">
+            <td>B-12</td><td>Later service</td><td>19:55</td><td>Charities Junction</td>
+            <td>Fundraiser of long standing; every ticket on this platform is sold for the line itself. Final remark of the timetable, in red ink: <em>the express is still running. It has simply taken on more passengers.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="notes">
+      <h2>Notes to the conductor</h2>
+      <p>I set this line out on a strip of plywood the width of the bench, because the Cheshire board hung in the hall needed a companion and nothing I owned was a line rather than a surface. A county is a surface; a career is a line, and a line is the only thing a timetable can honestly say about a man. The scale I used is the same as the county&rsquo;s, 1:100,000, and it holds at one place I have not measured yet but suspect it will: the distance from the Taunton signal box to the Lords platform, drawn at the same ratio, comes out longer than the board, so the express goes over the edge the way the Dee Estuary brass goes over the map, and I have let it, deliberately. Mabel says that is either an apology for something or a plan, and I have not decided which.</p>
+      <p>The red ink is for two things only: the stops where the express did the thing it was built for, and one line the radio left behind. It came the evening I was voicing the 1981 figures into the phone while the radio played an abridged Italian pharmacopoeia and the dictionary lay open at &ldquo;syrup,&rdquo; which Mabel had put there because the dockside blend comes in a tin that used to hold one. The voice memo caught all three at once, and it has read in my file ever since, word for word:</p>
+      <blockquote class="garbled">
+        <p>Place a little swelled&mdash;of a common thing for coughs, is made in Parma and Piacenza.</p>
+        <p class="garbled-src">&mdash; voice memo to phone, 21:36, the radio playing the pharmacopoeia</p>
+      </blockquote>
+      <p>Three voices braided, the way the dockside line was braided in the Cheshire log, and none of them wrong. &ldquo;Place a little swelled&rdquo; is me, mid-note: I was trying to write that the ball went out of the hand a little swelled, the leather gone proud, and that he placed it against the outside edge with an ease that belonged in a manual. &ldquo;Of a common thing for coughs&rdquo; is the radio, the pharmacopoeia, a swelled-gland syrup, which is the truest thing said about swing bowling I have heard in forty years: a remedy, a common one, the kind you reach for when a bowler has the innings rattling in its chest. And &ldquo;is made in Parma and Piacenza&rdquo; is the dictionary page, the syrup&rsquo;s origin, two towns in the Emilia, which is where nothing on this line is made and where, if the line had to be made anywhere, it would have to be, in a country that knows what a ball is for. I am keeping the sentence because it says the whole of 1981 in nine seconds of tape: a swelled thing, a common remedy, made properly. The brass washer that went south in the April 2024 letter &mdash; the one from the <a href="../../../bristol-city/">apology to Ashton Gate</a>, addressed to Gate 13, Row H, Seat 14 &mdash; now hangs on this board as the roundel, which is what it is: a small brass thing made to be carried, and I suspect the Robins and the express keep the same kind of ledger, and both of them forgive, eventually, and both of them keep their losers&rsquo; platform ticket stubs.</p>
+      <p>So: thirteen services, two held at the last minute, the rest to time, the line still running. If you are on the bench when the next dockside blend is poured, do not mistake the red ink for a correction. It is a signal, and it is set to clear.</p>
+    </section>
+
+    <footer class="colophon">
+      <p>See also: <a href="../">Cheshire &mdash; Build Log No. 18, the surface this line is drawn beside</a> &middot;
+      <a href="../../../bristol-city/">Dear Ashton Gate &mdash; the brass washer that became the roundel</a> &middot;
+      <a href="../../../">Return to Webstuffs</a></p>
+      <p class="foot">Timetable No. 24 &middot; compiled at the shed below 56 Clerkenwell Close &middot; Ian Terence Botham, Baron Botham of Taunton (born 24 November 1955) &middot; 52 Tests, 3,848 runs, 270 wickets &middot; the scale holds, the line runs</p>
+    </footer>
+  </main>
+</div>
+<script src="timetable.js"></script>
+</body>
+</html>
