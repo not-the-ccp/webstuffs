@@ -1,0 +1,403 @@
+/* Placard No. 9 — The Ethnography Case · The Hardwood Emporium */
+
+:root {
+  --green-deep: #0a1d12;
+  --green-case: #12291b;
+  --brass: #c9973a;
+  --brass-hi: #f2d489;
+  --brass-lo: #7a5c22;
+  --ivory: #f4e9cf;
+  --ivory-dim: #d9c9a3;
+  --ink: #241a0c;
+  --wine: #5c1f1f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+  font-size: 1.22rem;
+  line-height: 1.62;
+  color: var(--ivory);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #1c3a26 0%, rgba(28, 58, 38, 0) 60%),
+    radial-gradient(ellipse 90% 40% at 50% 110%, #06110a 0%, rgba(6, 17, 10, 0) 55%),
+    repeating-linear-gradient(90deg, #0a1d12 0 7px, #0c2014 7px 9px, #0a1d12 9px 16px),
+    var(--green-deep);
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem 1rem 5rem;
+}
+
+/* the long hallway of museum doors behind the case */
+.hallway {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 118px,
+      rgba(201, 151, 58, 0.14) 118px 121px,
+      rgba(0, 0, 0, 0.35) 121px 124px,
+      transparent 124px 240px);
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, black 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, black 0%, transparent 75%);
+}
+
+/* the case itself: mahogany frame, glass front, brass plate */
+.case {
+  position: relative;
+  z-index: 1;
+  width: min(56rem, 100%);
+  padding: 3.2rem 3rem 2.6rem;
+  background:
+    radial-gradient(ellipse 140% 90% at 50% 0%, rgba(255, 224, 150, 0.08), transparent 45%),
+    repeating-linear-gradient(180deg, #2a160b 0 26px, #331b0e 26px 52px, #27140a 52px 84px),
+    linear-gradient(160deg, #3a2112, #1f0f07);
+  border: 10px solid transparent;
+  border-image: linear-gradient(135deg, #e8c56a, #8a6a26 30%, #c9973a 50%, #6e521f 75%, #e8c56a) 1;
+  outline: 2px solid #06110a;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.65),
+    0 4px 14px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(0, 0, 0, 0.7);
+}
+
+/* glass front */
+.glass {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg,
+      rgba(255, 255, 255, 0) 12%,
+      rgba(255, 255, 255, 0.055) 22%,
+      rgba(255, 255, 255, 0) 34%,
+      rgba(255, 255, 255, 0.03) 68%,
+      rgba(255, 255, 255, 0) 80%);
+  mix-blend-mode: screen;
+}
+
+/* the reading light that follows the visitor */
+.light {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(260px circle at var(--lx, 50%) var(--ly, 20%),
+    rgba(255, 230, 160, 0.14), rgba(255, 230, 160, 0.05) 40%, transparent 70%);
+  transition: background 120ms linear;
+}
+
+/* corner screws */
+.screw {
+  position: absolute;
+  z-index: 5;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background:
+    linear-gradient(50deg, transparent 44%, #241a0c 44%, #241a0c 56%, transparent 56%),
+    radial-gradient(circle at 35% 30%, var(--brass-hi), var(--brass) 55%, var(--brass-lo));
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.screw-tl { top: 10px; left: 10px; }
+.screw-tr { top: 10px; right: 10px; transform: rotate(40deg); }
+.screw-bl { bottom: 10px; left: 10px; transform: rotate(110deg); }
+.screw-br { bottom: 10px; right: 10px; transform: rotate(70deg); }
+
+/* the curator's lamp */
+.lamp {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  margin: -3.2rem auto 0.4rem;
+  transform-origin: top center;
+  animation: sway 9s ease-in-out infinite;
+  cursor: pointer;
+}
+.lamp .beam {
+  position: absolute;
+  top: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  height: 22rem;
+  background: radial-gradient(ellipse 50% 60% at 50% 0%, rgba(255, 221, 140, 0.22), transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+  transition: opacity 600ms ease;
+}
+.lamp.off .beam { opacity: 0; }
+.lampGlow { animation: flicker 4.5s ease-in-out infinite; }
+@keyframes sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50% { transform: rotate(1.4deg); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  48% { opacity: 0.85; }
+  52% { opacity: 0.95; }
+  70% { opacity: 0.8; }
+}
+
+/* the masthead of the placard */
+.placard-head {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid rgba(201, 151, 58, 0.45);
+  background:
+    repeating-linear-gradient(45deg, rgba(201, 151, 58, 0.06) 0 2px, transparent 2px 8px);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: "IM Fell English", Georgia, serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--brass);
+}
+
+.ornament { margin: 0.9rem auto 0.4rem; }
+
+h1 {
+  margin: 0.2rem 0 0.4rem;
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  background: linear-gradient(100deg, #8a6a26 0%, var(--brass-hi) 25%, #fff2c4 42%, var(--brass) 60%, #8a6a26 85%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gild 7s linear infinite;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8));
+}
+@keyframes gild {
+  0% { background-position: 0% 0; }
+  100% { background-position: 250% 0; }
+}
+
+.alias {
+  margin: 0 0 0.8rem;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ivory-dim);
+}
+
+.accession {
+  margin: 0.6rem auto 0;
+  max-width: 44rem;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass);
+  line-height: 1.9;
+}
+.accession span { color: var(--ivory-dim); text-transform: none; letter-spacing: 0.04em; }
+
+/* the panels of the placard */
+main { position: relative; z-index: 2; }
+
+.panel {
+  position: relative;
+  margin: 0 0 1.9rem;
+  padding: 1.3rem 1.6rem 1.4rem;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 236, 180, 0.05), transparent 55%),
+    linear-gradient(175deg, rgba(244, 233, 207, 0.06), rgba(244, 233, 207, 0.015)),
+    transparent;
+  border: 1px solid rgba(201, 151, 58, 0.4);
+  border-top: 3px double rgba(201, 151, 58, 0.55);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+}
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(201, 151, 58, 0.22);
+  pointer-events: none;
+}
+
+.panel h2 {
+  margin: 0 0 0.8rem;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-hi);
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+.secno {
+  font-family: "IM Fell English", serif;
+  font-size: 1.1rem;
+  color: var(--brass);
+  border-bottom: 1px solid rgba(201, 151, 58, 0.5);
+  padding-bottom: 2px;
+}
+
+.panel p { margin: 0 0 0.85rem; }
+.panel p:last-child { margin-bottom: 0; }
+
+.panel strong { color: var(--brass-hi); font-weight: 600; }
+.panel em { color: var(--ivory); }
+
+.panel a {
+  color: var(--brass-hi);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+.panel a:hover { color: #fff2c4; border-bottom-style: solid; }
+
+/* the brass census figure */
+.figure {
+  margin-top: 1.1rem;
+  padding: 1rem 1.2rem 1.1rem;
+  text-align: center;
+  background:
+    linear-gradient(160deg, #d9b45e 0%, #a87f2e 40%, #e2be6c 62%, #8a6a26 100%);
+  border: 2px solid #5c431a;
+  box-shadow: inset 0 0 18px rgba(60, 40, 8, 0.5), 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: var(--ink);
+}
+.figure-caption {
+  margin: 0;
+  font-family: "IM Fell English", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.figure-number {
+  margin: 0.35rem 0 0.25rem;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  letter-spacing: 0.06em;
+  color: #2c1d08;
+  text-shadow: 0 1px 0 rgba(255, 240, 200, 0.6);
+  font-variant-numeric: tabular-nums;
+}
+.figure-sub {
+  margin: 0;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* the plate of names */
+.nameplate {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0.9rem 1rem 0.4rem;
+  background: linear-gradient(180deg, rgba(244, 233, 207, 0.07), rgba(244, 233, 207, 0.02));
+  border-left: 3px solid var(--brass);
+}
+.nameplate li {
+  margin: 0 0 0.75rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+.nameplate li::before {
+  content: "◆";
+  position: absolute;
+  left: -0.45rem;
+  color: var(--brass);
+  font-size: 0.7em;
+  top: 0.35em;
+}
+.nameplate strong {
+  font-family: "IM Fell English", serif;
+  letter-spacing: 0.05em;
+}
+.dates {
+  font-style: italic;
+  color: var(--brass);
+  font-size: 0.95em;
+  margin-right: 0.35rem;
+}
+
+/* the torn almanac page */
+.found-note {
+  margin: 1rem auto 0.5rem;
+  max-width: 34rem;
+  padding: 1.1rem 1.4rem;
+  transform: rotate(-1.2deg);
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 0%, rgba(120, 90, 40, 0.18), transparent 60%),
+    linear-gradient(178deg, #efe3c2, #e2d2a8);
+  color: #33260f;
+  font-family: "IM Fell English", serif;
+  font-size: 1.28rem;
+  line-height: 1.5;
+  border: none;
+  box-shadow: 3px 5px 14px rgba(0, 0, 0, 0.55);
+  clip-path: polygon(0 4%, 4% 0, 30% 3%, 55% 0, 78% 4%, 100% 0, 98% 40%, 100% 72%, 96% 100%, 70% 97%, 42% 100%, 15% 97%, 0 100%, 2% 55%);
+}
+.found-source {
+  max-width: 34rem;
+  margin: 0.2rem auto 0.9rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--brass);
+}
+#foundText.typing { min-height: 3.2em; }
+#foundText.typing::after {
+  content: "▌";
+  color: #6b5322;
+  animation: caret 0.9s step-end infinite;
+}
+@keyframes caret { 50% { opacity: 0; } }
+
+/* the curator's footer */
+.curator {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 2.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(201, 151, 58, 0.45);
+}
+.curator-line {
+  max-width: 44rem;
+  margin: 0.8rem auto;
+  font-style: italic;
+  color: var(--ivory-dim);
+}
+.nav {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.nav a {
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass);
+}
+.nav a:hover { color: #fff2c4; }
+
+@media (max-width: 560px) {
+  .case { padding: 2.6rem 1.1rem 1.8rem; }
+  .panel { padding: 1.1rem 1rem; }
+  body { padding-top: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp, h1, .lampGlow, #foundText.typing::after { animation: none !important; }
+}
