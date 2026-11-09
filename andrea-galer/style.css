@@ -1,0 +1,209 @@
+/* Chapter XCVI — A Book of Etiquette: the wardrobe ledger, bound in cream and ink */
+
+:root {
+  --paper: #f4ecdd;
+  --paper-deep: #ecdfc6;
+  --ink: #2b2118;
+  --ink-soft: #5a4632;
+  --wax: #7c2e2a;
+  --wax-soft: #a4544b;
+  --brass: #8a6d2f;
+  --seam: #c9b78f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(138, 109, 47, 0.035) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.72;
+  font-size: 17px;
+}
+
+.spine {
+  position: fixed;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--wax);
+  border-left: 1px solid var(--wax-soft);
+  padding: 10px 0 10px 6px;
+  opacity: 0.75;
+}
+
+.lace {
+  text-align: center;
+  color: var(--brass);
+  letter-spacing: 1.2em;
+  padding-left: 1.2em;
+  font-size: 13px;
+}
+
+.chapter {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 4rem;
+  border-left: 1px solid var(--seam);
+  border-right: 1px solid var(--seam);
+  outline: 4px double var(--seam);
+  outline-offset: 10px;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+}
+
+.chapter-head {
+  text-align: center;
+  border-bottom: 3px double var(--wax);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--wax);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.1rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 0.2rem 0 0.9rem;
+  color: var(--ink);
+}
+
+h1 .tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-top: 0.5rem;
+}
+
+.house {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--wax);
+  font-size: 1.15rem;
+  margin: 2.2rem 0 0.8rem;
+  border-bottom: 1px solid var(--seam);
+  padding-bottom: 0.3rem;
+}
+
+.dropcap::first-letter {
+  font-family: Georgia, serif;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--wax);
+}
+
+strong { color: var(--ink); }
+
+a {
+  color: var(--wax);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--ink); background: var(--paper-deep); }
+
+.break {
+  text-align: center;
+  color: var(--brass);
+  font-size: 20px;
+  margin: 2.4rem 0;
+  letter-spacing: 0.8em;
+  padding-left: 0.8em;
+}
+
+.margin {
+  background: rgba(255, 252, 244, 0.6);
+  border: 1px solid var(--seam);
+  border-top: 4px double var(--wax);
+  padding: 1.1rem 1.3rem;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.margin h2 { margin-top: 0; border-bottom: none; color: var(--ink); }
+
+.swatches {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-end;
+  margin-top: 0.9rem;
+}
+.swatch {
+  width: 52px;
+  height: 64px;
+  border: 1px solid var(--ink-soft);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 1px 2px 0 rgba(43, 33, 24, 0.25);
+  transition: transform 0.15s ease;
+}
+.swatch::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(244, 236, 221, 0.7);
+}
+.swatch:hover, .swatch:focus { transform: translateY(-4px); }
+.sw-muslin   { background: repeating-linear-gradient(45deg, #efe7d2 0 4px, #e6dcc4 4px 8px); }
+.sw-bombazine { background: #6d5a3c; }
+.sw-taffeta  { background: repeating-linear-gradient(90deg, #9c3b36 0 3px, #8b332e 3px 6px); }
+.sw-calico   { background: repeating-linear-gradient(0deg, #d9cba6 0 6px, #cbbc92 6px 12px); }
+.swatch-cap {
+  flex-basis: 100%;
+  margin: 0;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--wax);
+}
+.swatch-cap.given { font-style: normal; font-variant: small-caps; letter-spacing: 0.15em; }
+
+.further {
+  border-top: 1px solid var(--seam);
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.colophon {
+  text-align: center;
+  margin-top: 2.6rem;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--brass);
+}
+
+@media (max-width: 560px) {
+  .spine { display: none; }
+  h1 { font-size: 1.6rem; }
+  .chapter { outline: none; border: none; }
+}
