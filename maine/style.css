@@ -1,0 +1,172 @@
+/* State Border Answers Desk — Sheet No. 41: Maine */
+
+:root {
+  --plate: #f4ecd8;
+  --plate-dark: #ecdfc2;
+  --ink: #2b2620;
+  --ink-soft: #4d443a;
+  --rule: #8a7d66;
+  --double-rule: #6f6350;
+  --stamp: #7d2a1e;
+  --margin: #9c5a3c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #cfc4a8;
+  background-image: radial-gradient(circle at 30% 15%, #d8cebb 0%, #c9bda0 55%, #b8ab8c 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.58;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 3.25rem 2.25rem;
+  background: var(--plate);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0) 0 33px, rgba(138,125,102,0.10) 33px 34px),
+    linear-gradient(180deg, #f6efdd 0%, var(--plate) 12%, var(--plate) 88%, var(--plate-dark) 100%);
+  border: 1px solid #a2947a;
+  box-shadow: 0 1px 0 #efe6cf inset, 0 14px 34px rgba(43,38,32,0.28);
+  position: relative;
+}
+
+/* the file tab */
+.sheet::before {
+  content: "FILE 41 \2014 MAINE";
+  position: absolute;
+  top: -1.35rem;
+  left: 2.5rem;
+  padding: 0.25rem 0.9rem 0.4rem;
+  background: var(--plate-dark);
+  border: 1px solid #a2947a;
+  border-bottom: none;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+}
+
+/* the kept-at-the-desk stamp */
+.sheet::after {
+  content: "RULED INTO THE REGISTER \00b7 SECOND THURSDAY";
+  position: absolute;
+  top: 2.1rem;
+  right: 1.6rem;
+  transform: rotate(8deg);
+  padding: 0.3rem 0.7rem;
+  border: 2px double var(--stamp);
+  border-radius: 2px;
+  color: var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  opacity: 0.62;
+  mix-blend-mode: multiply;
+}
+
+.desk-head { text-align: center; border-bottom: 3px double var(--double-rule); padding-bottom: 1.4rem; }
+
+.office-line {
+  margin: 0 0 1.1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.1rem;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+}
+
+.sheet-no {
+  margin: 0.7rem auto 0;
+  max-width: 34rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.pron { margin: 0.9rem auto 0; max-width: 34rem; font-size: 0.95rem; }
+
+.q {
+  padding: 1.35rem 0 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.q h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.qn {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--margin);
+  margin-right: 0.55rem;
+}
+
+.q p { margin: 0 0 0.8rem; }
+.q p:last-child { margin-bottom: 0; }
+
+/* the kept line — ruled into the register */
+.kept { border-left: 3px double var(--double-rule); padding-left: 1.4rem; }
+
+.kept-line {
+  margin: 0.4rem 0 1rem;
+  padding: 0.9rem 1.1rem;
+  background: #f8f2e2;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #3a2d24;
+  letter-spacing: 0.01em;
+}
+
+.sheet-ft {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--double-rule);
+  text-align: center;
+}
+
+.ft-line {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  color: var(--ink-soft);
+}
+
+.ft-rule {
+  height: 2px;
+  margin-top: 0.9rem;
+  background: var(--rule);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 2.2s ease;
+}
+
+.ft-rule.ruled { transform: scaleX(1); }
+
+a { color: #5a3a7a; text-underline-offset: 2px; }
+a:hover { color: var(--stamp); }
+
+.ruled-in { background: #f8f2e2; transition: background 0.6s ease; }
+
+@media (max-width: 560px) {
+  .sheet { margin: 1rem 0.5rem 2rem; padding: 2.2rem 1.3rem 1.8rem; }
+  h1 { font-size: 2.3rem; }
+  .sheet::after { position: static; display: inline-block; margin-bottom: 1rem; }
+}
