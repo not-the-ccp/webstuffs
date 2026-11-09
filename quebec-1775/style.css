@@ -1,0 +1,180 @@
+/* Chapter LIX — The House Book of Etiquette, Second Series */
+:root {
+  --ink: #2f2a24;
+  --ink-soft: #5b4a32;
+  --paper: #f4eddd;
+  --paper-deep: #e9dfc6;
+  --rule: #b7a67f;
+  --stamp: #7a2e1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(91, 74, 50, 0.08), transparent 42%),
+    radial-gradient(circle at 85% 88%, rgba(122, 46, 31, 0.06), transparent 38%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.55;
+}
+
+/* ---- masthead: oversized, off-axis ---- */
+.masthead {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 1rem 1.5rem;
+  position: relative;
+}
+.masthead .series {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead .folio {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--stamp);
+}
+.chapter-title {
+  font-size: clamp(2.6rem, 7.5vw, 5.2rem);
+  line-height: 1.02;
+  font-weight: 400;
+  margin: 1.2rem 0 0.8rem -0.05em;
+  max-width: 12ch;
+  text-indent: -0.5em;
+}
+.chapter-title::first-letter {
+  font-size: 1.6em;
+  color: var(--stamp);
+  float: left;
+  line-height: 0.85;
+  margin: 0.06em 0.12em 0 0;
+}
+.subtitle {
+  margin: 0;
+  max-width: 46ch;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--rule);
+  padding-left: 1rem;
+  transform: rotate(-0.4deg);
+}
+
+/* ---- the plate, pushed right and overlapping the chapters ---- */
+.plate {
+  max-width: 62rem;
+  margin: 0.5rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+.plate svg {
+  width: min(46rem, 92vw);
+  height: auto;
+  background: var(--paper-deep);
+  transform: rotate(0.6deg);
+  box-shadow: 10px 12px 0 rgba(91, 74, 50, 0.14);
+}
+
+/* ---- the chapters: asymmetric grid ---- */
+.chapters {
+  max-width: 70rem;
+  margin: -1.5rem auto 0;
+  padding: 0 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 4.2fr 2.6fr 3.4fr;
+  gap: 2.2rem 2.6rem;
+  position: relative;
+}
+.chapter { min-width: 0; }
+.chapter h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0.9rem 0 0.9rem;
+  color: var(--ink);
+}
+.chapter .num {
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--stamp);
+  margin: 0;
+  font-variant-numeric: oldstyle-nums;
+  transform: translateY(-0.15em);
+}
+.chapter p { margin: 0 0 1em; font-size: 0.98rem; }
+
+/* staggered reading path: middle column sinks, third floats */
+#ii  { transform: translateY(2.6rem) rotate(-0.25deg); }
+#iii { transform: translateY(-0.8rem) rotate(0.25deg); }
+#iv  { grid-column: 1 / 2; }
+#v   { grid-column: 3 / 4; transform: translateY(2.6rem); }
+
+/* ---- the register section: set apart ---- */
+.register {
+  background: var(--paper-deep);
+  padding: 1.4rem 1.5rem 1.6rem;
+  border: 1px solid var(--rule);
+  transform: rotate(-0.5deg);
+  box-shadow: -8px 10px 0 rgba(91, 74, 50, 0.12);
+}
+.as-found {
+  margin: 1.1rem 0 1.2rem 0.4rem;
+  padding: 0.8rem 1rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  font-style: italic;
+  font-size: 1.06rem;
+  letter-spacing: 0.02em;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.9em, rgba(183, 166, 127, 0.5) 1.9em calc(1.9em + 1px));
+}
+
+/* ---- rules ---- */
+.rules {
+  margin: 0 0 1.2rem 0;
+  padding-left: 1.4rem;
+  font-size: 0.97rem;
+}
+.rules li { margin-bottom: 0.65rem; }
+.rules li::marker { color: var(--stamp); font-variant-numeric: oldstyle-nums; }
+.postscript { font-style: italic; color: var(--ink-soft); }
+
+/* ---- links, as set in the book ---- */
+a { color: var(--stamp); text-decoration: none; border-bottom: 1px dotted var(--stamp); }
+a:hover { background: rgba(122, 46, 31, 0.08); }
+
+/* ---- colophon ---- */
+.colophon {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin: 0.35rem 0; }
+.colophon .return {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---- small screens: one column, no transforms ---- */
+@media (max-width: 52rem) {
+  .chapters { grid-template-columns: 1fr; margin-top: 1.5rem; }
+  #ii, #iii, #iv, #v { grid-column: 1 / 2; transform: none; }
+  .plate { justify-content: center; }
+  .plate svg { transform: none; }
+  .register { transform: none; }
+  .subtitle { transform: none; }
+}
