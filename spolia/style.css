@@ -1,0 +1,179 @@
+/* Spoliations — BV-1815 liner notes, cream gatefold stock */
+
+:root {
+  --stock: #efe7d3;
+  --stock-deep: #e6dcc2;
+  --ink: #2b2620;
+  --faded: #6d614d;
+  --rule: #b9ab8a;
+  --stamp: #8a2f1d;
+  --disc: #1c1a17;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #4d463c;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sleeve {
+  position: relative;
+  max-width: 920px;
+  margin: 2.5rem auto;
+  padding: 2.5rem 3rem 3rem;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(255, 255, 255, 0.35), transparent 45%),
+    radial-gradient(ellipse at 88% 96%, rgba(96, 78, 44, 0.28), transparent 40%),
+    var(--stock);
+  border-radius: 4px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+
+.inner-frame {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.stamp {
+  position: absolute;
+  top: 40px;
+  right: 44px;
+  padding: 0.45rem 0.7rem;
+  border: 2px double var(--stamp);
+  border-radius: 3px;
+  color: var(--stamp);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-7deg);
+  opacity: 0.85;
+}
+
+.sleeve-head { text-align: center; margin-bottom: 1.2rem; }
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.4rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
+
+.sub {
+  margin: 0.5rem 0 0.2rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.stock {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+}
+
+.disc {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 1.6rem auto 2rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 30%, rgba(255, 255, 255, 0.05) 31% 33%, transparent 34% 55%, rgba(255, 255, 255, 0.04) 56% 58%, transparent 59%),
+    var(--disc);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.disc-label {
+  position: absolute;
+  inset: 33%;
+  border-radius: 50%;
+  background: var(--stock-deep);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+.disc-hole {
+  position: absolute;
+  inset: 48.5%;
+  border-radius: 50%;
+  background: #4d463c;
+}
+
+.notes h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 2rem 0 0.9rem;
+}
+
+.side { margin-top: 1.4rem; }
+
+.tracks { list-style: none; margin: 0; padding: 0; }
+
+.track { margin: 0 0 1.1rem; padding-bottom: 0.8rem; border-bottom: 1px dotted var(--rule); }
+.track:last-child { border-bottom: none; }
+
+.track .no {
+  display: inline-block;
+  min-width: 2.1em;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.track .title { font-style: italic; }
+
+.track .len {
+  float: right;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+
+.track p { font-size: 0.95rem; color: #453d31; }
+
+.runout {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid var(--stamp);
+  background: rgba(138, 47, 29, 0.06);
+  font-style: italic;
+  font-size: 1.02rem;
+}
+
+a { color: var(--ink); }
+a:hover { color: var(--stamp); }
+
+.credits { margin-top: 2.2rem; }
+
+.credit-rule {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 0 0 1rem;
+}
+
+.credits p { font-size: 0.82rem; color: var(--faded); }
+.credits strong { color: var(--ink); letter-spacing: 0.06em; }
