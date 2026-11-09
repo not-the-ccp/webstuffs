@@ -1,0 +1,320 @@
+/* Florence — Webstuffs Message Board thread stylesheet
+   Maximalist, piano-ink purple and post-it rose. Nothing here is subtle. */
+
+/* Unusual typefaces, with humble fallbacks */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
+
+:root {
+  --ink: #231726;
+  --paper: #fdf7f1;
+  --rose: #c95a88;
+  --rose-dark: #8e355c;
+  --purple: #6b2d6b;
+  --plum: #3d204d;
+  --tea: #ead9c9;
+  --gold: #b98a2f;
+  --slate: #5a4a5a;
+  --shadow: rgba(40, 18, 52, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 2vh 3vw;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(107, 45, 107, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(201, 90, 136, 0.14) 0%, transparent 45%),
+    linear-gradient(135deg, #fdf7f1 0%, #f3e6db 35%, #ead9c9 70%, #fdf7f1 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(201, 90, 136, 0.09) 0%, transparent 30%),
+    radial-gradient(circle at 75% 70%, rgba(107, 45, 107, 0.07) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: 0;
+  animation: breathe 10s ease-in-out infinite alternate;
+}
+
+/* Floating score-paper ornaments drawn with CSS */
+.note {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  animation: drift 14s linear infinite;
+}
+.note:nth-child(1) { left: 6%; top: 12%; font-size: 28px; animation-delay: 0s; transform: rotate(-6deg); }
+.note:nth-child(2) { left: 82%; top: 18%; font-size: 34px; animation-delay: -4s; transform: rotate(8deg); }
+.note:nth-child(3) { left: 44%; top: 62%; font-size: 30px; animation-delay: -8s; transform: rotate(-12deg); }
+.note:nth-child(4) { left: 90%; top: 60%; font-size: 26px; animation-delay: -2s; transform: rotate(5deg); }
+.note:nth-child(5) { left: 8%; top: 72%; font-size: 32px; animation-delay: -10s; transform: rotate(-4deg); }
+
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-16px) translateX(12px); }
+  66% { transform: translateY(-8px) translateX(-10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+@keyframes breathe {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Forum frame */
+.forum {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 40px 70px;
+  background: var(--paper);
+  border: 10px double var(--plum);
+  outline: 6px solid var(--rose);
+  outline-offset: 14px;
+  box-shadow: 0 18px 40px var(--shadow), inset 0 0 0 1px var(--tea);
+  border-radius: 4px;
+}
+
+.forum::before {
+  content: "✧";
+  position: absolute;
+  top: -30px; left: 50%; transform: translateX(-50%);
+  font-family: 'Special Elite', serif;
+  font-size: 34px;
+  color: var(--gold);
+  text-shadow: 1px 1px 0 var(--plum);
+}
+
+.forum-head {
+  text-align: center;
+  padding-bottom: 34px;
+  margin-bottom: 30px;
+  border-bottom: 4px double var(--rose-dark);
+  position: relative;
+}
+
+.head-ornament {
+  width: 100%;
+  height: 44px;
+  display: block;
+  margin: -12px 0 10px;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.15));
+}
+
+.forum-name {
+  font-family: 'Special Elite', serif;
+  letter-spacing: 0.35em;
+  font-size: 1.15rem;
+  color: var(--plum);
+  margin: 8px 0 4px;
+  text-transform: uppercase;
+}
+
+.thread-title {
+  font-family: 'Caveat', 'Comic Sans MS', cursive, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 6px 0 8px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 0 var(--tea), -1px -1px 0 #fff;
+}
+
+.thread-meta {
+  font-size: 0.85rem;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  margin: 0 0 8px;
+}
+
+.thread-blurb {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.25rem;
+  color: var(--rose-dark);
+  font-style: italic;
+  margin: 0;
+  border-left: 5px solid var(--gold);
+  padding-left: 14px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* Posts */
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.post {
+  position: relative;
+  padding: 26px 24px 24px;
+  background: #fff;
+  border: 3px solid var(--slate);
+  border-left: 12px solid var(--rose);
+  box-shadow: 6px 6px 0 var(--plum), inset 0 0 18px rgba(234, 217, 201, 0.5);
+  border-radius: 3px;
+  animation: appear 0.7s ease-out both;
+}
+
+.op {
+  border-left: 12px solid var(--gold);
+  border-color: var(--plum);
+  box-shadow: 8px 8px 0 var(--plum), inset 0 0 24px rgba(185, 138, 47, 0.12);
+  background: linear-gradient(180deg, #fff 0%, #fdf3e5 100%);
+}
+
+.op::before {
+  content: "ORIGINAL THREAD";
+  position: absolute;
+  top: 14px; right: 16px;
+  font-family: 'Special Elite', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  padding: 2px 10px;
+  border-radius: 2px;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px) rotate(-0.8deg); }
+  to { opacity: 1; transform: none; }
+}
+
+.post.touched {
+  border-color: var(--rose-dark);
+  box-shadow: 6px 6px 0 var(--plum), 0 0 24px rgba(201, 90, 136, 0.35);
+  animation: pulse 0.6s ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.post-head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 4px solid var(--paper);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--slate), 0 0 0 6px var(--tea);
+  overflow: hidden;
+  background: #fff;
+}
+
+.avatar svg { width: 100%; height: 100%; display: block; }
+.avatar-op { box-shadow: 0 0 0 3px var(--gold), 0 0 0 6px #fdf3e5; }
+
+.post-identity {
+  min-width: 0;
+}
+
+.author {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 2px;
+}
+
+.badge {
+  font-family: 'Special Elite', serif;
+  font-size: 0.7rem;
+  background: var(--rose);
+  color: #fff;
+  padding: 1px 7px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+  letter-spacing: 0.15em;
+}
+
+.post-time {
+  font-size: 0.78rem;
+  color: var(--slate);
+  letter-spacing: 0.15em;
+}
+
+.post-body p {
+  margin: 0 0 12px;
+  text-align: justify;
+}
+
+.post-body strong { color: var(--purple); }
+.post-body em { font-family: 'Caveat', cursive, sans-serif; color: var(--rose-dark); }
+.post-body a {
+  color: var(--rose-dark);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.post-body blockquote {
+  margin: 12px 0 14px 16px;
+  padding: 10px 14px;
+  border-left: 5px solid var(--tea);
+  background: rgba(234, 217, 201, 0.45);
+  font-style: italic;
+  color: #42313a;
+}
+
+.divider {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--tea), var(--tea) 6px, transparent 6px, transparent 12px);
+  margin: 6px 0 0;
+}
+
+/* Footer */
+.forum-foot {
+  margin-top: 46px;
+  padding-top: 26px;
+  border-top: 5px double var(--rose-dark);
+  text-align: center;
+  font-family: 'Special Elite', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--slate);
+}
+
+.forum-foot a {
+  color: var(--purple);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--purple);
+}
+
+/* Readable motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  .note, body::before { animation: none; display: none; }
+  .post { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .forum { padding: 24px 16px 40px; outline-offset: 6px; border-width: 6px; }
+  .thread-title { font-size: 2rem; }
+  .avatar { width: 40px; height: 40px; }
+}
