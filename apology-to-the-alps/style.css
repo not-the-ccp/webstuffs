@@ -1,0 +1,172 @@
+/* An Apology to the Alps — glacier-ink letter on fen-fog paper */
+
+:root {
+  --paper: #f4efe3;
+  --paper-edge: #e8e0cc;
+  --ink: #1d3247;
+  --glacier: #3e6a8a;
+  --frost: #7fa3bd;
+  --snow: #ffffff;
+  --charcoal: #2c2a26;
+  --wax: #7a1f1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, #dfe9f1 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 100%, #cfdde9 0%, transparent 50%),
+    #c3d3e0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+  font-size: 18px;
+}
+
+#snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flake {
+  position: absolute;
+  top: -2vh;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 4px rgba(127, 163, 189, 0.6);
+  animation: fall linear infinite;
+  user-select: none;
+}
+
+@keyframes fall {
+  to { transform: translateY(104vh) rotate(360deg); }
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 44em;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    linear-gradient(180deg, rgba(62, 106, 138, 0.06), transparent 12%),
+    linear-gradient(0deg, rgba(44, 42, 38, 0.05), transparent 8%);
+  border: 1px solid var(--paper-edge);
+  box-shadow:
+    0 24px 60px rgba(29, 50, 71, 0.28),
+    inset 0 0 60px rgba(62, 106, 138, 0.08);
+  padding: 3rem clamp(1.5rem, 5vw, 3.5rem) 2.5rem;
+}
+
+.sheet::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin: -3rem clamp(1.5rem, 5vw, 3.5rem) 1.5rem;
+  background: repeating-linear-gradient(90deg,
+    var(--glacier) 0 14px, transparent 14px 22px);
+  opacity: 0.55;
+}
+
+.letterhead { text-align: center; margin-bottom: 2rem; }
+
+.crest {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--glacier);
+}
+
+.ridge { position: relative; line-height: 0; }
+.ridge svg { width: 100%; height: 90px; display: block; }
+.ridge .far { fill: var(--frost); opacity: 0.45; }
+.ridge .near { fill: var(--glacier); opacity: 0.75; }
+.ridge .peak { fill: var(--ink); }
+
+.snow-cap {
+  position: absolute;
+  top: -0.2rem;
+  left: 0;
+  right: 0;
+  font-size: 0.9rem;
+  color: var(--snow);
+  text-shadow: 0 1px 3px var(--glacier);
+  letter-spacing: 0.8em;
+  text-indent: 0.8em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.03em;
+  margin: 1rem 0 0.3rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--glacier);
+  margin: 0 auto 0.4rem;
+  max-width: 34em;
+}
+
+.date-line {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin: 0.8rem 0 0;
+}
+
+.letter {
+  border-top: 1px solid var(--frost);
+  padding-top: 1.5rem;
+}
+
+.letter p { margin: 0 0 1.1rem; }
+
+.salutation { font-variant: small-caps; letter-spacing: 0.05em; }
+
+.letter a {
+  color: var(--glacier);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--frost);
+}
+.letter a:hover { color: var(--ink); border-bottom-style: solid; }
+
+.yours { margin-top: 1.8rem; font-style: italic; }
+
+.signature {
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+.signature .sig-line {
+  font-size: 0.9rem;
+  font-style: normal;
+  color: var(--charcoal);
+}
+
+.enclosure {
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  border-left: 3px solid var(--wax);
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.postscript {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--frost);
+  font-size: 0.85rem;
+  color: var(--glacier);
+}
+.postscript a {
+  color: var(--glacier);
+  border-bottom: 1px dotted var(--frost);
+}
