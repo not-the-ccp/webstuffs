@@ -1,0 +1,199 @@
+/* Saltfleet & Mablethorpe Auction Rooms — Lot 215, the Book of Habakkuk.
+   A winter-sale catalogue lot: fish-hall paper, oxblood ink, lot-ticket stamps. */
+
+:root {
+  --paper: #f1e6cf;
+  --paper-deep: #e7d8b8;
+  --oxblood: #5a1f1f;
+  --ink: #2c2318;
+  --faded: #7a6a4d;
+  --gold: #a8842f;
+  --rope: #4a3826;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper) repeating-linear-gradient(
+    -45deg,
+    rgba(90, 31, 31, 0.028) 0 2px,
+    transparent 2px 9px
+  );
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.watermark {
+  position: fixed;
+  right: -2rem;
+  bottom: -6rem;
+  font-size: 26rem;
+  font-weight: bold;
+  color: rgba(90, 31, 31, 0.05);
+  letter-spacing: -0.1em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.folio {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.masthead {
+  border-top: 6px double var(--oxblood);
+  border-bottom: 6px double var(--oxblood);
+  padding: 1.5rem 0.25rem 1.25rem;
+  text-align: center;
+}
+
+.rooms {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--oxblood);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 3.4rem;
+  margin: 0;
+  color: var(--oxblood);
+  letter-spacing: 0.04em;
+  border: 3px solid var(--oxblood);
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  box-shadow: 6px 6px 0 rgba(90, 31, 31, 0.18);
+  background: var(--paper-deep);
+}
+
+.lotline {
+  font-size: 1.3rem;
+  margin: 1.1rem 0 0.2rem;
+}
+
+.saleline {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.1rem 0 1rem;
+  font-size: 0.92rem;
+}
+
+.sale-meta {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0.6rem 0 0;
+  max-width: 38rem;
+  border-top: 1px solid var(--gold);
+  font-size: 0.9rem;
+}
+
+.sale-meta li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px dotted var(--faded);
+}
+
+.sale-meta span {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--oxblood);
+  padding-top: 0.2em;
+}
+
+.entry {
+  margin-top: 2.4rem;
+}
+
+.entry h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--oxblood);
+  border-bottom: 2px solid var(--oxblood);
+  padding-bottom: 0.3rem;
+  margin: 0 0 1rem;
+}
+
+.entry h2::before {
+  content: "\25C6 ";
+  color: var(--gold);
+}
+
+.entry p { margin: 0 0 1rem; }
+
+strong { color: var(--oxblood); }
+
+.logline {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.5rem;
+  background: var(--paper-deep);
+  border-left: 5px solid var(--gold);
+  border-top: 1px solid var(--rope);
+  border-bottom: 1px solid var(--rope);
+  font-style: italic;
+}
+
+.logline p { margin: 0; }
+
+a {
+  color: var(--oxblood);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: #7c2f2f; background: rgba(168, 132, 47, 0.2); }
+
+.sale-footer {
+  margin-top: 3rem;
+  border-top: 6px double var(--oxblood);
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.stamp-line { height: 2.4rem; margin: 0 0 0.4rem; }
+
+.stamp {
+  display: inline-block;
+  transform: rotate(-7deg);
+  border: 3px solid var(--oxblood);
+  color: var(--oxblood);
+  padding: 0.35rem 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.bids { margin: 0 0 1rem; }
+
+.gavel {
+  font: inherit;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--paper);
+  background: var(--oxblood);
+  border: 1px solid var(--rope);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(74, 56, 38, 0.4);
+}
+
+.gavel:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 rgba(74, 56, 38, 0.4);
+}
+
+.colophon { margin: 0.5rem 0 0; }
+
+.colophon a { margin: 0 0.4rem; }
