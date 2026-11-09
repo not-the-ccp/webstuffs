@@ -1,0 +1,227 @@
+/* Application No. PL-2009 0413 B — summary sheet styling */
+
+:root {
+  --paper: #f4ead8;
+  --paper-deep: #e9dcc3;
+  --ink: #2b1d12;
+  --ink-soft: #57422e;
+  --ember: #c9531f;
+  --ember-hot: #f2a03d;
+  --wax: #7a1f1c;
+  --wax-deep: #4c1210;
+  --night: #14100e;
+  --rule: #b39b74;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% -5%, rgba(242, 160, 61, 0.22), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 110%, rgba(201, 83, 31, 0.16), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(43, 29, 18, 0.035) 0 2px, transparent 2px 4px),
+    linear-gradient(175deg, var(--paper) 0%, var(--paper-deep) 55%, #ddc9a6 100%);
+  min-height: 100vh;
+}
+
+#embers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* top charcoal band, like a smoked header */
+.band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12vh;
+  background:
+    radial-gradient(ellipse 60% 100% at 30% 0%, rgba(242, 160, 61, 0.28), transparent 70%),
+    linear-gradient(180deg, var(--night) 0%, #241a14 70%, transparent 100%);
+  z-index: 0;
+}
+
+.plate {
+  position: relative;
+  z-index: 2;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+}
+
+.office-line {
+  margin: 0.2rem 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+.office-line.small { color: #d8c3a5; }
+
+.no-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  margin: 2.2rem 0 1.4rem;
+  flex-wrap: wrap;
+}
+
+.seal { width: 118px; height: 118px; filter: drop-shadow(0 6px 10px rgba(76, 18, 16, 0.5)); animation: sealpulse 6s ease-in-out infinite; }
+.seal-wax { fill: var(--wax); stroke: var(--wax-deep); stroke-width: 3; }
+.seal-ring { fill: none; stroke: var(--paper); stroke-width: 2; stroke-dasharray: 3 4; opacity: 0.85; }
+.seal-star { fill: none; stroke: var(--paper); stroke-width: 1.5; opacity: 0.7; }
+.seal-num { fill: var(--paper); font-size: 13px; letter-spacing: 1px; font-weight: bold; }
+.seal-word { fill: #e8d4b8; font-size: 9px; letter-spacing: 2px; }
+
+@keyframes sealpulse {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.no-text { text-align: left; }
+.appno {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--wax);
+}
+.appdate { margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+.plate h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.7rem);
+  line-height: 1.2;
+  margin: 0.6rem auto 0.8rem;
+  max-width: 38rem;
+  letter-spacing: 0.01em;
+}
+.plate h1::after {
+  content: "";
+  display: block;
+  margin: 1rem auto 0;
+  width: 120px;
+  height: 12px;
+  background:
+    linear-gradient(90deg, transparent, var(--ember) 20%, var(--ember-hot) 50%, var(--ember) 80%, transparent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M0 12 C 15 4, 25 10, 40 3 C 55 10, 65 2, 80 8 C 95 1, 110 9, 120 4 L120 12 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M0 12 C 15 4, 25 10, 40 3 C 55 10, 65 2, 80 8 C 95 1, 110 9, 120 4 L120 12 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+
+.applicant { font-size: 0.95rem; color: var(--ink-soft); margin: 1rem 0 1.6rem; }
+
+.stamp {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: var(--wax);
+  border: 3px double var(--wax);
+  padding: 0.5rem 1.4rem;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+  box-shadow: 0 0 0 2px rgba(122, 31, 28, 0.15);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: default;
+}
+.stamp:hover { transform: rotate(0deg) scale(1.04); opacity: 1; }
+
+main {
+  position: relative;
+  z-index: 2;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+section {
+  background: rgba(255, 250, 238, 0.55);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--wax);
+  padding: 1.4rem 1.8rem;
+  margin: 2.2rem 0;
+  box-shadow: 0 10px 24px -14px rgba(43, 29, 18, 0.45);
+  position: relative;
+}
+section::before {
+  content: attr(data-mark, "❦");
+  position: absolute;
+  top: -0.85rem;
+  left: 1.6rem;
+  background: var(--paper);
+  padding: 0 0.6rem;
+  color: var(--ember);
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wax);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+p { margin: 0.9rem 0; }
+a { color: var(--wax); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--ember); }
+
+.abstract p::first-letter {
+  font-size: 3.2rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.1rem 0.45rem 0 0;
+  color: var(--ember);
+}
+
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.5rem 0; }
+
+.drawings li strong { color: var(--wax); }
+
+.specification strong {
+  background: linear-gradient(180deg, transparent 55%, rgba(242, 160, 61, 0.55) 55%);
+}
+
+.claims-list { list-style: none; padding-left: 0; counter-reset: claim; }
+.claims-list li {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.7rem 0 0.7rem 0;
+  font-size: 0.97rem;
+}
+.claimno {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: var(--ember);
+  margin-right: 0.6rem;
+}
+
+.note { border-left-color: var(--ember); }
+.note h2 { color: var(--ember); }
+
+.colophon {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 3px double var(--rule);
+  padding: 1.4rem 2rem 2.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal { animation: none; }
+}
