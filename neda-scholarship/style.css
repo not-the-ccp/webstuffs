@@ -1,0 +1,158 @@
+/* 3 October 2010 — diary page, front garden, Queen's College */
+
+:root {
+  --ink: #2b2330;
+  --ink-soft: #4d4254;
+  --rule: #b9c4d4;
+  --margin: #a3341f;
+  --paper: #f7f2e7;
+  --paper-deep: #efe7d6;
+  --sealing: #7c1f2b;
+  --gold: #9a7b2d;
+  --pen: #1d3557;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper-deep); }
+
+body {
+  margin: 0;
+  padding: 0 12px 64px;
+  font-family: "EB Garamond", Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 85% -100px, rgba(124, 31, 43, 0.10), transparent 60%),
+    radial-gradient(900px 400px at -100px 100%, rgba(154, 123, 45, 0.10), transparent 60%),
+    var(--paper-deep);
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    /* ruled lines */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2.05rem,
+      var(--rule) 2.05rem,
+      var(--rule) calc(2.05rem + 1px)
+    ),
+    var(--paper);
+  border: 1px solid #d8cdb4;
+  box-shadow:
+    0 2px 0 #d8cdb4,
+    0 18px 40px rgba(43, 35, 48, 0.18);
+  padding: 3.25rem 3rem 2.5rem 4.25rem;
+  position: relative;
+  line-height: 2.05rem;
+}
+
+/* red margin line, as in a proper diary */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.1rem;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(163, 52, 31, 0.65), rgba(163, 52, 31, 0.35));
+}
+
+.leaf {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  width: 56px;
+  opacity: 0.85;
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+.leaf-art { width: 100%; height: auto; }
+.leaf-vein { fill: none; stroke: var(--sealing); stroke-width: 1.4; stroke-linecap: round; }
+.leaf-midrib { fill: none; stroke: var(--sealing); stroke-width: 1.8; stroke-linecap: round; }
+.leaf-stem { fill: none; stroke: var(--gold); stroke-width: 2; stroke-linecap: round; }
+
+.date-line {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.day {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--sealing);
+  line-height: 1.1;
+}
+
+.place {
+  margin: 0.15rem 0 0;
+  font-family: "Caveat", cursive;
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.entry p {
+  margin: 0 0 1.05rem;
+  font-size: 1.14rem;
+}
+
+.entry p:last-child { margin-bottom: 0; }
+
+.dropcap {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: 3.4rem;
+  float: left;
+  line-height: 0.9;
+  padding: 0.08rem 0.45rem 0 0;
+  color: var(--sealing);
+}
+
+.entry strong { font-weight: 600; color: var(--sealing); letter-spacing: 0.01em; }
+.entry em { color: var(--ink-soft); }
+
+.entry a {
+  color: var(--pen);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--pen);
+}
+.entry a:hover { color: var(--sealing); border-bottom-color: var(--sealing); }
+
+.colophon {
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d8cdb4;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin: 0.3rem 0; }
+.colophon a { color: var(--pen); text-decoration: none; border-bottom: 1px dotted var(--pen); }
+.colophon a:hover { color: var(--sealing); }
+
+.fleuron {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--sealing);
+  margin: 0 !important;
+}
+
+/* ink-in reveal, purely cosmetic */
+.entry p { opacity: 0; transform: translateY(6px); }
+.entry p.inked { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .entry p { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 560px) {
+  .page { padding: 2.25rem 1.4rem 1.75rem 2.75rem; }
+  .page::before { left: 2rem; }
+  .leaf { display: none; }
+}
