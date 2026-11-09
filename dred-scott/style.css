@@ -1,0 +1,169 @@
+/* Chapter XXIII — A Book of Etiquette for Firsts, Eleventh Volume */
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #ece0c4;
+  --ink: #2b2118;
+  --oxblood: #5c1f1a;
+  --oxblood-soft: #7a352c;
+  --gold: #9c7c3c;
+  --gold-pale: #c9ab6e;
+  --green-cloth: #24402f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9cbaa;
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 248, 226, 0.55), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(92, 31, 26, 0.025) 0 2px, transparent 2px 5px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.plate {
+  height: 8px;
+  background:
+    linear-gradient(90deg, var(--oxblood) 0 33%, var(--gold) 33% 66%, var(--green-cloth) 66% 100%);
+  border-bottom: 1px solid rgba(43, 33, 24, 0.4);
+}
+
+.chapter {
+  max-width: 40rem;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.4rem;
+}
+
+.chapter > .plate,
+.chapter {
+  background: var(--paper);
+}
+
+main.chapter {
+  background: var(--paper);
+  border: 1px solid var(--gold-pale);
+  outline: 4px double rgba(156, 124, 60, 0.55);
+  outline-offset: 6px;
+  box-shadow: 0 18px 40px rgba(43, 33, 24, 0.28);
+  position: relative;
+}
+
+main.chapter::before,
+main.chapter::after {
+  content: "❦";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+main.chapter::before { top: 0.45rem; }
+main.chapter::after { bottom: 0.45rem; }
+
+.chap-head {
+  text-align: center;
+  padding: 2.2rem 1.2rem 1.1rem;
+  border-bottom: 1px solid var(--gold-pale);
+}
+
+.series {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oxblood-soft);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-variant: small-caps;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  color: var(--oxblood);
+  font-size: 1.9rem;
+  margin: 0;
+}
+
+h2.chap-title {
+  font-weight: 500;
+  font-size: 1.28rem;
+  line-height: 1.45;
+  margin: 0.8rem auto 0.9rem;
+  max-width: 34rem;
+  color: var(--ink);
+}
+
+.chap-epi {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #6b5a43;
+  margin: 0;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--gold-pale);
+  margin: 0 2.2rem;
+}
+
+.chap-body { padding: 1.4rem 2.2rem 0.4rem; }
+.chap-body p { margin: 0 0 1.15rem; text-align: justify; hyphens: auto; }
+
+.dropcap::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--oxblood);
+  font-family: Georgia, serif;
+}
+
+strong { color: var(--oxblood-soft); font-weight: 600; }
+
+.ledgerline {
+  font-style: italic;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--green-cloth);
+  padding: 0.1em 0.35em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background 1.6s ease, box-shadow 1.6s ease;
+}
+.ledgerline.lit {
+  background: #f3e2b0;
+  box-shadow: 0 0 18px rgba(201, 171, 110, 0.55);
+}
+
+a { color: var(--oxblood); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+a:hover { color: var(--gold); border-bottom-style: solid; }
+
+.ornament {
+  text-align: center;
+  color: var(--gold);
+  font-size: 1.5rem;
+  padding: 0.6rem 0 0.2rem;
+}
+
+.further {
+  padding: 1.2rem 2.2rem 2.4rem;
+  font-size: 0.95rem;
+}
+
+h2.chap-section {
+  font-variant: small-caps;
+  letter-spacing: 0.24em;
+  color: var(--oxblood);
+  text-align: center;
+  font-size: 1.15rem;
+  margin: 0 0 0.9rem;
+}
+
+.further p { margin: 0 0 0.75rem; }
+
+@media (max-width: 620px) {
+  main.chapter { outline-offset: 3px; }
+  .chap-head, .chap-body, .further { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .rule { margin: 0 1.1rem; }
+  .chap-body p { text-align: left; }
+}
