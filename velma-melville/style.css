@@ -1,0 +1,140 @@
+/* The Farm Weeklies — Plate 19 insert: old game-manual stock */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9dcbe;
+  --ink: #2c2318;
+  --navy: #1f3a5f;
+  --green: #31543a;
+  --rust: #8a3b1f;
+  --rule: #6b5a3e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d8cfba; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 2rem 1rem;
+}
+
+.insert {
+  max-width: 860px;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(120, 90, 40, 0.10), transparent 40%),
+    radial-gradient(ellipse at 90% 96%, rgba(120, 90, 40, 0.14), transparent 45%),
+    var(--paper);
+  border: 1px solid #b3a279;
+  box-shadow: 0 14px 40px rgba(40, 30, 10, 0.35), inset 0 0 60px rgba(140, 110, 60, 0.12);
+  padding: 2.4rem 2.6rem 1.8rem;
+}
+
+.masthead { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1.1rem; }
+
+.pub {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+  color: #6d5c3c;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+.game-sub {
+  margin: 0.5rem 0 0;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: #4c3f2a;
+}
+
+.rule-band {
+  display: inline-block;
+  margin-top: 1rem;
+  border: 1.5px solid var(--rust);
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  padding: 0.3rem 1.1rem;
+  transform: rotate(-0.6deg);
+  background: rgba(138, 59, 31, 0.06);
+}
+
+main { margin-top: 1.6rem; }
+
+.plate { margin-bottom: 1.9rem; }
+
+.plate-head {
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+p { margin: 0 0 0.8rem; text-align: justify; }
+
+strong { color: var(--navy); }
+
+a { color: var(--rust); }
+a:hover { color: var(--navy); }
+
+table.sev {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.4rem 0 0.9rem;
+  background: rgba(255, 252, 240, 0.5);
+}
+
+table.sev th {
+  background: var(--green);
+  color: #f3ead6;
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+}
+
+table.sev td {
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.6rem;
+  vertical-align: top;
+}
+
+table.sev td:first-child { font-weight: bold; white-space: nowrap; color: var(--rust); }
+
+.die-test {
+  border-left: 4px solid var(--rust);
+  background: rgba(138, 59, 31, 0.07);
+  padding: 0.7rem 1rem;
+  margin-top: 0.2rem;
+}
+
+.die-test em { color: var(--rust); font-weight: bold; font-style: normal; }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  text-align: center;
+}
+
+.colophon p { font-size: 0.75rem; color: #6d5c3c; margin: 0 0 0.35rem; text-align: center; }
+
+.colophon .rule { letter-spacing: 0.18em; color: var(--green); font-size: 0.7rem; }
