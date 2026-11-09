@@ -1,0 +1,180 @@
+/* Card 1212 — Nine-Staten Loaf, the Whitfield family book */
+
+:root {
+  --paper: #f4ead8;
+  --ink: #2b241c;
+  --rust: #a2401e;
+  --sea: #31505a;
+  --fog: #cfc6b4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.55), transparent 42%),
+    linear-gradient(160deg, #efe3cc 0%, var(--paper) 55%, #ecdcc0 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+  min-height: 100vh;
+}
+
+/* The oversized yield dial, hung at the corner of the room */
+.yield {
+  position: fixed;
+  top: 3vh;
+  right: 3vw;
+  width: 15ch;
+  padding: 1rem 0.75rem;
+  background: var(--sea);
+  color: var(--paper);
+  border: 3px double var(--paper);
+  border-radius: 50% 50% 12px 12px;
+  transform: rotate(7deg);
+  box-shadow: 0 14px 30px rgba(43, 36, 28, 0.35);
+  text-align: center;
+  z-index: 5;
+  max-width: 34vw;
+}
+.yield-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.yield-num {
+  display: block;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0.15em 0;
+  font-variant-numeric: tabular-nums;
+}
+.yield-unit {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
+/* The recipe card itself: wide sheet, torn top */
+.card {
+  max-width: 62rem;
+  margin: 6vh auto 8vh;
+  padding: clamp(1.4rem, 4vw, 3.2rem);
+  background: #fbf5e8;
+  border: 1px solid #d8c9a8;
+  box-shadow:
+    0 1px 0 #fff inset,
+    0 18px 40px rgba(43, 36, 28, 0.22);
+  position: relative;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 12px;
+  background:
+    linear-gradient(45deg, var(--paper) 6px, transparent 0) 0 0 / 14px 14px repeat-x,
+    linear-gradient(-45deg, var(--paper) 6px, transparent 0) 0 0 / 14px 14px repeat-x;
+}
+
+.card-head {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.series {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0 0 0.6rem;
+}
+h1 {
+  font-size: clamp(2.6rem, 8vw, 5.4rem);
+  line-height: 0.98;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.byline {
+  margin: 0.8rem auto 0;
+  max-width: 34em;
+  font-style: italic;
+  color: var(--sea);
+}
+.tear {
+  border: 0;
+  border-top: 2px dashed #b39b6d;
+  margin: 1.4rem 0 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 2.4rem 0 0.7rem;
+}
+
+p { margin: 0 0 1.1rem; }
+p.drop::first-letter {
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.8;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--sea);
+  font-weight: 700;
+}
+a { color: var(--sea); }
+a:hover { color: var(--rust); }
+
+/* Asymmetric two-column body: prose wide, notes rail narrow */
+.card > p, .card > ol, .card > ul {
+  column-width: 1px;
+}
+.ingredients, .method {
+  margin: 0 0 1.2rem;
+  padding: 0 0 0 1.2rem;
+  max-width: 40em;
+}
+.ingredients li, .method li {
+  margin-bottom: 0.5rem;
+}
+.ingredients li::marker { content: "✳  "; color: var(--rust); }
+.method li::marker {
+  font-weight: 700;
+  color: var(--rust);
+}
+
+/* A second rail: pull the preamble's middle block into an offset column */
+.card > h2:nth-of-type(2) ~ p,
+.card > h2:nth-of-type(2) ~ p + p {
+  max-width: 38em;
+}
+
+/* Footer strip, set like a docket */
+.card-foot {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--fog);
+  font-size: 0.92rem;
+}
+.sign-off {
+  text-align: right;
+  font-style: italic;
+  color: var(--sea);
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .yield {
+    position: static;
+    transform: rotate(-2deg);
+    margin: 1rem auto 0;
+    display: inline-block;
+  }
+  body { display: flex; flex-direction: column; }
+}
