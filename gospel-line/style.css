@@ -1,0 +1,176 @@
+/* The Gospel Line — night board over cream, candle gold over ink */
+:root {
+  --ink: #101823;
+  --ink-deep: #0a101a;
+  --cream: #f2e9d4;
+  --cream-dim: #cfc2a4;
+  --gold: #d9a441;
+  --gold-bright: #f0c56a;
+  --wine: #7c2d2d;
+  --rule: #3a4a5e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(240, 197, 106, .55) 0, transparent 60%),
+    radial-gradient(1px 1px at 78% 9%,  rgba(240, 197, 106, .45) 0, transparent 60%),
+    radial-gradient(1px 1px at 44% 31%, rgba(242, 233, 212, .35) 0, transparent 60%),
+    radial-gradient(1px 1px at 91% 42%, rgba(240, 197, 106, .4)  0, transparent 60%),
+    radial-gradient(1px 1px at 27% 66%, rgba(242, 233, 212, .3)  0, transparent 60%),
+    radial-gradient(1px 1px at 63% 83%, rgba(240, 197, 106, .45) 0, transparent 60%);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.board {
+  border-bottom: 3px double var(--gold);
+  background: linear-gradient(180deg, var(--ink-deep), var(--ink));
+  padding: 2.2rem 1.5rem 1.6rem;
+  text-align: center;
+}
+
+.kicker {
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  letter-spacing: .35em;
+  text-indent: .35em;
+  text-transform: uppercase;
+  margin: 0 0 .6rem;
+  color: var(--cream);
+  font-weight: normal;
+}
+
+.route {
+  margin: .2rem 0;
+  font-size: 1rem;
+  color: var(--cream-dim);
+  letter-spacing: .05em;
+}
+.route .arrow { color: var(--gold); padding: 0 .35em; }
+
+.sub {
+  margin: .8rem auto 0;
+  max-width: 44rem;
+  font-style: italic;
+  color: var(--cream-dim);
+  font-size: .95rem;
+}
+
+.sheet {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.2rem 3rem;
+}
+
+.tt, .ct { margin-bottom: 2.4rem; }
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .4rem;
+  margin: 0 0 1rem;
+  font-weight: normal;
+}
+h2 .tt-no, h2 .ct-no {
+  color: var(--wine);
+  background: var(--cream);
+  color: var(--ink-deep);
+  padding: 0 .5em;
+  margin-right: .5em;
+  border-radius: 2px;
+  font-size: .85rem;
+  letter-spacing: .1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(242, 233, 212, .04);
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+  font-size: .92rem;
+}
+caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  color: var(--cream-dim);
+  font-size: .88rem;
+  padding: 0 0 .6rem;
+}
+thead th {
+  text-align: left;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--rule);
+  padding: .5rem .6rem;
+  font-weight: normal;
+}
+tbody td {
+  padding: .7rem .6rem;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(124, 45, 45, .12); }
+
+.tn {
+  font-weight: bold;
+  color: var(--gold-bright);
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+.tm {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 1rem;
+  letter-spacing: .06em;
+  color: var(--cream);
+  white-space: nowrap;
+}
+
+.ct p { margin: 0 0 1rem; max-width: 58rem; }
+.ct strong { color: var(--gold-bright); }
+.ct em { color: var(--cream); }
+.ct a { color: var(--gold-bright); }
+.ct a:hover { color: var(--gold); }
+
+.colophon {
+  border-top: 3px double var(--gold);
+  background: var(--ink-deep);
+  padding: 1.4rem 1.5rem 2rem;
+  font-size: .9rem;
+  color: var(--cream-dim);
+}
+.shelf-kicker {
+  font-size: .7rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 .7rem;
+}
+.colophon a { color: var(--gold-bright); }
+.colophon a:hover { color: var(--gold); }
+.fine {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: .08em;
+  color: var(--cream-dim);
+}
