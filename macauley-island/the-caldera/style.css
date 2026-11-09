@@ -1,0 +1,140 @@
+/* The Station Museum, Macauley Island — Placard No. 7 */
+:root {
+  --ink: #1e2a2f;
+  --bone: #f4efe3;
+  --parchment: #efe6cf;
+  --brass: #9a7328;
+  --brass-dark: #6e4f16;
+  --slate: #16262c;
+  --rule: #c9b98d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--slate);
+  background-image: radial-gradient(ellipse at 50% -10%, #24414b 0%, var(--slate) 60%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.masthead, main, .colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.masthead { padding-top: 2.5rem; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--brass);
+  background: var(--bone);
+  border: 1px solid var(--brass);
+  border-left: 6px solid var(--brass);
+  padding: 0.45rem 0.8rem;
+  margin: 0 0 1.25rem;
+}
+h1 {
+  color: var(--bone);
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+}
+.standfirst {
+  color: #c8d6d3;
+  font-style: italic;
+  font-size: 0.98rem;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 1.5rem;
+  margin-bottom: 0;
+}
+main { padding-bottom: 2rem; }
+.placard {
+  background: var(--parchment);
+  border: 1px solid var(--brass-dark);
+  outline: 3px double var(--brass);
+  outline-offset: -9px;
+  padding: 1.4rem 1.6rem 1.2rem;
+  margin: 1.6rem 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+.placard h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.9rem;
+  color: var(--brass-dark);
+}
+.placard p { margin: 0 0 0.9rem; }
+.placard strong { color: var(--slate); }
+.chart {
+  background: var(--bone);
+  border: 1px solid var(--brass);
+  padding: 1rem 1.1rem;
+  margin: 1rem 0 1.2rem;
+}
+.chart h3 { margin: 0 0 0.8rem; font-size: 1rem; color: var(--brass-dark); }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+.controls label {
+  font-size: 0.82rem;
+  font-family: "Courier New", monospace;
+  color: var(--slate);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.controls input {
+  width: 5.5rem;
+  font: inherit;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--brass);
+  background: #fffdf6;
+  color: var(--ink);
+}
+.result {
+  font-weight: bold;
+  font-size: 1.02rem;
+  border-left: 4px solid var(--brass);
+  padding: 0.35rem 0.6rem;
+  background: #f7f1de;
+  margin: 0 0 0.9rem;
+}
+.compare { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.compare caption {
+  caption-side: bottom;
+  text-align: left;
+  font-style: italic;
+  font-size: 0.75rem;
+  padding-top: 0.4rem;
+  color: #5a5238;
+}
+.compare th, .compare td {
+  text-align: left;
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.compare thead th {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--brass-dark);
+}
+.compare tr.fixed td { font-weight: bold; }
+.compare tr.nearest td { background: #f0e3b4; }
+.foot { font-size: 0.78rem; font-style: italic; color: #5a5238; margin: 0.7rem 0 0; }
+.colophon {
+  color: #9fb4b0;
+  font-size: 0.8rem;
+  padding: 1.5rem 1.25rem 3rem;
+  border-top: 1px solid var(--brass);
+  max-width: 46rem;
+}
+a { color: var(--brass-dark); }
+.placard a { color: #7a4d1e; }
