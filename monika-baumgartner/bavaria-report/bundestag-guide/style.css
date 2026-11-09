@@ -1,0 +1,166 @@
+/* The Bundestag at an Hour When It Is Empty — a travel guide entry */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #22242a;
+  --faint: #6f6a5e;
+  --line: #cfc8b6;
+  --plenum-green: #2e5238;
+  --dome: #8c9296;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rule-band {
+  height: 5px;
+  margin: 0 auto;
+  max-width: 720px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, transparent, var(--plenum-green) 30%, var(--plenum-green) 70%, transparent);
+}
+
+.guide {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.guide-series {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.guide-sub {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--faint);
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+section { margin-bottom: 2.75rem; }
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sec-num {
+  display: inline-block;
+  min-width: 1.6em;
+  color: var(--plenum-green);
+  font-variant-numeric: tabular-nums;
+}
+
+p { margin: 0 0 1.1em; }
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--plenum-green);
+  font-weight: 600;
+}
+
+.leaf-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 2.25rem 0;
+}
+
+blockquote.leaf-line {
+  margin: 1.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background: #fbf9f2;
+  border-left: 3px solid var(--plenum-green);
+  font-size: 1.08rem;
+}
+
+blockquote.leaf-line p { margin: 0 0 0.75em; font-style: italic; }
+
+blockquote.leaf-line footer {
+  font-size: 0.82rem;
+  font-style: normal;
+  color: var(--faint);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--plenum-green);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--ink); }
+
+.guide-footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+  color: var(--faint);
+}
+
+.guide-footer p { margin-bottom: 0.6em; }
+
+.seats {
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seats span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background 0.4s ease;
+}
+
+.seats span.filled { background: var(--plenum-green); }
+
+.seat-caption {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-top: 0.6rem;
+}
