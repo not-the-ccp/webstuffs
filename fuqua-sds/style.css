@@ -1,0 +1,234 @@
+/* SDS-JF-047 — The Big Men Store, Division of Heavy Material */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #211c15;
+  --steel: #2f4256;
+  --gold: #b8860b;
+  --orange: #e8630a;
+  --red: #a3241b;
+  --rule: #4a4133;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(232, 99, 10, 0.06), transparent 40%),
+    repeating-linear-gradient(45deg, #e9e2d0 0 26px, #ece5d4 26px 52px);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 2.2rem auto 3rem;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 10px 10px 0 rgba(33, 28, 21, 0.25);
+}
+
+.hazard-tape {
+  height: 14px;
+  background: repeating-linear-gradient(-45deg,
+    var(--orange) 0 18px, var(--ink) 18px 36px);
+  border-bottom: 2px solid var(--ink);
+}
+
+.sds-foot .hazard-tape { border-bottom: 0; border-top: 2px solid var(--ink); }
+
+.head-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 0.9rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--steel);
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  letter-spacing: 0.12em;
+  border: 3px solid var(--ink);
+  display: inline-block;
+  padding: 0.15em 0.5em;
+  background: #fff;
+  transform: rotate(-0.6deg);
+}
+
+.subhead {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: #4a4133;
+}
+
+.head-diamond { padding: 0.4rem 0.2rem 0; }
+
+.diamond {
+  width: 118px;
+  height: 118px;
+  transform: rotate(45deg);
+  border: 4px solid var(--ink);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 0 rgba(33, 28, 21, 0.3);
+}
+
+.diamond span { transform: rotate(-45deg); text-align: center; }
+
+.d-num {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--red);
+  margin-bottom: 0.2rem;
+}
+
+.d-text {
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.name-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  align-items: baseline;
+  background: var(--steel);
+  color: var(--paper);
+  padding: 0.55rem 1.6rem;
+  border-top: 2px solid var(--ink);
+}
+
+.name {
+  font-size: 1.35rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.synonyms { font-size: 0.82rem; color: #d9d2bd; }
+
+.sds-body { padding: 0.4rem 1.6rem 1.6rem; }
+
+.sec { padding: 1.1rem 0; border-bottom: 1px dashed var(--rule); }
+
+.sec h2 {
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.7rem;
+  color: var(--steel);
+}
+
+.secno {
+  display: inline-block;
+  min-width: 1.6em;
+  text-align: center;
+  background: var(--ink);
+  color: var(--paper);
+  margin-right: 0.55em;
+  padding: 0 0.3em;
+}
+
+.props { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+
+.props th, .props td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.props th {
+  width: 210px;
+  background: #eae3d0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.hazard-box {
+  border: 2px solid var(--red);
+  background: #fdf7ee;
+  padding: 0.8rem 1rem;
+}
+
+.signal {
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: var(--red);
+}
+
+.hazards { margin: 0; padding-left: 1.2rem; }
+.hazards li { margin-bottom: 0.5rem; }
+
+.note { font-size: 0.88rem; color: #4a4133; font-style: italic; }
+
+.verdict {
+  margin: 0.8rem 0;
+  padding: 0.8rem 1rem;
+  background: #fff;
+  border-left: 8px solid var(--gold);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.verdict p { margin: 0; }
+
+.sds-body a { color: var(--steel); }
+.sds-body a:hover { color: var(--orange); }
+
+.ticker {
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  border-bottom: 2px solid var(--ink);
+  white-space: nowrap;
+  padding: 0.3rem 0;
+}
+
+.ticker span {
+  display: inline-block;
+  animation: slide 28s linear infinite;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.verdict.held { border-left-color: var(--red); }
+
+.sds-foot {
+  padding: 0.8rem 1.6rem 1rem;
+  font-size: 0.78rem;
+  color: #4a4133;
+  background: #eae3d0;
+}
+
+.sds-foot p { margin: 0.6rem 0 0; }
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.5rem; }
+  .head-diamond { display: none; }
+}
