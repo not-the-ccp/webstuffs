@@ -1,0 +1,291 @@
+/* The Arrowhead Society — Newsletter No. 9
+   A transmitter-pastel maximalist sheet: walnut rack, cream paper,
+   red ON AIR lamp, phosphor green log, brass dials. */
+
+:root {
+  --paper: #f4ead8;
+  --paper-deep: #ecdfc6;
+  --ink: #241a12;
+  --ink-soft: #4a382a;
+  --red: #c3272b;
+  --red-glow: rgba(195, 39, 43, 0.55);
+  --brass: #b08636;
+  --brass-light: #d9b872;
+  --phosphor: #9fd8a0;
+  --log-bg: #0d1512;
+  --walnut: #3a2417;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #6a4a2f 0%, transparent 60%),
+    repeating-linear-gradient(90deg,
+      #2c1b10 0px, #3a2417 22px, #33200f 23px, #2c1b10 44px),
+    var(--walnut);
+  background-attachment: fixed;
+  line-height: 1.65;
+}
+
+/* the rack slats behind everything */
+.rack {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.rack-slat {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.rack-slat:nth-child(1) { top: 18%; }
+.rack-slat:nth-child(2) { top: 50%; }
+.rack-slat:nth-child(3) { top: 82%; }
+
+.transmitter {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+
+/* the paper sheet */
+.masthead,
+main,
+.colophon {
+  background:
+    repeating-linear-gradient(0deg, rgba(74, 56, 42, 0.035) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #c8b591;
+  box-shadow:
+    0 0 0 6px rgba(176, 134, 54, 0.18),
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(122, 90, 50, 0.18);
+  position: relative;
+}
+
+.masthead {
+  padding: 56px 56px 28px;
+  text-align: center;
+  border-bottom: 3px double var(--brass);
+}
+
+/* corner screws */
+.masthead::before,
+.masthead::after,
+.colophon::before,
+.colophon::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--brass-light), var(--brass) 60%, #6d4f1c);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.6);
+}
+.masthead::before { top: 10px; left: 10px; }
+.masthead::after { top: 10px; right: 10px; }
+.colophon::before { bottom: 10px; left: 10px; }
+.colophon::after { bottom: 10px; right: 10px; }
+
+/* ON AIR lamp */
+.onair {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.onair .lamp {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff8a8c, var(--red) 65%, #7c1416);
+  box-shadow: 0 0 12px var(--red-glow), 0 0 30px var(--red-glow);
+  animation: lamp-pulse 2.4s ease-in-out infinite;
+}
+.onair-word {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  font-size: 0.85rem;
+  color: var(--red);
+  text-shadow: 0 0 10px var(--red-glow);
+}
+@keyframes lamp-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--red-glow), 0 0 30px var(--red-glow); }
+  50% { opacity: 0.72; box-shadow: 0 0 5px var(--red-glow), 0 0 14px var(--red-glow); }
+}
+
+/* the running wave */
+.wave {
+  width: 100%;
+  height: 40px;
+  display: block;
+  margin: 0 auto 18px;
+}
+.wave-path {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+  animation: wave-run 3s linear infinite;
+}
+@keyframes wave-run { to { stroke-dashoffset: -100; } }
+
+.kicker {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+h1 .amp {
+  font-style: italic;
+  color: var(--red);
+}
+
+.motto {
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 16px auto 10px;
+}
+
+.issue {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--brass);
+  border-top: 1px solid var(--brass);
+  display: inline-block;
+  padding: 8px 14px 0;
+  margin-top: 8px;
+}
+
+/* VU meters */
+.vu {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 14px 0;
+}
+.vu span {
+  width: 10px;
+  height: 46px;
+  background: #14100b;
+  border: 1px solid var(--brass);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.vu span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20%;
+  background: linear-gradient(0deg, #3f7d3f, var(--phosphor) 70%, #ffd24a 92%, var(--red));
+  transition: height 0.45s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.vu-bottom { margin-top: 0; }
+
+/* body text */
+main {
+  padding: 44px 56px;
+  border-top: none;
+}
+main section { margin-bottom: 44px; }
+main section:last-child { margin-bottom: 8px; }
+
+h2 {
+  font-size: 1.35rem;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 8px;
+  margin: 0 0 18px;
+  letter-spacing: 0.02em;
+}
+h2::before {
+  content: "\25B8 ";
+  color: var(--red);
+}
+
+p { margin: 0 0 16px; }
+p:last-child { margin-bottom: 0; }
+
+strong { letter-spacing: 0.01em; }
+
+a {
+  color: var(--red);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(176, 134, 54, 0.22); }
+
+/* the log block: phosphor on black, the one dark room in the club */
+.log {
+  background:
+    repeating-linear-gradient(0deg, rgba(159, 216, 160, 0.05) 0 2px, transparent 2px 4px),
+    var(--log-bg);
+  border: 1px solid #1e3327;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 10px 26px rgba(0, 0, 0, 0.35);
+  color: var(--phosphor);
+  padding: 30px 34px;
+  margin-bottom: 44px;
+}
+.log h2 {
+  color: #d8f5d8;
+  border-color: #2c4a38;
+}
+.log p { color: #b8d8b8; }
+.log a { color: #ffd24a; }
+
+blockquote {
+  margin: 22px 0;
+  padding: 20px 24px;
+  border-left: 4px solid var(--brass);
+  background: rgba(0, 0, 0, 0.4);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+  color: #e8f8e8;
+  text-shadow: 0 0 8px rgba(159, 216, 160, 0.5);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.6);
+}
+
+/* colophon */
+.colophon {
+  text-align: center;
+  padding: 34px 40px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  border-top: 3px double var(--brass);
+}
+
+@media (max-width: 640px) {
+  .masthead { padding: 40px 24px 24px; }
+  main { padding: 30px 24px; }
+  .log { padding: 22px 20px; }
+}
