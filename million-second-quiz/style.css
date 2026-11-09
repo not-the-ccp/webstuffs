@@ -1,0 +1,253 @@
+/* The Million Second Quiz — Studio 4 broadcast sheet */
+
+:root {
+  --ink: #f4e9d4;
+  --ink-dim: #c9b68f;
+  --stage: #120c08;
+  --stage-2: #1e130b;
+  --amber: #f3a53b;
+  --amber-soft: #f3d489;
+  --tally: #ff3b1f;
+  --dollar: #ffd23f;
+  --vault: #241609;
+  --rule: rgba(243, 165, 59, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  background:
+    radial-gradient(1100px 500px at 50% -100px, rgba(255, 210, 63, 0.10), transparent 60%),
+    radial-gradient(900px 900px at 85% 110%, rgba(255, 59, 31, 0.10), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.014) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, var(--stage-2) 0%, var(--stage) 40%, #0c0704 100%);
+  background-attachment: fixed;
+}
+
+/* broadcast scanlines over everything, kept faint for readability */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+
+/* ON AIR strip */
+.tally-strip {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  padding: 0.45em 1em;
+  background: linear-gradient(180deg, #2a0a04, #160602);
+  border-bottom: 1px solid var(--rule);
+}
+.tally {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.55em;
+  padding-left: 0.55em;
+  color: var(--tally);
+  text-shadow: 0 0 14px rgba(255, 59, 31, 0.8);
+  animation: tallyPulse 2.4s ease-in-out infinite;
+}
+.tally-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tally);
+  box-shadow: 0 0 12px 3px rgba(255, 59, 31, 0.75);
+  animation: tallyPulse 1.2s ease-in-out infinite;
+}
+@keyframes tallyPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.script {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.4rem 4rem;
+  position: relative;
+}
+
+/* masthead */
+.masthead {
+  border: 1px solid var(--rule);
+  outline: 1px solid rgba(243, 212, 137, 0.12);
+  outline-offset: 6px;
+  padding: 1.6rem 1.5rem 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 210, 63, 0.05), transparent 55%),
+    repeating-linear-gradient(90deg, rgba(255, 210, 63, 0.03) 0 1px, transparent 1px 14px);
+}
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--amber-soft);
+}
+.run-clock {
+  color: var(--dollar);
+  text-shadow: 0 0 10px rgba(255, 210, 63, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.dial { width: 100%; max-width: 30rem; margin: 1rem auto 0.4rem; display: block; }
+#needle {
+  transform-origin: 300px 45px;
+  animation: needleSweep 26s linear infinite alternate;
+}
+@keyframes needleSweep {
+  from { transform: rotate(-38deg); }
+  to { transform: rotate(38deg); }
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.02;
+  margin: 0.8rem 0 0.2rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, var(--dollar) 20%, var(--amber) 70%, #a3540f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 40px rgba(255, 210, 63, 0.15);
+}
+.form {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--tally);
+  font-size: 0.85rem;
+}
+.credit {
+  margin: 0.9rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.8rem;
+}
+
+.chars { margin-top: 1rem; }
+.chars h2 {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border: none;
+}
+.chars p { font-size: 0.92rem; color: var(--ink-dim); }
+.chars strong { color: var(--ink); letter-spacing: 0.06em; }
+
+/* scene slates */
+.slate {
+  display: inline-block;
+  margin: 2.2rem 0 1rem;
+  padding: 0.35em 0.9em;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: var(--stage);
+  background: linear-gradient(180deg, var(--amber-soft), var(--amber));
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6), 0 0 22px rgba(243, 165, 59, 0.25);
+}
+
+.sfx {
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--amber-soft);
+  background: rgba(255, 210, 63, 0.05);
+  border-left: 3px solid var(--amber);
+  padding: 0.55em 0.9em;
+  margin: 1.1rem 0;
+}
+
+.line { margin: 1.15rem 0; }
+.who {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--dollar);
+  font-size: 0.8rem;
+  margin-bottom: 0.25em;
+}
+.line p, .line { }
+em { color: var(--amber-soft); }
+
+/* the kept card line glows */
+blockquote, .line em { }
+.line em { font-style: italic; }
+
+/* colophon */
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+}
+.colophon a { color: var(--amber-soft); text-decoration-color: var(--tally); text-underline-offset: 3px; }
+a { color: var(--amber-soft); }
+a:hover { color: var(--dollar); text-shadow: 0 0 12px rgba(255, 210, 63, 0.5); }
+.foot {
+  margin-top: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--amber);
+}
+
+/* the chair, drawn in CSS at the bottom of the masthead */
+.chair {
+  width: 120px;
+  height: 110px;
+  margin: 1.4rem auto 0.2rem;
+  position: relative;
+  animation: chairHold 5s ease-in-out infinite;
+}
+.chair::before {
+  content: "$";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  color: var(--dollar);
+  text-shadow: 0 0 18px rgba(255, 210, 63, 0.8);
+}
+.chair .back { position: absolute; left: 22px; top: 0; width: 76px; height: 62px; border: 3px solid var(--amber); border-radius: 10px 10px 0 0; background: linear-gradient(180deg, rgba(243, 165, 59, 0.28), rgba(243, 165, 59, 0.06)); }
+.chair .seat { position: absolute; left: 8px; top: 60px; width: 104px; height: 16px; border: 3px solid var(--amber); background: linear-gradient(180deg, rgba(243, 165, 59, 0.4), rgba(243, 165, 59, 0.1)); }
+.chair .leg-l, .chair .leg-r { position: absolute; top: 76px; width: 6px; height: 34px; background: var(--amber); }
+.chair .leg-l { left: 26px; }
+.chair .leg-r { right: 26px; }
+@keyframes chairHold {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tally, .tally-dot, #needle, .chair { animation: none; }
+}
