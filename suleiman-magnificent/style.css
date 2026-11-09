@@ -1,0 +1,156 @@
+/* The Sultan's Route — Field Guidebook of the Bosphorus, Entry No. 23 */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-dark: #e9dec2;
+  --ink: #2b2119;
+  --rule: #8a6f4d;
+  --seal: #7a1f1f;
+  --accent: #1e4d44;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cba9;
+  background-image: radial-gradient(ellipse at 50% 0%, #e5d8b8 0%, #d8cba9 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.entry {
+  max-width: 62em;
+  margin: 2.5em auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.04) 0, transparent 6%),
+    radial-gradient(ellipse at 85% 92%, rgba(122,31,31,0.06), transparent 40%);
+  border: 1px solid #b8a578;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 14px 34px rgba(43,33,25,0.35);
+  padding: 2.6em 3em 2em;
+  position: relative;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  inset: 0.55em;
+  border: 2px double var(--rule);
+  pointer-events: none;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1em;
+  margin-bottom: 1.4em;
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 0.72em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.7em;
+}
+
+h1 {
+  font-size: 2.6em;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.35em;
+  color: var(--seal);
+}
+
+h1::first-letter { font-size: 1.15em; }
+
+.standfirst {
+  font-style: italic;
+  max-width: 38em;
+  margin: 0 auto;
+  color: #4a3b2c;
+}
+
+.crescent { margin-top: 0.9em; }
+
+section { margin-bottom: 1.5em; }
+
+h2 {
+  font-size: 1.18em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3em;
+  margin: 0 0 0.7em;
+}
+
+p { margin: 0 0 0.85em; text-align: justify; }
+
+strong { color: var(--seal); font-weight: bold; }
+
+.stopno {
+  display: inline-block;
+  font-size: 0.68em;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--seal);
+  color: var(--seal);
+  padding: 0.15em 0.55em;
+  margin-right: 0.6em;
+  border-radius: 2px;
+  vertical-align: 0.15em;
+}
+
+blockquote.drawer-line {
+  margin: 1.1em 1.4em;
+  padding: 0.9em 1.2em;
+  background: var(--paper-dark);
+  border-left: 4px solid var(--seal);
+  font-style: italic;
+  box-shadow: 1px 1px 0 rgba(43,33,25,0.25);
+}
+
+blockquote.drawer-line p { margin: 0; text-align: left; }
+
+.practical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6em;
+}
+
+.practical h3 {
+  font-size: 0.8em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0.9em 0 0.35em;
+}
+
+.practical h3:first-child { margin-top: 0; }
+
+.foot {
+  margin-top: 2em;
+  border-top: 3px double var(--rule);
+  padding-top: 0.8em;
+  text-align: center;
+}
+
+.seal-line {
+  font-size: 0.68em;
+  letter-spacing: 0.24em;
+  margin: 0 0 0.6em;
+  color: var(--accent);
+}
+
+.foot-links { font-size: 0.85em; }
+
+a { color: var(--accent); }
+a:hover { color: var(--seal); }
+
+@media (max-width: 46em) {
+  .entry { margin: 0.6em; padding: 1.6em 1.3em; }
+  .practical-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 2em; }
+}
