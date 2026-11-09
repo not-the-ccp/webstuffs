@@ -1,0 +1,178 @@
+/* The Cutting Room — encyclopedia article, Vol. VII, entry B-118 */
+
+:root {
+  --paper: #f7f2e4;
+  --paper-edge: #efe7d2;
+  --ink: #26231c;
+  --faded: #5c5648;
+  --rule: #b7ad93;
+  --link: #1f4d8f;
+  --link-visited: #5a3d85;
+  --accent: #8a3324;
+  --stamp: rgba(138, 51, 36, 0.82);
+}
+
+* { box-sizing: border-box; }
+
+html { background: #2b2620; }
+
+body.article {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.62;
+  font-size: 17px;
+}
+
+.paper {
+  max-width: 1040px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(38,35,28,0.014) 3px 4px),
+    radial-gradient(ellipse at 18% 8%, rgba(255,255,255,0.5), transparent 46%),
+    radial-gradient(ellipse at 88% 94%, rgba(120,98,58,0.10), transparent 42%),
+    var(--paper);
+  border: 1px solid #cfc4a6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 18px 44px rgba(0,0,0,0.4);
+  padding: 3rem 3.2rem 2.4rem;
+  position: relative;
+}
+
+.paper::after {
+  /* shelf shadow / wear at the bottom edge */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 14px;
+  background: linear-gradient(to bottom, transparent, rgba(90, 72, 40, 0.14));
+  pointer-events: none;
+}
+
+.head { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1.1rem; margin-bottom: 1.6rem; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.fn-mark sup { color: var(--link); font-size: 0.7em; }
+
+.subhead {
+  margin: 0.35rem 0 0;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.98rem;
+}
+
+.body { display: block; }
+
+.sec h2 {
+  font-size: 1.28rem;
+  font-weight: normal;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.1rem 0 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.sec p { margin: 0 0 0.95rem; }
+
+a { color: var(--link); text-decoration: none; border-bottom: 1px dotted rgba(31,77,143,0.5); }
+a:visited { color: var(--link-visited); }
+a:hover { border-bottom-style: solid; background: rgba(31,77,143,0.08); }
+
+/* infobox */
+.infobox {
+  float: right;
+  width: 264px;
+  margin: 0.4rem 0 1.2rem 1.6rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-edge);
+  font-size: 0.86rem;
+}
+
+.infobox table { width: 100%; border-collapse: collapse; }
+
+.infobox th {
+  background: #e6dcc2;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 1.02rem;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+
+.infobox td { padding: 0.4rem 0.6rem; vertical-align: top; border-bottom: 1px dotted var(--rule); }
+.infobox tr:last-child td { border-bottom: none; }
+.infobox .label { width: 42%; color: var(--faded); font-style: italic; }
+
+.plate { padding: 0.6rem; display: grid; gap: 0.45rem; }
+.plate-rule { height: 1px; background: var(--rule); }
+.plate-caption { font-size: 0.72rem; color: var(--faded); line-height: 1.45; }
+
+/* table of contents */
+.toc { margin: 0; padding-left: 1.4rem; font-size: 0.92rem; columns: 2; column-gap: 2.5rem; }
+.toc li { margin: 0.12rem 0; break-inside: avoid; }
+
+blockquote.quote {
+  margin: 1.1rem 1.4rem;
+  padding: 0.6rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(138, 51, 36, 0.05);
+  font-style: italic;
+  font-size: 1.06rem;
+}
+
+.notes { padding-left: 1.6rem; font-size: 0.86rem; color: var(--faded); }
+.notes li { margin-bottom: 0.4rem; }
+
+.seealso { padding-left: 1.3rem; font-size: 0.94rem; }
+.seealso li { margin-bottom: 0.4rem; }
+
+/* red rubber stamp, upper right of the article */
+.paper .stamp {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.8rem;
+  transform: rotate(6deg);
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  border-radius: 4px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.colophon {
+  margin-top: 2.4rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 760px) {
+  .paper { padding: 2rem 1.3rem; }
+  .infobox { float: none; width: 100%; margin: 0 0 1.4rem; }
+  .toc { columns: 1; }
+  h1 { font-size: 2rem; }
+}
