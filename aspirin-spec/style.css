@@ -1,0 +1,196 @@
+/* Specification No. BA-1899-64407 — patent office paper, ruled and stamped */
+:root {
+  --paper: #f7f3e8;
+  --paper-deep: #eaddc4;
+  --ink: #211b14;
+  --ink-soft: #54493a;
+  --rule: #9c8c6f;
+  --seal: #a43423;
+  --seal-deep: #6f2518;
+  --serif: "Noto Serif", Georgia, "Times New Roman", serif;
+  --mono: "Ubuntu Mono", "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background:
+    repeating-linear-gradient(0deg, rgba(156, 140, 111, 0.10) 0 1px, transparent 1px 34px),
+    radial-gradient(ellipse at 50% -15%, #faf6e9 0%, var(--paper) 50%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  padding: 2rem 1rem;
+}
+
+.docket {
+  border-bottom: 4px double var(--rule);
+  border-top: 1px solid var(--rule);
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper) 60%);
+  padding: 1.6rem 1.4rem 1.2rem;
+  margin-bottom: 2.2rem;
+}
+
+.docket-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.title-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.docket-right { border-left: 1px solid var(--rule); padding-left: 1.2rem; }
+
+.filing { margin: 0; font-size: 0.95rem; }
+.filing dt {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rule);
+  margin-top: 0.7rem;
+}
+.filing dd { margin: 0 0 0.4rem 0; }
+
+.stamp {
+  margin-top: 1.4rem;
+  width: 120px;
+  height: 120px;
+  border: 3px double var(--seal);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform: rotate(-12deg);
+  opacity: 0;
+  animation: seal-in 1s ease-out 0.6s forwards;
+}
+.stamp span {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--seal);
+  border: 1px solid var(--seal);
+  padding: 0.45rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(247, 243, 232, 0.85);
+}
+
+@keyframes seal-in {
+  from { opacity: 0; transform: rotate(-12deg) scale(1.4); }
+  to { opacity: 0.9; transform: rotate(-12deg) scale(1); }
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1.4rem;
+}
+
+.sheet > section {
+  margin: 2.6rem 0;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(156, 140, 111, 0.45);
+}
+
+.sheet h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--seal);
+  margin: 0 0 0.9rem;
+  padding-left: 0.6rem;
+  border-left: 4px solid var(--rule);
+}
+
+p { margin: 0 0 1rem; text-align: justify; }
+dl, ol, blockquote { margin: 0 0 1rem; }
+
+.claims-list { margin-left: 1.4rem; }
+.claims-list li { margin: 0 0 0.8rem; text-align: justify; }
+.claims-list strong { font-variant: small-caps; }
+
+.marginal {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 1.2rem;
+  margin: 1.4rem 0;
+  position: relative;
+  background: rgba(164, 52, 35, 0.05);
+}
+.marginal::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0; width: 4px;
+  background: linear-gradient(180deg, var(--seal), transparent 60%);
+}
+.marginal p { margin: 0 0 0.5rem; font-style: italic; }
+.marginal cite {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-style: normal;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  border-top: 1px solid rgba(156, 140, 111, 0.4);
+  padding-top: 0.6rem;
+}
+
+.related p { text-align: left; }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 4px double var(--rule);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  .docket-grid { grid-template-columns: 1fr; }
+  .docket-right {
+    border-left: none;
+    border-top: 1px solid var(--rule);
+    margin-top: 1rem;
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+}
