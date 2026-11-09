@@ -1,0 +1,185 @@
+/* The Return Walk — guided walking-tour handout */
+
+:root {
+  --paper: #f6f1e4;
+  --ink: #2c2a25;
+  --faded: #6d675a;
+  --line: #b9b09a;
+  --route: #9c2b23;
+  --band: #efe7d2;
+  --stamp: #7a4a21;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d2bf;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2rem 1rem 4rem;
+}
+
+.handout {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 0 rgba(0,0,0,.08), 0 14px 30px rgba(60,50,30,.18);
+  padding: 0 0 2.2rem;
+  position: relative;
+}
+
+/* route strip: the little map-line across the top */
+.route-strip {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .8rem 1.4rem 0;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--route);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.route-strip .pin { font-size: .85rem; }
+.route-strip .dash { color: var(--line); letter-spacing: .05em; }
+
+.masthead {
+  padding: 1rem 1.6rem 0;
+  border-bottom: 3px double var(--ink);
+}
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--faded);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: .5rem;
+}
+.masthead h1 {
+  margin: .9rem 0 .3rem;
+  font-size: 2.4rem;
+  letter-spacing: .01em;
+}
+.masthead .sub {
+  margin: 0 0 .6rem;
+  font-style: italic;
+  color: var(--faded);
+  font-size: .95rem;
+}
+.masthead .issued {
+  margin: 0;
+  font-size: .85rem;
+  background: var(--band);
+  border: 1px dashed var(--line);
+  padding: .5rem .7rem;
+}
+
+.intro {
+  padding: 1.3rem 1.6rem 0;
+  font-size: .98rem;
+}
+.intro p { margin: 0 0 .9rem; }
+.intro em { color: var(--route); }
+
+.itinerary, .notes {
+  padding: 1.2rem 1.6rem 0;
+}
+h2 {
+  font-size: .8rem;
+  font-family: "Courier New", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: var(--route);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: .35rem;
+  margin: 0 0 1rem;
+}
+
+table.stops {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+table.stops thead th {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .66rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  text-align: left;
+  color: var(--faded);
+  border-bottom: 2px solid var(--ink);
+  padding: .3rem .5rem;
+}
+table.stops tbody td {
+  vertical-align: top;
+  padding: .6rem .5rem;
+  border-bottom: 1px dotted var(--line);
+}
+table.stops .no {
+  font-family: "Courier New", ui-monospace, monospace;
+  color: var(--route);
+  width: 1.6rem;
+}
+table.stops .time {
+  font-family: "Courier New", ui-monospace, monospace;
+  white-space: nowrap;
+  width: 3.4rem;
+}
+table.stops .place { font-weight: bold; width: 9rem; }
+table.stops .dist {
+  font-family: "Courier New", ui-monospace, monospace;
+  width: 2.6rem;
+  color: var(--faded);
+}
+table.stops .remark { font-size: .86rem; }
+.kept {
+  font-family: "Courier New", ui-monospace, monospace;
+  background: var(--band);
+  border-left: 3px solid var(--route);
+  padding: .1rem .35rem;
+}
+.table-note {
+  font-size: .78rem;
+  color: var(--faded);
+  font-style: italic;
+  margin: .7rem 0 0;
+}
+
+.notes p { margin: 0 0 .9rem; font-size: .95rem; }
+.notes a { color: var(--ink); }
+
+.colophon {
+  margin: 1.6rem 1.6rem 0;
+  padding-top: .8rem;
+  border-top: 3px double var(--ink);
+  font-size: .8rem;
+  color: var(--faded);
+}
+.colophon p { margin: 0 0 .5rem; }
+.footlinks { font-size: .78rem; }
+.footlinks a { color: var(--route); }
+
+/* a handout is worn at the top edge */
+.handout::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg,
+    var(--route) 0 26px, transparent 26px 34px);
+  opacity: .8;
+}
+
+@media (max-width: 40rem) {
+  table.stops .place { width: auto; }
+  .masthead h1 { font-size: 1.8rem; }
+}
