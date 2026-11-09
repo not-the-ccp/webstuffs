@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oblivion — An Apology Letter</title>
+<meta name="description" content="An apology letter for Oblivion, the world's first vertical drop roller coaster at Alton Towers in Staffordshire: Bolliger & Mabillard's first Dive Coaster, the £12 million build, the four stages, and the drop of 14 March 1998.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<article class="letter">
+  <header class="letter-head">
+    <p class="letter-office">Ministry of Oblivion &middot; Operations Office &middot; Alton Towers, Staffordshire</p>
+    <h1>Oblivion</h1>
+    <p class="letter-re">Re: the vertical drop &middot; Apology &middot; Opened 14 March 1998</p>
+  </header>
+
+  <p class="letter-salute">Dear Miss Trelawney,</p>
+
+  <p>I am writing to apologise for the drop. I know you did not book one. You came to the park on a Saturday in June, queued through the hangar past the screens that count the four stages — physical trauma, psychological breakdown, the schizophrenic sequence, and finally chaos — and when the floor fell away at the top of Oblivion you fell with it, blind, for about three seconds, while the building kept a ledger and I kept my silence.</p>
+
+  <p>Oblivion opened on 14 March 1998. It was built for £12 million — £23 million in 2025 — by Bolliger & Mabillard, marketed as the world's first vertical drop roller coaster and the first Dive Coaster. Construction began in 1997, themed as a secretive facility on the edge of the Staffordshire park, where the rides do not advertise what they do to the people inside them. I was the Clerk on duty that season. My job was to read the ledger and keep the attendance straight. I failed at both, and this letter is my apology for it.</p>
+
+  <blockquote class="ledger">
+    <p>The conductor's ledger records all three names in the left hook on tap Odour Liniment, sweat, and the Clerk had been a reader of this entry is ruled in attendance.</p>
+  </blockquote>
+
+  <p>I found that entry on the Tuesday after your ride, written in a hand I did not recognise, and I misread it. I read "sweat" where the ink said "Odour Liniment," and I read the Clerk's attendance as ruled when it had only been entered. Three names sit in the left hook: yours, the ride operator's, and mine. I put your name there by waving you through the restraint check without looking up from my clipboard. The operator put his there by releasing the brake on schedule — which is what brakes are for, though not what a secretive facility owes the people it holds at the edge. I put mine there by keeping the ledger instead of keeping the queue.</p>
+
+  <p>Oblivion's drop is 54.9 metres — a hundred and eighty feet of near-vertical fall, and the car reaches roughly 110 kilometres per hour before the brakes at the bottom reclaim it. Three seconds is all the physics allows, and all this apology can hold: I am sorry that we made you give them to us without asking, sorry that the four stages played on the screens behind you like a programme you never asked to read, and sorry that the Clerk on duty was reading a ledger rather than the riders in front of him.</p>
+
+  <p>If you will accept this letter, I will strike the entry from the ledger, rule your attendance as excused, and leave the left hook empty for the next name. When I am not keeping ledgers I log stanzas in a shed behind a bakery at <a href="../quatrain/">The Quatrain</a>, where four lines are all that is promised and all that is kept, and I eat, when I can bring myself to, at <a href="../armoured-mess/">817 — The Armoured Mess</a> on Station Road in Orange, where nothing moves and nothing drops — which is exactly the difference, and exactly why I can recommend it. The Ministry of Oblivion does not answer correspondence, which is why I am writing it here instead.</p>
+
+  <p class="letter-sign">Yours in penitence,<br><strong>Archibald Vale</strong><br>Senior Clerk, Ministry of Oblivion</p>
+</article>
+
+<section class="drop-rig" aria-label="Vertical drop simulator">
+  <div class="drop-office">Drop rig &middot; Height 54.9 m</div>
+  <div class="shaft" id="drop-shaft">
+    <div class="car" id="drop-car"></div>
+    <div class="floor"></div>
+  </div>
+  <div class="drop-controls">
+    <button type="button" id="arm-drop">Arm the brake</button>
+    <button type="button" id="release-drop" disabled>Release</button>
+    <button type="button" id="reset-drop" disabled>Reset</button>
+  </div>
+  <div class="drop-readout">
+    <span id="drop-clock">0.00 s</span>
+    <span id="drop-verdict">Held at the brake. Three seconds, if you let it fall.</span>
+  </div>
+</section>
+
+<script src="drop.js"></script>
+</body>
+</html>
