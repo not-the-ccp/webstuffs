@@ -1,0 +1,344 @@
+/* A Letter of Apology upon the Matter of Poitiers, 19 September 1356
+   Maximalist parchment, gall-ink, wax, and candlelight. */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=UnifrakturMaguntia&display=swap');
+
+:root {
+  --parchment: #e9dcb8;
+  --parchment-deep: #d8c38c;
+  --gall: #241a10;
+  --gall-soft: #4a3826;
+  --ink-red: #7d1b10;
+  --wax: #8f1d10;
+  --gold: #9a7423;
+  --smoke: rgba(36, 26, 16, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  color: var(--gall);
+  font-size: 1.06rem;
+  line-height: 1.65;
+  /* layered: candle warmth at the top, worn parchment, stains, and a faint lozenged weave */
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 200, 110, 0.35), transparent 60%),
+    radial-gradient(ellipse 90% 60% at 85% 110%, rgba(90, 50, 20, 0.18), transparent 60%),
+    repeating-linear-gradient(45deg, var(--smoke) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(-45deg, var(--smoke) 0 2px, transparent 2px 14px),
+    radial-gradient(ellipse at 30% 40%, rgba(120, 80, 30, 0.10), transparent 55%),
+    linear-gradient(175deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  min-height: 100vh;
+}
+
+/* ---------- candle glow, driven by script.js ---------- */
+.candle-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 45vmax at var(--gx, 50%) var(--gy, -20%), rgba(255, 190, 90, 0.22), rgba(255, 170, 60, 0.07) 40%, transparent 70%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  transition: opacity 0.4s;
+  animation: flicker 3.1s ease-in-out infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0.85; }
+  18% { opacity: 1; }
+  32% { opacity: 0.72; }
+  47% { opacity: 0.95; }
+  63% { opacity: 0.78; }
+  81% { opacity: 1; }
+}
+
+/* ---------- ink drips down the top of the page ---------- */
+.drip {
+  position: fixed;
+  top: 0;
+  width: 10px;
+  background: linear-gradient(180deg, var(--gall) 0%, var(--ink-red) 90%);
+  border-radius: 0 0 40% 40%;
+  z-index: 2;
+  animation: drip-fall 14s linear infinite;
+  opacity: 0.85;
+}
+.drip::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 1px;
+  width: 8px;
+  height: 16px;
+  background: var(--ink-red);
+  border-radius: 50% 50% 60% 60%;
+}
+.drip-one { left: 12%; height: 70px; }
+.drip-two { left: 71%; height: 46px; animation-delay: -6s; }
+@keyframes drip-fall {
+  0%   { transform: translateY(-80px); }
+  12%  { transform: translateY(0); }
+  88%  { transform: translateY(0); }
+  100% { transform: translateY(110vh); }
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 4.5rem 1rem 2rem;
+  border-bottom: 3px double var(--gall);
+  background: linear-gradient(180deg, rgba(125, 27, 16, 0.10), transparent);
+}
+.masthead::after {
+  content: "\269C \269C \269C"; /* fleurons */
+  display: block;
+  margin-top: 1.2rem;
+  letter-spacing: 1.2rem;
+  color: var(--ink-red);
+  font-size: 0.9rem;
+}
+.office {
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--ink-red);
+  margin: 0 0 1rem;
+}
+.masthead h1 {
+  font-family: "UnifrakturMaguntia", "IM Fell English", serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--gall);
+  text-shadow:
+    1px 1px 0 rgba(255, 245, 210, 0.9),
+    3px 3px 0 rgba(125, 27, 16, 0.25);
+}
+.dateline {
+  font-style: italic;
+  color: var(--gall-soft);
+  max-width: 46rem;
+  margin: 1.1rem auto 0;
+}
+
+/* ---------- the two wax seals ---------- */
+.seal-row {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+}
+.seal {
+  display: inline-block;
+  width: 92px;
+  height: 92px;
+  border-radius: 47% 53% 50% 50% / 51% 49% 52% 48%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 160, 120, 0.5), transparent 45%),
+    radial-gradient(circle at 70% 75%, rgba(40, 0, 0, 0.55), transparent 55%),
+    radial-gradient(circle, #a63c22 0%, var(--wax) 55%, #5e0f06 100%);
+  box-shadow:
+    inset 0 3px 6px rgba(255, 190, 150, 0.35),
+    inset 0 -6px 10px rgba(30, 0, 0, 0.6),
+    0 6px 14px rgba(36, 26, 16, 0.45);
+  color: rgba(255, 236, 210, 0.85);
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+  line-height: 92px;
+  transform: rotate(-6deg);
+  text-shadow: 0 1px 2px rgba(40, 0, 0, 0.8);
+}
+.seal-plain { transform: rotate(4deg); }
+
+/* ---------- the letter sheet ---------- */
+.letter {
+  position: relative;
+  z-index: 3;
+  max-width: 44rem;
+  margin: 3rem auto 4rem;
+  padding: 2.6rem 2.8rem 2.2rem;
+  background:
+    radial-gradient(ellipse at 88% 6%, rgba(125, 27, 16, 0.07), transparent 40%),
+    linear-gradient(180deg, rgba(255, 250, 232, 0.55), rgba(233, 220, 184, 0.2));
+  border: 1px solid rgba(74, 56, 38, 0.35);
+  box-shadow:
+    0 0 0 6px rgba(233, 220, 184, 0.5),
+    0 0 0 7px rgba(74, 56, 38, 0.3),
+    0 24px 60px rgba(36, 26, 16, 0.35);
+  transform: rotate(-0.35deg);
+}
+.letter::before {
+  /* the red initial margin rule, as in the great books */
+  content: "";
+  position: absolute;
+  inset: 0.9rem 0.9rem 0.9rem 3.1rem;
+  border-left: 2px solid var(--ink-red);
+  pointer-events: none;
+  opacity: 0.55;
+}
+.letter::after {
+  /* corner ornament */
+  content: "\2766";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.lede {
+  font-size: 1.14rem;
+  line-height: 1.75;
+}
+.lede::first-letter {
+  font-family: "UnifrakturMaguntia", serif;
+  font-size: 4.4em;
+  float: left;
+  line-height: 0.78;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--ink-red);
+  text-shadow: 2px 2px 0 rgba(154, 116, 35, 0.4);
+}
+
+h2 {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 1.02rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-red);
+  border-bottom: 1px solid rgba(125, 27, 16, 0.35);
+  padding-bottom: 0.35rem;
+  margin: 2.2rem 0 1rem;
+}
+h2::before { content: "\269C  "; color: var(--gold); }
+h2::after { content: "  \269C"; color: var(--gold); }
+
+p { margin: 0 0 1.15rem; }
+
+strong {
+  color: var(--ink-red);
+  font-weight: 700;
+  background: linear-gradient(transparent 68%, rgba(154, 116, 35, 0.28) 68%);
+}
+
+a {
+  color: var(--gall);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+a:hover {
+  background: rgba(125, 27, 16, 0.12);
+  color: var(--ink-red);
+}
+
+em { color: var(--gall-soft); }
+
+/* ---------- the recipe / mandated line ---------- */
+.letter strong:first-child,
+p strong { white-space: normal; }
+
+/* ---------- signature block ---------- */
+.sign-off {
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 3px double var(--gall);
+  font-style: italic;
+  color: var(--gall-soft);
+}
+.sig { display: inline-block; }
+.sign-off .sig:first-child {
+  font-family: "UnifrakturMaguntia", serif;
+  font-style: normal;
+  font-size: 1.35rem;
+  color: var(--gall);
+}
+
+/* ---------- press the seal ---------- */
+.press {
+  display: block;
+  margin: 2.6rem auto 0;
+  padding: 0.7rem 2.2rem;
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  color: var(--parchment);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 160, 120, 0.4), transparent 45%),
+    radial-gradient(circle, #a63c22 0%, var(--wax) 60%, #5e0f06 100%);
+  border: none;
+  border-radius: 47% 53% 50% 50% / 51% 49% 52% 48%;
+  box-shadow:
+    inset 0 3px 6px rgba(255, 190, 150, 0.3),
+    inset 0 -5px 9px rgba(30, 0, 0, 0.55),
+    0 6px 14px rgba(36, 26, 16, 0.45);
+  cursor: pointer;
+  transition: transform 0.12s;
+}
+.press:hover { transform: translateY(-2px) rotate(-1deg); }
+.press:active { transform: translateY(2px); }
+
+.stamp {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 9;
+  transform: translate(-50%, -50%) rotate(-14deg);
+  color: var(--ink-red);
+  opacity: 0;
+  pointer-events: none;
+}
+.stamp.show {
+  display: block;
+  animation: stamp-thunk 1.6s ease-out forwards;
+}
+@keyframes stamp-thunk {
+  0%   { opacity: 0; transform: translate(-50%, -50%) rotate(-14deg) scale(2.6); }
+  14%  { opacity: 0.92; transform: translate(-50%, -50%) rotate(-14deg) scale(0.92); }
+  22%  { transform: translate(-50%, -50%) rotate(-14deg) scale(1.04); }
+  30%  { transform: translate(-50%, -50%) rotate(-14deg) scale(1); }
+  78%  { opacity: 0.92; }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(-14deg) scale(1); }
+}
+.ring-text {
+  font-family: "IM Fell English SC", Georgia, serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  fill: currentColor;
+}
+.ring-text.small { font-size: 10px; letter-spacing: 2px; }
+
+/* ---------- footer ---------- */
+.letter-footer {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 1.6rem 1rem 3rem;
+  font-family: "IM Fell English SC", Georgia, serif;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--gall-soft);
+  border-top: 3px double var(--gall);
+}
+
+@media (max-width: 620px) {
+  .letter { padding: 2rem 1.4rem; margin: 2rem 0.8rem 3rem; transform: none; }
+  .letter::before { left: 1.6rem; }
+  .drip-two { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .candle-glow, .drip, .stamp.show { animation: none; }
+  .drip { transform: translateY(0); }
+}
