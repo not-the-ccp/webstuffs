@@ -1,0 +1,439 @@
+/* Field Manual FM-229 · Chapter Seventeen · Georg Solti — the podium, the baton, the score */
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  --velvet: #4a070c;
+  --velvet-deep: #1b0507;
+  --gold: #c9a227;
+  --gold-pale: #eadd9c;
+  --ink: #efeae5;
+  --paper: #13110f;
+  --line: #3d2a10;
+  --shadow: #000000;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #090705;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, "Noto Serif", serif;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--gold);
+  color: #0b0703;
+}
+
+a {
+  color: var(--gold-pale);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  text-underline-position: under;
+}
+
+a:hover, a:focus {
+  color: var(--gold);
+  text-decoration-color: var(--gold-pale);
+}
+
+/* Scrolling musical staff behind everything */
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(201, 162, 39, 0.06) 23px),
+    linear-gradient(180deg, #0c0a07 0%, #0a0806 55%, #080605 100%);
+  background-size: 100% 24px, 100% 100%;
+  animation: staff-scroll 18s linear infinite;
+}
+
+@keyframes staff-scroll {
+  from { background-position-y: 0, 0; }
+  to { background-position-y: 24px, 0; }
+}
+
+/* Conductor's spotlight (follows the pointer via field.js) */
+.spot {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 760px;
+  height: 760px;
+  background: radial-gradient(700px 700px at center, rgba(201, 162, 39, 0.10) 0%, rgba(201, 162, 39, 0.02) 45%, transparent 72%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+  50% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+}
+
+/* Metronome (steady 72) */
+.metro {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 15px;
+  height: 15px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 16px var(--gold);
+  z-index: 12;
+  opacity: 0.45;
+  animation: tick 0.833s infinite;
+}
+
+.metro-mark {
+  position: absolute;
+  bottom: 20px;
+  right: 46px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.25em;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+@keyframes tick {
+  0%, 80% { opacity: 0.4; transform: scale(1); }
+  82%, 88% { opacity: 1; transform: scale(1.35); box-shadow: 0 0 24px var(--gold-pale); }
+  90%, 100% { opacity: 0.4; transform: scale(1); }
+}
+
+/* The baton (rotates with the pointer via field.js, beats on its own) */
+.baton {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  width: 3px;
+  height: 150px;
+  background: var(--gold);
+  transform-origin: bottom center;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  box-shadow: 0 0 22px var(--gold);
+  z-index: 11;
+  animation: beat 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes beat {
+  from { transform: translate(-50%, -50%) rotate(-14deg); }
+  to { transform: translate(-50%, -50%) rotate(-8deg); }
+}
+
+/* Masthead */
+.masthead {
+  position: relative;
+  background: linear-gradient(180deg, var(--velvet) 0%, var(--velvet-deep) 55%, #0a0705 100%);
+  border-top: 7px double var(--gold);
+  border-bottom: 5px double var(--gold);
+  padding: 52px 24px 44px;
+  text-align: center;
+  z-index: 5;
+}
+
+.mast-rule {
+  margin: 10px auto 0;
+}
+
+.series {
+  margin: 0 0 14px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.masthead h1 {
+  font-size: clamp(2.6rem, 9vw, 5.6rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  -webkit-text-stroke: 1.6px var(--gold);
+  text-stroke: 1.6px var(--gold);
+  -webkit-text-fill-color: var(--ink);
+}
+
+.clef {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 210px;
+  height: 300px;
+  z-index: 4;
+}
+
+.clef path {
+  opacity: 0.85;
+}
+
+.chapter-no {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.stamp {
+  margin: 14px 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: #9a6d18;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border: 2px double #6e4a14;
+  display: inline-block;
+  padding: 6px 16px;
+}
+
+.borders {
+  position: absolute;
+  left: 0; right: 0;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, var(--gold), var(--gold) 12px, transparent 12px, transparent 24px);
+  opacity: 0.9;
+}
+
+.borders.top { top: 0; }
+.borders.bottom { bottom: 0; transform: rotate(180deg); }
+
+/* Navigation */
+.contents {
+  max-width: 860px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+}
+
+.contents-head {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 6px;
+}
+
+.contents ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contents li {
+  font-size: 0.95rem;
+  color: #c7b999;
+}
+
+.contents a {
+  color: var(--gold-pale);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+}
+
+.contents a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold-pale);
+}
+
+/* Body and sections */
+.body {
+  position: relative;
+  z-index: 5;
+  max-width: 860px;
+  margin: 18px auto 0;
+  padding: 0 24px 140px;
+}
+
+section {
+  background: var(--paper);
+  border: 3px solid var(--line);
+  border-left: 12px solid var(--gold);
+  padding: 30px 36px 26px;
+  margin: 0 0 38px;
+  box-shadow: 10px 10px 0 var(--gold);
+  transform: rotate(0.25deg);
+}
+
+section:nth-of-type(even) {
+  box-shadow: -10px 10px 0 var(--gold);
+  transform: rotate(-0.25deg);
+  border-left: 0;
+  border-right: 12px solid var(--gold);
+  border-image: none;
+}
+
+h2 {
+  font-size: 1.55rem;
+  color: var(--gold);
+  margin: 0 0 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 4px double var(--line);
+  padding-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.sec-no {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  color: #8a6f22;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 0.9;
+  padding: 6px 10px 0 0;
+  margin-right: 8px;
+  border: 3px solid var(--gold);
+  background: #1b150f;
+  box-shadow: 4px 4px 0 var(--line);
+}
+
+/* Standing orders */
+.orders {
+  margin: 14px 0 4px;
+  padding-left: 22px;
+  counter-reset: rule;
+  list-style: none;
+}
+
+.orders > li {
+  counter-increment: rule;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border: 2px solid var(--line);
+  border-left: 8px solid var(--gold);
+  background: #1a1610;
+}
+
+.orders > li::marker {
+  content: counter(rule, decimal) ".";
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.orders strong {
+  color: var(--gold-pale);
+}
+
+/* Blockquoted gloss */
+blockquote {
+  margin: 16px 0;
+  padding: 14px 20px;
+  border-left: 6px solid var(--gold);
+  background: #1c160f;
+  font-style: italic;
+  color: #d8cfa8;
+}
+
+blockquote p {
+  margin: 0 0 8px;
+}
+
+/* Scrolling repertoire ticker */
+.ticker {
+  margin: 30px 0 0;
+  padding: 10px 0;
+  border: 4px double var(--gold);
+  background: var(--velvet-deep);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+  color: #c7b999;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  padding: 8px 0;
+}
+
+@keyframes ticker {
+  from { transform: translatex(0); }
+  to { transform: translatex(-50%); }
+}
+
+/* Colophon */
+.colophon {
+  max-width: 860px;
+  margin: 40px auto 60px;
+  padding: 26px 24px;
+  background: var(--velvet);
+  border: 4px solid var(--gold);
+  border-top: 8px double var(--gold);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 5;
+  position: relative;
+}
+
+.colophon p {
+  margin: 0 0 10px;
+  text-align: center;
+  text-transform: none;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: normal;
+}
+
+.colophon .rule {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: #9a6d18;
+  border: none;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .body { padding: 0 14px; }
+  section { padding: 20px 22px 18px; transform: none !important; box-shadow: 6px 6px 0 var(--gold) !important; }
+  .clef { display: none; }
+  .baton { height: 90px; }
+  .spot { width: 520px; height: 520px; }
+}
