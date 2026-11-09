@@ -1,0 +1,226 @@
+/* Product sheet No. CSE-0001 — Calumet Shore Estates & Resort Company */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #ece1c4;
+  --ink: #2a2118;
+  --ink-soft: #5a4c3a;
+  --rule: #8a744f;
+  --lake: #2e4a5b;
+  --brick: #7a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #241d15;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet, .cat-head, .colophon {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* ---- catalogue header ---- */
+.cat-head {
+  background:
+    repeating-linear-gradient(0deg, rgba(138,116,79,.06) 0 1px, transparent 1px 28px),
+    var(--paper);
+  border-bottom: 4px double var(--rule);
+  padding: 1.4rem 1.5rem 1.2rem;
+}
+
+.cat-brand {
+  margin: 0 0 .9rem;
+  text-align: center;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.lot-line {
+  margin: 0;
+  text-align: center;
+  font-size: .72rem;
+  letter-spacing: .3em;
+  color: var(--brick);
+}
+
+.cat-head h1 {
+  margin: .2rem 0 .3rem;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.cat-sub {
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+
+.cat-meta {
+  margin: 1.1rem 0 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.cat-meta div {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: .75rem;
+  padding: .4rem .25rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.cat-meta div:last-child { border-bottom: none; }
+
+.cat-meta dt {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: .15rem;
+}
+.cat-meta dd { margin: 0; font-size: .95rem; }
+
+.stars { color: var(--brick); letter-spacing: .15em; }
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--lake);
+  color: var(--lake);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  padding: .2rem .55rem;
+  transform: rotate(-4deg);
+  border-radius: 2px;
+}
+
+/* price box, right of the header */
+.cat-price {
+  min-width: 11rem;
+  border: 3px double var(--rule);
+  background: var(--paper-deep);
+  padding: .9rem 1rem;
+  text-align: center;
+}
+.price-no {
+  margin: 0;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.price-big {
+  margin: .25rem 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.price-note {
+  margin: 0;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---- body ---- */
+.sheet {
+  background:
+    repeating-linear-gradient(0deg, rgba(138,116,79,.05) 0 1px, transparent 1px 30px),
+    var(--paper);
+  padding: .5rem 1.75rem 2rem;
+}
+
+.sec { padding: 1.1rem 0 .4rem; }
+.sec + .sec { border-top: 1px solid var(--rule); }
+
+.sec h2 {
+  margin: 0 0 .6rem;
+  font-size: 1.15rem;
+  letter-spacing: .04em;
+  display: flex;
+  gap: .6rem;
+  align-items: baseline;
+}
+
+.sec-no {
+  flex: none;
+  background: var(--lake);
+  color: var(--paper);
+  font-size: .8rem;
+  padding: .1rem .5rem;
+  letter-spacing: .1em;
+}
+
+.sheet p { margin: 0 0 .8rem; font-size: .98rem; }
+.sheet a { color: var(--lake); }
+
+.spec {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 .9rem;
+  font-size: .92rem;
+}
+.spec th {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  text-align: left;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .35rem .5rem;
+}
+.spec td {
+  border: 1px solid var(--rule);
+  padding: .35rem .5rem;
+  vertical-align: top;
+}
+.spec td:first-child { font-weight: 700; white-space: nowrap; }
+
+.kept-line {
+  margin: .6rem 1rem 1rem;
+  padding: .8rem 1rem;
+  border-left: 4px solid var(--brick);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--ink);
+}
+
+/* ---- colophon ---- */
+.colophon {
+  background: var(--paper-deep);
+  border-top: 4px double var(--rule);
+  padding: 1rem 1.5rem 1.4rem;
+  text-align: center;
+}
+.colophon p {
+  margin: 0;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  color: var(--ink-soft);
+}
+.rule-line { margin-top: .5rem; color: var(--brick); letter-spacing: .6em; }
+
+@media (max-width: 40rem) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .cat-price { margin: 0 auto; }
+  .cat-meta div { grid-template-columns: 1fr; gap: .1rem; }
+}
