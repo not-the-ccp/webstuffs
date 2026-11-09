@@ -1,0 +1,198 @@
+/* Notice No. 47 — the glazed cabinet, left of the pulpit */
+
+:root {
+  --paper: #f4ead8;
+  --board: #1d2a22;
+  --ink: #26221a;
+  --faded: #6b5f49;
+  --stamp: #a33b2e;
+  --sash: #2e4a7d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255,244,214,.08), transparent 42%),
+    radial-gradient(circle at 85% 90%, rgba(120,160,140,.07), transparent 45%),
+    var(--board);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2.5rem 1rem 5rem;
+}
+
+.board {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* masthead: oversized pinned type */
+.masthead {
+  position: relative;
+  text-align: center;
+  padding: 2rem 0 3rem;
+}
+
+.office {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #cfc3a5;
+  margin: 0 0 .6rem;
+}
+
+.notice-no {
+  font-size: .8rem;
+  letter-spacing: .3em;
+  color: #e8dcc0;
+  margin: 0 0 1.2rem;
+}
+
+.found {
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  line-height: .9;
+  margin: 0;
+  color: var(--paper);
+  letter-spacing: .04em;
+  transform: rotate(-2deg);
+  text-shadow: 4px 4px 0 rgba(0,0,0,.45);
+}
+
+.found-sub {
+  color: #d8cbae;
+  font-style: italic;
+  max-width: 40ch;
+  margin: 1.2rem auto 0;
+  transform: rotate(.4deg);
+}
+
+/* asymmetric grid; slips overlap the edges and sit at slight angles */
+.layout {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: 0;
+  align-items: start;
+}
+
+.slip {
+  background: var(--paper);
+  border: 1px solid #d9c9a8;
+  box-shadow: 0 14px 28px rgba(0,0,0,.45);
+  padding: 1.6rem 1.8rem 1.8rem;
+  margin: 1.6rem 0;
+  position: relative;
+}
+
+/* pin */
+.slip::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e6b0a0, var(--stamp) 65%);
+  box-shadow: 0 3px 5px rgba(0,0,0,.4);
+}
+
+.slip h2 {
+  font-size: 1.05rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+  display: inline-block;
+  padding-bottom: .2rem;
+  margin: 0 0 1rem;
+}
+
+.slip p { margin: 0 0 1rem; }
+.slip p:last-child { margin-bottom: 0; }
+
+.slip-a { transform: rotate(-1deg); z-index: 2; }
+.slip-b { transform: rotate(1.4deg); margin-top: 4.5rem; margin-left: -2.2rem; z-index: 3; }
+.slip-c { transform: rotate(.7deg); grid-column: 1 / -1; }
+.slip-d { transform: rotate(-.8deg); z-index: 2; }
+.slip-e { transform: rotate(2deg); margin-top: 4.5rem; z-index: 4; }
+
+/* stamp-style mark list */
+.stamp-cap {
+  font-size: .68rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--sash);
+  margin: 0 0 .8rem;
+}
+
+.slip-b ul {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.slip-b li {
+  border: 1.5px dashed var(--sash);
+  padding: .5rem .7rem;
+  margin-bottom: .6rem;
+  font-size: .92rem;
+}
+
+.stamp-note {
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+/* the quoted sentence is the office's own entry */
+.claim strong {
+  background: linear-gradient(transparent 62%, rgba(163,59,46,.25) 62%);
+}
+
+/* postcard */
+.postcard {
+  background: #efe3c8;
+}
+
+.postcard-cap {
+  font-size: .66rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 .8rem;
+}
+
+.postcard-text {
+  font-style: italic;
+  font-size: .95rem;
+}
+
+.postcard-sign {
+  font-size: .8rem;
+  color: var(--faded);
+  margin: 0;
+}
+
+/* colophon */
+.colophon {
+  grid-column: 1 / -1;
+  color: #cfc3a5;
+  font-size: .9rem;
+  padding: 2.5rem 1rem 0;
+}
+
+.colophon a { color: #f0e6c8; }
+.colophon .fine {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-top: 1.4rem;
+  color: #9a8d6f;
+}
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  .slip-b, .slip-e { margin-left: 0; margin-top: 1.6rem; }
+  .slip-a, .slip-b, .slip-d, .slip-e { transform: none; }
+}
