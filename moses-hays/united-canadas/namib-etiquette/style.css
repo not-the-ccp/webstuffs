@@ -1,0 +1,208 @@
+/* The Dry Coast, Chapter VII — a book of etiquette, bound in sand and whalebone */
+
+:root {
+  --parchment: #f0e4c6;
+  --parchment-deep: #e6d5ab;
+  --ink: #2b2115;
+  --ink-soft: #4d3d28;
+  --whale: #1f3a4d;
+  --whale-deep: #142837;
+  --sand: #b3541e;
+  --sand-soft: #c97b3f;
+  --bone: #ece4cf;
+  --rule: #7a5c33;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(122, 92, 51, 0.05) 0 2px, transparent 2px 5px),
+    var(--parchment);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.book {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  background:
+    linear-gradient(rgba(255, 250, 230, 0.35), rgba(255, 250, 230, 0) 12rem),
+    var(--parchment);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  box-shadow: 0 0 3rem rgba(43, 33, 21, 0.25);
+}
+
+/* ---- chapter head ---- */
+
+.chapter-head {
+  text-align: center;
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.whale-mark {
+  width: 13rem;
+  max-width: 80%;
+  color: var(--whale);
+  margin-bottom: 0.75rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  color: var(--whale-deep);
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 auto 1rem;
+  max-width: 38rem;
+}
+
+.facts {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5rem 0.25rem;
+  margin: 0;
+}
+
+/* ---- sections ---- */
+
+.section { margin-bottom: 2.5rem; }
+
+.section h2 {
+  font-size: 1.25rem;
+  color: var(--whale);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-top: 0;
+}
+
+.section h2::first-letter {
+  letter-spacing: 0.05em;
+}
+
+.section p { margin: 0.9rem 0; }
+
+.section > p:first-of-type::first-letter {
+  font-size: 3.1rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--sand);
+  font-weight: 700;
+}
+
+a { color: var(--whale); text-decoration: underline; text-decoration-color: var(--sand-soft); }
+a:hover { color: var(--sand); }
+
+strong { color: var(--whale-deep); }
+
+/* ---- the kept line ---- */
+
+.kept-line {
+  margin: 1.4rem 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--bone);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--sand);
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--whale-deep);
+  box-shadow: 3px 3px 0 rgba(122, 92, 51, 0.25);
+}
+
+/* ---- the reckoning ---- */
+
+.bill-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.reckoning {
+  margin-top: 1rem;
+  border: 1px solid var(--rule);
+  background: rgba(236, 228, 207, 0.5);
+}
+
+.course {
+  padding: 0.85rem 1.1rem 0.65rem;
+  border-bottom: 1px dashed var(--rule);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.course:hover { background: rgba(179, 84, 30, 0.08); }
+
+.course.chosen { background: rgba(31, 58, 77, 0.07); }
+
+.course.chosen .course-no::before { content: "\25CF "; color: var(--sand); }
+
+.course-no {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin: 0 0 0.2rem;
+}
+
+.course h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  color: var(--whale-deep);
+}
+
+.course p { margin: 0 0 0.35rem; }
+.course .price {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.total {
+  padding: 0.9rem 1.1rem;
+  background: var(--whale);
+  color: var(--bone);
+}
+
+.total-line { margin: 0; font-size: 1.05rem; }
+.total-line span:first-child { font-style: italic; }
+#totalValue {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #e9c46a;
+}
+.total .bill-note { color: rgba(236, 228, 207, 0.75); }
+
+/* ---- tail ---- */
+
+.tail {
+  border-top: 4px double var(--rule);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.tail p { margin: 0; }
