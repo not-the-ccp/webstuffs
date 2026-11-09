@@ -1,0 +1,186 @@
+/* Case 9, Minute Moulds Gallery — a lovingly tiled 1990s placard */
+
+body {
+  margin: 0;
+  padding: 0 0 18px 0;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
+  color: #101010;
+  background-color: #000022;
+  background-image: url("stars.svg");
+  background-repeat: repeat;
+}
+
+.topbar {
+  background: #000080;
+  border-bottom: 3px ridge #808080;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll {
+  margin: 0;
+  padding: 4px 0;
+}
+
+.scroll-text {
+  display: inline-block;
+  padding-left: 100%;
+  color: #ffff00;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: slide 26s linear infinite;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.case {
+  width: 92%;
+  max-width: 960px;
+  margin: 16px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.placard {
+  flex: 1 1 480px;
+  background: #ffffcc;
+  border: 6px outset #c0c0c0;
+  padding: 14px 18px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.placard-no {
+  margin: 0 0 6px 0;
+  font-size: 11px;
+  color: #404040;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px dotted #808080;
+  padding-bottom: 4px;
+}
+
+h1 {
+  margin: 4px 0 2px 0;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 30px;
+  background: #006400;
+  color: #ffff00;
+  display: inline-block;
+  padding: 2px 10px;
+  border: 3px ridge #00ff00;
+}
+
+.latin {
+  font-size: 11px;
+  color: #404040;
+  font-style: normal;
+  margin-top: 4px;
+}
+
+.placard p { line-height: 1.55; }
+
+a { color: #000080; }
+a:hover { background: #ffff00; }
+
+.rail {
+  flex: 0 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rail section {
+  background: #c0c0c0;
+  border: 4px outset #dfdfdf;
+  padding: 10px 12px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.rail h2 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  background: #000080;
+  color: #ffffff;
+  padding: 3px 6px;
+  border: 2px inset #808080;
+}
+
+.counter {
+  margin: 6px 0 2px 0;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  letter-spacing: 5px;
+  color: #00ff00;
+  background: #000000;
+  text-align: center;
+  border: 3px inset #808080;
+  padding: 4px;
+}
+
+.counter-note, .sign-note {
+  font-size: 10px;
+  color: #404040;
+  font-style: italic;
+  margin: 6px 0 0 0;
+}
+
+.spec-card dl { margin: 0; font-size: 11px; }
+.spec-card dt {
+  float: left;
+  width: 76px;
+  font-weight: bold;
+  color: #800000;
+  clear: left;
+  padding-top: 3px;
+}
+.spec-card dd { margin: 0 0 3px 80px; line-height: 1.4; }
+
+.signatures {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding: 6px;
+  background: #ffffee;
+  border: 2px inset #808080;
+  font-size: 11px;
+  max-height: 130px;
+  overflow-y: auto;
+}
+.signatures .who { font-weight: bold; color: #000080; }
+
+.sign-form { font-size: 11px; }
+.sign-form input {
+  border: 2px inset #808080;
+  background: #ffffff;
+  width: 70%;
+  font-family: inherit;
+}
+.sign-form button {
+  border: 3px outset #c0c0c0;
+  background: #c0c0c0;
+  font-family: inherit;
+  font-size: 11px;
+}
+.sign-form button:active { border-style: inset; }
+
+.foot {
+  width: 92%;
+  max-width: 960px;
+  margin: 8px auto 0 auto;
+  text-align: center;
+  color: #c0c0c0;
+  font-size: 11px;
+  border-top: 3px ridge #808080;
+  padding-top: 8px;
+}
+.foot a { color: #80ff80; }
+.small { font-size: 10px; }
+
+.blink { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
