@@ -1,0 +1,192 @@
+:root {
+  --paper: #f4efe3;
+  --ink: #26231c;
+  --rule: #b3a88d;
+  --red: #9c3b2e;
+  --green: #3d5a3c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d2c0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.brochure {
+  max-width: 46rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 30px rgba(40, 34, 20, 0.25);
+  padding: 0 0 1.5rem;
+}
+
+.cover {
+  text-align: center;
+  padding: 2.2rem 2rem 1.4rem;
+  border-bottom: 3px double var(--rule);
+}
+
+.board {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: #6d6250;
+}
+
+h1 {
+  font-size: 3.4rem;
+  margin: 0.2rem 0 0.1rem;
+  letter-spacing: 0.04em;
+}
+
+.pron {
+  margin: 0;
+  font-style: italic;
+  color: #6d6250;
+  font-size: 0.95rem;
+}
+
+.tagline {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 1.12rem;
+}
+
+.cover-sub {
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+  color: #5c543f;
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stamp-wrap { margin: 0.8rem 0 0.4rem; }
+
+.stamp {
+  display: inline-block;
+  padding: 0.25rem 0.9rem;
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  transform: rotate(-4deg);
+}
+
+.panel {
+  padding: 1.2rem 2.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.panel h2 {
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.panel ul { padding-left: 1.2rem; }
+.panel li { margin-bottom: 0.4rem; }
+
+.itinerary {
+  margin: 1rem 0 1.4rem;
+  padding: 1rem 1.1rem;
+  background: #ece4d1;
+  border: 1px solid var(--rule);
+}
+
+.itinerary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.itinerary-top button {
+  font: inherit;
+  font-size: 0.85rem;
+  background: var(--green);
+  color: #f4efe3;
+  border: 1px solid #2c422c;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.itinerary-top button:hover { background: #4a6d49; }
+.itinerary-top button:disabled { background: #9a927c; border-color: #857d67; cursor: default; }
+
+#year-out {
+  font-size: 1.6rem;
+  font-weight: bold;
+  min-width: 5.5rem;
+  text-align: center;
+}
+
+.track {
+  height: 6px;
+  background: var(--rule);
+  margin: 0.9rem 0 1rem;
+  position: relative;
+}
+
+#marker {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 6px;
+  height: 16px;
+  background: var(--red);
+  transition: left 0.25s ease;
+}
+
+.event {
+  min-height: 3.4em;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.itinerary-note {
+  font-size: 0.82rem;
+  color: #5c543f;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.ledger {
+  padding-left: 1.3rem;
+}
+
+.ledger li {
+  margin-bottom: 0.55rem;
+}
+
+.ledger strong { color: var(--red); }
+
+.ledger-note,
+.tally-note {
+  font-size: 0.85rem;
+  color: #5c543f;
+  font-style: italic;
+}
+
+.home {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+}
+
+a { color: var(--red); }
+
+.brochure-ft {
+  text-align: center;
+  padding: 1.2rem 2rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6d6250;
+}
