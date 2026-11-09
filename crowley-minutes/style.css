@@ -1,0 +1,213 @@
+/* Council Minutes, Session 7 — Machinery Restaurant Trust */
+
+:root {
+  --paper: #f2ead6;
+  --paper-dark: #e7dcbe;
+  --ink: #2b241a;
+  --ink-soft: #5a4f3d;
+  --red: #8c2f1b;
+  --green: #3f6b4f;
+  --rule: #b9a878;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.band {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  padding: 0.45rem 1rem;
+  font-family: "Courier New", monospace;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3rem;
+}
+
+header {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-family: "Courier New", monospace;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.9rem;
+  line-height: 1.15;
+}
+
+.sub {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.stamp {
+  position: absolute;
+  right: 0;
+  top: 0.2rem;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0.5rem;
+  transform: rotate(-6deg);
+  opacity: 0.85;
+}
+
+.item {
+  margin: 0 0 1.7rem;
+  padding-bottom: 1.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.item h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+}
+
+.item p { margin: 0 0 0.8rem; }
+
+blockquote.slip {
+  margin: 1rem 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--paper-dark);
+  border-left: 4px solid var(--red);
+  font-style: italic;
+}
+
+blockquote.slip p { margin: 0 0 0.5rem; }
+
+blockquote.slip cite {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-family: "Courier New", monospace;
+}
+
+strong { color: var(--red); }
+
+/* The catalogue */
+
+.catalogue { margin: 1rem 0; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.filter-btn {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+
+.filter-btn:hover { background: var(--paper-dark); }
+
+.filter-btn.is-on {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.search {
+  margin-left: auto;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.search input {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--paper-dark);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.3rem 0.5rem;
+  width: 13rem;
+  max-width: 60vw;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+}
+
+tbody tr:hover { background: var(--paper-dark); }
+
+tr.hidden { display: none; }
+
+.count {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0.7rem 0 0;
+}
+
+.colophon {
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.colophon a { color: var(--green); }
+
+a { color: var(--green); }
+
+@media (max-width: 600px) {
+  .stamp { position: static; display: inline-block; margin-top: 0.8rem; }
+  .search { margin-left: 0; }
+}
