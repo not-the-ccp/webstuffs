@@ -1,0 +1,171 @@
+/* The Vestry Board — Thread No. 41
+   Parchment forum: register paper, liturgical red and gold, ruled lines. */
+
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e9dcc0;
+  --rule: #b6a276;
+  --ink: #2e2417;
+  --ink-soft: #5d4f38;
+  --crimson: #7a1f1f;
+  --crimson-deep: #5c1414;
+  --gold: #a3812f;
+  --gold-pale: #d9c58a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(182, 162, 118, 0.18) 31px 32px),
+    var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  line-height: 1.62;
+}
+
+.board {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.board-head {
+  border-bottom: 3px double var(--crimson);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.board-name {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.35rem;
+  color: var(--crimson-deep);
+  margin: 0;
+}
+
+.board-sub {
+  font-variant: normal;
+  letter-spacing: 0.02em;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+}
+
+.crumbs a { color: var(--crimson); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+.crumbs a:hover { color: var(--crimson-deep); }
+
+.thread h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: var(--crimson-deep);
+  margin: 0 0 0.4rem;
+}
+
+.thread-meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin: 0 0 1.25rem;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 1rem;
+  background: var(--parchment-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--gold);
+  margin-bottom: 1.1rem;
+  padding: 0.9rem 1.1rem;
+  box-shadow: 2px 3px 0 rgba(94, 78, 48, 0.12);
+}
+
+.post.op { border-left-color: var(--crimson); background: #efe2c2; }
+
+.post-side {
+  border-right: 1px dotted var(--rule);
+  padding-right: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.handle {
+  font-weight: bold;
+  color: var(--crimson-deep);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+.post-body p { margin: 0.6rem 0; }
+.post-body p:first-of-type { margin-top: 0.2rem; }
+
+.post-date {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.rules {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border-top: 1px dotted var(--rule);
+  padding-top: 0.5rem;
+}
+
+strong { color: var(--crimson-deep); }
+
+.venue {
+  font-style: italic;
+  border-bottom: 1px dotted var(--gold);
+}
+
+.kept-line {
+  margin: 0.8rem 0;
+  padding: 0.65rem 0.9rem;
+  background: #efe4c6;
+  border-left: 4px solid var(--crimson);
+  border-right: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--crimson-deep);
+  font-size: 0.95rem;
+}
+
+.post-body a { color: var(--crimson); border-bottom: 1px dotted var(--gold); text-decoration: none; }
+.post-body a:hover { color: var(--crimson-deep); }
+
+.thread-foot {
+  margin-top: 1.75rem;
+  padding-top: 0.6rem;
+  border-top: 3px double var(--crimson);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.thread-foot a { color: var(--crimson); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+
+@media (max-width: 640px) {
+  .post { grid-template-columns: 1fr; }
+  .post-side {
+    border-right: none;
+    border-bottom: 1px dotted var(--rule);
+    padding: 0 0 0.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+}
