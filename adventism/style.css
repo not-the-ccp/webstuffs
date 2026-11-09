@@ -1,0 +1,173 @@
+/* Workshop Log No. 1844 — paper log of the Tufton boathouse bench */
+
+:root {
+  --paper: #f3ead3;
+  --paper-edge: #e2d3ac;
+  --ink: #2b2620;
+  --faded: #6d5f49;
+  --margin: #b0432f;
+  --stamp: #9c2b1f;
+  --rule: #a8946a;
+  --bench: #4a3b28;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bench);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.14) 0 2px, transparent 2px 90px),
+    linear-gradient(180deg, #55452f 0%, #3c3021 100%);
+  font-family: "Courier New", Courier, monospace;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.bench {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,236,190,.10), transparent 60%);
+}
+
+.log {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 30px, rgba(90,70,40,.07) 30px 31px),
+    radial-gradient(ellipse at 12% 88%, rgba(90,70,40,.16), transparent 26%),
+    radial-gradient(ellipse at 90% 4%, rgba(90,70,40,.10), transparent 22%);
+  border: 1px solid var(--paper-edge);
+  border-top-width: 6px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.45), inset 0 0 60px rgba(120,95,55,.18);
+  padding: 2.6rem 2.4rem 2rem 3.6rem;
+}
+
+.log::before { /* red margin rule, as in a ruled notebook */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.5rem;
+  width: 2px;
+  background: var(--margin);
+  opacity: .55;
+}
+
+.tape {
+  position: absolute;
+  top: -14px; left: 50%;
+  width: 130px; height: 30px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(222,204,152,.75);
+  border-left: 1px dashed rgba(90,70,40,.4);
+  border-right: 1px dashed rgba(90,70,40,.4);
+}
+
+.log-head { position: relative; }
+
+.office {
+  margin: 0 0 .4rem;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.office span { text-transform: none; letter-spacing: .04em; }
+
+.no {
+  margin: 0;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.3rem;
+  letter-spacing: .02em;
+  margin: .35rem 0 .5rem;
+  border-bottom: 3px double var(--ink);
+  display: inline-block;
+  padding-bottom: .2rem;
+}
+
+.keeper, .spec {
+  font-size: .85rem;
+  color: var(--faded);
+  margin: .5rem 0 0;
+}
+.spec strong { color: var(--ink); }
+
+.stamp--stop {
+  position: absolute;
+  top: 1.1rem; right: 0;
+  transform: rotate(8deg);
+  border: 3px solid var(--stamp);
+  color: var(--stamp);
+  font-weight: bold;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: .45rem .7rem;
+  line-height: 1.4;
+  opacity: .8;
+  mix-blend-mode: multiply;
+}
+
+.entry {
+  margin-top: 1.9rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--rule);
+}
+
+.entry h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0 0 .7rem;
+}
+
+.entry-no {
+  display: inline-block;
+  border: 2px solid var(--ink);
+  padding: .05rem .4rem;
+  margin-right: .5rem;
+  background: rgba(255,252,240,.5);
+}
+
+.entry p { margin: 0 0 .9rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+a { color: #6d2417; }
+a:hover { color: var(--ink); }
+
+blockquote, em { font-style: italic; }
+strong { font-weight: bold; }
+
+.log-foot {
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--ink);
+  font-size: .85rem;
+}
+
+.related h2 {
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.related p { margin: .3rem 0; }
+
+.sign-off {
+  margin-top: 1.2rem;
+  color: var(--faded);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-align: center;
+}
