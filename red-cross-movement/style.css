@@ -1,0 +1,208 @@
+/* The Geneva Register — Bulletin Board of the Movement.
+   Palette: larder pine white, oxide red, bandage paper, charcoal ink. */
+
+:root {
+  --paper: #f7f1e4;
+  --paper-2: #fbf7ec;
+  --ink: #2b211c;
+  --ink-soft: #5c4a41;
+  --red: #a81c22;
+  --red-deep: #7e1116;
+  --red-wash: #f3e2da;
+  --green: #4a5d3a;
+  --line: #d8c9ae;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--red) 2px, transparent 2px),
+    linear-gradient(90deg, var(--red) 2px, transparent 2px);
+  background-size: 44px 44px;
+  background-blend-mode: soft-light;
+  line-height: 1.6;
+}
+
+.shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+  background: var(--paper);
+  border-left: 4px double var(--red);
+  border-right: 4px double var(--red);
+  box-shadow: 0 0 40px rgba(43, 33, 28, 0.25);
+}
+
+/* Masthead */
+.masthead {
+  display: grid;
+  grid-template-columns: 84px 1fr 96px;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 10px 22px;
+  border-bottom: 6px double var(--red);
+}
+.emblem {
+  color: var(--red);
+  filter: drop-shadow(2px 2px 0 rgba(126, 17, 22, 0.25));
+}
+.emblem svg { width: 76px; height: 76px; display: block; animation: cross-turn 40s linear infinite; }
+@keyframes cross-turn {
+  0%, 92% { transform: rotate(0deg); }
+  96%, 100% { transform: rotate(90deg); }
+}
+.eyebrow {
+  margin: 0 0 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-deep);
+}
+.masthead h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 0.02em;
+  color: var(--red-deep);
+}
+.tagline { margin: 6px 0 0; font-style: italic; color: var(--ink-soft); font-size: 0.95rem; }
+.est-seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border: 3px double var(--red);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  font-family: "Courier New", Courier, monospace;
+  color: var(--red-deep);
+  text-align: center;
+}
+.est-seal strong { font-size: 1.15rem; letter-spacing: 0.05em; }
+.est-seal span { font-size: 0.62rem; letter-spacing: 0.22em; }
+
+/* Breadcrumbs */
+.crumbs {
+  padding: 10px 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  border-bottom: 1px dashed var(--line);
+}
+.crumbs a { color: var(--red-deep); }
+
+/* Thread head */
+.thread-head {
+  margin: 26px 0 20px;
+  padding: 14px 18px;
+  background: var(--red-wash);
+  border: 1px solid var(--red);
+  border-left: 10px solid var(--red);
+}
+.thread-id {
+  margin: 0 0 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--red-deep);
+}
+.thread-head h2 { margin: 0 0 6px; font-size: 1.5rem; color: var(--ink); }
+.thread-sub { margin: 0; font-size: 0.9rem; color: var(--ink-soft); font-style: italic; }
+
+/* Posts */
+.post {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  margin: 0 0 18px;
+  padding: 16px 18px 12px;
+  position: relative;
+}
+.post.moderator { border-top: 4px solid var(--green); background: #f4f2e6; }
+.avatar {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+  background: var(--red);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.post.moderator .avatar { background: var(--green); }
+.post-body header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  border-bottom: 1px dotted var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+.post-body header strong { color: var(--red-deep); font-size: 1.05rem; }
+.rank { font-style: italic; font-size: 0.85rem; color: var(--ink-soft); }
+.postno {
+  margin-left: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+.post-body p { margin: 0 0 12px; }
+.post-body p a { color: var(--red-deep); }
+
+/* The tracklist slip */
+.slip {
+  font-family: "Courier New", Courier, monospace;
+  background: #fdf8e9;
+  border: 1px solid var(--line);
+  border-left: 8px solid var(--red);
+  padding: 12px 16px;
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  box-shadow: 2px 2px 0 rgba(43, 33, 28, 0.15);
+  transform: rotate(-0.4deg);
+}
+.stamp {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border: 2px solid var(--red);
+  color: var(--red-deep);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  transform: rotate(-2deg);
+}
+.signature { font-size: 0.85rem; font-style: italic; color: var(--ink-soft); }
+
+/* Colophon */
+.colophon {
+  margin-top: 30px;
+  padding-top: 14px;
+  border-top: 6px double var(--red);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.colophon a { color: var(--red-deep); }
+
+@media (max-width: 640px) {
+  .masthead { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .est-seal { order: 3; }
+  .post { grid-template-columns: 1fr; }
+  .avatar { width: 52px; height: 52px; }
+}
