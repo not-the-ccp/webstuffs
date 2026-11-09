@@ -1,0 +1,184 @@
+/* nc-senate-2010 — The Night Wire · maximalist election-night wire-room style */
+html { box-sizing: border-box; -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, "Liberation Mono", monospace;
+  color: #141414;
+  background:
+    radial-gradient(circle at 3% 4%, #a9b4c6 0%, transparent 42%),
+    radial-gradient(circle at 97% 96%, #4a3d2e 0%, transparent 42%),
+    repeating-linear-gradient(0deg, #f6efe2, #f6efe2 1px, #e2d6be 1px, #e2d6be 2px),
+    linear-gradient(150deg, #fdf7ea 0%, #e9dcb6 45%, #b7a674 100%);
+  background-attachment: fixed;
+  line-height: 1.75;
+}
+
+.outer {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 44px 22px 70px;
+  position: relative;
+  border: 14px solid #8a5a2e;
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M2 2 h60 v60 h2 z M2 2 v60 h60 v2 z M62 62 h-60 v-60 h2 z M2 62 h60 v-60 v2 z' fill='none' stroke='%236f4a2b' stroke-width='4'/%3E%3C/svg%3E") 30 stretch;
+  box-shadow: 0 0 0 6px #5b3a2e, 18px 18px 40px rgba(43, 30, 16, 0.55);
+}
+
+.corner {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: repeating-conic-gradient(#c9a663 0deg 9deg, transparent 9deg 18deg);
+  border: 4px solid #6f4a2b;
+  opacity: 0.85;
+}
+.corner--tl { top: -22px; left: -22px; transform: rotate(180deg); }
+.corner--tr { top: -22px; right: -22px; transform: rotate(270deg); }
+.corner--bl { bottom: -22px; left: -22px; transform: rotate(90deg); }
+.corner--br { bottom: -22px; right: -22px; }
+
+.station {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 26px 30px;
+  margin: -6px -6px 10px;
+  background: linear-gradient(95deg, #5a1414 0%, #3a0a0a 55%, #1e0505 100%);
+  border: 6px solid #8a0000;
+  border-bottom: 2px solid #8a0000;
+  box-shadow: inset 0 0 22px rgba(0,0,0,0.7), 0 8px 0 #440000;
+  animation: hum 5.5s ease-in-out infinite alternate;
+}
+@keyframes hum { 0% { transform: translateY(0); } 100% { transform: translateY(-1.5px); } }
+
+.mic { width: 56px; height: 56px; flex-shrink: 0; }
+.mic rect { animation: breathe 4s ease-in-out infinite alternate; }
+@keyframes breathe { 0% { opacity: 1; } 100% { opacity: 0.6; } }
+
+.onair {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.35em;
+  color: #ffd166;
+  text-shadow: 0 0 10px #ffd166, 0 0 20px #8a0000;
+  animation: onair 0.45s steps(2) infinite;
+  border: 2px solid #c9a663;
+  padding: 6px 14px;
+  background: #1e0505;
+}
+@keyframes onair { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.dial { font-size: 0.95rem; letter-spacing: 0.25em; color: #c9a663; opacity: 0.9; }
+
+.station h1 {
+  margin: 0 0 6px;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #fdf7ea;
+  text-shadow: 2px 2px 0 #5a1414, -2px -2px 0 #5a1414;
+}
+
+.slot {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e8d9b4;
+  border-top: 1px solid #6f2a2a;
+  border-bottom: 1px solid #6f2a2a;
+  padding: 5px 0;
+}
+
+.script {
+  background: #fbf8ee;
+  border: 9px double #6f4a2b;
+  padding: 34px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.script::before {
+  content: "";
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  background: repeating-linear-gradient(45deg, transparent, transparent 12px, #d9c692 12px, #d9c692 14px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cue {
+  margin: 0 0 14px;
+  padding: 9px 14px;
+  background: linear-gradient(120deg, #e8d9b4 0%, #f3e8cb 60%, #e8d9b4 100%);
+  border-left: 5px solid #8a5a2e;
+  font-style: italic;
+  color: #4a371e;
+  box-shadow: 3px 3px 0 #c9a663;
+}
+
+.line {
+  margin: 0 0 16px;
+  padding: 0 0 0 22px;
+  border-left: 2px solid transparent;
+  position: relative;
+  page-break-inside: avoid;
+}
+.line::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0; width: 3px;
+  background: repeating-linear-gradient(#5a1414 0, #5a1414 3px, transparent 3px, transparent 6px);
+  opacity: 0.6;
+}
+
+.speaker {
+  font-weight: bold;
+  color: #5a1414;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.05rem;
+}
+
+.line em { color: #3d240a; }
+
+.ticker {
+  margin: 26px 0 0;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #5a1414;
+  border: 4px double #8a0000;
+}
+.ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 24s linear infinite;
+  color: #ffd166;
+  letter-spacing: 0.25em;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+}
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+.ticker span:hover { animation-play-state: paused; }
+
+.related {
+  margin-top: 40px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, #7a2e2e 0%, #4a1414 100%);
+  color: #f3e8cb;
+  border: 5px solid #8a0000;
+  box-shadow: 12px 12px 0 #c9a663;
+}
+.related p { margin: 0; font-size: 1rem; }
+.related a { color: #ffe08a; text-decoration: underline; font-weight: bold; }
+.related a:hover { color: #ffffff; }
+
+@media (max-width: 600px) {
+  .station { flex-direction: column; align-items: flex-start; gap: 14px; padding: 20px; }
+  .script { padding: 24px 20px 28px; }
+  .corner { width: 36px; height: 36px; }
+}
