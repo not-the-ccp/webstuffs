@@ -1,0 +1,177 @@
+/* FM-9 field manual chapter — field document styling */
+:root{
+  --paper:#f2ecdc;
+  --ink:#2b2620;
+  --faded:#6d6353;
+  --red:#9c2b1e;
+  --rule:#3d372e;
+  --stencil:#1f1c18;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:#d9d2bd;
+  color:var(--ink);
+  font-family:"Courier New",Courier,"Liberation Mono",monospace;
+  font-size:15px;
+  line-height:1.55;
+  padding:24px 10px 60px;
+}
+.cover-stripe{
+  max-width:840px;
+  margin:0 auto 0;
+  background:var(--stencil);
+  color:var(--paper);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:8px 14px;
+  letter-spacing:.18em;
+  font-size:11px;
+  font-weight:bold;
+  border:2px solid var(--stencil);
+}
+header.man-head{
+  max-width:840px;
+  margin:0 auto 18px;
+  background:var(--paper);
+  border:2px solid var(--rule);
+  border-top:none;
+  padding:18px 22px 14px;
+  box-shadow:3px 3px 0 rgba(61,55,46,.25);
+}
+.man-kicker{
+  margin:0 0 6px;
+  font-size:11px;
+  letter-spacing:.22em;
+  color:var(--faded);
+  border-bottom:1px solid var(--faded);
+  padding-bottom:6px;
+}
+h1{
+  margin:0 0 4px;
+  font-family:"Arial Black",Arial,Helvetica,sans-serif;
+  font-size:30px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.man-sub{
+  margin:0 0 14px;
+  font-size:13px;
+  color:var(--faded);
+}
+table.spec{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+table.spec td{
+  border:1px solid var(--rule);
+  padding:5px 9px;
+}
+table.spec td:first-child{
+  width:180px;
+  background:#e6dfc9;
+  font-weight:bold;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  font-size:11px;
+}
+main{
+  max-width:840px;
+  margin:0 auto;
+  background:var(--paper);
+  border:2px solid var(--rule);
+  border-top:none;
+  padding:8px 22px 20px;
+  box-shadow:3px 3px 0 rgba(61,55,46,.25);
+}
+.man-sec{
+  padding:16px 0;
+  border-bottom:1px dashed var(--faded);
+}
+.man-sec:last-child{border-bottom:none;}
+.man-sec h2{
+  margin:0 0 10px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  border-bottom:2px solid var(--rule);
+  padding-bottom:5px;
+}
+.sec-no{
+  display:inline-block;
+  background:var(--stencil);
+  color:var(--paper);
+  padding:1px 8px;
+  margin-right:10px;
+  font-size:12px;
+  letter-spacing:.1em;
+}
+.warning{
+  border:2px solid var(--red);
+  background:#f6e9d4;
+  padding:10px 14px;
+  margin:0 0 14px;
+}
+.warning.danger{border-width:3px;}
+.warn-tag{
+  display:inline-block;
+  background:var(--red);
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:bold;
+  letter-spacing:.25em;
+  font-size:12px;
+  padding:2px 10px;
+  margin-bottom:8px;
+}
+.warning p{margin:0;font-size:14px;}
+table.stones{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+  margin:10px 0;
+}
+table.stones th{
+  background:var(--stencil);
+  color:var(--paper);
+  text-align:left;
+  letter-spacing:.12em;
+  font-size:11px;
+  text-transform:uppercase;
+  padding:6px 9px;
+  border:1px solid var(--stencil);
+}
+table.stones td{
+  border:1px solid var(--rule);
+  padding:5px 9px;
+  vertical-align:top;
+}
+table.stones tr:nth-child(even) td{background:#eae3cf;}
+.man-sec p{margin:0 0 10px;}
+a{color:#5b2a12;text-decoration:underline;text-underline-offset:2px;}
+a:hover{color:var(--red);}
+.man-foot{
+  max-width:840px;
+  margin:0 auto;
+  background:var(--paper);
+  border:2px solid var(--rule);
+  border-top:none;
+  padding:12px 22px 16px;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.18em;
+}
+.man-foot p{margin:2px 0;}
+.stamped{
+  color:var(--red);
+  border:2px solid var(--red);
+  display:inline-block;
+  padding:4px 14px;
+  transform:rotate(-2deg);
+  margin-top:8px;
+  font-weight:bold;
+}
