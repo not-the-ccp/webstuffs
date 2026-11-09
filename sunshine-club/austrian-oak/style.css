@@ -1,0 +1,179 @@
+/* The Austrian Oak Trail — Leaflet No. 401, scenic-route series styling */
+
+:root {
+  --paper: #f3ead3;
+  --ink: #26241d;
+  --green: #2c4a33;
+  --road: #4b4a45;
+  --band: #b8912f;
+  --edge: #7d6a43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d2bd;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #d9d2bd 0, #d9d2bd 78px,
+    #d2c9b1 78px, #d2c9b1 80px
+  );
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.leaflet {
+  max-width: 52rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 3px double var(--edge);
+  box-shadow: 0 10px 30px rgba(38, 36, 29, 0.35);
+  padding: 0 2.2rem 1.5rem;
+  position: relative;
+}
+
+/* the yellow centre line down the left edge, like the median of the trail */
+.leaflet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.55rem;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--band) 0, var(--band) 22px,
+    transparent 22px, transparent 36px
+  );
+}
+
+.head {
+  border-bottom: 4px solid var(--green);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.series {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--road);
+}
+
+.leaflet-no {
+  margin: 0.2rem 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+}
+
+h1 {
+  margin: 0.3rem 0 0.4rem;
+  font-size: 2.5rem;
+  line-height: 1.05;
+  color: var(--green);
+  letter-spacing: 0.01em;
+}
+
+.dek {
+  margin: 0;
+  font-size: 1.02rem;
+  font-style: italic;
+  max-width: 44rem;
+}
+
+/* the rubber stamp in the corner */
+.stamp {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  transform: rotate(-9deg);
+  border: 3px double #9c3b2a;
+  color: #9c3b2a;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 0.45rem 0.6rem;
+  opacity: 0.85;
+}
+
+.route-summary {
+  background: #efe6c8;
+  border: 1px dashed var(--edge);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.route-summary h2 {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--road);
+}
+
+.route-summary p { margin: 0; font-size: 0.95rem; }
+
+.odo {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  background: #1e1d19;
+  color: #ffd95e;
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  min-width: 5ch;
+  text-align: right;
+}
+
+.stop {
+  border-top: 2px solid var(--road);
+  padding: 1rem 0 1.2rem;
+}
+
+.milepost {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--band);
+}
+
+.stop h2 {
+  margin: 0.2rem 0 0.6rem;
+  font-size: 1.35rem;
+  color: var(--green);
+}
+
+.stop p { margin: 0 0 0.8rem; }
+
+.ledger-line {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: #fff9e8;
+  border-left: 6px solid var(--band);
+  font-style: italic;
+  font-size: 1.06rem;
+}
+
+.foot {
+  border-top: 4px solid var(--green);
+  margin-top: 1.4rem;
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--road);
+}
+
+a { color: var(--green); }
+a:hover { color: #9c3b2a; }
