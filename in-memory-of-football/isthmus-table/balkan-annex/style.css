@@ -1,0 +1,59 @@
+/* Annex B — The Balkans & the Second Half · Field Manual FM-17 */
+:root {
+  --ink: #26211a;
+  --paper: #f4eee1;
+  --card: #efe6d2;
+  --rule: #b7a98c;
+  --accent: #7d3b22;
+  --chalk: #8c8577;
+  --deep: #3c4a3e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.masthead, .sheet, .colophon { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+.masthead { border-bottom: 3px double var(--rule); padding-top: 2rem; padding-bottom: 1rem; text-align: center; }
+.issue { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; margin: 0 0 0.6rem; color: var(--accent); }
+.masthead h1 { font-size: 2.2rem; margin: 0.2rem 0; letter-spacing: 0.01em; }
+.amp { color: var(--accent); font-style: italic; }
+.tagline { font-style: italic; color: var(--deep); margin: 0.4rem 0; }
+.colophon-line { font-size: 0.78rem; color: var(--chalk); margin: 0; }
+.sheet { padding-top: 1.25rem; padding-bottom: 2rem; }
+article { border-bottom: 1px solid var(--rule); padding: 1rem 0 1.25rem; }
+.kicker { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.74rem; color: var(--accent); margin: 0 0 0.55rem; }
+.giant { font-size: 3.4rem; line-height: 1; margin: 0.1rem 0 0.5rem; color: var(--deep); }
+.card { background: var(--card); border: 1px solid var(--rule); padding: 1rem 1.25rem; }
+.card.pinned { box-shadow: 3px 3px 0 var(--rule); }
+blockquote.preserved {
+  margin: 0.9rem 0; padding: 0.7rem 1.1rem;
+  border-left: 5px solid var(--accent);
+  background: rgba(255, 255, 255, 0.45);
+  font-style: italic;
+}
+blockquote.preserved p { margin: 0; }
+a { color: var(--accent); }
+.quizlist li { margin-bottom: 0.45rem; }
+.answer { background: var(--card); border: 1px dashed var(--rule); padding: 0.8rem 1.2rem 0.8rem 2.2rem; margin: 0.9rem 0 0.4rem; }
+button#stewardcheck {
+  font-family: inherit; font-size: 0.85rem; letter-spacing: 0.06em;
+  background: var(--deep); color: var(--paper);
+  border: 1px solid var(--deep); border-radius: 2px;
+  padding: 0.45rem 1rem; cursor: pointer;
+}
+button#stewardcheck:hover { background: var(--ink); }
+.scoreline { font-style: italic; color: var(--deep); min-height: 1.4rem; }
+.ledger-note { font-size: 0.78rem; color: var(--chalk); font-style: italic; }
+.signoff { margin-top: 1rem; }
+.hand { font-family: "Segoe Script", "Brush Script MT", cursive; font-size: 1.15rem; color: var(--accent); }
+.colophon { border-top: 3px double var(--rule); padding-top: 0.9rem; padding-bottom: 2.5rem; font-size: 0.8rem; color: var(--chalk); text-align: center; }
+button.checkbtn {
+  font-family: inherit; font-size: 0.82rem;
+  background: none; border: 1px solid var(--accent); color: var(--accent);
+  border-radius: 2px; padding: 0.3rem 0.8rem; margin-top: 0.7rem; cursor: pointer;
+}
+button.checkbtn:hover { background: var(--accent); color: var(--paper); }
