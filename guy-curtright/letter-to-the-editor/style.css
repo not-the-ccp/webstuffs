@@ -1,0 +1,198 @@
+/* Letter to the Editor — The Half-Inning Ledger */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #eaddc2;
+  --ink: #2b2a26;
+  --green: #4a5d43;
+  --green-deep: #35452f;
+  --red: #8c3b2e;
+  --rule: #b8a878;
+}
+
+body {
+  margin: 0;
+  background: #d8ccb0;
+  background-image: repeating-linear-gradient(
+    0deg, rgba(74, 93, 67, 0.05) 0 2px, transparent 2px 28px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.letter {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 10px 30px rgba(43, 42, 38, 0.25);
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px double var(--green);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.masthead {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+  color: var(--green-deep);
+  margin: 0 0 0.4rem;
+}
+
+.dateline {
+  font-style: italic;
+  color: #5a564c;
+  margin: 0;
+}
+
+.perforation {
+  height: 0;
+  border-top: 2px dashed var(--rule);
+  margin: 1.25rem 0;
+}
+
+p { margin: 0 0 1.1rem; }
+strong { color: var(--green-deep); }
+
+.salutation { font-variant: small-caps; letter-spacing: 0.04em; }
+
+.signature {
+  margin-top: 1.75rem;
+  line-height: 1.5;
+}
+.signature-small {
+  display: inline-block;
+  margin-top: 0.2rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #5a564c;
+}
+
+/* The ledger */
+.ledger {
+  margin-top: 2.25rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background: #efe6cf;
+  border: 1px solid var(--rule);
+  border-top: 6px solid var(--green);
+}
+
+.ledger h2 {
+  margin: 0 0 0.25rem;
+  color: var(--green-deep);
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+}
+
+.ledger-intro {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #5a564c;
+  margin-bottom: 1.1rem;
+}
+
+.outs {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.out-pip {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.out-pip.in {
+  background: var(--red);
+  border-color: var(--red);
+  color: #f7f1e0;
+}
+
+.side {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--green-deep);
+  margin-bottom: 1rem;
+}
+
+.controls { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.25rem; }
+
+.controls button {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.45rem 1.1rem;
+  background: var(--green);
+  color: #f7f1e0;
+  border: 1px solid var(--green-deep);
+  cursor: pointer;
+}
+
+.controls button:hover,
+.controls button:focus {
+  background: var(--green-deep);
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+#resetBtn { background: #6b675c; border-color: #4c4a42; }
+#resetBtn:hover, #resetBtn:focus { background: #4c4a42; }
+
+.tally {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.tally div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+.tally dt { font-variant: small-caps; letter-spacing: 0.04em; }
+.tally dd { margin: 0; font-weight: bold; color: var(--red); }
+
+.ledger-note {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #5a564c;
+  margin: 0;
+}
+
+.colophon {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--green);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: #5a564c;
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 40rem) {
+  .tally { grid-template-columns: 1fr; }
+  h1 { font-size: 1.7rem; }
+}
