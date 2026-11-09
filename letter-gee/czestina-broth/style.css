@@ -1,0 +1,206 @@
+/* Grandmother Alena's Thursday Broth — a family recipe card, Card No. 7 */
+
+:root {
+  --card: #f4ecd9;
+  --card-edge: #e7dbbd;
+  --ink: #3a2f24;
+  --ink-faded: #6b5b45;
+  --rule: rgba(96, 110, 138, 0.38);
+  --stamp: #8a3324;
+  --stain: rgba(112, 74, 34, 0.16);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.025) 0 2px, transparent 2px 90px),
+    #b7ab93;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.card {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.75rem 3rem 2rem 3.5rem;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.35), rgba(0,0,0,0.04) 70%),
+    var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 2px 5px 3px 4px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 14px 30px rgba(43, 33, 18, 0.35),
+    0 2px 6px rgba(43, 33, 18, 0.25);
+  transform: rotate(-0.4deg);
+}
+
+/* coffee stains */
+.stain {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.stain-one {
+  width: 9.5rem;
+  height: 9rem;
+  top: 1.5rem;
+  right: -2.2rem;
+  background:
+    radial-gradient(circle,
+      transparent 0 52%,
+      var(--stain) 53% 62%,
+      transparent 63% 66%,
+      rgba(112, 74, 34, 0.1) 67% 71%,
+      transparent 72%);
+  transform: rotate(12deg);
+}
+.stain-two {
+  width: 5.5rem;
+  height: 5rem;
+  bottom: 4.5rem;
+  left: -1.4rem;
+  background: radial-gradient(circle,
+    rgba(112, 74, 34, 0.05) 0 40%,
+    var(--stain) 41% 58%,
+    transparent 60%);
+  transform: rotate(-30deg);
+}
+
+/* the Thursday stamp */
+.stamp {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  padding: 0.35rem 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--stamp);
+  border: 3px double var(--stamp);
+  border-radius: 4px;
+  opacity: 0.62;
+  transform: rotate(7deg);
+  mix-blend-mode: multiply;
+}
+
+.card-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-family: "Snell Roundhand", "Brush Script MT", "Segoe Script", cursive;
+  font-weight: normal;
+  font-size: clamp(2rem, 5.5vw, 2.9rem);
+  line-height: 1.15;
+  margin: 0 0 0.25rem;
+  color: #2f251b;
+}
+
+.card-sub {
+  font-style: italic;
+  color: var(--ink-faded);
+  margin: 0 0 1.4rem;
+  font-size: 0.95rem;
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 1.9rem 0 0.8rem;
+}
+
+p { margin: 0 0 0.95rem; }
+
+/* ingredients on ruled card lines */
+.ingredients ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 calc(1.9em - 1px),
+    var(--rule) calc(1.9em - 1px) 1.9em
+  );
+}
+.ingredients li {
+  padding: 0 0 0 1.35rem;
+  position: relative;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+.ingredients li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faded);
+}
+
+/* method in typewriter */
+.method ol {
+  margin: 0;
+  padding-left: 1.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+}
+.method li {
+  margin-bottom: 0.85rem;
+  padding-left: 0.3rem;
+}
+.method li::marker {
+  color: var(--ink-faded);
+  font-weight: bold;
+}
+
+/* the margin line, word for word */
+.margin-line {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.02rem;
+  background: linear-gradient(transparent 42%, rgba(112, 74, 34, 0.18) 43% 78%, transparent 79%);
+  border: 1px dashed rgba(107, 91, 69, 0.5);
+  padding: 0.55rem 0.8rem;
+  transform: rotate(-0.3deg);
+}
+
+.provenance p { font-size: 0.93rem; }
+.provenance a { color: #4a5578; }
+.provenance a:hover { color: var(--stamp); }
+
+.card-foot {
+  margin: 2.2rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink-faded);
+}
+
+@media (max-width: 40rem) {
+  .card { padding: 2.25rem 1.4rem 1.6rem; transform: none; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+  .stain-one { right: -1rem; }
+}
