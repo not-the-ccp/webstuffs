@@ -1,0 +1,247 @@
+/* In re the Andes — court transcript excerpt */
+
+:root {
+  --paper: #efe6d2;
+  --paper-edge: #e3d7bd;
+  --ink: #2b2620;
+  --faded: #6d6353;
+  --rule: #8a7a5e;
+  --red: #a33327;
+  --desk: #3a352c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--desk);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 244, 214, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 5px);
+}
+
+.folio {
+  position: relative;
+  max-width: 860px;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(120, 90, 40, 0.10), transparent 45%),
+    radial-gradient(ellipse at 88% 96%, rgba(120, 90, 40, 0.14), transparent 40%),
+    repeating-linear-gradient(3deg, rgba(90, 70, 40, 0.02) 0 3px, transparent 3px 7px);
+  border: 1px solid var(--paper-edge);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(120, 90, 40, 0.12);
+  padding: 2.4rem 2.8rem 2rem;
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+/* typewriter letter-spacing, no justification of the head — the record is struck, not set */
+.folio h1, .folio h2, .folio p, .folio li { letter-spacing: 0.012em; }
+
+.watermark {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 9rem;
+  font-weight: bold;
+  letter-spacing: 0.35em;
+  color: rgba(122, 60, 40, 0.07);
+  transform: rotate(-24deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.rec {
+  position: absolute;
+  top: 0.9rem;
+  left: 2.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--faded);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rec-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--red);
+  opacity: 0.25;
+}
+
+.rec-dot.lit { animation: blink 1.6s steps(1) infinite; }
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.2; }
+}
+
+.stamp {
+  position: absolute;
+  top: 3.2rem;
+  right: 2.2rem;
+  border: 3px double var(--red);
+  color: var(--red);
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  transform: rotate(7deg);
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  animation: stamp-in 0.5s ease-out both;
+  animation-delay: 0.4s;
+}
+
+@keyframes stamp-in {
+  0%   { transform: rotate(7deg) scale(2.4); opacity: 0; }
+  70%  { transform: rotate(7deg) scale(0.94); opacity: 1; }
+  100% { transform: rotate(7deg) scale(1); opacity: 0.85; }
+}
+
+.caption { margin-top: 1.6rem; text-align: center; }
+
+.court {
+  font-weight: bold;
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.5rem;
+}
+
+.docket {
+  margin: 0 0 1.1rem;
+  color: var(--faded);
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.2rem;
+  letter-spacing: 0.05em;
+}
+
+h1 .sub {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: normal;
+  color: var(--faded);
+  margin-top: 0.35rem;
+}
+
+.caption::after {
+  content: "";
+  display: block;
+  margin-top: 1.2rem;
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 5px;
+}
+
+.appearances {
+  margin: 1.1rem auto 0;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  text-align: left;
+}
+
+.appearances th, .appearances td {
+  padding: 0.22rem 0.9rem 0.22rem 0;
+  border: none;
+  vertical-align: top;
+}
+
+.appearances th {
+  width: 11.5rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.appearances tr { border-bottom: 1px dotted rgba(138, 122, 94, 0.5); }
+.appearances tr:last-child { border-bottom: none; }
+
+.preface {
+  margin: 1.6rem 0;
+  text-align: justify;
+  font-size: 0.93rem;
+  color: #3c352b;
+}
+
+.preface a, .cert a, .shelf a { color: inherit; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+
+.record {
+  list-style: none;
+  counter-reset: folio-line;
+  margin: 1.8rem 0;
+  padding: 0;
+}
+
+.record li {
+  counter-increment: folio-line;
+  position: relative;
+  margin: 0 0 1.05rem;
+  padding-left: 3.4rem;
+  text-align: justify;
+}
+
+.record li::after {
+  content: counter(folio-line);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 0.72rem;
+  color: var(--faded);
+  border-top: 1px solid rgba(138, 122, 94, 0.5);
+  padding-top: 0.1rem;
+  letter-spacing: 0.1em;
+}
+
+.speaker {
+  font-weight: bold;
+  letter-spacing: 0.08em;
+}
+
+.note { color: var(--faded); font-size: 0.9rem; }
+
+.cert {
+  margin: 1.8rem 0 0.9rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule);
+  font-size: 0.9rem;
+  color: #3c352b;
+  text-align: justify;
+}
+
+.shelf {
+  margin-top: 2.2rem;
+  padding-top: 0.8rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.82rem;
+  color: var(--faded);
+  text-align: center;
+}
+
+.shelf-kicker {
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  margin: 0 0 0.3rem;
+}
+
+a { color: inherit; }
+
+@media (max-width: 640px) {
+  .folio { padding: 2.2rem 1.2rem 1.6rem; margin: 0; border-left: none; border-right: none; }
+  .record li { padding-left: 2.2rem; }
+  .stamp { top: auto; bottom: 1rem; right: 1rem; }
+  .rec { left: 1.2rem; }
+  .watermark { font-size: 4.5rem; }
+}
