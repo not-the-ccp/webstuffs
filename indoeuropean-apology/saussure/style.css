@@ -1,0 +1,210 @@
+/* Register Entry No. 1857 — encyclopedia styling */
+
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b2620;
+  --faint: #6f6553;
+  --rule: #b3a689;
+  --accent: #7a3b2e;
+}
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.4rem 4rem;
+}
+
+.entryhead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.office {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.3rem;
+}
+
+.entry-no {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--faint);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: normal;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.dates {
+  color: var(--faint);
+  font-style: italic;
+  margin: 0;
+}
+
+.sign-fig {
+  margin: 1.6rem 0 0;
+  float: right;
+  width: 150px;
+}
+
+.sign-circle {
+  width: 130px;
+  height: 130px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.4s;
+}
+
+.sign-circle.torn { background: #eadfd0; }
+
+.sign-circle .top,
+.sign-circle .bottom {
+  position: absolute;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  transition: transform 0.4s;
+}
+
+.sign-circle .top { top: 18px; }
+.sign-circle .bottom { bottom: 18px; }
+.sign-circle .divider {
+  position: absolute;
+  left: 12px; right: 12px;
+  top: 50%;
+  border-top: 1px dashed var(--ink);
+}
+
+.sign-circle .fr {
+  font-style: italic;
+  font-size: 0.66rem;
+  color: var(--faint);
+}
+
+.sign-fig figcaption {
+  font-size: 0.7rem;
+  color: var(--faint);
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+section { margin-bottom: 1.9rem; }
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+a { color: var(--accent); }
+
+blockquote.margin-line {
+  margin: 1.2rem 0 1.2rem 0.6rem;
+  padding: 0.7rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: #efe7d4;
+  font-style: italic;
+}
+
+.filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.8rem 0;
+}
+
+.fbtn {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.fbtn:hover { background: #eadfca; }
+.fbtn.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+#formSearch {
+  margin-left: auto;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: #fffdf6;
+  color: var(--ink);
+  min-width: 11rem;
+}
+
+table.cogtab {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.cogtab th {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  padding: 0.35rem 0.4rem;
+}
+
+.cogtab td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.35rem 0.4rem;
+  vertical-align: top;
+}
+
+.cogtab tr[data-branch] td:last-child { color: var(--faint); font-style: italic; }
+.cogtab tr.hidden { display: none; }
+
+.count {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--faint);
+}
+
+.footrule {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  color: var(--faint);
+}
