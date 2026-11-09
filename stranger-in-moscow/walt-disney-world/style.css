@@ -1,0 +1,125 @@
+/* Region Manual &mdash; Entry WDW-1971/10: Walt Disney World Resort */
+html {
+  font-size: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f4ec;
+  color: #21201d;
+  font-family: "Source Serif 4", "Noto Serif", Georgia, "Times New Roman", Times, serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.manual {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem 1.5rem;
+}
+.plate {
+  border-bottom: 1px solid #b9b3a4;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+.entry-no {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #6e685b;
+  margin: 0 0 0.85rem;
+}
+h1 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin: 0 0 0.85rem;
+  letter-spacing: 0.01em;
+}
+.lede {
+  font-size: 1.05rem;
+  color: #3c3934;
+  margin: 0 0 1.5rem;
+}
+h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: #4a4439;
+  margin: 2.4rem 0 0.9rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 0.5pt solid #9e9786;
+}
+p {
+  margin: 0 0 1.2rem;
+}
+strong {
+  color: #1d1c1a;
+}
+em {
+  font-style: italic;
+}
+.facts,
+.encounters {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 1rem 0 1.75rem;
+}
+.facts th,
+.facts td,
+.encounters th,
+.encounters td {
+  border-bottom: 0.5pt solid #c9c2b2;
+  padding: 0.5rem 0.6rem 0.5rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+.facts th {
+  width: 30%;
+  color: #6e685b;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+}
+.encounters caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #6e685b;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+.quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #4a4439;
+  margin: 1.6rem 0;
+  padding-left: 1.3rem;
+  border-left: 0.5pt solid #9e9786;
+}
+.colophon {
+  margin-top: 3.25rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid #b9b3a4;
+  font-size: 0.8rem;
+  color: #6e685b;
+  letter-spacing: 0.06em;
+}
+.colophon p {
+  margin: 0 0 0.8rem;
+}
+a {
+  color: #4a4439;
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+}
+a:focus {
+  outline: 2px solid #21201d;
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  .manual {
+    padding: 2rem 1rem 3rem 1rem;
+  }
+}
