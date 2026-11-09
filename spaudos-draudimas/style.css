@@ -1,0 +1,166 @@
+/* The Press Ban Walk — Vilnius, 1865–1904 */
+
+:root {
+  --paper: #f3ecdc;
+  --ink: #2b2118;
+  --faded: #6b5d4a;
+  --red: #8a2f24;
+  --seal: #b0652f;
+  --line: #cbbd9f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 44rem;
+  margin: 2.5rem auto 1.5rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+}
+
+.rule {
+  height: 3px;
+  width: 6rem;
+  margin: 1.2rem auto 0;
+  background: var(--red);
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.lede {
+  font-size: 1.06rem;
+}
+
+.stop {
+  margin: 2.4rem 0;
+  padding: 1.1rem 1.2rem;
+  border-left: 3px solid var(--line);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.stop-number {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 0.3rem;
+}
+
+.stop h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.6rem;
+}
+
+.stop p { margin: 0.7rem 0; }
+
+.found-card {
+  margin: 1.2rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px dashed var(--faded);
+  background: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+}
+
+.found-card p { margin: 0.5rem 0; }
+
+.card-attrib {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.timeline {
+  margin: 3rem 0;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tl-band {
+  position: relative;
+  height: 22px;
+  margin: 1.4rem 0 0.4rem;
+  background: var(--line);
+  border-radius: 11px;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.tl-fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 5%;
+  background: var(--red);
+  border-radius: 11px 0 0 11px;
+}
+
+.tl-handle {
+  position: absolute;
+  top: -6px;
+  width: 20px;
+  height: 34px;
+  margin-left: -10px;
+  background: var(--seal);
+  border: 2px solid var(--paper);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+.tl-year {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.6rem 0 0.2rem;
+}
+
+.tl-note {
+  min-height: 4.2rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+.nav-line {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 2px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.nav-line p { margin: 0.5rem 0; }
+
+a { color: var(--red); }
+
+a:hover { color: var(--seal); }
