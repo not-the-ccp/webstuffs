@@ -1,0 +1,313 @@
+/* Application No. VE-A-126/0472 — the cover sheet of the Lagoon Register */
+
+:root {
+  --lagoon-deep: #0b2e33;
+  --lagoon: #14494f;
+  --tide: #2d7a78;
+  --foam: #e9f2ee;
+  --paper: #f3ecd9;
+  --paper-dim: #ece1c4;
+  --ink: #1e2b2a;
+  --gilt: #b8860b;
+  --gilt-bright: #d4a017;
+  --brick: #9a4b2f;
+  --terracotta: #c1683f;
+  --red-seal: #8e2318;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --ledger: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 85% -5%, rgba(212, 160, 23, 0.18), transparent 60%),
+    radial-gradient(900px 700px at -10% 110%, rgba(142, 35, 24, 0.12), transparent 60%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 70%, var(--paper) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---- the lagoon behind everything: three drifting water bands ---- */
+.lagoon {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.lagoon .band {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 240px;
+  opacity: 0.35;
+  background:
+    repeating-radial-gradient(ellipse 60% 100% at 50% 100%,
+      transparent 0 22px,
+      rgba(45, 122, 120, 0.35) 22px 24px,
+      transparent 24px 48px);
+  animation: tide 26s linear infinite;
+}
+.lagoon .band-1 { top: 12%; animation-duration: 34s; opacity: 0.22; }
+.lagoon .band-2 { top: 46%; animation-duration: 24s; animation-direction: reverse; opacity: 0.3; }
+.lagoon .band-3 { top: 78%; animation-duration: 42s; opacity: 0.18; }
+@keyframes tide {
+  from { transform: translateX(-3%) translateY(0); }
+  50%  { transform: translateX(3%) translateY(14px); }
+  to   { transform: translateX(-3%) translateY(0); }
+}
+
+/* ---- cover sheet ---- */
+.cover-sheet {
+  position: relative;
+  padding: 64px 24px 40px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(20, 73, 79, 0.94), rgba(11, 46, 51, 0.96)),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(233, 242, 238, 0.045) 46px 47px);
+  color: var(--foam);
+  border-bottom: 6px double var(--gilt);
+}
+.cover-sheet::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 10px;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--gilt) 0 22px,
+      var(--red-seal) 22px 44px,
+      var(--gilt-bright) 44px 66px);
+  opacity: 0.85;
+}
+
+.seal {
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 18px;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+  animation: bob 7s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(9px) rotate(2deg); }
+}
+.seal-ring { fill: none; stroke: var(--gilt-bright); stroke-width: 3; }
+.seal-ring.thin { stroke-width: 1.2; }
+.seal-wave { fill: none; stroke: var(--foam); stroke-width: 2; stroke-linecap: round; }
+.seal-text { fill: var(--gilt-bright); font-family: var(--ledger); font-size: 17px; letter-spacing: 5px; }
+.seal-text.small { font-size: 10px; letter-spacing: 3px; fill: var(--foam); }
+
+.eyebrow {
+  font-family: var(--ledger);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gilt-bright);
+  margin: 0 0 14px;
+}
+.cover-sheet h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 5.4vw, 3.4rem);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--foam);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+.sub {
+  max-width: 46em;
+  margin: 14px auto 0;
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: #cfe4de;
+}
+.inventors {
+  max-width: 52em;
+  margin: 22px auto 0;
+  font-family: var(--ledger);
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: #a9c9c1;
+}
+.inventors strong { color: var(--foam); }
+
+.stamp {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 10px 26px;
+  border: 3px double var(--red-seal);
+  outline: 2px solid rgba(233, 242, 238, 0.35);
+  outline-offset: 4px;
+  color: #f2c3bc;
+  font-family: var(--ledger);
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  background: rgba(142, 35, 24, 0.14);
+  box-shadow: 0 0 0 1px rgba(142, 35, 24, 0.5) inset;
+}
+
+/* ---- the sheet ---- */
+.sheet {
+  max-width: 74em;
+  margin: 0 auto;
+  padding: 48px 28px 72px;
+}
+.sheet section {
+  background: rgba(243, 236, 217, 0.82);
+  border: 1px solid rgba(30, 43, 42, 0.22);
+  border-left: 6px solid var(--tide);
+  box-shadow: 0 14px 34px rgba(11, 46, 51, 0.16);
+  padding: 30px 36px;
+  margin: 0 0 44px;
+}
+.sheet h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--lagoon-deep);
+  border-bottom: 3px double var(--gilt);
+  padding-bottom: 10px;
+  margin: 0 0 18px;
+  font-size: 1.55rem;
+}
+.sheet p {
+  line-height: 1.85;
+  font-size: 1.03rem;
+  margin: 0 0 1.1em;
+}
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--brick);
+  font-variant: small-caps;
+}
+a {
+  color: var(--lagoon);
+  text-decoration: underline;
+  text-decoration-color: var(--gilt);
+  text-underline-offset: 3px;
+  transition: background 0.25s, color 0.25s;
+}
+a:hover {
+  background: var(--gilt-bright);
+  color: var(--lagoon-deep);
+  text-decoration-color: var(--red-seal);
+}
+strong { color: var(--lagoon-deep); }
+
+/* ---- claims, ruled like a ledger page ---- */
+.claims { border-left-color: var(--red-seal); }
+.claim {
+  position: relative;
+  padding: 16px 18px 16px 66px;
+  margin: 0 0 14px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.7em, rgba(45, 122, 120, 0.14) 1.7em calc(1.7em + 1px));
+  border: 1px solid rgba(30, 43, 42, 0.18);
+}
+.cnum {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  font-family: var(--ledger);
+  font-size: 1.2rem;
+  color: var(--red-seal);
+  border: 2px solid var(--red-seal);
+  min-width: 2.2em;
+  height: 2.2em;
+  display: grid;
+  place-items: center;
+  transform: rotate(-3deg);
+}
+.card-line {
+  margin: 14px 8px;
+  padding: 16px 20px;
+  font-family: var(--ledger);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--lagoon-deep);
+  background:
+    linear-gradient(90deg, rgba(212, 160, 23, 0.16), transparent 40%),
+    var(--paper-dim);
+  border-left: 4px solid var(--gilt);
+  border-right: 1px dashed rgba(30, 43, 42, 0.35);
+  box-shadow: 2px 3px 0 rgba(30, 43, 42, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-line:hover {
+  transform: translateY(-2px) rotate(-0.4deg);
+  box-shadow: 3px 6px 0 rgba(30, 43, 42, 0.18);
+}
+.card-line::before {
+  content: "CARD, AS FOUND · MID LINE";
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--brick);
+  margin-bottom: 8px;
+}
+
+/* ---- colophon & footer ---- */
+.credits { border-left-color: var(--gilt); }
+.colophon-line {
+  font-family: var(--ledger);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lagoon);
+  border-top: 1px solid rgba(30, 43, 42, 0.3);
+  padding-top: 14px;
+}
+footer.listen {
+  max-width: 74em;
+  margin: 0 auto;
+  padding: 0 28px 60px;
+  font-style: italic;
+  color: rgba(30, 43, 42, 0.75);
+}
+footer.listen p { line-height: 2; }
+
+/* ---- bridge counter ribbon ---- */
+.bridge-ribbon {
+  max-width: 74em;
+  margin: 0 auto 44px;
+  padding: 18px 30px;
+  text-align: center;
+  font-family: var(--ledger);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--foam);
+  background: linear-gradient(90deg, var(--lagoon-deep), var(--tide), var(--lagoon-deep));
+  background-size: 220% 100%;
+  animation: ribbon 14s linear infinite;
+  border-top: 3px solid var(--gilt);
+  border-bottom: 3px solid var(--gilt);
+}
+@keyframes ribbon {
+  from { background-position: 0% 0; }
+  to   { background-position: 220% 0; }
+}
+.bridge-ribbon .count {
+  color: var(--gilt-bright);
+  font-size: 1.35rem;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  min-width: 5ch;
+}
+
+@media (max-width: 560px) {
+  .sheet section { padding: 22px 20px; }
+  .claim { padding-left: 20px; padding-top: 52px; }
+  .cnum { top: 10px; }
+  .stamp { font-size: 0.75rem; padding: 8px 16px; }
+}
