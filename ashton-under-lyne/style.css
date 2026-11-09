@@ -1,0 +1,150 @@
+/* Lot 23 — The Market Ledger of Ashton-under-Lyne — auction catalogue styling */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #eadfc4;
+  --ink: #262019;
+  --faded: #6d5f4b;
+  --rule: #8a7a5e;
+  --lot-red: #7d1f16;
+  --stamp: #942013;
+}
+
+html { background: #d9cfb6; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.lot {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(120, 96, 60, 0.10), transparent 42%),
+    radial-gradient(ellipse at 88% 96%, rgba(120, 96, 60, 0.14), transparent 46%),
+    linear-gradient(var(--paper), var(--paper-deep));
+  border: 1px solid #c9b98e;
+  box-shadow: 0 2px 0 #c4b287, 0 14px 34px rgba(60, 48, 30, 0.28);
+  padding: 2.6rem 3rem 2.2rem;
+  position: relative;
+}
+
+/* cataloguer's round seal, upper right */
+.seal {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.8rem;
+  width: 5.2rem;
+  height: 5.2rem;
+  border: 2px solid var(--stamp);
+  border-radius: 50%;
+  opacity: 0.42;
+  transform: rotate(-11deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.seal-inner {
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  color: var(--stamp);
+  line-height: 1.7;
+  font-variant: small-caps;
+}
+
+.sale {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+}
+
+.lot-number {
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--lot-red);
+  margin-bottom: 0.6rem;
+}
+
+.lot-header {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 1.55rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  margin: 0.2rem 0 0.7rem;
+}
+
+.object-line {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+}
+
+section { margin-bottom: 1.5rem; }
+
+h2 {
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--lot-red);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+p { margin: 0 0 0.85rem; }
+
+blockquote.red-ink {
+  margin: 1rem 0.4rem 1rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--stamp);
+  background: rgba(148, 32, 19, 0.06);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+ol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+ol li {
+  margin-bottom: 0.45rem;
+  font-size: 0.92rem;
+}
+
+a { color: var(--lot-red); }
+a:hover { color: var(--ink); }
+
+.lot-footer {
+  border-top: 3px double var(--rule);
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+.lot-footer p { margin: 0; }
+.lot-footer a { font-style: normal; }
+
+@media (max-width: 40rem) {
+  .lot { margin: 0; padding: 1.6rem 1.2rem; border-left: none; border-right: none; }
+  .seal { width: 3.8rem; height: 3.8rem; top: 0.9rem; right: 0.9rem; }
+}
