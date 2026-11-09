@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switzerland &mdash; Weather Almanac Entry, Helvetic Station</title>
+<meta name="description" content="Weather almanac entry for the Swiss Confederation: the Alps, the Swiss Plateau and the Jura, the Bise and the Fohn, readings from Zurich, Geneva, Basel, Bern, Lausanne, Winterthur and Lucerne, twenty-six cantons, Bern, and the hourly fix kept beside the OpenSky Network's Swiss base.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ornament sky"></div>
+<div class="ornament peaks"></div>
+<div class="sheet">
+
+<header class="masthead" aria-hidden="false">
+  <svg class="swiss-cross" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="crossGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+        <stop offset="70%" stop-color="#f2e8d9" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#e8dcc0" stop-opacity="0.85"/>
+      </radialGradient>
+    </defs>
+    <rect x="0" y="0" width="200" height="200" fill="#d0021b"/>
+    <rect x="87.5" y="55" width="25" height="90" fill="url(#crossGlow)" class="cross-bar"/>
+    <rect x="55" y="87.5" width="90" height="25" fill="url(#crossGlow)" class="cross-bar"/>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" class="cross-ring"/>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="cross-ring cross-ring-2"/>
+    <line x1="100" y1="100" x2="100" y2="12" class="sweep"/>
+    <line x1="100" y1="100" x2="168" y2="42" class="sweep sweep-2"/>
+    <line x1="100" y1="100" x2="32" y2="158" class="sweep sweep-3"/>
+    <circle cx="100" cy="100" r="3.5" fill="#d0021b" class="core"/>
+    <circle cx="170" cy="30" r="2" fill="#ffffff" class="blip b1"/>
+    <circle cx="42" cy="162" r="2" fill="#ffffff" class="blip b2"/>
+    <circle cx="140" cy="170" r="2" fill="#ffffff" class="blip b3"/>
+    <circle cx="24" cy="72" r="1.5" fill="#ffffff" class="blip b4"/>
+  </svg>
+  <div class="masthead-text">
+    <p class="kicker">Swiss Confederation Weather Almanac &middot; Entry No. 26 &middot; Helvetic Station &middot; corrected folio</p>
+    <h1>Switzerland<span class="comma">,</span> <em>the Swiss Confederation</em></h1>
+    <p class="station">Landlocked at the intersection of Central, Western and Southern Europe &middot; bordered by Germany, France, Austria and Liechtenstein, and Italy &middot; gauge at the Zurich base, 408 m above sea level &middot; station log kept on the hour</p>
+    <p class="reading">Present entry: <span id="live-temp">4.0</span>&nbsp;deg C, Bise moderate, barometer 1018 hPa, holding &middot; ceiling 700 m, visibility good &middot; the January opening is kept on file below</p>
+  </div>
+</header>
+
+<main>
+
+<section class="entry">
+  <p class="entry-meta">Column 1 &middot; The opening, January</p>
+  <h2>The lie of the land</h2>
+  <p>Switzerland, officially the Swiss Confederation, is a landlocked country at the intersection of Central, Western and Southern Europe. It is bordered by Germany to the north, France to the west, Austria and Liechtenstein to the east, and Italy to the south. The country is geographically divided among the Swiss Alps, the Swiss Plateau, and the Jura Mountains: the Alps cover most of the territory, whereas the majority of its 9 million people are concentrated on the plateau, which hosts many of the largest cities and economic centres &mdash; Zurich, Geneva, Basel, Bern, Lausanne, Winterthur and Lucerne. It is a federal republic of 26 cantons, with Bern as the federal city, on an area of 41,285 square kilometres that runs from the 193 metres of Lake Maggiore to the 4,634 metres of the Dufourspitze. The station keeps its gauge at the Zurich base, where the OpenSky Network's volunteer receivers stand on balconies, barn roofs and fire escapes, listening to the sky, and the same instruments log the weather by the hour.</p>
+</section>
+
+<section class="entry">
+  <p class="entry-meta">Column 2 &middot; Station normals, three zones</p>
+  <h2>Three thermometers for one country</h2>
+  <table class="normals" aria-label="Swiss climate normals by zone">
+    <caption>Monthly normals, three climatic zones &mdash; Swiss Plateau, Swiss Alps, Jura Mountains</caption>
+    <thead>
+      <tr><th>Reading</th><th>Swiss Plateau (Zurich)</th><th>Swiss Alps (Jungfraujoch)</th><th>Jura (La Brevine)</th><th>Lake Geneva (Geneva)</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Mean January &deg;C</th><td>1.2</td><td>-7.4</td><td>-3.1</td><td>2.0</td></tr>
+      <tr><th>Mean July &deg;C</th><td>19.6</td><td>5.1</td><td>15.4</td><td>21.1</td></tr>
+      <tr><th>Precipitation, mm per year</th><td>1,130</td><td>2,300</td><td>1,500</td><td>1,000</td></tr>
+      <tr><th>Snow days per year</th><td>21</td><td>160</td><td>55</td><td>8</td></tr>
+      <tr><th>Sunshine hours per year</th><td>1,600</td><td>1,900</td><td>1,550</td><td>1,950</td></tr>
+      <tr><th>Fixes per day</th><td>24</td><td>24</td><td>24</td><td>24</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><th>Season</th><td colspan="4">Readings taken at 07:30 and 14:30, then every hour on the hour &mdash; the almanac does not recognise a reading taken between the hours</td></tr>
+    </tfoot>
+  </table>
+  <p class="note">The Alps take their own time: a storm can cross the Gotthard between one reading and the next, which is why the hour matters.</p>
+</section>
+
+<section class="entry">
+  <p class="entry-meta">Column 3 &middot; The named winds</p>
+  <h2>The Bise and the Fohn</h2>
+  <p>Two winds keep the register honest. The <strong>Bise</strong> is the northeast wind that slides down the Jura and across Lake Geneva, grey and steady, the one that clears the sky and freezes the landing strips at Geneva and Zurich alike. The <strong>Fohn</strong> is the south wind that comes over the Alps, warm and sudden, eating snow at a visible rate, lifting avalanche warnings with it, and unsettling anything that flies. Pilots crossing the Zurich&ndash;Vienna&ndash;Budapest corridor learn both: the Bise holds the aircraft on its beam, and the Fohn lifts it off it.</p>
+  <p>The station keeper's rule stands at the front of the register, copied without correction: <em>The whole method is on the ground that a fix is only inflicted by the hour.</em> A reading taken between the hours is not a fix at all, and the Bise does not wait for convenience &mdash; neither does the Fohn. Both are logged on the hour, from the Zurich gauge and from the receivers that double as weather posts from Basel to Lucerne.</p>
+</section>
+
+<section class="entry">
+  <p class="entry-meta">Column 4 &middot; Seven cities, seven thermometers</p>
+  <h2>Readings from the plateau</h2>
+  <table class="cities" aria-label="Weather readings for seven Swiss cities">
+    <thead>
+      <tr><th>City</th><th>Canton</th><th>Elevation m</th><th>January &deg;C</th><th>July &deg;C</th><th>Precipitation mm/yr</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Zurich</th><td>Zurich</td><td>408</td><td>1.2</td><td>19.6</td><td>1,130</td></tr>
+      <tr><th>Geneva</th><td>Geneva</td><td>425</td><td>2.0</td><td>21.1</td><td>1,000</td></tr>
+      <tr><th>Basel</th><td>Basel-Stadt</td><td>316</td><td>1.5</td><td>20.2</td><td>850</td></tr>
+      <tr><th>Bern</th><td>Bern</td><td>542</td><td>0.3</td><td>18.8</td><td>1,050</td></tr>
+      <tr><th>Lausanne</th><td>Vaud</td><td>495</td><td>1.0</td><td>20.0</td><td>1,150</td></tr>
+      <tr><th>Winterthur</th><td>Zurich</td><td>439</td><td>0.4</td><td>19.0</td><td>1,200</td></tr>
+      <tr><th>Lucerne</th><td>Lucerne</td><td>436</td><td>0.8</td><td>19.4</td><td>1,300</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><th>Note</th><td colspan="5">All seven cities stand on the Swiss Plateau or its rim; none of them is in the Alps, though every one can see them on a clear Bise day</td></tr>
+    </tfoot>
+  </table>
+</section>
+
+<section class="entry">
+  <p class="entry-meta">Column 5 &middot; Airspace and the hour</p>
+  <h2>Weather the receivers can hear</h2>
+  <p>The OpenSky Network is headquartered in Switzerland, and its archive swallows the squawk of every transponder from Basel to Lugano, deduplicated and time-stamped like a weather log. Ceiling and visibility are flight data as much as position and altitude: a Zurich approach under Bise cloud is a different instrument reading from a Geneva approach in Fohn haze, and the volunteers who keep the rooftop dishes also keep the hourly observation. The almanac and the network share the same method &mdash; record it, time-stamp it, publish it &mdash; and the same ground: a fix only exists when someone has taken it, on the hour, and written it down.</p>
+</section>
+
+<section class="entry">
+  <p class="entry-meta">Column 6 &middot; Marginalia</p>
+  <h2>The line in the register</h2>
+  <blockquote class="marginalia">Ice on the Limmat means the fix has held three nights; snow on the Albis means it has held a week.</blockquote>
+  <p>The keeper entered it without comment, beneath the January readings for Zurich, and the almanac prints it as found. The Limmat runs through Zurich from the lake to the Rhine, and the Albis stands above the city &mdash; when both are white, the Bise is entrenched, the receivers are quiet, and no fix is taken lightly.</p>
+</section>
+
+<section class="entry filed-with">
+  <p class="entry-meta">Column 7 &middot; Filed with</p>
+  <h2>Company on the shelf</h2>
+  <p>This entry keeps company with the <a href="../">OpenSky Network visitor's brochure</a>, whose Zurich base keeps the same archive and the same hour, and with the <a href="../../galileo-report/">Galileo term report</a>, where every satellite fix leans on the same weather that this almanac logs. It also keeps company with the <a href="../../tt1-sennedjem/">TT1 almanac entry</a> from the west-bank station, whose January readings run parallel to these, six thousand kilometres to the south.</p>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <p>Switzerland &middot; the Swiss Confederation &middot; 26 cantons &middot; Bern &middot; gauge at the Zurich base, 408 m &middot; Alps, Swiss Plateau, Jura &middot; fixes taken on the hour</p>
+  <p class="nav"><a href="../">OpenSky Network &mdash; A Visitor's Brochure</a> &middot; <a href="../../galileo-report/">Galileo &mdash; Term Report</a> &middot; <a href="../../tt1-sennedjem/">TT1 &mdash; Weather Almanac Entry</a></p>
+</footer>
+
+</div>
+
+<div class="snow" aria-hidden="true"></div>
+<script src="almanac.js"></script>
+</body>
+</html>
