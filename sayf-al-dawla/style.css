@@ -1,0 +1,119 @@
+/* Council of the Sword of the Dynasty — Aleppo session sheets */
+:root {
+  --ink: #2b2118;
+  --paper: #f3ead8;
+  --paper-deep: #e9dcc0;
+  --rule: #b99a5e;
+  --accent: #7a1f1f;
+  --gold: #9c7a2f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding: 2.2rem 1.5rem 1.4rem;
+  text-align: center;
+  background: var(--paper-deep);
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.6rem;
+}
+
+.masthead h1 {
+  font-size: 2.3rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.dateline {
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+section { margin-bottom: 2rem; }
+
+h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  color: var(--accent);
+}
+
+.filter { margin: 0.8rem 0; }
+
+.filter button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.35rem 0.9rem;
+  margin: 0 0.3rem 0.3rem 0;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.filter button:hover { background: #ddcba0; }
+
+.filter button.active {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: var(--accent);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: #fbf6ea;
+}
+
+th, td {
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--paper-deep);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+tr[hidden] { display: none; }
+
+.further a { color: var(--accent); }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 1.2rem 1.5rem 2.5rem;
+  background: var(--paper-deep);
+  max-width: none;
+}
