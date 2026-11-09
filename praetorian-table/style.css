@@ -1,0 +1,137 @@
+/* The Praetorian Table — a restrained printed-review sheet */
+
+:root {
+  --ink: #1e1a16;
+  --ink-soft: #4a4239;
+  --paper: #f7f4ee;
+  --rule: #cfc7b8;
+  --accent: #7c2d1e;
+  --gold: #a08040;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masthead,
+.review,
+.colophon {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.masthead {
+  padding-top: 4rem;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 1.75rem;
+  text-align: center;
+}
+
+.kicker {
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 1rem;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin: 0 0 1.25rem;
+}
+
+.byline {
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.review {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.review p {
+  margin: 0 0 1.4rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.lede::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
+strong { font-weight: 700; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+}
+
+a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+.verdict {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+.verdict-mark {
+  display: block;
+  color: var(--gold);
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 0.6rem;
+}
+
+.verdict-line {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.colophon {
+  border-top: 2px solid var(--ink);
+  padding-top: 1.25rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 40rem) {
+  html { font-size: 16px; }
+  h1 { font-size: 2.2rem; }
+  .review p { text-align: left; }
+}
