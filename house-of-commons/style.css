@@ -1,0 +1,116 @@
+/* The Green Bench Board — a thread kept in the strong room */
+html { background: #b8bfae; }
+body {
+  font: 12px/1.6 Verdana, Geneva, "DejaVu Sans", sans-serif;
+  color: #1d2419;
+  margin: 0;
+  padding: 28px 10px;
+}
+a { color: #2e5e3f; }
+.board {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #e9ebe2;
+  border: 1px solid #46503d;
+  box-shadow: inset 0 2px 0 #d5dcc6, 0 12px 34px rgba(30, 38, 26, 0.3);
+}
+.board-head {
+  background: linear-gradient(#2e5e3f, #1c4029);
+  color: #f2f5ea;
+  padding: 14px 18px;
+  border-bottom: 3px double #d7bd6a;
+}
+.board-head h1 { margin: 0; font-size: 21px; letter-spacing: 0.5px; }
+.board-head p { margin: 4px 0 0; font-size: 11px; color: #cfd9c2; }
+.crumbs {
+  background: #dfe3d3;
+  border-bottom: 1px solid #9aa391;
+  padding: 6px 18px;
+  font-size: 11px;
+  color: #414a37;
+}
+.crumbs a { color: #2e5e3f; }
+.topic-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #eef0e4;
+  border-bottom: 1px solid #9aa391;
+  padding: 9px 18px;
+  font-size: 12px;
+}
+.stamp {
+  display: inline-block;
+  border: 2px solid #7c2d1e;
+  color: #7c2d1e;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+}
+.post {
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid #9aa391;
+}
+.post:nth-child(even of .post) .post-body { background: #f3f4ec; }
+.post-meta, .post-body { display: table-cell; vertical-align: top; }
+.post-meta {
+  width: 152px;
+  background: #dfe3d3;
+  border-right: 1px solid #9aa391;
+  padding: 10px;
+  font-size: 11px;
+  color: #414a37;
+}
+.post-meta .user { display: block; font-weight: bold; font-size: 13px; color: #1c4029; }
+.post-meta .title { display: block; font-style: italic; font-size: 10px; color: #6b7560; margin-bottom: 6px; }
+.post-meta .avatar {
+  height: 48px;
+  margin-top: 8px;
+  border: 1px solid #9aa391;
+  background: repeating-linear-gradient(45deg, #cdd3bf, #cdd3bf 6px, #c2c9b2 6px, #c2c9b2 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #414a37;
+}
+.post-body { padding: 10px 14px; background: #f7f8f2; }
+.post-head {
+  font-size: 11px;
+  color: #6b7560;
+  border-bottom: 1px dotted #9aa391;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.post-head b { color: #1d2419; }
+.post-body p { margin: 0 0 10px; }
+.post-body p:last-child { margin-bottom: 0; }
+.post-body blockquote {
+  background: #eef0e4;
+  border-left: 4px solid #7c8a6d;
+  padding: 8px 10px;
+  margin: 8px 0;
+  font-size: 11px;
+  color: #414a37;
+}
+.quote-name { font-weight: bold; color: #1c4029; }
+.edited { font-size: 10px; font-style: italic; color: #8a5a1e; }
+.board-foot {
+  background: #dfe3d3;
+  padding: 10px 18px;
+  font-size: 10px;
+  color: #414a37;
+  border-top: 3px double #d7bd6a;
+}
+@media (max-width: 640px) {
+  .post { display: block; }
+  .post-meta, .post-body { display: block; width: auto; }
+  .post-meta { border-right: none; border-bottom: 1px solid #9aa391; }
+}
