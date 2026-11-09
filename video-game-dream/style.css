@@ -1,0 +1,345 @@
+/* The Dreamer's Concordance · Entry No. 145 — Video Game
+   Third folio. A dream, rendered: deep park-night, glowing screen,
+   post-its, scanlines, one purple rest. */
+
+:root {
+  --night: #140b1e;
+  --night-2: #1e1030;
+  --plum: #4a1d5e;
+  --rose: #b04173;
+  --teal: #1d5e56;
+  --paper: #f4e3c8;
+  --ink: #241426;
+  --postit: #ffe98a;
+  --glow: #d9a7ff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--paper);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.72;
+  background:
+    radial-gradient(ellipse 80% 50% at 70% -10%, rgba(176, 65, 115, 0.32), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 12% 108%, rgba(29, 94, 86, 0.35), transparent 65%),
+    radial-gradient(ellipse 40% 30% at 88% 70%, rgba(217, 167, 255, 0.12), transparent 70%),
+    linear-gradient(160deg, var(--night) 0%, var(--night-2) 42%, #10192b 100%);
+  background-attachment: fixed;
+}
+
+/* CRT glass over the whole dream */
+.crt {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(ellipse 120% 90% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* scanlines, slow drift */
+.scanlines {
+  position: fixed;
+  inset: -100% 0 0 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.022) 0px,
+    rgba(255, 255, 255, 0.022) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: scan-drift 14s linear infinite;
+}
+@keyframes scan-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(50%); }
+}
+
+/* floating post-it notes — the puzzle words, load-bearing */
+.postits { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
+.postit {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 9.5rem;
+  min-height: 5.5rem;
+  padding: 0.4rem;
+  font-family: "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 0.82rem;
+  line-height: 1.25;
+  text-align: center;
+  color: #3c2f0a;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 30%),
+    var(--postit);
+  box-shadow: 3px 5px 14px rgba(0, 0, 0, 0.45);
+  opacity: 0.92;
+  animation: bob 9s ease-in-out infinite;
+}
+.postit::after {
+  content: "";
+  position: absolute;
+  top: -6px; left: 50%;
+  width: 8px; height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff8f8f, #a33);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.postit--a { top: 9%; left: 3%; transform: rotate(-7deg); }
+.postit--b { top: 30%; right: 2.5%; transform: rotate(5deg); animation-delay: -3s; }
+.postit--c { bottom: 22%; left: 2%; transform: rotate(4deg); animation-delay: -5s; }
+.postit--d { bottom: 7%; right: 4%; transform: rotate(-5deg); animation-delay: -7s; }
+@keyframes bob {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -14px; }
+}
+@media (max-width: 700px) {
+  .postit { width: 6.8rem; min-height: 4.2rem; font-size: 0.7rem; }
+}
+
+.concordance-head {
+  position: relative;
+  z-index: 4;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.2rem 1.4rem 1rem;
+  text-align: center;
+}
+.head-ornament {
+  width: min(20rem, 80%);
+  height: auto;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 12px rgba(217, 167, 255, 0.35));
+  animation: ornament-breathe 6s ease-in-out infinite;
+}
+@keyframes ornament-breathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.plate {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--glow);
+  margin: 0 0 1.1rem;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  text-shadow:
+    0 0 18px rgba(217, 167, 255, 0.55),
+    0 0 60px rgba(176, 65, 115, 0.4);
+  animation: title-flicker 8s steps(1) infinite;
+}
+@keyframes title-flicker {
+  0%, 91%, 94%, 100% { text-shadow: 0 0 18px rgba(217, 167, 255, 0.55), 0 0 60px rgba(176, 65, 115, 0.4); }
+  92%, 93% { text-shadow: 0 0 4px rgba(217, 167, 255, 0.2); }
+}
+.of {
+  font-size: 0.45em;
+  font-style: italic;
+  color: var(--glow);
+  vertical-align: super;
+}
+.pron {
+  margin: 1rem auto 0;
+  max-width: 38rem;
+  font-style: italic;
+  color: #d8c3e8;
+}
+.pron-label {
+  font-style: normal;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-right: 0.4em;
+}
+
+.entry {
+  position: relative;
+  z-index: 4;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.6rem 1.4rem 4.5rem;
+}
+.entry section {
+  margin: 2.6rem 0;
+  padding: 1.6rem 1.8rem 1.5rem;
+  border: 1px solid rgba(217, 167, 255, 0.28);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(244, 227, 200, 0.055), rgba(244, 227, 200, 0.015)),
+    rgba(20, 11, 30, 0.55);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(244, 227, 200, 0.08);
+}
+.entry section::before {
+  content: "▸ chapter " counter(section);
+  counter-increment: section;
+  position: absolute;
+  top: -0.85rem;
+  left: 1.2rem;
+  padding: 0 0.55rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--night);
+  background: linear-gradient(90deg, var(--glow), var(--postit));
+  border-radius: 3px;
+}
+.entry { counter-reset: section; }
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  border-bottom: 1px dashed rgba(217, 167, 255, 0.4);
+  padding-bottom: 0.55rem;
+}
+
+p { margin: 0 0 1.05rem; }
+p:last-child { margin-bottom: 0; }
+
+.drop::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.86;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--glow);
+  text-shadow: 0 0 14px rgba(217, 167, 255, 0.6);
+}
+
+em { color: #e9d6f2; }
+strong { color: var(--paper); font-weight: 700; }
+
+a {
+  color: var(--postit);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255, 233, 138, 0.6);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+a:hover, a:focus {
+  background: rgba(255, 233, 138, 0.16);
+  color: #fff3c2;
+  border-bottom-style: solid;
+}
+
+.keys { list-style: none; margin: 0; padding: 0; }
+.keys li {
+  position: relative;
+  margin: 0 0 1.1rem;
+  padding: 0.15rem 0 0.15rem 2.4rem;
+}
+.keys li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.34em;
+  width: 1.35rem; height: 1.35rem;
+  border-radius: 50%;
+  border: 2px solid var(--rose);
+  background: radial-gradient(circle at 35% 30%, rgba(176, 65, 115, 0.7), rgba(74, 29, 94, 0.9));
+  box-shadow: 0 0 10px rgba(176, 65, 115, 0.5);
+}
+.keys li:nth-child(2)::before { border-color: var(--teal); background: radial-gradient(circle at 35% 30%, rgba(29, 94, 86, 0.8), rgba(12, 44, 40, 0.95)); box-shadow: 0 0 10px rgba(29, 94, 86, 0.6); }
+.keys li:nth-child(3)::before { border-color: var(--postit); background: radial-gradient(circle at 35% 30%, rgba(255, 233, 138, 0.5), rgba(120, 100, 20, 0.9)); box-shadow: 0 0 10px rgba(255, 233, 138, 0.35); }
+.keys li:nth-child(4)::before { border-color: var(--glow); background: radial-gradient(circle at 35% 30%, rgba(217, 167, 255, 0.6), rgba(74, 29, 94, 0.9)); box-shadow: 0 0 10px rgba(217, 167, 255, 0.5); }
+.keys li:nth-child(5)::before { border-color: var(--paper); background: radial-gradient(circle at 35% 30%, rgba(244, 227, 200, 0.55), rgba(90, 70, 50, 0.9)); box-shadow: 0 0 10px rgba(244, 227, 200, 0.3); }
+
+.folio-line {
+  font-style: italic;
+  font-size: 1.06em;
+  color: var(--postit);
+  background: rgba(255, 233, 138, 0.08);
+  padding: 0.05em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.recipe {
+  display: inline;
+  font-family: "Courier New", monospace;
+  font-size: 0.92em;
+  color: var(--glow);
+  border-bottom: 1px dotted rgba(217, 167, 255, 0.5);
+}
+
+.cross { list-style: none; margin: 0 0 1.4rem; padding: 0; }
+.cross li {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding-left: 1.7rem;
+}
+.cross li::before {
+  content: "✦";
+  position: absolute;
+  left: 0.15rem;
+  color: var(--rose);
+}
+.foot {
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #a98cc2;
+  text-align: center;
+  border-top: 1px solid rgba(217, 167, 255, 0.25);
+}
+
+/* the pause menu, summoned by the dreamer */
+.pause {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 5, 18, 0.82);
+  backdrop-filter: blur(3px);
+  animation: pause-in 0.35s ease;
+}
+@keyframes pause-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.pause-title {
+  margin: 0;
+  font-size: clamp(3rem, 12vw, 6rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-shadow: 0 0 24px rgba(217, 167, 255, 0.8);
+  animation: pause-breathe 2.4s ease-in-out infinite;
+}
+@keyframes pause-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.pause-sub {
+  margin: 1.2rem 0 0;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--glow);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanlines, .postit, .head-ornament, h1, .pause-title { animation: none !important; }
+}
