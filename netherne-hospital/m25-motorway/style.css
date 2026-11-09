@@ -1,0 +1,294 @@
+/* The London Orbital — driver's brochure, folded pamphlet stock */
+
+:root {
+  --m25-blue: #003087;
+  --m25-ink: #1a1a17;
+  --paper: #f4eddc;
+  --paper-2: #efe5cd;
+  --rule: #b9a878;
+  --red: #a3341f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #23201a;
+  background-image:
+    radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.06), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 6px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--m25-ink);
+  line-height: 1.55;
+  padding: 2.25rem 0.9rem;
+}
+
+.sheet {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 85% 12%, rgba(163,52,31,0.05), transparent 40%),
+    radial-gradient(ellipse at 8% 90%, rgba(0,48,135,0.06), transparent 45%);
+  border: 1px solid #cbbd98;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.55), inset 0 0 90px rgba(120,95,40,0.12);
+  padding: 2.4rem 2.6rem 1.6rem;
+}
+
+/* punched binding holes, left edge */
+.punch {
+  position: absolute;
+  left: -0.55rem;
+  top: 0;
+  bottom: 0;
+  width: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.punch span {
+  display: block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: #23201a;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.8), 0 0 0 2px var(--rule);
+}
+
+/* ---------- cover ---------- */
+.cover {
+  position: relative;
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+}
+.eyebrow {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin: 0 0 0.7rem;
+  color: var(--red);
+}
+.cover h1 {
+  font-family: "Arial Narrow", "Trebuchet MS", Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--m25-blue);
+  text-shadow: 2px 2px 0 rgba(0,48,135,0.12);
+}
+.subtitle {
+  font-style: italic;
+  margin: 0.5rem auto 1rem;
+  max-width: 34em;
+}
+.sign-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+.m25-sign {
+  background: var(--m25-blue);
+  color: #fff;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+  padding: 0.15em 0.55em;
+  border: 3px solid #fff;
+  outline: 3px solid var(--m25-blue);
+}
+.m25-sign.small { font-size: 1rem; }
+.lane {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--m25-ink);
+  border-bottom: 2px dashed var(--rule);
+  padding-bottom: 0.2em;
+}
+.issued {
+  font-size: 0.82rem;
+  margin: 1.1rem auto 0;
+  max-width: 36em;
+  color: #5c5138;
+}
+.board-stamp {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.4rem;
+  width: 4.6rem;
+  height: 4.6rem;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 0.52rem;
+  line-height: 1.35;
+  letter-spacing: 0.14em;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  transform: rotate(12deg);
+  opacity: 0.6;
+}
+
+/* ---------- sections ---------- */
+main h2 {
+  font-family: "Arial Narrow", "Trebuchet MS", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 1rem;
+  color: var(--m25-blue);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 2rem 0 1rem;
+}
+.intro p { margin: 0 0 0.9rem; }
+
+/* ---------- stops ---------- */
+.stop {
+  border-left: 4px solid var(--m25-blue);
+  background: var(--paper-2);
+  padding: 0.9rem 1.1rem 0.4rem;
+  margin: 0 0 1.2rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+.stop h3 {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  margin: 0.55rem 0 0.4rem;
+}
+.stop p { margin: 0 0 0.9rem; font-size: 0.95rem; }
+.sign {
+  display: inline-flex;
+  align-items: stretch;
+  background: var(--m25-blue);
+  border: 2px solid #fff;
+  outline: 2px solid var(--m25-blue);
+  color: #fff;
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+.sign-num {
+  font-weight: bold;
+  font-size: 1.15rem;
+  padding: 0.15em 0.5em;
+  border-right: 2px solid #fff;
+}
+.sign-name {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  padding: 0.3em 0.7em;
+}
+
+/* ---------- desk note ---------- */
+.desk-note {
+  border: 1px dashed var(--rule);
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.28);
+}
+.desk-note blockquote {
+  margin: 0.8rem 0;
+  padding: 0.7rem 1rem;
+  background: var(--paper-2);
+  border-left: 4px solid var(--red);
+  font-size: 1.08rem;
+  font-style: italic;
+}
+
+/* ---------- facts ---------- */
+.facts ul { list-style: none; margin: 0; padding: 0; }
+.facts li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+.facts li:last-child { border-bottom: none; }
+.facts .num {
+  display: inline-block;
+  min-width: 3.2em;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  color: var(--red);
+  letter-spacing: 0.05em;
+}
+
+/* ---------- ticket ---------- */
+.ticket {
+  margin-top: 2rem;
+  border-top: 2px dashed var(--rule);
+  border-bottom: 2px dashed var(--rule);
+  padding: 1rem 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.stub {
+  flex: 1 1 16rem;
+  background: var(--m25-blue);
+  color: #fff;
+  padding: 0.8rem 1rem;
+  transform: rotate(-1deg);
+  box-shadow: 3px 4px 0 rgba(0,0,0,0.2);
+}
+.stub-title {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  margin: 0 0 0.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 0.3rem;
+}
+.stub-line {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  margin: 0.3rem 0;
+}
+.stub-fine { font-size: 0.72rem; opacity: 0.85; margin-top: 0.5rem; }
+.barcode {
+  flex: 0 1 8rem;
+  height: 3.4rem;
+  background: repeating-linear-gradient(90deg,
+    var(--m25-ink) 0 2px, transparent 2px 5px,
+    var(--m25-ink) 5px 6px, transparent 6px 11px,
+    var(--m25-ink) 11px 14px, transparent 14px 16px);
+  align-self: center;
+}
+.keep {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #5c5138;
+  width: 100%;
+  margin: 0.4rem 0 0;
+  text-align: center;
+}
+
+/* ---------- footer ---------- */
+.footline {
+  margin-top: 1.6rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.78rem;
+  color: #5c5138;
+  text-align: center;
+}
+.footline p { margin: 0.8rem 0 0; }
+
+a { color: var(--m25-blue); }
+a:hover { color: var(--red); }
+
+@media (max-width: 560px) {
+  .sheet { padding: 1.8rem 1.2rem 1.2rem; }
+  .punch { display: none; }
+  .board-stamp { width: 3.4rem; height: 3.4rem; font-size: 0.42rem; }
+}
