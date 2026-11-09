@@ -1,0 +1,167 @@
+/* The History Route — walking tour itinerary */
+:root {
+  --ink: #2b241c;
+  --paper: #f4ede0;
+  --rule: #b8a888;
+  --accent: #7a3b2e;
+  --faded: #8a7b63;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.65 Georgia, 'Times New Roman', serif;
+}
+.top-rule {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 24px, transparent 24px 32px);
+}
+.masthead {
+  max-width: 62em;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1rem;
+  border-bottom: 3px double var(--rule);
+}
+.eyebrow {
+  font: 600 .8rem/1.4 'Courier New', monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-size: 2.6rem;
+  margin: 0 0 .4rem;
+  letter-spacing: .01em;
+}
+.sub {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+.fare { max-width: 46em; }
+
+.strip {
+  max-width: 62em;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  background: #efe4cf;
+  border-bottom: 1px solid var(--rule);
+}
+.strip-head {
+  font: 600 .78rem/1.4 'Courier New', monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 .5rem;
+}
+.strip ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .9rem;
+  margin: 0 0 .8rem;
+  padding: 0;
+}
+.strip ol a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+  font-size: .95rem;
+}
+.strip ol a:hover { border-bottom-style: solid; }
+.strip .num {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  font: 700 .85rem 'Courier New', monospace;
+  color: var(--accent);
+}
+.strip li.done a { color: var(--faded); border-bottom-color: var(--faded); }
+.strip li.done .num { background: var(--accent); color: var(--paper); }
+.progress-line {
+  font: 600 .8rem/1.4 'Courier New', monospace;
+  letter-spacing: .08em;
+  color: var(--faded);
+  margin: 0 0 .35rem;
+}
+.bar {
+  height: 8px;
+  background: #e2d5ba;
+  border: 1px solid var(--rule);
+}
+.bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width .4s ease;
+}
+
+main { max-width: 62em; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
+.stop {
+  padding: 1.6rem 0 1.4rem;
+  border-bottom: 1px dashed var(--rule);
+}
+.stop:last-child { border-bottom: none; }
+.stop h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .2rem 1rem;
+  font-size: 1.5rem;
+  margin: 0 0 .2rem;
+}
+.stop h2 .num {
+  font: 700 1.1rem 'Courier New', monospace;
+  color: var(--accent);
+}
+.stop h2 small { font-weight: 400; font-style: italic; color: var(--faded); font-size: .95rem; }
+.meta {
+  font: 600 .75rem/1.5 'Courier New', monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+.stop p { max-width: 46em; }
+.stop a { color: var(--accent); }
+blockquote.entry {
+  margin: 1.4rem 0 1.4rem 1.5rem;
+  padding: 1rem 1.4rem;
+  background: #efe4cf;
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+}
+blockquote.entry p { margin: 0 0 .5rem; max-width: none; font-size: 1.05rem; }
+blockquote.entry cite {
+  display: block;
+  font: 600 .78rem/1.4 'Courier New', monospace;
+  font-style: normal;
+  letter-spacing: .06em;
+  color: var(--faded);
+}
+.return { margin-top: 1.6rem; font-size: .95rem; color: var(--faded); }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  padding: 1.4rem 1.25rem 2rem;
+  text-align: center;
+}
+.colophon-line {
+  font-style: italic;
+  color: var(--faded);
+  max-width: 40em;
+  margin: 0 auto .4rem;
+}
+.colophon-small {
+  font: 600 .75rem/1.5 'Courier New', monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0;
+}
