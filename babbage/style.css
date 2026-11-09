@@ -1,0 +1,180 @@
+/* The Ledger's Book of Dreams — Entry B-9: aged ledger paper, brass and soot */
+
+:root {
+  --paper: #efe3c8;
+  --paper-deep: #e6d5ae;
+  --ink: #2b2117;
+  --faded: #5d4a33;
+  --brass: #9c7a2e;
+  --brass-bright: #c9a24a;
+  --soot: #1d1712;
+  --rule: #8a713f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 248, 225, 0.55), transparent 60%),
+    radial-gradient(ellipse at 85% 100%, rgba(96, 70, 32, 0.18), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.55;
+}
+
+.band {
+  border-bottom: 5px double var(--rule);
+  background: var(--paper-deep);
+  padding: 1.4rem 1.2rem 1.1rem;
+  text-align: center;
+  position: relative;
+}
+
+.gear {
+  width: 54px;
+  height: 54px;
+  color: var(--brass);
+  margin: 0 auto 0.4rem;
+  display: block;
+  animation: turn 40s linear infinite;
+}
+
+@keyframes turn { to { transform: rotate(360deg); } }
+
+.book-title {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soot);
+}
+
+.book-sub {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  letter-spacing: 0.05em;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 2rem;
+}
+
+.entry {
+  background: rgba(255, 252, 240, 0.5);
+  border: 1px solid var(--rule);
+  box-shadow: 3px 3px 0 rgba(77, 56, 22, 0.25);
+  padding: 1.6rem 1.8rem;
+}
+
+.entry-head .entry-no {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brass);
+}
+
+.entry-head h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.15;
+  color: var(--soot);
+}
+
+.years { font-size: 1.15rem; color: var(--faded); font-weight: normal; }
+
+.defin {
+  margin: 0.9rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+}
+
+section.dream { margin-top: 1.6rem; }
+
+section.dream h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brass);
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+section.dream p { margin: 0 0 0.8rem; }
+
+blockquote.kept {
+  margin: 1rem 0;
+  padding: 0.7rem 1rem 0.7rem 1.1rem;
+  border-left: 5px solid var(--brass-bright);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--soot);
+}
+
+ul.numbers { list-style: none; margin: 0; padding: 0; }
+ul.numbers li {
+  padding: 0.35rem 0 0.35rem 0.4rem;
+  border-bottom: 1px dotted var(--rule);
+}
+ul.numbers li strong { color: var(--brass); display: inline-block; min-width: 3.4rem; }
+
+ul.omens { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+ul.omens li { margin-bottom: 0.5rem; }
+
+a {
+  color: var(--soot);
+  background-image: linear-gradient(var(--brass-bright), var(--brass-bright));
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  text-decoration: none;
+}
+a:hover { color: var(--brass); }
+
+.counter {
+  margin-top: 1.8rem;
+  text-align: center;
+  border: 3px double var(--brass);
+  background: var(--paper-deep);
+  padding: 0.7rem 1rem;
+}
+.counter-label {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--faded);
+}
+.counter-value {
+  margin: 0.1rem 0;
+  font-size: 2.2rem;
+  font-family: "Courier New", monospace;
+  color: var(--soot);
+  letter-spacing: 0.2em;
+}
+.counter-note {
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--brass);
+}
+
+.colophon {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faded);
+  border-top: 5px double var(--rule);
+}
