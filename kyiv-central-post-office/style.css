@@ -1,0 +1,309 @@
+/* The Central Post Office Walk — itinerary sheet styling */
+
+:root {
+  --ink: #1d2430;
+  --paper: #f4efe4;
+  --card: #fdfaf1;
+  --post-red: #b3382c;
+  --post-blue: #274a73;
+  --post-amber: #c98a2d;
+  --rule: #c9c0a8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(39, 74, 115, 0.05) 31px 32px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  grid-template-areas:
+    "postmark postmark"
+    "ticket   masthead"
+    "ticket   route";
+  column-gap: 2.5rem;
+}
+
+/* rotated postmark across the top */
+.postmark {
+  grid-area: postmark;
+  margin: 0 0 1rem 0;
+  padding: 0.4rem 1rem;
+  width: max-content;
+  max-width: 100%;
+  transform: rotate(-1.4deg);
+  border: 2px solid var(--post-red);
+  color: var(--post-red);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  background: rgba(253, 250, 241, 0.7);
+}
+
+/* masthead with oversized type */
+.masthead {
+  grid-area: masthead;
+  align-self: start;
+  padding: 0 0 1.5rem 1rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--post-blue);
+  margin: 0 0 0.75rem;
+}
+
+.big {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.98;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.big .ukr {
+  display: block;
+  font-size: 0.38em;
+  letter-spacing: 0.12em;
+  color: var(--post-red);
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
+
+.sub {
+  max-width: 46ch;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.route-meta {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--ink);
+  padding: 0.2rem 0.55rem;
+  background: var(--card);
+}
+
+.chip:nth-child(even) { transform: rotate(1.2deg); border-color: var(--post-amber); }
+
+/* the ticket rail: sticky, rotated, overlapping the route */
+.ticket {
+  grid-area: ticket;
+  align-self: start;
+  position: sticky;
+  top: 1.5rem;
+  z-index: 2;
+  margin: 0 -0.75rem 0 0.5rem;
+  transform: rotate(-2deg);
+  background: var(--card);
+  border: 2px dashed var(--post-blue);
+  padding: 1.1rem 1rem 0.8rem;
+  box-shadow: 6px 8px 0 rgba(29, 36, 48, 0.12);
+}
+
+.ticket-no {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: var(--post-red);
+  margin: 0 0 0.6rem;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.86rem;
+}
+
+.stops li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.32rem 0.3rem;
+  border-bottom: 1px dotted var(--rule);
+  color: #6a6a5e;
+}
+
+.stops li span {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: var(--post-blue);
+  min-width: 1em;
+}
+
+.stops li.current {
+  color: var(--ink);
+  background: rgba(201, 138, 45, 0.16);
+  transform: translateX(4px);
+}
+
+.ticket-foot {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  margin: 0.7rem 0 0;
+  text-align: center;
+  color: var(--post-blue);
+}
+
+/* the route: stops as cards on a dashed walking line */
+.route {
+  grid-area: route;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.route::before {
+  content: "";
+  position: absolute;
+  left: 0.3rem;
+  top: 0;
+  bottom: 0;
+  border-left: 3px dashed var(--post-amber);
+  opacity: 0.55;
+}
+
+.stop {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--post-blue);
+  padding: 1.1rem 1.3rem 1rem;
+  margin: 0 0 2.2rem;
+  box-shadow: 4px 5px 0 rgba(29, 36, 48, 0.08);
+}
+
+/* asymmetric: wide stops shift right, narrow stops shift left */
+.route { grid-template-columns: 1fr; }
+.stop { max-width: 52ch; }
+.stop.wide { margin-left: 6rem; max-width: none; }
+.stop:nth-child(odd) { transform: rotate(-0.35deg); }
+.stop:nth-child(even) { transform: rotate(0.3deg); border-left-color: var(--post-red); }
+
+/* node on the dashed line */
+.stop::before {
+  content: "";
+  position: absolute;
+  left: -1.62rem;
+  top: 1.35rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--post-amber);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 2px var(--post-amber);
+}
+
+.stop-head {
+  margin: 0 0 0.7rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.stop-head .no {
+  font-size: 1.9rem;
+  color: var(--post-red);
+  letter-spacing: 0;
+}
+
+.stop-head .time {
+  margin-left: auto;
+  color: var(--post-blue);
+  font-size: 0.78rem;
+  border: 1px solid var(--post-blue);
+  padding: 0.05rem 0.45rem;
+}
+
+.stop p { margin: 0 0 0.8rem; }
+.stop p:last-child { margin-bottom: 0; }
+.stop a { color: var(--post-blue); }
+
+/* lamp stop: amber wash, no rotation */
+.stop.lamp {
+  border-left-color: var(--post-amber);
+  background: linear-gradient(135deg, var(--card) 70%, rgba(201, 138, 45, 0.14));
+  transform: none;
+  max-width: none;
+}
+
+.stamp-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  border-top: 2px solid var(--rule);
+  padding-top: 0.7rem !important;
+  color: var(--post-red);
+}
+
+/* closing notes */
+.postnote {
+  margin: 3rem 0 0 3rem;
+  padding: 1.4rem 1.5rem;
+  border: 2px solid var(--ink);
+  background: rgba(253, 250, 241, 0.85);
+  transform: rotate(0.4deg);
+}
+
+.postnote h2 {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+  color: var(--post-blue);
+}
+
+.postnote a { color: var(--post-blue); }
+
+/* small screens: ticket becomes a top strip, route un-shifted */
+@media (max-width: 780px) {
+  .sheet {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "postmark"
+      "masthead"
+      "ticket"
+      "route";
+  }
+  .ticket {
+    position: static;
+    transform: none;
+    margin: 0 0 1.5rem;
+  }
+  .stop, .stop.wide { margin-left: 0; max-width: none; }
+  .route { padding-left: 1.2rem; }
+  .postnote { margin-left: 0; }
+}
