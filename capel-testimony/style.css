@@ -1,0 +1,135 @@
+/* Transcript excerpt — Cook County Law Division, Tr. 14–19 */
+
+:root {
+  --paper: #f3efe4;
+  --paper-edge: #e7e1cf;
+  --ink: #1d2430;
+  --faded: #5a5c55;
+  --stamp-red: #9d3226;
+  --rule: #b9b29c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8d2c0;
+  background-image: repeating-linear-gradient(
+    0deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px,
+    transparent 1px, transparent 4px);
+  color: var(--ink);
+  font-family: "Courier New", "Courier", "Nimbus Mono PS", monospace;
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 2.2rem 0.9rem 4rem;
+}
+
+.sheet {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid #b6ae97;
+  box-shadow: 0 1px 0 var(--paper-edge) inset,
+              0 14px 34px rgba(40, 38, 28, 0.28);
+  padding: 2.6rem 3rem 2.2rem;
+  position: relative;
+}
+
+/* letterhead / caption */
+.caption {
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+  padding: 1rem 0 1.1rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+.court-name {
+  margin: 0 0 1rem;
+  text-align: center;
+  letter-spacing: 0.14em;
+  font-weight: bold;
+  font-size: 0.82rem;
+}
+
+.case-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+.party, .case-no { font-size: 0.92rem; }
+.party p, .case-no p { margin: 0.1rem 0; }
+.party { padding-right: 0.5rem; border-right: 1px solid var(--rule); }
+.plaintiff, .defendant { color: var(--faded); font-style: italic; }
+.counsel-line, .witness-line {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+/* rubber stamp */
+.stamp {
+  position: absolute;
+  top: 7.2rem;
+  right: 1.4rem;
+  transform: rotate(-9deg);
+  border: 3px double var(--stamp-red);
+  color: var(--stamp-red);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-align: center;
+  opacity: 0.78;
+  mix-blend-mode: multiply;
+}
+
+.page-mark {
+  text-align: right;
+  color: var(--faded);
+  font-size: 0.8rem;
+  margin: 1.4rem 0 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.transcript .entry {
+  margin: 0 0 0.85rem;
+  text-indent: 0;
+}
+
+.role { font-weight: bold; }
+
+.qa { margin-left: 2.2rem; }
+.speaker { font-weight: bold; white-space: nowrap; }
+
+.cert {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.sig-row { display: flex; justify-content: space-between; gap: 2rem; margin: 0 0 0.7rem; }
+
+.related {
+  margin-top: 1.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.related a { color: var(--stamp-red); }
+.related a:hover { color: var(--ink); }
+
+@media (max-width: 40rem) {
+  .sheet { padding: 1.6rem 1.1rem 1.4rem; }
+  .case-block { grid-template-columns: 1fr; }
+  .party { border-right: none; padding-right: 0; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; transform: rotate(-3deg); }
+  .qa { margin-left: 0; }
+}
