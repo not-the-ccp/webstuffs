@@ -1,0 +1,184 @@
+/* Patent specification — Second Division, Scottish Papers */
+
+:root {
+  --ink: #241f18;
+  --ink-soft: #4d4436;
+  --paper: #f1e9d7;
+  --paper-deep: #e7dcc3;
+  --rule: #8a7a5c;
+  --seal-blue: #1f3a6b;
+  --stamp-red: #8c2b23;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cdb4;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,0.35), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(90,70,40,0.18), transparent 50%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2.2rem 1rem 4rem;
+}
+
+.spec {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(0deg, rgba(120,95,55,0.06), rgba(120,95,55,0.06)),
+    repeating-linear-gradient(90deg, transparent 0 3px, rgba(120,95,55,0.02) 3px 4px);
+  border: 1px solid #b4a682;
+  box-shadow: 0 18px 40px rgba(60,45,20,0.35), inset 0 0 90px rgba(120,90,45,0.12);
+  padding: 2.6rem 2.4rem 2rem;
+  position: relative;
+}
+
+.spec::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(122,102,62,0.55);
+  pointer-events: none;
+}
+
+.seal {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.9rem;
+  opacity: 0.92;
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 3px 4px rgba(40,30,10,0.35));
+}
+
+.office {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.rule-double {
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 6px;
+  margin: 0.7rem 0 1.1rem;
+}
+
+h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.meta-line {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin: 0 0 0.6rem;
+}
+
+.title-line {
+  font-size: 1.02rem;
+  margin: 0 0 1rem;
+}
+
+.inventor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.35rem 1.4rem;
+  margin: 0 0 0.4rem;
+}
+
+.field {
+  border-top: 1px dotted var(--rule);
+  padding-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.field .label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.field .value { font-size: 0.9rem; }
+
+.status-stamp {
+  display: inline-block;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  padding: 0.05rem 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  transform: rotate(-1.5deg);
+  font-size: 0.8rem;
+}
+
+main section {
+  margin: 1.6rem 0;
+}
+
+h2 {
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+p { margin: 0 0 0.8rem; }
+
+a {
+  color: var(--seal-blue);
+  text-decoration-color: rgba(31,58,107,0.45);
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-color: var(--seal-blue); }
+
+ol.claims {
+  padding-left: 1.4rem;
+  margin: 0.4rem 0;
+}
+
+ol.claims li {
+  margin-bottom: 0.55rem;
+  font-size: 0.93rem;
+}
+
+blockquote.annotation-block {
+  margin: 1rem 0 1rem 1.4rem;
+  padding: 0.6rem 1.2rem;
+  border-left: 3px solid var(--rule);
+  background: var(--paper-deep);
+  font-style: italic;
+}
+
+blockquote.annotation-block p { margin: 0 0 0.4rem; }
+
+.annotation-block .attr {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.9rem;
+}
+
+.annotation-block .attr:last-child { margin-bottom: 0; }
+
+.colophon {
+  margin-top: 2.2rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.colophon p { margin: 0.6rem 0 0; }
