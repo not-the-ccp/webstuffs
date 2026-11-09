@@ -1,0 +1,130 @@
+:root {
+  --paper: #f4efe4;
+  --ink: #221d16;
+  --faint: #6b6152;
+  --seal: #7d1f1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.ledger {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.4rem;
+  margin-bottom: 2.2rem;
+}
+
+.rule-top {
+  letter-spacing: 1.2em;
+  color: var(--faint);
+  margin: 0 0 0.8rem;
+  font-size: 0.8rem;
+}
+
+.paper-name {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin: 0.2rem 0 0.4rem;
+}
+
+h1 .amp { color: var(--seal); font-style: italic; }
+
+.edition {
+  margin: 0;
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.95rem;
+}
+
+.price {
+  margin: 0.7rem 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+.ad {
+  margin: 0 0 2.1rem;
+  border-top: 1px solid var(--ink);
+  padding-top: 0.9rem;
+}
+
+.ad-head {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.ad-sub {
+  margin: 0.1rem 0 0.7rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+.ad p { margin: 0 0 0.65rem; }
+.ad p:last-child { margin-bottom: 0; }
+
+.ad-order { border-top: 3px double var(--ink); }
+.ad-order .ad-sub { color: var(--seal); }
+
+.ad-patent .verbatim {
+  margin: 0.9rem 1.2rem;
+  padding: 0.7rem 0 0.7rem 1rem;
+  border-left: 2px solid var(--seal);
+  font-style: italic;
+  color: #3a332a;
+}
+
+.ad-obit .ad-head { color: var(--seal); }
+
+a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125, 31, 26, 0.35);
+}
+
+a:hover { border-bottom-color: var(--seal); }
+
+.tail {
+  margin-top: 3rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.colophon {
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faint);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
