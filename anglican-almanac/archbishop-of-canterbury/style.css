@@ -1,0 +1,207 @@
+/* The Office of the Archbishop of Canterbury — In Memoriam
+   The Church Weather Almanac, Year XLVIII · Parish Observatory, Lambeth Hill */
+
+:root{
+  --night:#100b1e;
+  --vault:#181026;
+  --plum:#241636;
+  --gold:#e0b541;
+  --gold-dim:#c9a227;
+  --parchment:#f2e8cf;
+  --bone:#e8dfc8;
+  --wine:#5c1f2c;
+  --candle:#ffbf5e;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  font-size:1.24rem;
+  line-height:1.62;
+  color:var(--bone);
+  background:
+    radial-gradient(1100px 520px at 50% -8%, rgba(224,181,65,.16), transparent 60%),
+    radial-gradient(700px 700px at 8% 108%, rgba(92,31,44,.5), transparent 62%),
+    radial-gradient(900px 600px at 96% 82%, rgba(44,20,80,.55), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(224,181,65,.035) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(224,181,65,.028) 0 1px, transparent 1px 44px),
+    linear-gradient(180deg, var(--night) 0%, var(--vault) 42%, var(--plum) 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+}
+
+/* the vault behind everything: a faint rose window */
+.vault-vault{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 30%,
+      transparent 0 9.5%, rgba(224,181,65,.05) 9.5% 10%, transparent 10% 14.5%,
+      rgba(224,181,65,.045) 14.5% 15%, transparent 15% 20%,
+      rgba(224,181,65,.04) 20% 20.5%, transparent 20.5%),
+    conic-gradient(from 0deg at 50% 30%,
+      rgba(224,181,65,.05) 0 12deg, transparent 12deg 30deg,
+      rgba(224,181,65,.05) 30deg 42deg, transparent 42deg 60deg,
+      rgba(224,181,65,.05) 60deg 72deg, transparent 72deg 90deg,
+      rgba(224,181,65,.05) 90deg 102deg, transparent 102deg 120deg,
+      rgba(224,181,65,.05) 120deg 132deg, transparent 132deg 150deg,
+      rgba(224,181,65,.05) 150deg 162deg, transparent 162deg 180deg,
+      rgba(224,181,65,.05) 180deg 192deg, transparent 192deg 210deg,
+      rgba(224,181,65,.05) 210deg 222deg, transparent 222deg 240deg,
+      rgba(224,181,65,.05) 240deg 252deg, transparent 252deg 270deg,
+      rgba(224,181,65,.05) 270deg 282deg, transparent 282deg 300deg,
+      rgba(224,181,65,.05) 300deg 312deg, transparent 312deg 330deg,
+      rgba(224,181,65,.05) 330deg 342deg, transparent 342deg 360deg);
+  animation:slow-turn 240s linear infinite;
+  opacity:.9;
+}
+@keyframes slow-turn{ to{ transform:rotate(1deg); } }
+
+/* rising incense */
+.incense{
+  position:fixed; bottom:-12vh; width:3px; height:60vh; z-index:0; pointer-events:none;
+  background:linear-gradient(180deg, transparent, rgba(232,223,200,.28), transparent);
+  filter:blur(6px);
+  animation:rise 16s linear infinite;
+}
+.incense-a{ left:14%; animation-delay:0s; }
+.incense-b{ left:83%; animation-delay:8s; width:2px; }
+@keyframes rise{
+  0%   { transform:translateY(0) translateX(0) scaleX(1); opacity:0; }
+  12%  { opacity:.8; }
+  50%  { transform:translateY(-90vh) translateX(28px) scaleX(2.4); }
+  100% { transform:translateY(-150vh) translateX(-16px) scaleX(4); opacity:0; }
+}
+
+/* the twenty-six candles */
+.candles{
+  position:fixed; top:0; left:0; right:0; z-index:2; display:flex;
+  justify-content:space-between; padding:0 4vw; pointer-events:none;
+}
+.candle{ position:relative; width:5px; height:30px; background:linear-gradient(180deg, var(--bone), #b9a97e); border-radius:2px 2px 0 0; }
+.candle i{
+  position:absolute; left:50%; top:-14px; width:9px; height:15px; transform:translateX(-50%);
+  background:radial-gradient(circle at 50% 78%, #fff3c4 0 22%, var(--candle) 45%, #e07b2f 78%, transparent 82%);
+  border-radius:50% 50% 45% 45%;
+  animation:flicker 1.9s ease-in-out infinite;
+  box-shadow:0 0 22px 7px rgba(255,191,94,.34), 0 -18px 40px 12px rgba(255,191,94,.14);
+}
+.candle:nth-child(odd) i{ animation-delay:.5s; animation-duration:2.3s; }
+.candle:nth-child(3n) i{ animation-delay:1.1s; }
+@keyframes flicker{
+  0%,100%{ transform:translateX(-50%) scaleY(1) rotate(-2deg); }
+  30%{ transform:translateX(-52%) scaleY(1.18) rotate(3deg); }
+  60%{ transform:translateX(-48%) scaleY(.92) rotate(-4deg); }
+}
+
+.mournsheet{
+  position:relative; z-index:3;
+  max-width:72rem; margin:0 auto; padding:7.5rem 3rem 4rem;
+  background:
+    linear-gradient(180deg, rgba(24,16,38,.88), rgba(24,16,38,.94) 30%, rgba(16,11,30,.95)),
+    repeating-linear-gradient(45deg, rgba(224,181,65,.02) 0 2px, transparent 2px 14px);
+  border:1px solid rgba(224,181,65,.4);
+  outline:1px solid rgba(224,181,65,.18); outline-offset:6px;
+  box-shadow:0 0 90px rgba(0,0,0,.7), inset 0 0 120px rgba(0,0,0,.55);
+}
+.mournsheet::before, .mournsheet::after{
+  content:"✝"; position:absolute; left:0; right:0; text-align:center;
+  color:var(--gold-dim); font-size:1.1rem; letter-spacing:1.2em; pointer-events:none;
+}
+.mournsheet::before{ top:.45rem; }
+.mournsheet::after{ bottom:.45rem; }
+
+.masthead{ text-align:center; padding-bottom:1.6rem; border-bottom:double 5px rgba(224,181,65,.5); }
+.folio{
+  margin:0 0 1.2rem; font-size:.92rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold);
+}
+.folio em{ font-style:italic; text-transform:none; letter-spacing:.12em; }
+.cross{ animation:cross-glow 6s ease-in-out infinite; }
+@keyframes cross-glow{
+  0%,100%{ filter:drop-shadow(0 0 6px rgba(224,181,65,.35)); }
+  50%{ filter:drop-shadow(0 0 18px rgba(224,181,65,.7)); }
+}
+h1{
+  margin:.4rem 0 1rem; font-weight:700; font-size:clamp(2rem, 5.4vw, 3.4rem);
+  line-height:1.12; letter-spacing:.02em; color:var(--parchment);
+  text-shadow:0 2px 24px rgba(224,181,65,.25);
+}
+h1 .blackletter{
+  font-family:"UnifrakturMaguntia", "Cormorant Garamond", Georgia, serif;
+  font-weight:400; color:var(--gold); display:inline-block;
+  border-bottom:1px solid rgba(224,181,65,.5); padding-bottom:.15em;
+}
+.subtitle{
+  margin:0 auto 1rem; max-width:46rem; font-style:italic; font-size:1.08rem;
+  color:var(--bone); opacity:.9;
+}
+.obs-line{
+  margin:0 auto; font-size:1rem; letter-spacing:.06em; color:var(--gold);
+  border-top:1px solid rgba(224,181,65,.3); border-bottom:1px solid rgba(224,181,65,.3);
+  display:table; padding:.45rem 1.2rem;
+}
+.obs-line #clock, .obs-line #baro, .obs-line #candles{ font-weight:700; }
+
+/* the ledger ticker */
+.ticker{
+  overflow:hidden; white-space:nowrap; border-top:1px solid rgba(224,181,65,.35);
+  border-bottom:1px solid rgba(224,181,65,.35); background:rgba(0,0,0,.28);
+  margin:0 -3rem 2.2rem; padding:.4rem 0; font-size:.95rem; letter-spacing:.18em; color:var(--gold);
+}
+.ticker-track{ display:inline-block; animation:drift 36s linear infinite; }
+@keyframes drift{ to{ transform:translateX(-50%); } }
+
+.entry{ padding:0 .2rem; }
+.plate{
+  margin:2.6rem 0 1rem; font-size:1.45rem; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gold); text-align:center;
+}
+.plate::before, .plate::after{
+  content:"— ✠ —"; display:block; margin:0 auto .35rem; font-size:.8rem;
+  color:var(--gold-dim); letter-spacing:.5em;
+}
+.entry p{ margin:0 0 1.35rem; }
+.drop{
+  float:left; font-family:"UnifrakturMaguntia", Georgia, serif; font-size:4.6rem;
+  line-height:.82; padding:.1em .18em 0 0; color:var(--gold);
+  text-shadow:0 0 26px rgba(224,181,65,.4);
+}
+strong{ color:var(--parchment); letter-spacing:.02em; }
+a{ color:var(--gold); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; transition:color .2s, background .2s; }
+a:hover{ color:#ffe9a8; background:rgba(224,181,65,.12); }
+
+.ledger{
+  width:100%; border-collapse:collapse; margin:1.4rem 0 1.8rem;
+  font-size:1.05rem; background:rgba(0,0,0,.25);
+}
+.ledger caption{
+  caption-side:bottom; font-style:italic; font-size:.95rem; color:var(--bone); opacity:.8;
+  padding-top:.6rem; text-align:left;
+}
+.ledger th{
+  text-align:left; font-size:.85rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); border-bottom:double 4px rgba(224,181,65,.55); padding:.5rem .7rem;
+}
+.ledger td{ padding:.55rem .7rem; border-bottom:1px solid rgba(224,181,65,.18); vertical-align:top; }
+.ledger tbody tr{ transition:background .25s; }
+.ledger tbody tr:hover{ background:rgba(224,181,65,.09); }
+.ledger .num{ color:var(--candle); white-space:nowrap; }
+
+.colophon{
+  margin-top:3rem; padding-top:1.4rem; text-align:center;
+  border-top:double 5px rgba(224,181,65,.5); font-size:1rem;
+}
+.colophon .proverb{ font-size:1.12rem; color:var(--parchment); }
+.colophon a{ margin:0 .5rem; }
+.colophon .small{ font-style:italic; opacity:.7; }
+
+@media (max-width:640px){
+  body{ font-size:1.12rem; }
+  .mournsheet{ padding:6.5rem 1.2rem 3rem; }
+  .ticker{ margin:0 -1.2rem 2rem; }
+  .candles{ padding:0 2vw; }
+}
