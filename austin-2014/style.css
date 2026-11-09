@@ -1,0 +1,195 @@
+/* Austin 2014 — Grand Prix FAQ, Paddock styling */
+
+:root {
+  --asphalt: #1c1e22;
+  --asphalt-2: #24272d;
+  --line: #3a3f47;
+  --chalk: #f2ede2;
+  --chalk-dim: #b9b3a4;
+  --speed-red: #c8102e;
+  --amber: #f0a500;
+  --mercedes: #27f4d2;
+  --redbull: #5bc0eb;
+  --board-green: #9dff5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--asphalt);
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -5%, rgba(200, 16, 46, 0.16), transparent 70%),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255,255,255,0.015) 46px 48px);
+  color: var(--chalk);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 1.03rem;
+}
+
+/* Checkered flag strips */
+.flag-strip {
+  height: 14px;
+  background-image:
+    linear-gradient(45deg, var(--chalk) 25%, transparent 25%, transparent 75%, var(--chalk) 75%),
+    linear-gradient(45deg, var(--chalk) 25%, var(--asphalt-2) 25%, var(--asphalt-2) 75%, var(--chalk) 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+  opacity: 0.85;
+}
+
+.masthead {
+  padding: 2.2rem 1.2rem 1.6rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--amber);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0 0 0.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.dek {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--chalk-dim);
+  border-left: 3px solid var(--speed-red);
+  padding-left: 0.7rem;
+  margin: 0 0 1.4rem;
+}
+
+/* Timing-board final classification */
+.board {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr 1fr;
+  gap: 0.25rem 0.8rem;
+  align-items: baseline;
+  background: var(--asphalt-2);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--speed-red);
+  padding: 0.9rem 1.1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  max-width: 460px;
+}
+
+.board .pos {
+  font-weight: bold;
+  color: var(--asphalt);
+  background: var(--board-green);
+  text-align: center;
+  border-radius: 2px;
+  padding: 0 0.15rem;
+}
+.board .p2 { background: var(--chalk); }
+.board .p3 { background: var(--amber); }
+
+.board .drv { letter-spacing: 0.08em; }
+.board .team { color: var(--chalk-dim); font-size: 0.8rem; text-align: right; }
+.board .team.mrc { color: var(--mercedes); }
+.board .team.rb { color: var(--redbull); }
+
+main.faq {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0.5rem 1.2rem 2.5rem;
+}
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--chalk);
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 1.4rem;
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--amber);
+  margin: 2rem 0 0.8rem;
+}
+
+.qa {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--speed-red);
+  background: var(--asphalt-2);
+  margin: 0 0 0.9rem;
+}
+
+.qa h3 { margin: 0; font-size: 1.05rem; }
+
+.q {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.85rem 1.1rem;
+  font: inherit;
+  color: var(--chalk);
+  letter-spacing: 0.01em;
+}
+
+.q:hover, .q:focus-visible { background: rgba(200, 16, 46, 0.14); }
+.q:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
+
+.qnum {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--asphalt);
+  background: var(--amber);
+  border-radius: 2px;
+  padding: 0.05rem 0.4rem;
+  margin-right: 0.6rem;
+  vertical-align: 0.1em;
+}
+
+.a {
+  padding: 0 1.1rem 1.05rem;
+  color: var(--chalk-dim);
+}
+.a p { margin: 0.15rem 0 0.8rem; }
+.a p:last-child { margin-bottom: 0; }
+.a strong { color: var(--chalk); }
+.a em { color: var(--board-green); font-style: italic; }
+
+.a a { color: var(--mercedes); text-decoration: underline dotted; }
+.a a:hover { color: var(--chalk); text-decoration-style: solid; }
+.lede a, .outro a { color: var(--mercedes); }
+
+.outro {
+  margin-top: 2.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--chalk-dim);
+  border-top: 1px dashed var(--line);
+  padding-top: 1rem;
+}
+
+.colophon {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: var(--chalk-dim);
+  padding: 1rem 1.2rem 2rem;
+}
+.colophon a { color: var(--amber); }
+
+@media (max-width: 560px) {
+  .board { grid-template-columns: 2.2rem 1fr; }
+  .board .team { display: none; }
+}
