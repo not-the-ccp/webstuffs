@@ -1,0 +1,144 @@
+/* The Lamplighter's Ledger, No. 82 — lamp room styling */
+
+:root {
+  --ink: #2b2419;
+  --ink-soft: #5a4f3d;
+  --paper: #f6efdd;
+  --paper-deep: #efe4c9;
+  --flame: #c77b2e;
+  --flame-warm: #e0a54f;
+  --rule: #b9a888;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #221c13;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid #6b5d45;
+  box-shadow: 0 0 0 6px var(--paper-deep), 0 18px 40px rgba(0,0,0,.5);
+  padding: 2.5rem 2.75rem 2rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.club-line {
+  font-variant: small-caps;
+  letter-spacing: .12em;
+  color: var(--ink-soft);
+  margin: 0 0 .5rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: .25rem 0;
+  letter-spacing: .02em;
+}
+
+.issue-line { margin: .25rem 0; color: var(--ink-soft); }
+
+.motto {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+main h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+  margin-top: 2rem;
+}
+
+p { margin: .8rem 0; }
+
+a { color: #7a4a1e; }
+a:hover { color: var(--flame); }
+
+/* — The night by the quarter hour: turn buttons and cards — */
+
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0 .25rem;
+}
+
+.turn {
+  flex: 1 1 10rem;
+  font: inherit;
+  cursor: pointer;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: .35rem;
+  padding: .5rem .65rem;
+  text-align: left;
+  transition: background .2s, border-color .2s, transform .15s;
+}
+
+.turn:hover { transform: translateY(-2px); }
+
+.turn-clock {
+  display: block;
+  font-variant-numeric: tabular-nums;
+  font-weight: bold;
+  color: var(--ink-soft);
+}
+
+.turn-name { font-variant: small-caps; letter-spacing: .06em; }
+
+.turn.is-active {
+  background: var(--flame);
+  border-color: var(--flame-warm);
+}
+.turn.is-active .turn-clock,
+.turn.is-active .turn-name { color: #fff8ec; }
+
+.turn-card {
+  display: none;
+  border-left: 4px solid var(--flame);
+  background: #fffaf0;
+  padding: 1rem 1.25rem;
+  margin: .9rem 0;
+}
+
+.turn-card.is-active { display: block; }
+
+.turn-card-clock {
+  font-size: 1.05rem;
+  margin: 0 0 .4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* — Rules and colophon — */
+
+.rules li { margin: .5rem 0; }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  margin-top: 2.25rem;
+  padding-top: 1rem;
+  font-size: .92rem;
+  color: var(--ink-soft);
+}
+
+.foot-sign {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: .1em;
+  margin-bottom: 0;
+}
