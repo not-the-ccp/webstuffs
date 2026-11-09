@@ -1,0 +1,204 @@
+/* The Minute Book — No. 14 · Two Shores Club circular */
+
+:root {
+  --ink: #1d2a24;
+  --vellum: #f3ead6;
+  --green: #1e4d3b;
+  --sea: #7a9aa8;
+  --stamp-red: #a3341f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--vellum);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(122, 154, 168, 0.10), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(30, 77, 59, 0.08), transparent 45%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+/* the rotated club stamp, overlapping the masthead corner */
+.stamp {
+  position: fixed;
+  top: 26px;
+  right: 30px;
+  z-index: 5;
+  width: 108px;
+  height: 108px;
+  border: 3px double var(--stamp-red);
+  border-radius: 50%;
+  color: var(--stamp-red);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(12deg);
+  opacity: 0.85;
+  pointer-events: auto;
+  user-select: none;
+}
+.stamp.stamped { animation: thud 0.35s ease-out; }
+@keyframes thud {
+  0%   { transform: rotate(12deg) scale(1.35); opacity: 0.3; }
+  100% { transform: rotate(12deg) scale(1); opacity: 0.85; }
+}
+
+/* masthead: oversized, asymmetric */
+.masthead {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 5vw 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 0 4vw;
+  align-items: end;
+}
+.club-line {
+  grid-column: 1 / -1;
+  margin: 0 0 18px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 8px;
+}
+.title {
+  font-size: clamp(56px, 9vw, 118px);
+  line-height: 0.92;
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-weight: bold;
+}
+.title em {
+  font-style: italic;
+  color: var(--green);
+}
+.subtitle {
+  grid-column: 1 / -1;
+  margin: 18px 0 0;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink);
+  max-width: 34ch;
+  justify-self: end;
+  text-align: right;
+  padding-bottom: 14px;
+}
+
+/* the sheet: asymmetric two-column grid, tall lead column */
+.sheet {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 5vw 70px;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas:
+    "lead tally"
+    "printer printer"
+    "walk correspondence";
+  gap: 40px 5vw;
+}
+.lead         { grid-area: lead; }
+.tally         { grid-area: tally; }
+.printer       { grid-area: printer; }
+.walk          { grid-area: walk; }
+.correspondence{ grid-area: correspondence; }
+
+h2 {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px;
+  margin: 0 0 16px;
+}
+
+/* the tally card, tilted slightly against the grain */
+.tally {
+  background: #efe3c4;
+  border: 1px solid var(--ink);
+  padding: 20px 22px;
+  transform: rotate(-1.4deg);
+  box-shadow: 6px 6px 0 rgba(29, 42, 36, 0.14);
+  align-self: start;
+}
+.tally h3 {
+  margin: 0 0 12px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.tally ul { margin: 0; padding-left: 18px; font-size: 15px; }
+.tally li { margin-bottom: 8px; }
+.tally-note {
+  font-size: 13px;
+  font-style: italic;
+  border-top: 1px dashed var(--ink);
+  padding-top: 10px;
+  margin: 14px 0 0;
+}
+
+/* the printer's line set into a sea band */
+.printer strong {
+  background: linear-gradient(transparent 72%, rgba(122, 154, 168, 0.35) 72%);
+}
+.printer {
+  border-left: 6px solid var(--sea);
+  padding-left: 28px;
+}
+
+/* walk section: narrow, offset, like a marginal note */
+.walk {
+  max-width: 42ch;
+  transform: rotate(0.6deg);
+}
+
+/* correspondence keeps the long reading path down the right column */
+.correspondence {
+  font-size: 15px;
+  border-top: 1px solid var(--ink);
+  padding-top: 18px;
+}
+
+a { color: var(--green); }
+a:hover { color: var(--stamp-red); }
+
+/* closing: signature line, oversized */
+.closing {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  border-top: 3px double var(--ink);
+  padding-top: 18px;
+}
+.sig {
+  font-size: 20px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+.sig-line { margin: 0 0 10px; }
+.back-link {
+  font-size: 13px;
+  font-family: "Courier New", monospace;
+  color: var(--green);
+}
+
+@media (max-width: 760px) {
+  .masthead { grid-template-columns: 1fr; }
+  .subtitle { justify-self: start; text-align: left; }
+  .sheet {
+    grid-template-columns: 1fr;
+    grid-template-areas: "lead" "tally" "printer" "walk" "correspondence";
+  }
+  .tally, .walk { transform: none; }
+  .stamp { position: static; margin: 20px auto 0; }
+}
