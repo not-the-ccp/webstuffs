@@ -1,0 +1,119 @@
+:root {
+  --ink: #1d2328;
+  --faint: #5c6670;
+  --hairline: #c9cfd6;
+  --paper: #fbfaf7;
+  --wash: #eef1f4;
+  --accent: #8c2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+.plate {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.plate-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.4rem;
+}
+
+.plate h1 {
+  font-size: 2.3rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.9rem;
+}
+
+.plate-sub {
+  font-size: 0.95rem;
+  color: var(--faint);
+  font-style: italic;
+  margin: 0;
+}
+
+.leaf {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 3rem;
+}
+
+.lede {
+  font-size: 1.08rem;
+  line-height: 1.78;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--accent);
+  margin: 0 0 2.75rem;
+}
+
+section { margin-bottom: 2.75rem; }
+
+h2 {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 2.6rem;
+  height: 1px;
+  background: var(--hairline);
+  margin-top: 0.7rem;
+}
+
+p { margin: 0 0 1.25rem; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
+
+strong { font-weight: 700; }
+
+.colophon {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+.colophon p { margin: 0.2rem 0; }
+
+@media (max-width: 620px) {
+  body { font-size: 17px; }
+  .plate { padding-top: 3rem; }
+  .lede { padding-left: 1rem; }
+}
