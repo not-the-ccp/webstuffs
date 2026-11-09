@@ -1,0 +1,107 @@
+/* The Hirundinidae Traveller — field guide entry Nº 12 */
+:root {
+  --teal: #1c6b6b;
+  --teal-deep: #122e33;
+  --cream: #f5f2e6;
+  --paper: #efe8d6;
+  --amber: #c8a24a;
+  --ink: #21302f;
+  --silt: #a89274;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+/* decorative left spine, as on a folded field guide */
+.spine {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 14px;
+  background: repeating-linear-gradient(45deg, var(--teal) 0 10px, var(--teal-deep) 10px 20px);
+  z-index: 2;
+}
+.spine span {
+  display: block; height: 8px; background: var(--amber);
+  border-radius: 0 0 8px 8px;
+}
+.cover {
+  padding: 3rem 2rem 1.5rem 3rem;
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(200,162,74,.18), transparent 55%),
+    var(--teal-deep);
+  color: var(--cream);
+  border-bottom: 6px double var(--amber);
+}
+.series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 .6rem;
+}
+h1 {
+  margin: 0; font-size: 2.6rem; line-height: 1.1;
+  font-variant: small-caps; letter-spacing: .02em;
+}
+.sub {
+  margin: .6rem 0 1.2rem; font-style: italic; color: #cfe0da; max-width: 46ch;
+}
+.plate {
+  background: var(--cream);
+  border: 1px solid var(--silt);
+  box-shadow: 0 2px 0 var(--silt);
+  max-width: 520px; padding: .5rem;
+}
+.plate svg { display: block; width: 100%; height: auto; }
+.plate-label { font: 11px "Courier New", monospace; fill: var(--teal-deep); letter-spacing: .06em; }
+main {
+  max-width: 720px; margin: 0 auto; padding: 2rem 1.4rem 3rem 2.4rem;
+}
+.entry {
+  background: var(--cream);
+  border: 1px solid var(--silt);
+  outline: 1px dashed var(--amber); outline-offset: 6px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 1px 0 rgba(33,48,47,.15);
+}
+.drop::first-letter {
+  float: left; font-size: 3.4rem; line-height: .85;
+  padding: .1em .12em 0 0; color: var(--teal);
+  font-family: Georgia, serif;
+}
+h2 {
+  font-variant: small-caps; letter-spacing: .05em;
+  color: var(--teal-deep);
+  border-bottom: 2px solid var(--amber);
+  padding-bottom: .2rem; margin-top: 2.2rem;
+}
+h3 { font-variant: small-caps; color: var(--teal); margin-bottom: .3rem; }
+.stops { padding-left: 1.2rem; }
+.stops li { margin: .7rem 0; }
+.stops .no {
+  display: inline-block; min-width: 4.4em;
+  font-family: "Courier New", monospace; font-size: .78rem;
+  color: var(--amber); letter-spacing: .12em; text-transform: uppercase;
+}
+strong { color: var(--teal-deep); }
+.margin {
+  margin: 1.6rem 0 0; padding: 1rem 1.4rem;
+  background: #e6dfc8; border-left: 5px solid var(--teal);
+  font-size: .95rem;
+}
+.margin li { list-style: none; }
+.margin ul { padding: 0; margin: .4rem 0; }
+.margin .fineprint { font-size: .8rem; font-style: italic; color: #5c5748; margin-bottom: 0; }
+#almanac [data-count] { font-family: "Courier New", monospace; color: var(--teal); font-weight: bold; }
+.colophon {
+  margin-top: 2rem; text-align: center; font-size: .85rem;
+  font-family: "Courier New", monospace; color: #4a4436;
+}
+a { color: var(--teal); }
+a:hover { color: var(--amber); }
+@media (max-width: 600px) {
+  .spine { width: 8px; }
+  main { padding-left: 1.6rem; }
+  .entry { padding: 1.4rem 1.2rem; }
+  h1 { font-size: 2rem; }
+}
