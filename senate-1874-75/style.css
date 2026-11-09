@@ -1,0 +1,217 @@
+/* In re the Class One Seats, 1874–75 — a verbatim record set in dark ink on calf-bound paper */
+
+:root {
+  --paper: #efe4c9;
+  --paper-deep: #e4d5ae;
+  --ink: #26201a;
+  --ink-soft: #4d4235;
+  --oxblood: #6b1d1d;
+  --brass: #8a6a1f;
+  --rule: #2c2620;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(107, 29, 29, 0.07), transparent 42%),
+    radial-gradient(ellipse at 88% 96%, rgba(77, 66, 53, 0.12), transparent 46%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.record {
+  position: relative;
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 3.25rem 2.25rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(44, 38, 32, 0.012) 2px 4px),
+    linear-gradient(160deg, #f1e7cf 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  border: 2px solid var(--rule);
+  outline: 1px solid var(--brass);
+  outline-offset: 5px;
+  box-shadow: 0 18px 44px rgba(38, 32, 26, 0.35);
+}
+
+/* the committee seal */
+.seal {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  display: grid;
+  place-items: center;
+  border: 2px double var(--oxblood);
+  border-radius: 50%;
+  color: var(--oxblood);
+  font-size: 0.66rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  transform: rotate(9deg);
+  opacity: 0.75;
+}
+
+/* caption */
+.caption { text-align: center; }
+.court {
+  margin: 0 0 0.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.02rem;
+  color: var(--oxblood);
+}
+.congress {
+  margin: 0 0 0.9rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.rule-double {
+  height: 6px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 3px double var(--rule);
+  margin: 0.8rem 0;
+}
+h1 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+.sub {
+  margin: 0 auto 0.4rem;
+  max-width: 34rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.present {
+  width: 100%;
+  margin: 0.6rem 0 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.present th, .present td {
+  text-align: left;
+  padding: 0.28rem 0.5rem;
+  border-bottom: 1px dotted rgba(44, 38, 32, 0.45);
+}
+.present th { font-weight: bold; }
+.present td { color: var(--ink-soft); font-style: italic; }
+
+/* record blocks */
+.proceedings { margin-top: 1.4rem; }
+.block { margin-bottom: 1.9rem; }
+h2 {
+  font-size: 1.06rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.7rem;
+}
+.block p { margin: 0 0 0.85rem; }
+.block p:first-of-type::first-letter {
+  font-size: 2.3em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--oxblood);
+  font-weight: bold;
+}
+.speaker {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+/* the calf-bound ledger */
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.4rem 0 1rem;
+  font-size: 0.88rem;
+  background: rgba(38, 32, 26, 0.035);
+  border: 1px solid var(--rule);
+}
+.ledger th {
+  text-align: left;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4rem 0.55rem;
+}
+.ledger td {
+  padding: 0.38rem 0.55rem;
+  border-bottom: 1px solid rgba(44, 38, 32, 0.35);
+  vertical-align: top;
+}
+.ledger tr:nth-child(even) td { background: rgba(138, 106, 31, 0.07); }
+.ledger td.vacant { color: var(--oxblood); font-style: italic; }
+
+/* the grey line, preserved verbatim */
+.ledger-line {
+  margin: 0.6rem 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid var(--oxblood);
+  background: rgba(44, 38, 32, 0.05);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  text-indent: -1.1rem;
+  padding-left: 2.2rem;
+}
+
+.attested {
+  text-align: right;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.signed { font-size: 0.94rem; }
+
+/* kept-with shelf */
+.kept-with {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+a { color: var(--oxblood); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+a:hover { color: var(--brass); }
+
+/* marginalia: hidden until the record is "laid open" */
+.margin-notes { position: absolute; inset: 0; pointer-events: none; }
+.note {
+  position: absolute;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--brass);
+  opacity: 0;
+  transform: rotate(-4deg);
+  transition: opacity 0.6s ease;
+  white-space: nowrap;
+}
+.record.laid-open .note { opacity: 0.85; }
+.n1 { top: 21%; left: 0.35rem; }
+.n2 { top: 37%; right: 0.35rem; transform: rotate(3deg); }
+.n3 { top: 55%; left: 0.35rem; transform: rotate(2deg); }
+.n4 { top: 71%; right: 0.35rem; }
+.n5 { bottom: 9%; left: 0.45rem; transform: rotate(-3deg); color: var(--oxblood); }
+
+@media (max-width: 640px) {
+  .record { margin: 0.8rem; padding: 1.6rem 1.2rem 1.4rem; }
+  .note { display: none; }
+  .seal { width: 3.4rem; height: 3.4rem; font-size: 0.55rem; top: 1rem; right: 1rem; }
+  h1 { font-size: 1.5rem; }
+}
