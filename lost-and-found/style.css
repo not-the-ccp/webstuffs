@@ -1,0 +1,188 @@
+/* Notice 47B — office of lost & found, Halls Creek State School */
+
+html { background: #c9a15f; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #2b2418;
+  line-height: 1.55;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(96, 62, 20, 0.28) 0 3px, transparent 4px),
+    radial-gradient(circle at 71% 41%, rgba(96, 62, 20, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 78%, rgba(96, 62, 20, 0.25) 0 3px, transparent 4px),
+    radial-gradient(circle at 88% 84%, rgba(96, 62, 20, 0.2) 0 2px, transparent 3px),
+    #c9a15f;
+  background-size: 340px 300px;
+}
+
+.board { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+.notice {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 2.2rem auto 3rem;
+  background: #f7f1df;
+  border: 1px solid #b9a678;
+  box-shadow: 0 10px 24px rgba(43, 30, 8, 0.35), 0 2px 5px rgba(43, 30, 8, 0.25);
+  padding: 2.4rem 2.6rem 1.6rem;
+}
+
+.pin {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #e2574a, #8c1f14 70%);
+  box-shadow: 0 3px 5px rgba(43, 30, 8, 0.45);
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double #8c7a4e;
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.office {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  font-weight: bold;
+  margin: 0 0 0.2rem;
+}
+
+.term {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #6d5c39;
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.dek {
+  font-size: 0.98rem;
+  margin: 0;
+  color: #4a3f26;
+}
+
+.stamp {
+  position: absolute;
+  right: 0.4rem;
+  top: 3.4rem;
+  transform: rotate(8deg);
+  border: 3px solid #a32218;
+  color: #a32218;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+  padding: 0.25rem 0.55rem;
+  opacity: 0.82;
+}
+
+.stamp span { font-size: 0.62rem; display: block; }
+
+.sec { margin-bottom: 1.5rem; }
+
+h2 {
+  font-size: 1.12rem;
+  border-bottom: 1px solid #b9a678;
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.7rem;
+}
+
+.item-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-bottom: 0.9rem;
+}
+
+.item-table th, .item-table td {
+  border: 1px solid #c4b287;
+  padding: 0.35rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.item-table th {
+  background: #efe5c6;
+  width: 11.5rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.ipa { font-size: 0.88em; }
+
+ul.marks { padding-left: 1.2rem; }
+ul.marks li { margin-bottom: 0.55rem; }
+
+.quiz {
+  background: #f2e9cd;
+  border: 1px dashed #8c7a4e;
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+}
+
+.questions { padding-left: 1.3rem; margin: 0 0 0.8rem; }
+.questions li { margin-bottom: 0.9rem; }
+.questions p { margin: 0 0 0.35rem; }
+
+.answers button {
+  font-family: inherit;
+  font-size: 0.88rem;
+  background: #f7f1df;
+  border: 1px solid #a08c58;
+  color: #2b2418;
+  padding: 0.28rem 0.65rem;
+  margin: 0.12rem 0.2rem 0.12rem 0;
+  cursor: pointer;
+}
+
+.answers button:hover { background: #e9dcb4; }
+.answers button.correct { background: #cfe0bd; border-color: #5c7c46; font-weight: bold; }
+.answers button.wrong { background: #eccfc7; border-color: #a32218; }
+
+.check-btn {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  background: #8c1f14;
+  color: #f7f1df;
+  border: none;
+  padding: 0.45rem 1.1rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+
+.check-btn:hover { background: #a32218; }
+
+.score {
+  font-size: 1rem;
+  margin: 0.8rem 0 0;
+  min-height: 1.4em;
+  font-weight: bold;
+  color: #4a3f26;
+}
+
+.claim-note { font-size: 0.94rem; }
+
+.colophon {
+  border-top: 3px double #8c7a4e;
+  padding-top: 0.8rem;
+  font-size: 0.82rem;
+  color: #6d5c39;
+  text-align: center;
+}
+
+.colophon .nav { margin-top: 0.4rem; }
+a { color: #7a2a1c; }
