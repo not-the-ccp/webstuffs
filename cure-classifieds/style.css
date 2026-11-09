@@ -1,0 +1,389 @@
+/* The Little Monsters & Evening Ledger — Classifieds & Personals, 19 August 2017 */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9dcbd;
+  --ink: #221a12;
+  --ink-soft: #4a3b2b;
+  --red: #c8342c;
+  --pink: #ff2d78;
+  --teal: #0f8f8a;
+  --gold: #b8860b;
+  --rule: #221a12;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 45, 120, 0.14), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(15, 143, 138, 0.16), transparent 42%),
+    repeating-linear-gradient(45deg, #171310 0 14px, #1c1712 14px 28px);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 1080px;
+  margin: 2rem auto 3rem;
+  padding: 0 1.25rem 2.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.05)),
+    var(--paper);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px #d8c9a3,
+    inset 0 0 90px rgba(120, 90, 30, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+/* halftone dot wash over the whole sheet */
+.halftone {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(34, 26, 18, 0.10) 1px, transparent 1.6px);
+  background-size: 7px 7px;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.glow {
+  position: absolute;
+  width: 60vmin;
+  height: 60vmin;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+.glow-pink { top: -8vmin; right: -10vmin; background: radial-gradient(circle, rgba(255, 45, 120, 0.5), transparent 65%); }
+.glow-teal { bottom: -6vmin; left: -12vmin; background: radial-gradient(circle, rgba(15, 143, 138, 0.5), transparent 65%); animation-delay: -8s; }
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(4vmin, 3vmin) scale(1.15); }
+}
+
+.masthead { position: relative; z-index: 1; text-align: center; padding-top: 1rem; }
+
+.masthead-rule { position: relative; height: 40px; margin: 0.25rem 0; }
+.ecg { width: 100%; height: 100%; display: block; }
+.ecg-path {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: ecg-run 5s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(200, 52, 44, 0.6));
+}
+@keyframes ecg-run {
+  0% { stroke-dashoffset: 1000; }
+  60% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -1000; }
+}
+
+.masthead-kicker {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  margin: 0.4rem 0;
+}
+
+.masthead-title {
+  font-family: "Bodoni MT", "Didot", "Playfair Display", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin: 0.4rem 0 0.3rem;
+  color: var(--ink);
+  text-shadow: 3px 3px 0 rgba(200, 52, 44, 0.22);
+}
+.masthead-title .amp {
+  color: var(--pink);
+  font-style: italic;
+  font-size: 0.75em;
+}
+
+.masthead-sub {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin: 0.3rem 0 0.8rem;
+  color: var(--ink-soft);
+}
+
+.neon {
+  color: var(--pink);
+  font-weight: 700;
+  text-shadow:
+    0 0 6px rgba(255, 45, 120, 0.9),
+    0 0 18px rgba(255, 45, 120, 0.6),
+    0 0 34px rgba(255, 45, 120, 0.4);
+  animation: flicker 4.2s infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  3% { opacity: 0.55; }
+  5% { opacity: 1; }
+  38% { opacity: 1; }
+  40% { opacity: 0.4; }
+  42% { opacity: 1; }
+  71% { opacity: 1; }
+  72% { opacity: 0.7; }
+  74% { opacity: 1; }
+}
+
+.dateline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.dl-box {
+  border: 1px solid var(--ink);
+  padding: 0.15rem 0.7rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 2px 0 rgba(34, 26, 18, 0.35);
+}
+
+.section-strip {
+  position: relative;
+  z-index: 1;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem 1.1rem;
+  margin: 1.4rem 0 1.6rem;
+  padding: 0.35rem 0.5rem;
+  background: repeating-linear-gradient(90deg, transparent 0 22px, rgba(34, 26, 18, 0.05) 22px 24px);
+}
+.section-strip a {
+  font-family: "Copperplate", "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.1rem 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+}
+.section-strip a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+.classifieds { position: relative; z-index: 1; }
+
+/* lead ad: the number itself */
+.lead-ad {
+  border: 3px double var(--ink);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(233, 220, 189, 0.6)),
+    var(--paper);
+  padding: 1.4rem 1.6rem 1.2rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+  box-shadow: 5px 5px 0 rgba(200, 52, 44, 0.25), inset 0 0 40px rgba(120, 90, 30, 0.12);
+}
+.lead-ad::before {
+  content: "AD NO. 1";
+  position: absolute;
+  top: -0.85rem;
+  left: 1.2rem;
+  background: var(--red);
+  color: #fff;
+  font-family: "Copperplate", "Trebuchet MS", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  padding: 0.15rem 0.6rem;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 0 rgba(34, 26, 18, 0.4);
+}
+.lead-ad .ad-head {
+  font-family: "Bodoni MT", "Didot", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.04em;
+  margin: 0.2rem 0 0.6rem;
+  color: var(--ink);
+  -webkit-text-stroke: 0.5px var(--ink);
+}
+.lead-ad p { font-size: 1.02rem; margin: 0.5rem 0; }
+
+.ad-stamp {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.62rem;
+  color: var(--red);
+  border: 1px solid var(--red);
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  margin: 0 0 0.5rem;
+  transform: rotate(-1.2deg);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.3rem;
+}
+
+.ad {
+  border: 1px dashed var(--ink);
+  border-top: 4px solid var(--ink);
+  padding: 1rem 1.1rem 1.1rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(34, 26, 18, 0.07) 27px 28px),
+    rgba(255, 255, 255, 0.45);
+  position: relative;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.ad:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 rgba(15, 143, 138, 0.35);
+}
+.ad:nth-child(even):hover { box-shadow: 5px 5px 0 rgba(255, 45, 120, 0.35); }
+.ad:nth-child(even) { border-top-color: var(--pink); }
+.ad:nth-child(3n) { border-top-color: var(--teal); }
+
+.ad-head {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.98rem;
+  line-height: 1.3;
+  margin: 0.2rem 0 0.55rem;
+  color: var(--ink);
+}
+.ad p { font-size: 0.92rem; margin: 0.45rem 0 0; text-align: justify; hyphens: auto; }
+.ad strong { color: var(--red); font-weight: 700; }
+
+/* the kept frame, noted in the margin of the missed-connection ad */
+.frame-note {
+  margin-top: 0.6rem;
+  border: 1px solid var(--ink);
+  background:
+    linear-gradient(180deg, rgba(34, 26, 18, 0.92), rgba(34, 26, 18, 0.82));
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 0.6rem;
+  box-shadow: 3px 3px 0 rgba(200, 52, 44, 0.5);
+}
+
+/* cross-filed */
+.crossfile {
+  margin-top: 1.6rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.9rem;
+}
+.crossfile-head {
+  font-family: "Copperplate", "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.72rem;
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+.crossfile p { font-size: 0.92rem; text-align: justify; }
+a { color: var(--teal); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--pink); }
+
+.colophon {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.8rem;
+  border-top: 1px solid var(--ink);
+  padding-top: 0.8rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.colophon-stamps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+.cstamp {
+  font-family: "Copperplate", "Trebuchet MS", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  border: 2px solid var(--red);
+  color: var(--red);
+  padding: 0.2rem 0.6rem;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+}
+.cstamp:nth-child(2) { transform: rotate(2deg); border-color: var(--teal); color: var(--teal); }
+.cstamp:nth-child(3) { transform: rotate(-1deg); border-color: var(--gold); color: var(--gold); }
+
+/* snap bursts from ledger.js */
+
+.recharge {
+  animation: recharge 0.6s ease-out;
+}
+@keyframes recharge {
+  0% { opacity: 0.25; }
+  100% { opacity: 1; }
+}
+
+.snap-fx {
+  position: fixed;
+  z-index: 99;
+  pointer-events: none;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--pink);
+  text-shadow: 0 0 8px rgba(255, 45, 120, 0.8);
+  animation: snap-rise 0.9s ease-out forwards;
+}
+@keyframes snap-rise {
+  from { opacity: 1; transform: translate(-50%, 0) scale(0.8); }
+  to { opacity: 0; transform: translate(-50%, -70px) scale(1.4) rotate(12deg); }
+}
+
+#snap-meter {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--pink);
+  box-shadow: 0 0 12px rgba(255, 45, 120, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecg-path, .neon, .glow { animation: none; }
+  .ecg-path { stroke-dashoffset: 0; }
+  .snap-fx { animation-duration: 0.01s; }
+}
