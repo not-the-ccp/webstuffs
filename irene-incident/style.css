@@ -1,0 +1,337 @@
+/* St Brendan's Preparatory School — End-of-Term Report, Michaelmas 1927 */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Special+Elite&family=Caveat:wght@500;600&display=swap');
+
+:root {
+  --ink: #1d2733;
+  --red: #8f1d1d;
+  --red-soft: #b04a3a;
+  --rule: rgba(31, 82, 120, 0.22);
+  --paper: #f3ecd9;
+  --paper-deep: #e9dfc3;
+  --brass: #8a6b2f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #22303c; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    radial-gradient(ellipse at 18% -10%, rgba(140, 170, 200, 0.35), transparent 55%),
+    radial-gradient(ellipse at 90% 110%, rgba(60, 90, 120, 0.5), transparent 60%),
+    linear-gradient(160deg, #263645 0%, #1c2833 55%, #131c24 100%);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  position: relative;
+  width: 100%;
+  max-width: 56rem;
+  padding: 3.5rem 3.25rem 3rem 4.5rem;
+  color: var(--ink);
+  background:
+    /* ruled lines */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2.15rem,
+      var(--rule) 2.15rem,
+      var(--rule) calc(2.15rem + 1px)
+    ),
+    /* warm paper */
+    radial-gradient(ellipse at 50% 0%, #f8f2e2 0%, var(--paper) 45%, var(--paper-deep) 100%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(120, 90, 40, 0.18);
+  transform: rotate(-0.35deg);
+}
+
+/* red margin line of the exercise book */
+.margin-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.1rem;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #c3564a 8%, #c3564a 92%, transparent);
+  box-shadow: 3px 0 0 rgba(195, 86, 74, 0.25);
+}
+
+/* binder holes */
+.holes { position: absolute; top: 0; bottom: 0; left: 0; width: 2.6rem; }
+.holes span {
+  position: absolute;
+  left: 0.85rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #33424f, #0e151b 75%);
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.35);
+}
+.holes span:nth-child(1) { top: 12%; }
+.holes span:nth-child(2) { top: 48%; }
+.holes span:nth-child(3) { top: 84%; }
+
+/* ---------- masthead ---------- */
+.masthead {
+  text-align: center;
+  position: relative;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 3px double var(--red);
+}
+.crest {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.4rem;
+  opacity: 0.85;
+  animation: crest-sway 7s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+@keyframes crest-sway {
+  from { transform: rotate(-2deg); }
+  to   { transform: rotate(2deg); }
+}
+.school-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--red);
+}
+.school-addr {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5c5340;
+}
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.55rem;
+  margin: 1rem 0 0.3rem;
+  letter-spacing: 0.05em;
+}
+.term-line {
+  margin: 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #5c5340;
+}
+
+/* ---------- pupil strip ---------- */
+.pupil-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.4rem 0.9rem;
+  margin: 0 0 1.6rem;
+  padding: 0.55rem 0.9rem;
+  border: 1.5px solid rgba(31, 82, 120, 0.4);
+  background: rgba(255, 252, 240, 0.5);
+}
+.pupil-strip .field { min-width: 0; }
+.field .label {
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.field .value {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: bold;
+  border-bottom: 1px dotted rgba(31, 82, 120, 0.4);
+}
+
+/* ---------- mark boxes ---------- */
+.mark-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+.mark-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7rem 0.4rem 0.85rem;
+  border: 2px solid var(--red);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.1)),
+    rgba(250, 245, 230, 0.6);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mark-box:hover { transform: translateY(-3px) rotate(-0.5deg); box-shadow: 0 6px 14px rgba(0,0,0,0.25); }
+.mark-box .subject {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5c5340;
+}
+.mark-box .score { font-size: 1rem; font-weight: bold; margin: 0.25rem 0 0.1rem; }
+.mark-box .grade {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+}
+.mark-box .stamp {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  border: 3px double var(--red);
+  border-radius: 6px;
+  padding: 0.35rem 0.3rem;
+  text-align: center;
+  background: rgba(243, 236, 217, 0.92);
+  opacity: 0;
+  transform: rotate(-14deg) scale(1.9);
+  pointer-events: none;
+}
+.mark-box.stamped .stamp {
+  animation: stamp-in 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+}
+@keyframes stamp-in {
+  0%   { opacity: 0; transform: rotate(-30deg) scale(2.2); }
+  70%  { opacity: 1; transform: rotate(-8deg) scale(0.94); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
+/* ---------- report body ---------- */
+.report h2, .copybook h2, .closing h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--red);
+  border-bottom: 1.5px solid rgba(143, 29, 29, 0.35);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.8rem;
+}
+.report p, .copybook p, .closing p {
+  line-height: 2.15rem;
+  font-size: 0.86rem;
+  margin: 0 0 1rem;
+}
+.by-line {
+  font-size: 0.72rem !important;
+  font-style: italic;
+  color: #5c5340;
+  margin-bottom: 1.2rem !important;
+}
+.report em, .copybook em { font-family: 'Caveat', cursive; font-size: 1.12em; letter-spacing: 0.02em; }
+a { color: var(--red-soft); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+a:hover { color: var(--red); text-decoration-style: solid; background: rgba(143, 29, 29, 0.08); }
+
+/* ---------- copybook specimen ---------- */
+.copybook {
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.1rem 0.4rem;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0, transparent 1.6rem, rgba(31, 82, 120, 0.18) 1.6rem, rgba(31, 82, 120, 0.18) calc(1.6rem + 1px)),
+    rgba(246, 240, 224, 0.7);
+  border: 1px solid rgba(120, 90, 40, 0.4);
+  transform: rotate(0.4deg);
+}
+.copybook-attr { font-size: 0.7rem !important; font-style: italic; color: #5c5340; }
+.specimen {
+  margin: 0.4rem 0 1rem;
+  padding: 0 0 0 0.9rem;
+  border-left: 4px solid var(--brass);
+  background: rgba(255, 253, 245, 0.65);
+}
+.specimen p {
+  font-family: 'Caveat', cursive !important;
+  font-size: 1.35rem !important;
+  line-height: 1.7rem !important;
+  color: #4a4034;
+}
+
+/* ---------- signatures & foot ---------- */
+.signatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.4rem 0 0.5rem;
+}
+.sig { border-top: 1.5px solid var(--ink); padding-top: 0.3rem; }
+.sig-name {
+  display: block;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--red);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.sig-title {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5c5340;
+}
+.report-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--red);
+  padding-top: 0.9rem;
+  text-align: center;
+}
+.foot-stamp {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  border: 2.5px solid var(--red);
+  border-radius: 4px;
+  padding: 0.45rem 0.9rem;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+  transition: transform 0.25s ease;
+}
+.foot-stamp:hover { transform: rotate(0deg) scale(1.03); }
+.foot-note { font-size: 0.7rem; font-style: italic; color: #5c5340; margin: 0.7rem 0 0; }
+
+/* red-pen cursor trail */
+.ink-dash {
+  position: fixed;
+  width: 14px;
+  height: 3px;
+  background: var(--red-soft);
+  border-radius: 3px;
+  opacity: 0.55;
+  pointer-events: none;
+  transform-origin: left center;
+  transition: opacity 0.8s ease;
+  z-index: 99;
+}
+
+@media (max-width: 640px) {
+  .pupil-strip { grid-template-columns: repeat(3, 1fr); }
+  .mark-row { grid-template-columns: repeat(2, 1fr); }
+  .signatures { grid-template-columns: 1fr; }
+  .paper { padding: 3rem 1.4rem 2.5rem 3.2rem; }
+  .margin-line { left: 2.2rem; }
+  .crest { position: static; margin: 0 auto 0.5rem; display: block; }
+}
