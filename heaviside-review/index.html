@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Farnham Vale Dining Room — A Review · Fenwick Avenue, Cambridge</title>
+<meta name="description" content="A restaurant review of the Farnham Vale Dining Room at 2 Fenwick Avenue, Cambridge: the telegrapher's soup, the step-function pastry, the 1893 gravitoelectromagnetic service, and one ledger line kept word for word.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="review-head">
+  <p class="mast">The Fens &amp; the Foulness — Restaurant Correspondent, No. 214</p>
+  <h1>The Farnham Vale Dining Room</h1>
+  <p class="address">2 Fenwick Avenue, Farnham Vale, Cambridge CB4 · One sitting, 6:30 to 9:15 · No telephone, by design</p>
+  <div class="scorecard" aria-hidden="true">
+    <span class="stars">★★★★&frac12;</span>
+    <span class="note">Covers &pound;38 · Wine list of eleven, all home-bottled</span>
+  </div>
+</header>
+
+<main class="review-body">
+
+  <section>
+    <p>The Farnham Vale Dining Room is the sort of place that cannot be found on a map and does not wish to be. It sits at <strong>2 Fenwick Avenue</strong>, on the hill above the River Cam, in a house that has belonged since 1883 to a single self-taught mathematician and electrical engineer of the name of <strong>Oliver Heaviside</strong> (HEV-<em>ee</em>-syde; 18 May 1850 &ndash; 3 February 1925). The kitchen does not take reservations, does not answer its own door, and has never, to my knowledge, printed its menu on anything thicker than a telegraph message. I ate there on a Tuesday in November, alone, and I am still, in some sense, unpacking the meal.</p>
+    <p>Heaviside is the house's chef, its owner, and — on the evidence of the bill, which is written in the same cramped hand as the menu — its accountant. He invented a new technique for solving differential equations, equivalent to the Laplace transform, he independently developed vector calculus, and he rewrote Maxwell's equations in the four-equation form every physics textbook has used since. The dining room serves these accomplishments as food, and I confess the metaphor is less mixed than it sounds.</p>
+  </section>
+
+  <section>
+    <h2>The Telegraphers&rsquo; Soup</h2>
+    <p>The first course is <em>telegrapher&rsquo;s</em> soup, served in a porcelain tube, and it is the dish that explains the whole house. Heaviside's formulation of the telegrapher's equations became commercially important during his own lifetime — after their significance had gone unremarked for a generation — and the kitchen has evidently read the history the way a good cook reads a recipe: slowly, then all at once. The broth arrives cold at the lip of the tube and hot at the base, and a small card explains that the temperature difference is not a fault but the point. The signal, the card says, was always there; you were only waiting for it to get down the line.</p>
+    <p>There is a small brass counter beside the soup, and a slip of paper, and the counter invites you to work out how long a signal takes to travel down your length of table. The slip is honest about what it will not do: it will not tell you the answer, it will only keep you company while you find it.</p>
+    <div class="counter" id="counter">
+      <p class="counter-title">The Signal Counter — Table Line, &frac14; metre to 40 kilometres</p>
+      <div class="counter-row">
+        <label for="cable-len">Length of table to be cabled (metres)</label>
+        <input type="number" id="cable-len" value="40" min="0.1" step="0.1">
+      </div>
+      <div class="counter-row">
+        <label for="v-factor">Velocity factor of the pair (0.01&ndash;1.00)</label>
+        <input type="number" id="v-factor" value="0.66" min="0.01" max="1" step="0.01">
+      </div>
+      <button type="button" id="counter-go">Send the signal</button>
+      <div class="counter-out" id="counter-out" aria-live="polite">
+        <p class="counter-idle">The counter has not yet been advanced. Enter a length, enter a velocity factor, and send.</p>
+      </div>
+    </div>
+    <p>When I sent my own number through — forty metres of pair, a velocity factor of 0.66, which the slip notes is about what a well-kept line manages — the answer came back in roughly <strong>two hundred and two nanoseconds</strong>, and the soup in its tube, which had been waiting on the table this whole time, had clearly been travelling the same distance for considerably longer. It was, I think, the most quietly superior thing I have been told at a restaurant since 1893.</p>
+  </section>
+
+  <section>
+    <h2>The Step-Function Pastry and the 1893 Service</h2>
+    <p>Second courses arrive in the house's famous step: nothing on the plate at all, then everything on the plate, in a single motion of the tray, and the kitchen is not a little proud that it is the only step in the valley that has never been smoothed. The pastry itself is a rectangular slab of shortcrust with a dark square of beetroot and blackstrap in the centre, cut precisely at the moment you turn to look at it, so that the square appears without any visible transition. Dampness at the edge is, the menu says, <em>expected discontinuity</em>. I have taken the menu at its word, and I have stopped correcting it.</p>
+    <p>Dinner's main is the <strong>1893 gravitoelectromagnetic service</strong>, and it is the house's one indulgence. In 1893, eleven years after Maxwell's death, Heaviside extended Maxwell's four equations from electricity and magnetism to gravitation — a parallel pair of gravitational fields, a gravitational &ldquo;charge&rdquo; that is mass, and a set of effects so faint that nobody alive could measure them. The plate does not pretend to be measurable: it is a thin disc of smoked eel and cold potato held by a small steel armature in a ring of broth, and the armature is doing nothing you can see, which is the entire joke, and the kitchen has the nerve to write on the card <em>do not shake the plate; the field will keep</em>. One hundred and twelve years later, in 2005, Gravity Probe B over the Pacific confirmed the frame-dragging the service is built on, and I had the good fortune, that evening, to watch the confirmation arrive on the kitchen radio while the armature sat, doing nothing, at the centre of the table.</p>
+  </section>
+
+  <section>
+    <h2>The Bill, and the One Line</h2>
+    <p>The house charges 38 pounds, and the bill comes on the same paper as the telegraph messages, in the same hand, with the four Maxwell equations reproduced at the foot in Heaviside's form — <em>curl</em> of <em>E</em> equals minus the time derivative of <em>B</em>, and its three companions, exactly as he set them down, the form now used everywhere including, I was told at the door, by the person who wrote your letter. The last line of the bill, however, is not a Maxwell equation. The last line of the bill is this, and I set it down exactly as it was written, because a restaurant that keeps a line like this is keeping a record, and a record is not corrected, it is kept:</p>
+    <blockquote class="kept-line">&ldquo;More than eight hundred and twelve metres of altitude can be unsaid, and where the Synergy Desk's Thread 41 has kept it all.&rdquo;</blockquote>
+    <p>I asked the kitchen what it meant, and the kitchen pointed to the ceiling and, on being pressed, pointed to the window, and on being pressed again, wrote on a fresh slip of paper the two words <em>go and look</em>, which is the best service a dining room can do for a question it has already answered. Outside, Farnham Vale drops away toward the river, and the hill holds its altitude the way it always has, and the dining room's door, which had been closed since before the first course, was open, and stayed open, until I went back in for the blackstrap. It is open now. It is a two hundred and two nanosecond walk from the Cam, and the field, I am told, will keep.</p>
+  </section>
+
+  <section class="more-reading">
+    <h2>From the same correspondent's files</h2>
+    <p>For the reader who wants to know how one works a device one has been told not to explain, the Office's cross-reference shelf keeps the <a href="../spurdle-patent/">Spurdle Interceptor, Serial No. 04/11,827</a>, whose inventor, like the kitchen here, declined to explain one line of his own evidence and whose counter — ten, and closed — I have since taken to carrying in my coat pocket when I eat step pastries. And for the discipline that lets a page be kept, one strange line and all, without the office answering for it, the manual at <a href="../episode-523/">Chapter 7 of Field Manual FM 52-3</a> gives the field example: eleven volumes, one window, the one in red. The dining room at 2 Fenwick Avenue runs on exactly that fuel, and I recommend it to anyone who has ever had a letter called much too hard for them to understand, and found, a generation later, that about two people in the universe can — and that they are both sitting at table four.</p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>The Fens &amp; the Foulness · Restaurant Correspondent, No. 214 · 2 Fenwick Avenue, Farnham Vale, Cambridge · one sitting, 6:30 to 9:15 · no telephone, by design.</p>
+  <p class="return"><a href="../">Return to the Webstuffs front page</a></p>
+</footer>
+
+<script src="review.js"></script>
+</body>
+</html>
