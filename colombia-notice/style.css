@@ -1,0 +1,156 @@
+/* Oficina de Extravíos · Bogotá · Notice No. 02148 */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: #5d492c;
+  color: #261c12;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+.board {
+  position: relative;
+  max-width: 740px;
+  margin: 28px auto;
+  padding: 46px 40px 56px;
+  background: #f6f1e3;
+  border: 17px solid #b07a34;
+  outline: 7px solid #ce1126;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.5);
+  border-radius: 2px;
+}
+
+.board::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 6px);
+  pointer-events: none;
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.pin {
+  position: absolute;
+  z-index: 2;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 2.5px solid #261c12;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.pin::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 7px; height: 7px; border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.pin-1 { top: -14px; left: 46px; background: #fcbf00; }
+.pin-1::after { background: #b07a34; }
+.pin-2 { top: -14px; right: 52px; background: #003893; }
+.pin-2::after { background: #00265f; }
+.pin-3 { bottom: -14px; right: 46px; background: #ce1126; }
+.pin-3::after { background: #8c0c18; }
+
+.notice-head {
+  position: relative; z-index: 1;
+  border-bottom: 3px double #261c12;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+.office {
+  margin: 0 0 7px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ce1126;
+  font-weight: bold;
+}
+.notice-head h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: #1d150c;
+}
+.tag {
+  font-size: 0.72rem;
+  background: #fcbf00;
+  color: #261c12;
+  padding: 1px 10px;
+  border-radius: 11px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+.scope {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #5c4726;
+  font-style: italic;
+}
+
+.ribbon {
+  height: 24px;
+  margin: 10px 0 26px;
+  background: linear-gradient(to bottom, #fcbf00 66.7%, #003893 66.7% 83.3%, #ce1126 83.3%);
+}
+
+.notice-body {
+  position: relative; z-index: 1;
+}
+.notice-body h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #003893;
+  margin: 0 0 10px;
+  border-left: 6px solid #ce1126;
+  padding-left: 10px;
+}
+p { margin: 0 0 12px; }
+.intro { font-size: 0.92rem; text-align: justify; }
+.lost, .found, .claim { margin-bottom: 22px; }
+.reward { color: #8c0c18; font-style: italic; font-size: 0.95rem; }
+.verbatim {
+  margin: 10px 0 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  background: #fdfcf4;
+  border: 1px dashed #b07a34;
+  padding: 8px 12px;
+  white-space: pre-wrap;
+}
+.closing { font-size: 0.85rem; }
+.closing a { color: #003893; text-decoration: underline; }
+
+.stamp {
+  position: absolute;
+  bottom: 28px; right: 34px;
+  width: 100px; height: 100px;
+  border: 2px dashed #ce1126;
+  border-radius: 50%;
+  color: #ce1126;
+  font-size: 0.6rem;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: bold;
+  padding-top: 30px;
+  opacity: 0.8;
+}
+
+.notice-foot {
+  position: relative; z-index: 1;
+  margin-top: 26px;
+  font-size: 0.72rem;
+  color: #5c4726;
+  border-top: 2px solid #b07a34;
+  padding-top: 12px;
+}
+
+@media (max-width: 560px) {
+  body { padding: 10px; }
+  .board { margin: 16px auto; padding: 34px 22px 42px; }
+  .notice-head h1 { font-size: 1.6rem; }
+}
