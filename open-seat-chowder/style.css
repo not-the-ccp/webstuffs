@@ -1,0 +1,152 @@
+/* Open Seat Chowder — Card No. 814, The Pella Kitchen Table */
+:root {
+  --kraft: #e8dcbf;
+  --kraft-deep: #d9c69a;
+  --ink: #3a2e20;
+  --faded-ink: #6b5a44;
+  --state-red: #8a2f2a;
+  --state-blue: #2e4a7a;
+  --stamp: #7c1f1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(58, 46, 32, 0.05) 34px 35px),
+    var(--kraft);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.card {
+  max-width: 44rem;
+  margin: 0 auto;
+  background: #f3ead2;
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  box-shadow: 6px 8px 0 rgba(58, 46, 32, 0.25);
+  padding: 2.25rem 2.5rem 1.5rem;
+  position: relative;
+}
+
+.card::before {
+  content: "814";
+  position: absolute;
+  top: -1.1rem;
+  right: 1.5rem;
+  background: var(--kraft-deep);
+  border: 1.5px solid var(--ink);
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  padding: 0.15rem 0.6rem;
+  transform: rotate(2deg);
+}
+
+.card-no {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  margin: 0 0 0.4rem;
+  color: var(--state-blue);
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 0.35rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, var(--state-red) 0 50%, var(--state-blue) 50% 100%);
+}
+
+.servings {
+  font-style: italic;
+  color: var(--faded-ink);
+  margin: 0 0 2rem;
+}
+
+.preamble-h {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 1px dashed var(--faded-ink);
+  padding-bottom: 0.3rem;
+  margin: 2.2rem 0 1.1rem;
+  color: var(--stamp);
+}
+
+p { margin: 0 0 1.05rem; }
+
+.drop::first-letter {
+  font-size: 3.1rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.12rem 0.45rem 0 0;
+  color: var(--state-red);
+}
+
+strong { color: var(--ink); }
+em { color: var(--faded-ink); }
+
+.ledger-line {
+  font-family: "Courier New", monospace;
+  font-size: 1.05rem;
+  border-left: 4px solid var(--state-red);
+  background: var(--kraft-deep);
+  padding: 0.7rem 1rem;
+  margin: 1.2rem 0;
+}
+
+ul.ingredients, ol.method {
+  margin: 0.4rem 0 1.2rem;
+  padding-left: 1.4rem;
+}
+ul.ingredients li::marker { content: "—  "; color: var(--state-red); }
+ol.method li::marker { font-family: "Courier New", monospace; color: var(--state-blue); }
+ol.method li { margin-bottom: 0.55rem; }
+
+.slip {
+  margin: 2rem 0;
+  background: #efe4c6;
+  border: 1px dashed var(--faded-ink);
+  padding: 0.9rem 1.2rem;
+  transform: rotate(-0.4deg);
+}
+.slip-line {
+  font-family: "Courier New", monospace;
+  margin: 0 0 0.3rem;
+}
+.slip-attrib {
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+
+a { color: var(--state-blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--state-red); }
+
+.colophon {
+  margin-top: 2.2rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 0.8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--faded-ink);
+  text-align: center;
+}
