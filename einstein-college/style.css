@@ -1,0 +1,198 @@
+/* The St. Anne's Square Post — newsletter of the 1953 Society */
+:root {
+  --paper: #f4ead6;
+  --paper-deep: #eaddc2;
+  --ink: #26221b;
+  --teal: #14555a;
+  --teal-deep: #0d3c40;
+  --stamp-red: #a33327;
+  --gold: #c2933c;
+  --rule: #b3a184;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(179,161,132,.10) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 780px;
+  margin: 2.5rem auto;
+  padding: 2.25rem 2.5rem 2rem;
+  background: #faf3e2;
+  border: 1px solid var(--rule);
+  outline: 3px double var(--teal);
+  outline-offset: 6px;
+  box-shadow: 0 14px 30px rgba(38,34,27,.18);
+}
+
+.masthead {
+  border-bottom: 3px double var(--teal-deep);
+  padding-bottom: 1.1rem;
+  text-align: center;
+  position: relative;
+}
+
+.stamp {
+  position: absolute;
+  top: .2rem;
+  right: .2rem;
+  transform: rotate(7deg);
+  border: 2px solid var(--stamp-red);
+  color: var(--stamp-red);
+  padding: .35rem .5rem;
+  font-family: "Courier New", monospace;
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+  text-align: center;
+}
+.stamp-line { display: block; margin-top: .3rem; }
+
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: .02em;
+  color: var(--teal-deep);
+}
+
+.subtitle {
+  margin: .5rem 0 .25rem;
+  font-size: .95rem;
+  font-style: italic;
+  color: #5a4f3c;
+}
+
+.motto {
+  margin: 0;
+  font-size: .85rem;
+  color: var(--stamp-red);
+  font-style: italic;
+}
+
+.ribbon {
+  overflow: hidden;
+  background: var(--teal-deep);
+  color: #f4ead6;
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  padding: .35rem 0;
+  margin: 1rem 0 1.5rem;
+}
+.ribbon-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: drift 26s linear infinite;
+}
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.dispatch h2, .register h2 {
+  font-size: 1.15rem;
+  color: var(--teal);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: .25rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.dispatch p { margin: 0 0 1rem; }
+
+.dispatch.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 640px) {
+  .dispatch.two { grid-template-columns: 1fr; }
+  .sheet { margin: .8rem; padding: 1.5rem 1.25rem; }
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+}
+.ledger caption {
+  caption-side: top;
+  font-style: italic;
+  font-size: .78rem;
+  padding: .25rem;
+  color: #5a4f3c;
+}
+.ledger th, .ledger td {
+  border: 1px solid var(--rule);
+  padding: .35rem .5rem;
+  text-align: left;
+}
+.ledger th { background: var(--teal); color: #f4ead6; }
+.ledger tr:nth-child(even) td { background: rgba(20,85,90,.06); }
+
+.kept-line {
+  margin: 1.25rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--paper-deep);
+  border-left: 6px solid var(--stamp-red);
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--teal-deep);
+}
+.kept-line p { margin: 0 0 .5rem; }
+.kept-line p:last-child { margin-bottom: 0; }
+.cite {
+  font-size: .8rem;
+  font-style: normal;
+  color: #5a4f3c;
+}
+
+.register {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--teal-deep);
+}
+.counter-line { font-size: .88rem; }
+.counter {
+  font-family: "Courier New", monospace;
+  background: var(--ink);
+  color: var(--paper);
+  padding: .05rem .45rem;
+  letter-spacing: .15em;
+}
+.register-lines { list-style: none; padding: 0; margin: .75rem 0 0; }
+.register-lines li {
+  font-size: .85rem;
+  font-style: italic;
+  padding: .4rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+a { color: var(--teal); }
+a:hover { color: var(--stamp-red); }
+
+.colophon {
+  margin-top: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--gold);
+  padding-top: 1rem;
+  font-size: .82rem;
+  color: #5a4f3c;
+}
+.big-line {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--stamp-red);
+  margin: 0 0 .5rem;
+}
