@@ -1,0 +1,189 @@
+/* The Cinema of China — Three-Thread Film Circuit, 2017 edition brochure */
+
+:root {
+  --paper: #f6ecd8;
+  --paper-dark: #efe0c2;
+  --vermilion: #a41f1f;
+  --vermilion-dark: #7c1414;
+  --ink: #2b2118;
+  --gold: #c99a3a;
+  --rule: #b09354;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(164,31,31,.06), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(201,154,58,.10), transparent 50%),
+    #e8d9b8;
+  font-family: Georgia, 'Times New Roman', 'Palatino Linotype', serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* vertical character rails */
+.rail {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  font-size: 1.05rem;
+  color: var(--vermilion);
+  background: rgba(255,250,235,.6);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: .7rem .45rem;
+  writing-mode: vertical-rl;
+  letter-spacing: .35rem;
+  box-shadow: 0 1px 4px rgba(60,40,10,.18);
+  user-select: none;
+}
+.rail span { display: block; }
+.rail-left { left: 1.1rem; }
+.rail-right { right: 1.1rem; }
+@media (max-width: 760px) { .rail { display: none; } }
+
+.brochure {
+  max-width: 46rem;
+  margin: 2.5rem auto 3rem;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.35), transparent 40%),
+    var(--paper);
+  border: 2px solid var(--vermilion);
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+  box-shadow: 0 10px 34px rgba(60,30,10,.28), inset 0 0 60px rgba(176,147,84,.12);
+  padding: 0 2.2rem;
+  position: relative;
+}
+.brochure::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+/* cover */
+.cover {
+  text-align: center;
+  padding: 2.2rem 0 1.4rem;
+  border-bottom: 3px double var(--rule);
+  position: relative;
+  z-index: 1;
+}
+.emblem { margin-bottom: .6rem; }
+.cover-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: var(--vermilion-dark);
+  margin: 0 0 .8rem;
+}
+h1 {
+  font-size: 2.6rem;
+  margin: 0 0 .5rem;
+  color: var(--vermilion);
+  letter-spacing: .02em;
+  text-shadow: 1px 1px 0 rgba(201,154,58,.4);
+}
+.cover-sub { font-style: italic; margin: 0 auto; max-width: 34rem; }
+.cover-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 1.4rem;
+  margin: 1.1rem 0 0;
+  padding: .55rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--vermilion-dark);
+}
+.cover-strip span { white-space: nowrap; }
+
+/* panels */
+.panel {
+  padding: 1.5rem 0 1.3rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  z-index: 1;
+}
+.panel h2 {
+  font-size: 1.15rem;
+  letter-spacing: .05em;
+  color: var(--vermilion-dark);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: .35rem;
+  margin: 0 0 1rem;
+}
+.panel p { margin: 0 0 .9rem; }
+.panel p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: .9rem; margin-top: .4rem; }
+caption {
+  caption-side: top;
+  font-style: italic;
+  font-size: .8rem;
+  color: var(--vermilion-dark);
+  padding-bottom: .4rem;
+  text-align: left;
+}
+th, td {
+  border: 1px solid var(--rule);
+  padding: .5rem .65rem;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--paper-dark);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .72rem;
+  color: var(--vermilion-dark);
+}
+tbody tr:nth-child(even), tr:nth-child(even) td { background: rgba(239,224,194,.4); }
+
+/* links */
+a { color: var(--vermilion); }
+a:hover { color: var(--vermilion-dark); background: rgba(201,154,58,.25); }
+
+/* colophon & footer */
+.colophon {
+  font-size: .8rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--vermilion-dark);
+  letter-spacing: .04em;
+}
+.foot {
+  text-align: center;
+  padding: 1.6rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+.stamp {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--vermilion);
+  border: 3px solid var(--vermilion);
+  border-radius: 8px;
+  padding: .35rem .8rem;
+  transform: rotate(-6deg);
+  opacity: .85;
+  letter-spacing: .3em;
+}
+.foot-nav {
+  margin-top: 1rem;
+  font-size: .8rem;
+  color: var(--vermilion-dark);
+}
