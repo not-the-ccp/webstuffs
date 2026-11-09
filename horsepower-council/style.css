@@ -1,0 +1,288 @@
+/* Minutes of the Council — Recalde Press & Cooperage, Series C */
+
+:root {
+  --parchment: #f3e9d2;
+  --parchment-deep: #e9dcbd;
+  --ink: #2c2118;
+  --ink-soft: #57432f;
+  --oxblood: #7a2d1c;
+  --brass: #a67c2e;
+  --rule: #b49b6f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(166, 124, 46, 0.10), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(122, 45, 28, 0.08), transparent 50%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.62;
+  font-size: 17px;
+}
+
+main, .masthead, .gauge, .nav-line, .footline {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.stamp {
+  position: fixed;
+  top: 0.9rem;
+  right: 0.9rem;
+  transform: rotate(4deg);
+  border: 2px solid var(--oxblood);
+  color: var(--oxblood);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(243, 233, 210, 0.7);
+  z-index: 5;
+}
+
+.masthead {
+  padding-top: 2.4rem;
+  border-bottom: 4px double var(--rule);
+  margin-bottom: 1.6rem;
+}
+
+.masthead .eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.15;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.masthead .subhead {
+  margin: 0.4rem 0 0.8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.masthead .meta-line {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--brass);
+  background: var(--parchment-deep);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.clause { margin-bottom: 1.9rem; }
+
+.clause h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+blockquote.kept-line {
+  margin: 1rem 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--parchment-deep);
+  border-left: 5px solid var(--oxblood);
+  font-style: italic;
+}
+
+blockquote .wet {
+  background: linear-gradient(180deg, rgba(58, 90, 96, 0.28), rgba(58, 90, 96, 0.12));
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.15rem;
+}
+
+table.tablebox {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0.4rem;
+  font-size: 0.92rem;
+  background: rgba(255, 252, 244, 0.5);
+}
+
+table.tablebox th {
+  background: var(--oxblood);
+  color: var(--parchment);
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  letter-spacing: 0.06em;
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+table.tablebox td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: top;
+}
+
+table.tablebox tr:last-child td { border-bottom: 2px solid var(--rule); }
+
+.table-note {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+ol.resolutions {
+  list-style: none;
+  counter-reset: resolution;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+ol.resolutions li {
+  counter-increment: resolution;
+  position: relative;
+  padding: 0.35rem 0 0.35rem 2.6rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+ol.resolutions li::before {
+  content: "R" counter(resolution) ".";
+  position: absolute;
+  left: 0;
+  color: var(--oxblood);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+.attestation {
+  margin: 2rem 0;
+  padding: 1rem 1.2rem;
+  border: 3px double var(--oxblood);
+  background: rgba(243, 233, 210, 0.55);
+}
+
+.attestation .attest-line {
+  margin: 0.3rem 0;
+  font-size: 0.92rem;
+}
+
+.signature {
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  font-size: 1.15rem;
+  color: var(--oxblood);
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--oxblood); text-underline-offset: 3px; }
+a:hover { color: var(--brass); }
+
+.gauge {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.2rem 1.2rem;
+  border: 2px solid var(--brass);
+  background: linear-gradient(180deg, rgba(166, 124, 46, 0.08), rgba(166, 124, 46, 0.02));
+}
+
+.gauge h2 {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.gauge-note {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.gauge-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.9rem;
+}
+
+.gauge-controls button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--parchment);
+  color: var(--ink);
+  border: 1px solid var(--brass);
+  cursor: pointer;
+}
+
+.gauge-controls button:hover { background: var(--parchment-deep); }
+
+.gauge-controls button.active {
+  background: var(--oxblood);
+  color: var(--parchment);
+  border-color: var(--oxblood);
+}
+
+.gauge-readout {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+.gauge-readout input {
+  font: inherit;
+  width: 6.5rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: rgba(255, 252, 244, 0.8);
+  color: var(--ink);
+}
+
+.gauge-readout .equals { color: var(--oxblood); font-size: 1.2rem; }
+
+.gauge-readout output {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.15rem;
+  color: var(--oxblood);
+}
+
+.nav-line {
+  margin: 1.5rem auto 1.5rem;
+  padding-top: 1rem;
+  border-top: 4px double var(--rule);
+  font-size: 0.92rem;
+}
+
+.nav-line p { margin: 0; }
+
+.footline {
+  padding-bottom: 2.5rem;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 40rem) {
+  .stamp { display: none; }
+  .masthead h1 { font-size: 1.6rem; }
+}
