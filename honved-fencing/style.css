@@ -1,0 +1,142 @@
+/* The Piste Room — Thread 31 */
+
+:root {
+  --paper: #faf7f0;
+  --ink: #23272b;
+  --faint: #6d7278;
+  --rule: #d8d2c4;
+  --accent: #7c2d12;
+  --card: #f4efe4;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2.25rem;
+  border-bottom: 3px double var(--ink);
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.9rem;
+}
+
+.standfirst {
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--faint);
+  margin: 0;
+}
+
+.thread {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+}
+
+.post {
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.post.op {
+  border-top: 2px solid var(--accent);
+}
+
+.post.closed {
+  border-top: 1px dashed var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.handle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.handle .meta {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+.when {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.body p {
+  margin: 0 0 1.05rem;
+}
+
+.body p:last-child { margin-bottom: 0; }
+
+.body em { font-style: italic; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(124, 45, 18, 0.35);
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.5rem 4rem;
+  border-top: 3px double var(--ink);
+}
+
+.colophon p {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: center;
+}
+
+@media (max-width: 40em) {
+  html { font-size: 16px; }
+  .post-head { flex-direction: column; gap: 0.2rem; }
+}
