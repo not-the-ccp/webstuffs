@@ -1,0 +1,173 @@
+/* Term Report No. 12 — Meridian Hall School, Form 3B */
+
+:root {
+  --paper: #fbf6ea;
+  --ink: #2a2318;
+  --faint: #6b6151;
+  --rule: #c8bda2;
+  --red: #a33c2e;
+  --blue: #2e4d6b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e8e0cf;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 52rem;
+  margin: 2rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 6px double var(--red);
+  padding: 2.5rem 3rem 2rem 3.5rem;
+  position: relative;
+  box-shadow: 0 2px 14px rgba(60, 48, 30, 0.18);
+}
+
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.4rem;
+  width: 1px;
+  background: rgba(163, 60, 46, 0.35);
+}
+
+.report-head {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.school {
+  margin: 0 0 0.3rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 2.3rem;
+  line-height: 1.1;
+}
+
+h1 .dates { color: var(--red); font-size: 1.4rem; }
+
+h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 2rem 0 0.8rem;
+}
+
+.sub { margin: 0; color: var(--faint); font-style: italic; }
+
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  margin: 0.9rem 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.field {
+  border: 1px solid var(--rule);
+  background: #f4eddc;
+  padding: 0.15rem 0.6rem;
+}
+
+.field em { color: var(--red); font-style: normal; font-weight: bold; }
+
+.rubric { font-size: 0.85rem; color: var(--faint); margin-bottom: 0; }
+
+p { margin: 0 0 0.9rem; }
+
+blockquote.unemended {
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0.8rem 1.2rem;
+  border-left: 4px solid var(--blue);
+  background: #f0ecf3;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+a { color: var(--blue); }
+a:hover { color: var(--red); }
+
+/* Timeline */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.8rem;
+}
+
+.filter {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.7rem;
+  background: #f4eddc;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.filter:hover { background: #eadfC4; }
+.filter.active { background: var(--red); color: #fff; border-color: var(--red); }
+
+.events {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--rule);
+}
+
+.events li {
+  display: grid;
+  grid-template-columns: 6.5rem 8rem 1fr;
+  gap: 0.6rem;
+  padding: 0.35rem 0.4rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.events li.hidden { display: none; }
+
+.events .year { font-weight: bold; color: var(--red); white-space: nowrap; }
+.events .place { color: var(--blue); font-style: italic; }
+.events .matter { font-size: 0.95rem; }
+
+.filter-note { font-size: 0.85rem; color: var(--faint); }
+
+/* Examiner's note */
+.examiner {
+  margin-top: 2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.8rem;
+}
+
+.examiner .note {
+  font-style: italic;
+  color: var(--faint);
+  font-size: 0.95rem;
+}
+
+.colophon {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (max-width: 40rem) {
+  .sheet { padding: 1.5rem 1.2rem 1.2rem 1.6rem; }
+  .sheet::after { left: 0.9rem; }
+  .events li { grid-template-columns: 1fr; gap: 0.1rem; }
+}
