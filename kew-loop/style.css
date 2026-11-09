@@ -1,0 +1,210 @@
+/* The Kew Loop — broadcast-sheet layout */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #22201a;
+  --red: #a8322a;
+  --board: #1f2a24;
+  --board-face: #f5e9c8;
+  --rule: #c9c0a8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(0deg, transparent 0 31px, rgba(34,32,26,.05) 31px 32px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.tx {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  grid-template-areas:
+    "onair  onair"
+    "tc     tc"
+    "cap    lb"
+    "script lb"
+    "note   note"
+    "stamp  note";
+  gap: 1rem 2.5rem;
+  position: relative;
+}
+
+.onair {
+  grid-area: onair;
+  align-self: start;
+  justify-self: end;
+  background: var(--red);
+  color: #f7efe0;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: .35em;
+  padding: .35rem .9rem .35rem 1.2rem;
+  transform: rotate(-3deg);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(34,32,26,.25);
+}
+.onair-dot {
+  display: inline-block;
+  width: .55em; height: .55em;
+  border-radius: 50%;
+  background: #ffd98a;
+  margin-right: .5em;
+  animation: pulse 1.2s steps(2, jump-none) infinite;
+}
+@keyframes pulse { 50% { opacity: .25; } }
+
+.timecode {
+  grid-area: tc;
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: .85rem;
+  letter-spacing: .18em;
+  color: #6d6552;
+  text-align: right;
+}
+
+.caption {
+  grid-area: cap;
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+  padding: 1.1rem .2rem 1.2rem;
+}
+.band {
+  margin: 0 0 .4rem;
+  font-size: .8rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.02em;
+  font-style: italic;
+}
+.sub {
+  margin: .6rem 0 1rem;
+  font-size: .95rem;
+  max-width: 34em;
+}
+.cast {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+.cast th {
+  text-align: left;
+  vertical-align: top;
+  padding: .15rem 1rem .15rem 0;
+  font-family: "Courier New", monospace;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+.cast td { padding: .15rem 0; color: #4c4638; }
+
+.lapboard {
+  grid-area: lb;
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  background: var(--board);
+  color: var(--board-face);
+  border: 6px solid #111;
+  border-radius: 6px;
+  padding: 1rem .8rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  transform: rotate(2deg);
+  box-shadow: 8px 8px 0 rgba(34,32,26,.18);
+}
+.lb-title { display: block; font-size: .8rem; letter-spacing: .5em; }
+.lb-digits {
+  display: block;
+  font-size: clamp(5rem, 10vw, 7.5rem);
+  font-weight: bold;
+  line-height: 1;
+  background: var(--board-face);
+  color: var(--board);
+  border-radius: 4px;
+  margin: .4rem 0;
+  text-shadow: 2px 2px 0 rgba(255,255,255,.35);
+}
+.lb-sub { display: block; font-size: 1rem; letter-spacing: .3em; }
+.lb-foot { display: block; font-size: .75rem; margin-top: .5rem; opacity: .7; }
+
+.script {
+  grid-area: script;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: cue;
+}
+.script li {
+  counter-increment: cue;
+  position: relative;
+  padding: .35rem 0 .35rem 3.2rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.script li::before {
+  content: counter(cue, decimal-leading-zero);
+  position: absolute;
+  left: .4rem; top: .5rem;
+  font-family: "Courier New", monospace;
+  font-size: .75rem;
+  color: #8a8064;
+}
+.speaker {
+  font-weight: bold;
+  font-variant: small-caps;
+  letter-spacing: .04em;
+  color: var(--red);
+}
+.sfx { font-style: italic; color: #5c5543; font-size: .95rem; }
+.script li:has(.sfx) { padding-left: 3.2rem; }
+
+.footnote {
+  grid-area: note;
+  font-size: .9rem;
+  max-width: 46em;
+  border-left: 3px solid var(--red);
+  padding-left: .9rem;
+  color: #3d382c;
+}
+.footnote a { color: var(--red); }
+
+.stamp {
+  grid-area: stamp;
+  justify-self: end;
+  align-self: end;
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: bold;
+  letter-spacing: .02em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(168,50,42,.55);
+  transform: rotate(-8deg);
+  user-select: none;
+}
+
+@media (max-width: 720px) {
+  .tx {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "onair"
+      "tc"
+      "cap"
+      "lb"
+      "script"
+      "note"
+      "stamp";
+  }
+  .lapboard { position: static; width: 14rem; margin-left: 1rem; }
+}
