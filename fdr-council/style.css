@@ -1,0 +1,305 @@
+/* Council of the Long Season — Special Session No. 44 */
+
+:root {
+  --navy: #0b1e3a;
+  --navy-deep: #07142a;
+  --gold: #c9a227;
+  --gold-bright: #e8c766;
+  --parchment: #f4ead2;
+  --parchment-shade: #e8dcb8;
+  --ink: #221a0e;
+  --red-wax: #7a1f1f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.22rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(201, 162, 39, 0.22), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(232, 199, 102, 0.035) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(-45deg, rgba(232, 199, 102, 0.03) 0 2px, transparent 2px 14px),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 34%, #10294d 70%, var(--navy-deep) 100%);
+  min-height: 100vh;
+}
+
+/* drifting star field behind everything */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(232,199,102,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 14%, rgba(244,234,210,.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 34% 68%, rgba(232,199,102,.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 52%, rgba(244,234,210,.45) 50%, transparent 51%),
+    radial-gradient(1px 1px at 56% 38%, rgba(232,199,102,.35) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 6% 84%, rgba(244,234,210,.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 64% 88%, rgba(232,199,102,.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 44% 8%, rgba(244,234,210,.4) 50%, transparent 51%);
+  animation: starDrift 60s linear infinite alternate;
+  z-index: 0;
+}
+@keyframes starDrift {
+  from { transform: translateY(0px); opacity: .9; }
+  to   { transform: translateY(-24px); opacity: .55; }
+}
+
+/* ---------- masthead ---------- */
+
+.council-masthead {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3.2rem 1.2rem 1.6rem;
+  color: var(--parchment);
+}
+
+.eagle {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(232, 199, 102, .35));
+  animation: eaglePulse 7s ease-in-out infinite;
+}
+@keyframes eaglePulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(232,199,102,.25)); }
+  50%      { transform: scale(1.035); filter: drop-shadow(0 0 22px rgba(232,199,102,.55)); }
+}
+
+.eagle-ring { fill: none; stroke: var(--gold); stroke-width: 2; }
+.eagle-ring.inner { stroke: var(--gold-bright); stroke-dasharray: 3 5; animation: ringSpin 40s linear infinite; transform-origin: 60px 60px; }
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+
+.eagle-body path { fill: var(--gold-bright); stroke: var(--gold); stroke-width: .8; }
+.eagle-star { font-size: 9px; fill: var(--gold-bright); animation: starTwinkle 3.4s ease-in-out infinite; }
+.eagle-star:nth-child(2) { animation-delay: .6s; }
+.eagle-star:nth-child(3) { animation-delay: 1.2s; }
+.eagle-star:nth-child(4) { animation-delay: 1.8s; }
+.eagle-star:nth-child(5) { animation-delay: 2.4s; }
+@keyframes starTwinkle { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+.council-name {
+  font-family: "IM Fell English", serif;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  font-size: .95rem;
+  color: var(--gold-bright);
+  margin: 0 0 .35rem;
+}
+.council-sub {
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--parchment-shade);
+  margin: 0 0 1.4rem;
+}
+.council-masthead h1 {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 5.4vw, 3.4rem);
+  letter-spacing: .06em;
+  margin: 0 0 .8rem;
+  color: var(--parchment);
+  text-shadow: 0 0 26px rgba(201, 162, 39, .35);
+}
+.session-line { font-size: 1.25rem; margin: .2rem 0; }
+.session-line strong { color: var(--gold-bright); letter-spacing: .04em; }
+.session-sub {
+  font-family: "Special Elite", monospace;
+  font-size: .85rem;
+  color: rgba(244, 234, 210, .72);
+  letter-spacing: .12em;
+}
+
+.masthead-rule {
+  width: min(560px, 82%);
+  height: 14px;
+  margin: 1.6rem auto 0;
+  background:
+    linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-bright) 50%, var(--gold) 82%, transparent) center / 100% 2px no-repeat,
+    radial-gradient(circle at 50% 50%, var(--gold-bright) 0 3px, transparent 4px);
+}
+
+/* ---------- the folio ---------- */
+
+.folio {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto 4.5rem;
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.4rem) 3rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(122, 31, 31, .05) 30px 31px),
+    linear-gradient(160deg, #f8f0da 0%, var(--parchment) 45%, var(--parchment-shade) 100%);
+  border: 3px double var(--gold);
+  outline: 1px solid rgba(201, 162, 39, .45);
+  outline-offset: 6px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, .55),
+    inset 0 0 80px rgba(122, 90, 20, .12);
+}
+.folio::before,
+.folio::after {
+  content: "\2726";
+  position: absolute;
+  top: .8rem;
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+.folio::before { left: 1.1rem; }
+.folio::after { right: 1.1rem; }
+
+.minutes-entry {
+  margin-bottom: 2.2rem;
+  position: relative;
+}
+.minutes-entry:not(.marginalia)::before {
+  content: "";
+  position: absolute;
+  left: -1.1rem;
+  top: .4rem;
+  bottom: .4rem;
+  width: 3px;
+  background: linear-gradient(180deg, var(--gold), rgba(201,162,39,.15));
+}
+
+.entry-head {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin: 0 0 .9rem;
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+  border-bottom: 1px solid rgba(201, 162, 39, .5);
+  padding-bottom: .35rem;
+}
+.seal-num {
+  font-family: "Special Elite", monospace;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  color: var(--red-wax);
+  border: 1.5px solid var(--red-wax);
+  padding: .1rem .45rem;
+  transform: rotate(-2deg);
+  white-space: nowrap;
+}
+
+.minutes-entry p { margin: 0 0 1.05rem; }
+.minutes-entry strong { color: #1c2f52; }
+.minutes-entry a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: background-color .18s ease, color .18s ease;
+}
+.minutes-entry a:hover {
+  background-color: rgba(201, 162, 39, .22);
+  color: #0b1e3a;
+}
+
+blockquote.slip-rule {
+  margin: 1.3rem 0;
+  padding: 1.1rem 1.6rem;
+  font-family: "IM Fell English", serif;
+  font-style: italic;
+  font-size: 1.55rem;
+  color: var(--red-wax);
+  background:
+    linear-gradient(90deg, rgba(122,31,31,.06), transparent 30%, transparent 70%, rgba(122,31,31,.06)),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(122, 31, 31, .1) 26px 27px);
+  border-left: 4px solid var(--red-wax);
+  border-right: 4px solid var(--red-wax);
+  text-align: center;
+  letter-spacing: .05em;
+}
+
+.signature-block {
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(122, 90, 20, .55);
+  font-style: italic;
+}
+.sig {
+  font-family: "IM Fell English", serif;
+  font-style: normal;
+  display: inline-block;
+  margin-top: .5rem;
+  color: #14213c;
+}
+
+/* marginalia */
+.marginalia {
+  margin-top: 2.6rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(201, 162, 39, .1);
+  border: 1px solid rgba(201, 162, 39, .4);
+}
+.marginal {
+  font-size: 1.02rem;
+  font-style: italic;
+  color: #4a3c1e;
+  margin: 0 0 .7rem;
+}
+.marginal-no {
+  font-family: "Special Elite", monospace;
+  font-style: normal;
+  color: var(--red-wax);
+  margin-right: .5rem;
+}
+
+/* ---------- footer & seal stamp ---------- */
+
+.council-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.2rem 1.4rem 3rem;
+  color: rgba(244, 234, 210, .78);
+  font-style: italic;
+  font-size: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.stamp {
+  position: absolute;
+  right: 8%;
+  top: 10px;
+  width: 128px;
+  height: 128px;
+  border: 4px double var(--gold-bright);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-bright);
+  font-family: "Special Elite", monospace;
+  font-size: .95rem;
+  letter-spacing: .2em;
+  line-height: 1.5;
+  transform: rotate(-14deg) scale(2.4);
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+.stamp.stamped { animation: stampIn .5s cubic-bezier(.2, 1.4, .4, 1) forwards; }
+@keyframes stampIn {
+  0%   { transform: rotate(6deg) scale(2.4); opacity: 0; }
+  60%  { transform: rotate(-15deg) scale(.92); opacity: 1; }
+  100% { transform: rotate(-14deg) scale(1); opacity: .92; }
+}
+
+@media (max-width: 620px) {
+  body { font-size: 1.1rem; }
+  .stamp { position: static; margin: 1.2rem auto 0; transform: rotate(-14deg) scale(1); }
+  .stamp.stamped { animation: none; opacity: .92; }
+}
