@@ -1,0 +1,199 @@
+/* The Seer's Post — Newsletter No. 47, The Seer Society */
+
+:root {
+  --paper: #f4eddc;
+  --paper-dark: #e9dfc6;
+  --ink: #2b2620;
+  --ink-fade: #5a5040;
+  --maroon: #6d1f2c;
+  --maroon-deep: #4a1420;
+  --rule: #b9a878;
+  --stamp: #8a6d3b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cfb8;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(ellipse at 85% 90%, rgba(90,70,40,0.25), transparent 55%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 2.5rem 1rem;
+}
+
+.sheet {
+  position: relative;
+  max-width: 60rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(120,100,60,0.05) 27px 28px),
+    radial-gradient(ellipse at 50% 0%, rgba(255,252,240,0.6), transparent 70%);
+  border: 1px solid #c4b58c;
+  box-shadow:
+    0 2px 3px rgba(60,45,20,0.25),
+    0 14px 40px rgba(60,45,20,0.3),
+    inset 0 0 60px rgba(150,125,75,0.18);
+  padding: 0 0 1.25rem;
+}
+
+.sheet::after {
+  /* crease down the middle, as if folded for the mailbox */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(110,90,50,0.22) 20%, rgba(110,90,50,0.22) 80%, transparent);
+  pointer-events: none;
+}
+
+.tape {
+  position: absolute;
+  background: rgba(214, 200, 160, 0.7);
+  border-left: 1px dashed rgba(120,100,60,0.35);
+  border-right: 1px dashed rgba(120,100,60,0.35);
+  box-shadow: 0 1px 2px rgba(60,45,20,0.2);
+}
+.tape--top {
+  top: -0.9rem; left: 50%;
+  width: 9rem; height: 1.8rem;
+  transform: translateX(-50%) rotate(-1.2deg);
+}
+.tape--left {
+  top: 22%; left: -0.8rem;
+  width: 1.6rem; height: 5.5rem;
+  transform: rotate(2deg);
+}
+
+.masthead {
+  background: var(--maroon);
+  background-image: repeating-linear-gradient(45deg, transparent 0 6px, rgba(0,0,0,0.08) 6px 7px);
+  color: #f3e9d2;
+  border-bottom: 4px double #d8c294;
+  padding: 1.4rem 2rem 0.9rem;
+}
+.masthead__club {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #e6c88a;
+}
+.masthead__est {
+  margin: 0.35rem 0 0.6rem;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: #d9c9a8;
+}
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+}
+.masthead__rule {
+  height: 3px;
+  margin: 0.7rem 0 0.6rem;
+  background:
+    linear-gradient(to right, var(--rule), transparent 70%);
+  border-top: 1px solid rgba(216,194,148,0.6);
+}
+.masthead__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #eadfbe;
+  padding-bottom: 0.9rem;
+}
+
+.postmark {
+  margin-left: auto;
+  border: 2px solid #eadfbe;
+  border-radius: 50%;
+  padding: 0.55rem 0.6rem;
+  text-align: center;
+  font-size: 0.6rem;
+  line-height: 1.35;
+  letter-spacing: 0.18em;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 1.6rem 2rem 0.6rem;
+}
+
+.col--wide h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--maroon-deep);
+  margin: 1.4rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: 0.02em;
+}
+.col--wide h2:first-child { margin-top: 0; }
+.col--wide p { margin: 0 0 0.85rem; }
+.col--wide strong { color: var(--ink); }
+
+.col--narrow {
+  border-left: 1px solid var(--rule);
+  padding-left: 1.4rem;
+  font-size: 0.92rem;
+}
+.col--narrow h3 {
+  margin: 1.3rem 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+.col--narrow h3:first-child { margin-top: 0; }
+.col--narrow dl dt {
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+.col--narrow dl dd { margin: 0.15rem 0 0; }
+
+a { color: var(--maroon); text-decoration-color: rgba(109,31,44,0.4); text-underline-offset: 2px; }
+a:hover { color: var(--maroon-deep); }
+
+blockquote {
+  margin: 0.4rem 0;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--maroon);
+  background: var(--paper-dark);
+  font-style: italic;
+  color: var(--ink-fade);
+}
+.attribution { font-size: 0.8rem; color: var(--ink-fade); }
+.small { font-size: 0.8rem; color: var(--ink-fade); }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  margin: 1.2rem 2rem 0;
+  padding-top: 0.6rem;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+}
+
+@media (max-width: 46rem) {
+  .columns { grid-template-columns: 1fr; gap: 1.2rem; }
+  .col--narrow { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 1.2rem; }
+  .sheet::after { display: none; }
+}
