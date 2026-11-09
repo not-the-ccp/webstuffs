@@ -1,0 +1,116 @@
+/* The West-End Circle — Circular No. 23 */
+
+:root {
+  --paper: #f6f1e6;
+  --ink: #26221b;
+  --faint: #6f675a;
+  --lamp: #b5811f;
+  --rule: #cfc5b0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  padding: 4rem 1.25rem 5rem;
+}
+
+.masthead,
+.sheet { max-width: 44rem; margin: 0 auto; }
+
+.masthead { text-align: center; margin-bottom: 3rem; }
+
+.founder {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1.1rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.9rem;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: var(--faint);
+  font-style: italic;
+}
+
+.tagline .lamp { color: var(--lamp); vertical-align: -0.25em; }
+
+.rule-line {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.4rem auto 0;
+  max-width: 14rem;
+}
+
+.rule-line.small { border: none; letter-spacing: 0.5em; color: var(--faint); }
+
+main.sheet {
+  border-top: 3px double var(--rule);
+  padding-top: 2.5rem;
+}
+
+section { margin-bottom: 2.8rem; }
+
+h2 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lamp);
+  margin-bottom: 1.1rem;
+}
+
+p { margin-bottom: 1.1rem; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--lamp);
+  text-underline-offset: 3px;
+}
+
+a:hover { background: #efe7d3; }
+
+blockquote.card {
+  margin: 1.4rem 0 1.6rem 0.5rem;
+  padding: 1.3rem 1.6rem;
+  border-left: 3px solid var(--lamp);
+  background: #fbf8f0;
+  font-size: 1.08rem;
+  font-style: italic;
+}
+
+blockquote.card p { margin: 0; }
+
+ul { list-style: none; }
+
+ul li {
+  margin-bottom: 0.9rem;
+  padding-left: 1.3rem;
+  text-indent: -1.3rem;
+}
+
+ul li strong { font-weight: 600; }
+
+.colophon { text-align: center; }
+
+.colophon .rule-line { margin-bottom: 1.2rem; }
+
+.colophon-line {
+  font-size: 0.78rem;
+  color: var(--faint);
+  line-height: 1.8;
+  margin: 0;
+}
