@@ -1,0 +1,167 @@
+/* The Grace Line, Service G — timetable sheet */
+
+:root {
+  --paper: #f6f2e8;
+  --ink: #23201a;
+  --board: #141b16;
+  --lamp: #ffcf6b;
+  --rule: #b9ae97;
+  --accent: #7d1f2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #dcd5c3;
+  background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.035) 0 1px, transparent 1px 26px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+
+.board {
+  max-width: 56rem;
+  margin: 2rem auto 4rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 rgba(35, 32, 26, 0.25);
+  padding: 2rem 2.25rem 1.5rem;
+}
+
+.masthead { text-align: center; }
+.masthead .company {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+}
+.masthead .line-name {
+  font-size: 1.55rem;
+  font-weight: bold;
+  margin: 0;
+}
+.masthead .issue {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0.5rem 0 0;
+}
+.masthead { border-bottom: 3px double var(--ink); padding-bottom: 0.9rem; }
+
+h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 0.7rem;
+}
+
+.notes p { margin: 0 0 0.9rem; text-align: justify; }
+
+.ledger-line {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  background: #efe4c2;
+  padding: 0 0.2em;
+  border: 1px dashed var(--accent);
+  white-space: nowrap;
+  overflow-x: auto;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.filter-note { font-size: 0.85rem; font-style: italic; }
+
+.board-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+}
+.board-controls input[type="search"] {
+  flex: 1 1 12rem;
+  font: inherit;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--ink);
+  background: #fffdf6;
+}
+.year-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.year-btn {
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.55rem;
+  background: #fffdf6;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+.year-btn:hover { background: var(--lamp); }
+.year-btn[aria-pressed="true"] {
+  background: var(--board);
+  color: var(--lamp);
+  border-color: var(--board);
+}
+
+.board-scroll { overflow-x: auto; }
+
+table.board {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--board);
+  color: var(--lamp);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+}
+table.board caption { text-align: left; }
+table.board th, table.board td {
+  border: 1px solid #33402f;
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.board th {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #0c110d;
+  color: #d9c98a;
+}
+table.board td:first-child { font-weight: bold; white-space: nowrap; }
+table.board td:nth-child(2) { text-align: center; white-space: nowrap; }
+table.board tbody tr:nth-child(even) { background: #18211a; }
+table.board tr.hidden-row { display: none; }
+table.board em { color: #f4e2b0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.board-count { font-size: 0.78rem; font-style: italic; margin: 0.5rem 0 0; }
+.board-empty {
+  font-size: 0.85rem;
+  background: #f3e0c8;
+  border: 1px dashed var(--accent);
+  padding: 0.5rem 0.7rem;
+  margin: 0.5rem 0 0;
+}
+.board-empty button { font: inherit; background: none; border: none; text-decoration: underline; cursor: pointer; }
+
+.foot {
+  border-top: 3px double var(--ink);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.foot p { margin: 0.15rem 0; }
+
+a { color: var(--accent); }
+a:hover { color: #a3341f; }
+
+@media (max-width: 40rem) {
+  .board { margin: 0; border-left: none; border-right: none; }
+  .notes p { text-align: left; }
+}
