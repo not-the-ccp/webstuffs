@@ -1,0 +1,186 @@
+/* East River — An Obituary, Entered in the Mezzanine Register */
+
+:root {
+  --ink: #1e2229;
+  --faded: #5c636e;
+  --paper: #f7f4ec;
+  --sheet: #fbf9f3;
+  --rule: #b9b2a2;
+  --water: #33535e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.paper {
+  max-width: 44em;
+  margin: 0 auto;
+  padding: 4.5rem 2.25rem 4rem;
+  background: var(--sheet);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+
+.masthead { text-align: center; }
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6rem;
+}
+
+.sub {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--water);
+  margin: 0 auto 1.8rem;
+  max-width: 34em;
+}
+
+.dateline {
+  font-size: 0.82rem;
+  color: var(--faded);
+  max-width: 36em;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.dateline a { color: var(--water); }
+
+.rule-double {
+  border: 0;
+  border-top: 3px double var(--rule);
+  margin: 2.4rem 0;
+}
+
+section { margin: 2rem 0; }
+
+h2 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.45rem;
+  margin: 0 0 1.2rem;
+}
+
+p { margin: 0 0 1.15rem; }
+
+.lede::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--water);
+}
+
+a {
+  color: var(--water);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.kept {
+  font-style: italic;
+  background: rgba(51, 83, 94, 0.07);
+  padding: 0.05em 0.15em;
+}
+
+.tide-table {
+  margin: 2.4rem 0 0.5rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--rule);
+  font-size: 0.85rem;
+}
+
+.tide-table h3 {
+  margin: 0 0 0.7rem;
+  font-size: 0.72rem;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.tide-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tide-table th,
+.tide-table td {
+  text-align: left;
+  padding: 0.3rem 0.8rem 0.3rem 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+}
+
+.tide-table th { border-top: 0; color: var(--faded); }
+
+.certification { text-align: center; }
+
+.cert {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faded);
+  max-width: 32em;
+  margin: 0 auto 1.8rem;
+}
+
+.signs {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+.sign { flex: 1; }
+
+.sig {
+  display: block;
+  font-family: "Snell Roundhand", "Segoe Script", cursive;
+  font-size: 1.35rem;
+  color: var(--water);
+}
+
+.sig-rule {
+  display: block;
+  border-top: 1px solid var(--ink);
+  margin: 0.3rem 0 0.35rem;
+}
+
+.sig-cap {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+@media (max-width: 40em) {
+  .paper { padding: 3rem 1.25rem 3rem; }
+  h1 { font-size: 2.3rem; }
+}
