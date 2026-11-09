@@ -1,0 +1,135 @@
+/* Pocket Dictionary of Dreams, Entry A-119 — page style */
+
+:root {
+  --paper: #efe6d3;
+  --paper-deep: #e6dabf;
+  --ink: #2c2418;
+  --ink-faded: #5c4f3a;
+  --rule: #8a7a5c;
+  --pin-green: #3f6b4f;
+  --spine-red: #7a3b2e;
+}
+
+html { background: #d9cfba; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.entry {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(122, 59, 46, 0.08), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(92, 79, 58, 0.035) 26px 27px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #b3a684;
+  box-shadow: 0 2px 3px rgba(44, 36, 24, 0.25), 0 18px 40px rgba(44, 36, 24, 0.28);
+  padding: 2.75rem 3rem 2.25rem;
+  position: relative;
+}
+
+/* the worn gutter down the left, where the book was opened often */
+.spine {
+  position: absolute;
+  left: -0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 0.9rem;
+  background: linear-gradient(90deg, var(--spine-red), #9c5a44);
+  border-radius: 3px 0 0 3px;
+  box-shadow: inset -2px 0 3px rgba(0,0,0,0.35);
+}
+
+.entry-head { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1.1rem; }
+
+.kicker {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  color: var(--ink-faded);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  letter-spacing: 0.18em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.pron { font-size: 0.95rem; letter-spacing: 0.04em; color: var(--ink-faded); font-weight: 400; }
+
+.entry-no { font-size: 0.85rem; color: var(--ink-faded); font-style: italic; margin: 0.7rem 0 0; }
+
+.entry h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  margin: 1.9rem 0 0.6rem;
+  color: var(--spine-red);
+}
+
+.definition .def-lead { text-align: justify; hyphens: auto; }
+
+.def-lead::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--spine-red);
+}
+
+.rule {
+  margin: 1.1rem 1.4rem;
+  padding: 0.8rem 1.1rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--ink-faded);
+}
+
+.rule p { margin: 0; text-align: justify; hyphens: auto; }
+
+.dream p { text-align: justify; hyphens: auto; }
+
+sup { font-size: 0.68em; }
+
+a { color: var(--pin-green); text-decoration: none; border-bottom: 1px dotted var(--pin-green); }
+a:hover { background: rgba(63, 107, 79, 0.1); }
+
+.omens ul { list-style: none; padding: 0; margin: 0; }
+.omens li {
+  padding: 0.45rem 0 0.45rem 1.4rem;
+  border-bottom: 1px dotted var(--rule);
+  position: relative;
+  text-align: justify;
+  hyphens: auto;
+}
+.omens li::before {
+  content: "\25C6";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--pin-green);
+  font-size: 0.7em;
+  top: 0.75rem;
+}
+
+.numbers p { text-align: justify; hyphens: auto; }
+
+.reverse { margin-top: 1.9rem; border-top: 1px solid var(--rule); padding-top: 0.9rem; font-size: 0.95rem; }
+.reverse p { text-align: justify; hyphens: auto; margin: 0.4rem 0 0; }
+
+.entry-foot {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+}
