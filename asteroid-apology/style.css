@@ -1,0 +1,245 @@
+/* The Office of Lost Property & Found Worlds — apology page, second term */
+
+html { background-color: #000033; }
+
+body {
+  margin: 0;
+  padding: 0 0 24px 0;
+  color: #000000;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.5;
+  /* tiled starfield, hand-placed in three shades */
+  background-color: #000033;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.6px),
+    radial-gradient(#9999ff 1px, transparent 1.6px),
+    radial-gradient(#ffcc00 1px, transparent 1.8px);
+  background-size: 190px 190px, 120px 120px, 260px 260px;
+  background-position: 10px 20px, 70px 90px, 150px 40px;
+}
+
+.site-top {
+  background-color: #000080;
+  border-bottom: 4px ridge #9999ff;
+  color: #ffffff;
+  padding: 10px 12px 8px 12px;
+  text-align: center;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 0 #660000;
+}
+
+.site-title .sub {
+  display: block;
+  font-size: 12px;
+  color: #ccffff;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+.new-flag {
+  margin: 8px 0 0 0;
+  font-size: 11px;
+  color: #ff9966;
+  letter-spacing: 1px;
+}
+
+.blink { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { visibility: hidden; } }
+
+.ticker {
+  overflow: hidden;
+  background-color: #000000;
+  border-top: 2px inset #999999;
+  border-bottom: 2px inset #999999;
+  margin-top: 8px;
+  padding: 3px 0;
+}
+
+.ticker-inner {
+  display: inline-block;
+  white-space: nowrap;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  padding-left: 100%;
+  animation: scroll 24s linear infinite;
+}
+
+@keyframes scroll { to { transform: translateX(-100%); } }
+
+.letter-wrap {
+  max-width: 980px;
+  margin: 18px auto 0 auto;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.letter {
+  flex: 2 1 560px;
+  background-color: #ffffcc;
+  border: 5px outset #999999;
+  box-shadow: 6px 6px 0 #000066;
+  padding: 22px 26px;
+}
+
+.letter a { color: #000099; }
+.letter a:visited { color: #660066; }
+
+.office-line {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #663300;
+}
+
+.letter-no {
+  margin: 6px 0 14px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #333366;
+  border-bottom: 2px groove #cccc99;
+  padding-bottom: 10px;
+}
+
+.letter-to {
+  margin: 0 0 4px 0;
+  font-size: 19px;
+  background-color: #000080;
+  color: #ffffff;
+  padding: 6px 10px;
+  border: 3px ridge #9999ff;
+}
+
+.letter-to .unnumbered { font-size: 12px; color: #ccffff; font-style: italic; }
+
+.salute { margin-top: 18px; font-style: italic; }
+
+.card-line {
+  background-color: #ffffee;
+  border: 3px inset #cccc99;
+  margin: 14px 18px;
+  padding: 10px 14px;
+  font-style: italic;
+  color: #333300;
+  font-size: 14px;
+}
+
+.terms {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 14px 0;
+  border: 3px outset #cccccc;
+  background-color: #ffffee;
+  width: 100%;
+}
+
+.terms th {
+  background-color: #000080;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.terms td {
+  border-top: 2px groove #cccc99;
+  padding: 6px 8px;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.terms td:first-child { width: 34px; text-align: center; font-weight: bold; }
+
+.signed { margin-top: 22px; line-height: 1.7; }
+
+.cc {
+  font-size: 12px;
+  color: #666633;
+  border-top: 2px groove #cccc99;
+  padding-top: 8px;
+}
+
+.rail { flex: 1 1 280px; display: flex; flex-direction: column; gap: 14px; }
+
+.counter-box, .spec-card, .guestbook {
+  background-color: #000066;
+  border: 4px outset #9999ff;
+  padding: 10px 12px;
+  color: #ffffff;
+}
+
+.counter-box h2, .spec-card h2, .guestbook h2 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #ffcc00;
+  text-transform: uppercase;
+}
+
+.counter {
+  margin: 0;
+  background-color: #000000;
+  border: 2px inset #999999;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  letter-spacing: 6px;
+  text-align: center;
+  padding: 4px 8px;
+}
+
+.counter-note { font-size: 11px; color: #ccffff; text-align: center; margin: 6px 0 0 0; }
+
+.spec-card dl { margin: 0; }
+.spec-card dt { font-size: 11px; color: #ffcc99; letter-spacing: 1px; text-transform: uppercase; }
+.spec-card dd { margin: 0 0 8px 0; font-size: 13px; }
+.spec-card a { color: #99ffff; }
+
+.signatures { list-style: none; margin: 0 0 10px 0; padding: 0; font-size: 12px; }
+.signatures li {
+  border-bottom: 1px dotted #6666cc;
+  padding: 4px 0;
+}
+.signatures .who { color: #ffcc00; font-family: "Courier New", monospace; }
+
+.sign-form { font-size: 12px; }
+.sign-form input[type="text"] {
+  background-color: #ffffff;
+  border: 2px inset #cccccc;
+  padding: 2px 4px;
+  font-family: "Courier New", monospace;
+  width: 60%;
+}
+.sign-form button {
+  background-color: #cccccc;
+  border: 2px outset #ffffff;
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+.sign-form button:active { border-style: inset; }
+.sign-note { font-size: 10px; color: #9999ff; margin: 6px 0 0 0; }
+
+.foot {
+  max-width: 980px;
+  margin: 20px auto 0 auto;
+  padding: 0 10px;
+  text-align: center;
+  color: #ccffff;
+  font-size: 12px;
+}
+
+.foot a { color: #ffcc00; }
+.foot .small { color: #9999ff; font-size: 11px; }
