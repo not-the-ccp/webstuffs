@@ -1,0 +1,33 @@
+/* Field Manual FM-13 · Chapter 4 · Slug · session clerk's copy */
+html { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.62 "Courier New", Courier, monospace; color: #212121; background: #f5f2ea; }
+.manual { max-width: 720px; margin: 0 auto; padding: 30px 24px; background: #fff; border: 4px double #333; box-shadow: 10px 10px 0 #9aa28e; }
+.manual-head { border-bottom: 2px solid #333; padding-bottom: 14px; margin-bottom: 24px; }
+.agency { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #6a5c48; margin: 0 0 6px 0; }
+h1 { font-size: 30px; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 2px; }
+.subtitle { font-size: 13px; color: #555; margin: 0; }
+h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #9aa28e; padding-bottom: 5px; margin: 28px 0 12px 0; }
+p { margin: 0 0 13px 0; }
+ul, ol { margin: 4px 0 14px 0; padding-left: 22px; }
+li { margin-bottom: 7px; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+a { color: #1d4e63; text-decoration: underline; }
+.board { background: #eef1ec; border: 1px solid #b9c6b6; padding: 14px 16px; margin-top: 10px; }
+.control-row { margin: 0 0 10px 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.control-row label { font-size: 13px; }
+.value { font-weight: bold; font-variant-numeric: tabular-nums; }
+.toggle { font: inherit; font-size: 12px; padding: 4px 10px; border: 1px solid #555; background: #d9d4c6; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+.toggle.off { background: #c9c4bc; color: #666; }
+.toggle.on { background: #8fb39e; color: #143021; border-color: #143021; }
+.verdict { margin-top: 14px; padding: 10px 12px; border: 2px double #333; background: #fbf9f2; font-size: 14px; }
+.drift { margin-top: 14px; }
+.drift button { font: inherit; font-size: 12px; padding: 5px 12px; border: 1px solid #333; background: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+#drift-text { font-size: 13px; color: #444; margin-top: 9px; }
+.margin-line { background: #f3efe4; border-left: 4px solid #333; padding: 10px 14px; margin-top: 16px; }
+.margin-line h2 { margin-top: 0; }
+blockquote.painted { margin: 8px 0 10px 0; padding: 9px 12px; background: #fff; border: 1px solid #333; font-size: 14px; }
+blockquote.painted p { margin: 0; }
+.related { font-size: 12px; border-top: 1px solid #9aa28e; padding-top: 10px; margin-top: 18px; }
+.manual-foot { margin-top: 32px; padding-top: 14px; border-top: 2px solid #333; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #6a5c48; text-align: center; }
+@media (max-width: 520px) { .manual { border-width: 2px; padding: 18px 14px; box-shadow: 6px 6px 0 #9aa28e; } }

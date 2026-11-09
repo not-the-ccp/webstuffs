@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slug — Field Manual FM-13, Chapter 4 · Passengers</title>
+<meta name="description" content="Field Manual FM-13, Chapter 4: a solitaire session game for Slug, the second track on Passengers' Original Soundtracks 1 — the Black Sea session board, the rediscovered tape Seibu, and the confusion of romance and faith.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="manual" aria-labelledby="manual-title">
+  <header class="manual-head">
+    <p class="agency">FIELD MANUAL FM-13 &middot; RESTRICTED &middot; CHAPTER 4</p>
+    <h1 id="manual-title">Slug</h1>
+    <p class="subtitle">A solitaire session for one player &middot; Second track, Original Soundtracks 1 &middot; Passengers, 1995</p>
+  </header>
+
+  <section class="briefing">
+    <h2>Briefing</h2>
+    <p>You are running a session for a soundtrack to a film that was never shot. The track on the board is <strong>Slug</strong>, the second cut on the sole Passengers release, the 1995 experimental album Original Soundtracks 1, recorded by musician Brian Eno with the members of rock band U2. The session nearly never happened: the tape was initially titled <em>Seibu</em>, was almost left off the album, and was rediscovered late in the recording sessions, when the box was already being closed.</p>
+    <p>Eno made the majority of the creative decisions during the sessions, but Slug was one of the few tracks on the album that the members of U2 attempted to create independently. Your job is to keep both claims on the board at once &mdash; the producer's authority and the band's independence &mdash; without letting the tape run off either edge.</p>
+  </section>
+
+  <section class="board">
+    <h2>The session board</h2>
+    <p>Set the board before you call the session. Four positions must be settled:</p>
+    <ul>
+      <li><strong>Eno's share.</strong> The proportion of decisions the producer holds. The rest belong to the room.</li>
+      <li><strong>Independent attempt.</strong> Whether U2 ran the track on its own, without the producer's chair occupied.</li>
+      <li><strong>Tape Seibu.</strong> Whether the original box, labelled Seibu, has been found before the album is sealed.</li>
+      <li><strong>Black Sea chart.</strong> Whether the grid from Field Manual FM-13, Chapter 4 has been laid across the desk.</li>
+    </ul>
+    <div class="controls" id="session-board">
+      <div class="control-row">
+        <label>Eno's share of the decisions <span class="value" id="eno-value">60</span>%</label>
+        <input type="range" id="eno" min="0" max="100" value="60">
+      </div>
+      <div class="control-row">
+        <button type="button" id="toggle-u2" class="toggle off" aria-pressed="false" data-on="U2 working independently: on" data-off="U2 working independently: off">U2 working independently: off</button>
+      </div>
+      <div class="control-row">
+        <button type="button" id="toggle-seibu" class="toggle off" aria-pressed="false" data-on="Tape Seibu found: on" data-off="Tape Seibu found: off">Tape Seibu found: off</button>
+      </div>
+      <div class="control-row">
+        <button type="button" id="toggle-blacksea" class="toggle off" aria-pressed="false" data-on="Black Sea chart laid: on" data-off="Black Sea chart laid: off">Black Sea chart laid: off</button>
+      </div>
+    </div>
+    <div class="verdict" id="verdict">
+      <strong>VERDICT:</strong> Board unset. Set the positions and close the lid.
+    </div>
+    <div class="drift">
+      <button type="button" id="drift">DRIFT THE LYRIC</button>
+      <p id="drift-text">The thoughts of a desolate soul &mdash; the confusion of romance and faith.</p>
+    </div>
+  </section>
+
+  <section class="margin-line">
+    <h2>Margin line, preserved word for word</h2>
+    <blockquote class="painted">
+      <p>When the King and Queen Street, all surveyed at Huddersfield &mdash; Field Manual FM-13, Chapter 4 &mdash; 10&frac12; 4 The Black Sea is a lot.</p>
+    </blockquote>
+    <p>The line above has been carried in the margin of this chapter since the first survey and is not to be reconciled with the text. Read it as a grid reference: King and Queen Street is the crossing, Huddersfield the station from which the line was run, "10&frac12;" the counter at which the tape was cued, "4" the channel, and "The Black Sea is a lot" the condition of the room when the session ends.</p>
+  </section>
+
+  <section class="play">
+    <h2>Play procedure</h2>
+    <ol>
+      <li>Set Eno's share on the slider. At sixty per cent the producer chairs the room; at forty the band holds the floor.</li>
+      <li>Throw the Independent Attempt switch if U2 ran the track without the producer. Most tracks on the album were Eno's; Slug was one of the few they attempted alone.</li>
+      <li>Confirm Tape Seibu. The track was nearly omitted from the album; it survives only if the box is found before the master is sealed.</li>
+      <li>Lay the Black Sea chart across the desk. The surveyors of Huddersfield ran the line through King and Queen Street long before the record existed, and the chart decides what the water does.</li>
+      <li>Read the verdict. The session stands if the tape was found and the chart is laid; it collapses into the Black Sea if neither holds.</li>
+    </ol>
+    <p>Lyrically, the track depicts the thoughts of a desolate soul with the confusion of romance and faith &mdash; a soul standing at the crossing, King and Queen Street, with the Black Sea on one side and the studio on the other.</p>
+  </section>
+
+  <section class="notes">
+    <h2>Designer's notes</h2>
+    <p>Slug is a song by Passengers, the side project of musician Brian Eno and rock band U2. It is the second track on Original Soundtracks 1, the group's only album, and it began life as an instrumental called Seibu, nearly left off the record until it was rediscovered during the sessions. The text above borrows the language of field manuals and session logs, but the session is real: the confusion of romance and faith, the desolate soul, the music for a picture that has no frames. The Black Sea remains a lot, whatever that means.</p>
+    <p class="related">Related records: <a href="../willamette-river/">The Willamette River &mdash; Willamette Valley Line NW-4 &middot; Timetable &amp; Commentary</a> &middot; <a href="../scythris-albocanella/">Scythris albocanella &mdash; White-Wing Cakes</a> &middot; <a href="../">Webstuffs</a></p>
+  </section>
+
+  <footer class="manual-foot">
+    <p>Field Manual FM-13, Chapter 4 &middot; Slug &middot; set by the session clerk &middot; The board is never tidied between sessions.</p>
+  </footer>
+</main>
+<script src="session.js"></script>
+</body>
+</html>
