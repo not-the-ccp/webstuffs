@@ -1,0 +1,125 @@
+/* Duriavenator — School Report, Coopers' Lane School */
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b2620;
+  --red: #a33327;
+  --slate: #4c5a6b;
+  --rule: #d8cdb4;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.report {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem 3rem;
+}
+.report-header {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+.school-line {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.5rem;
+  color: var(--slate);
+}
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 2.1rem;
+  line-height: 1.15;
+}
+.report-meta { margin: 0.15rem 0; }
+.report-meta.small { font-style: italic; color: var(--slate); }
+.mark {
+  color: var(--red);
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: "Bradley Hand", "Segoe Script", cursive;
+}
+h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin-top: 2rem;
+}
+h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+p { margin: 0.8rem 0; }
+ul li { margin: 0.35rem 0; }
+table.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.ledger th, .ledger td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.ledger thead th {
+  background: #efe6cf;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.ledger tbody tr:nth-child(even) { background: #f1ead8; }
+.time-machine {
+  background: #efe8d3;
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--slate);
+  padding: 1rem 1.25rem 1.25rem;
+  margin: 2rem 0;
+}
+.tm-instruction { margin-top: 0.3rem; font-size: 0.95rem; }
+.tm-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.tm-form label {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.35rem;
+}
+.tm-form input {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--slate);
+  background: #fffdf6;
+  width: 6.5rem;
+}
+.tm-form button {
+  font: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  padding: 0.38rem 0.9rem;
+  background: var(--slate);
+  color: #f6f1e4;
+  border: none;
+  cursor: pointer;
+}
+.tm-form button:hover { background: var(--ink); }
+.tm-result {
+  font-style: italic;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.6rem;
+  margin-top: 0.9rem;
+}
+.report-footer {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--ink);
+  padding-top: 0.75rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--slate);
+}
+a { color: var(--slate); }
+a:hover { color: var(--red); }
