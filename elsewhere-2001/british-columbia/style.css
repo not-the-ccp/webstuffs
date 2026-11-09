@@ -1,0 +1,241 @@
+/* British Columbia — traveller's guide, Elsewhere Almanac supplement */
+
+/* Palette: cedar red, fir green, fog grey, salmon-spawn pink, gold */
+:root {
+  --cedar: #a8432e;
+  --cedar-dark: #7a3120;
+  --fir: #1b3a33;
+  --fir-light: #2e6354;
+  --fog: #eef2f0;
+  --sage: #7a8b73;
+  --salmon: #d97b5c;
+  --gold: #c9a227;
+  --paper: #faf9f2;
+  --ink: #23302a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Georgia", "Times New Roman", "Times", serif;
+  color: var(--ink);
+  line-height: 1.75;
+  background:
+    linear-gradient(140deg, #e9efec 0%, #eef3f0 45%, #e7ece9 100%),
+    radial-gradient(circle at 8% 6%, rgba(168, 67, 46, 0.09) 0%, transparent 40%),
+    radial-gradient(circle at 92% 94%, rgba(46, 90, 78, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
+  animation: drift 100s linear infinite alternate;
+}
+
+body::before, body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 16px;
+  pointer-events: none;
+  z-index: 4;
+  background: repeating-linear-gradient(90deg, var(--cedar), var(--cedar) 14px, transparent 14px, transparent 22px);
+}
+body::before { top: 0; box-shadow: 0 6px 14px -4px rgba(0,0,0,0.35); }
+body::after { bottom: 0; box-shadow: 0 -6px 14px -4px rgba(0,0,0,0.35); transform: scaleX(-1); }
+
+.guide {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 34px 20px 70px;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead {
+  background: linear-gradient(135deg, var(--fir) 0%, var(--fir-light) 50%, #2e6354 100%);
+  color: #f5f2e8;
+  padding: 44px 24px 34px;
+  border-bottom: 12px double var(--cedar);
+  box-shadow: 0 18px 44px -12px rgba(15, 34, 40, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+.masthead::after {
+  content: "BC";
+  position: absolute;
+  right: -55px;
+  top: -50px;
+  font-size: 240px;
+  font-weight: 900;
+  color: rgba(168, 67, 46, 0.10);
+  line-height: 0.8;
+  transform: rotate(-10deg);
+  letter-spacing: -18px;
+}
+.series {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d9cfa8;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 52px;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: #c9d6cf;
+  font-style: italic;
+}
+.cedar {
+  width: 160px;
+  height: 60px;
+  margin: 22px 0 0;
+  display: block;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.35));
+}
+
+@keyframes drift {
+  0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+  100% { background-position: 100% 100%, 100% 100%, 100% 100%; }
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--cedar-dark);
+  margin: 40px 0 14px;
+  padding-left: 22px;
+  position: relative;
+  border-bottom: 2px solid var(--cedar);
+  padding-bottom: 6px;
+}
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--cedar);
+  background: var(--paper);
+  transform: rotate(45deg);
+}
+h3 {
+  font-size: 16px;
+  color: var(--fir);
+  margin: 26px 0 8px;
+}
+
+p { margin: 0 0 16px; text-align: justify; }
+span.drop {
+  float: left;
+  font-size: 74px;
+  line-height: 0.78;
+  padding: 2px 14px 4px 0;
+  color: var(--cedar-dark);
+  font-weight: bold;
+}
+
+.leg {
+  border-left: 9px solid var(--cedar);
+  background: #fffbf2;
+  padding: 16px 22px;
+  margin: 24px 0;
+  box-shadow: 7px 7px 0 var(--gold);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+.leg:hover {
+  transform: translate(5px, -5px);
+  box-shadow: 12px 12px 0 var(--salmon);
+}
+
+.tide {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  color: var(--sage);
+  background: #eef3f0;
+  border: 1px dashed #b9c4c0;
+  padding: 5px 10px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.tide::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  background: var(--salmon);
+  border-radius: 50%;
+  animation: blink 1.3s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.marginalia {
+  margin: 42px 0 30px;
+  padding: 26px 24px 20px;
+  background: #fdf6ec;
+  border: 2px solid var(--cedar);
+  border-top: 11px solid var(--cedar-dark);
+  position: relative;
+}
+.marginalia::before {
+  content: "SEAL";
+  position: absolute;
+  left: 20px;
+  top: -14px;
+  background: var(--cedar-dark);
+  color: #fffbf2;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--cedar);
+}
+.marginalia p.found {
+  font-size: 12.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cedar-dark);
+  margin: 0 0 12px;
+  text-align: left;
+}
+.marginalia blockquote {
+  margin: 0 0 12px;
+  padding: 0 0 0 18px;
+  border-left: 5px solid var(--salmon);
+  font-style: italic;
+  font-size: 1.12em;
+  color: #4d2216;
+  text-align: left;
+}
+.marginalia p.gloss {
+  font-size: 14px;
+  color: #5a4739;
+  margin: 0;
+  text-align: left;
+}
+
+.returns {
+  margin-top: 50px;
+  padding-top: 24px;
+  border-top: 4px double var(--cedar);
+  font-size: 14px;
+  color: var(--sage);
+  text-align: justify;
+}
+.returns a { color: var(--cedar-dark); font-weight: bold; text-decoration: underline; }
+a { color: var(--fir-light); text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .guide { padding: 24px 16px 50px; }
+  h1 { font-size: 38px; }
+  .masthead::after { font-size: 160px; right: -40px; top: -35px; }
+  body::before, body::after { height: 10px; }
+}
