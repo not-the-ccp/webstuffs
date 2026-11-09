@@ -1,0 +1,219 @@
+/* Museo del Balón — Case IV placard */
+
+:root {
+  --ink: #2b2620;
+  --paper: #efe9dc;
+  --card: #f7f3e9;
+  --stripe: #b0312e;
+  --brass: #8a6d3b;
+  --faint: #7a715f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* top case strip */
+.case-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 4px double var(--brass);
+}
+
+.case-strip p { margin: 0; }
+
+/* asymmetric grid: number panel squeezed at left, placard wide at right */
+.placard-grid {
+  display: grid;
+  grid-template-columns: clamp(90px, 16vw, 190px) minmax(0, 1fr);
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.number-panel {
+  position: relative;
+  background:
+    repeating-linear-gradient(90deg, var(--stripe) 0 14px, var(--card) 14px 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  border-right: 2px solid var(--ink);
+  min-height: 640px;
+}
+
+.case-no {
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-weight: 700;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: var(--card);
+  padding: 0.05em 0.25em;
+  transform: rotate(-4deg);
+  box-shadow: 4px 5px 0 rgba(43, 38, 32, 0.25);
+  line-height: 1;
+}
+
+.case-year {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.35em 0.6em;
+  transform: rotate(90deg);
+  white-space: nowrap;
+}
+
+/* the placard itself, tilted a hair, overlapping the panel */
+.placard {
+  position: relative;
+  background: var(--card);
+  margin: 2.2rem 2.4rem 3rem 2.6rem;
+  padding: 2.4rem 2.6rem 1.6rem;
+  border: 1px solid var(--ink);
+  box-shadow: 10px 12px 0 rgba(176, 49, 46, 0.12), 0 0 0 8px var(--card), 0 0 0 9px var(--faint);
+  transform: rotate(0.35deg);
+}
+
+.eyebrow {
+  margin: 0 0 1.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(2.4rem, 6.4vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* oversized type runs off the edge of the card on purpose */
+  max-width: 105%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 6px solid var(--stripe);
+  padding-bottom: 0.35rem;
+}
+
+.subline {
+  margin: 0.9rem 0 0;
+  font-style: italic;
+  color: var(--faint);
+  font-size: 1.02rem;
+}
+
+.placard .para { margin-top: 2.1rem; }
+
+.placard h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--stripe);
+}
+
+.placard p { margin: 0 0 0.85rem; font-size: 1.02rem; }
+.placard p:last-child { margin-bottom: 0; }
+
+/* the Double: two-column drop so the years read as columns */
+.double p {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px dashed var(--faint);
+}
+.double strong { color: var(--stripe); }
+
+/* artifact: shirt floats left over the following text */
+.artifact {
+  margin: 2.4rem 0 0.4rem;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.artifact-svg {
+  width: 130px;
+  transform: rotate(-2.5deg);
+  filter: drop-shadow(3px 4px 0 rgba(43, 38, 32, 0.18));
+}
+
+.artifact-label {
+  margin-top: 1.6rem;
+  font-size: 0.92rem;
+  color: var(--faint);
+}
+
+/* the volume paragraph: indented as a wall inset */
+.volume {
+  border-left: 4px solid var(--brass);
+  padding-left: 1.2rem;
+  margin-left: 1.5rem;
+}
+
+.volume em { color: var(--ink); font-weight: 600; }
+
+.further a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--stripe);
+  text-underline-offset: 3px;
+}
+
+.further a:hover { background: rgba(176, 49, 46, 0.12); }
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--faint);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+}
+
+.colophon p { margin: 0; }
+
+/* ordinary narrow screens: collapse the asymmetry */
+@media (max-width: 720px) {
+  .placard-grid { grid-template-columns: 1fr; }
+  .number-panel {
+    flex-direction: row;
+    min-height: 0;
+    padding: 1rem 0;
+    border-right: none;
+    border-bottom: 2px solid var(--ink);
+  }
+  .case-no { font-size: 2.4rem; transform: rotate(-3deg); }
+  .case-year { transform: none; }
+  .placard { margin: 1.2rem; transform: none; }
+  .double p { column-count: 1; }
+  .artifact { grid-template-columns: 1fr; }
+  .artifact-label { margin-top: 0.4rem; }
+  .name { white-space: normal; }
+}
