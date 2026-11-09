@@ -1,0 +1,210 @@
+/* Squadwork — build log, bench no. 3 */
+:root {
+  --red: #c8102e;
+  --gold: #f2c230;
+  --navy: #1e2a4a;
+  --paper: #fbf6ea;
+  --ink: #2c2418;
+  --chalk: #e8e0cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cfae;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(200, 16, 46, 0.04) 0 12px, transparent 12px 24px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.sheet {
+  max-width: 760px;
+  margin: 2rem auto 4rem;
+  background: var(--paper);
+  border: 3px double var(--navy);
+  outline: 1px solid var(--red);
+  outline-offset: 4px;
+  padding: 0 2.4rem 2.4rem;
+  box-shadow: 0 10px 24px rgba(30, 42, 74, 0.25);
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 4px solid var(--red);
+  padding: 1.4rem 0 0.6rem;
+  margin: 0 -2.4rem 1.6rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  background:
+    linear-gradient(var(--paper), var(--paper)) 0 0 / 100% calc(100% - 10px) no-repeat,
+    repeating-linear-gradient(90deg, var(--red) 0 18px, var(--gold) 18px 36px) 0 100% / 100% 10px no-repeat;
+}
+
+.kicker {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--navy);
+  margin: 0 0 0.2rem;
+}
+
+.sysline {
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #7a6a4a;
+  margin: 0;
+}
+
+.poms { display: block; margin: 0.6rem auto 0.4rem; width: 200px; }
+
+.head { text-align: center; margin-bottom: 1.8rem; }
+
+.eyebrow {
+  font-style: italic;
+  color: #7a6a4a;
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0.2rem 0;
+  text-shadow: 2px 2px 0 var(--gold);
+}
+
+.dek { max-width: 54ch; margin: 0 auto; font-size: 1.02rem; }
+
+h2 {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  color: var(--navy);
+  border-bottom: 2px dashed var(--red);
+  padding-bottom: 0.25rem;
+  margin: 2.2rem 0 0.8rem;
+}
+
+.log article {
+  border-left: 4px solid var(--gold);
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 0 0 1.4rem;
+  background: linear-gradient(90deg, rgba(242, 194, 48, 0.12), transparent 55%);
+}
+
+.entry-date {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin: 0 0 0.3rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #b9a877;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  background: var(--navy);
+  color: var(--paper);
+  border-color: var(--navy);
+}
+
+tr:nth-child(even) td { background: rgba(242, 194, 48, 0.10); }
+
+.scorecap { font-size: 0.85rem; font-style: italic; color: #7a6a4a; margin-top: 0.4rem; }
+
+.terms ul { padding-left: 1.2rem; }
+.terms li { margin-bottom: 0.4rem; }
+
+a { color: var(--navy); text-decoration-color: var(--red); text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+
+.judgebox {
+  border: 2px solid var(--navy);
+  background: var(--chalk);
+  padding: 1rem 1.2rem;
+  margin-top: 2.2rem;
+}
+
+.signals { display: flex; gap: 0.7rem; margin: 0.8rem 0; flex-wrap: wrap; }
+
+.signal {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  border: 2px solid var(--ink);
+  transition: transform 0.08s ease;
+}
+
+.signal:active { transform: translateY(2px); }
+.signal.white { background: #fff; color: var(--ink); }
+.signal.red { background: var(--red); color: #fff; border-color: var(--red); }
+.signal.pressed { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.clear {
+  background: none;
+  border: none;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: #7a6a4a;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: center;
+}
+
+.verdict {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0;
+}
+.verdict.ok { color: #1a6b34; }
+.verdict.miss { color: var(--red); }
+
+.see-also {
+  margin-top: 2.4rem;
+  padding-top: 0.8rem;
+  border-top: 4px solid var(--red);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.colophon {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: #7a6a4a;
+  margin-top: 1.6rem;
+  border-top: 1px dashed #b9a877;
+  padding-top: 0.8rem;
+}
