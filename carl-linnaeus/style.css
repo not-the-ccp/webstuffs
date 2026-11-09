@@ -1,0 +1,181 @@
+/* Article No. 09 — The Register of Names */
+
+:root {
+  --paper: #f4efe4;
+  --paper-deep: #ece5d3;
+  --ink: #2b2620;
+  --ink-soft: #5c5344;
+  --rule: #b3a88e;
+  --seal: #7a2e1d;
+  --leaf: #3d5233;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.hall-line {
+  padding: 0.6rem 1rem;
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.article {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.4rem 3.5rem;
+}
+
+.article-head {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.latin-name {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: var(--ink-soft);
+  margin-top: 0.4rem;
+}
+
+.dates {
+  font-size: 0.95rem;
+  color: var(--seal);
+  margin: 0.3rem 0 0.8rem;
+}
+
+.epigraph {
+  font-style: italic;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--rule);
+  padding-left: 0.9rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--seal);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 2.2rem 0 0.9rem;
+}
+
+section p { margin: 0 0 1rem; }
+
+.plate {
+  max-width: 14rem;
+  margin: 1.8rem auto;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.plate svg { width: 100%; height: auto; }
+
+.plate figcaption {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+.sift {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  align-items: center;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.sift select,
+.sift input[type="search"] {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.25rem 0.4rem;
+}
+
+.sift .count {
+  width: 100%;
+  margin: 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+table.systema {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+table.systema th,
+table.systema td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.systema thead th {
+  background: var(--paper-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+table.systema tbody th {
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+table.systema tbody tr:nth-child(even) {
+  background: rgba(179, 168, 142, 0.12);
+}
+
+table.systema tr.hidden { display: none; }
+
+.colophon {
+  margin-top: 3rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+a { color: var(--seal); }
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
