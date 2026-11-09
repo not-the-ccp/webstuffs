@@ -1,0 +1,278 @@
+/* Guidebook No. FR-1857 0643 — Paris, the Flâneur's Edition
+   Romantic Division, Second Generation — one long evening's dust */
+
+:root {
+  --night: #14101f;
+  --midnight: #1d1630;
+  --violet: #3a2a5e;
+  --orchid: #8a5fb0;
+  --wax: #e9dcc3;
+  --paper: #efe6d2;
+  --ink: #241b10;
+  --gold: #c9a45c;
+  --gold-bright: #e8c87e;
+  --rose: #b06a7c;
+  --quay: #2c2340;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  color: var(--wax);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #3a2a5e 0%, rgba(58,42,94,0) 60%),
+    radial-gradient(ellipse 90% 50% at 85% 105%, #2a1e3f 0%, rgba(42,30,63,0) 70%),
+    linear-gradient(180deg, var(--night) 0%, var(--midnight) 45%, #241a38 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-size: 19px;
+  line-height: 1.62;
+}
+
+/* ---- the night layer: stars & petals ---- */
+.night {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  opacity: 0.5;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.85; }
+}
+
+.petal {
+  position: absolute;
+  top: -4vh;
+  width: 10px;
+  height: 14px;
+  border-radius: 60% 40% 60% 40%;
+  background: linear-gradient(135deg, var(--orchid), var(--rose));
+  opacity: 0.45;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-6vh) rotate(0deg) translateX(0); }
+  25%  { transform: translateY(22vh) rotate(120deg) translateX(4vw); }
+  50%  { transform: translateY(48vh) rotate(240deg) translateX(-3vw); }
+  75%  { transform: translateY(74vh) rotate(360deg) translateX(4vw); }
+  100% { transform: translateY(106vh) rotate(480deg) translateX(-2vw); }
+}
+
+/* ---- the cover sheet ---- */
+.cover {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4.5rem 1.4rem 6rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(233,220,195,0.018) 0 2px, transparent 2px 4px),
+    linear-gradient(165deg, rgba(44,35,64,0.92) 0%, rgba(29,22,48,0.95) 55%, rgba(20,16,31,0.97) 100%);
+  border: 1px solid rgba(201,164,92,0.5);
+  box-shadow:
+    0 0 0 6px rgba(20,16,31,0.9),
+    0 0 0 7px rgba(201,164,92,0.35),
+    0 40px 90px rgba(0,0,0,0.65),
+    inset 0 0 120px rgba(10,7,18,0.8);
+}
+
+.cover::before,
+.cover::after {
+  content: "";
+  position: absolute;
+  left: 14px; right: 14px;
+  height: 14px;
+  background:
+    radial-gradient(circle at 7px 7px, var(--gold) 2.2px, transparent 2.6px) left / 14px 14px repeat-x;
+  opacity: 0.55;
+}
+.cover::before { top: -6px; }
+.cover::after  { bottom: -6px; transform: rotate(180deg); }
+
+/* ---- masthead ---- */
+.masthead {
+  text-align: center;
+  padding: 1rem 0.5rem 2.2rem;
+  border-bottom: 3px double var(--gold);
+}
+
+.eyebrow {
+  font-family: "Cinzel", Georgia, serif;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: var(--orchid);
+  margin: 0 0 1.1rem;
+}
+
+.no {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.02rem;
+  color: var(--gold);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-family: "UnifrakturCook", "Cinzel", serif;
+  font-weight: 700;
+  font-size: clamp(3.4rem, 11vw, 6.2rem);
+  line-height: 1;
+  margin: 0.2rem 0 0.5rem;
+  color: var(--paper);
+  text-shadow:
+    0 0 22px rgba(138,95,176,0.55),
+    0 2px 0 rgba(0,0,0,0.6);
+}
+
+.sub {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.14rem;
+  max-width: 46ch;
+  margin: 0 auto;
+  color: var(--wax);
+}
+
+.pron {
+  margin: 1.3rem auto 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  border-top: 1px solid rgba(201,164,92,0.35);
+  display: inline-block;
+  padding-top: 0.7rem;
+}
+
+/* ---- entries ---- */
+main { padding-top: 1.6rem; }
+
+.entry {
+  margin: 0 0 2.4rem;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.entry h2 {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.32rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border-bottom: 1px solid rgba(201,164,92,0.4);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.orn {
+  color: var(--orchid);
+  margin-right: 0.45rem;
+  font-size: 1.1em;
+}
+
+.entry p { margin: 0 0 1rem; }
+
+.entry em { color: var(--paper); }
+
+a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(232,200,126,0.6);
+  transition: color 160ms ease, border-color 160ms ease, text-shadow 160ms ease;
+}
+
+a:hover, a:focus {
+  color: var(--paper);
+  border-bottom-color: var(--paper);
+  text-shadow: 0 0 12px rgba(138,95,176,0.9);
+}
+
+/* ---- footer & the quay lamp ---- */
+.foot {
+  border-top: 3px double var(--gold);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.lamp {
+  color: var(--gold);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 auto 1rem;
+  user-select: none;
+}
+
+.lamp svg {
+  width: 54px;
+  height: 90px;
+  display: block;
+  margin: 0 auto 0.4rem;
+  filter: drop-shadow(0 0 6px rgba(232,200,126,0.7));
+  transition: filter 300ms ease, opacity 300ms ease;
+}
+
+.lamp .flame {
+  fill: var(--gold-bright);
+  animation: flicker 1.1s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0%   { opacity: 0.55; }
+  30%  { opacity: 1; }
+  60%  { opacity: 0.7; }
+  100% { opacity: 0.95; }
+}
+
+.lamp.off svg { filter: none; opacity: 0.45; }
+.lamp.off .flame { fill: #4a4058; animation: none; }
+.lamp.off + .foot-note, body.lights-out .foot-note { color: #8a7f9c; }
+
+.lamp span {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--wax);
+}
+
+body.lights-out {
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #241a38 0%, rgba(36,26,56,0) 60%),
+    linear-gradient(180deg, #0b0812 0%, #120e1e 100%);
+}
+
+body.lights-out .cover { box-shadow: 0 0 0 6px rgba(11,8,18,0.95), 0 0 0 7px rgba(201,164,92,0.2), 0 40px 90px rgba(0,0,0,0.8); }
+
+.foot-note {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* ---- small screens ---- */
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .cover { padding: 2.6rem 0.9rem 4rem; }
+  .eyebrow { letter-spacing: 0.2em; }
+}
