@@ -1,0 +1,171 @@
+/* Minutes of the Lower Delta Council — Session 15 */
+
+:root {
+  --ink: #1c1a15;
+  --faded: #4a463c;
+  --rule: #8a8271;
+  --paper: #efe9da;
+  --paper-deep: #e6dfcc;
+  --stamp: #9e2b25;
+  --accent: #2f3a45;
+}
+
+html { background: #b8b0a0; }
+
+body {
+  margin: 0;
+  padding: 3rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--ink);
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(60,50,30,0.18), transparent 55%),
+    var(--paper);
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper-deep);
+  border: 1px solid #c9c1ab;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 14px 40px rgba(40,35,20,0.35);
+  padding: 2.6rem 3rem 2.2rem;
+  position: relative;
+}
+
+/* header */
+.trust {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--faded);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+}
+
+.session {
+  text-align: center;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.3rem 0 0.8rem;
+}
+
+.head-rule {
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  height: 5px;
+  margin: 0.4rem 0 1rem;
+}
+
+.meeting-data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin-bottom: 0.7rem;
+}
+.meeting-data th {
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.15rem 0.6rem 0.15rem 0;
+  color: var(--accent);
+}
+.meeting-data td { padding: 0.15rem 0.6rem 0.15rem 0; }
+.meeting-data tr + tr td, .meeting-data tr + tr th { border-top: 1px dotted var(--rule); }
+
+.attendees { font-size: 0.84rem; color: var(--faded); margin: 0.4rem 0 0; }
+
+/* agenda */
+.agenda { margin-top: 1.6rem; }
+.agenda ol { list-style: none; margin: 0; padding: 0; counter-reset: item; }
+
+.item {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #cfc7b2;
+}
+.item:last-child { border-bottom: none; }
+
+.no {
+  flex: 0 0 1.7rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.1rem;
+}
+
+.item p { margin: 0.1rem 0; }
+.item strong { letter-spacing: 0.02em; }
+
+/* verbatim ruling */
+.verbatim {
+  margin: 0.7rem 0;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--stamp);
+  background: rgba(158, 43, 37, 0.05);
+  font-style: italic;
+  color: #57201c;
+  font-size: 1.02rem;
+}
+
+a { color: var(--accent); text-decoration-color: rgba(47,58,69,0.4); }
+a:hover { color: var(--stamp); }
+
+/* true-copy stamp */
+.stamp {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 9.5rem;
+  transform: rotate(-11deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.9rem;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* signature block */
+.sign { margin-top: 1.8rem; }
+.sign table { width: 100%; border-collapse: collapse; }
+.sig { width: 50%; vertical-align: bottom; padding-top: 1.6rem; font-size: 0.85rem; color: var(--faded); }
+.sig-line {
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.foot-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--faded);
+  border-top: 3px double var(--rule);
+  margin-top: 1.6rem;
+  padding-top: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .sheet { padding: 1.6rem 1.1rem; }
+  .stamp { bottom: 12rem; font-size: 0.9rem; }
+  .sign table { display: block; }
+  .sig { width: 100%; }
+}
