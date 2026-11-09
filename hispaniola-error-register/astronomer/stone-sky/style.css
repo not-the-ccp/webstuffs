@@ -1,0 +1,263 @@
+/* Stone Sky — field notes of the station naturalist, La Caleta, sector DR-7 */
+
+:root {
+  --paper: #f4eddb;
+  --paper-deep: #ece2c8;
+  --ink: #233043;
+  --ink-soft: #4a5a70;
+  --pencil: #6b6f75;
+  --red: #a8452e;
+  --sea: #2e5d5b;
+  --rule: rgba(46, 93, 91, 0.28);
+  --stamp: #7a4a2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d2bd;
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(46, 93, 91, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(168, 69, 46, 0.08), transparent 40%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 980px;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    linear-gradient(var(--paper) 0 0),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    );
+  background-blend-mode: normal;
+  border: 1px solid #b8ad8f;
+  box-shadow: 0 12px 40px rgba(35, 48, 67, 0.28);
+  padding: 0 0 2rem;
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 4.2rem;
+  width: 2px;
+  background: rgba(168, 69, 46, 0.45);
+  pointer-events: none;
+}
+
+.fn-head {
+  padding: 2.2rem 2.5rem 1.2rem 5.6rem;
+  border-bottom: 3px double var(--ink);
+  position: relative;
+}
+
+.office, .imprint {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.imprint { margin-top: 0.25rem; }
+
+.stamp {
+  position: absolute;
+  top: 2rem; right: 2.4rem;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0.5rem 0.7rem;
+  transform: rotate(-8deg);
+  opacity: 0.8;
+}
+
+h1 {
+  margin: 1.1rem 0 0.2rem;
+  font-size: 2.6rem;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  color: var(--sea);
+}
+
+.sub { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--ink-soft); font-style: italic; }
+
+.motto {
+  margin: 0.8rem 0 0;
+  font-size: 0.85rem;
+  color: var(--red);
+  letter-spacing: 0.05em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 820px) {
+  .grid { grid-template-columns: 14rem 1fr; }
+  main { padding-left: 0; }
+}
+
+.margincol {
+  padding: 1.4rem 1rem 1.4rem 1.4rem;
+  border-right: 1px dashed rgba(35, 48, 67, 0.35);
+}
+
+@media (min-width: 820px) {
+  .margincol { padding-left: 5.8rem; padding-right: 1.6rem; }
+}
+
+.side-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--pencil);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+main {
+  padding: 1.6rem 2.6rem 0 5.6rem;
+  font-size: 1.02rem;
+}
+
+@media (min-width: 820px) {
+  main { padding-left: 5.8rem; }
+}
+
+main p { margin: 0 0 1.1rem; }
+
+.drop { font-size: 1.08rem; }
+
+.cap {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.85;
+  padding: 0.1rem 0.5rem 0 0;
+  color: var(--sea);
+  font-style: italic;
+}
+
+a {
+  color: var(--sea);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--red); }
+
+.entry {
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 1.6rem 0 0.8rem;
+  border-top: 1px solid rgba(35, 48, 67, 0.4);
+  padding-top: 0.5rem;
+}
+
+.ledger {
+  margin: 1.2rem 0 1.2rem 1rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--red);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+.ledger p { margin: 0; }
+
+.colophon {
+  margin-top: 2rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  text-align: center;
+}
+
+.dial {
+  margin: 2.2rem auto 0.5rem;
+  max-width: 340px;
+  text-align: center;
+}
+
+.dial-ring {
+  position: relative;
+  width: 180px; height: 180px;
+  margin: 0 auto;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--paper-deep) 0 56%, transparent 57%),
+    conic-gradient(from -90deg,
+      transparent 0deg 347deg,
+      rgba(168, 69, 46, 0.35) 347deg 358deg,
+      transparent 358deg 360deg);
+  cursor: pointer;
+}
+
+.tick {
+  position: absolute;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--ink-soft);
+}
+.tick-n { top: 0.2rem; left: 50%; transform: translateX(-50%); }
+.tick-e { right: 0.35rem; top: 50%; transform: translateY(-50%); }
+.tick-s { bottom: 0.2rem; left: 50%; transform: translateX(-50%); }
+.tick-w { left: 0.35rem; top: 50%; transform: translateY(-50%); }
+
+.needle {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 4px; height: 78px;
+  background: linear-gradient(var(--red) 0 55%, var(--ink) 55% 100%);
+  transform-origin: 50% 0;
+  transform: translate(-50%, 0) rotate(207deg);
+  transition: transform 0.8s ease-in-out;
+}
+
+.dial-key {
+  font-size: 0.78rem;
+  color: var(--pencil);
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0.9rem 0 0;
+}
+
+.foot {
+  margin: 2rem 2.6rem 0 5.6rem;
+  padding-top: 0.8rem;
+}
+@media (min-width: 820px) {
+  .foot { margin-left: 5.8rem; }
+}
+
+.rule-double {
+  border-top: 3px double var(--ink);
+  margin-bottom: 0.7rem;
+}
+
+.foot p {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0;
+}
