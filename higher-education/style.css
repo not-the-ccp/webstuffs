@@ -1,0 +1,220 @@
+/* Safety Data Sheet No. HE-786 — a late-90s personal homepage, lovingly tiled */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* starry tiled background, web-safe navy field with silver stars */
+  background-color: #000080;
+  background-image:
+    radial-gradient(#c0c0c0 1px, transparent 1px),
+    radial-gradient(#0000ff 1px, transparent 1px),
+    radial-gradient(#ffff00 1px, transparent 1px);
+  background-size: 48px 48px, 32px 32px, 96px 96px;
+  background-position: 0 0, 14px 20px, 30px 6px;
+  color: #000000;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* scrolling marquee bar */
+.marquee-bar {
+  background-color: #000000;
+  color: #ffff00;
+  border-bottom: 3px ridge #c0c0c0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.sheet {
+  max-width: 46em;
+  margin: 1.2em auto 2.5em;
+  background-color: #ffffcc;
+  border: 4px outset #c0c0c0;
+  box-shadow: 6px 6px 0 #000080;
+  padding: 1.1em 1.4em 0.4em;
+}
+
+.sheet-head {
+  border-bottom: 3px double #800000;
+  padding-bottom: 0.8em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.sheet-no {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.12em;
+  font-weight: bold;
+  color: #800000;
+}
+
+.sheet-no .no {
+  background-color: #800000;
+  color: #ffffff;
+  padding: 0 0.4em;
+}
+
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2.1em;
+  margin: 0.2em 0;
+  color: #000080;
+  letter-spacing: 0.05em;
+}
+
+.synonyms {
+  background-color: #c0c0c0;
+  border: 2px inset #ffffff;
+  padding: 0.35em 0.6em;
+}
+
+.new {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 0.85em;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { visibility: hidden; }
+}
+
+.supplier {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.block {
+  border: 2px inset #ffffff;
+  background-color: #ffffff;
+  margin: 0 0 1em;
+  padding: 0.7em 0.9em;
+}
+
+h2 {
+  font-size: 1em;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: #000080;
+  color: #ffff00;
+  padding: 0.25em 0.5em;
+  border: 2px outset #c0c0c0;
+  margin: 0 0 0.6em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+caption {
+  caption-side: top;
+  font-size: 0.85em;
+  font-style: italic;
+  padding-bottom: 0.3em;
+}
+
+th, td {
+  border: 1px solid #808080;
+  padding: 0.25em 0.5em;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #000080;
+  color: #ffffff;
+}
+
+tr:nth-child(even) td {
+  background-color: #e0e0ff;
+}
+
+.reckoning {
+  border-left: 6px ridge #800000;
+  background-color: #ffe0e0;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 1.15em;
+  padding: 0.6em 1em;
+  margin: 0.8em 0;
+}
+
+.counter-box {
+  border: 3px ridge #c0c0c0;
+  background-color: #000000;
+  color: #00ff00;
+  text-align: center;
+  padding: 0.7em;
+  margin-bottom: 1em;
+}
+
+.counter-box h2 {
+  background-color: #000000;
+  border: none;
+}
+
+.digits {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.5em;
+  letter-spacing: 0.3em;
+  background-color: #003300;
+  border: 2px inset #00ff00;
+  padding: 0.1em 0.4em;
+}
+
+.guestbook {
+  border: 4px ridge #c0c0c0;
+  background-color: #c0c0c0;
+  padding: 0.7em 0.9em;
+  margin-bottom: 1em;
+}
+
+.guestbook .entry {
+  border-bottom: 1px dashed #800000;
+  padding: 0.4em 0;
+}
+
+.guestbook .who {
+  font-weight: bold;
+  color: #000080;
+}
+
+.foot-links {
+  text-align: center;
+  font-size: 0.85em;
+  padding: 0.6em 0 1em;
+}
+
+a {
+  color: #0000cc;
+}
+
+a:visited {
+  color: #800080;
+}
+
+.small {
+  font-size: 0.8em;
+  color: #404040;
+}
