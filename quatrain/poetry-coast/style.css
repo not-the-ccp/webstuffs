@@ -1,0 +1,202 @@
+/* The Poetics Coast — official brochure. Sun-bleached paper, terracotta, sea-foam. */
+
+:root {
+  --paper: #f6eeda;
+  --paper-deep: #efe2c4;
+  --ink: #2f2a20;
+  --terracotta: #b4502e;
+  --sea: #3e6b68;
+  --sea-light: #a8c4bc;
+  --sand: #d9c48f;
+  --faded: #7a6f58;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(62, 107, 104, 0.045) 0 1px, transparent 1px 9px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.masthead {
+  background: var(--terracotta);
+  color: var(--paper);
+  border-bottom: 6px double var(--sand);
+  padding: 2.2rem 1.2rem 1.6rem;
+}
+
+.issuing {
+  margin: 0 auto 1rem;
+  max-width: 46rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sand);
+  text-align: center;
+}
+
+.masthead-inner {
+  max-width: 46rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sea-light);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.9rem;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 rgba(47, 42, 32, 0.35);
+}
+
+.tagline {
+  margin: 0.9rem 0 0;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: #f3e6cf;
+}
+
+.stamp {
+  width: 108px;
+  height: 108px;
+  border: 3px solid var(--sand);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  transform: rotate(-9deg);
+  opacity: 0.9;
+}
+
+.stamp-ring {
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  color: var(--sand);
+}
+
+.stamp-line {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--paper);
+}
+
+.season {
+  max-width: 46rem;
+  margin: 1.2rem auto 0;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--sand);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--sand);
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+.panel {
+  margin: 1.8rem 0;
+  padding: 1.1rem 1.4rem 1.3rem;
+  background: var(--paper-deep);
+  border: 1px solid #cbb98e;
+  border-top: 5px solid var(--sea);
+  box-shadow: 3px 3px 0 rgba(62, 107, 104, 0.14);
+}
+
+.panel h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.28rem;
+  color: var(--sea);
+  letter-spacing: 0.02em;
+}
+
+.panel p { margin: 0.7rem 0; }
+
+.stop-meta {
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--faded);
+  border-bottom: 1px dashed #cbb98e;
+  padding-bottom: 0.6rem;
+}
+
+.tool {
+  color: var(--terracotta);
+  font-weight: bold;
+  font-style: normal;
+}
+
+.found-source {
+  margin: 1.1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: var(--paper);
+  border-left: 5px solid var(--terracotta);
+  font-style: italic;
+  font-size: 1.08rem;
+}
+
+.practical {
+  border-top-color: var(--terracotta);
+  box-shadow: 3px 3px 0 rgba(180, 80, 46, 0.14);
+}
+
+.practical h2 { color: var(--terracotta); }
+
+a {
+  color: var(--sea);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--terracotta); }
+
+.nav-line {
+  max-width: 46rem;
+  margin: 2.2rem auto 1rem;
+  padding: 0 1.2rem;
+  font-size: 0.92rem;
+  color: var(--faded);
+}
+
+.nav-line p { margin: 0.8rem 0; }
+
+.colophon {
+  border-top: 6px double var(--sand);
+  background: var(--sea);
+  color: var(--paper);
+  text-align: center;
+  padding: 1rem 1.2rem;
+}
+
+.colophon p {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
