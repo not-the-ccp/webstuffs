@@ -1,0 +1,160 @@
+/* The People of Ashford County v. Aldous Bakery Co. — court record styling */
+
+:root {
+  --paper: #f4eeda;
+  --paper-dark: #e9e0c4;
+  --ink: #23201a;
+  --faint: #5c5648;
+  --stamp: #8e221c;
+  --leaf: #4d6b38;
+  --rule: #b6ab8d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d0b8;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 27px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+.docket {
+  max-width: 46rem;
+  margin: 2.5rem auto 0;
+  padding: 1.6rem 2rem 1.2rem;
+  background: var(--paper);
+  border: 3px double var(--stamp);
+  border-radius: 2px;
+  box-shadow: 0 3px 14px rgba(40, 30, 10, 0.25);
+  text-align: center;
+  position: relative;
+}
+
+.leaf {
+  position: absolute;
+  top: 0.9rem;
+  left: 1rem;
+  color: var(--leaf);
+  opacity: 0.85;
+}
+
+.docket .court {
+  margin: 0;
+  letter-spacing: 0.28em;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.docket .division {
+  margin: 0.35rem 0 1rem;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+
+.docket h1 {
+  margin: 0 0 1rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.9rem;
+}
+
+table.no {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  color: var(--faint);
+}
+
+table.no td {
+  border: 1px solid var(--rule);
+  padding: 0.3rem 0.7rem;
+}
+
+.transcript {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  padding: 1.4rem 2rem 2rem;
+  background: var(--paper);
+  border: 3px double var(--stamp);
+  border-top: none;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 3px 14px rgba(40, 30, 10, 0.25);
+  counter-reset: line;
+}
+
+.transcript p {
+  margin: 0 0 1.05rem;
+  white-space: pre-line;
+}
+
+.transcript p::first-line {
+  letter-spacing: 0.01em;
+}
+
+/* speaker names: typewriter weight, stamped red for the court */
+.transcript p > :first-child {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+p .stamp {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.9rem;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  transform: rotate(-2.5deg);
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.stampline { margin-bottom: 1.4rem; }
+
+.recorder {
+  font-size: 0.92em;
+  color: var(--faint);
+  border-top: 1px dashed var(--rule);
+  padding-top: 1rem;
+}
+
+.rn-label {
+  font-weight: 700;
+  color: var(--leaf);
+  letter-spacing: 0.06em;
+}
+
+a {
+  color: var(--leaf);
+  text-decoration-color: rgba(77, 107, 56, 0.45);
+  text-underline-offset: 2px;
+}
+
+a:hover { color: var(--stamp); }
+
+.colophon {
+  max-width: 46rem;
+  margin: -1.8rem auto 3rem;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (max-width: 560px) {
+  .docket, .transcript { margin-left: 0.6rem; margin-right: 0.6rem; padding-left: 1.1rem; padding-right: 1.1rem; }
+  table.no { display: block; }
+  table.no td { display: block; width: 100%; }
+}
