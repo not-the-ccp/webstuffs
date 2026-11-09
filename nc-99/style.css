@@ -1,0 +1,184 @@
+:root {
+  --ink: #1c2a1e;
+  --pine: #2e4a33;
+  --moss: #6f8a5a;
+  --dirt: #8a6f4d;
+  --paper: #f4efe2;
+  --paper-deep: #ebe3cf;
+  --red: #a03b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2rem auto 4rem;
+  background: var(--paper);
+  border: 2px solid var(--pine);
+  padding: 2rem 2.25rem 2.5rem;
+  box-shadow: 0 12px 30px rgba(28, 42, 30, 0.18);
+}
+
+.masthead .series {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.35rem;
+  color: var(--pine);
+  letter-spacing: 0.01em;
+}
+
+.chapter-no {
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  color: var(--dirt);
+  margin: 0 0 0.75rem;
+}
+
+.mast-rule {
+  border-top: 3px double var(--pine);
+  margin: 0.5rem 0 0.6rem;
+}
+
+.stamp {
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  margin: 0;
+}
+
+.contents {
+  border: 1px solid var(--moss);
+  background: #efe9d8;
+  padding: 0.75rem 1.1rem;
+  margin: 1.5rem 0;
+}
+.contents-head {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  margin: 0 0 0.4rem;
+  color: var(--pine);
+}
+.contents ol { margin: 0; padding-left: 1.2rem; }
+.contents a { color: var(--pine); text-decoration: underline dotted; }
+
+body a { color: var(--red); }
+
+section { margin: 1.75rem 0; }
+.sec-no {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  color: var(--red);
+  margin-right: 0.6rem;
+}
+h2 { font-size: 1.3rem; color: var(--pine); margin-bottom: 0.5rem; }
+
+table.stations {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.75rem 0;
+}
+.stations th, .stations td {
+  border: 1px solid var(--moss);
+  padding: 0.4rem 0.55rem;
+  text-align: left;
+}
+.stations thead th {
+  background: var(--pine);
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.stations tbody tr:nth-child(even) { background: #ece5d1; }
+
+.gauge {
+  border: 1px solid var(--dirt);
+  background: #f8f4e7;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+.gauge-track {
+  position: relative;
+  height: 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--dirt);
+  margin-bottom: 1.4rem;
+}
+.gauge-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 48.3%;
+  background: repeating-linear-gradient(90deg, var(--moss) 0 6px, var(--pine) 6px 12px);
+}
+.gauge-tick {
+  position: absolute;
+  top: 18px;
+  transform: translateX(-50%);
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  color: var(--dirt);
+  white-space: nowrap;
+}
+.gauge-label {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+input[type="range"] { width: 100%; accent-color: var(--pine); }
+.gauge-out {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 1rem 0 0;
+}
+.gauge-out div { border-left: 3px solid var(--moss); padding-left: 0.6rem; }
+.gauge-out dt {
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dirt);
+}
+.gauge-out dd { margin: 0.1rem 0 0; font-size: 0.95rem; }
+.gauge-note { font-size: 0.82rem; color: #5d5443; margin: 0.9rem 0 0; }
+
+ol.orders { padding-left: 1.4rem; }
+ol.orders li { margin-bottom: 0.45rem; }
+
+.colophon {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--pine);
+  padding-top: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--dirt);
+}
+.colophon .rule {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--pine);
+}
