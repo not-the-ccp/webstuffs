@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Kit No. 12 box art">
+  <rect width="400" height="300" fill="#1f2a44"/>
+  <path d="M0 190 Q100 150 200 185 T400 175 V300 H0 Z" fill="#2c3a5e"/>
+  <path d="M0 230 Q120 205 240 228 T400 222 V300 H0 Z" fill="#3a4a70"/>
+  <circle cx="330" cy="52" r="16" fill="#f5e9b8"/>
+  <circle cx="337" cy="47" r="14" fill="#1f2a44"/>
+  <path d="M60 210 L80 170 L100 210 Z" fill="#5b4632"/>
+  <rect x="42" y="210" width="76" height="52" fill="#7a5c3e"/>
+  <rect x="58" y="226" width="14" height="16" fill="#f5e9b8"/>
+  <rect x="86" y="226" width="14" height="16" fill="#2c3a5e"/>
+  <path d="M250 218 L272 172 L294 218 Z" fill="#5b4632"/>
+  <rect x="230" y="218" width="84" height="46" fill="#8a6a48"/>
+  <rect x="248" y="232" width="14" height="16" fill="#f5e9b8"/>
+  <rect x="276" y="232" width="14" height="16" fill="#2c3a5e"/>
+  <g fill="#f5e9b8">
+    <circle cx="150" cy="120" r="4"/><circle cx="180" cy="105" r="4"/>
+    <circle cx="210" cy="120" r="4"/><circle cx="240" cy="108" r="4"/>
+  </g>
+  <g stroke="#f5e9b8" stroke-width="2">
+    <line x1="150" y1="120" x2="180" y2="105"/><line x1="180" y1="105" x2="210" y2="120"/>
+    <line x1="210" y1="120" x2="240" y2="108"/>
+  </g>
+  <circle cx="195" cy="230" r="20" fill="#9fe0c8" opacity="0.9"/>
+  <text x="200" y="42" text-anchor="middle" fill="#ffffff" font-family="Verdana, sans-serif" font-size="20" font-weight="bold" letter-spacing="2">NEIGHBORHOOD WATCH KIT</text>
+  <text x="200" y="66" text-anchor="middle" fill="#e07a1f" font-family="Verdana, sans-serif" font-size="14" font-weight="bold" letter-spacing="4">NO. 12</text>
+  <text x="200" y="286" text-anchor="middle" fill="#cfd6e6" font-family="Verdana, sans-serif" font-size="10" letter-spacing="2">SUBURBAN PROTOCOL CO. · 12 HOUSEHOLDS · ONE BLOCK · ONE SKY</text>
+</svg>

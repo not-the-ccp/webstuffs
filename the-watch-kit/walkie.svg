@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Two-channel walkie pair">
+  <rect width="400" height="300" fill="#2e2a24"/>
+  <g>
+    <rect x="120" y="60" width="76" height="200" rx="10" fill="#3d5a86"/>
+    <rect x="128" y="84" width="60" height="34" rx="3" fill="#dfe8f2"/>
+    <text x="158" y="107" text-anchor="middle" fill="#1f4e8c" font-family="Courier New, monospace" font-size="18" font-weight="bold">CH 1</text>
+    <circle cx="158" cy="146" r="16" fill="#e07a1f"/>
+    <circle cx="158" cy="196" r="12" fill="#c9d4e2"/>
+    <rect x="146" y="30" width="24" height="30" fill="#2a4468"/>
+    <line x1="158" y1="30" x2="158" y2="10" stroke="#8fa6c4" stroke-width="3"/>
+  </g>
+  <g>
+    <rect x="204" y="70" width="76" height="190" rx="10" fill="#5a3d3d"/>
+    <rect x="212" y="94" width="60" height="34" rx="3" fill="#f2e6df"/>
+    <text x="242" y="117" text-anchor="middle" fill="#8a2f1f" font-family="Courier New, monospace" font-size="18" font-weight="bold">CH 2</text>
+    <circle cx="242" cy="156" r="16" fill="#e07a1f"/>
+    <circle cx="242" cy="204" r="12" fill="#e2cfc4"/>
+    <rect x="230" y="40" width="24" height="30" fill="#442a2a"/>
+    <line x1="242" y1="40" x2="242" y2="20" stroke="#c4a58f" stroke-width="3"/>
+  </g>
+  <text x="200" y="288" text-anchor="middle" fill="#c9c2b4" font-family="Verdana, sans-serif" font-size="10" letter-spacing="2">TWO-CHANNEL PAIR · 3.5 MILE · CHANNEL 2 RESERVED</text>
+</svg>
