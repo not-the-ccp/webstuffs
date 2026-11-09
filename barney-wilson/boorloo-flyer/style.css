@@ -1,0 +1,174 @@
+/* The Boorloo Flyer — service timetable, 1962 revision */
+
+:root {
+  --paper: #f4eddc;
+  --paper-deep: #e9dfc5;
+  --ink: #2c2418;
+  --oxblood: #7a2e21;
+  --green: #3c4a34;
+  --pencil: #6b5f4a;
+  --rule: #b9a878;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(0deg, transparent 0 27px, rgba(122, 46, 33, 0.03) 27px 28px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.tt-head {
+  border-bottom: 4px double var(--oxblood);
+  padding: 2rem 1.25rem 1.25rem;
+  text-align: center;
+  background: var(--paper);
+}
+
+.tt-stamp {
+  display: inline-block;
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  padding: 0.25rem 0.9rem;
+  transform: rotate(-1.2deg);
+  margin-bottom: 1.1rem;
+}
+
+.tt-kicker {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.7rem;
+  letter-spacing: 0.02em;
+  color: var(--oxblood);
+}
+
+.tt-dek {
+  margin: 0.4rem auto 0.8rem;
+  max-width: 42rem;
+  font-style: italic;
+  color: var(--pencil);
+  font-size: 1.02rem;
+}
+
+.tt-line { display: block; width: min(640px, 92%); height: 40px; margin: 0.2rem auto 0; }
+
+.tt-main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.note {
+  margin: 0 0 1.6rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.note h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.7rem;
+}
+
+.note p { margin: 0 0 0.8rem; }
+
+.note--incident {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--oxblood);
+  padding: 0.9rem 1.1rem;
+}
+
+.tt-sub {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--pencil);
+  margin: 0.6rem 0 0.9rem;
+}
+
+.tt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.86rem;
+  background: var(--paper);
+  box-shadow: 0 2px 0 rgba(44, 36, 24, 0.15);
+}
+
+.tt-table th {
+  background: var(--green);
+  color: var(--paper);
+  padding: 0.45rem 0.5rem;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(244, 237, 220, 0.25);
+}
+
+.tt-table td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px dotted var(--rule);
+  border-right: 1px solid rgba(185, 168, 120, 0.3);
+  vertical-align: top;
+}
+
+.tt-table tr:nth-child(even) td { background: rgba(185, 168, 120, 0.12); }
+
+.tt-table .stn { font-weight: bold; color: var(--oxblood); white-space: nowrap; }
+
+.tt-table tr.stop td { background: rgba(122, 46, 33, 0.07); }
+
+.tt-table td strong { color: var(--oxblood); }
+
+.tt-table td:last-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 0.84rem;
+  color: var(--pencil);
+}
+
+.tt-foot {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--pencil);
+  margin-top: 0.8rem;
+}
+
+a { color: var(--oxblood); }
+a:hover { color: var(--green); }
+
+em { color: inherit; }
+
+.tt-foot2 {
+  border-top: 4px double var(--oxblood);
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem 2rem;
+  text-align: center;
+}
+
+.tt-foot2 p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--pencil);
+}
