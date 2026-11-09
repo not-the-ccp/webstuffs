@@ -1,0 +1,196 @@
+/* Conan the Barbarian (1982) — Production Office FAQ sheet, File 1982-C */
+
+:root {
+  --paper: #f3ecdb;
+  --paper-edge: #e7dcc3;
+  --ink: #241f17;
+  --faded: #6b5f49;
+  --rule: #3a3226;
+  --stamp-red: #a33327;
+  --accent: #5c4a1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #b9ac8f;
+  background-image: radial-gradient(circle at 30% 10%, #c7bba0 0%, #b9ac8f 55%, #a89b7e 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(90, 76, 46, 0.025) 3px 4px),
+    radial-gradient(ellipse at 85% 92%, rgba(120, 98, 52, 0.14) 0%, transparent 34%);
+  border: 1px solid #8f8265;
+  box-shadow: 0 14px 40px rgba(40, 30, 12, 0.45), inset 0 0 90px rgba(120, 98, 52, 0.12);
+  padding: 2.75rem 3rem 2.25rem;
+  position: relative;
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  border: 1px solid rgba(58, 50, 38, 0.35);
+  pointer-events: none;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  border-radius: 4px;
+  padding: 0.35rem 0.55rem;
+  transform: rotate(8deg);
+  opacity: 0.75;
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+.sub {
+  text-align: center;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.35rem 0 1.6rem;
+  font-size: 0.95rem;
+}
+
+.specimen {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  margin-bottom: 1.9rem;
+  background: rgba(255, 252, 240, 0.4);
+}
+
+.specimen th, .specimen td {
+  border: 1px solid var(--rule);
+  padding: 0.3rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.specimen th {
+  width: 8rem;
+  background: var(--paper-edge);
+  letter-spacing: 0.08em;
+}
+
+.intro {
+  font-size: 1.02rem;
+  margin: 0 0 1.8rem;
+  text-align: justify;
+}
+
+.qa { border-top: 1.5px solid var(--rule); padding: 1.1rem 0 1.3rem; }
+
+.q {
+  font-size: 1.08rem;
+  margin: 0 0 0.6rem;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.qn {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  background: var(--rule);
+  color: var(--paper);
+  padding: 0.1rem 0.5rem;
+  margin-right: 0.7rem;
+}
+
+.a { margin: 0; text-align: justify; }
+
+.record {
+  margin: 1.1rem 0;
+  border: 1px dashed var(--accent);
+  background: rgba(255, 252, 240, 0.55);
+  padding: 0.9rem 1rem 1rem;
+}
+
+.record-head {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.55rem;
+  color: var(--accent);
+}
+
+.record-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  margin: 0 0 0.8rem;
+  border-left: 3px solid var(--stamp-red);
+  padding-left: 0.7rem;
+}
+
+.severity {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.severity th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 1.5px solid var(--rule);
+  padding: 0.25rem 0.5rem 0.3rem 0;
+}
+
+.severity td {
+  border-bottom: 1px dotted rgba(58, 50, 38, 0.5);
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  vertical-align: top;
+}
+
+.colophon {
+  border-top: 1.5px solid var(--rule);
+  margin-top: 1.6rem;
+  padding-top: 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  color: var(--faded);
+  text-align: center;
+}
+
+.colophon p { margin: 0.2rem 0; }
+
+.nav a { color: var(--accent); }
+a { color: var(--accent); }
+a:hover { color: var(--stamp-red); }
