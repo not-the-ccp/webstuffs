@@ -1,0 +1,170 @@
+/* Card No. 42 — the Chaudr&eacute;e de l&rsquo;H&ocirc;pital — late-night ledger styling */
+
+html { background: #000080 url("stars.svg") repeat; }
+
+body {
+  margin: 0;
+  padding: 24px 8px 48px;
+  color: #ffffcc;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.frame {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #000033;
+  border: 4px ridge #c0c0c0;
+  padding: 16px 20px 24px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.marquee-bar {
+  background: #800000;
+  border: 2px outset #ff0000;
+  color: #ffff00;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 4px 0;
+  margin-bottom: 18px;
+  font-size: 12px;
+}
+
+.card-head { text-align: center; }
+
+.card-no {
+  color: #ff9999;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  color: #ffcc00;
+  font-size: 30px;
+  margin: 6px 0;
+  text-shadow: 2px 2px 0 #800000;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #ccccff;
+  max-width: 560px;
+  margin: 0 auto 14px;
+}
+
+.rule {
+  height: 6px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #c0c0c0;
+  background: #000000;
+  margin: 0 40px 22px;
+}
+
+h2 {
+  color: #66ffcc;
+  font-size: 16px;
+  border-bottom: 1px dashed #666699;
+  padding-bottom: 4px;
+}
+
+h3 { color: #ff99ff; font-size: 14px; text-align: center; }
+
+p { color: #ffffcc; }
+
+strong { color: #ffcc66; }
+
+em { color: #ffffff; }
+
+a { color: #66ffff; }
+a:visited { color: #cc99ff; }
+a:hover { color: #ffff00; background: #000080; }
+
+table.ledger {
+  border-collapse: collapse;
+  margin: 12px 0;
+  width: 100%;
+}
+
+table.ledger th {
+  background: #800000;
+  color: #ffff00;
+  border: 2px outset #cc6666;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+table.ledger td {
+  border: 2px inset #999999;
+  padding: 4px 8px;
+  background: #000022;
+}
+
+table.ledger td:first-child {
+  font-weight: bold;
+  color: #ff9999;
+  width: 72px;
+  text-align: center;
+}
+
+ol.method li { margin-bottom: 8px; }
+
+.counter-box {
+  margin-top: 28px;
+  text-align: center;
+  border: 3px inset #808080;
+  background: #000000;
+  padding: 10px;
+}
+
+.counter-label { color: #99ff99; font-size: 12px; }
+
+.digit {
+  display: inline-block;
+  background: #000000;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 22px;
+  font-weight: bold;
+  border: 2px inset #33ff33;
+  padding: 2px 8px;
+  margin: 0 2px;
+}
+
+.counter-note { color: #669966; font-size: 11px; font-style: italic; }
+
+.guestbook {
+  margin-top: 20px;
+  border: 3px ridge #9999cc;
+  background: #000040;
+  padding: 12px 16px;
+}
+
+.guestbook .entry {
+  font-size: 12px;
+  border-bottom: 1px dotted #444466;
+  padding: 6px 0;
+  color: #ccccff;
+}
+
+.guestbook .sign { color: #99ccff; font-size: 12px; text-align: center; }
+
+.colophon {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 11px;
+  color: #9999cc;
+}
+
+.blink {
+  color: #ffff00;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: blink 1.2s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { visibility: hidden; }
+}
