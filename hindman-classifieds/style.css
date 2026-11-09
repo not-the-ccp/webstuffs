@@ -1,0 +1,384 @@
+/* The Helena Clarion — Classifieds & Small Advertisements, 3 October 1868 */
+
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,500;0,800;1,500&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+  --paper: #efe3c8;
+  --paper-deep: #e6d5ac;
+  --ink: #1c140d;
+  --ink-soft: #3d2f1f;
+  --blood: #7c1d12;
+  --wax: #5a3a1a;
+  --rule: rgba(28, 20, 13, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'IM Fell English', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 248, 220, 0.9), transparent 60%),
+    radial-gradient(ellipse 90% 40% at 50% 115%, rgba(90, 58, 26, 0.28), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(28, 20, 13, 0.035) 0 2px, transparent 2px 26px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 55%, #d9c193 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* halftone screen over the whole sheet */
+.halftone {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(28, 20, 13, 0.09) 1px, transparent 1.6px);
+  background-size: 7px 7px;
+  mix-blend-mode: multiply;
+}
+
+.watermark {
+  position: fixed;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font-family: 'UnifrakturMaguntia', 'Old English Text MT', Georgia, serif;
+  font-size: clamp(9rem, 30vw, 22rem);
+  color: rgba(124, 29, 18, 0.05);
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.2rem 1.25rem 1rem;
+  text-align: center;
+  border-bottom: 4px double var(--ink);
+}
+
+.wreath {
+  width: min(420px, 70%);
+  margin: 0 auto 0.4rem;
+  display: block;
+  color: var(--wax);
+  animation: swag 9s ease-in-out infinite alternate;
+}
+@keyframes swag {
+  from { transform: translateY(0); }
+  to   { transform: translateY(4px); }
+}
+
+.masthead-over,
+.masthead-under {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin: 0.35rem 0;
+  color: var(--ink-soft);
+}
+
+.masthead h1 {
+  font-family: 'UnifrakturMaguntia', 'Old English Text MT', 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 9vw, 6.4rem);
+  line-height: 0.95;
+  margin: 0.2rem 0 0.35rem;
+  letter-spacing: 0.02em;
+  text-shadow:
+    1px 1px 0 rgba(255, 248, 220, 0.7),
+    3px 3px 0 rgba(28, 20, 13, 0.18),
+    5px 5px 12px rgba(28, 20, 13, 0.25);
+}
+
+.rate-strip {
+  font-style: italic;
+  font-size: 0.85rem;
+  margin: 0.6rem auto 0;
+  max-width: 52ch;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.45rem 0.8rem;
+  background: rgba(28, 20, 13, 0.05);
+}
+
+/* ---------- ticker ---------- */
+
+.ticker {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4rem 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: crawl 38s linear infinite;
+}
+@keyframes crawl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+.ticker:hover span { animation-play-state: paused; }
+
+/* ---------- sheet ---------- */
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 1.4rem 1.25rem 2.5rem;
+}
+
+.sheet-note {
+  font-style: italic;
+  font-size: 0.88rem;
+  text-align: center;
+  margin: 0 0 1.6rem;
+  color: var(--ink-soft);
+}
+.sheet-note::before,
+.sheet-note::after {
+  content: "❦";
+  margin: 0 0.7em;
+  color: var(--blood);
+}
+
+.ads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.4rem;
+}
+
+/* ---------- individual notices ---------- */
+
+.ad {
+  position: relative;
+  background:
+    linear-gradient(175deg, rgba(255, 250, 232, 0.65), rgba(255, 250, 232, 0) 40%),
+    repeating-linear-gradient(90deg, rgba(28, 20, 13, 0.03) 0 1px, transparent 1px 9px),
+    rgba(250, 243, 222, 0.82);
+  border: 1.5px solid var(--ink);
+  box-shadow:
+    inset 0 0 0 3px rgba(250, 243, 222, 0.9),
+    inset 0 0 0 4px var(--rule),
+    6px 6px 0 rgba(28, 20, 13, 0.16);
+  padding: 1.4rem 1.2rem 1.1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ad::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 12px;
+  background:
+    radial-gradient(circle at 6px 6px, var(--paper) 5px, transparent 5.5px),
+    linear-gradient(var(--wax), var(--wax));
+  opacity: 0.9;
+}
+
+.ad:hover {
+  transform: translateY(-4px) rotate(-0.35deg);
+  box-shadow:
+    inset 0 0 0 3px rgba(250, 243, 222, 0.9),
+    inset 0 0 0 4px var(--rule),
+    10px 10px 0 rgba(28, 20, 13, 0.18);
+}
+
+.ad h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 1.28rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 0.35rem;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 0.45rem;
+}
+
+.ad-meta {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0.4rem 0 0.8rem;
+  color: var(--ink-soft);
+}
+
+.ad p {
+  margin: 0 0 0.7rem;
+  font-size: 0.98rem;
+}
+
+.ad p::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 1.18em;
+}
+
+.ad--obit {
+  grid-column: 1 / -1;
+  border-color: var(--blood);
+  box-shadow:
+    inset 0 0 0 3px rgba(250, 243, 222, 0.9),
+    inset 0 0 0 4px var(--blood),
+    6px 6px 0 rgba(124, 29, 18, 0.22);
+}
+.ad--obit h2 { border-bottom-color: var(--blood); color: var(--blood); }
+.ad--obit p::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--blood);
+  font-family: 'UnifrakturMaguntia', 'Old English Text MT', serif;
+  font-weight: 400;
+}
+
+.ad--lot {
+  background:
+    linear-gradient(175deg, rgba(255, 250, 232, 0.65), rgba(255, 250, 232, 0) 40%),
+    repeating-linear-gradient(0deg, rgba(124, 29, 18, 0.05) 0 1px, transparent 1px 12px),
+    rgba(250, 240, 214, 0.9);
+}
+.ad--lot h2 { color: var(--blood); }
+
+.ad a {
+  color: var(--blood);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--blood);
+  transition: background 0.2s ease;
+}
+.ad a:hover, .column-note a:hover { background: rgba(124, 29, 18, 0.12); }
+
+/* ---------- stamps ---------- */
+
+.ad-stamp {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 2px solid var(--ink-soft);
+  padding: 0.18rem 0.55rem 0.14rem;
+  border-radius: 3px;
+  transform: rotate(7deg);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.ad-stamp.is-stamped {
+  color: var(--blood);
+  border-color: var(--blood);
+  border-width: 3px;
+  outline: 2px solid var(--blood);
+  outline-offset: 2px;
+  opacity: 1;
+  transform: rotate(-9deg) scale(1.18);
+  animation: thunk 0.4s ease;
+}
+@keyframes thunk {
+  0%   { transform: rotate(-9deg) scale(1.7); opacity: 0.2; }
+  60%  { transform: rotate(-9deg) scale(0.95); }
+  100% { transform: rotate(-9deg) scale(1.18); opacity: 1; }
+}
+
+/* ---------- column note ---------- */
+
+.column-note {
+  margin-top: 2rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(28, 20, 13, 0.035) 0 2px, transparent 2px 22px),
+    rgba(230, 213, 172, 0.55);
+  font-size: 0.9rem;
+}
+.column-note p { margin: 0.4rem 0; }
+.column-note a {
+  color: var(--blood);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--blood);
+}
+.column-note-head {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem !important;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.4rem 1rem 2.2rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.bell {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 0.6rem;
+  display: block;
+  color: var(--wax);
+  transform-origin: top center;
+  animation: toll 4s ease-in-out infinite;
+}
+@keyframes toll {
+  0%, 86%, 100% { transform: rotate(0deg); }
+  88% { transform: rotate(14deg); }
+  90% { transform: rotate(-11deg); }
+  92% { transform: rotate(7deg); }
+  94% { transform: rotate(-4deg); }
+  96% { transform: rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker span, .bell, .wreath { animation: none; }
+  .ad, .ad-stamp { transition: none; }
+}
+
+@media (max-width: 640px) {
+  .masthead { padding-top: 1.4rem; }
+  .ad { padding: 1.1rem 0.95rem 0.9rem; }
+}
