@@ -1,0 +1,51 @@
+/* ACLU Visitor's Brochure — folded leaflet on paper stock */
+/* Page and stock */
+html { background: #b9c6cf; }
+body { margin: 0; padding: 16px; background: #f7f3e8; color: #2c2a25; font-family: "Times New Roman", Times, serif; font-size: 12.5px; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+
+/* The whole sheet */
+.brochure { max-width: 940px; margin: 26px auto; border: 10px solid #6b5b4b; outline: 3px solid #1f3a5f; outline-offset: 6px; background: #fdfaf0; box-shadow: 0 0 0 1px #fff, 10px 14px 28px rgba(0,0,0,.3); position: relative; }
+.brochure::before { content: ""; position: absolute; top: 46px; left: 46px; right: 46px; bottom: 46px; border: 1px solid rgba(0,0,0,.07); pointer-events: none; }
+.brochure .stain { position: absolute; width: 86px; height: 86px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(105, 58, 32, .15), rgba(105, 58, 32, 0) 58%); top: 106px; left: 126px; z-index: 2; pointer-events: none; }
+
+/* Panels — a folded leaflet */
+.panel { flex: 1 1 0; min-height: 470px; border-right: 3px dashed #9a8c76; padding: 32px 30px 30px; box-sizing: border-box; background: #fdfaf0; position: relative; }
+.panel.cover { border-right: 4px solid #6b5b4b; z-index: 3; text-align: center; }
+.panel.back { border-right: none; }
+
+/* Cover panel */
+.panel-line { font-family: system-ui, -apple-system, sans-serif; font-size: 9.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #1f3a5f; margin: 0 0 10px; }
+.stamp { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 66px; height: 66px; border: 3px double #8c2d2d; border-radius: 50%; margin: 6px 0 8px; font-family: system-ui, -apple-system, sans-serif; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #8c2d2d; }
+.stamp-line { line-height: 1.15; white-space: nowrap; }
+.brochure h1 { font-family: system-ui, -apple-system, sans-serif; font-size: 23px; letter-spacing: 0.18em; text-transform: uppercase; color: #1f3a5f; margin: 4px 0 6px; font-weight: 600; text-align: center; }
+.brochure-title { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8c2d2d; margin: 0 0 6px; text-align: center; }
+.tour-line { font-size: 10px; letter-spacing: 0.12em; color: #5c5448; margin: 0 0 12px; text-align: center; }
+.rule { border: none; border-top: 1px solid #6b5b4b; height: 1px; margin: 12px 0; }
+.rule.triple { border-top: 3px double #6b5b4b; }
+.hours { font-size: 10.5px; color: #44423c; margin: 10px 0 6px; text-align: center; }
+.note { font-size: 9.5px; font-style: italic; color: #7a7468; margin: 0; text-align: center; }
+
+/* Inside panels */
+.brochure h2 { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase; color: #8c2d2d; border-bottom: 1px solid #8c2d2d; margin: 0 0 10px; padding-bottom: 4px; }
+.brochure p { margin: 0 0 8px; text-align: justify; }
+.brochure p + p { margin-top: 0; }
+.stop-list { font-size: 11px; letter-spacing: 0.04em; line-height: 1.9; color: #3a3731; }
+.stop { margin: 0 0 9px; padding-bottom: 8px; border-bottom: 1px dashed #c9c0ae; }
+.stop h3 { font-family: system-ui, -apple-system, sans-serif; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #1f3a5f; margin: 0 0 4px; }
+.stop p { font-size: 11.5px; }
+.practical { border: 1px solid #9a8c76; background: #f5efe1; padding: 10px 12px; margin: 12px 0 4px; font-size: 11px; }
+.practical-title { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #8c2d2d; margin: 0 0 4px; }
+.colophon { font-size: 9.5px; color: #666158; margin: 10px 0 0; line-height: 1.6; }
+.colophon a { color: #1f3a5f; }
+
+/* Links */
+a { color: #1f3a5f; text-decoration: underline; }
+.cover a { color: #1f3a5f; }
+
+/* Folded view on small screens */
+@media (max-width: 700px) {
+  .brochure { margin: 8px auto; border-width: 6px; outline-width: 2px; outline-offset: 4px; }
+  .panel { flex-direction: column; border-right: none; border-bottom: 3px dashed #9a8c76; min-height: auto; }
+  .panel.back { border-bottom: none; }
+  .panel.cover { border-right: none; border-bottom: 4px solid #6b5b4b; }
+}
