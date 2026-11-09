@@ -1,0 +1,268 @@
+/* Lot 2364 — Hale & Ingram, Catalogue 22. Maximalist auction-sheet design. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=UnifrakturCook:wght@700&family=Special+Elite&display=swap');
+
+:root {
+  --ink: #1e1710;
+  --parchment: #f2e6c9;
+  --parchment-deep: #e4d1a3;
+  --oxblood: #6e1423;
+  --gold: #a67c00;
+  --gold-bright: #d9a400;
+  --board-black: #3b2a1a;
+  --board-white: #f5ead0;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(217, 164, 0, 0.14), transparent 55%),
+    radial-gradient(ellipse at 80% 100%, rgba(110, 20, 35, 0.16), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(62, 42, 26, 0.028) 0 2px, transparent 2px 7px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 60%, #d8c08c 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* --- the checkerboard frame, painted by JS, sits behind everything --- */
+.board-frame {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.board-frame .squares {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  opacity: 0.10;
+}
+.board-frame .squares i { display: block; }
+.board-frame .squares i.dark { background: var(--board-black); }
+
+/* --- the catalogue sheet --- */
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 64px 40px;
+  background:
+    repeating-linear-gradient(0deg, rgba(30, 23, 16, 0.018) 0 1px, transparent 1px 28px),
+    linear-gradient(175deg, #f8efd8 0%, #f2e6c9 45%, #ead8ac 100%);
+  border: 3px double var(--gold);
+  outline: 1px solid rgba(30, 23, 16, 0.35);
+  outline-offset: 6px;
+  box-shadow:
+    0 0 0 10px rgba(242, 230, 201, 0.55),
+    0 24px 60px rgba(30, 23, 16, 0.45),
+    inset 0 0 80px rgba(166, 124, 0, 0.10);
+  position: relative;
+}
+.sheet::before,
+.sheet::after {
+  content: "\265A";
+  position: absolute;
+  top: 14px;
+  font-size: 30px;
+  color: var(--oxblood);
+  opacity: 0.85;
+}
+.sheet::before { left: 22px; transform: rotate(-8deg); }
+.sheet::after { right: 22px; transform: rotate(8deg); }
+
+/* --- masthead --- */
+.masthead { text-align: center; padding-bottom: 18px; border-bottom: 4px double var(--gold); }
+.hammer {
+  width: 108px;
+  height: 108px;
+  color: var(--oxblood);
+  margin: 0 auto 6px;
+  display: block;
+}
+.hammer-arm {
+  transform-origin: 60px 60px;
+  animation: swing 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes swing {
+  0%, 55%, 100% { transform: rotate(0deg); }
+  62% { transform: rotate(-38deg); }
+  70% { transform: rotate(14deg); }
+  78% { transform: rotate(-7deg); }
+  86% { transform: rotate(0deg); }
+}
+.hammer-text { font-size: 13px; letter-spacing: 3px; fill: var(--gold); font-family: 'Special Elite', monospace; }
+
+.eyebrow {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 12.5px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 10px;
+}
+h1 {
+  font-family: 'UnifrakturCook', 'Cormorant Garamond', serif;
+  font-size: 74px;
+  line-height: 1;
+  margin: 6px 0 10px;
+  color: var(--ink);
+}
+h1 .lotno {
+  color: var(--oxblood);
+  text-shadow: 2px 2px 0 rgba(217, 164, 0, 0.45);
+}
+.subtitle {
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 600;
+  margin: 4px 0 6px;
+}
+.saledates {
+  font-family: 'Special Elite', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--board-black);
+  margin: 8px 0 0;
+}
+
+/* --- estimate strip --- */
+.estimate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 22px 0 30px;
+  border: 1.5px solid var(--gold);
+  background: linear-gradient(90deg, rgba(110, 20, 35, 0.06), rgba(217, 164, 0, 0.10), rgba(110, 20, 35, 0.06));
+}
+.estimate > div {
+  flex: 1 1 180px;
+  padding: 10px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(166, 124, 0, 0.5);
+}
+.estimate > div:last-child { border-right: none; }
+.estimate .label {
+  display: block;
+  font-family: 'Special Elite', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+.estimate .value {
+  font-size: 24px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hammer-val { color: var(--oxblood); }
+.hammer-val.fallen { animation: thump 0.5s ease; }
+@keyframes thump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.25) rotate(-2deg); }
+  100% { transform: scale(1); }
+}
+
+/* --- lot text --- */
+.lottext p { margin: 0 0 18px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  font-family: 'UnifrakturCook', serif;
+  font-size: 66px;
+  float: left;
+  line-height: 0.8;
+  padding: 6px 10px 0 0;
+  color: var(--oxblood);
+}
+.lottext strong { font-weight: 700; }
+.lottext em { background: linear-gradient(transparent 65%, rgba(217, 164, 0, 0.35) 65%); }
+.lottext a { color: var(--oxblood); }
+
+/* --- the SOLD stamps --- */
+.stamps { text-align: center; margin: 8px 0 30px; }
+.stamp {
+  display: inline-block;
+  font-family: 'Special Elite', monospace;
+  font-size: 17px;
+  letter-spacing: 5px;
+  padding: 8px 20px;
+  margin: 6px 10px;
+  border: 3px solid;
+  border-radius: 6px;
+  transform: rotate(-4deg);
+  opacity: 0;
+}
+.stamp.sold {
+  color: var(--oxblood);
+  border-color: var(--oxblood);
+  box-shadow: 0 0 0 2px rgba(110, 20, 35, 0.25) inset;
+  animation: stampin 0.6s 1.2s cubic-bezier(0.2, 2.2, 0.4, 1) forwards, wobble 6s 2s ease-in-out infinite;
+}
+.stamp.reserve {
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: rotate(3deg);
+  animation: stampin 0.6s 1.6s cubic-bezier(0.2, 2.2, 0.4, 1) forwards;
+}
+@keyframes stampin {
+  0% { opacity: 0; transform: scale(2.4) rotate(-10deg); }
+  100% { opacity: 0.92; transform: scale(1) rotate(-4deg); }
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(-2deg); }
+}
+
+/* --- adjacencies --- */
+.adjacencies {
+  border-top: 4px double var(--gold);
+  padding-top: 18px;
+  margin-top: 10px;
+  background: linear-gradient(180deg, transparent, rgba(166, 124, 0, 0.07));
+}
+.adjacencies h2 {
+  font-family: 'UnifrakturCook', serif;
+  font-size: 26px;
+  text-align: center;
+  margin: 4px 0 12px;
+  color: var(--board-black);
+}
+.adjacencies p { text-align: justify; }
+.adjacencies a {
+  color: var(--oxblood);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(217, 164, 0, 0.7);
+  text-underline-offset: 3px;
+}
+.adjacencies a:hover { background: rgba(217, 164, 0, 0.2); }
+
+/* --- colophon --- */
+.colophon {
+  text-align: center;
+  padding: 26px 16px 40px;
+  font-family: 'Special Elite', monospace;
+  font-size: 12.5px;
+  letter-spacing: 3px;
+  color: var(--board-black);
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .sheet { padding: 40px 24px; }
+  h1 { font-size: 52px; }
+  .estimate { flex-direction: column; }
+  .estimate > div { border-right: none; border-bottom: 1px solid rgba(166, 124, 0, 0.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hammer-arm, .stamp.sold, .stamp.reserve { animation: none; }
+  .stamp { opacity: 0.92; }
+}
