@@ -1,0 +1,150 @@
+/* The Gorkhapatra &mdash; Letters to the Editor, sheet of 25 March 2023 */
+body {
+  background: #e9e5d3;
+  color: #222;
+  margin: 0;
+  padding: 30px 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.letter-sheet {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #faf8f0;
+  border: 1px solid #bfb9a8;
+  position: relative;
+  padding: 44px 38px 56px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.letter-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#c7c2b2 1px, transparent 1px);
+  background-size: 100% 20px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.stain {
+  position: absolute;
+  right: 72px;
+  bottom: 104px;
+  width: 130px;
+  height: 84px;
+  background: rgba(150, 100, 70, 0.09);
+  border-radius: 55% 45% 60% 42% / 48% 52% 46% 50%;
+  opacity: 0.7;
+}
+.letterhead {
+  overflow: hidden;
+}
+.newspaper {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #444;
+}
+.rule {
+  border-top: 2px double #333;
+  margin: 8px 0;
+}
+.edition {
+  font-size: 11.5px;
+  text-align: center;
+  margin: 0 0 4px;
+  letter-spacing: 1px;
+}
+.desk {
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+  color: #555;
+  letter-spacing: 0.6px;
+}
+.ref {
+  font-size: 11.5px;
+  text-align: center;
+  margin: 6px 0 14px;
+  font-weight: bold;
+}
+.address {
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+.salutation {
+  margin: 0 0 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+main p {
+  margin: 0 0 11px;
+  text-align: justify;
+}
+blockquote.office-slip {
+  margin: 10px 0 14px 0;
+  padding: 10px 14px;
+  font-size: 12px;
+  border-left: 3px solid #8a6d3b;
+  background: #f3efe2;
+  color: #3a3326;
+  text-align: left;
+}
+.signature {
+  margin-top: 16px;
+}
+.signature .name {
+  font-weight: bold;
+}
+.stamp {
+  position: absolute;
+  bottom: 42px;
+  right: 40px;
+  display: inline-block;
+  border: 2.4px solid #a32a1f;
+  border-radius: 56% 44% 58% 42% / 50% 55% 45% 50%;
+  padding: 7px 12px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a32a1f;
+  transform: rotate(-4deg);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+.stamp-date {
+  font-weight: bold;
+  font-size: 11px;
+  display: block;
+  margin-top: 3px;
+}
+.seal {
+  position: absolute;
+  top: 34px;
+  right: 36px;
+  width: 42px;
+  height: 42px;
+  border: 2px double #333;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  color: #444;
+  font-family: "Times New Roman", Times, serif;
+}
+.related {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid #bfb9a8;
+  font-size: 11.5px;
+  text-align: center;
+}
+.related a {
+  color: #4a3c28;
+  text-decoration: underline;
+}
