@@ -1,0 +1,250 @@
+/* John Boyden — Field Notes, Specimen Log No. 88
+   Thames Valley Survey, Book 4. A herbarium-ledger design:
+   aged paper, ruled lines, vine margin, spinning 45rpm,
+   a wax-seal stamp, and the Kirkcaldy stillness meter. */
+
+:root {
+  --paper: #efe6cf;
+  --paper-deep: #e2d3ae;
+  --ink: #23301f;
+  --ink-soft: #4a5a40;
+  --wax: #7d2c22;
+  --brass: #c8a952;
+  --rule: rgba(74, 90, 64, 0.35);
+  --vine: #3e5a2a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.75;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(200, 169, 82, 0.22), transparent 45%),
+    radial-gradient(ellipse at 88% 30%, rgba(125, 44, 34, 0.10), transparent 50%),
+    radial-gradient(ellipse at 50% 110%, rgba(62, 90, 42, 0.18), transparent 55%),
+    linear-gradient(160deg, #f3ecd8 0%, var(--paper) 40%, var(--paper-deep) 100%);
+  min-height: 100vh;
+}
+
+/* The ruled notebook sheet, layered over the body background */
+.paper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 31px,
+      var(--rule) 31px,
+      var(--rule) 32px
+    ),
+    linear-gradient(to right, transparent 62px, rgba(125, 44, 34, 0.55) 62px, rgba(125, 44, 34, 0.55) 64px, transparent 64px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Pressed-vine margin ornament, left side */
+.vine {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 90px;
+  color: var(--vine);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+.vine svg { width: 100%; height: 100%; }
+.vine svg path { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: vinegrow 14s ease-out forwards 0.5s; }
+@keyframes vinegrow { to { stroke-dashoffset: 0; } }
+
+.cover {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem 6.5rem;
+  position: relative;
+  border-bottom: 3px double var(--ink);
+}
+
+.survey-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--wax);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  line-height: 1.02;
+  margin: 0.1em 0 0.15em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 2px 2px 0 rgba(200, 169, 82, 0.45);
+}
+
+.dates {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--wax);
+  margin: 0 0 0.4rem;
+}
+
+.taxon {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.collector {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 1rem 0 0;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.7rem;
+}
+
+/* Wax-seal stamp */
+.stamp {
+  position: absolute;
+  top: 2.2rem;
+  right: 2rem;
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #f3ecd8;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  background:
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.22), transparent 45%),
+    radial-gradient(circle, #93402f 0%, var(--wax) 62%, #5c1f17 100%);
+  border-radius: 47% 53% 50% 50% / 52% 48% 55% 45%;
+  box-shadow: inset 0 0 0 4px rgba(243, 236, 216, 0.25), 3px 5px 10px rgba(35, 48, 31, 0.35);
+  transform: rotate(12deg);
+  animation: stampthrob 7s ease-in-out infinite;
+}
+@keyframes stampthrob {
+  0%, 100% { transform: rotate(12deg) scale(1); }
+  50% { transform: rotate(9deg) scale(1.035); }
+}
+
+/* Spinning 45rpm in the cover */
+.disc {
+  position: absolute;
+  right: 2rem;
+  bottom: -3.2rem;
+  width: 116px;
+  height: 116px;
+  filter: drop-shadow(3px 5px 6px rgba(35, 48, 31, 0.4));
+}
+.disc svg { width: 100%; height: 100%; animation: spin 45s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ledger {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem 6.5rem;
+  counter-reset: entry;
+}
+
+.entry {
+  position: relative;
+  margin-bottom: 2.6rem;
+  padding: 1.4rem 1.6rem 1.5rem;
+  background:
+    linear-gradient(rgba(243, 236, 216, 0.55), rgba(243, 236, 216, 0.55)),
+    repeating-linear-gradient(to bottom, transparent 0 27px, var(--rule) 27px 28px);
+  border: 1px solid rgba(74, 90, 64, 0.3);
+  border-left: 5px solid var(--wax);
+  box-shadow: 4px 6px 0 rgba(35, 48, 31, 0.12);
+}
+.entry::before {
+  content: "No. 88";
+  position: absolute;
+  top: -0.9rem;
+  left: 1.2rem;
+  padding: 0 0.5rem;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+}
+.entry:nth-child(even) { border-left-color: var(--vine); transform: rotate(-0.25deg); }
+.entry:nth-child(odd) { transform: rotate(0.25deg); }
+
+.entry-head {
+  margin: 0 0 0.9rem;
+  font-size: 1.28rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ink);
+}
+.entry-num {
+  color: var(--wax);
+  font-style: italic;
+  margin-right: 0.5rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+.entry p:last-child { margin-bottom: 0; }
+.entry strong { color: var(--wax); }
+
+.cross-ref {
+  font-size: 0.95rem;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.9rem;
+}
+
+a {
+  color: var(--wax);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brass);
+  transition: background-color 0.25s ease, border-bottom-style 0.25s ease;
+}
+a:hover, a:focus {
+  background: rgba(200, 169, 82, 0.35);
+  border-bottom-style: solid;
+}
+
+.colophon {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3.5rem 6.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 3px double var(--ink);
+}
+.colophon p { margin: 0.4rem 0 0; }
+
+.still-meter {
+  color: var(--wax);
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .vine, .paper { display: none; }
+  .cover, .ledger, .colophon { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .stamp { position: static; margin: 1rem 0 0; transform: rotate(-8deg); }
+  .disc { position: static; margin-top: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disc svg, .stamp, .vine svg path { animation: none; }
+  .vine svg path { stroke-dashoffset: 0; }
+}
