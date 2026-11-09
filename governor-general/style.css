@@ -1,0 +1,171 @@
+/* Letter of apology — Office of the Clerk, Township of Drummond */
+
+:root {
+  --ink: #2b2a26;
+  --paper: #f6f1e2;
+  --paper-edge: #ece4cd;
+  --red: #a3342a;
+  --blue-rule: #b9c4cf;
+  --desk: #d8cfb8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--desk);
+  background-image:
+    radial-gradient(ellipse at 30% 10%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(90,75,40,.25), transparent 55%);
+  color: var(--ink);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  font-size: 16px;
+  line-height: 1.55;
+  padding: 2.5rem 1rem;
+}
+
+.paper {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      var(--blue-rule) 31px,
+      var(--blue-rule) 32px
+    ),
+    linear-gradient(105deg, var(--paper-edge) 0%, var(--paper) 14%, var(--paper) 100%);
+  border: 1px solid #c9bfa2;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.6) inset,
+    0 14px 30px rgba(60,45,15,.28),
+    0 2px 6px rgba(60,45,15,.2);
+  padding: 2.75rem 3rem 2rem 3.25rem;
+  transform: rotate(-.25deg);
+}
+
+/* red margin line, as on ruled stationery */
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.15rem;
+  width: 1px;
+  background: rgba(163, 52, 42, .5);
+}
+
+/* filed-in-red stamp */
+.stamp-filed {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  transform: rotate(7deg);
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-weight: bold;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .35rem .6rem;
+  opacity: .78;
+  box-shadow: 1px 1px 0 rgba(163,52,42,.25);
+  mix-blend-mode: multiply;
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px double #6b6250;
+  padding-bottom: .8rem;
+  margin-bottom: 1.4rem;
+}
+
+.lh-1 {
+  margin: 0;
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.letterhead h1 {
+  margin: .3rem 0 .25rem;
+  font-size: 1.5rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.lh-2 { margin: 0; font-size: .78rem; color: #5c5546; }
+
+.rule {
+  height: 4px;
+  border-top: 1px solid #6b6250;
+  border-bottom: 1px solid #6b6250;
+  margin-top: .55rem;
+}
+
+.date-block { text-align: right; margin: 0 0 1.2rem; }
+.date-block .date { margin: 0; font-size: .9rem; }
+
+.addressee {
+  font-style: normal;
+  margin: 0 0 1.4rem;
+  font-size: .92rem;
+  border-left: 3px solid #6b6250;
+  padding-left: .7rem;
+}
+
+.salutation { margin: 0 0 1rem; }
+
+.letter p { margin: 0 0 1.05rem; text-align: justify; hyphens: auto; }
+
+.letter strong { font-weight: 700; }
+.letter em { font-style: italic; }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #8b7f63;
+  text-underline-offset: 2px;
+}
+a:hover { text-decoration-color: var(--red); color: var(--red); }
+
+.closing { margin: 1.6rem 0 0; }
+
+.signature .hand {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.9rem;
+  margin: 0 0 .2rem;
+  transform: rotate(-1.5deg);
+  color: #23304a;
+}
+
+.sig-title { margin: 0 0 1rem; font-size: .85rem; }
+
+.cc {
+  margin: 0;
+  font-size: .8rem;
+  color: #5c5546;
+  border-top: 1px dashed #8b7f63;
+  padding-top: .6rem;
+}
+
+.colophon {
+  margin-top: 1.8rem;
+  border-top: 3px double #6b6250;
+  padding-top: .7rem;
+  font-size: .78rem;
+  color: #5c5546;
+  text-align: center;
+}
+
+.colophon p { margin: .2rem 0; }
+.footlinks a { margin: 0 .35rem; }
+
+@media (max-width: 40em) {
+  body { padding: 1rem .5rem; }
+  .paper { padding: 2.25rem 1.4rem 1.5rem 1.9rem; transform: none; }
+  .paper::before { left: 1.05rem; }
+}
