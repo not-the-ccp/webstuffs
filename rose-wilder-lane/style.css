@@ -1,0 +1,140 @@
+/* Certified transcript excerpt — legal docket paper */
+:root {
+  --paper: #f4f1e6;
+  --ink: #1c1a16;
+  --faint: #6b6455;
+  --stamp: #8a1f1f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #2b2721;
+  background-image: radial-gradient(circle at 30% 10%, #3a352c 0%, #211e19 70%);
+  color: var(--ink);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+}
+.sheet {
+  max-width: 800px;
+  margin: 40px auto 60px;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, rgba(255,255,255,0.35), rgba(120,100,60,0.08));
+  box-shadow: 0 18px 45px rgba(0,0,0,0.55), inset 0 0 60px rgba(120,95,50,0.12);
+  padding: 48px 56px 36px;
+  border: 1px solid #d8d2bf;
+}
+/* caption block */
+.caption { text-align: center; }
+.court {
+  margin: 0 0 18px;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.casebox {
+  display: flex;
+  border: 1px solid var(--ink);
+  margin: 0 0 14px;
+}
+.parties {
+  flex: 1 1 auto;
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: left;
+}
+.parties p { margin: 0 0 10px; }
+.parties .vs {
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-weight: bold;
+  margin: 2px 0 10px;
+}
+.numbox {
+  flex: 0 0 210px;
+  border-left: 1px solid var(--ink);
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.numbox p { margin: 0 0 8px; }
+.numbox p:first-child { font-weight: bold; letter-spacing: 0.06em; }
+.pageof {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+/* rules */
+.rule { border: none; border-top: 1px solid var(--ink); margin: 22px 0; }
+.rule.double { border-top: 3px double var(--ink); }
+/* the record itself */
+.record p {
+  margin: 0 0 0.6em;
+  font-size: 14.5px;
+  line-height: 2.0;
+  text-align: left;
+}
+.dateline {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--faint);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+/* certification */
+.cert { position: relative; padding-top: 34px; font-size: 13.5px; line-height: 1.8; }
+.cert p { margin: 0 0 14px; }
+.sigline { font-size: 13px; color: var(--faint); }
+.sig { font-family: "Snell Roundhand", "Segoe Script", cursive; font-size: 17px; color: var(--ink); }
+.stamp {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  transform: rotate(-7deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 6px 10px;
+  opacity: 0.85;
+  max-width: 260px;
+  text-align: center;
+  line-height: 1.5;
+}
+/* cross-reference index */
+.index {
+  margin-top: 26px;
+  border-top: 1px dashed var(--faint);
+  padding-top: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--faint);
+}
+.index h2 {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.index a { color: var(--ink); }
+/* footer */
+.foot {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+@media (max-width: 620px) {
+  .sheet { margin: 0; padding: 30px 20px; border: none; }
+  .casebox { flex-direction: column; }
+  .numbox { border-left: none; border-top: 1px solid var(--ink); }
+  .record p { line-height: 1.9; }
+}
