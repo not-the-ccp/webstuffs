@@ -1,0 +1,194 @@
+/* Museum Placard No. 1603 — Tudor Gallery, Room 4 */
+:root {
+  --paper: #f4eee1;
+  --ink: #26221a;
+  --brass: #8a6d2f;
+  --rule: #b7a878;
+  --card: #faf6ea;
+  --accent: #8a1c1c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e7dfcd;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.placard {
+  max-width: 780px;
+  margin: 2.5rem auto 4rem;
+  background: var(--card);
+  border: 3px double var(--brass);
+  padding: 2.5rem 2.75rem 1.75rem;
+  box-shadow: 0 2px 14px rgba(60, 45, 10, 0.25);
+}
+
+.masthead .plate-line {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--brass);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.subhead {
+  font-style: italic;
+  color: #5c5240;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.rule-double {
+  border-top: 2px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  height: 5px;
+  margin: 0.75rem 0 1.75rem;
+}
+
+.dropcap {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.12rem 0.45rem 0 0;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--brass);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.2rem 0 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+th {
+  text-align: left;
+  width: 5.5rem;
+  color: var(--brass);
+  vertical-align: top;
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+td {
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+/* Timeline */
+.timeline-hint {
+  font-style: italic;
+  color: #5c5240;
+  font-size: 0.9rem;
+}
+.timeline-readout {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0;
+}
+.tl-year {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+.tl-era {
+  margin: 0.15rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--brass);
+}
+.tl-event {
+  margin: 0;
+  font-style: italic;
+}
+
+#tl-slider {
+  width: 100%;
+  margin: 1.1rem 0 0.4rem;
+  accent-color: var(--brass);
+  cursor: pointer;
+}
+
+.tl-events {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 2rem;
+  font-size: 0.92rem;
+}
+.tl-events li {
+  margin: 0 0 0.55rem;
+  cursor: pointer;
+  break-inside: avoid;
+  padding-left: 0.55rem;
+  border-left: 3px solid transparent;
+}
+.tl-events li:hover,
+.tl-events li.active {
+  border-left-color: var(--accent);
+  background: var(--paper);
+}
+
+/* Archive note */
+.archive-note {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.25rem 1.25rem 1rem;
+  margin-top: 2.2rem;
+}
+.marginal {
+  margin: 1.25rem 0;
+}
+.marginal blockquote {
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid var(--brass);
+  background: var(--card);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+.marginal figcaption {
+  font-size: 0.8rem;
+  color: #5c5240;
+  margin-top: 0.4rem;
+}
+
+.see-list a { color: var(--accent); }
+a { color: var(--accent); }
+
+.colophon {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #5c5240;
+}
+.colophon .crest {
+  width: 44px;
+  margin-bottom: 0.4rem;
+}
+.colophon p { margin: 0.2rem 0 0; }
+
+@media (max-width: 640px) {
+  .placard { margin: 0; padding: 1.5rem 1.25rem; border-left: none; border-right: none; }
+  .tl-events { columns: 1; }
+}
