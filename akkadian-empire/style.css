@@ -1,0 +1,169 @@
+/* Catalogue 88 · Lot 12 — The Akkadian Empire: fired clay, lapis, gold */
+
+:root {
+  --clay: #b06a43;
+  --clay-dark: #7e4526;
+  --lapis: #1e3a5f;
+  --gold: #c9a227;
+  --parchment: #f4ead6;
+  --parchment-deep: #eadfc6;
+  --ink: #2b2118;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(176, 106, 67, 0.08), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(30, 58, 95, 0.07), transparent 50%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  border-bottom: 4px double var(--clay-dark);
+  background:
+    linear-gradient(var(--parchment-deep), var(--parchment));
+}
+
+.mast-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lapis);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+  color: var(--clay-dark);
+}
+
+.mast-sub {
+  max-width: 44rem;
+  margin: 0 auto 1.4rem;
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.cuneiform {
+  width: 190px;
+  color: var(--gold);
+  margin: 0.5rem auto;
+  display: block;
+}
+
+.mast-stamp {
+  margin: 1rem 0 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--clay);
+  border-top: 1px solid var(--clay);
+  border-bottom: 1px solid var(--clay);
+  display: inline-block;
+  padding: 0.35rem 1rem;
+}
+
+.lot {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.entry {
+  margin: 2.4rem 0;
+  padding: 1.4rem 1.6rem;
+  background: rgba(255, 252, 244, 0.7);
+  border: 1px solid rgba(126, 69, 38, 0.35);
+  border-left: 5px solid var(--clay);
+  box-shadow: 3px 3px 0 rgba(126, 69, 38, 0.12);
+}
+
+.entry-date {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lapis);
+}
+
+.entry h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--clay-dark);
+  border-bottom: 1px dashed var(--gold);
+  padding-bottom: 0.4rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+.entry p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--lapis);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--clay-dark); }
+
+.card {
+  margin: 1.2rem 0;
+  padding: 1.2rem 1.5rem;
+  background: var(--parchment-deep);
+  border: 2px solid var(--gold);
+  border-left: 6px solid var(--gold);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--clay-dark);
+}
+.card p { margin: 0; }
+
+.colophon {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 4px double var(--clay-dark);
+  font-size: 0.85rem;
+  color: var(--clay-dark);
+}
+
+.colophon-rule {
+  color: var(--gold);
+  letter-spacing: 0.8em;
+  margin-bottom: 1rem;
+}
+
+.hammer-line {
+  margin-top: 1.4rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--lapis);
+}
+
+.hammer {
+  margin-top: 0.8rem;
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: var(--clay-dark);
+  border: 1px solid var(--clay-dark);
+  padding: 0.5rem 1.4rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--gold);
+}
+.hammer:hover { background: var(--lapis); border-color: var(--lapis); }
+.hammer:active { transform: translateY(2px); box-shadow: none; }
+
+@media (max-width: 620px) {
+  h1 { font-size: 1.6rem; }
+  .entry { padding: 1rem 1.1rem; }
+}
