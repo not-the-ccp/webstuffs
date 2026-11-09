@@ -1,0 +1,160 @@
+/* The Pigeonhole Board — Thread No. 4812 */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #23211c;
+  --faint: #6f6a5e;
+  --line: #d8d2c2;
+  --deep: #24425e;
+  --wash: #eef0ea;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+}
+
+.board {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.masthead { text-align: center; }
+
+.board-name {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--deep);
+  font-weight: 700;
+}
+
+.board-sub {
+  letter-spacing: 0.22em;
+  color: var(--faint);
+  font-weight: 400;
+  text-transform: none;
+}
+
+.masthead-rule {
+  height: 1px;
+  background: var(--line);
+  margin: 1.1rem auto 1.4rem;
+  width: 7rem;
+  position: relative;
+}
+.masthead-rule::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: -2.5px;
+  width: 6px; height: 6px;
+  margin-left: -3px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.thread-meta {
+  margin: 0 0 0.9rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+  font-variant: small-caps;
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 2.1rem;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.thread-sub {
+  margin: 0;
+  color: var(--faint);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+main { margin-top: 2.8rem; }
+
+.post {
+  padding: 1.6rem 0 1.7rem;
+  border-top: 1px solid var(--line);
+}
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.user {
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--deep);
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.post p { margin: 0 0 1.05rem; }
+.post p:last-child { margin-bottom: 0; }
+
+.post a {
+  color: var(--deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 120ms ease;
+}
+.post a:hover { border-bottom-color: var(--deep); }
+
+blockquote {
+  margin: 1.3rem 0 1.3rem 1.6rem;
+  padding: 0.9rem 1.4rem;
+  background: var(--wash);
+  border-left: 2px solid var(--deep);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: #2e3440;
+}
+blockquote p { margin: 0; }
+
+.post.last { border-top: 2px solid var(--ink); }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.colophon a { color: var(--deep); text-decoration: none; border-bottom: 1px solid var(--line); }
+.colophon a:hover { border-bottom-color: var(--deep); }
+
+@media (max-width: 480px) {
+  body { font-size: 1rem; }
+  h1 { font-size: 1.7rem; }
+  .board { padding: 2.4rem 1.1rem 3rem; }
+}
