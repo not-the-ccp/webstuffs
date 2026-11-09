@@ -1,0 +1,38 @@
+/* In re the Mayers of Irwell Bank — transcript stylesheet
+   Salford Hundred Court · Cause No. SHC/MD-09-051 · 6 May 2009
+   May Day theme: green ribbons, parchment record, wax-seal accents */
+html { box-sizing: border-box; }
+body { margin: 0; padding: 1.5rem 1rem; background: #efe8d8; color: #262d20; font-family: ui-serif, "Noto Serif", Georgia, "Times New Roman", serif; line-height: 1.7; }
+.courtroom { max-width: 700px; margin: 0 auto; }
+.record { background: #fdfbf2; border: 1.5px solid #2d4a28; padding: 1.8rem 1.6rem 2rem; position: relative; box-shadow: 0 8px 20px rgba(45,74,40,.2); }
+.record::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 7px; background: repeating-linear-gradient(90deg, #7aa562, #7aa562 10px, transparent 10px, transparent 16px); }
+.record::after { content: ""; position: absolute; bottom: 0; left: 1rem; right: 1rem; height: 4px; background: #b79356; }
+.bench { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; border-bottom: 3px double #2d4a28; padding-bottom: 1rem; margin-bottom: 1.2rem; }
+.court { margin: 0; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: #5c7053; font-variant: all-small-caps; }
+h1 { margin: 0 0 .3rem 0; font-size: 1.55rem; color: #1d341b; line-height: 1.25; }
+.cause { margin: 0; font-size: .78rem; color: #55604d; }
+.sitting { margin: .5rem 0 0 0; font-size: .78rem; color: #55604d; font-style: italic; }
+.seal { width: 36px; height: 36px; border-radius: 50%; background: #7c2222; border: 2px solid #4a1212; color: #f3ead9; display: grid; place-items: center; font: bold .72rem ui-serif, serif; letter-spacing: .08em; box-shadow: 0 3px 8px rgba(0,0,0,.25); margin-left: auto; }
+.maypole { width: 12px; height: 96px; background: #7aa562; border-radius: 2px; margin-left: auto; position: relative; }
+.maypole::after { content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 5px; height: 5px; background: #7c2222; border-radius: 50%; box-shadow: 0 0 0 1px #4a1212; }
+.ribbon { position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 44px; height: 12px; border-radius: 3px 3px 0 0; animation: flutter 4s ease-in-out infinite; transform-origin: top center; opacity: .9; }
+.ribbon-1 { background: #c9a252; animation-delay: 0s; }
+.ribbon-2 { background: #b79356; animation-delay: 1.3s; width: 38px; top: 6px; }
+.ribbon-3 { background: #7aa562; animation-delay: 2.6s; width: 32px; top: 8px; opacity: .85; }
+@keyframes flutter { 0%, 100% { transform: translateX(-50%) rotate(-2deg); } 50% { transform: translateX(-50%) rotate(4deg); } }
+.appearances { font-size: .85rem; color: #55604d; border-bottom: 1px solid #cfc8b0; padding-bottom: .7rem; margin-bottom: 1.3rem; }
+.role { font-variant: small-caps; font-weight: bold; color: #4e613c; white-space: nowrap; }
+.transcript { margin-bottom: 1.6rem; }
+.speaker { display: block; margin-top: 1.15rem; font-variant: all-small-caps; letter-spacing: .1em; font-weight: bold; font-size: .92rem; color: #6b541e; }
+.speaker + p { margin-top: .3rem; }
+.q { font-style: italic; color: #334027; }
+.exhibit { border: 1px dashed #7c2222; background: #faf3dd; padding: 1rem 1.2rem; margin: 1.2rem 0; page-break-inside: avoid; }
+.exhibit p { margin: 0 0 .5rem 0; font-size: 1.05rem; }
+.exhibit p:last-child { margin-bottom: 0; }
+.exhibit-src { display: block; margin-top: .6rem; font-size: .8rem; color: #8a7352; font-style: italic; text-align: right; }
+.exhibit.reading p:first-child::after { content: " \2026"; animation: blink 1.2s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.filed { border-top: 3px double #2d4a28; padding-top: 1rem; margin-top: 1.4rem; font-size: .88rem; color: #55604d; }
+.filed a { color: #4e613c; text-decoration: underline; text-decoration-style: dotted; }
+.filed a:hover { color: #7c2222; }
+@media (max-width: 560px) { body { padding: 1rem .75rem; } .record { padding: 1.3rem 1rem; } h1 { font-size: 1.3rem; } }
