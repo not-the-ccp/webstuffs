@@ -1,0 +1,114 @@
+/* School report paper, green-and-red like the flag over the schoolyard */
+:root {
+  --green: #006a4e;
+  --green-deep: #014d3a;
+  --red: #d81e3f;
+  --red-ink: #b01830;
+  --paper: #fdf9ec;
+  --rule: rgba(38, 94, 160, 0.18);
+  --ink: #26221a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #3b3a33 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%233b3a33'/%3E%3Cpath d='M0 60h120M60 0v120' stroke='%2345443b' stroke-width='1'/%3E%3C/svg%3E");
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    linear-gradient(90deg, transparent 2.6rem, rgba(216, 30, 63, 0.35) 2.6rem, rgba(216, 30, 63, 0.35) 2.7rem, transparent 2.7rem),
+    repeating-linear-gradient(180deg, transparent 0, transparent 1.65rem, var(--rule) 1.65rem, var(--rule) 1.7rem);
+  border: 1px solid #c9c2a6;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  padding: 2.5rem 2.25rem 2.25rem 3.4rem;
+  position: relative;
+}
+
+.hole {
+  position: absolute;
+  left: 0.85rem;
+  top: 3rem;
+  bottom: 3rem;
+  width: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hole i {
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #3b3a33;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.masthead { border-bottom: 3px double var(--green); padding-bottom: 1rem; margin-bottom: 1.6rem; position: relative; }
+.school-name { margin: 0; font-variant: small-caps; letter-spacing: 0.06em; color: var(--green-deep); font-weight: bold; }
+.kicker { margin: 0.25rem 0 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red-ink); }
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.75rem;
+  color: var(--green-deep);
+  border-bottom: 1px solid rgba(0, 106, 78, 0.4);
+  padding-bottom: 0.5rem;
+}
+.student-line { display: flex; flex-wrap: wrap; gap: 0.3rem 1.4rem; font-size: 0.92rem; margin: 0; }
+.student-line b { color: var(--green-deep); }
+.flag { position: absolute; right: 0; top: 0.4rem; }
+.flag svg { width: 3rem; height: 2rem; border: 1px solid rgba(0, 0, 0, 0.25); display: block; }
+
+.section { margin: 1.6rem 0; }
+.section h2 {
+  font-size: 1.15rem;
+  color: var(--green-deep);
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.section h2::before { content: "§ "; color: var(--red); }
+a { color: var(--green); }
+a:hover { color: var(--red); }
+
+table.roll {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+table.roll th, table.roll td { border: 1px solid rgba(0, 106, 78, 0.4); padding: 0.35rem 0.55rem; text-align: left; }
+table.roll th { background: var(--green); color: var(--paper); font-weight: normal; letter-spacing: 0.04em; }
+table.roll tfoot td { background: rgba(216, 30, 63, 0.08); border-top: 2px solid var(--red); }
+
+blockquote.auckland {
+  margin: 1rem 0 1rem 1.2rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--red);
+  background: rgba(216, 30, 63, 0.06);
+  font-style: italic;
+}
+blockquote.auckland .src { display: block; font-style: normal; font-size: 0.85rem; margin-top: 0.5rem; }
+
+.tiles svg { width: 100%; height: auto; display: block; background: rgba(255, 255, 255, 0.4); border: 1px dashed var(--green); }
+.tiles .tile rect { fill: var(--green); stroke: var(--green-deep); stroke-width: 1; transition: fill 120ms ease; }
+.tiles .tile text { fill: var(--paper); font-family: Georgia, serif; font-size: 13px; text-anchor: middle; pointer-events: none; }
+.tiles .tile:hover rect, .tiles .tile:focus rect { fill: var(--red); }
+.tiles .tile:focus { outline: none; }
+.tiles .tile:focus rect { stroke: var(--ink); stroke-width: 2; }
+.tile-note { min-height: 1.5rem; margin: 0.5rem 0 0; font-size: 0.95rem; color: var(--green-deep); }
+.tile-note.lit { color: var(--red-ink); font-weight: bold; }
+
+.marks { border-top: 3px double var(--green); margin-top: 2rem; padding-top: 1rem; }
+.marks p { margin: 0.3rem 0; }
+.redpen { color: var(--red-ink); font-family: "Segoe Script", "Bradley Hand", cursive; font-size: 1.05rem; }
+.score { font-size: 1.2rem; }
+.colophon { font-size: 0.82rem; color: #6b6350; margin-top: 0.9rem; }
