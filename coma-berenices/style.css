@@ -1,0 +1,232 @@
+/* Coma Berenices — Lost & Found Notice No. CB-7429
+   Royal Astronomical Lost Property Office, Greenwich Annex
+   Maximalist celestial theme: night-sky gradients, gold filigree,
+   twinkling stars, flowing hair ornaments, and a gilded seal. */
+
+/* Reset & base */
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", "Cormorant Garamond", "Urbania", "Palatino Linotype", "Book Antiqua", serif;
+  background: #0b0f2a;
+  color: #e8e4d6;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* Layered night-sky background with animated aurora */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 20%, #1d2a5a 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, #2a1f4a 0%, transparent 40%),
+    linear-gradient(180deg, #050814 0%, #0b0f2a 55%, #121636 100%);
+  background-size: 200% 200%, 200% 200%, auto;
+  animation: sky-drift 14s ease-in-out infinite alternate;
+}
+@keyframes sky-drift {
+  0% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+  100% { background-position: 100% 100%, 0% 0%, 0% 0%; }
+}
+
+/* Star fields — pure CSS, no images */
+.field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.field-star {
+  background-image:
+    radial-gradient(1.2px 1.2px at 11% 18%, #fff, transparent),
+    radial-gradient(0.9px 0.9px at 41% 52%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 73% 31%, #fff, transparent),
+    radial-gradient(1.0px 1.0px at 88% 71%, #fff, transparent),
+    radial-gradient(1.1px 1.1px at 29% 82%, #fff, transparent),
+    radial-gradient(0.8px 0.8px at 62% 88%, #fff, transparent),
+    radial-gradient(1.3px 1.3px at 18% 45%, #fff, transparent),
+    radial-gradient(1.0px 1.0px at 54% 12%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 90% 60%, #fff, transparent),
+    radial-gradient(0.9px 0.9px at 37% 77%, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 220px 160px;
+}
+.field-star--1 { animation: twinkle 3s ease-in-out infinite; }
+.field-star--2 { animation: twinkle 5.2s ease-in-out infinite 1.3s; opacity: 0.6; }
+.field-star--3 { animation: twinkle 4.1s ease-in-out infinite 2.6s; opacity: 0.9; }
+.field-star--4 { animation: twinkle 6s ease-in-out infinite 0.8s; opacity: 0.5; }
+.field-star--5 { animation: twinkle 3.7s ease-in-out infinite 1.9s; opacity: 0.7; }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Coma's hair — flowing gold filigree drawn with CSS */
+.hair {
+  position: fixed;
+  top: 0; left: 50%;
+  width: 260px; height: 260px;
+  z-index: -1;
+  opacity: 0.35;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.hair::before, .hair::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 14px solid transparent;
+  border-top-color: #c9a227;
+  animation: hair-sway 8s ease-in-out infinite;
+}
+.hair::before { top: 40px; left: -20px; width: 180px; height: 180px; animation-delay: 0s; }
+.hair::after { top: -10px; right: -30px; width: 220px; height: 220px; animation-delay: 2.5s; border-top-color: #b8941e; }
+@keyframes hair-sway {
+  0%, 100% { transform: rotate(-6deg) scale(1); opacity: 0.3; }
+  50% { transform: rotate(6deg) scale(1.05); opacity: 0.5; }
+}
+
+/* Notice container */
+.notice {
+  max-width: 760px;
+  margin: 48px auto 64px;
+  padding: 40px 30px 60px;
+  position: relative;
+  z-index: 1;
+  background: rgba(12, 16, 38, 0.82);
+  border: 2.5px solid #c9a227;
+  border-image: linear-gradient(to bottom, #f3e3a4, #c9a227, #6b5b14) 1;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 6px rgba(201, 162, 39, 0.15),
+    0 25px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 40px rgba(201, 162, 39, 0.06);
+  backdrop-filter: blur(2px);
+}
+.notice::before {
+  content: "";
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  background: conic-gradient(from 45deg, #4a3f1a, #8a7014, #c9a227, #8a7014, #4a3f1a);
+  z-index: -1;
+  border-radius: 8px;
+  animation: border-spin 20s linear infinite;
+  opacity: 0.5;
+}
+@keyframes border-spin { to { transform: rotate(360deg); } }
+
+/* Masthead & seal */
+.masthead { text-align: center; padding-bottom: 34px; border-bottom: 1px solid rgba(201, 162, 39, 0.45); margin-bottom: 30px; }
+.seal {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 14px;
+}
+.seal svg { width: 110px; height: 110px; filter: drop-shadow(0 0 6px rgba(201, 162, 39, 0.5)); }
+.seal-text {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; letter-spacing: 3px; color: #c9a227;
+  text-transform: uppercase; opacity: 0.85;
+  font-family: "Courier New", Courier, monospace;
+  animation: seal-rotate 24s linear infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes seal-rotate { to { transform: rotate(360deg); } }
+.kicker {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: #f3e3a4; opacity: 0.9;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 34px; letter-spacing: 0.4px; color: #fff;
+  text-shadow: 0 0 14px rgba(201, 162, 39, 0.45);
+}
+.item {
+  margin: 0 0 18px;
+  font-size: 20px; color: #e0d49a; font-style: italic;
+  border-bottom: 1px dashed rgba(201, 162, 39, 0.5);
+  display: inline-block; padding-bottom: 6px;
+}
+
+/* Meta table */
+.meta { width: 100%; border-collapse: collapse; margin-bottom: 28px; font-size: 14px; }
+.meta th {
+  text-align: left; padding: 6px 10px;
+  color: #f3e3a4; font-family: "Courier New", Courier, monospace;
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+}
+.meta td { padding: 7px 10px; border-bottom: 1px solid rgba(201, 162, 39, 0.22); vertical-align: top; }
+.meta tbody tr:hover td { background: rgba(201, 162, 39, 0.08); }
+
+/* Body prose */
+.body { font-size: 16px; color: #dcd4c0; }
+.body p { margin: 0 0 20px; text-align: justify; }
+.body strong { color: #f3e3a4; font-weight: 700; }
+.body em, .body i { color: #e0d49a; }
+.body a { color: #ffd98a; text-decoration: underline; text-decoration-color: rgba(255, 217, 138, 0.45); }
+.body a:hover { color: #fff; text-decoration-color: #ffd98a; }
+
+/* See-also nav */
+.see-also {
+  margin-top: 34px;
+  padding: 22px 26px;
+  background: rgba(12, 16, 38, 0.6);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-left: 4px solid #c9a227;
+  border-radius: 4px;
+}
+.see-also p {
+  margin: 0 0 10px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  color: #c9a227; font-family: "Courier New", Courier, monospace;
+}
+.see-also ul { margin: 0; padding: 0; list-style: none; }
+.see-also li { margin: 0 0 8px; font-size: 15px; }
+.see-also li::before { content: "• "; color: #c9a227; }
+
+/* Colophon */
+.colophon {
+  margin-top: 38px; padding-top: 22px;
+  border-top: 1px solid rgba(201, 162, 39, 0.3);
+  font-size: 12px; color: #8a8370; text-align: center;
+  letter-spacing: 0.8px;
+}
+
+/* Ornamental corner stars */
+.star-corner {
+  position: absolute; width: 14px; height: 14px; background: #ffd98a;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 90%, 50% 70%, 21% 90%, 32% 57%, 2% 35%, 39% 35%);
+  box-shadow: 0 0 10px #ffd98a;
+}
+.corner-tl { top: -7px; left: -7px; animation: pulse 4s ease-in-out infinite; }
+.corner-tr { top: -7px; right: -7px; animation: pulse 4s ease-in-out infinite 1.5s; }
+.corner-bl { bottom: -7px; left: -7px; animation: pulse 4s ease-in-out infinite 3s; }
+.corner-br { bottom: -7px; right: -7px; animation: pulse 4s ease-in-out infinite 4.5s; }
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Print fallback */
+@media (max-width: 560px) {
+  .notice { margin: 24px auto; padding: 28px 18px 48px; }
+  h1 { font-size: 26px; }
+  .meta { font-size: 13px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
