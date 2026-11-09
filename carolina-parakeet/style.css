@@ -1,0 +1,331 @@
+/* The Last Yellow Head — walking tour stylesheet */
+
+:root {
+  --pine: #16301f;
+  --pine-deep: #0c1d13;
+  --leaf: #3f7a4d;
+  --leaf-bright: #6fae5e;
+  --yellow-head: #f2c437;
+  --yellow-soft: #e8d98a;
+  --face-orange: #d95b2b;
+  --beak-pale: #e9dcc4;
+  --bark: #4a3220;
+  --paper: #f4ecd8;
+  --paper-dim: #e8dcbe;
+  --ink: #221a10;
+  --chalk: #fdf8ec;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", "IM Fell English", Georgia, serif;
+  font-size: 1.22rem;
+  line-height: 1.72;
+  color: var(--chalk);
+  background-color: var(--pine-deep);
+  background-image:
+    radial-gradient(ellipse 90% 40% at 50% -5%, rgba(242, 196, 55, 0.16), transparent 60%),
+    radial-gradient(ellipse 60% 35% at 85% 12%, rgba(217, 91, 43, 0.14), transparent 65%),
+    radial-gradient(ellipse 70% 50% at 10% 45%, rgba(63, 122, 77, 0.30), transparent 70%),
+    radial-gradient(ellipse 80% 45% at 90% 80%, rgba(63, 122, 77, 0.22), transparent 70%),
+    linear-gradient(175deg, #0c1d13 0%, #16301f 42%, #1c3a26 74%, #0c1d13 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* fine leaf-vein texture over everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(253, 248, 236, 0.028) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(65deg, rgba(242, 196, 55, 0.03) 0 1px, transparent 1px 13px);
+}
+
+/* ---- drifting feathers ---- */
+.feather-field {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.feather-field .feather {
+  position: absolute;
+  top: -6vh;
+  display: block;
+  animation: feather-fall linear infinite;
+  opacity: 0.75;
+}
+@keyframes feather-fall {
+  0%   { transform: translateY(0) rotate(0deg) translateX(0); }
+  25%  { transform: translateY(28vh) rotate(38deg) translateX(4vw); }
+  50%  { transform: translateY(55vh) rotate(-24deg) translateX(-3vw); }
+  75%  { transform: translateY(82vh) rotate(30deg) translateX(3vw); }
+  100% { transform: translateY(112vh) rotate(-10deg) translateX(0); }
+}
+
+/* ---- the route trail down the page ---- */
+.trail-line {
+  position: fixed;
+  left: clamp(10px, 3vw, 42px);
+  top: 8vh;
+  bottom: 8vh;
+  width: 4px;
+  z-index: 2;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--yellow-soft) 0 14px,
+    transparent 14px 26px
+  );
+  opacity: 0.35;
+}
+.trail-head {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--yellow-head), var(--face-orange));
+  box-shadow: 0 0 14px 4px rgba(242, 196, 55, 0.45);
+  transition: top 0.25s ease-out;
+}
+
+/* ---- the gate plaque ---- */
+.plaque {
+  position: relative;
+  z-index: 3;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+.crest {
+  width: 92px;
+  height: auto;
+  margin: 0 auto 1.2rem;
+  display: block;
+  color: var(--yellow-head);
+  animation: crest-sway 7s ease-in-out infinite;
+  transform-origin: 50% 0;
+}
+@keyframes crest-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+.eyebrow {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  letter-spacing: 0.14em;
+  color: var(--yellow-soft);
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  margin: 0 0 0.8rem;
+}
+h1 {
+  font-family: "UnifrakturMaguntia", "IM Fell English", Georgia, cursive;
+  font-size: clamp(2.8rem, 8vw, 5.2rem);
+  font-weight: 400;
+  margin: 0;
+  color: var(--yellow-head);
+  text-shadow:
+    0 0 34px rgba(242, 196, 55, 0.35),
+    0 3px 0 rgba(12, 29, 19, 0.9),
+    0 6px 18px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+.subtitle {
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  color: var(--beak-pale);
+  margin: 1rem auto 0;
+  max-width: 34rem;
+}
+.subtitle em { color: var(--leaf-bright); }
+.route-meta {
+  list-style: none;
+  margin: 1.8rem auto 0;
+  padding: 1.1rem 1.4rem;
+  max-width: 34rem;
+  text-align: left;
+  border: 1px dashed rgba(232, 217, 138, 0.5);
+  border-radius: 10px;
+  background: rgba(12, 29, 19, 0.55);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+}
+.route-meta li {
+  padding: 0.28rem 0 0.28rem 1.6rem;
+  position: relative;
+  color: var(--paper);
+}
+.route-meta li::before {
+  content: "\1F331";
+  position: absolute;
+  left: 0;
+  opacity: 0.85;
+}
+.route-meta strong { color: var(--yellow-soft); letter-spacing: 0.06em; }
+
+/* ---- stops ---- */
+.itinerary {
+  position: relative;
+  z-index: 3;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1rem clamp(1.5rem, 6vw, 4rem) 3rem;
+}
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: clamp(0.8rem, 3vw, 1.8rem);
+  margin: 0 0 clamp(2.4rem, 6vw, 3.6rem);
+}
+.stop-mark {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin-top: 0.4rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.6rem;
+  color: var(--pine-deep);
+  background: radial-gradient(circle at 32% 28%, var(--yellow-head), var(--face-orange) 78%);
+  border: 3px solid var(--pine-deep);
+  outline: 2px solid var(--yellow-soft);
+  box-shadow: 0 0 0 6px rgba(242, 196, 55, 0.12), 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+.stop-mark span { transform: translateY(1px); }
+.stop::after {
+  /* the dashed path segment connecting stops */
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 64px;
+  bottom: -3rem;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--yellow-soft) 0 8px, transparent 8px 16px);
+  opacity: 0.4;
+}
+.stop:last-of-type::after { display: none; }
+
+.stop-body {
+  padding: 1.3rem 1.6rem 1.5rem;
+  border-radius: 6px 18px 6px 18px;
+  background:
+    linear-gradient(160deg, rgba(244, 236, 216, 0.09), rgba(244, 236, 216, 0.03) 55%, rgba(63, 122, 77, 0.16)),
+    rgba(12, 29, 19, 0.6);
+  border: 1px solid rgba(232, 217, 138, 0.35);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(253, 248, 236, 0.12);
+}
+.stop-body h2 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: clamp(1.35rem, 3.4vw, 1.75rem);
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+  color: var(--yellow-head);
+}
+.time {
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--leaf-bright);
+  margin: 0 0 0.8rem;
+}
+.stop-body p { margin: 0 0 0.9rem; color: var(--paper); }
+.stop-body em { color: var(--yellow-soft); }
+
+/* the archive card — the one sentence */
+.card {
+  display: inline;
+  padding: 0.05em 0.3em;
+  background: rgba(233, 220, 196, 0.14);
+  border-bottom: 2px solid var(--face-orange);
+  color: var(--chalk);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+/* stop 1 & 4 glow when in view */
+.stop.in-view .stop-body {
+  border-color: var(--yellow-head);
+  box-shadow: 0 0 0 1px rgba(242, 196, 55, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 44px rgba(242, 196, 55, 0.14);
+}
+.stop.in-view .stop-mark {
+  animation: mark-bob 2.4s ease-in-out infinite;
+}
+@keyframes mark-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* links — beak-pale, orange on hover */
+a {
+  color: var(--yellow-soft);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+a:hover, a:focus {
+  color: var(--chalk);
+  background: rgba(217, 91, 43, 0.35);
+  text-decoration-style: solid;
+}
+
+.farewell {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(232, 217, 138, 0.4);
+  font-size: 1.05rem;
+}
+
+/* colophon */
+.colophon {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 1.5rem 1rem 3rem;
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  color: var(--paper-dim);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+.colophon::before, .colophon::after {
+  content: "\2740";
+  display: block;
+  font-size: 1.3rem;
+  color: var(--face-orange);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5em;
+}
+.colophon::after { display: none; }
+
+/* small screens: tuck the trail away, stack the stops */
+@media (max-width: 620px) {
+  .trail-line { display: none; }
+  .stop { grid-template-columns: 1fr; }
+  .stop-mark { margin: 0 0 0.6rem; }
+  .stop::after { display: none; }
+  .stop-body { padding: 1.1rem 1.15rem 1.3rem; }
+  body { font-size: 1.12rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feather-field, .crest, .trail-head { animation: none !important; transition: none !important; }
+  .feather-field { display: none; }
+  html { scroll-behavior: auto; }
+}
