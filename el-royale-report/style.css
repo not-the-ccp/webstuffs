@@ -1,0 +1,193 @@
+/* Bad Times at the El Royale — school report sheet */
+:root {
+  --paper: #f6efdf;
+  --ink: #2e2418;
+  --faded: #6b5a44;
+  --accent: #8c2f22;
+  --gold: #b07d2e;
+  --line: #d9c9a8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9dfc8;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 14px rgba(60, 40, 10, 0.18);
+  padding: 2.2rem 2.6rem 1.6rem;
+}
+
+.cover {
+  border-bottom: 3px double var(--line);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+
+.school {
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.dept {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  color: var(--faded);
+  margin-top: 0.2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.6rem 0 0.2rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+.meta {
+  margin: 1rem auto;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.meta th, .meta td {
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.7rem;
+}
+
+.meta th {
+  background: #efe3c6;
+  color: var(--faded);
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  width: 7rem;
+}
+
+.marquee { margin: 0.4rem auto 0; max-width: 170px; display: block; }
+
+section { margin-bottom: 1.6rem; }
+
+h2 {
+  font-size: 1.15rem;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+p { margin: 0.7rem 0; }
+
+ul.guests li { margin: 0.45rem 0; }
+
+blockquote.radio {
+  margin: 1.1rem 1.4rem;
+  padding: 0.8rem 1.1rem;
+  background: #efe3c6;
+  border-left: 4px solid var(--gold);
+  font-style: italic;
+}
+
+blockquote.radio p { margin: 0.2rem 0; font-size: 1.05rem; }
+blockquote.radio .attrib { font-size: 0.8rem; color: var(--faded); font-style: normal; }
+
+.nightlog { margin: 1rem 0; }
+
+.night-time {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  background: #efe3c6;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.25rem 0.6rem;
+  margin: 0 0.3rem 0.5rem 0;
+  cursor: pointer;
+}
+
+.night-time:hover { background: #e4d3ab; }
+
+.night-time.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #f6efdf;
+}
+
+.entries {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0;
+}
+
+.entry {
+  padding: 0.55rem 0.8rem;
+  margin: 0.4rem 0;
+  border: 1px solid transparent;
+  border-left: 3px solid var(--line);
+  background: transparent;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.entry .stamp {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: var(--gold);
+  margin-right: 0.5rem;
+}
+
+.entry.lit {
+  background: #efe3c6;
+  border-left-color: var(--accent);
+}
+
+.night-readout {
+  font-size: 0.85rem;
+  color: var(--faded);
+  font-style: italic;
+  min-height: 1.4em;
+}
+
+.report-foot {
+  border-top: 3px double var(--line);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.signature { text-align: right; margin: 0; }
+
+.grade {
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+
+.further { font-size: 0.85rem; color: var(--faded); margin: 0; }
+
+a { color: var(--accent); }
