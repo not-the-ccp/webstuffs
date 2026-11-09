@@ -1,0 +1,132 @@
+/* Camelot — Troupe Operations Manual, Chapter 3 */
+:root {
+  --parchment: #f3ead6;
+  --parchment-deep: #e9dcbc;
+  --ink: #2b2620;
+  --oxblood: #6e1f1f;
+  --verdigris: #33554a;
+  --brass: #9c7a2f;
+  --rule: #b9a678;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  background-image: repeating-linear-gradient(
+    0deg, rgba(43, 38, 32, 0.025) 0 2px, transparent 2px 5px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.masthead {
+  border-bottom: 4px double var(--oxblood);
+  padding: 2.2rem 1.4rem 1.2rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--parchment-deep), var(--parchment));
+}
+
+.stamp {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--verdigris);
+  margin: 0 0 0.9rem;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 2.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+.chapter {
+  font-style: italic;
+  color: var(--verdigris);
+  margin: 0.5rem 0 0.4rem;
+}
+
+.attribution {
+  font-size: 0.85rem;
+  color: var(--brass);
+  margin: 0 0 0.6rem;
+}
+
+.manual {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.4rem 3rem;
+}
+
+.manual section {
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--oxblood);
+  background: rgba(255, 252, 242, 0.55);
+  padding: 1.1rem 1.3rem 1.3rem;
+  margin: 0 0 1.4rem;
+}
+
+.manual h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0;
+  font-size: 0.92rem;
+}
+
+.ledger th, .ledger td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+}
+
+.ledger th {
+  background: var(--parchment-deep);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--verdigris);
+}
+
+.fixed-form {
+  margin: 1rem 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--parchment-deep);
+  border: 1px dashed var(--brass);
+  font-style: italic;
+}
+
+.fixed-form p { margin: 0; }
+
+.foot-times {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--oxblood);
+}
+
+a { color: var(--verdigris); }
+a:hover { color: var(--oxblood); }
+
+.tail {
+  border-top: 4px double var(--oxblood);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--verdigris);
+  text-align: center;
+}
