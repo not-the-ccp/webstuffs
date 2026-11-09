@@ -1,0 +1,153 @@
+/* Albert Gould — A Traveler's Entry · desk styles, 1998 build */
+
+body {
+  background-color: #000033;
+  background-image:
+    radial-gradient(white 1px, transparent 1.5px),
+    radial-gradient(#9999cc 1px, transparent 1.5px),
+    radial-gradient(#ffcc99 1px, transparent 2px);
+  background-size: 140px 140px, 90px 90px, 230px 230px;
+  background-position: 0 0, 40px 60px, 90px 20px;
+  color: #000000;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 12px 0 40px 0;
+}
+
+table.frame { width: 92%; max-width: 860px; }
+
+td {
+  background-color: #ffffcc;
+  border: 6px outset #cccccc;
+  padding: 14px 20px 10px 20px;
+}
+
+.masthead {
+  text-align: center;
+  background-color: #000066;
+  border: 4px ridge #6666cc;
+  padding: 10px;
+}
+
+.masthead h1 {
+  color: #ffff00;
+  font-size: 34px;
+  margin: 6px 0 2px 0;
+  text-shadow: 2px 2px 0 #990000;
+  letter-spacing: 3px;
+}
+
+.dek {
+  color: #ccccff;
+  font-style: italic;
+  margin: 2px 0 8px 0;
+}
+
+.blink {
+  color: #ff9900;
+  font-weight: bold;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink { to { visibility: hidden; } }
+
+.marquee-bar {
+  background-color: #003300;
+  border: 2px inset #00ff00;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 3px 0;
+}
+.marquee-text {
+  display: inline-block;
+  animation: scroll 28s linear infinite;
+  padding-left: 100%;
+}
+@keyframes scroll { to { transform: translateX(-100%); } }
+
+hr.rainbow {
+  height: 6px;
+  border: 0;
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #009900, #0066cc, #990099);
+  margin: 14px 0;
+}
+
+.panel {
+  background-color: #ffffff;
+  border: 3px bevel #cccccc;
+  margin: 14px 0;
+  padding: 10px 14px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 17px;
+  color: #330066;
+  border-bottom: 2px solid #9999ff;
+}
+
+.panel p { line-height: 1.55; margin: 8px 0; }
+
+a:link { color: #0000cc; }
+a:visited { color: #660099; }
+a:hover { color: #ff0000; background-color: #ffff99; }
+
+.ledger { background-color: #f3f3e0; }
+
+.ledger-line {
+  background-color: #fffff0;
+  border-left: 6px solid #990000;
+  border-right: 2px solid #cccccc;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: #330000;
+  padding: 8px 12px;
+  margin: 10px 0;
+}
+
+.guestbook {
+  background-color: #ccffff;
+  border: 4px ridge #006666;
+  padding: 10px 14px;
+  margin: 14px 0;
+}
+.guestbook h3 {
+  text-align: center;
+  color: #006666;
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+.counter-digits {
+  display: inline-block;
+  background-color: #000000;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  border: 2px inset #666666;
+  padding: 1px 6px;
+  letter-spacing: 3px;
+}
+.guestbook input {
+  border: 2px inset #999999;
+  background-color: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+}
+.guestbook button {
+  border: 3px outset #cccccc;
+  background-color: #cccccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+.thanks { color: #006600; font-weight: bold; }
+
+.colophon {
+  text-align: center;
+  font-size: 11px;
+  color: #333333;
+}
+
+#stars { display: none; }
