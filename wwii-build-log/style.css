@@ -1,0 +1,231 @@
+/* Build Log, Table No. 6 — kraft-paper bench log for the second world war */
+
+:root {
+  --paper: #e8dcc3;
+  --paper-deep: #dccfae;
+  --ink: #3a3128;
+  --faded: #6d604c;
+  --pencil: #2f4f7a;
+  --redpen: #a03a2e;
+  --string: #8a7b3f;
+  --stamp-red: #8f2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(58, 49, 40, 0.03) 0 1px, transparent 1px 27px),
+    radial-gradient(120% 90% at 50% 0%, #f3ecd9 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.logbook {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 40px 32px;
+  border-left: 2px dashed rgba(58, 49, 40, 0.25);
+  border-right: 2px dashed rgba(58, 49, 40, 0.25);
+}
+
+/* ---------- cover ---------- */
+
+.cover { text-align: center; padding-bottom: 12px; position: relative; }
+
+.cover-kicker {
+  font-family: "Stardos Stencil", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 18px;
+}
+
+.cover h1 {
+  font-family: "Stardos Stencil", sans-serif;
+  font-weight: 700;
+  font-size: 3.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 1px 1px 0 rgba(58, 49, 40, 0.18);
+}
+
+.cover-sub {
+  font-family: "Stardos Stencil", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 10px 0 4px;
+}
+
+.dates {
+  font-family: "Caveat", cursive;
+  font-size: 1.6rem;
+  color: var(--pencil);
+  margin: 2px 0 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  transform: rotate(8deg);
+  border: 3px double var(--stamp-red);
+  color: var(--stamp-red);
+  font-family: "Stardos Stencil", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  padding: 5px 12px;
+  opacity: 0.85;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+/* ---------- rules ---------- */
+
+.tear {
+  border: none;
+  margin: 34px 0;
+  border-top: 2px dashed rgba(58, 49, 40, 0.35);
+}
+
+/* ---------- prose ---------- */
+
+.prose p { margin: 0 0 1em; }
+
+.drop-cap::first-letter {
+  font-family: "Stardos Stencil", sans-serif;
+  font-size: 3.2rem;
+  float: left;
+  line-height: 0.85;
+  padding: 4px 8px 0 0;
+  color: var(--ink);
+}
+
+.margin-note {
+  font-family: "Caveat", cursive;
+  font-size: 1.25rem;
+  color: var(--redpen);
+  border-left: 2px solid var(--redpen);
+  padding-left: 10px;
+  margin: 1.2em 0;
+}
+
+.margin-note a { color: var(--redpen); }
+
+a { color: var(--pencil); }
+a:hover { color: var(--redpen); }
+
+/* ---------- entries ---------- */
+
+.entry {
+  border: 1.5px solid rgba(58, 49, 40, 0.3);
+  border-left: 6px solid var(--string);
+  padding: 14px 18px 10px;
+  margin: 0 0 22px;
+  background: rgba(255, 253, 245, 0.35);
+  box-shadow: 3px 3px 0 rgba(58, 49, 40, 0.12);
+}
+
+.entry header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid rgba(58, 49, 40, 0.25);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.entry-no {
+  font-family: "Stardos Stencil", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--stamp-red);
+}
+
+.entry-date {
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+  color: var(--pencil);
+}
+
+.entry p { margin: 0 0 0.8em; }
+
+.entry.stamped { animation: stampIn 0.4s ease-out; }
+
+@keyframes stampIn {
+  0%   { opacity: 0; transform: scale(1.03); }
+  60%  { opacity: 1; transform: scale(0.995); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- ledger ---------- */
+
+.ledger h2, .supply h2 {
+  font-family: "Stardos Stencil", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.ledger table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.ledger th {
+  font-family: "Stardos Stencil", sans-serif;
+  text-align: left;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border-bottom: 2px solid var(--ink);
+  padding: 4px 8px 4px 0;
+}
+
+.ledger td {
+  border-bottom: 1px dotted rgba(58, 49, 40, 0.4);
+  padding: 6px 8px 6px 0;
+  vertical-align: top;
+}
+
+.ledger td:last-child { font-family: "Caveat", cursive; font-size: 1.05rem; color: var(--pencil); }
+
+/* ---------- supply & footer ---------- */
+
+.supply { margin-top: 34px; }
+.supply p { margin: 0 0 1em; }
+.home { font-family: "Caveat", cursive; font-size: 1.2rem; color: var(--faded); }
+.home a { color: var(--pencil); }
+
+.logbook-foot {
+  margin-top: 30px;
+  padding-top: 12px;
+  border-top: 2px dashed rgba(58, 49, 40, 0.35);
+  text-align: center;
+  font-family: "Stardos Stencil", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+@media (max-width: 560px) {
+  .logbook { padding: 28px 18px; }
+  .cover h1 { font-size: 2.2rem; }
+  .stamp { position: static; display: inline-block; margin-top: 14px; }
+}
