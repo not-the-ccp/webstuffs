@@ -1,0 +1,340 @@
+/* One Ninety-One Chairs — sleeve stylesheet, pressed at the shed */
+
+:root {
+  --czech-red: #b51e2c;
+  --czech-deep: #6f1220;
+  --czech-blue: #1f3a70;
+  --czech-white: #f6efe3;
+  --gold: #e8c874;
+  --ink: #241a14;
+  --paper: #f3ead7;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "IM Fell English", Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(232, 200, 116, 0.28), transparent 60%),
+    radial-gradient(900px 900px at -10% 110%, rgba(31, 58, 112, 0.5), transparent 60%),
+    linear-gradient(160deg, #7c1723 0%, var(--czech-red) 34%, #8a1b28 55%, #4c1220 78%, #241a14 100%);
+  background-attachment: fixed;
+}
+
+/* the flag wedge: white over red with the blue triangle at the hoist */
+.flag {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.9;
+}
+.flag i {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--czech-white) 0 50%, var(--czech-red) 50% 100%);
+  opacity: 0.10;
+}
+.flag i:nth-child(2) {
+  background: linear-gradient(115deg, var(--czech-blue) 0 38%, transparent 38%);
+  opacity: 0.35;
+}
+.flag i:nth-child(3) {
+  background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(232, 200, 116, 0.05) 90px 180px);
+}
+
+/* drifting dust above the sleeve */
+.dust {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 12% 22%, rgba(246, 239, 227, 0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 78% 14%, rgba(246, 239, 227, 0.4), transparent 60%),
+    radial-gradient(2px 2px at 60% 70%, rgba(232, 200, 116, 0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 28% 84%, rgba(246, 239, 227, 0.4), transparent 60%),
+    radial-gradient(2px 2px at 92% 52%, rgba(232, 200, 116, 0.4), transparent 60%);
+  animation: drift 26s linear infinite alternate;
+}
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-18px, 12px, 0); }
+}
+
+/* the sleeve itself */
+.sleeve {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.2rem) 2.2rem;
+  background:
+    radial-gradient(140% 90% at 50% 0%, rgba(255, 248, 231, 0.75), transparent 55%),
+    linear-gradient(180deg, var(--paper), #ecdfc4 70%, #e5d5b4);
+  border: 3px double var(--czech-deep);
+  outline: 1px solid var(--gold);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 60px rgba(111, 18, 32, 0.12);
+}
+.sleeve::before,
+.sleeve::after {
+  content: "\2726\2009\2726\2009\2726";
+  display: block;
+  text-align: center;
+  letter-spacing: 0.6em;
+  color: var(--czech-red);
+  font-size: 0.85rem;
+}
+.sleeve::before { margin-bottom: 1.4rem; }
+.sleeve::after { margin-top: 2rem; }
+
+/* floating shield */
+.seal-shield {
+  position: absolute;
+  top: -3.1rem;
+  right: 1.6rem;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35));
+  animation: hover-shield 7s ease-in-out infinite;
+}
+@keyframes hover-shield {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-7px) rotate(2deg); }
+}
+
+/* masthead */
+.eyebrow {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--czech-blue);
+  text-align: center;
+  margin: 0 0 0.8rem;
+}
+h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 7vw, 3.9rem);
+  line-height: 1.04;
+  text-align: center;
+  margin: 0;
+  color: var(--czech-deep);
+  text-shadow: 2px 2px 0 rgba(232, 200, 116, 0.55);
+}
+.subtitle {
+  font-style: italic;
+  text-align: center;
+  max-width: 34rem;
+  margin: 0.9rem auto 0;
+  color: #4a3423;
+}
+
+/* the deck: vinyl and needle */
+.deck {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2.2rem 0 0.6rem;
+  padding: 1.2rem;
+  border: 1px solid rgba(111, 18, 32, 0.4);
+  background:
+    linear-gradient(180deg, rgba(36, 26, 20, 0.06), rgba(36, 26, 20, 0.12));
+}
+.vinyl {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(240px, 58vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.16), transparent 30%),
+    repeating-radial-gradient(circle, #17110c 0 3px, #241a14 3px 6px);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 2px rgba(232, 200, 116, 0.25);
+  animation: spin 9s linear infinite;
+  animation-play-state: paused;
+}
+.vinyl.spinning { animation-play-state: running; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.vinyl .label {
+  position: absolute;
+  inset: 31%;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  background:
+    radial-gradient(circle at 50% 40%, #d0303f, var(--czech-red) 60%, var(--czech-deep));
+  color: var(--czech-white);
+  border: 2px solid var(--gold);
+}
+.vinyl .label::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #241a14;
+  box-shadow: 0 0 0 2px rgba(232, 200, 116, 0.7);
+}
+.vinyl .label .label-count {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.vinyl .label small {
+  font-family: "Special Elite", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+.deckside { flex: 1 1 14rem; }
+.spin-btn {
+  font-family: "Special Elite", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 0.9rem;
+  color: var(--czech-white);
+  background: linear-gradient(180deg, var(--czech-red), var(--czech-deep));
+  border: 1px solid var(--gold);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.spin-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35); }
+.spin-btn[aria-pressed="true"] { background: linear-gradient(180deg, var(--czech-blue), #142447); }
+.decknote {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #5a4330;
+  margin: 0.7rem 0 0;
+}
+
+/* section headings */
+h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  color: var(--czech-deep);
+  margin: 2.2rem 0 0.7rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 3px double var(--czech-red);
+}
+.side-head { display: flex; align-items: center; gap: 0.7rem; }
+.side-mark {
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--czech-deep);
+  color: var(--gold);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  border: 2px solid var(--gold);
+}
+
+/* track lists */
+.tracks {
+  list-style: none;
+  margin: 0.4rem 0 1rem;
+  padding: 0;
+}
+.tracks li {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px dotted rgba(111, 18, 32, 0.45);
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+.tracks li:hover {
+  background: linear-gradient(90deg, rgba(232, 200, 116, 0.35), transparent 70%);
+  padding-left: 1rem;
+}
+.tracks .no {
+  font-family: "Special Elite", monospace;
+  font-size: 0.85rem;
+  color: var(--czech-blue);
+  letter-spacing: 0.1em;
+}
+.tracks .tr { font-weight: 600; }
+.tracks .len {
+  font-family: "Special Elite", monospace;
+  font-size: 0.78rem;
+  color: #7a5c3c;
+}
+.side-note { font-size: 0.95rem; color: #3d2c1e; }
+
+/* the chips: four doors, one continuation */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.4rem 0 0.4rem;
+}
+.chip {
+  font-family: "Special Elite", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.7rem;
+  color: var(--czech-white);
+  background: linear-gradient(180deg, var(--czech-blue), #16294f);
+  border: 1px solid var(--gold);
+  border-radius: 0.3rem;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+}
+.chip b { color: var(--gold); letter-spacing: 0.14em; }
+
+/* credits */
+.credits ul {
+  margin: 0.2rem 0 1rem;
+  padding-left: 1.1rem;
+}
+.credits li { margin-bottom: 0.55rem; }
+.credits em { font-style: normal; color: var(--czech-deep); font-weight: 600; }
+
+/* provenance */
+.provenance a {
+  color: var(--czech-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--czech-red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background 0.2s ease;
+}
+.provenance a:hover { background: rgba(232, 200, 116, 0.5); }
+
+.sleeve-foot {
+  margin: 2.4rem 0 0;
+  text-align: center;
+  font-family: "Special Elite", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7a5c3c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl, .seal-shield, .dust { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
