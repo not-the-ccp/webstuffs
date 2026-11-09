@@ -1,0 +1,150 @@
+/* The Chalk Circuit — a restrained print layout */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #2b2a26;
+  --chalk: #fbfaf6;
+  --line: #c9c2ae;
+  --sea: #4c6a6d;
+  --clay: #8a6f57;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.itinerary {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+.tour-head {
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.series {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+  color: var(--clay);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--sea);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1.5rem;
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+}
+
+.facts dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  align-self: baseline;
+}
+
+.facts dd { margin: 0; }
+
+.lede, .guide {
+  margin: 0 0 1.5rem;
+}
+
+.lede::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.09em;
+  padding-top: 0.05em;
+  color: var(--sea);
+}
+
+ol.stops {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+}
+
+.stop {
+  border-left: 1px solid var(--line);
+  padding: 0 0 2rem 2rem;
+  margin-left: 0.75rem;
+  position: relative;
+}
+
+.stop::before {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--chalk);
+  border: 1px solid var(--sea);
+  border-radius: 50%;
+}
+
+.stop-meta {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin: 0 0 0.4rem;
+}
+
+.stop h2 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 0.6rem;
+}
+
+.stop p { margin: 0 0 1rem; }
+.stop p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--sea);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--clay); }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--clay);
+}
