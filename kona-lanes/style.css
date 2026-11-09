@@ -1,0 +1,198 @@
+/* Kona Lanes — walking tour, Itinerary No. 13.
+   Googie/tiki neon on lagoon blue, mango orange accents, sail rooflines. */
+
+:root {
+  --lagoon: #0b2740;
+  --lagoon-deep: #071a2c;
+  --mango: #ff8b2c;
+  --neon: #ffd23f;
+  --neon-pink: #ff5da2;
+  --surf: #35c4b5;
+  --sand: #f4e8cf;
+  --paper: #fdf6e3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--lagoon-deep);
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -5%, rgba(255, 141, 44, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 30% at 85% 100%, rgba(53, 196, 181, 0.12), transparent 70%);
+  color: var(--sand);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.poster {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+/* --- marquee header: the neon sign --- */
+.marquee {
+  text-align: center;
+  border: 3px solid var(--mango);
+  outline: 2px solid var(--neon-pink);
+  outline-offset: 5px;
+  border-radius: 60px 60px 12px 12px; /* sail top corners */
+  padding: 1.75rem 1.5rem 1.4rem;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 210, 63, 0.05) 0 14px, transparent 14px 28px),
+    var(--lagoon);
+  box-shadow: 0 0 34px rgba(255, 93, 162, 0.35), inset 0 0 40px rgba(0, 0, 0, 0.55);
+}
+
+.marquee-small {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--surf);
+}
+
+.marquee h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 9vw, 4.2rem);
+  letter-spacing: 0.06em;
+  color: var(--neon);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px rgba(255, 210, 63, 0.9),
+    0 0 18px rgba(255, 141, 44, 0.8),
+    0 0 42px rgba(255, 93, 162, 0.7);
+  animation: neon-breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes neon-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.86; }
+  92% { opacity: 1; }
+  94% { opacity: 0.55; } /* the sign's old flicker, mid-face only */
+  96% { opacity: 1; }
+}
+
+.marquee-sub {
+  margin: 0.5rem 0 0.9rem;
+  font-style: italic;
+  color: var(--sand);
+}
+
+.starburst {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--neon-pink);
+}
+
+/* --- lead --- */
+.lead {
+  margin: 2.2rem 0 1rem;
+  color: var(--paper);
+}
+
+.dropcap {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--mango);
+  text-shadow: 0 0 12px rgba(255, 141, 44, 0.6);
+}
+
+/* --- stops --- */
+.stops {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  counter-reset: stop;
+}
+
+.stop {
+  position: relative;
+  margin: 0 0 2.25rem;
+  padding: 1.25rem 1.4rem 1.25rem 1.7rem;
+  background: rgba(253, 246, 227, 0.045);
+  border-left: 4px solid var(--surf);
+  border-top: 1px dashed rgba(244, 232, 207, 0.35);
+  border-bottom: 1px dashed rgba(244, 232, 207, 0.35);
+}
+
+.stop::before {
+  /* gutter arrow, like the parking-line paint */
+  content: "\2192";
+  position: absolute;
+  left: -1.05rem;
+  top: 1.2rem;
+  color: var(--mango);
+  font-size: 1.1rem;
+}
+
+.stop-no {
+  margin: 0 0 0.3rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neon);
+}
+
+.stop h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.35rem;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+}
+
+.stop p { margin: 0 0 0.8rem; }
+.stop p:last-child { margin-bottom: 0; }
+
+.stop em { color: var(--neon-pink); font-style: italic; }
+
+/* the unemended ledger line */
+.stop em:first-of-type {
+  color: var(--surf);
+}
+
+a {
+  color: var(--neon);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--neon-pink); text-decoration-style: solid; }
+
+/* a stop the reader has checked off */
+.stop.done {
+  border-left-color: var(--mango);
+  background: rgba(255, 141, 44, 0.07);
+}
+
+.stop.done .stop-no::after {
+  content: " \00b7 CHECKED";
+  color: var(--mango);
+}
+
+/* --- footer --- */
+.tour-foot {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--sand);
+}
+
+.foot-rule {
+  color: var(--mango);
+  letter-spacing: 0.6em;
+}
+
+.tour-foot p { max-width: 40rem; margin: 0.4rem auto; }
+
+/* small screens */
+@media (max-width: 40rem) {
+  .poster { padding: 1.5rem 1rem 2.5rem; }
+  .stop { padding: 1rem 1rem 1rem 1.3rem; }
+  .stop::before { left: 0.35rem; top: 0.35rem; position: static; display: block; }
+}
