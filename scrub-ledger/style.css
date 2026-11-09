@@ -1,0 +1,160 @@
+/* The Scrub Ledger — newsprint small-ads page */
+
+body {
+  margin: 0;
+  background: #cdc5ae;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 250, 230, 0.25), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.015) 0 2px, transparent 2px 4px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: #26231c;
+}
+
+.paper {
+  position: relative;
+  max-width: 920px;
+  margin: 28px auto 48px;
+  padding: 34px 40px 26px;
+  background: #f3eddc;
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(120, 96, 50, 0.10), transparent 45%),
+    radial-gradient(ellipse at 88% 92%, rgba(120, 96, 50, 0.12), transparent 40%);
+  border: 1px solid #8d8266;
+  box-shadow: 0 3px 14px rgba(40, 32, 10, 0.35), inset 0 0 60px rgba(120, 100, 55, 0.10);
+}
+
+/* Masthead */
+.masthead { text-align: center; }
+
+.masthead .sheet-line {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: #4c4636;
+}
+
+.masthead h1 {
+  font-family: "Arial Narrow", "Liberation Sans Narrow", "Helvetica Neue", Helvetica, sans-serif;
+  font-stretch: condensed;
+  font-weight: 900;
+  font-size: 58px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 0.95;
+}
+
+.masthead .edition {
+  font-size: 14px;
+  font-style: italic;
+  margin: 4px 0 10px;
+}
+
+.masthead .issue {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  margin: 8px 0 0;
+  color: #4c4636;
+}
+
+.rule { border-top: 1px solid #26231c; margin: 10px 0 16px; }
+.rule.double { border-top: 3px double #26231c; }
+
+/* Stamp */
+.stamp {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  padding: 8px 12px;
+  border: 3px double #8a2f23;
+  color: #8a2f23;
+  font-family: "Arial Narrow", "Helvetica Neue", Helvetica, sans-serif;
+  font-stretch: condensed;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.4;
+  transform: rotate(7deg);
+  opacity: 0.75;
+}
+
+/* Column bars */
+.bar {
+  background: #26231c;
+  color: #f3eddc;
+  font-family: "Arial Narrow", "Liberation Sans Narrow", "Helvetica Neue", Helvetica, sans-serif;
+  font-stretch: condensed;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 4px 0 5px;
+  margin: 22px 0 12px;
+}
+
+/* Ad grid */
+.ads { column-count: 2; column-gap: 18px; }
+
+.ad {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  border: 1px solid #3a3527;
+  padding: 10px 12px 8px;
+  margin: 0 0 14px;
+  background: rgba(255, 252, 242, 0.55);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.ad h3 {
+  font-family: "Arial Narrow", "Liberation Sans Narrow", "Helvetica Neue", Helvetica, sans-serif;
+  font-stretch: condensed;
+  font-size: 15.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #3a3527;
+}
+
+.ad p { margin: 0 0 6px; }
+.ad em { font-style: italic; }
+
+.ref {
+  float: right;
+  font-size: 11px;
+  font-style: italic;
+  color: #5c5442;
+  margin-left: 8px;
+}
+
+.ad.notice { background: rgba(196, 180, 138, 0.30); }
+
+.ad blockquote {
+  margin: 8px 0;
+  padding: 6px 10px;
+  border-left: 3px solid #8a2f23;
+  font-style: italic;
+  font-size: 13px;
+  color: #4c2a20;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Colophon */
+.colophon { font-size: 12px; color: #4c4636; }
+.colophon p { margin: 4px 0; }
+
+.see-also a { color: #26231c; }
+.see-also a:hover { color: #8a2f23; }
+
+@media (max-width: 640px) {
+  .ads { column-count: 1; }
+  .masthead h1 { font-size: 40px; }
+  .paper { padding: 26px 20px; }
+  .stamp { position: static; display: inline-block; margin-bottom: 10px; }
+}
