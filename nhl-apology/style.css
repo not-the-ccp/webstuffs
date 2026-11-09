@@ -1,0 +1,169 @@
+/* Apology to the National Hockey League — letter paper, Winter Room */
+
+:root {
+  --paper: #f5efdf;
+  --paper-edge: #e9e0c8;
+  --ink: #2b2620;
+  --faint: #6e6455;
+  --rule: #b3a887;
+  --stamp-red: #8a1f2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9d2bd;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(0,0,0,.025) 0 2px, transparent 2px 9px);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.55;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.letter {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 4%, rgba(140,110,60,.10), transparent 34%),
+    radial-gradient(ellipse at 94% 96%, rgba(140,110,60,.12), transparent 30%);
+  border: 1px solid var(--paper-edge);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.7) inset,
+    0 18px 40px -18px rgba(40,30,10,.55);
+  padding: 3rem 3.25rem 2.5rem;
+}
+
+.letter::before,
+.letter::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 7px;
+  background:
+    radial-gradient(circle at 6px -3px, transparent 6px, var(--paper-edge) 6.5px);
+  background-size: 12px 7px;
+}
+.letter::before { top: 0; }
+.letter::after { bottom: 0; transform: rotate(180deg); }
+
+/* letterhead */
+.letterhead { text-align: center; margin-bottom: 1.75rem; }
+.lh-org {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.28rem;
+  letter-spacing: .04em;
+}
+.lh-sub {
+  margin: .3rem 0 0;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.lh-rule {
+  height: 4px;
+  margin: .8rem auto 0;
+  max-width: 22rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* stamp and postmark */
+.stamp-wrap {
+  position: absolute;
+  top: 1.9rem;
+  right: 2.4rem;
+  width: 96px;
+}
+.stamp {
+  display: block;
+  width: 100%;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 2px 3px 6px rgba(40,30,10,.25);
+  transform: rotate(2.2deg);
+}
+.stamp-label { font: 600 7px Georgia, serif; fill: #2b3d4a; letter-spacing: .12em; }
+.stamp-rate { font: 700 13px Georgia, serif; fill: var(--stamp-red); }
+.postmark {
+  position: absolute;
+  top: 26px;
+  left: -52px;
+  width: 118px;
+  height: 44px;
+  border: 1.5px solid rgba(43,61,74,.55);
+  border-radius: 22px;
+  color: rgba(43,61,74,.7);
+  font: 700 9px/1.35 "Courier New", monospace;
+  text-align: center;
+  letter-spacing: .08em;
+  transform: rotate(-8deg);
+  padding-top: 8px;
+  mix-blend-mode: multiply;
+}
+
+/* body of the letter */
+.dateline { margin: 0 0 1.4rem; font-size: .92rem; }
+.addressee {
+  font-style: normal;
+  margin: 0 0 1.4rem;
+  font-size: .92rem;
+  line-height: 1.6;
+}
+.salutation { margin: 0 0 1.1rem; }
+.letter p { margin: 0 0 1.05rem; font-size: .95rem; }
+.letter a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(138,31,43,.6);
+  text-underline-offset: 2px;
+}
+.letter a:hover { color: var(--stamp-red); }
+
+.ledger-line {
+  margin: 1.4rem 0;
+  padding: .9rem 1.1rem .9rem 1.4rem;
+  border-left: 3px double var(--stamp-red);
+  background: rgba(138,31,43,.05);
+  font-size: .98rem;
+  font-style: italic;
+}
+
+.signature { margin-top: 1.8rem; }
+.sig-name {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.55rem;
+  transform: rotate(-2deg);
+  display: inline-block;
+  color: #23304a;
+}
+.sig-sub { font-size: .78rem; color: var(--faint); letter-spacing: .06em; }
+
+.ps {
+  margin-top: 1.6rem;
+  padding-top: .9rem;
+  border-top: 1px dashed var(--rule);
+  font-size: .85rem;
+}
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: .8rem;
+  border-top: 1px solid var(--rule);
+  font-size: .74rem;
+  letter-spacing: .05em;
+  color: var(--faint);
+  text-align: center;
+}
+.colophon a { color: var(--faint); }
+
+@media (max-width: 620px) {
+  .letter { padding: 2.2rem 1.4rem 2rem; }
+  .stamp-wrap { position: static; width: 84px; margin: 0 auto 1.2rem; }
+  .postmark { display: none; }
+}
