@@ -1,0 +1,182 @@
+/* Lot 41 — Grange Hall Rooms, Sale No. 27 — auction catalogue plate */
+:root {
+  --paper: #f6efe0;
+  --paper-deep: #efe4cd;
+  --ink: #2b2118;
+  --oxblood: #5e1a1a;
+  --oxblood-bright: #7a1f1f;
+  --gold: #8a5a1e;
+  --stamp-green: #2f5d3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9cdae;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(94, 26, 26, 0.025) 0 2px, transparent 2px 14px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 64rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 3px double var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: 5px;
+  padding: 2.5rem 3rem 1.5rem;
+  box-shadow: 0 14px 40px rgba(43, 33, 24, 0.35);
+}
+
+.masthead { text-align: center; }
+.masthead .house {
+  font-size: 1.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--oxblood);
+}
+.masthead .house-sub {
+  font-style: italic;
+  color: var(--gold);
+  margin: 0.2rem 0 1.2rem;
+  letter-spacing: 0.04em;
+}
+.masthead h1 {
+  font-size: 1.25rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: normal;
+}
+.lot-tag {
+  display: inline-block;
+  border: 2px solid var(--oxblood);
+  color: var(--oxblood);
+  padding: 0.05rem 0.7rem;
+  transform: rotate(-3deg);
+  margin-left: 0.8rem;
+  letter-spacing: 0.18em;
+}
+.sale-line {
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.8;
+  margin: 0.9rem 0 0;
+}
+
+.rule-gold {
+  border: none;
+  border-top: 3px double var(--gold);
+  margin: 1.4rem 0;
+}
+
+.lot-head { text-align: center; }
+.lot-no .stamp {
+  display: inline-block;
+  border: 2px solid var(--oxblood-bright);
+  color: var(--oxblood-bright);
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  padding: 0 0.5rem;
+  transform: rotate(-4deg);
+  margin-right: 0.4rem;
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+.lot-head h2 {
+  font-size: 1.45rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  color: var(--oxblood);
+  max-width: 46rem;
+  margin: 0.6rem auto;
+}
+.lot-sub { font-size: 0.95rem; }
+.hammer { color: var(--stamp-green); font-style: italic; }
+
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2.2rem;
+  align-items: start;
+}
+@media (max-width: 52rem) {
+  .catalogue-grid { grid-template-columns: 1fr; }
+  .sheet { padding: 1.6rem 1.2rem; margin: 1rem; }
+}
+
+.prose-col p { margin: 0 0 1.1rem; text-align: justify; }
+.prose-col a, .bevel a, .foot a { color: var(--oxblood-bright); }
+
+.plate { margin: 0; text-align: center; }
+.plate svg {
+  width: 15rem;
+  max-width: 100%;
+  background: var(--paper-deep);
+}
+.plate figcaption {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.85;
+  margin-top: 0.6rem;
+}
+
+.facts { margin: 1.4rem 0 0; border-top: 1px solid var(--gold); }
+.facts dt {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--oxblood);
+  margin-top: 0.7rem;
+}
+.facts dd { margin: 0.1rem 0 0; font-size: 0.95rem; }
+.hammer-line { color: var(--stamp-green); }
+
+.bevel {
+  margin: 2rem 0;
+  padding: 1.3rem 1.6rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--gold);
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--gold);
+}
+.bevel h2 {
+  font-variant: small-caps;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 0.4rem;
+  margin-top: 0;
+}
+.bevel p { margin: 0.9rem 0; text-align: justify; }
+
+.caption {
+  margin: 1.1rem 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--stamp-green);
+  background: rgba(47, 93, 58, 0.06);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.foot {
+  border-top: 3px double var(--gold);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.hammer-flash { animation: hammer-flash 0.9s ease-in-out 2; }
+@keyframes hammer-flash {
+  0%, 100% { background: transparent; }
+  50% { background: rgba(47, 93, 58, 0.18); }
+}
