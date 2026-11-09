@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error 1986-WC-24 — The Mexico Cup Fault · Museo del Balón, La Plata · System Notice Archive</title>
+<meta name="description" content="Error record 1986-WC-24 of the Museo del Balón system notice archive: the 1986 FIFA World Cup in Mexico, 31 May to 29 June 1986, the second 24-team tournament, the host reassignment from Colombia to Mexico, Argentina's second title under the 25-year-old Maradona, and the one unamendable line in the minutes volume.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="crt" aria-hidden="true"></div>
+<div class="crt-cursor" aria-hidden="true"></div>
+
+<header class="strip">
+  <p class="strip-left">MUSEO DEL BAL&Oacute;N &middot; SYSTEM NOTICE ARCHIVE &middot; GALLERY 2</p>
+  <p class="strip-right">RECORD 1986-WC-24 &middot; DO NOT RETYPE</p>
+</header>
+
+<main class="console">
+
+  <div class="fault-stamp" aria-hidden="true">
+    <svg viewBox="0 0 220 220" role="img">
+      <circle cx="110" cy="110" r="100" fill="none" stroke="#ffb000" stroke-width="4" stroke-dasharray="10 6"/>
+      <circle cx="110" cy="110" r="82" fill="none" stroke="#ff3b30" stroke-width="2"/>
+      <path d="M110 34 L128 92 L190 96 L142 134 L158 194 L110 158 L62 194 L78 134 L30 96 L92 92 Z" fill="none" stroke="#ffb000" stroke-width="3"/>
+      <text x="110" y="122" text-anchor="middle" font-family="Courier New, monospace" font-size="26" fill="#ff3b30" font-weight="bold">FAULT</text>
+      <text x="110" y="146" text-anchor="middle" font-family="Courier New, monospace" font-size="13" fill="#ffb000">MX&middot;1986</text>
+    </svg>
+  </div>
+
+  <section class="errhead">
+    <p class="errcode">ERROR 1986-WC-24</p>
+    <h1>The Mexico Cup Fault</h1>
+    <p class="errmeta">
+      <span>LOGGED: 31 May 1986, 21:45 local</span>
+      <span>SEVERITY: ceremonial</span>
+      <span>STATUS: closed, one line unamended</span>
+      <span>DURATION: 31 May &ndash; 29 June 1986 (29 days)</span>
+    </p>
+    <p class="errtagline">// second throw of a quadrennial routine, 24 arguments, both of them fine</p>
+  </section>
+
+  <section class="block">
+    <h2 class="blockhead">[1] FAULT SUMMARY</h2>
+    <p>The notice was logged by the system notice office of the Museo del Bal&oacute;n at La Plata when the routine began its thirteenth execution: the FIFA World Cup, the quadrennial tournament for men&rsquo;s senior national teams, thrown this time in <strong>Mexico</strong> and running from <strong>31 May to 29 June 1986</strong>. The payload was <strong>24 teams</strong> &mdash; the second execution of the routine to accept that many, after the first 24-team throw in Spain in 1982, where this museum&rsquo;s own Gallery 2 still keeps the minutes of a midfielder&rsquo;s back-to-back seasons. The routine completed all <strong>52 calls</strong> across five Mexican stadiums, the last of them under the open sky at the Estadio Azteca, and returned a single, unambiguous result: <strong>Argentina</strong>, its <strong>second title</strong>, the first having been thrown in 1978. No exception was raised at the close. The trophy left the stadium in a case that, the notice records, rattled once on the ramp and then stopped, which the office treats as normal.</p>
+  </section>
+
+  <section class="block">
+    <h2 class="blockhead">[2] HOST VARIABLE REASSIGNMENT</h2>
+    <p>The only fault the notice admits is in the host. In <strong>November 1982</strong> the value originally bound to the host slot &mdash; <strong>Colombia</strong>, chosen by FIFA for the occasion &mdash; was released, largely for economic reasons, and the binding sat empty for three years. In <strong>May 1983</strong> the variable was reassigned to <strong>Mexico</strong>, which had already held the value in 1970 and thereby became, in this office&rsquo;s notation, <em>the first country ever to host the World Cup more than once</em>. The system accepted the reassignment without complaint, which is not the same as without cost: the empty three years are still visible in the archive as a gap in the numbering, 1984 and 1985, and the curator of the case is not fond of looking at it.</p>
+    <pre class="stack" aria-label="reassignment stack trace">
+&gt; host = colombia            // assigned by FIFA, 1974 cycle
+&gt; host.release(reason=economy) // Nov 1982, notice received
+&gt; slot.empty(days=1124)        // 1984, 1985: numbering gap
+&gt; host = mexico               // reassigned May 1983
+&gt; host.count() = 2             // 1970 + 1986: first repeat value
+&gt; resume(teams=24)
+    </pre>
+  </section>
+
+  <section class="block">
+    <h2 class="blockhead">[3] THE RESULT, AND THE CAPTAIN</h2>
+    <p>Argentina entered as reigning champion and returned as reigning champion&rsquo;s successor, which is how the office phrases it. The side was captained by the <strong>25-year-old Diego Maradona</strong>, whose name appears in the notice in full exactly once and in initials nowhere, because the secretary who set the record down had changed his mind on that point before the ink dried. In the final match at the Azteca, on <strong>29 June 1986</strong>, he scored twice against <strong>England</strong>, the two goals separated by <strong>eighty-five seconds</strong>: the first with the part of the body the notice describes, deliberately, as <em>not the foot</em>, and the second with the foot, so that the routine&rsquo;s output contains both kinds of truth at once. The score line reads <strong>Argentina 3, England 2</strong>, and the notice observes that in 29 days of tournament there was no other call the office would have preferred to audit.</p>
+  </section>
+
+  <section class="block unamendable">
+    <h2 class="blockhead">[4] ONE UNAMENDABLE LINE</h2>
+    <p>Every volume of the club&rsquo;s minutes records attendance, transfers, and fines in the secretary&rsquo;s hand, and every volume carries exactly one line that is not about any of those things. The 1986 volume &mdash; the one that rode home from Mexico in the trophy case&rsquo;s shadow &mdash; carries its line on the inside front board, in a smaller hand than the rest of the book, and it reads: <span class="oddline" id="oddline">The two dependent territories on the south of the Hebrews with the fingers.</span></p>
+    <p>The line has the shape of a place-name that refused to stay a place-name: two dependent territories, somewhere to the south, a people who were never identified, and a pair of fingers that the secretary, asked in 1987 what they were doing there, answered by closing the book. The correction committee examined it the same year, and again in 2004, when the adjacent case in Gallery 2 was rebuilt to stop visitors touching the 1983 league page. Both motions failed on the precedent of this museum&rsquo;s one famous error, the <em>26 June 1962 &mdash; J. D. Ponce attends</em> entry in the Ponce volume, which predates its season by twenty years and was never amended either, on the point that a minutes book records, it does not revise. The 1986 line, like the 1962 line, is not a mistake in the office&rsquo;s view. It is a record. It is filed under this error notice for that reason, and it is printed here, word for word, because a notice that quotes its unamendable line and then edits the quote would be committing a second fault.</p>
+  </section>
+
+  <section class="block">
+    <h2 class="blockhead">[5] SEE ALSO, BY DRAWER</h2>
+    <p>The case this notice belongs to &mdash; the red-and-white stripes, the No. 5 shirt, the two back-to-back titles, and the first of the unamendable lines &mdash; is mounted at eye level in Gallery 2: <a href="../">Jos&eacute; Daniel Ponce, Case IV, Placard No. 12</a>. Read the placard first; this notice is the volume that came home after it. The Argentina place at the long table of the concordance &mdash; the twelve sovereign countries, the Pacific on the west, the ferry that crosses on Saturday &mdash; holds the dreamer&rsquo;s version of the same year and keeps its own record of the two dependent territories at the end of the sheet, lit, waiting, belonging to somebody: <a href="../../south-america/">South America, The Dreamer&rsquo;s Concordance, Entry No. 214</a>. The register of the gallery&rsquo;s other cases, and the shelf this notice is filed under, is kept on the front page, <a href="../../">Webstuffs</a>.</p>
+  </section>
+
+  <footer class="colophon">
+    <p>NOTICE ARCHIVE &middot; GALLERY 2 &middot; CASE CLIMATE 18&deg;C, 50% RH &middot; REPRINTING FORBIDDEN, MURMURING ON REQUEST</p>
+    <p class="cursorline"><span id="prompt">&gt;</span> <span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+  </footer>
+
+</main>
+
+<script src="error.js"></script>
+</body>
+</html>
