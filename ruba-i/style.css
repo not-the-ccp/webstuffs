@@ -1,0 +1,269 @@
+/* RUBA'I — game manual, page 14 of 38. A printed page from the shed game shelf. */
+
+:root {
+  --paper: #f2e7cf;
+  --paper-deep: #e9dab8;
+  --ink: #2b2318;
+  --ink-soft: #55483a;
+  --red: #8c2f24;
+  --red-faint: rgba(140, 47, 36, 0.35);
+  --ochre: #a97a2d;
+  --rule: rgba(43, 35, 24, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { background: #1d1710; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 240, 200, 0.10), transparent 60%),
+    #1d1710;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 760px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 35, 24, 0.028) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid #100c08;
+  box-shadow:
+    0 0 0 6px rgba(0, 0, 0, 0.25),
+    0 18px 40px rgba(0, 0, 0, 0.55);
+  padding: 2.4rem 2.6rem 1.6rem;
+  position: relative;
+}
+
+.sheet::before {
+  /* worn top edge */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 7px;
+  background: linear-gradient(180deg, rgba(43, 35, 24, 0.28), transparent);
+  pointer-events: none;
+}
+
+/* ---------- masthead ---------- */
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.masthead-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.1rem 0 1.3rem;
+}
+
+.masthead-title h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 8vw, 3.9rem);
+  letter-spacing: 0.16em;
+  color: var(--red);
+  font-weight: 700;
+  text-shadow: 2px 2px 0 rgba(140, 47, 36, 0.18);
+}
+
+.tagline {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.wheel {
+  flex: 0 0 118px;
+  height: 118px;
+  margin: 0.2rem auto 0;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background:
+    conic-gradient(from -90deg,
+      var(--ochre) 0 30deg, transparent 30deg 60deg,
+      var(--ochre) 60deg 90deg, transparent 90deg 120deg,
+      var(--ochre) 120deg 150deg, transparent 150deg 180deg,
+      var(--ochre) 180deg 210deg, transparent 210deg 240deg,
+      var(--ochre) 240deg 270deg, transparent 270deg 300deg,
+      var(--ochre) 300deg 330deg, transparent 330deg 360deg);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.22, 1.4, 0.4, 1);
+}
+
+.wheel-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.wheel-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 14px; height: 14px;
+  margin: -7px 0 0 -7px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+}
+
+.wheel-label {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 2px 5px;
+  border: 1px solid var(--rule);
+}
+
+.page-rule {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0 0.2rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* ---------- rules ---------- */
+
+.rule {
+  margin: 1.6rem 0;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.rule h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.rule-no {
+  display: inline-block;
+  margin-right: 0.7rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+}
+
+.rule p { margin: 0 0 0.7rem; }
+
+.rule em { color: var(--ink-soft); }
+
+.box-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.box-list li {
+  position: relative;
+  padding: 0.25rem 0 0.25rem 2rem;
+  border-bottom: 1px dashed rgba(43, 35, 24, 0.25);
+}
+
+.box-no {
+  position: absolute;
+  left: 0;
+  top: 0.28rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.verbatim {
+  margin: 0.9rem 0;
+  padding: 0.55rem 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  background: rgba(140, 47, 36, 0.06);
+  border-left: 3px solid var(--red);
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  margin-top: 1.8rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.7rem;
+  position: relative;
+}
+
+.foot-line {
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.foot-nav {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.foot-nav a, .rule a {
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.foot-nav a:hover, .rule a:hover {
+  background: rgba(140, 47, 36, 0.1);
+}
+
+.stamp {
+  position: absolute;
+  right: 0.2rem;
+  top: -0.9rem;
+  transform: rotate(-9deg);
+  border: 2px solid var(--red-faint);
+  color: var(--red);
+  opacity: 0.75;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0.6rem;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 1.6rem 1.2rem 1.2rem; }
+  .masthead-row { flex-direction: column; }
+  .wheel { margin: 0.6rem 0 0; }
+  .page-rule { flex-direction: column; gap: 0.15rem; }
+  .stamp { position: static; display: inline-block; margin-top: 0.6rem; }
+}
