@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barcelona — Field Error E-BCN-472 · Atlantic Reel Error Reference, Revision 9</title>
+<meta name="description" content="Error message documentation for E-BCN-472, the misfiled Atlantic entry for Barcelona: city out of range, sea mismatch (expected Atlantic, found Mediterranean), the corrected record of the northeastern Spanish coast, the Llobregat and the Besòs, the Serra de Collserola, and one line from the field log carried over unparseable.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="errhead">
+  <p class="org">Atlantic Reel Records · Archive Division · Error Reference, Revision 9 · Sheet 1 of 1</p>
+  <h1><span class="code">E-BCN-472</span> · Barcelona</h1>
+  <p class="verdict">CITY OUT OF RANGE — SEA MISMATCH: expected Atlantic, found Mediterranean. Entry re-filed, not corrected.</p>
+</header>
+
+<main class="doc">
+
+  <section class="sect">
+    <h2>1 · The Error, as Raised</h2>
+    <div class="message">
+      <p><span class="tag">ERROR&nbsp;E-BCN-472</span> <span class="lvl">severity: minor, cosmetic, permanent</span></p>
+      <p>City <span class="mono">"BARCELONA"</span> entered in the Atlantic column, field log, 14 March 1987. The city is on the Mediterranean Sea, on the northeastern coast of Spain, and has never once been on the Atlantic. The archive accepts the entry as written, because the error is the point, and the sea is the point.</p>
+    </div>
+    <p>Raised by the names secretary, copying from the January 1986 session of the <em>Marguerite</em> — the same hand, the same habits, the same log that carried the double spelling of Dong-hoon Tong-hun and that could not tell the queen angelfish from its Bermuda misprint for three days. That record, <a href="../">The Crown on the Forehead, ARL-1037</a>, is the parent entry of this one: the Atlantic side of the archive, blue over yellow, and the reason a Mediterranean city sat in its ledger for a week before the tide charts caught it.</p>
+  </section>
+
+  <section class="sect">
+    <h2>2 · Stack Trace of the Mistake</h2>
+    <ol class="trace">
+      <li><span class="mono">frame 0</span> — 14 March 1987. The <em>Marguerite</em> is re-routed out of the warm western Atlantic bottoms — Nassau, Andros, Bimini, the last hour at Key Largo — toward the Mediterranean, to lay a spring of the same hydrophone over a different bottom.</li>
+      <li><span class="mono">frame 1</span> — The names secretary transcribes the winter log in the usual hand and writes <em>Barcelona</em> into the Atlantic column, where every other city of the tour sits. The hand does not ask which sea a city lives on. The hand never has.</li>
+      <li><span class="mono">frame 2</span> — The tide charts of the month disagree with the entry. A city on the Mediterranean does not rise with the western Atlantic tide, and the chart, being a machine of water, files the objection in the margin.</li>
+      <li><span class="mono">frame 3</span> — The objection is logged as E-BCN-472. The city is not struck. The column is re-labelled <em>Atlantic / Mediterranean, see note</em>, and the entry stands under the city's true account, below.</li>
+    </ol>
+  </section>
+
+  <section class="sect">
+    <h2>3 · The Corrected Record (Kept as a Note)</h2>
+    <p>Barcelona is a city on the northeastern coast of Spain. It is the capital and largest city of the autonomous community of Catalonia, as well as the second-most populous municipality of Spain after Madrid. The municipality holds a population of 1.7 million within city limits; the urban area extends to numerous neighbouring municipalities within the province of Barcelona and is home to around 5.7 million people, making it the fifth most populous urban area of the European Union after Paris, the Ruhr area, Madrid, and Milan. It is one of the largest metropolises on the Mediterranean Sea, located on the coast between the mouths of the rivers Llobregat and Besòs, and bounded to the west by the Serra de Collserola, the small range that does for the city what the sponge garden did for the fish: it holds the ground, and declines everything that asks to cross it.</p>
+    <p>The hydrophone was laid off the Port Vell on the ninth morning of the spring passage. The bottom there does not play. It answers, in a way the engineer logged as <em>dry, tiled, full of gulls</em> — and the spring tape of the <em>Marguerite</em>, which was meant to be the Mediterranean side of the album, was instead pressed as a single, on the house label, blue over a yellow that the sleeve department described, once only, as <em>a city</em>.</p>
+  </section>
+
+  <section class="sect">
+    <h2>4 · The Unparseable Line, Carried Over</h2>
+    <p>In the consignment book of the Nassau leg — the same book the field notes share, the one that keeps its refusals the way the archive keeps its errors — there is an entry for a crate of pressed sponges marked for the fishmonger's dock, with one line of annotation that has never parsed and is carried over exactly as it stands: &ldquo;<span class="line">The field notes call it the golden one; the fishmonger at Nassau for the refusal.</span>&rdquo; The <em>golden one</em> is the queen angelfish, in the market name of Bimini — the fish of ARL-1037, the blue-and-yellow one whose crown is a seal on an envelope — and the fishmonger at Nassau, the one who gave his third and final name on the sleeve, was the man who stood for the refusal itself: the crate was turned away at the dock, and he was the one who signed the turning. The line says both things and neither. It is kept, as the archive keeps every line of that hand, with its weakness stated and the tape holding.</p>
+  </section>
+
+  <section class="sect">
+    <h2>5 · Log of Related Entries</h2>
+    <p>Entries from the archive margin touching the passage, 1986–1988. Type a name, a crew member, or a sea in the field below, or pick a sea from the buttons; the table narrows live and the count keeps the truth.</p>
+    <div class="filter">
+      <label for="q">Filter the log:</label>
+      <input type="search" id="q" name="q" placeholder="e.g. Delia, Nassau, Mediterranean, refusal">
+      <span class="seas" role="group" aria-label="Filter by sea">
+        <button type="button" class="sea is-on" data-sea="all">All</button>
+        <button type="button" class="sea" data-sea="Atlantic">Atlantic</button>
+        <button type="button" class="sea" data-sea="Mediterranean">Mediterranean</button>
+      </span>
+    </div>
+    <div class="tablewrap">
+      <table id="log">
+        <thead>
+          <tr><th scope="col">Entry</th><th scope="col">Date</th><th scope="col">Sea</th><th scope="col">Crew</th><th scope="col">Message</th><th scope="col">Status</th></tr>
+        </thead>
+        <tbody>
+          <tr data-sea="Atlantic"><td class="mono">E-AND-118</td><td>09 Jan 1986</td><td>Atlantic</td><td>E. Calloway</td><td>Hydrophone over the side; the bottom played.</td><td>Closed — kept</td></tr>
+          <tr data-sea="Atlantic"><td class="mono">E-AND-121</td><td>11 Jan 1986</td><td>Atlantic</td><td>surveyor, uncredited</td><td>Harem ladder drawn in the margin, four rungs.</td><td>Closed — kept</td></tr>
+          <tr data-sea="Atlantic"><td class="mono">E-BER-203</td><td>14 Jan 1986</td><td>Atlantic</td><td>names secretary</td><td>Misprint of <em>H. ciliaris</em>, three days unresolved.</td><td>Closed — kept</td></tr>
+          <tr data-sea="Atlantic"><td class="mono">E-NAS-311</td><td>02 Feb 1986</td><td>Atlantic</td><td>fishmonger at Nassau</td><td>Third name asked; the fish that eats sponges.</td><td>Closed — sleeve</td></tr>
+          <tr data-sea="Atlantic"><td class="mono">E-NAS-347</td><td>19 Feb 1986</td><td>Atlantic</td><td>consignment book</td><td>Crate of sponges turned away; the refusal signed.</td><td>Closed — unparseable</td></tr>
+          <tr data-sea="Mediterranean"><td class="mono">E-BCN-472</td><td>14 Mar 1987</td><td>Mediterranean</td><td>names secretary</td><td>City entered in the Atlantic column. Sea mismatch.</td><td>Open — re-filed</td></tr>
+          <tr data-sea="Mediterranean"><td class="mono">E-BCN-473</td><td>18 Mar 1987</td><td>Mediterranean</td><td>tide charts</td><td>Port Vell does not rise with the western tide.</td><td>Closed — objection filed</td></tr>
+          <tr data-sea="Mediterranean"><td class="mono">E-BCN-474</td><td>27 Mar 1987</td><td>Mediterranean</td><td>E. Calloway</td><td>Ninth morning: bottom dry, tiled, full of gulls.</td><td>Closed — pressed as single</td></tr>
+          <tr data-sea="Mediterranean"><td class="mono">E-BCN-475</td><td>30 Mar 1987</td><td>Mediterranean</td><td>Delia Marsh</td><td>Column re-labelled <em>Atlantic / Mediterranean, see note</em>.</td><td>Closed — re-filed</td></tr>
+          <tr data-sea="Atlantic"><td class="mono">E-KLG-529</td><td>03 Apr 1987</td><td>Atlantic</td><td>the house sextet</td><td>Blue room, Nassau; strings laid for the mix of 14 January.</td><td>Closed — kept</td></tr>
+        </tbody>
+      </table>
+      <p class="count" id="count" aria-live="polite">Showing 10 of 10 entries.</p>
+    </div>
+  </section>
+
+  <section class="sect">
+    <h2>6 · Resolution and Related Entries</h2>
+    <p><span class="mono">RESOLUTION:</span> none sought. The entry stands under the city's true account: Mediterranean, northeastern Spain, 1.7 million in the municipality, 5.7 million in the urban area, fifth in the Union behind Paris, the Ruhr, Madrid, and Milan, bounded west by the Serra de Collserola. Do not reclassify the city to the Atlantic. Do not correct the hand. The <em>Marguerite</em> keeps both columns and the note between them, the way the shelf keeps its two sleeves — this one and <a href="../../c6g/">Codeine-6-Glucuronide, MG-1987-04</a>, the Millbrook Hall record that ran its own ledger to the river gauge — and the whole of the shelf may be entered from the <a href="../../">front index of the collection</a>.</p>
+    <p class="fine">Revision 9, set by hand. The sea as entered. The city as given. The refusal, as signed.</p>
+  </section>
+
+</main>
+
+<script src="barcelona.js"></script>
+</body>
+</html>
