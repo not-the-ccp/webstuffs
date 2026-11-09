@@ -1,0 +1,204 @@
+/* Error Register No. 4 — Meridian Hall Library System */
+
+:root {
+  --ink: #22201a;
+  --paper: #f2ecdc;
+  --paper-deep: #e8e0c9;
+  --green: #1d4534;
+  --green-bright: #2f6b4e;
+  --red: #a33224;
+  --amber: #b07a1e;
+  --slate: #55584e;
+  --rule: #c9bfa4;
+  --mono: "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+.console {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 2px solid var(--green);
+  box-shadow: 0 0 0 6px var(--paper-deep), 0 18px 40px rgba(34, 32, 26, 0.25);
+}
+
+/* the punched green street tape */
+.tape {
+  background: var(--green);
+  color: #efe8d2;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 3px double #efe8d2;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tape span { display: inline-block; }
+
+.reg-head {
+  padding: 2rem 2.25rem 1.25rem;
+  border-bottom: 4px double var(--green);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2.1rem, rgba(29, 69, 52, 0.05) 2.1rem 2.2rem);
+}
+.sys {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--green-bright);
+  margin: 0 0 0.6rem;
+}
+h1 {
+  font-family: var(--mono);
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--green);
+  text-transform: uppercase;
+}
+h1 .name {
+  color: var(--red);
+  border-bottom: 4px solid var(--red);
+}
+.sub {
+  margin: 1rem 0 0;
+  font-size: 0.98rem;
+  max-width: 46rem;
+}
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin-top: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+.band .field {
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: 0.28rem 0.6rem;
+}
+
+.log { padding: 1.25rem 2.25rem 0; }
+
+.entry {
+  border: 1px solid var(--rule);
+  border-left-width: 6px;
+  background: #faf6ea;
+  padding: 1rem 1.25rem 1.15rem;
+  margin: 0 0 1.25rem;
+  position: relative;
+}
+.entry::before {
+  content: "";
+  position: absolute;
+  inset: 4px -4px auto auto;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--rule);
+  background: radial-gradient(circle, var(--paper) 40%, transparent 42%);
+}
+.entry.info  { border-left-color: var(--green-bright); }
+.entry.warn  { border-left-color: var(--amber); }
+.entry.fatal { border-left-color: var(--red); background: #f7efe2; }
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  margin-bottom: 0.55rem;
+}
+.code {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.04em;
+}
+.sev {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  padding: 0.12rem 0.5rem;
+  border: 1px solid currentColor;
+}
+.entry.info .sev  { color: var(--green-bright); }
+.entry.warn .sev  { color: var(--amber); }
+.entry.fatal .sev { color: var(--red); }
+.where {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--slate);
+}
+.msg {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.trace { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.status {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.5rem;
+  margin: 0.2rem 0 0;
+}
+.entry.fatal .status strong { color: var(--red); }
+.entry.warn .status strong  { color: var(--amber); }
+.entry.info .status strong  { color: var(--green); }
+
+.log a { color: var(--green-bright); }
+.log a:hover { color: var(--red); }
+
+.filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.25rem 0 1.5rem;
+}
+.filter {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.9rem;
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+  cursor: pointer;
+}
+.filter:hover { background: var(--green); color: var(--paper); }
+.filter.active { background: var(--green); color: var(--paper); }
+.entry.hidden { display: none; }
+
+.colophon {
+  border-top: 4px double var(--green);
+  background: var(--paper-deep);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 40rem) {
+  .reg-head, .log { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .where { margin-left: 0; width: 100%; }
+}
