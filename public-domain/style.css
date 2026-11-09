@@ -1,0 +1,373 @@
+/* The Free Reel Bulletin — board three: works nobody owns
+   Nitrate amber, station paper, and the open shelf. */
+
+:root {
+  --nitrate: #1b1007;
+  --film: #2a1a0d;
+  --amber: #e8a33d;
+  --amber-bright: #ffc866;
+  --ember: #c46a1b;
+  --paper: #f3e5c8;
+  --paper-dim: #e6d3ae;
+  --ink: #2b1c0e;
+  --rule: #8a6a3f;
+  --stamp-red: #a8351f;
+  --mono: "Courier New", "IBM Plex Mono", ui-monospace, monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--paper);
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(232, 163, 61, 0.22), transparent 60%),
+    radial-gradient(900px 700px at 85% 110%, rgba(196, 106, 27, 0.16), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, #241408 0%, var(--film) 34%, var(--nitrate) 100%);
+  min-height: 100vh;
+}
+
+/* film-grain flicker over everything, kept faint so text stays readable */
+.flicker {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background: radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+  animation: flicker 3.2s steps(6) infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0.55; }
+  12% { opacity: 0.75; }
+  25% { opacity: 0.5; }
+  38% { opacity: 0.8; }
+  55% { opacity: 0.6; }
+  70% { opacity: 0.85; }
+  83% { opacity: 0.55; }
+}
+
+/* sprocket strips down both edges of the thread, like the reel itself */
+.sprockets {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 34px;
+  z-index: 30;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg,
+      transparent 0 14px,
+      rgba(243, 229, 200, 0.16) 14px 34px,
+      transparent 34px 48px);
+  border-top: 2px solid rgba(232, 163, 61, 0.35);
+  border-bottom: 2px solid rgba(232, 163, 61, 0.35);
+}
+.sprockets--left  { left: 0;  border-right: 3px double rgba(232, 163, 61, 0.4); }
+.sprockets--right { right: 0; border-left: 3px double rgba(232, 163, 61, 0.4); }
+@media (max-width: 900px) { .sprockets { display: none; } }
+
+.masthead {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 6.5rem 1.5rem;
+  position: relative;
+}
+@media (max-width: 900px) { .masthead { padding: 3rem 1.5rem 1rem; } }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-family: var(--mono);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  letter-spacing: 0.12em;
+  color: var(--amber-bright);
+  margin: 0;
+  text-shadow: 0 0 22px rgba(255, 200, 102, 0.35);
+  border-top: 4px double var(--rule);
+  border-bottom: 4px double var(--rule);
+  padding: 0.5rem 0.25rem;
+  display: inline-block;
+}
+
+.thread-title {
+  font-size: clamp(1.4rem, 4vw, 2.3rem);
+  font-style: italic;
+  margin: 0.9rem 0 0.3rem;
+  color: var(--paper);
+}
+.thread-sub {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+  margin: 0;
+}
+
+/* the open-to-all stamp, struck diagonally like a customs mark */
+.stamp {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+  transform: rotate(9deg);
+  border: 3px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  mix-blend-mode: screen;
+  animation: stamp-in 0.7s cubic-bezier(0.2, 1.6, 0.4, 1) 0.4s backwards;
+}
+.stamp span { display: block; line-height: 1.6; }
+@keyframes stamp-in {
+  from { transform: rotate(9deg) scale(2.2); opacity: 0; }
+  to   { transform: rotate(9deg) scale(1);   opacity: 1; }
+}
+@media (max-width: 900px) { .stamp { position: static; display: inline-block; margin-top: 1rem; } }
+
+/* scrolling marquee of names that outlived their publishers */
+.ticker {
+  border-top: 1px solid rgba(232, 163, 61, 0.4);
+  border-bottom: 1px solid rgba(232, 163, 61, 0.4);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 0 6.5rem 2rem;
+}
+@media (max-width: 900px) { .ticker { margin: 0 1.5rem 1.5rem; } }
+.ticker__track {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 40s linear infinite;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--amber);
+  padding: 0.45rem 0;
+}
+.ticker__track span { padding-right: 2rem; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.board {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 6.5rem 2rem;
+  display: grid;
+  gap: 1.6rem;
+}
+@media (max-width: 900px) { .board { padding: 0 1.5rem 1.5rem; } }
+
+/* a post: station paper, punched from the reel */
+.post {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 28, 14, 0.045) 0 1px, transparent 1px 26px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-dim) 100%);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-left: 10px solid var(--ember);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.45),
+    inset 0 0 60px rgba(138, 106, 63, 0.18);
+  padding: 1.3rem 1.4rem 1.4rem;
+  position: relative;
+  animation: reel-in 0.6s ease-out backwards;
+}
+.post:nth-child(2) { animation-delay: 0.1s; }
+.post:nth-child(3) { animation-delay: 0.2s; }
+.post:nth-child(4) { animation-delay: 0.3s; }
+.post:nth-child(5) { animation-delay: 0.4s; }
+.post:nth-child(6) { animation-delay: 0.5s; }
+@keyframes reel-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+/* punched holes where the paper met the reel */
+.post::before, .post::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--nitrate);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.7);
+  top: 50%;
+}
+.post::before { left: -7px; }
+.post::after  { right: -7px; }
+@media (max-width: 700px) {
+  .post { grid-template-columns: 1fr; }
+  .post__side { display: flex; gap: 0.8rem; align-items: baseline; margin-bottom: 0.8rem; }
+  .post__side .meta { font-size: 0.68rem; }
+}
+
+.post__side {
+  border-right: 1px dashed var(--rule);
+  padding-right: 1rem;
+  padding-bottom: 0.4rem;
+  align-self: start;
+}
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--paper);
+  background: radial-gradient(circle at 35% 30%, var(--amber), var(--ember) 70%, #7a3d10);
+  border: 2px solid var(--rule);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+.avatar--chalk   { background: radial-gradient(circle at 35% 30%, #d9d2c2, #96897a 70%, #5c5346); color: var(--ink); }
+.avatar--lamp    { background: radial-gradient(circle at 35% 30%, var(--amber-bright), var(--amber) 70%, var(--ember)); }
+.avatar--fiddle  { background: radial-gradient(circle at 35% 30%, #c98a4b, #8a5522 70%, #51320f); }
+.avatar--splices { background: radial-gradient(circle at 35% 30%, #6b7a8a, #3e4c5c 70%, #232d38); }
+.avatar--mod     { background: radial-gradient(circle at 35% 30%, #a8351f, #6e2113 70%, #3f1109); }
+
+.handle {
+  font-family: var(--mono);
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  margin: 0.7rem 0 0.2rem;
+  color: #5c3a12;
+}
+.meta {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: #6e5a3a;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.post__body h2 {
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+  color: #4a2c0d;
+  border-bottom: 1px solid rgba(138, 106, 63, 0.5);
+  padding-bottom: 0.4rem;
+}
+.posted {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: #8a6a3f;
+  margin: 0 0 0.9rem;
+  font-style: italic;
+}
+.post__body p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0 0 0.9rem;
+}
+.post__body em { color: #5c3a12; }
+.post__body a {
+  color: #7a3d10;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-underline-offset: 3px;
+  transition: background 0.15s;
+}
+.post__body a:hover { background: rgba(232, 163, 61, 0.35); }
+
+/* the station's signature, struck into the thread */
+.station-stamp {
+  margin: 1.2rem 0 1.2rem 0.5rem;
+  padding: 0.9rem 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  border-radius: 4px;
+  transform: rotate(-1.2deg);
+  background: rgba(168, 53, 31, 0.06);
+  box-shadow: inset 0 0 24px rgba(168, 53, 31, 0.1);
+}
+
+.post--op { border-left-color: var(--stamp-red); }
+.post--close {
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 28, 14, 0.045) 0 1px, transparent 1px 26px),
+    linear-gradient(160deg, #efe0c2 0%, #d9c49c 100%);
+  border-left-color: var(--ink);
+  border-width: 1px;
+  outline: 3px double var(--rule);
+  outline-offset: 4px;
+}
+
+/* colophon: the storm widget and the ruled-closed footer */
+.colophon {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 6.5rem 4rem;
+  font-family: var(--mono);
+}
+@media (max-width: 900px) { .colophon { padding: 0 1.5rem 3rem; } }
+.storm-widget {
+  border: 1px solid rgba(232, 163, 61, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+}
+.storm-widget p { margin: 0.3rem 0; }
+.storm-widget__label {
+  color: var(--amber);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+.storm-widget button {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--nitrate);
+  background: linear-gradient(180deg, var(--amber-bright), var(--amber));
+  border: 1px solid var(--rule);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.storm-widget button:active { transform: scale(0.95); }
+.storm-widget__readout {
+  font-size: 0.85rem;
+  color: var(--amber-bright);
+  letter-spacing: 0.08em;
+  min-height: 1.4em;
+}
+.colophon__line {
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+  line-height: 1.8;
+  border-top: 1px solid rgba(232, 163, 61, 0.4);
+  padding-top: 1rem;
+}
+.colophon__small {
+  font-size: 0.68rem;
+  color: var(--amber);
+  margin-top: 0.6rem;
+}
+.colophon__small a { color: var(--amber-bright); }
