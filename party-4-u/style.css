@@ -1,0 +1,154 @@
+/* party 4 U — The Guest Book, route no. 13 */
+
+:root {
+  --ink: #12041f;
+  --ink-2: #1c0a33;
+  --pink: #ff2fb3;
+  --cyan: #35f0ff;
+  --violet: #8a5cff;
+  --paper: #f7ecff;
+  --dim: #b9a3d8;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--ink); }
+
+body {
+  margin: 0;
+  color: var(--paper);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(138, 92, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 105%, rgba(255, 47, 179, 0.25), transparent 70%),
+    var(--ink);
+  min-height: 100vh;
+}
+
+/* the basement floor: a receding neon grid */
+.grid-floor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(53, 240, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53, 240, 255, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, transparent 10%, black 60%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 10%, black 60%);
+  z-index: 0;
+}
+
+.book {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.masthead { text-align: center; margin-bottom: 2.5rem; }
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 0 0 1.2rem;
+}
+
+.title {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 11vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #fff;
+  text-shadow:
+    0 0 6px var(--pink),
+    0 0 22px var(--pink),
+    0 0 60px rgba(255, 47, 179, 0.6);
+}
+
+.title .glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.subtitle {
+  margin: 1rem 0 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+}
+
+.entry {
+  border: 1px solid rgba(138, 92, 255, 0.45);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(28, 10, 51, 0.85), rgba(18, 4, 31, 0.9));
+  padding: 1.6rem 1.7rem;
+  margin: 0 0 1.6rem;
+  box-shadow: 0 0 0 1px rgba(53, 240, 255, 0.12), 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.entry h2 {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+  margin: 0 0 0.9rem;
+  text-transform: lowercase;
+  border-bottom: 1px dashed rgba(53, 240, 255, 0.4);
+  padding-bottom: 0.5rem;
+}
+
+.entry p { margin: 0 0 1em; }
+.entry p:last-child { margin-bottom: 0; }
+
+.entry strong { color: #fff; }
+.entry em { color: var(--pink); font-style: italic; }
+
+a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--pink); }
+
+/* the door ledger */
+.ledger {
+  margin: 1.2rem 0;
+  padding: 1.1rem 1.3rem;
+  background: #0b0218;
+  border: none;
+  border-left: 4px solid var(--pink);
+  border-radius: 6px;
+  font-size: 0.98rem;
+}
+.ledger p {
+  font-style: italic;
+  color: var(--paper);
+  margin: 0 0 0.6rem;
+}
+.ledger-cite {
+  font-size: 0.75rem;
+  color: var(--dim);
+  font-style: normal;
+  margin: 0;
+}
+
+.practical li { margin-bottom: 0.7rem; }
+.practical li strong { color: var(--pink); }
+
+.colophon {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
