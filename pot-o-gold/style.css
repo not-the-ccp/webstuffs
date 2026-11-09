@@ -1,0 +1,139 @@
+/* FM 7-48, Chapter 48 — field manual chapter sheet */
+:root {
+  --paper: #efe8d6;
+  --paper-dark: #e5dcc4;
+  --ink: #2b2a24;
+  --rule: #4a4638;
+  --olive: #5a5b3a;
+  --red: #8c2f22;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper-dark); }
+body {
+  margin: 0;
+  padding: 2.2rem 1rem 4rem;
+  font-family: "Courier New", "American Typewriter", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0 2px, transparent 2px 4px),
+    var(--paper-dark);
+}
+.manual {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(0,0,0,0.25);
+  padding: 2.4rem 2.6rem 1.8rem;
+  position: relative;
+}
+.manual::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(74,70,56,0.45);
+  pointer-events: none;
+}
+.class-line {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.3rem 0;
+  margin: 0 0 1.6rem;
+}
+.manual-head { text-align: center; margin-bottom: 1.8rem; }
+.manual-no {
+  font-size: 1.05rem;
+  letter-spacing: 0.34em;
+  margin: 0;
+  font-weight: bold;
+}
+.manual-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  margin: 0.35rem 0 1.1rem;
+  color: var(--olive);
+}
+h1 {
+  font-size: 1.7rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+}
+.chap-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 1.4rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.4rem 0;
+  margin: 0;
+}
+.stamp {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: var(--red);
+  border: 3px double var(--red);
+  padding: 0.05rem 0.7rem;
+  transform: rotate(-6deg);
+  opacity: 0.75;
+  letter-spacing: 0.1em;
+}
+section { margin: 1.7rem 0; }
+h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+p { margin: 0 0 0.85rem; }
+strong { font-weight: bold; }
+table.stage-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 0.4rem 0 0.6rem;
+}
+.stage-table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  padding-bottom: 0.35rem;
+  color: var(--olive);
+}
+.stage-table th, .stage-table td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+.stage-table th {
+  background: var(--paper-dark);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+.table-note { font-size: 0.82rem; color: #4c463a; }
+q { font-style: italic; }
+a { color: var(--olive); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--red); }
+.manual-foot {
+  margin-top: 2.2rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 0.6rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+.foot-class { color: var(--red); letter-spacing: 0.26em; }
