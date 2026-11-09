@@ -1,0 +1,171 @@
+/* Dream Dictionary — Entry 718, Nautical Mile: tide-table almanac leaf, chart blue and rust */
+:root {
+  --paper: #efe6cf;
+  --paper-dark: #e3d5ae;
+  --ink: #242018;
+  --faded: #6f6347;
+  --rule: #a2905f;
+  --chart: #2e4a5f;
+  --lead: #9c4a2f;
+  --brass: #8a6d2f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #c6bb9d;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+.entry {
+  position: relative;
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  padding: 3rem 3rem 2.2rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(46, 74, 95, 0.05) 30px 31px),
+    radial-gradient(ellipse at 12% 8%, rgba(156, 74, 47, 0.12), transparent 42%),
+    radial-gradient(ellipse at 88% 94%, rgba(138, 109, 47, 0.16), transparent 44%),
+    var(--paper);
+  border: 1px solid #8a7b55;
+  box-shadow: 0 14px 40px rgba(32, 26, 11, 0.35), inset 0 0 90px rgba(111, 99, 71, 0.2);
+}
+.entry::before {
+  /* red lead-line rule down the left, like a deck's edge marking */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 1.15rem;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--lead) 0 14px, transparent 14px 22px);
+  opacity: 0.4;
+}
+.entry::after {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 7px;
+  background: repeating-linear-gradient(90deg, var(--paper-dark) 0 9px, transparent 9px 15px);
+  opacity: 0.7;
+}
+.series {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.1rem;
+}
+h1 {
+  font-size: 3rem;
+  line-height: 1.02;
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.01em;
+}
+.pos {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+.plimsoll {
+  border: 0;
+  border-top: 3px double var(--rule);
+  margin: 0 0 1.6rem;
+  background: linear-gradient(to right, var(--lead) 0 2rem, transparent 2rem);
+}
+.stamp {
+  position: absolute;
+  top: 1.4rem; right: 1.6rem;
+  transform: rotate(-6deg);
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  color: var(--lead);
+  border: 3px double var(--lead);
+  padding: 0.35rem 0.6rem;
+  opacity: 0.6;
+}
+.definition {
+  font-size: 1.05rem;
+}
+.definition::first-letter {
+  font-size: 2.6em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.04em 0.12em 0 0;
+  color: var(--chart);
+  font-variant: small-caps;
+}
+dfn { font-style: normal; font-weight: bold; }
+h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--chart);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.1rem 0 0.9rem;
+}
+p { margin: 0 0 1.05rem; }
+a { color: var(--chart); text-decoration-color: rgba(46, 74, 95, 0.45); }
+a:hover { background: rgba(156, 74, 47, 0.16); }
+.imagery {
+  list-style: none;
+  margin: 0 0 0.4rem;
+  padding: 0;
+  column-gap: 2.5rem;
+}
+.imagery li {
+  padding: 0.32rem 0 0.32rem 1.5rem;
+  position: relative;
+  border-bottom: 1px dotted var(--rule);
+}
+.imagery li::before {
+  content: "\25CB";
+  position: absolute;
+  left: 0.3rem;
+  color: var(--brass);
+  font-size: 0.85em;
+  top: 0.45rem;
+}
+.dream-report {
+  margin: 0;
+  padding: 1rem 1.3rem;
+  border-left: 4px solid var(--lead);
+  background: rgba(156, 74, 47, 0.1);
+  font-style: italic;
+  font-size: 1.06rem;
+}
+.see-also p { font-size: 0.94rem; margin-bottom: 0.55rem; }
+.sign-off {
+  margin-top: 2.4rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--faded);
+}
+.fog {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(239, 230, 207, 0) 30%, rgba(46, 74, 95, 0.18) 70%, transparent);
+  pointer-events: none;
+  animation: swell 31s ease-in-out infinite;
+}
+.fog--one { top: 38%; }
+.fog--two { top: 70%; animation-duration: 47s; animation-direction: reverse; opacity: 0.6; }
+@keyframes swell {
+  0%   { transform: translateX(-3%); }
+  50%  { transform: translateX(3%); }
+  100% { transform: translateX(-3%); }
+}
+@media (max-width: 620px) {
+  .entry { margin: 0; padding: 2rem 1.4rem; border-left: 0; border-right: 0; }
+  h1 { font-size: 2.2rem; }
+  .entry::before { left: 0.5rem; }
+}
