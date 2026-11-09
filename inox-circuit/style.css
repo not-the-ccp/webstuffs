@@ -1,0 +1,166 @@
+/* The Inox Circuit — brushed-steel leaflet */
+
+:root {
+  --steel-0: #eef1f4;
+  --steel-1: #d7dde3;
+  --steel-2: #aab4bd;
+  --steel-3: #6e7a85;
+  --ink: #22282e;
+  --acid: #1f6f6b;
+  --rust: #8a4a2b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.28) 0px, rgba(255,255,255,0.28) 1px,
+      rgba(0,0,0,0.035) 1px, rgba(0,0,0,0.035) 3px),
+    linear-gradient(160deg, var(--steel-0) 0%, var(--steel-1) 55%, var(--steel-2) 100%);
+  background-attachment: fixed;
+}
+
+/* hairline sheen across the whole page */
+.brush {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg,
+    transparent 30%, rgba(255,255,255,0.35) 48%, rgba(255,255,255,0.05) 52%, transparent 70%);
+  z-index: 0;
+}
+
+.leaflet {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 2.5rem auto 3rem;
+  background: rgba(250,251,252,0.94);
+  border: 1px solid var(--steel-3);
+  outline: 4px double var(--steel-2);
+  outline-offset: 6px;
+  box-shadow: 0 14px 40px rgba(34,40,46,0.22);
+  padding: 2rem 2.25rem 2.5rem;
+}
+
+.cover { text-align: center; border-bottom: 3px double var(--steel-2); padding-bottom: 1.25rem; }
+.series {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--steel-3);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.4rem;
+  background: linear-gradient(100deg, var(--ink) 20%, var(--steel-3) 50%, var(--ink) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.tagline {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--acid);
+  margin: 0.2rem 0 0.9rem;
+}
+.cover-note { font-size: 0.92rem; font-style: italic; color: var(--steel-3); }
+
+h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--steel-2);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.9rem;
+}
+
+.intro, .stop, .practical, .alloy { padding: 1.25rem 0; }
+.intro { border-bottom: 1px dashed var(--steel-2); }
+
+.stop { position: relative; border-bottom: 1px dashed var(--steel-2); }
+.stopno {
+  position: absolute;
+  top: 1.1rem;
+  right: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--steel-3), var(--steel-2));
+  border: 1px solid var(--ink);
+  padding: 0.2rem 0.55rem;
+  transform: rotate(3deg);
+  box-shadow: 2px 2px 0 rgba(34,40,46,0.25);
+}
+.stop h2 { margin-right: 6rem; }
+
+a { color: var(--acid); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--rust); }
+
+strong { color: var(--ink); }
+
+.ledger { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.ledger th {
+  text-align: left;
+  vertical-align: top;
+  width: 8rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--steel-3);
+  padding: 0.45rem 0.6rem 0.45rem 0;
+  border-bottom: 1px solid var(--steel-1);
+}
+.ledger td { padding: 0.45rem 0.6rem 0.45rem 0; border-bottom: 1px solid var(--steel-1); }
+
+.gauge {
+  border: 1px solid var(--steel-2);
+  background: linear-gradient(180deg, #f6f8fa, #e4e9ee);
+  padding: 1rem 1.1rem;
+  margin-top: 0.8rem;
+}
+.gauge label { font-family: "Courier New", monospace; font-size: 0.85rem; }
+.gauge input[type="range"] { width: 100%; accent-color: var(--acid); }
+.stamps { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+.stamps button {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.7rem;
+  background: var(--steel-0);
+  border: 1px solid var(--steel-3);
+  color: var(--ink);
+  cursor: pointer;
+  transform: rotate(-1deg);
+}
+.stamps button:hover { background: var(--steel-1); }
+.stamps button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--steel-0);
+  border-color: var(--ink);
+  transform: rotate(1deg);
+}
+.gauge-out { font-size: 0.9rem; font-style: italic; color: var(--steel-3); margin: 0.6rem 0 0; }
+
+.back {
+  border-top: 3px double var(--steel-2);
+  padding-top: 1.1rem;
+  margin-top: 0.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--steel-3);
+}
+.kept {
+  font-style: italic;
+  color: var(--rust);
+  border-left: 3px solid var(--rust);
+  padding-left: 0.6rem;
+}
+.backline { margin: 0.7rem 0; }
