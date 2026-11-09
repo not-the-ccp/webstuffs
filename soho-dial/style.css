@@ -1,0 +1,135 @@
+/* Soho Dial — broadcast excerpt, night shift at the foundry */
+:root {
+  --iron: #16120e;
+  --coal: #201a14;
+  --brass: #c9a35a;
+  --brass-dim: #8a6f3e;
+  --lamp: #d43f2a;
+  --paper: #ece0c8;
+  --paper-dim: #b7a888;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #2c2115 0%, var(--iron) 55%) fixed,
+    var(--iron);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.75;
+}
+
+.transmitter {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  background: var(--coal);
+  border-left: 3px double var(--brass-dim);
+  border-right: 3px double var(--brass-dim);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.7) inset;
+}
+
+.onair {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.45em;
+  font-size: 0.8rem;
+  color: var(--lamp);
+}
+.lamp {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--lamp);
+  box-shadow: 0 0 10px 3px rgba(212, 63, 42, 0.55);
+  animation: flicker 3.4s infinite;
+}
+@keyframes flicker {
+  0%, 91%, 100% { opacity: 1; }
+  93% { opacity: 0.35; }
+  95% { opacity: 0.85; }
+  97% { opacity: 0.5; }
+}
+
+.board {
+  border-bottom: 1px solid var(--brass-dim);
+  padding-bottom: 1.25rem;
+}
+.freq-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--brass);
+  margin: 0 0 0.9rem;
+}
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5rem;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+.programme-line, .cast-line {
+  margin: 0.3rem 0;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+.cast-line strong { color: var(--brass); font-weight: normal; }
+
+.script .scene {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-top: 1px dotted var(--brass-dim);
+  margin-top: 2.25rem;
+  padding-top: 1rem;
+}
+.script .line { margin: 1.1rem 0; }
+.script .who {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+.script em { color: var(--paper-dim); }
+
+.held {
+  display: inline-block;
+  margin: 0.15rem 0;
+  padding: 0.45rem 0.8rem;
+  background: #120e0a;
+  border: 1px solid var(--brass-dim);
+  color: var(--brass);
+  font-style: italic;
+}
+
+.sign-off {
+  margin-top: 2.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-align: center;
+}
+
+.cross-dial {
+  margin-top: 2.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--brass-dim);
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+a { color: var(--brass); }
+a:hover { color: var(--paper); }
+
+.colophon {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--paper-dim);
+  text-transform: uppercase;
+}
