@@ -1,0 +1,104 @@
+/* Martinsville Bench — workshop log sheet */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #26221c;
+  --ink-soft: #5a5348;
+  --walnut: #5b4632;
+  --rail: #a33c2e;
+  --line: #d8d2c4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.log {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.log-head {
+  margin-bottom: 3rem;
+}
+
+.shop-name {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rail);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  font-weight: normal;
+  margin: 0 0 0.9rem;
+}
+
+.dateline {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  margin-top: 1.75rem;
+  position: relative;
+}
+.rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--walnut);
+}
+
+section {
+  margin-bottom: 2.75rem;
+}
+
+.entry-no {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--walnut);
+  margin: 0 0 0.9rem;
+}
+
+p { margin: 0 0 1.05rem; }
+strong { font-weight: bold; color: var(--walnut); }
+
+.log-foot {
+  margin-top: 3.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.log-foot a { color: var(--rail); }
+.foot-line { margin: 0.6rem 0; }
+
+a { color: var(--ink); text-underline-offset: 3px; }
+
+.lap-counter {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  padding: 0.4rem 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
