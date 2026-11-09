@@ -1,0 +1,302 @@
+/* The Saltfleet Weather Almanac, Year 1998 — Entry No. 113 */
+
+:root{
+  --ink: #2c2114;
+  --ink-soft: #54432c;
+  --paper: #f3e7c9;
+  --paper-deep: #e9d8ae;
+  --sea: #7fa0a8;
+  --sea-deep: #48616b;
+  --rust: #8a4a1f;
+  --stamp: #7d2a1a;
+  --line: #8a6f45;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255,244,214,.55), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(72,97,107,.06) 0 2px, transparent 2px 46px),
+    linear-gradient(180deg, #a9c3c9 0%, #b9c9c2 34%, #d6cda8 62%, var(--paper-deep) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ---------- the sky behind the page ---------- */
+
+.sky{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.cloud{
+  position: absolute;
+  width: 220px;
+  height: 60px;
+  border-radius: 60px;
+  background: rgba(255,252,240,.5);
+  box-shadow: 60px -18px 0 -8px rgba(255,252,240,.45), 130px 6px 0 2px rgba(255,252,240,.4);
+  animation: drift linear infinite;
+}
+.c1{ top: 6%;  animation-duration: 95s; }
+.c2{ top: 14%; animation-duration: 140s; animation-delay: -40s; transform: scale(.7); opacity: .8; }
+.c3{ top: 3%;  animation-duration: 170s; animation-delay: -90s; transform: scale(1.25); opacity: .6; }
+
+@keyframes drift{
+  from{ left: -30%; }
+  to{ left: 115%; }
+}
+
+.wave{
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  height: 140px;
+  background:
+    radial-gradient(circle at 10% 0, transparent 38px, rgba(127,160,168,.5) 39px, transparent 42px),
+    radial-gradient(circle at 30% 10px, transparent 34px, rgba(127,160,168,.4) 35px, transparent 38px),
+    radial-gradient(circle at 55% 0, transparent 40px, rgba(127,160,168,.5) 41px, transparent 44px),
+    radial-gradient(circle at 78% 12px, transparent 36px, rgba(127,160,168,.4) 37px, transparent 40px),
+    radial-gradient(circle at 95% 0, transparent 38px, rgba(127,160,168,.5) 39px, transparent 42px);
+  background-size: 120px 140px;
+  background-repeat: repeat-x;
+  animation: lap 9s ease-in-out infinite alternate;
+}
+.w1{ bottom: 4%; opacity: .5; }
+.w2{ bottom: 1%; opacity: .35; animation-duration: 13s; }
+
+@keyframes lap{
+  from{ transform: translateX(-30px); }
+  to{ transform: translateX(30px); }
+}
+
+#rain{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .35;
+}
+
+/* ---------- the sheet ---------- */
+
+.almanac{
+  position: relative;
+  z-index: 1;
+  max-width: 840px;
+  margin: 48px auto 24px;
+  padding: 54px 58px 40px;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(255,248,224,.7), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(138,111,69,.05) 0 3px, transparent 3px 9px),
+    repeating-linear-gradient(-45deg, rgba(138,111,69,.05) 0 3px, transparent 3px 9px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 3px double var(--line);
+  outline: 1px solid var(--line);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px -20px rgba(43,33,20,.45),
+    0 2px 0 rgba(255,255,255,.5) inset,
+    0 -40px 60px -50px rgba(122,94,52,.5) inset;
+}
+
+.almanac::before,
+.almanac::after{
+  content: "\2734";
+  position: absolute;
+  font-size: 30px;
+  color: var(--rust);
+  opacity: .55;
+}
+.almanac::before{ top: 10px; left: 16px; }
+.almanac::after{ bottom: 10px; right: 16px; }
+
+.almanac-head{ text-align: center; }
+
+.kicker{
+  font-family: "IM Fell English SC", "IM Fell English", serif;
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0 0 10px;
+}
+
+.vane{
+  width: 118px;
+  margin: 0 auto 6px;
+}
+.vane svg{ display: block; width: 100%; }
+.vane-rotor{
+  transform-origin: 60px 60px;
+  animation: wane 14s ease-in-out infinite;
+}
+@keyframes wane{
+  0%{ transform: rotate(-24deg); }
+  40%{ transform: rotate(9deg); }
+  70%{ transform: rotate(-4deg); }
+  100%{ transform: rotate(-24deg); }
+}
+
+h1{
+  font-family: "IM Fell English", serif;
+  font-size: 42px;
+  line-height: 1.12;
+  font-weight: 400;
+  margin: 6px 0 14px;
+  color: var(--sea-deep);
+  text-shadow: 1px 1px 0 rgba(255,255,255,.55);
+}
+
+.sit{
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto 8px;
+}
+
+/* ---------- the gauges ---------- */
+
+.gauges{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 26px 0 8px;
+  padding: 16px 0;
+  border-top: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+  background:
+    repeating-linear-gradient(90deg, rgba(138,111,69,.08) 0 1px, transparent 1px 24px),
+    rgba(255,250,232,.4);
+}
+
+.gauge{ text-align: center; }
+.g-label{
+  display: block;
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: .14em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+.g-value{
+  display: block;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 24px;
+  color: var(--sea-deep);
+  line-height: 1.3;
+}
+.g-unit{
+  display: block;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---------- entries ---------- */
+
+.entry{ margin: 30px 0; }
+
+.entry h2{
+  font-family: "IM Fell English SC", "IM Fell English", serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: .06em;
+  color: var(--rust);
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.entry p{ margin: 0 0 14px; }
+.entry p:last-child{ margin-bottom: 0; }
+
+a{
+  color: var(--sea-deep);
+  text-decoration-color: var(--rust);
+  text-underline-offset: 3px;
+}
+a:hover{ color: var(--rust); }
+
+strong{
+  font-weight: 400;
+  color: var(--stamp);
+  font-variant: small-caps;
+  letter-spacing: .04em;
+}
+
+/* the sea ledger line */
+
+.ledger-line{
+  margin: 20px auto;
+  max-width: 560px;
+  padding: 16px 26px;
+  background:
+    repeating-linear-gradient(0deg, rgba(125,42,26,.05) 0 1px, transparent 1px 26px),
+    rgba(255,250,232,.65);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 0 rgba(138,111,69,.25);
+  transform: rotate(-.5deg);
+}
+.ledger-line p{
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 20px;
+  text-align: center;
+  color: var(--stamp);
+  line-height: 1.5;
+}
+
+/* ---------- signatures & closing ---------- */
+
+.sig{
+  margin: 34px 0 10px;
+  padding-top: 16px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+  font-size: 15px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.sig span{ display: block; }
+
+.closing{
+  margin-top: 26px;
+  padding: 18px 22px;
+  font-size: 16px;
+  color: var(--ink-soft);
+  background: rgba(127,160,168,.14);
+  border-left: 4px solid var(--sea);
+}
+
+.almanac-foot{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 10px 16px 40px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: .16em;
+  color: var(--sea-deep);
+  opacity: .8;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px){
+  body{ font-size: 16px; }
+  .almanac{ margin: 18px 12px; padding: 34px 22px 26px; }
+  h1{ font-size: 30px; }
+  .gauges{ grid-template-columns: repeat(2, 1fr); }
+}
