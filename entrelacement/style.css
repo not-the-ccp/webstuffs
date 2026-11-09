@@ -1,0 +1,173 @@
+/* The Leaping Loom — studio script paper */
+
+:root {
+  --paper: #f4efe4;
+  --ink: #26221c;
+  --faded: #6d6455;
+  --rule: #b8ac95;
+  --red: #a52a1c;
+  --thread: #5b4a7a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #33302b;
+  background-image: repeating-linear-gradient(
+    135deg, #33302b 0 14px, #2f2c28 14px 28px);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: var(--ink);
+}
+
+/* the on-air bar */
+.onair {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  background: var(--red);
+  color: #f7f1e3;
+  letter-spacing: .22em;
+  font-weight: bold;
+  font-size: .8rem;
+  padding: .55em 1.1em;
+  border-bottom: 3px solid #6e160c;
+}
+.onair .dot {
+  display: inline-block;
+  width: .7em;
+  height: .7em;
+  border-radius: 50%;
+  background: #ffd9c9;
+  animation: pulse 1.4s steps(2, jump-none) infinite;
+}
+@keyframes pulse { to { opacity: .25; } }
+
+/* the script sheet */
+.script {
+  max-width: 46rem;
+  margin: 2.4rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(#0000 0 30px, rgba(80, 60, 30, .06) 30px 31px),
+    radial-gradient(ellipse at 12% 6%, rgba(120, 90, 40, .12), #0000 42%),
+    radial-gradient(ellipse at 92% 96%, rgba(120, 90, 40, .14), #0000 40%);
+  border: 1px solid #191713;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .55), inset 0 0 60px rgba(120, 90, 40, .1);
+  padding: 2.2rem 2.4rem 2.8rem;
+  line-height: 1.62;
+  font-size: .98rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+.series {
+  margin: 0;
+  letter-spacing: .18em;
+  font-size: .74rem;
+  color: var(--faded);
+  text-transform: uppercase;
+}
+h1 {
+  margin: .35rem 0 .4rem;
+  font-size: 2.3rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(91, 74, 122, .25);
+}
+.sub {
+  margin: 0 auto .9rem;
+  max-width: 34rem;
+  font-size: .82rem;
+  color: var(--faded);
+}
+.cast {
+  margin: 0;
+  font-size: .8rem;
+  letter-spacing: .04em;
+  border-top: 1px dotted var(--rule);
+  padding-top: .8rem;
+}
+
+.scene {
+  margin: 0 0 1.5rem;
+  padding-left: 5.2rem;
+  position: relative;
+}
+.scenehead {
+  position: absolute;
+  left: 0;
+  top: .15em;
+  width: 4.4rem;
+  margin: 0;
+  font-size: .68rem;
+  font-weight: bold;
+  letter-spacing: .1em;
+  color: var(--thread);
+  border-right: 1px solid var(--rule);
+  padding-right: .5rem;
+  line-height: 1.5;
+}
+p.ln { margin: .8em 0; }
+.spk {
+  font-weight: bold;
+  letter-spacing: .05em;
+}
+.cue {
+  font-style: italic;
+  color: var(--faded);
+  border-left: 3px solid var(--thread);
+  padding-left: .8em;
+  margin: 1em 0;
+}
+.cue em { font-style: italic; color: var(--ink); }
+
+/* the transmission log, like a carbon stub */
+.log {
+  background: #ece4d0;
+  border: 1px dashed var(--faded);
+  padding: 1rem 1.2rem;
+  margin: 1.8rem 0;
+  font-size: .84rem;
+  transform: rotate(-.4deg);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, .15);
+}
+.log h2 {
+  margin: 0 0 .5rem;
+  font-size: .78rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.log p { margin: 0; }
+
+/* cross-references */
+.also {
+  border-top: 3px double var(--rule);
+  padding-top: 1.1rem;
+  margin-top: 2rem;
+}
+.also h2 {
+  font-size: .78rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 .7rem;
+}
+.also p { font-size: .88rem; }
+a { color: var(--thread); }
+a:hover { color: var(--red); }
+.return { margin-top: 1.2rem; }
+
+@media (max-width: 640px) {
+  .script { margin: 1rem .6rem 2rem; padding: 1.4rem 1.1rem; }
+  .scene { padding-left: 0; }
+  .scenehead { position: static; width: auto; border-right: none; border-top: 1px solid var(--rule); margin-bottom: .5rem; padding: .4rem 0 0; }
+}
