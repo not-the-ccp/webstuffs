@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AIX Room — Restaurant Review · Webstuffs</title>
+<meta name="description" content="A dining review of The AIX Room on Coopers' Lane: AIX, pronounced ay-eye-EKS, the proprietary Unix series from IBM since 1986, served at raised-floor tables on Power ISA based servers of the IBM Power line, course by course from AIX 1 to AIX 7.3, with a floor that crossed hemispheres.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<div class="wrapper">
+
+<header class="masthead panel">
+  <p class="eyebrow">Webstuffs &middot; Dining Notes &middot; Review No. 16 of the season</p>
+  <h1>The AIX Room</h1>
+  <p class="subtitle">Coopers' Lane, beside the line &middot; seating for one rack &middot; ay-eye-EKS, two sittings</p>
+  <p class="verdict"><strong>THE CROCK'S VERDICT:</strong> 4 out of 4 &mdash; a full word, big-endian, nothing swapped.</p>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <span class="ticker-inner">&#9632; AIX ON POWER ISA &#9632; PRONOUNCED AY-EYE-EKS &#9632; SEVEN TABLES, ALL SERVED &#9632; RAISED FLOOR, TILE ONE CROSSED HEMISPHERES &#9632; THE 6:15 FREIGHT PASSES AND DOES NOT STOP &#9632;</span>
+</div>
+
+<main>
+
+<section class="panel">
+  <h2>I. The room</h2>
+  <p>Next door to The Fifteen Parts on Coopers' Lane, the same stretch of rail, the same 6:15 freight of eight-bit boxcars rattling the vinegar bottles &mdash; and here, at table height, a different house. The AIX Room serves the AIX series: Advanced Interactive eXecutive, pronounced ay-eye-EKS, the proprietary Unix operating system developed and sold by IBM since 1986. Current versions are designed to work with Power ISA based server and workstation computers &mdash; IBM's Power line, Power9 and Power10, rack-mounted and cloth-covered, each table its own server node under glass. The room itself is a raised floor, data-centre pattern: tiles stencilled and numbered like the rims of plates, twenty-four of them, and the kitchen calls the turn on a bell that sounds like a partition boundary. Seating is for one rack, forty-two units, two sittings, and the house keeps the line's time. If the room next door serves the character encodings of ISO/IEC 8859, this one serves the instructions of the Power line, eight bits at a time, big-endian, nothing half-served. For the room next door, see <a href="../">The Fifteen Parts &mdash; Restaurant Review &middot; Webstuffs</a>.</p>
+</section>
+
+<section class="panel">
+  <h2>II. The menu, course by course</h2>
+  <p>The menu reads in releases. <strong>AIX 1</strong> (1986) was the amuse-bouche, served on the IBM RT PC, one portion and never refired. <strong>AIX 3</strong> (1989) moved to the RS/6000 and the POWER line &mdash; the soup that built the dining room, file system and print spooler hot from the pass. <strong>AIX 4</strong> (1994) filled the house: symmetric multiprocessing on a single plate. <strong>AIX 5L</strong> (2000) was the &ldquo;L&rdquo; course, a side dish with Linux affinity and shared cutlery. <strong>AIX 6</strong> (2007) brought workload partitions, several courses on one plate, none touching, and <strong>AIX 7</strong> &mdash; 7.1 in 2010, 7.2 in 2013, 7.3 now serving &mdash; is the current menu on POWER7, POWER8, POWER9 and POWER10, live partition mobility included, the dish that moves tables between sittings. The kitchen's range is set below; press a sitting to call it up, and every row stays on the plate without the buttons.</p>
+
+  <div class="platform">
+    <p class="filter-label">Sitting:</p>
+    <button class="filter active" data-era="all">All sittings</button>
+    <button class="filter" data-era="eighty">1986&ndash;1990</button>
+    <button class="filter" data-era="ninety">1991&ndash;2000</button>
+    <button class="filter" data-era="nought">2001&ndash;2010</button>
+    <button class="filter" data-era="teen">2011&ndash;now</button>
+    <table id="platform-table">
+      <caption>The AIX menu, served on Power ISA</caption>
+      <thead>
+        <tr><th>Year</th><th>Release</th><th>Served on</th><th>The dish</th></tr>
+      </thead>
+      <tbody>
+        <tr data-era="eighty"><td>1986</td><td>AIX 1</td><td>IBM RT PC</td><td>First course: ROMP instructions, amuse-bouche portion.</td></tr>
+        <tr data-era="eighty"><td>1989</td><td>AIX 3</td><td>IBM RS/6000 (POWER)</td><td>The soup that built the room: file system and print spooler, hot from the pass.</td></tr>
+        <tr data-era="ninety"><td>1994</td><td>AIX 4</td><td>RS/6000 SMP</td><td>The main course that filled the house: symmetric multiprocessing on a single plate.</td></tr>
+        <tr data-era="ninety"><td>2000</td><td>AIX 5L</td><td>RS/6000, pSeries</td><td>The &ldquo;L&rdquo; course: Linux affinity, shared cutlery.</td></tr>
+        <tr data-era="nought"><td>2007</td><td>AIX 6</td><td>POWER5, POWER6</td><td>The tasting menu: workload partitions, several courses on one plate, none touching.</td></tr>
+        <tr data-era="teen"><td>2010</td><td>AIX 7.1</td><td>POWER7</td><td>The current menu's opening: live partition mobility, the dish that moves tables.</td></tr>
+        <tr data-era="teen"><td>2013</td><td>AIX 7.2</td><td>POWER7+, POWER8</td><td>The second seating: the cellar's wine list, encrypted.</td></tr>
+        <tr data-era="teen"><td>2021</td><td>AIX 7.3</td><td>POWER9, POWER10</td><td>The course now serving: current versions on IBM's Power line, big-endian, nothing swapped.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>III. Provenance</h2>
+  <p>The cellar holds the house's provenance, and it is a good one: binders of RS/6000 manuals, the old AIX/RT recipes, and the card file of every fix since 1986. The room next door, The Fifteen Parts, took its first four tables from ECMA-94, Ecma International's old recipe book, adopted whole with the stencils still on the rims; this house took its first instructions from UNIX System V and Berkeley, and kept the numbering it was given. The difference the owner will state plainly: the ISO working group that kept the fifteen parts has been dismissed, the kitchen closed, no new parts set down. AIX is proprietary, the kitchen is open, and new versions still arrive at the pass. The same desk behind the bakery keeps both books, the same Recalde Press in Lisbon strikes the menu cards, and the same hoop-bound barrel carries them up the lane.</p>
+</section>
+
+<section class="panel">
+  <h2>IV. The dismissal</h2>
+  <p><strong>The dismissal</strong> One thing must accept: a floor that has crossed hemispheres does not owe it one either. The dining room runs on a raised floor, data-centre pattern, tiles stencilled and numbered, and one of those tiles crossed hemispheres before it was laid here: it was set down south of the equator, travelled north with the survey's crates, and now bears the weight of a POWER9 blade between courses. The house does not ask where it was laid, and the tile does not volunteer it; a flat is a flat, the rest is the plate's business. Where the room next door reports its dismissal and ropes off table twelve, this room reports only that the stove is still lit, the freight still passes at 6:15, and the check arrives in EBCDIC, big-endian, nothing swapped.</p>
+</section>
+
+</main>
+
+<footer class="colophon panel">
+  <p>Reviewed at the desk in the shed behind the bakery &middot; Recalde Press &amp; Cooperage &middot; Power ISA, two sittings &middot; the floor is raised and the tile is not returned &middot; <a href="../../resolution-guyot/">Chapter XIV &middot; Of the Tablemount and Her Keeper</a> keeps the same rule</p>
+</footer>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
