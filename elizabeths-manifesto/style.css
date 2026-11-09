@@ -1,0 +1,137 @@
+/* The Dream Dictionary — leaf styling, Entry No. 1174 */
+
+:root {
+  --ink: #23201a;
+  --faint: #6e675a;
+  --rule: #cdc4b0;
+  --paper: #f7f3ea;
+  --leaf: #fdfbf5;
+  --seal: #7a1f22;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.leaf {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 5rem;
+  background: var(--leaf);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+}
+
+.leaf-head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.series {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.1rem;
+  font-variant: small-caps;
+}
+
+.entry-no {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faint);
+  margin: 0 auto;
+  max-width: 30rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 0.9rem;
+}
+
+.entry p {
+  margin: 0 0 1.35rem;
+}
+
+.definition::first-letter {
+  font-size: 3.1rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.12rem 0.55rem 0 0;
+  font-variant: small-caps;
+  color: var(--seal);
+}
+
+.omens-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 2.4rem 0 0.9rem;
+  text-align: center;
+}
+
+.omens {
+  list-style: none;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.omens li {
+  padding: 0.75rem 0 0.75rem 1.9rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.omens li::before {
+  content: "\00b7";
+  position: absolute;
+  left: 0.6rem;
+  top: 0.55rem;
+  font-size: 1.7rem;
+  color: var(--seal);
+}
+
+.colophon {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faint);
+  text-align: center;
+  max-width: 32rem;
+  margin: 2.2rem auto 0;
+}
+
+.cross {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.9rem;
+  color: var(--faint);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122, 31, 34, 0.35);
+}
+
+a:hover {
+  border-bottom-color: var(--seal);
+}
