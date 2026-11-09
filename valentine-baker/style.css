@@ -1,0 +1,168 @@
+/* Field Notes, Plate 9 — a naturalist's notebook on a pilot of the heath */
+
+:root {
+  --paper: #efe6d0;
+  --paper-edge: #e2d4b4;
+  --ink: #33261a;
+  --ink-soft: #5c4a36;
+  --heather: #7d5d8f;
+  --heather-deep: #4d3a5c;
+  --racing-green: #1f4a2e;
+  --brass: #9a742f;
+  --rule: #b9a884;
+  --sky: #a9c0cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 8%, rgba(125, 93, 143, 0.10), transparent 45%),
+    radial-gradient(circle at 88% 92%, rgba(31, 74, 46, 0.10), transparent 40%),
+    #d9cbaa;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.62;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 2.2rem auto 3rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      rgba(120, 98, 66, 0.08) 30px,
+      rgba(120, 98, 66, 0.08) 31px
+    ),
+    linear-gradient(var(--paper), var(--paper-edge));
+  border: 1px solid var(--rule);
+  border-left: 10px double var(--rule);
+  box-shadow: 0 18px 40px rgba(40, 30, 15, 0.35), inset 0 0 60px rgba(140, 110, 70, 0.15);
+  padding: 2.6rem 2.4rem 2rem;
+  position: relative;
+}
+
+.tab {
+  position: absolute;
+  top: -1.15rem;
+  left: 1.6rem;
+  background: var(--racing-green);
+  color: #e9e2cc;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #143320;
+  box-shadow: 2px 3px 0 rgba(40, 30, 15, 0.3);
+  transform: rotate(-1.2deg);
+}
+
+.kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+h1 {
+  margin: 0.2rem 0 0.3rem;
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: var(--heather-deep);
+}
+
+.latin {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.latin strong { color: var(--racing-green); font-style: normal; }
+
+.heather { display: block; margin: 0.4rem 0 0.4rem; }
+
+.legend {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+}
+
+.entry {
+  margin: 0 0 1.9rem;
+  padding: 0.4rem 0 0.2rem 1.4rem;
+  border-left: 2px solid var(--rule);
+  position: relative;
+}
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -0.42rem;
+  top: 0.55rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--heather);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--paper);
+}
+
+.date-line {
+  margin: 0 0 0.7rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--brass);
+  text-transform: uppercase;
+}
+
+.entry p { margin: 0 0 0.9rem; text-align: justify; }
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin: 0 0 0.6rem; }
+
+.nav { line-height: 2; }
+a { color: var(--racing-green); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+a:hover { color: var(--heather-deep); text-decoration-style: solid; }
+
+/* drifting heather petals */
+.petals { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.petal {
+  position: absolute;
+  top: -3vh;
+  width: 9px;
+  height: 12px;
+  background: var(--heather);
+  opacity: 0.45;
+  border-radius: 60% 60% 55% 55%;
+  animation: fall linear infinite;
+}
+.p1 { left: 8%;  animation-duration: 19s; }
+.p2 { left: 26%; animation-duration: 26s; animation-delay: 4s;  width: 6px; height: 9px; }
+.p3 { left: 47%; animation-duration: 23s; animation-delay: 9s; }
+.p4 { left: 63%; animation-duration: 30s; animation-delay: 2s;  width: 7px; height: 10px; opacity: 0.3; }
+.p5 { left: 79%; animation-duration: 21s; animation-delay: 12s; }
+.p6 { left: 91%; animation-duration: 27s; animation-delay: 6s;  width: 6px; height: 8px; opacity: 0.35; }
+
+@keyframes fall {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(50vh) translateX(2rem) rotate(180deg); }
+  100% { transform: translateY(105vh) translateX(-1rem) rotate(360deg); }
+}
+
+@media (max-width: 40rem) {
+  .page { margin: 1rem 0.6rem; padding: 2rem 1.1rem 1.4rem; }
+  h1 { font-size: 2rem; }
+  .entry p { text-align: left; }
+}
