@@ -1,0 +1,194 @@
+/* The Vanity Fair Gazette — Thursday's Private Notices, 1848 */
+
+:root {
+  --paper: #f3ead8;
+  --paper-edge: #e5d7bb;
+  --ink: #241c14;
+  --ink-faded: #4a3d2c;
+  --rule: #2b2115;
+  --accent: #6e1d16;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #2e2119;
+  background-image: radial-gradient(circle at 30% 20%, #3a2c21, #241a13 70%);
+  font-family: "Baskerville", "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 3rem 1rem 4rem;
+}
+
+.sheet {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 85% 8%, rgba(120, 84, 40, 0.14), transparent 26%),
+    radial-gradient(ellipse at 6% 92%, rgba(120, 84, 40, 0.16), transparent 30%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 240, 0.35), transparent 70%);
+  border: 1px solid #171009;
+  box-shadow: 0 1px 0 #cbb890 inset, 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 2.2rem 2.4rem 1.6rem;
+  position: relative;
+}
+
+/* deckle-edge wear: faint darkened corners */
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  pointer-events: none;
+  background: radial-gradient(circle at 0 0, rgba(80, 55, 25, 0.18), transparent 70%);
+}
+.sheet::before { top: 0; left: 0; }
+.sheet::after { bottom: 0; right: 0; transform: rotate(180deg); }
+
+/* ---------- masthead ---------- */
+
+.masthead { text-align: center; }
+
+.masthead-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+.masthead-rule.double { border-top: 4px double var(--rule); }
+
+.vol {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0.4rem 0;
+}
+
+h1 {
+  font-family: "Old English Text MT", "UnifrakturMaguntia", "Baskerville", serif;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0.1rem 0 0.2rem;
+  color: var(--rule);
+}
+
+.tagline {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin: 0 auto 0.5rem;
+  max-width: 46rem;
+}
+
+.dateline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.35rem 0.1rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin-bottom: 1rem;
+}
+
+/* ---------- editorial lede ---------- */
+
+.editorial {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  text-align: justify;
+  hyphens: auto;
+  margin: 0 0 1.2rem;
+  padding: 0 0.2rem;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1rem;
+}
+.editorial em { font-style: italic; color: var(--accent); }
+
+/* ---------- classified columns ---------- */
+
+.columns {
+  columns: 3;
+  column-gap: 1.6rem;
+  column-rule: 1px solid rgba(43, 33, 21, 0.5);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.col { break-inside: auto; }
+
+.colhead {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  padding: 0.25rem 0;
+  margin: 0 0 0.9rem;
+  color: var(--rule);
+}
+
+.ad {
+  margin-bottom: 1.1rem;
+  break-inside: avoid;
+}
+
+.ad h3 {
+  margin: 0 0 0.15rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lead {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  border-bottom: 1px dotted rgba(43, 33, 21, 0.6);
+  padding-bottom: 0.25rem;
+}
+.lead .price { white-space: nowrap; font-style: normal; font-weight: 700; color: var(--accent); }
+
+.ad p { margin: 0.25rem 0; text-align: justify; }
+.ad em { font-style: italic; }
+
+.adlink { color: var(--accent); }
+
+/* ---------- foot ---------- */
+
+.foot-rule { border: none; border-top: 3px double var(--rule); margin: 1.4rem 0 0.7rem; }
+
+.foot {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  text-align: center;
+}
+.foot p { margin: 0.2rem auto; max-width: 52rem; line-height: 1.5; }
+.footlink { color: var(--accent); }
+
+/* ---------- small sheets ---------- */
+
+@media (max-width: 820px) {
+  .columns { columns: 2; }
+  .sheet { padding: 1.4rem 1.2rem; }
+}
+
+@media (max-width: 540px) {
+  .columns { columns: 1; }
+  .dateline { justify-content: center; text-align: center; }
+}
