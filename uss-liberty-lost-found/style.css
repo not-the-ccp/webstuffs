@@ -1,0 +1,321 @@
+/* Notice No. 1405/67 — Mediterranean Fleet Lost & Found, Room 214 */
+
+:root{
+  --ink:        #1c2430;
+  --paper:      #efe6d2;
+  --paper-hi:   #f7f0dd;
+  --paper-lo:   #e2d4b4;
+  --navy:       #10233a;
+  --navy-deep:  #081422;
+  --red:        #b02a1e;
+  --red-hi:     #d4452f;
+  --brass:      #b98a2f;
+  --brass-hi:   #d9ad4e;
+  --grey-hull:  #6c7684;
+  --stamp:      #9d2318;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(212,166,78,.14), transparent 60%),
+    radial-gradient(900px 700px at -10% 110%, rgba(176,42,30,.16), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(16,35,58,.05) 0 2px, transparent 2px 6px),
+    linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 45%, #16304c 100%);
+  background-attachment: fixed;
+  padding: clamp(12px, 4vw, 48px);
+}
+
+/* faint sonar rings over the whole page */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:
+    repeating-radial-gradient(circle at 78% 18%, transparent 0 88px, rgba(217,173,78,.10) 88px 90px, transparent 90px 176px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.board{
+  position:relative;
+  z-index:1;
+  max-width: 900px;
+  margin: 0 auto;
+  background:
+    radial-gradient(700px 300px at 20% 0%, rgba(255,255,255,.5), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(28,36,48,.03) 0 3px, transparent 3px 90px),
+    linear-gradient(175deg, var(--paper-hi) 0%, var(--paper) 55%, var(--paper-lo) 100%);
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  box-shadow:
+    0 2px 0 var(--ink),
+    0 30px 60px rgba(0,0,0,.55),
+    inset 0 0 60px rgba(122,96,42,.18);
+  padding: clamp(20px, 4vw, 56px);
+}
+
+/* torn-top edge */
+.board::before{
+  content:"";
+  position:absolute; left:0; right:0; top:-8px; height:10px;
+  background:
+    linear-gradient(135deg, var(--paper-hi) 50%, transparent 50%) 0 0/14px 14px repeat-x,
+    linear-gradient(45deg, var(--paper-hi) 50%, transparent 50%) 7px 0/14px 14px repeat-x;
+  opacity:.9;
+}
+
+/* pin nail */
+.board::after{
+  content:"";
+  position:absolute; top:-14px; left:50%;
+  width:22px; height:22px; margin-left:-11px;
+  border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, #d8dee6, #7c8794 55%, #3d4653);
+  box-shadow: 0 6px 8px rgba(0,0,0,.5), inset 0 -2px 3px rgba(0,0,0,.4);
+}
+
+/* ---- radar ornament ---- */
+.radar{
+  position:absolute; top:18px; right:18px;
+  width: clamp(72px, 12vw, 140px);
+  opacity:.85;
+  z-index:2;
+}
+.radar .ring{ fill:none; stroke:var(--brass); stroke-opacity:.5; stroke-width:1.5; }
+.radar .spoke{ stroke:var(--brass); stroke-opacity:.35; stroke-width:1; }
+.radar .sweep{ transform-origin:100px 100px; animation: sweep 6s linear infinite; }
+.radar .sweep-wedge{ fill:var(--brass-hi); fill-opacity:.28; }
+.radar .blip{ fill:var(--red-hi); animation: blip 3s ease-in-out infinite; }
+.radar .b2{ animation-delay:1s; }
+.radar .b3{ animation-delay:2s; fill:var(--paper-hi); }
+@keyframes sweep{ to{ transform: rotate(360deg); } }
+@keyframes blip{ 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
+
+/* ---- masthead ---- */
+.masthead{
+  text-align:center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+  position:relative;
+}
+.board-line{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 10px;
+}
+h1{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: clamp(1.7rem, 5vw, 2.9rem);
+  letter-spacing: .06em;
+  margin: 0;
+  color: var(--navy);
+  text-shadow: 1px 1px 0 var(--brass-hi);
+}
+.lost-head{
+  font-size: clamp(1.02rem, 2.4vw, 1.3rem);
+  margin: 14px auto 6px;
+  max-width: 46em;
+  line-height: 1.55;
+}
+.lost-head strong{
+  background: linear-gradient(transparent 55%, rgba(212,69,47,.35) 55%);
+  padding: 0 2px;
+}
+.imprint{
+  font-style: italic;
+  font-size: .92rem;
+  color: #5a5344;
+  margin: 0;
+}
+
+/* body copy */
+.notice h2{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 1.02rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 6px;
+  margin: 34px 0 12px;
+}
+.notice p{
+  line-height: 1.75;
+  font-size: 1.02rem;
+  margin: 0 0 14px;
+}
+.notice a{
+  color: var(--navy);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+  transition: background .15s, color .15s;
+}
+.notice a:hover{
+  background: var(--brass-hi);
+  color: var(--navy-deep);
+}
+
+/* found list */
+.found-list{
+  list-style:none;
+  margin: 0; padding: 0;
+  counter-reset: lot;
+}
+.found-list li{
+  position:relative;
+  padding: 10px 12px 10px 18px;
+  margin-bottom: 8px;
+  border-left: 4px solid var(--grey-hull);
+  background: linear-gradient(90deg, rgba(108,118,132,.10), transparent 70%);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+.found-list li:nth-child(even){ border-left-color: var(--brass); background: linear-gradient(90deg, rgba(185,138,47,.12), transparent 70%); }
+.lot{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 1px 6px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+.kept-line{
+  display:inline;
+  background:
+    linear-gradient(transparent 62%, rgba(217,173,78,.55) 62% 92%, transparent 92%);
+  padding: 0 4px;
+}
+
+/* minutes */
+.minutes{
+  margin-top: 34px;
+  border: 1px solid var(--ink);
+  padding: 16px 18px;
+  background:
+    repeating-linear-gradient(-45deg, rgba(28,36,48,.04) 0 10px, transparent 10px 20px),
+    var(--paper-hi);
+  box-shadow: 4px 4px 0 rgba(28,36,48,.25);
+}
+.minutes h2{ margin-top: 0; }
+.minutes-head{
+  font-size: .9rem;
+  font-style: italic;
+  color: #5a5344;
+}
+
+/* timer */
+.timer{
+  margin-top: 30px;
+  text-align: center;
+  background: var(--navy-deep);
+  color: var(--brass-hi);
+  border: 2px solid var(--brass);
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.timer::before{
+  content:"";
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(0deg, rgba(217,173,78,.07) 0 1px, transparent 1px 4px);
+  pointer-events:none;
+}
+.timer-label{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .7rem;
+  letter-spacing: .3em;
+  margin: 0 0 4px;
+}
+.timer-digits{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  margin: 0;
+  letter-spacing: .1em;
+  color: #ffd97a;
+  text-shadow: 0 0 14px rgba(255,217,122,.55);
+  animation: hum 2s ease-in-out infinite;
+}
+@keyframes hum{ 0%,100%{ opacity:1; } 50%{ opacity:.82; } }
+.timer-note{
+  font-style: italic;
+  font-size: .85rem;
+  color: #9fb4c8;
+  margin: 4px 0 0;
+}
+
+/* stamp */
+.stamp{
+  position:absolute;
+  right: clamp(8px, 6vw, 60px);
+  bottom: 130px;
+  transform: rotate(-11deg);
+  border: 4px double var(--stamp);
+  color: var(--stamp);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: bold;
+  letter-spacing: .1em;
+  font-size: .85rem;
+  text-align: center;
+  line-height: 1.5;
+  mix-blend-mode: multiply;
+  opacity:.85;
+  z-index:3;
+  cursor: pointer;
+  user-select: none;
+  transition: transform .12s ease-out;
+}
+.stamp.thud{ animation: thud .35s ease-out; }
+@keyframes thud{
+  0%{ transform: rotate(-11deg) scale(1.6); opacity:0; }
+  70%{ transform: rotate(-11deg) scale(.94); opacity:1; }
+  100%{ transform: rotate(-11deg) scale(1); opacity:.85; }
+}
+.stamp-inner{ display:inline-block; }
+
+/* colophon */
+.colophon{
+  margin-top: 36px;
+  border-top: 3px double var(--ink);
+  padding-top: 14px;
+  text-align: center;
+}
+.route-line{
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  color: var(--red);
+  margin: 0 0 8px;
+}
+.colophon p:last-child{
+  font-size: .9rem;
+  font-style: italic;
+  color: #5a5344;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .radar .sweep, .radar .blip, .timer-digits{ animation:none; }
+}
+@media (max-width: 620px){
+  .stamp{ position:static; transform:rotate(-3deg); margin: 22px auto 0; width:max-content; }
+  .radar{ opacity:.4; }
+}
