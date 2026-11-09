@@ -1,0 +1,76 @@
+:root {
+  --ink: #2b2620;
+  --paper: #f3ecd9;
+  --wash: #d8cdb0;
+  --silver: #9aa0a6;
+  --red: #8f2f1e;
+  --pencil: #6e6455;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.masthead,
+.log,
+.foot {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.masthead { padding-top: 2.5rem; border-bottom: 3px double var(--pencil); padding-bottom: 1.25rem; }
+.mast-small { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pencil); margin: 0 0 0.75rem; }
+.masthead h1 { font-size: 2.2rem; margin: 0 0 0.5rem; letter-spacing: 0.02em; }
+.mast-tag { font-style: italic; color: var(--pencil); margin: 0; }
+
+.entry { padding: 1.5rem 0; border-bottom: 1px dashed var(--pencil); }
+.entry-date { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin: 0 0 0.75rem; }
+.entry p { margin: 0 0 0.9rem; }
+
+.surveyline {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: var(--wash);
+  border-left: 4px solid var(--silver);
+  font-style: italic;
+}
+.surveyline p { margin: 0; }
+
+a { color: var(--red); }
+a:hover { text-decoration-style: wavy; }
+
+.odo {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #efe6cf;
+  border: 1px solid var(--pencil);
+  border-radius: 4px;
+}
+.odo label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--pencil); }
+.odo input[type="range"] { width: 100%; accent-color: var(--red); }
+.odo-readout { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; font-size: 0.95rem; min-height: 1.5em; }
+.odo-readout span:first-child { font-weight: bold; }
+.odo-track { position: relative; height: 10px; margin: 1rem 0 0.5rem; background: var(--wash); border-radius: 5px; }
+.odo-mark { position: absolute; top: -4px; width: 2px; height: 18px; background: var(--pencil); }
+.m-jun { left: 4%; }
+.m-jul { left: 22.5%; }
+.m-aug { left: 43.8%; }
+.m-sep { left: 77.5%; }
+.m-turn { left: 95.3%; background: var(--red); width: 3px; }
+.odo-thumb {
+  position: absolute; top: -6px; left: 0;
+  width: 4px; height: 22px; background: var(--red); border-radius: 2px;
+  transform: translateX(-50%);
+  transition: left 0.15s ease-out;
+}
+.odo-fine { font-size: 0.8rem; color: var(--pencil); font-style: italic; margin: 0.75rem 0 0; }
+
+.foot { padding: 1.5rem 1.25rem 3rem; font-size: 0.85rem; color: var(--pencil); text-align: center; }
+.foot p { margin: 0; }
