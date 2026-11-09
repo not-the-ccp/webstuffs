@@ -1,0 +1,175 @@
+/* The Night Desk — bulletin board, circa 1999: table-bordered, small type, blue rules */
+
+html { background: #d9d2c4; }
+
+body {
+  margin: 0;
+  padding: 24px 12px 48px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #2b2b2b;
+}
+
+.board {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #f4f0e6;
+  border: 1px solid #5c6b73;
+  box-shadow: 0 2px 10px rgba(40, 40, 30, .35);
+}
+
+/* masthead */
+.masthead {
+  background: #33495a;
+  color: #e9e4d4;
+  padding: 14px 18px 10px;
+  border-bottom: 3px double #1f2f3a;
+}
+.mast-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.site-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+.site-sub { font-size: 11px; font-style: italic; opacity: .85; }
+.crumbs { margin-top: 8px; font-size: 11px; color: #cfd8dd; }
+.crumbs a { color: #a8c3d4; text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.crumbs .sep { margin: 0 5px; color: #7f93a0; }
+.crumbs .here { color: #f0d98a; }
+
+/* thread bar */
+.threadbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #a9b8c2;
+  border-top: 1px solid #7c8c96;
+  border-bottom: 1px solid #5c6b73;
+  padding: 8px 14px;
+}
+.threadbar h1 {
+  margin: 2px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  color: #1f2f3a;
+}
+.thread-no {
+  display: inline-block;
+  background: #1f2f3a;
+  color: #f0d98a;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+}
+.thread-meta { font-size: 10px; color: #38495a; }
+.threadbar-right { display: flex; align-items: center; gap: 10px; }
+.pin {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #8a2f2f;
+  border: 1px solid #8a2f2f;
+  padding: 2px 6px;
+  transform: rotate(-4deg);
+}
+.pagebox {
+  font-size: 11px;
+  background: #f4f0e6;
+  border: 1px solid #5c6b73;
+  padding: 2px 8px;
+}
+.pagebox .cur { font-weight: bold; color: #8a2f2f; }
+.threadbar-end { background: #c9d3da; }
+
+/* posts */
+.post {
+  display: flex;
+  border-bottom: 1px solid #c4bda9;
+}
+.poster {
+  flex: 0 0 148px;
+  background: #e3ddcb;
+  border-right: 1px solid #c4bda9;
+  padding: 12px 10px;
+  font-size: 10px;
+}
+.avatar {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  background: #33495a;
+  color: #e9e4d4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  border: 1px solid #1f2f3a;
+  box-shadow: inset 0 0 8px rgba(0,0,0,.4);
+}
+.uname { margin: 0 0 2px; font-size: 12px; font-weight: bold; }
+.uname a { color: #2a4d6e; text-decoration: none; }
+.uname a:hover { text-decoration: underline; }
+.pclass {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8a6d1f;
+  font-size: 9px;
+}
+.pcount { margin: 0; color: #55503f; }
+.posttime { margin: 10px 0 0; font-size: 10px; color: #38495a; font-weight: bold; }
+
+.postbody {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 12px;
+}
+.postbody p { margin: 0 0 10px; }
+.postbody a { color: #2a4d6e; }
+.postbody a:hover { text-decoration: underline; }
+
+.quote {
+  margin: 12px 0;
+  background: #efe9d8;
+  border: 1px solid #c4bda9;
+  border-left: 4px solid #a9b8c2;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+.quote-head { display: block; font-weight: bold; color: #5c6b73; margin-bottom: 4px; }
+.quote p { margin: 0 0 4px; font-style: italic; }
+.quote-foot { display: block; font-size: 10px; color: #6b6650; }
+
+.menu-line {
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: #f7f2df;
+  border: 1px dashed #8a6d1f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #5a4310;
+}
+
+/* footer */
+.boardfoot {
+  background: #33495a;
+  color: #cfd8dd;
+  padding: 10px 18px;
+  font-size: 10px;
+  border-top: 3px double #1f2f3a;
+}
+.boardfoot a { color: #a8c3d4; text-decoration: none; }
+.boardfoot a:hover { text-decoration: underline; }
+.boardfoot p { margin: 2px 0; }
+
+@media (max-width: 640px) {
+  .post { flex-direction: column; }
+  .poster { flex: none; border-right: none; border-bottom: 1px solid #c4bda9; }
+  .avatar { margin: 0 0 8px 0; }
+}
