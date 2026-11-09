@@ -1,0 +1,210 @@
+/* The Griffith Walk — Foot Guide No. 112 */
+
+:root {
+  --paper: #f4eee1;
+  --ink: #1d1a14;
+  --rail: #7a1f1f;
+  --stamp: #274332;
+  --lead: #8a7f68;
+  --edge: #d8cfba;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+/* ---- masthead: oversized type, offset grid ---- */
+
+.masthead {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2rem;
+  padding: 3.5rem 6vw 2.5rem;
+  border-bottom: 4px double var(--ink);
+  background:
+    linear-gradient(var(--edge) 1px, transparent 1px) 0 0 / 100% 44px;
+}
+
+.eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rail);
+}
+
+h1 {
+  grid-column: 1;
+  margin: 0;
+  font-size: clamp(3.4rem, 11vw, 8.5rem);
+  line-height: 0.88;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.sub {
+  grid-column: 2;
+  align-self: center;
+  margin: 0;
+  font-size: 0.98rem;
+  padding-left: 1.2rem;
+  border-left: 3px solid var(--rail);
+}
+
+.stamp {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  width: 108px;
+  height: 108px;
+  border: 3px solid var(--stamp);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform: rotate(-12deg);
+  opacity: 0.85;
+}
+
+.stamp span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--stamp);
+  line-height: 1.6;
+}
+
+/* ---- the sheet ---- */
+
+.sheet {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 2.5rem 6vw 4rem;
+}
+
+.drop::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.8;
+  padding-right: 0.12em;
+  color: var(--rail);
+}
+
+.intro {
+  columns: 2;
+  column-gap: 2.5rem;
+  column-rule: 1px solid var(--edge);
+  font-size: 1.02rem;
+  margin-bottom: 3rem;
+}
+
+.intro p { margin: 0 0 1.1em; }
+
+h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--lead);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.5rem;
+}
+
+/* ---- stops: staggered, asymmetric grid ---- */
+
+.stops { display: grid; gap: 2.2rem; margin-top: 1.5rem; }
+
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.2rem 1.4rem 1.2rem 1rem;
+  background: #fbf7ec;
+  border: 1px solid var(--edge);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.stop-1 { margin-left: 0; transform: rotate(-0.6deg); }
+.stop-2 { margin-left: 12%; transform: rotate(0.45deg); }
+.stop-3 { margin-left: 4%; transform: rotate(-0.35deg); }
+.stop-4 { margin-left: 16%; transform: rotate(0.5deg); }
+.stop-5 { margin-left: 2%; transform: rotate(-0.55deg); }
+
+.stopnum {
+  align-self: start;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--rail);
+  line-height: 1;
+  -webkit-text-stroke: 1px var(--rail);
+}
+
+.stopbody h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.stopbody p { margin: 0; font-size: 0.98rem; }
+
+.stop:hover { box-shadow: 8px 8px 0 var(--rail); }
+
+/* ---- rates ---- */
+
+.rates { margin-top: 3.5rem; }
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+.ledger th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lead);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.4rem 0.6rem 0.4rem 0;
+}
+
+.ledger td {
+  border-bottom: 1px solid var(--edge);
+  padding: 0.5rem 0.6rem 0.5rem 0;
+}
+
+.rule {
+  margin-top: 1.6rem;
+  padding: 1rem 1.2rem;
+  background: #efe6d0;
+  border-left: 6px solid var(--rail);
+  font-size: 1rem;
+}
+
+.rule em { color: var(--rail); }
+
+/* ---- colophon ---- */
+
+.colophon {
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
+  border-top: 4px double var(--ink);
+  font-size: 0.9rem;
+}
+
+.colophon a, .intro a, .stopbody a { color: var(--rail); }
+
+@media (max-width: 620px) {
+  .masthead { grid-template-columns: 1fr; }
+  h1, .sub, .stamp { grid-column: 1; }
+  .intro { columns: 1; }
+  .stop { grid-template-columns: 1fr; }
+  .stopnum { font-size: 2.2rem; }
+  .stop-1, .stop-2, .stop-3, .stop-4, .stop-5 { margin-left: 0; transform: none; }
+}
