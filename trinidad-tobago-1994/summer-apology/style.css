@@ -1,0 +1,157 @@
+/* To the Summer Olympic Games — A Letter of Apology · The Rink Catalogue
+   A winter office writing in the heat: cream paper, laurel green, medal gold. */
+
+:root {
+  --paper: #f6efdc;
+  --paper-edge: #efe3c4;
+  --ink: #2b2416;
+  --faded: #6d6248;
+  --laurel: #3e5a34;
+  --gold: #b0781a;
+  --silver: #8d8d84;
+  --bronze: #9c5a2d;
+  --rule: #d8c99e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #fdf6e3 0%, var(--paper) 60%),
+    var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* warm sunrays bleeding in from the top of the sheet */
+.sunrays {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-conic-gradient(from 0deg at 50% -18%,
+      rgba(176, 120, 26, 0.07) 0deg 6deg,
+      transparent 6deg 12deg);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 55%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 55%);
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  background: var(--paper);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  box-shadow: 0 0 4rem rgba(109, 98, 72, 0.18);
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--laurel);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.letter-title {
+  margin: 0.4rem 0 0.2rem;
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: var(--laurel);
+}
+
+.letter-sub {
+  margin: 0;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.seal {
+  display: inline-block;
+  margin: 1.25rem auto 0;
+  width: 110px;
+  text-align: center;
+}
+
+.seal svg { width: 110px; height: 110px; display: block; }
+.seal figcaption {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin-top: 0.3rem;
+}
+
+.letter { margin: 0 0 2rem; }
+
+.place-line {
+  margin: 0 0 1.75rem;
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--faded);
+}
+
+.salute { margin-top: 0; }
+
+.drop-para::first-letter {
+  font-size: 3.1rem;
+  line-height: 0.9;
+  float: left;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--gold);
+}
+
+.letter p { margin: 0 0 1.15em; }
+
+.letter a {
+  color: var(--laurel);
+  text-decoration: underline;
+  text-decoration-color: rgba(62, 90, 52, 0.4);
+  text-underline-offset: 3px;
+}
+
+.letter a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+
+.letter strong { color: var(--bronze); letter-spacing: 0.01em; }
+
+.sign { margin-bottom: 0.2em !important; }
+
+.signature {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.sig-sub {
+  display: block;
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--faded);
+}
+
+.colophon {
+  border-top: 3px double var(--laurel);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+
+.colophon a { color: var(--laurel); }
