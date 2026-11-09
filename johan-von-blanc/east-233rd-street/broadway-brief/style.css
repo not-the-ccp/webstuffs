@@ -1,0 +1,159 @@
+/* Docket sheet · In re Broadway · Court of General Sessions, New York County */
+:root {
+  --paper: #faf6ec;
+  --ink: #242133;
+  --muted: #6b6458;
+  --rule: #9c8f78;
+  --navy: #3d385c;
+  --theater: #7a202e;
+  --theater-dark: #4d0f17;
+  --gold: #a98936;
+  --redback: #fbeeec;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  background: #e8dfc8;
+  color: var(--ink);
+  font-family: ui-serif, Georgia, "Times New Roman", Liberation Serif, serif;
+  line-height: 1.55;
+  padding: 2rem 1rem;
+}
+
+.docket {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  background: var(--paper);
+  border: 2px solid var(--rule);
+  border-top: 4px double var(--theater);
+  border-bottom: 4px double var(--theater);
+  padding: 1.25rem 1.25rem 1rem;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(40, 30, 20, 0.15);
+}
+
+.docket::before {
+  content: "";
+  position: absolute;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
+  border: 1px solid var(--theater-dark);
+  z-index: -1;
+}
+
+.seal {
+  width: 72px; height: 72px;
+  margin: 0 auto 0.5rem;
+  border: 2px solid var(--theater);
+  border-radius: 50%;
+  background: repeating-conic-gradient(var(--paper) 0deg 12deg, var(--theater-dark) 12deg 14deg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: bold; letter-spacing: 0.16em;
+  color: var(--theater-dark);
+  text-align: center; line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.seal span { display: block; }
+
+.court-line { margin: 0 0 0.4rem; font-size: 0.9rem; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+
+.docket h1 {
+  margin: 0.2rem 0 0.1rem;
+  font-size: 1.9rem; text-align: center; letter-spacing: 0.04em;
+  color: var(--theater-dark);
+}
+
+.docket h1 .it { font-style: italic; }
+
+.docket-no { margin: 0; text-align: center; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.12em; }
+
+.crumbs { margin-top: 0.7rem; font-size: 0.8rem; color: var(--muted); text-align: center; }
+.crumbs a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted var(--rule); }
+.crumbs a:hover { border-bottom-style: solid; color: var(--theater); }
+
+.transcript {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--paper);
+  border-left: 3px solid var(--rule);
+  padding: 1.25rem 1rem 2rem 3.6rem;
+  position: relative;
+}
+
+.transcript::before {
+  content: "";
+  position: absolute; left: 2.5rem; top: 1rem; bottom: 1rem;
+  width: 2px; background: repeating-linear-gradient(var(--ink), var(--ink) 4px, transparent 4px, transparent 10px);
+  z-index: 0;
+}
+
+.transcript > * { position: relative; z-index: 1; }
+
+.transcript section {
+  counter-increment: ln;
+  margin-bottom: 0.85rem;
+  padding-left: 2.1rem;
+  clear: both;
+}
+
+.transcript section::before {
+  content: counter(ln, decimal);
+  position: absolute; left: -3.55rem; top: 0.05rem;
+  font-family: ui-monospace, "Courier New", Courier, monospace;
+  font-size: 0.75rem; color: var(--muted);
+  width: 1.5rem; text-align: right;
+}
+
+.speaker {
+  margin: 0 0 0.25rem;
+  font-family: ui-monospace, "Courier New", Courier, monospace;
+  font-size: 0.85rem; font-weight: bold; letter-spacing: 0.08em;
+  color: var(--navy); text-transform: uppercase;
+}
+
+.transcript p { margin: 0 0 0.5rem; font-size: 0.95rem; text-align: justify; }
+
+.stage { font-style: italic; color: var(--muted); padding-left: 0; counter-increment: none; }
+.stage::before { content: none; }
+.stage p { margin: 0; font-size: 0.9rem; }
+
+.readback {
+  margin: 0.5rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--redback);
+  border: 1px solid var(--theater);
+  border-left: 4px solid var(--theater-dark);
+  font-family: ui-monospace, "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.curtain {
+  height: 48px; margin: 1.6rem auto 0; position: relative; overflow: hidden;
+}
+.curtain::before, .curtain::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 52%;
+  background: linear-gradient(180deg, var(--theater), var(--theater-dark));
+  clip-path: polygon(0 0, 100% 42%, 100% 100%, 0 100%);
+}
+.curtain::before { left: 0; transform: scalex(-1); }
+.curtain::after { right: 0; }
+
+.closer { text-align: center; font-style: italic; color: var(--muted); font-size: 0.9rem; margin-top: 1.5rem; border-top: 1px solid var(--rule); padding-top: 0.8rem; }
+
+.record-foot {
+  max-width: 700px; margin: 2rem auto 0;
+  font-size: 0.85rem; color: var(--muted); text-align: center;
+}
+.record-foot a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted var(--rule); }
+.record-foot a:hover { border-bottom-style: solid; color: var(--theater); }
+
+@media (max-width: 560px) {
+  body { padding: 1rem 0.75rem; }
+  .docket, .transcript { max-width: 100%; padding-left: 2.8rem; }
+  .transcript section::before { left: -2.75rem; }
+  .transcript::before { left: 1.7rem; }
+}
