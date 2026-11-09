@@ -1,0 +1,209 @@
+/* Case 7, Gallery 4B — museum placard in the Westchester County Annex */
+
+:root {
+  --wall: #1d2a21;
+  --wall-deep: #131c16;
+  --placard: #f4ecd9;
+  --placard-shade: #e9dfc6;
+  --ink: #2c2618;
+  --brass: #a6803c;
+  --brass-bright: #cfa452;
+  --stamp: #7a2e1f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(255, 236, 190, 0.10), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.10) 0 2px, transparent 2px 90px),
+    linear-gradient(var(--wall), var(--wall-deep));
+  background-attachment: fixed;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  color: var(--ink);
+  transition: background 0.8s ease;
+  min-height: 100vh;
+}
+
+body.lit {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 8%, rgba(255, 222, 150, 0.30), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 90px),
+    linear-gradient(#26352a, #17221a);
+}
+
+.wall {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 5rem;
+  position: relative;
+}
+
+/* the case number, painted on the wall */
+.case-tag {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  color: var(--brass-bright);
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* the gallery lamp */
+.lamp {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  background: none;
+  border: 2px solid var(--brass);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+.lamp-glass {
+  position: absolute;
+  inset: 0.45rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, #3c4a3e, #1c261e);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+body.lit .lamp-glass {
+  background: radial-gradient(circle at 45% 40%, #fff3cf, #e8b95a);
+  box-shadow: 0 0 1.6rem 0.5rem rgba(255, 214, 130, 0.55);
+}
+.lamp-arm {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  width: 2px;
+  height: 0.6rem;
+  background: var(--brass);
+  transform: translateX(-50%);
+}
+.lamp:hover .lamp-glass, .lamp:focus-visible .lamp-glass { outline: 2px dotted var(--brass-bright); }
+
+/* the placard itself: cream board in a brass frame */
+.placard {
+  background:
+    linear-gradient(160deg, var(--placard) 0%, var(--placard-shade) 100%);
+  border: 1px solid #b7a880;
+  outline: 3px solid var(--brass);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 5px var(--placard-shade),
+    0 18px 40px rgba(0, 0, 0, 0.55);
+  padding: 2.2rem 2.4rem 1.6rem;
+  position: relative;
+  transition: box-shadow 0.8s ease;
+}
+body.lit .placard {
+  box-shadow:
+    0 0 0 5px var(--placard-shade),
+    0 0 3rem rgba(255, 220, 140, 0.22),
+    0 18px 40px rgba(0, 0, 0, 0.45);
+}
+/* brass corner rivets */
+.placard::before, .placard::after,
+.placard-head::before, .placard-head::after {
+  content: "";
+  position: absolute;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--brass-bright), #6f5322 70%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.placard::before { top: 0.55rem; left: 0.55rem; }
+.placard::after  { top: 0.55rem; right: 0.55rem; }
+.placard-head::before { bottom: 0.55rem; left: 0.55rem; }
+.placard-head::after  { bottom: 0.55rem; right: 0.55rem; }
+
+.placard-head {
+  position: relative;
+  text-align: center;
+  border-bottom: 3px double var(--brass);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+.plate-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b5f45;
+  margin: 0 0 0.8rem;
+}
+h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+  color: #241f12;
+}
+.dates {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #5d5238;
+  margin: 0;
+}
+
+.placard-body p {
+  line-height: 1.72;
+  font-size: 0.98rem;
+  margin: 0 0 1.05rem;
+}
+
+/* the kept line, as kept lines are kept */
+.kept-line {
+  margin: 1.3rem 0.4rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--stamp);
+  background: rgba(122, 46, 31, 0.06);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.placard-foot {
+  border-top: 1px solid #b7a880;
+  margin-top: 1.5rem;
+  padding-top: 0.9rem;
+}
+.accession {
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b5f45;
+  margin: 0 0 0.7rem;
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+}
+.related a {
+  font-size: 0.86rem;
+  color: #5c3a14;
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+.related a:hover { color: var(--stamp); }
+
+/* the small wall note under the case */
+.wall-note {
+  margin: 2.4rem 0.5rem 0;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #cbbd93;
+  font-style: italic;
+}
+.wall-note a { color: var(--brass-bright); }
+.wall-note p { margin: 0; }
