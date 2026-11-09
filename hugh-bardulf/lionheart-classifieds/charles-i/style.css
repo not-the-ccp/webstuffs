@@ -1,0 +1,141 @@
+/* Placard No. 1068 — the Stuart Case */
+
+:root {
+  --paper: #efe6d3;
+  --paper-deep: #e4d7bc;
+  --ink: #2b2418;
+  --faded: #6b5d45;
+  --rule: #8a774f;
+  --accent: #7a1f1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1c1a16;
+  background-image: radial-gradient(circle at 50% 0%, #2e2a23 0%, #1c1a16 60%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.case {
+  max-width: 780px;
+  margin: 3rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.placard-head {
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper-deep);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+}
+
+.sub {
+  margin: 0.5rem 0 0;
+  font-style: italic;
+  color: var(--paper-deep);
+  font-size: 0.95rem;
+}
+
+.placard {
+  background: var(--paper);
+  background-image: repeating-linear-gradient(0deg, rgba(138, 119, 79, 0.06) 0 2px, transparent 2px 5px);
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 5px;
+  padding: 1.8rem 1.6rem 1.2rem;
+  margin-top: 1.6rem;
+}
+
+.placard h2 {
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 1.6rem 0 0.8rem;
+}
+
+.placard h2:first-child { margin-top: 0; }
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+}
+
+blockquote p { margin: 0; }
+
+a { color: var(--accent); }
+
+.counter { border-top: 1px dotted var(--rule); }
+
+ol.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: entry;
+}
+
+ol.entries li {
+  counter-increment: entry;
+  padding: 0.55rem 0.7rem 0.55rem 2.6rem;
+  position: relative;
+  border-bottom: 1px dotted var(--rule);
+  cursor: pointer;
+}
+
+ol.entries li::before {
+  content: counter(entry, upper-roman) ".";
+  position: absolute;
+  left: 0.6rem;
+  top: 0.6rem;
+  color: var(--faded);
+  font-size: 0.85rem;
+}
+
+ol.entries li:hover,
+ol.entries li.active {
+  background: var(--paper-deep);
+}
+
+ol.entries li.active::before { color: var(--accent); font-weight: bold; }
+
+.dial {
+  margin-top: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  background: #241f16;
+  color: var(--paper);
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  min-height: 3.2em;
+  border: 1px solid var(--rule);
+}
+
+.colophon {
+  text-align: center;
+  color: var(--paper-deep);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-top: 1.8rem;
+}
