@@ -1,0 +1,301 @@
+/* Minutes No. 31 — Council of Savings, Assurances & the Mended Ledger · Munich 1895 */
+
+:root {
+  --vellum: #f3e7c9;
+  --vellum-deep: #e7d5a8;
+  --ink: #2b1c10;
+  --ink-soft: #4a3826;
+  --gold: #c9a227;
+  --gold-bright: #f2d98c;
+  --wax: #7a1f1f;
+  --wax-dark: #4d0f0f;
+  --pine: #16302b;
+  --pine-deep: #0d1f1c;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(242, 217, 140, 0.16), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 105%, rgba(122, 31, 31, 0.35), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(201, 162, 39, 0.05) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(201, 162, 39, 0.04) 0 1px, transparent 1px 28px),
+    linear-gradient(165deg, var(--pine-deep) 0%, var(--pine) 45%, #1b3a33 100%);
+  background-attachment: fixed;
+}
+
+/* ---------- the great seal watermark ---------- */
+.watermark {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 0;
+  opacity: 0.10;
+  pointer-events: none;
+  animation: seal-spin 240s linear infinite;
+}
+.watermark svg { width: min(88vmin, 780px); height: min(88vmin, 780px); }
+@keyframes seal-spin { to { transform: rotate(360deg); } }
+
+/* ---------- crest / heading ---------- */
+.crest {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 3.2rem 1.5rem 1.6rem;
+  text-align: center;
+  color: var(--gold-bright);
+}
+.crest p { margin: 0.35rem 0; }
+.place {
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold);
+}
+.crest h1 {
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  margin: 0.4rem 0 0.2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--gold-bright);
+  text-shadow: 0 2px 14px rgba(242, 217, 140, 0.25), 0 0 2px rgba(242, 217, 140, 0.5);
+  animation: gild 5s ease-in-out infinite alternate;
+}
+@keyframes gild {
+  from { text-shadow: 0 2px 14px rgba(242, 217, 140, 0.18), 0 0 1px rgba(242, 217, 140, 0.35); }
+  to   { text-shadow: 0 2px 26px rgba(242, 217, 140, 0.45), 0 0 4px rgba(242, 217, 140, 0.7); }
+}
+.crest .of { font-size: 1.15rem; color: #e9d9a8; }
+.crest .when { color: #b9c6b0; font-style: italic; font-size: 0.98rem; }
+
+.crest-rule {
+  height: 14px;
+  max-width: 46rem;
+  margin: 0.9rem auto;
+  background:
+    linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-bright) 50%, var(--gold) 82%, transparent) center / 100% 2px no-repeat,
+    radial-gradient(circle at 50% 50%, var(--gold-bright) 0 3px, transparent 4px);
+  position: relative;
+}
+.crest-rule::before,
+.crest-rule::after {
+  content: "❦";
+  position: absolute;
+  top: -0.55rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+  text-shadow: 0 0 6px rgba(242, 217, 140, 0.6);
+}
+.crest-rule::before { left: 12%; }
+.crest-rule::after { right: 12%; transform: scaleX(-1); }
+
+/* ---------- the vellum page ---------- */
+.minutes {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2.4rem 2.8rem 3rem;
+  background:
+    radial-gradient(ellipse 120% 30% at 50% 0%, rgba(255, 250, 230, 0.75), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(43, 28, 16, 0.028) 0 1px, transparent 1px 3px),
+    linear-gradient(174deg, var(--vellum) 0%, var(--vellum-deep) 55%, #dcc68f 100%);
+  border: 1px solid rgba(43, 28, 16, 0.4);
+  box-shadow:
+    0 0 0 6px rgba(201, 162, 39, 0.14),
+    0 0 0 7px rgba(43, 28, 16, 0.35),
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 90px rgba(122, 31, 31, 0.07);
+}
+.minutes::before,
+.minutes::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 22px;
+  background:
+    radial-gradient(circle at 8px 11px, rgba(43, 28, 16, 0.5) 1.6px, transparent 2.4px);
+  background-size: 34px 22px;
+  opacity: 0.5;
+}
+.minutes::before { top: 6px; }
+.minutes::after { bottom: 6px; }
+
+.minutes h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.28rem;
+  margin: 2.2rem 0 0.7rem;
+  color: var(--wax);
+  border-bottom: 1px solid rgba(122, 31, 31, 0.35);
+  padding-bottom: 0.3rem;
+  position: relative;
+}
+.minutes h2::after {
+  content: "✦";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+.minutes p { margin: 0.8rem 0; text-align: justify; hyphens: auto; }
+.minutes .present p, .minutes .adjourned p { text-align: left; }
+
+.item:first-of-type h2, .present h2 { margin-top: 0.6rem; }
+
+.present {
+  padding: 0.4rem 0 0;
+}
+
+/* drop cap on the recorded subject */
+.recorded p:first-of-type::first-letter {
+  float: left;
+  font-size: 4.2rem;
+  line-height: 0.82;
+  padding: 0.12rem 0.55rem 0 0;
+  color: var(--wax);
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  text-shadow: 1px 1px 0 var(--gold-bright), 2px 2px 0 rgba(122, 31, 31, 0.25);
+}
+
+.indented {
+  padding-left: 2.2rem;
+  border-left: 2px double var(--gold);
+  font-style: italic;
+  color: #4a3826;
+}
+
+/* ---------- the marginal note, kept as it lies ---------- */
+.marginal {
+  margin: 1.4rem 0.5rem 1.4rem 2rem;
+  padding: 1.1rem 1.4rem 1.1rem 1.8rem;
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--wax-dark);
+  background:
+    linear-gradient(90deg, rgba(201, 162, 39, 0.22), transparent 30%),
+    repeating-linear-gradient(0deg, transparent 0 2.05rem, rgba(74, 56, 38, 0.25) 2.05rem calc(2.05rem + 1px));
+  border-left: 3px solid var(--wax);
+  box-shadow: 3px 3px 0 rgba(43, 28, 16, 0.12);
+  transform: rotate(-0.6deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.marginal:hover {
+  transform: rotate(0deg) scale(1.01);
+  box-shadow: 6px 6px 0 rgba(43, 28, 16, 0.18), 0 0 18px rgba(201, 162, 39, 0.4);
+}
+
+.signed {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.2rem;
+  align-items: baseline;
+}
+.signed > span:first-child {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  width: 100%;
+  color: var(--wax);
+}
+.sig {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.35rem;
+  color: #27406b;
+  border-bottom: 1px solid rgba(39, 64, 107, 0.4);
+  padding-bottom: 0.1rem;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+.sig:nth-child(odd) { transform: rotate(1.2deg); }
+
+.further-records p a, .foot-links a {
+  color: var(--wax);
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.further-records p a:hover { background: rgba(201, 162, 39, 0.28); }
+
+/* ---------- the florin ticker ---------- */
+.ticker {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  margin: 1.6rem auto 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(201, 162, 39, 0.55);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.55);
+  padding: 0.45rem 0;
+  background: rgba(13, 31, 28, 0.75);
+  color: var(--gold-bright);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+.ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker-roll 40s linear infinite;
+  padding-left: 100%;
+}
+.ticker-track b { color: #e88a6a; font-weight: 600; }
+.ticker-track i { color: #9fd6a8; font-style: normal; }
+@keyframes ticker-roll { to { transform: translateX(-50%); } }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+
+/* ---------- footer & seal ---------- */
+.foot {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  margin: 2.2rem auto 3rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: #b9c6b0;
+}
+.seal {
+  width: 118px;
+  height: 118px;
+  display: block;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55));
+  animation: seal-stamp 1.2s cubic-bezier(0.2, 1.6, 0.4, 1) both, seal-pulse 4s ease-in-out 1.4s infinite;
+  transform-origin: 50% 40%;
+}
+@keyframes seal-stamp {
+  0%   { transform: scale(3.2) rotate(-18deg); opacity: 0; }
+  62%  { transform: scale(0.94) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes seal-pulse {
+  0%, 100% { filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)); }
+  50%      { filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 14px rgba(242, 217, 140, 0.5)); }
+}
+.foot p { margin: 0.4rem auto; max-width: 44rem; font-size: 0.92rem; }
+.foot-links { margin-top: 1rem; font-size: 0.9rem; }
+.foot-links a { color: var(--gold-bright); }
+
+/* ---------- small screens ---------- */
+@media (max-width: 640px) {
+  .minutes { padding: 1.6rem 1.2rem 2.2rem; margin: 0 0.6rem; }
+  .marginal { margin-left: 0.4rem; }
+  .signed { flex-direction: column; gap: 0.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .watermark, .ticker-track, .crest h1, .seal { animation: none !important; }
+  .seal { opacity: 1; }
+}
