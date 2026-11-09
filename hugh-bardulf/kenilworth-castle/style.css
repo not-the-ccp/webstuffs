@@ -1,0 +1,164 @@
+/* Kenilworth Castle — museum placard, annex room.
+   A lovingly tiled, bevelled, web-safe corner of the web. */
+
+body {
+  margin: 0;
+  padding: 24px 10px 40px;
+  background: #000033 url("nightfall.gif") repeat;
+  color: #C0C0C0;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* starry sky */
+.stars { position: relative; height: 0; }
+.star {
+  position: fixed;
+  width: 2px; height: 2px;
+  background: #FFFF99;
+  animation: twinkle 2.4s infinite;
+}
+.st1 { top: 8%;  left: 6%; }
+.st2 { top: 16%; left: 91%; animation-delay: .4s; }
+.st3 { top: 31%; left: 3%;  animation-delay: .9s; }
+.st4 { top: 47%; left: 96%; animation-delay: 1.3s; }
+.st5 { top: 62%; left: 5%;  animation-delay: .6s; }
+.st6 { top: 78%; left: 93%; animation-delay: 1.7s; }
+.st7 { top: 5%;  left: 48%; animation-delay: 2s; }
+.st8 { top: 92%; left: 40%; animation-delay: .2s; }
+@keyframes twinkle {
+  0%, 100% { opacity: .25; }
+  50%      { opacity: 1; }
+}
+
+/* the bevelled placard frame */
+.bezel {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 18px;
+  background: #000080;
+  border: 6px outset #C0C0C0;
+  box-shadow: 8px 8px 0 #000000;
+}
+
+.ticker {
+  overflow: hidden;
+  border: 2px inset #C0C0C0;
+  background: #000000;
+  color: #FFFF00;
+  font-size: 11px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  margin-bottom: 14px;
+}
+.ticker-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-ticker 26s linear infinite;
+}
+@keyframes scroll-ticker {
+  to { transform: translateX(-100%); }
+}
+
+.case-line {
+  text-align: center;
+  color: #00FFFF;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 0 0 10px;
+}
+
+.placard-head h1 {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 30px;
+  letter-spacing: 4px;
+  margin: 0 0 6px;
+  text-shadow: 3px 3px 0 #000000;
+}
+.loc {
+  text-align: center;
+  color: #FFFFCC;
+  font-size: 12px;
+  font-style: italic;
+  margin: 0 0 16px;
+}
+
+.panel {
+  background: #000066;
+  border: 3px ridge #808080;
+  padding: 12px 14px;
+  margin: 0 0 14px;
+}
+.panel h2 {
+  margin: 0 0 8px;
+  color: #FFCC00;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+.panel p { margin: 0 0 8px; }
+.panel p:last-child { margin-bottom: 0; }
+.panel a { color: #00FFFF; }
+.panel a:visited { color: #CC99FF; }
+.panel a:hover { color: #FFFF00; }
+
+.ledger-line {
+  background: #FFFFCC;
+  color: #000000;
+  border: 2px inset #808080;
+  padding: 10px 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.cross-panel h2 { color: #99FF99; }
+
+/* visitor's book */
+.guestbook {
+  background: #FFFFCC;
+  color: #333333;
+  border: 3px inset #C0C0C0;
+  padding: 10px 14px;
+  margin: 0 0 14px;
+}
+.guestbook h3 { margin: 0 0 6px; color: #000080; font-size: 13px; }
+.guestbook p { margin: 0 0 6px; font-size: 12px; font-style: italic; }
+.gb-note { font-style: normal !important; font-size: 11px !important; color: #666666 !important; }
+
+/* counter */
+.counter { text-align: center; margin: 0 0 14px; }
+.counter-label { color: #00FF00; font-size: 11px; letter-spacing: 1px; }
+.counter-digits {
+  display: inline-block;
+  margin-left: 8px;
+  background: #000000;
+  color: #00FF00;
+  border: 2px inset #C0C0C0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  letter-spacing: 4px;
+  padding: 2px 8px;
+}
+
+.stamp {
+  text-align: center;
+  color: #FF3333;
+  border: 2px dashed #FF3333;
+  display: table;
+  margin: 0 auto 14px;
+  padding: 4px 12px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  transform: rotate(-2deg);
+  animation: stamp-blink 1.6s steps(2, start) infinite;
+}
+@keyframes stamp-blink { to { visibility: hidden; } }
+
+footer .colophon {
+  text-align: center;
+  color: #9999CC;
+  font-size: 11px;
+}
