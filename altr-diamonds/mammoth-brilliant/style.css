@@ -1,0 +1,258 @@
+/* The Mammoth Brilliant — ALTR Created Diamonds, Product Sheet MM-0142 */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap');
+
+:root {
+  --abyss: #060b14;
+  --deep: #0b1626;
+  --ice: #bfe6ff;
+  --ice-dim: #7fa8c9;
+  --claw: #d8c9a3;
+  --led: #9ff0ff;
+  --ledger: #efe6cf;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'IM Fell English', Georgia, 'Times New Roman', serif;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--ledger);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(159, 240, 255, 0.16), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 85% 110%, rgba(216, 201, 163, 0.10), transparent 65%),
+    radial-gradient(ellipse 45% 35% at 8% 55%, rgba(90, 140, 200, 0.10), transparent 70%),
+    linear-gradient(178deg, var(--abyss) 0%, var(--deep) 45%, #0a1120 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- the light above the court --- */
+.halo {
+  position: fixed;
+  top: -18vmax;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62vmax;
+  height: 62vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(159, 240, 255, 0.14) 0%, rgba(159, 240, 255, 0.05) 40%, transparent 68%);
+  pointer-events: none;
+  animation: halo-breathe 9s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes halo-breathe {
+  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+}
+
+/* --- floating facet shards --- */
+.facets { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.facet {
+  position: absolute;
+  display: block;
+  background: linear-gradient(135deg, rgba(191, 230, 255, 0.16), rgba(191, 230, 255, 0.02));
+  border: 1px solid rgba(191, 230, 255, 0.18);
+  clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+  animation: drift 16s ease-in-out infinite;
+}
+.f1 { width: 90px;  height: 90px;  top: 12%; left: 6%;  animation-delay: 0s; }
+.f2 { width: 54px;  height: 54px;  top: 26%; right: 9%; animation-delay: -3s; }
+.f3 { width: 120px; height: 120px; bottom: 14%; left: 12%; animation-delay: -6s; }
+.f4 { width: 40px;  height: 40px;  top: 62%; left: 4%;  animation-delay: -9s; }
+.f5 { width: 70px;  height: 70px;  bottom: 30%; right: 6%; animation-delay: -12s; }
+.f6 { width: 34px;  height: 34px;  top: 8%;  right: 22%; animation-delay: -5s; }
+@keyframes drift {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50%      { transform: translateY(-26px) rotate(5deg); }
+}
+
+/* --- masthead --- */
+.masthead {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4.5rem 1.25rem 2.5rem;
+  border-bottom: 1px solid rgba(191, 230, 255, 0.25);
+}
+.brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  font-size: 0.72rem;
+  color: var(--ice-dim);
+  text-transform: uppercase;
+  margin: 0 0 1.6rem;
+}
+.gem { margin-bottom: 0.8rem; animation: gem-turn 14s ease-in-out infinite; transform-origin: 50% 50%; }
+@keyframes gem-turn {
+  0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 6px rgba(159, 240, 255, 0.35)); }
+  50%      { transform: scale(1.05) rotate(2deg); filter: drop-shadow(0 0 18px rgba(159, 240, 255, 0.7)); }
+}
+h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.06em;
+  margin: 0.4rem 0 0.6rem;
+  color: #fff;
+  text-shadow: 0 0 24px rgba(159, 240, 255, 0.45), 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+.dek {
+  font-style: italic;
+  color: var(--ice);
+  font-size: 1.25rem;
+  margin: 0 0 0.7rem;
+}
+.plate-line {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: var(--claw);
+  margin: 0;
+}
+
+/* --- the sheet --- */
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1.4rem 4rem;
+}
+section { padding: 1.6rem 0; }
+h2 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 1.02rem;
+  color: var(--ice);
+  border-top: double 4px rgba(216, 201, 163, 0.55);
+  padding-top: 0.9rem;
+  margin: 0 0 1.1rem;
+}
+h2::before { content: "\2726\00a0\00a0"; color: var(--claw); }
+
+a { color: var(--led); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: #fff; text-shadow: 0 0 10px rgba(159, 240, 255, 0.8); }
+
+/* --- price band --- */
+.priceband {
+  background: linear-gradient(120deg, rgba(216, 201, 163, 0.10), rgba(159, 240, 255, 0.06));
+  border: 1px solid rgba(216, 201, 163, 0.4);
+  padding: 1.4rem 1.6rem;
+  position: relative;
+}
+.priceband::before, .priceband::after {
+  content: "";
+  position: absolute;
+  width: 22px; height: 22px;
+  border: 2px solid var(--claw);
+}
+.priceband::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.priceband::after  { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+.price { margin: 0 0 0.4rem; }
+.price .big {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 2.3rem;
+  color: var(--claw);
+  text-shadow: 0 0 16px rgba(216, 201, 163, 0.5);
+}
+.price .small { font-style: italic; color: var(--ice-dim); }
+.stock { margin: 0; font-size: 0.98rem; color: var(--ice-dim); }
+
+/* --- specification grid --- */
+.grid { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+.grid th[scope="row"] {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  text-align: left;
+  color: var(--ice);
+  letter-spacing: 0.08em;
+  width: 11rem;
+  vertical-align: top;
+  padding: 0.5rem 0.9rem 0.5rem 0;
+  border-bottom: 1px dotted rgba(191, 230, 255, 0.25);
+}
+.grid td { padding: 0.5rem 0.9rem 0.5rem 0; border-bottom: 1px dotted rgba(191, 230, 255, 0.25); }
+.grid tbody tr:last-child th, .grid tbody tr:last-child td { border-bottom: none; }
+
+/* --- the whale ledger --- */
+.whale { background: linear-gradient(180deg, rgba(6, 11, 20, 0.6), rgba(11, 22, 38, 0.2)); }
+.ledger {
+  margin: 1.4rem 0.4rem;
+  padding: 1.4rem 1.6rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.55rem, rgba(216, 201, 163, 0.14) 1.55rem 1.6rem),
+    linear-gradient(160deg, #17253a 0%, #101b2c 100%);
+  border-left: 6px double var(--claw);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.35);
+}
+.ledger p {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 1.12rem;
+  line-height: 2rem;
+  color: var(--ledger);
+  margin: 0;
+}
+.ledger cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--ice-dim);
+  line-height: 1.5;
+}
+
+/* --- care list --- */
+.care-list { list-style: none; margin: 0; padding: 0; }
+.care-list li { padding: 0.65rem 0 0.65rem 1.8rem; position: relative; border-bottom: 1px dotted rgba(191, 230, 255, 0.18); }
+.care-list li:last-child { border-bottom: none; }
+.care-list li::before { content: "\25C6"; position: absolute; left: 0.2rem; color: var(--claw); }
+.care-list strong { color: var(--ice); letter-spacing: 0.05em; }
+
+/* --- reviews --- */
+.review { margin: 1rem 0; padding-left: 1.2rem; border-left: 3px solid rgba(159, 240, 255, 0.4); font-style: italic; }
+.review .who { display: block; font-style: normal; font-size: 0.85rem; color: var(--ice-dim); margin-top: 0.3rem; }
+
+/* --- order --- */
+.order p {
+  font-size: 1.12rem;
+  background: linear-gradient(120deg, rgba(159, 240, 255, 0.08), transparent 70%);
+  border: 1px dashed rgba(191, 230, 255, 0.35);
+  padding: 1.2rem 1.4rem;
+}
+
+/* --- nav & foot --- */
+.links { text-align: center; padding-top: 2rem; }
+.links p { margin: 0; }
+.foot {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.5rem 1.25rem 3.5rem;
+  border-top: double 4px rgba(216, 201, 163, 0.55);
+}
+.foot-line {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.35em;
+  font-size: 0.78rem;
+  color: var(--claw);
+  margin: 0 0 0.7rem;
+}
+.foot-note { color: var(--ice-dim); font-style: italic; max-width: 34rem; margin: 0 auto; }
+
+/* --- sparkles (canvas overlay) --- */
+#sparkles { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .halo, .facet, .gem { animation: none; }
+}
