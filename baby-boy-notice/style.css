@@ -1,0 +1,181 @@
+/* Office of Found Things — Notice BB-0308, Houston */
+
+:root {
+  --paper: #fff3e2;
+  --ink: #2b0a3d;
+  --pink: #ff2d95;
+  --yellow: #ffd23f;
+  --orange: #ff7a1a;
+  --green: #1f7a5c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 45, 149, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 92%, rgba(255, 122, 26, 0.20), transparent 38%),
+    repeating-linear-gradient(45deg, #2b0a3d 0 14px, #240732 14px 28px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.office-strip {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: var(--ink);
+  color: var(--yellow);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 0.55rem 1rem;
+  border-bottom: 4px double var(--pink);
+}
+
+.poster {
+  position: relative;
+  max-width: 46rem;
+  margin: 2.2rem auto 3rem;
+  background: var(--paper);
+  border: 6px solid var(--pink);
+  outline: 3px dashed var(--orange);
+  outline-offset: 8px;
+  padding: 2.4rem 2.2rem 1.6rem;
+  box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.35);
+}
+
+.taped-corners span {
+  position: absolute;
+  width: 4.5rem;
+  height: 1.4rem;
+  background: rgba(255, 210, 63, 0.65);
+  border: 1px solid rgba(43, 10, 61, 0.25);
+}
+.taped-corners span:nth-child(1) { top: -0.9rem; left: -1.6rem; transform: rotate(-38deg); }
+.taped-corners span:nth-child(2) { top: -0.9rem; right: -1.6rem; transform: rotate(38deg); }
+.taped-corners span:nth-child(3) { bottom: -0.9rem; left: -1.6rem; transform: rotate(38deg); }
+.taped-corners span:nth-child(4) { bottom: -0.9rem; right: -1.6rem; transform: rotate(-38deg); }
+
+.bighead { text-align: center; margin-bottom: 1.6rem; }
+
+.bighead .lost,
+.bighead .found {
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+  font-size: 3.2rem;
+  line-height: 0.9;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+.bighead .lost {
+  color: var(--pink);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--yellow);
+}
+.bighead .found {
+  color: var(--green);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--orange);
+}
+.bighead .amp {
+  font-size: 1.8rem;
+  margin: 0.2rem 0;
+  color: var(--ink);
+}
+
+.title {
+  font-size: 1.7rem;
+  margin: 0.9rem 0 0.4rem;
+  font-style: normal;
+}
+.title em {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 2.3rem;
+  color: var(--pink);
+}
+
+.notice-no {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border-top: 2px dashed var(--ink);
+  border-bottom: 2px dashed var(--ink);
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  background: var(--yellow);
+}
+
+.col { margin: 1.5rem 0; }
+
+.col h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--ink);
+  color: var(--paper);
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.oddline {
+  font-family: "Courier New", Courier, monospace;
+  background: var(--yellow);
+  padding: 0.05rem 0.35rem;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+a { color: var(--pink); }
+a:hover { background: var(--pink); color: var(--paper); }
+
+.claim {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  border: 3px double var(--pink);
+  padding: 1rem;
+  background: repeating-linear-gradient(0deg, transparent 0 6px, rgba(255, 45, 149, 0.06) 6px 12px);
+}
+
+#claim-btn {
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  background: var(--pink);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transform: rotate(-1.2deg);
+}
+#claim-btn:active { transform: rotate(-1.2deg) translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+#claim-btn.stamped {
+  background: var(--green);
+  animation: stamp 0.35s ease;
+}
+@keyframes stamp {
+  0% { transform: rotate(-1.2deg) scale(1.25); }
+  100% { transform: rotate(-1.2deg) scale(1); }
+}
+
+.claim-status {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+.poster-foot {
+  margin-top: 1.6rem;
+  border-top: 4px double var(--ink);
+  padding-top: 0.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
