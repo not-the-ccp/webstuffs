@@ -1,0 +1,177 @@
+/* The Gazette Ledger — Thread No. 214 */
+:root {
+  --paper: #f6f1e7;
+  --ink: #2b2620;
+  --rule: #c9bda6;
+  --accent: #7a1f1f;
+  --accent-soft: #efe4d2;
+  --stamp: #4a5d3a;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.thread-frame {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.thread-head {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.board {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.thread-head h1 {
+  font-size: 1.7rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+
+.meta {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #5c5346;
+  margin: 0;
+}
+
+.crumbs {
+  font-size: 0.8rem;
+  margin-top: 0.6rem;
+}
+
+.crumbs a { color: var(--accent); }
+
+.post {
+  border: 1px solid var(--rule);
+  background: #fbf8f1;
+  margin-bottom: 1.25rem;
+  box-shadow: 2px 2px 0 rgba(43, 38, 32, 0.12);
+}
+
+.post-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  align-items: baseline;
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5rem 0.9rem;
+}
+
+.user {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.role {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #5c5346;
+}
+
+.post-head time {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: #7a7060;
+}
+
+.post-body {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.post-body p {
+  margin: 0 0 0.9rem;
+}
+
+blockquote.kept {
+  margin: 0 0 0.9rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--stamp);
+  background: #eef0e6;
+  font-style: italic;
+}
+
+.table-wrap { margin: 0.5rem 0 1rem; }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.filter-btn {
+  font-family: inherit;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+
+.filter-btn:hover { background: var(--accent-soft); }
+
+.filter-btn.active {
+  background: var(--accent);
+  color: #f6f1e7;
+  border-color: var(--accent);
+}
+
+.decade {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.decade th,
+.decade td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.decade th {
+  background: var(--accent-soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.decade tr:nth-child(even) td { background: #f3ecdd; }
+
+.decade tr.hidden { display: none; }
+
+.row-count {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #7a7060;
+}
+
+.thread-foot {
+  border-top: 3px double var(--ink);
+  padding-top: 0.75rem;
+  font-size: 0.82rem;
+  text-align: center;
+  color: #5c5346;
+}
+
+.thread-foot a { color: var(--accent); }
+
+a { color: var(--accent); }
