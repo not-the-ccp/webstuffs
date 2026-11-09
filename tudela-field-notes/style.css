@@ -1,0 +1,165 @@
+/* Field Notes No. 208 — The Andean & Coastal Survey */
+
+:root {
+  --paper: #f3ecd9;
+  --paper-deep: #e9dfc2;
+  --ink: #2e2a20;
+  --faded: #6b6350;
+  --river: #31556b;
+  --mist: #8fa6ad;
+  --heron: #5b7a52;
+  --stamp: #9c3b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(143,166,173,.25), transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(91,122,82,.12), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+.book {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.masthead {
+  border-top: 3px double var(--river);
+  border-bottom: 3px double var(--river);
+  padding: 1.25rem .5rem;
+  text-align: center;
+}
+
+.mast-rule {
+  height: 0;
+  border-top: 1px solid var(--mist);
+  margin: .6rem 2rem;
+}
+
+.series {
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--faded);
+  margin: .2rem 0 .9rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin: .2rem 0;
+  letter-spacing: .04em;
+  color: var(--river);
+}
+
+.sub {
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 .6rem;
+}
+
+.byline {
+  font-size: .85rem;
+  color: var(--faded);
+  font-style: italic;
+  margin: 0;
+}
+
+.plate-table {
+  margin: 1rem auto 0;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+
+.plate-table th {
+  text-align: right;
+  padding: .15rem 1rem .15rem 1.4rem;
+  color: var(--river);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+}
+
+.plate-table td {
+  padding: .15rem 0;
+  border-bottom: 1px dotted var(--mist);
+}
+
+.plate-table tr:last-child td { border-bottom: none; }
+
+.notes { padding: 1rem 0; }
+
+.entry {
+  background: var(--paper-deep);
+  border: 1px solid #c9bb96;
+  border-left: 6px solid var(--heron);
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem 1rem;
+  box-shadow: 2px 3px 0 rgba(46,42,32,.08);
+  position: relative;
+}
+
+.entry::before {
+  content: "\1F3A8";
+  position: absolute;
+  top: -0.7rem;
+  right: .8rem;
+  font-size: 1rem;
+  color: var(--heron);
+  opacity: .55;
+}
+
+.entry h2 {
+  margin: 0 0 .3rem;
+  font-size: 1.12rem;
+  color: var(--river);
+  letter-spacing: .02em;
+}
+
+.cond {
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--faded);
+  border-bottom: 1px dotted var(--mist);
+  padding-bottom: .4rem;
+  margin: 0 0 .7rem;
+}
+
+.entry p { margin: .55rem 0; }
+
+strong {
+  color: var(--stamp);
+  font-variant: small-caps;
+  letter-spacing: .03em;
+}
+
+a {
+  color: var(--river);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--stamp); }
+
+.colophon {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--faded);
+  border-top: 3px double var(--river);
+  padding-top: .8rem;
+  margin-top: 2rem;
+}
+
+.colophon .count {
+  font-variant: small-caps;
+  letter-spacing: .1em;
+  margin-bottom: .5rem;
+}
+
+.nav a { margin: 0 .6rem; }
