@@ -1,0 +1,134 @@
+/* The Signal — Player's Manual for TIM MCGRAW · Manual No. 006-A */
+
+:root {
+  --ink: #2b2620;
+  --paper: #f6f1e6;
+  --rule: #c9bda4;
+  --fiddle: #8c2f1b;
+  --grey: #9a958c;
+  --gold: #b78f3c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 2rem 1.25rem 3rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.plate {
+  margin: 0 0 .5rem;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--fiddle);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: .04em;
+}
+
+.subtitle {
+  margin: .6rem 0;
+  font-style: italic;
+}
+
+.credit {
+  font-size: .85rem;
+  color: #5d554a;
+}
+
+h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .25rem;
+  margin-top: 2rem;
+}
+
+p { margin: 0 0 .9rem; }
+
+.ledger-line { font-style: italic; }
+
+.gaugebox {
+  border: 1px solid var(--rule);
+  background: #efe8d8;
+  padding: 1rem 1.1rem;
+  margin: 1.1rem 0 1.3rem;
+}
+
+.gauge-label { font-size: .9rem; margin-bottom: .8rem; }
+
+.rail {
+  position: relative;
+  height: 1.6rem;
+  background: #e2d8c2;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.patch {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 35%;
+  width: 22%;
+  background: repeating-linear-gradient(45deg, var(--gold), var(--gold) 4px, #d9c084 4px, #d9c084 8px);
+  opacity: .8;
+}
+
+.marker {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 5px;
+  background: var(--fiddle);
+}
+
+.gauge-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: .8rem;
+}
+
+#send {
+  font: inherit;
+  background: var(--fiddle);
+  color: #fff;
+  border: none;
+  padding: .45rem 1rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#send:hover { background: #a03a23; }
+
+#calls { font-size: .9rem; color: #5d554a; }
+
+.verdict {
+  min-height: 1.4rem;
+  margin: .7rem 0 0;
+  font-style: italic;
+}
+
+footer {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+}
+
+.fin { font-size: .85rem; color: #5d554a; }
