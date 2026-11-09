@@ -1,0 +1,134 @@
+/* Card No. 84 — The Belletrud Kitchen */
+
+:root {
+  --paper: #f6efe2;
+  --paper-deep: #efe4cf;
+  --ink: #2d2620;
+  --rose: #8c3a46;
+  --rose-soft: #b97880;
+  --pencil: #6b6459;
+  --rule: #cdbb9d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e8dfcc;
+  background-image: radial-gradient(circle at 20% 10%, #efe6d4 0%, #e2d6bc 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.card-wrap {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 10px 30px rgba(60, 45, 25, 0.25), inset 0 0 60px rgba(140, 58, 70, 0.05);
+  padding: 2.25rem 2.5rem 1.5rem;
+  position: relative;
+}
+
+.card-head { border-bottom: 2px solid var(--rose); padding-bottom: 1rem; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.35rem;
+  color: var(--rose);
+  line-height: 1.2;
+}
+
+.sub { margin: 0; color: var(--pencil); font-style: italic; }
+
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  transform: rotate(8deg);
+  border: 2px double var(--rose-soft);
+  color: var(--rose-soft);
+  font-weight: bold;
+  font-size: 1.05rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: var(--rose);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.2rem 0 0.9rem;
+}
+
+p { margin: 0 0 1rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.5rem 0 1rem;
+}
+
+th {
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  border-bottom: 2px solid var(--rose-soft);
+  padding: 0.35rem 0.5rem;
+}
+
+td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.4rem 0.5rem;
+  vertical-align: top;
+}
+
+ol li, ul li { margin-bottom: 0.55rem; }
+
+.calc {
+  background: var(--paper-deep);
+  border: 1px dashed var(--rose-soft);
+  padding: 1rem 1.2rem 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.calc label { font-weight: bold; display: block; margin-bottom: 0.4rem; }
+
+.calc input[type="range"] {
+  width: 100%;
+  accent-color: var(--rose);
+}
+
+.servings-read { font-style: italic; color: var(--pencil); }
+
+#calc-table td:last-child { font-weight: bold; color: var(--rose); }
+
+.calc-foot { font-size: 0.85rem; font-style: italic; color: var(--pencil); padding-bottom: 0.8rem; }
+
+a { color: var(--rose); }
+a:hover { color: var(--ink); }
+
+.card-foot {
+  border-top: 2px solid var(--rose);
+  margin-top: 2.2rem;
+  padding-top: 0.7rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  text-align: center;
+}
