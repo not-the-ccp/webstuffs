@@ -1,0 +1,182 @@
+/* Gallery 7, the Seven-Bit Wing — museum placard, Recalde Press & Cooperage */
+
+:root {
+  --slate: #23292e;
+  --slate-deep: #191e22;
+  --parchment: #efe6cf;
+  --parchment-edge: #e2d5b4;
+  --ink: #2b2620;
+  --ink-soft: #4d4436;
+  --brass: #a9822c;
+  --brass-bright: #c9a44a;
+  --seal-red: #7d2a1f;
+  --control: #6b6151;
+}
+
+* { box-sizing: border-box; }
+
+body.frame {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 90% at 50% 8%, #2c3339 0%, var(--slate) 45%, var(--slate-deep) 100%);
+  color: var(--parchment);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+  padding: 2.5rem 1rem 3.5rem;
+}
+
+.wall {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 5px);
+}
+
+.brass-rule {
+  max-width: 56rem;
+  margin: 0 auto 1.4rem;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 1.15rem;
+  letter-spacing: 0.35em;
+  color: var(--brass);
+  opacity: 0.85;
+  text-align: center;
+  user-select: none;
+}
+.brass-rule:last-of-type { margin: 1.4rem auto 0; }
+
+.placard {
+  position: relative;
+  max-width: 56rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(160deg, #f4ecd8 0%, var(--parchment) 30%, var(--parchment-edge) 100%);
+  color: var(--ink);
+  border: 2px solid var(--brass);
+  outline: 1px solid rgba(169, 130, 44, 0.5);
+  outline-offset: 6px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(120, 95, 45, 0.18);
+  padding: 2.6rem 2.8rem 2.2rem;
+}
+
+.placard::before,
+.placard::after {
+  content: "\25C6";
+  position: absolute;
+  top: -0.55rem;
+  color: var(--brass-bright);
+  font-size: 0.9rem;
+}
+.placard::before { left: 2.2rem; }
+.placard::after { right: 2.2rem; }
+
+.head { text-align: center; border-bottom: 1px solid rgba(169, 130, 44, 0.55); padding-bottom: 1.2rem; margin-bottom: 1.3rem; }
+
+.gallery {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.35rem;
+  line-height: 1.1;
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+p { margin: 0 0 1.05rem; }
+
+h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--seal-red);
+  border-bottom: 1px dotted rgba(125, 42, 31, 0.5);
+  padding-bottom: 0.3rem;
+  margin: 1.7rem 0 0.9rem;
+}
+
+.roll {
+  border-left: 4px solid var(--seal-red);
+  background: rgba(125, 42, 31, 0.06);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.98rem;
+}
+.roll strong { color: var(--seal-red); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  font-family: "Courier New", ui-monospace, monospace;
+  margin: 0.4rem 0 1rem;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.4rem;
+  background: #f7f1e0;
+  border: 1px solid rgba(169, 130, 44, 0.45);
+  box-shadow: inset 0 -2px 0 rgba(169, 130, 44, 0.25);
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.12s ease;
+  user-select: none;
+}
+.cell:hover, .cell:focus { background: #fff8e4; transform: translateY(-2px); outline: 1px solid var(--brass); }
+
+.cell .ch { font-size: 1.5rem; color: var(--ink); line-height: 1.1; }
+.cell .code {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-size: 0.55rem;
+  color: var(--control);
+  letter-spacing: 0.04em;
+}
+
+.gridnote { font-size: 0.9rem; color: var(--ink-soft); }
+
+a { color: var(--seal-red); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: #a3342a; }
+
+.colophon {
+  text-align: center;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border-top: 1px solid rgba(169, 130, 44, 0.55);
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .placard { padding: 1.8rem 1.3rem; }
+  .grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 3px; }
+  .cell { min-height: 2.9rem; }
+  .cell .ch { font-size: 1.15rem; }
+  h1 { font-size: 1.8rem; }
+}
