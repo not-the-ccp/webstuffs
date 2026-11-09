@@ -1,0 +1,183 @@
+/* The Gentle Pen — book of etiquette, paper rendering */
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #ece1c6;
+  --ink: #2b2318;
+  --ink-soft: #4a3f2e;
+  --faded: #6d5f47;
+  --rule: #8a7a5c;
+  --pencil: #5c6672;
+  --stamp: #7d2a2a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d9cfae; }
+
+body.page {
+  margin: 0 auto;
+  max-width: 760px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,252,240,.55), transparent 60%),
+    radial-gradient(ellipse at 88% 92%, rgba(120,96,58,.14), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(90,70,40,.025) 0 2px, transparent 2px 4px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  box-shadow: 0 0 0 1px rgba(90,70,40,.35), 0 24px 60px rgba(40,30,10,.4);
+  padding: 3.5rem 2.5rem 2rem;
+}
+
+.book-head {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 2.6rem;
+}
+.imprint {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: .42em;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.imprint-sub {
+  margin: .5rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: .06em;
+}
+.imprint-line {
+  margin: .35rem 0 0;
+  font-variant: small-caps;
+  letter-spacing: .28em;
+  font-size: .78rem;
+  color: var(--faded);
+}
+.head-orn {
+  text-align: center;
+  color: var(--rule);
+  font-size: 1.5rem;
+  margin: .8rem 0 0;
+}
+.colophon .head-orn { margin-bottom: .5rem; }
+
+.chapter-no {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: .5em;
+  font-size: .9rem;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.72rem;
+  line-height: 1.3;
+  margin: 0 0 .8rem;
+  letter-spacing: .01em;
+}
+.chapter-epi {
+  text-align: center;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 2.2rem;
+}
+
+.sec { margin-bottom: 2.1rem; }
+.sec h2 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .35rem;
+  margin: 0 0 1rem;
+}
+.sc { font-variant: small-caps; letter-spacing: .08em; }
+
+p { margin: 0 0 1.05rem; text-align: justify; hyphens: auto; }
+
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: .82;
+  padding: .06em .12em 0 0;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 0;
+  font-size: .92rem;
+}
+.ledger caption {
+  caption-side: top;
+  font-variant: small-caps;
+  letter-spacing: .18em;
+  font-size: .82rem;
+  color: var(--faded);
+  padding-bottom: .5rem;
+  text-align: left;
+}
+.ledger th, .ledger td {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: .5rem .7rem;
+  text-align: left;
+  vertical-align: top;
+}
+.ledger thead th { border-bottom: 2px solid var(--rule); font-variant: small-caps; letter-spacing: .1em; }
+.ledger tbody td:first-child { white-space: nowrap; }
+
+strong { color: var(--ink); }
+em { color: var(--ink-soft); }
+
+a { color: #503b1c; text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { background: var(--paper-deep); border-bottom-color: var(--ink); }
+
+.endmark {
+  margin-top: 1.6rem;
+  color: var(--ink-soft);
+  font-size: .98rem;
+  border-top: 1px dotted var(--rule);
+  padding-top: 1rem;
+}
+
+.colophon {
+  margin-top: 2.8rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1.2rem;
+  text-align: center;
+}
+.colophon p {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: .16em;
+  font-size: .74rem;
+  color: var(--faded);
+  margin: 0;
+}
+
+.lamp {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: .9rem;
+  height: .9rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffdf8a 0%, #b98a2e 70%);
+  box-shadow: 0 0 18px 4px rgba(255,205,110,.45);
+  z-index: 10;
+}
+
+@media (max-width: 620px) {
+  body.page { padding: 2.2rem 1.2rem 1.5rem; font-size: 1rem; }
+  h1 { font-size: 1.35rem; }
+  .imprint { font-size: 1.25rem; letter-spacing: .3em; }
+}
