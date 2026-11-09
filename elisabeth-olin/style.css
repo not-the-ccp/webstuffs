@@ -1,0 +1,184 @@
+/* A Book of Days — a diary on ruled paper, kept in a walnut drawer */
+
+* { box-sizing: border-box; }
+
+html { background: #2e2018; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 96px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+.desk {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(255, 214, 140, 0.14), transparent 60%),
+    repeating-linear-gradient(92deg, #33241a 0px, #2c1e15 7px, #382719 15px, #2a1d14 24px);
+}
+
+.book {
+  position: relative;
+  width: min(720px, 100%);
+  padding: 56px 56px 48px 92px;
+  background:
+    linear-gradient(to right, transparent 0, transparent 68px, rgba(178, 64, 56, 0.5) 68px, rgba(178, 64, 56, 0.5) 70px, transparent 70px),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 31px, rgba(96, 120, 160, 0.35) 31px, rgba(96, 120, 160, 0.35) 32px),
+    linear-gradient(115deg, rgba(120, 90, 50, 0.10), transparent 30%),
+    #f4ecd9;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 6px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+}
+
+/* the page's edges are worn, not cut */
+.book::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(120, 80, 30, 0.18), transparent 22%),
+    radial-gradient(circle at 0% 100%, rgba(120, 80, 30, 0.22), transparent 24%);
+}
+
+.book-head { margin-bottom: 28px; }
+
+.book-title {
+  margin: 0 0 10px;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a5a2e;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", "Bradley Hand", cursive;
+  font-weight: 400;
+  font-size: 44px;
+  color: #4a2c18;
+}
+
+.byline {
+  margin: 0;
+  font-style: italic;
+  color: #8a6b46;
+  font-size: 15px;
+}
+
+.entry p {
+  margin: 0 0 22px;
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", "Bradley Hand", cursive;
+  font-size: 21px;
+  line-height: 32px;
+  color: #2f2a3a;
+}
+
+.entry q { font-style: italic; }
+
+/* the admission stamp, corner of the page */
+.stamp {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  width: 118px;
+  height: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transform: rotate(-9deg);
+  border: 3px double #a03c2e;
+  border-radius: 50%;
+  color: #a03c2e;
+  text-align: center;
+  opacity: 0.75;
+  mix-blend-mode: multiply;
+}
+
+.stamp-line {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.stamp-line.small { font-size: 8px; font-weight: 400; }
+
+.stamp-date {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-top: 1px solid #a03c2e;
+  padding-top: 3px;
+  margin-top: 2px;
+}
+
+/* later leaves, pasted in — plain paper, printed or copied, not written */
+.slip {
+  position: relative;
+  margin: 34px 18px 34px 40px;
+  padding: 20px 24px 18px;
+  background: #efe6cc;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #3a3325;
+}
+
+.slip::before,
+.slip::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 64px;
+  height: 22px;
+  background: rgba(228, 218, 180, 0.85);
+  border: 1px solid rgba(140, 120, 80, 0.35);
+}
+
+.slip::before { left: 24px; transform: rotate(-5deg); }
+.slip::after { right: 24px; transform: rotate(4deg); }
+
+.slip-academy { transform: rotate(0.7deg); }
+.slip-notice { transform: rotate(-1.1deg); padding: 14px 20px; }
+
+.slip-date {
+  margin: 0 0 8px;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: #7a5a2e;
+  font-size: 14px;
+}
+
+.slip p:last-child { margin: 0; }
+
+/* the drawer's other papers, small and neat */
+.pasted {
+  margin-top: 44px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(96, 120, 160, 0.5);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6d5a3e;
+}
+
+.pasted-head {
+  margin: 0 0 8px;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: #7a5a2e;
+}
+
+.pasted p:last-child { margin: 0; }
+
+a { color: #7a3324; }
+a:hover { color: #4a1f16; }
