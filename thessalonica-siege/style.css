@@ -1,0 +1,127 @@
+/* The Venetian Desk — Letter of Apology, Thessalonica 1422–1430 */
+
+:root {
+  --ink: #23201c;
+  --ink-soft: #4d463d;
+  --paper: #f7f3ea;
+  --rule: #c9bfa9;
+  --seal: #7d2e1f;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 19px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 3rem;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.mast-rule {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.mast-sub {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 auto;
+  max-width: 32rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.9rem 0.25rem;
+}
+
+.letter p {
+  margin: 0 0 1.4rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.letter p strong {
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+.salutation {
+  font-size: 1.08rem;
+  font-style: italic;
+}
+
+.record-line {
+  margin: 2rem 0;
+  padding: 1.4rem 1.6rem;
+  background: #f1ead9;
+  border-left: 3px solid var(--seal);
+}
+
+.record-line p {
+  margin: 0 0 0.8rem;
+  font-style: italic;
+  font-size: 1.02rem;
+}
+
+.rec-note {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 2.5rem;
+}
+
+.signer {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.foot {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.foot a {
+  color: var(--seal);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a {
+  color: var(--seal);
+}
