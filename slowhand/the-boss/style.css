@@ -1,0 +1,408 @@
+/* FM-21, Chapter 9 — The Boss. Printed at the boathouse, under the television. */
+
+:root {
+  --ink: #14120e;
+  --paper: #efe6d2;
+  --paper-2: #e6d9ba;
+  --red: #b3261e;
+  --navy: #1d2b4f;
+  --gold: #c9a227;
+  --faint: rgba(20, 18, 14, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(179, 38, 30, 0.16), transparent 60%),
+    radial-gradient(ellipse 90% 50% at 50% 110%, rgba(29, 43, 79, 0.18), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(20, 18, 14, 0.035) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(90deg, rgba(20, 18, 14, 0.03) 0 1px, transparent 1px 9px);
+}
+
+/* ————— top ticker ————— */
+.ticker {
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 4px double var(--gold);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+.ticker-track {
+  display: inline-block;
+  padding: 7px 0;
+  animation: ticker-scroll 40s linear infinite;
+}
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ————— the manual sheet ————— */
+.manual {
+  max-width: 880px;
+  margin: 44px auto 80px;
+  padding: 0 22px;
+}
+
+.masthead {
+  position: relative;
+  border: 3px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+  padding: 34px 30px 26px;
+  background:
+    repeating-linear-gradient(45deg, rgba(179, 38, 30, 0.06) 0 12px, transparent 12px 24px),
+    linear-gradient(180deg, var(--paper), var(--paper-2));
+  box-shadow: 10px 10px 0 rgba(20, 18, 14, 0.85);
+}
+.masthead-grid {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--navy);
+  border-bottom: 1px dashed var(--faint);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+.bureau {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: var(--red);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(56px, 11vw, 104px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--navy);
+  text-shadow:
+    3px 3px 0 var(--paper),
+    5px 5px 0 var(--red),
+    8px 8px 0 rgba(20, 18, 14, 0.25);
+}
+.subtitle {
+  font-size: 19px;
+  margin: 18px 0 0;
+  max-width: 62ch;
+}
+.masthead-rule {
+  margin: 22px 0 14px;
+  height: 26px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 26px, var(--red) 26px 52px, var(--gold) 52px 78px, var(--navy) 78px 104px);
+  background-size: 104px 3px;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+}
+.bolt {
+  height: 18px;
+  width: 100px;
+  margin-left: 18px;
+  color: var(--paper);
+  filter: drop-shadow(2px 2px 0 var(--red));
+}
+.classification {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+.stamp {
+  display: inline-block;
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-weight: 700;
+  padding: 3px 14px;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+  animation: stamp-pulse 3.2s ease-in-out infinite;
+  user-select: none;
+}
+@keyframes stamp-pulse {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50%      { transform: rotate(-3deg) scale(1.06); }
+}
+.underlined { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--red); }
+
+/* ————— plates (sections) ————— */
+.plate {
+  position: relative;
+  margin: 54px 0;
+  padding: 30px 34px 34px;
+  background: linear-gradient(180deg, rgba(255, 252, 244, 0.7), rgba(230, 217, 186, 0.4));
+  border: 1px solid var(--ink);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--ink), 14px 14px 0 rgba(29, 43, 79, 0.14);
+}
+.plate::before {
+  content: "9";
+  position: absolute;
+  top: -30px;
+  left: -14px;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: var(--paper);
+  background: var(--navy);
+  border: 2px solid var(--ink);
+  transform: rotate(-4deg);
+  box-shadow: 4px 4px 0 var(--red);
+}
+.plate h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 17px;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px double var(--ink);
+  color: var(--navy);
+}
+
+/* data sheet */
+.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.data th, .data td {
+  border: 1px solid var(--ink);
+  padding: 10px 14px;
+  vertical-align: top;
+  text-align: left;
+}
+.data th {
+  width: 32%;
+  background: repeating-linear-gradient(135deg, var(--navy) 0 8px, #24355e 8px 16px);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.data tr:nth-child(even) td { background: rgba(179, 38, 30, 0.05); }
+
+/* sequence */
+.sequence {
+  list-style: none;
+  counter-reset: disc;
+  margin: 0;
+  padding: 0;
+}
+.sequence li {
+  counter-increment: disc;
+  position: relative;
+  padding: 14px 0 14px 74px;
+  border-bottom: 1px dashed var(--faint);
+}
+.sequence li::before {
+  content: "DISC " counter(disc);
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background:
+    radial-gradient(circle, var(--paper) 0 12%, var(--red) 12% 46%, var(--ink) 46% 100%);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 3px 3px 0 rgba(20, 18, 14, 0.35);
+}
+.sequence .yr {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  margin-right: 10px;
+}
+
+/* orders */
+.orders {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.orders li {
+  display: flex;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--faint);
+}
+.orders .no {
+  flex: 0 0 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: var(--paper);
+  background: var(--red);
+  border: 2px solid var(--ink);
+  transform: rotate(2deg);
+}
+.orders li:nth-child(even) .no { background: var(--navy); transform: rotate(-2deg); }
+
+/* asides */
+.asided {
+  margin: 22px 0 0;
+  padding: 14px 18px;
+  font-size: 15px;
+  background:
+    repeating-linear-gradient(-45deg, rgba(201, 162, 39, 0.12) 0 10px, transparent 10px 20px),
+    rgba(255, 252, 244, 0.6);
+  border-left: 6px solid var(--gold);
+  font-style: italic;
+}
+
+/* pick ornament */
+.plate-plate {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 34px auto 0;
+}
+.pick {
+  width: 100%;
+  height: 100%;
+  color: var(--navy);
+  animation: pick-spin 26s linear infinite;
+}
+.pick text { font-family: "Courier New", Courier, monospace; font-size: 14px; font-weight: 700; fill: var(--red); letter-spacing: 2px; }
+@keyframes pick-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.pickstar {
+  position: absolute;
+  right: -12px;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  color: var(--gold);
+  animation: star-blink 4s ease-in-out infinite;
+}
+@keyframes star-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* links */
+a {
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--red);
+  background: rgba(201, 162, 39, 0.28);
+}
+
+/* colophon */
+.colophon {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+.colophon-rule {
+  height: 3px;
+  margin: 0 0 20px;
+  background: repeating-linear-gradient(90deg, var(--red) 0 14px, var(--gold) 14px 28px, var(--navy) 28px 42px, var(--ink) 42px 56px);
+}
+.ledger {
+  border: 2px dashed var(--ink);
+  padding: 12px 16px;
+  max-width: 64ch;
+  margin: 0 auto 18px;
+  background: rgba(255, 252, 244, 0.55);
+}
+
+/* ————— tape meter (JS-driven) ————— */
+.tape-meter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px 10px;
+  border-top: 3px solid var(--gold);
+  user-select: none;
+}
+.tape-meter button {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  background: var(--red);
+  color: var(--paper);
+  border: 2px solid var(--paper);
+  padding: 4px 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.tape-meter button:hover { background: var(--gold); color: var(--ink); }
+.meter-track {
+  flex: 1;
+  height: 10px;
+  border: 1px solid var(--paper);
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(90deg, transparent 0 24px, rgba(239, 230, 210, 0.25) 24px 25px);
+}
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+  transition: width 0.9s linear;
+}
+.meter-label { white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .stamp, .pick, .pickstar { animation: none; }
+}
