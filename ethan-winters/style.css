@@ -1,0 +1,276 @@
+/* The Meridian Pocket Guide — Entry No. 31: the Winters Route.
+   Survival-horror field print: bayou black, spore green, rust, lantern amber. */
+
+:root {
+  --ink: #e8e3d2;
+  --ink-dim: #b3ac93;
+  --spore: #9fbf3b;
+  --spore-deep: #5c7a1e;
+  --rust: #a33f22;
+  --rust-deep: #5e2313;
+  --lantern: #ffcf7a;
+  --paper: #14170f;
+  --paper-2: #1c2014;
+  --line: #39402a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(159, 191, 59, 0.16), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 85% 108%, rgba(163, 63, 34, 0.20), transparent 62%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.014) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 42%, #0d0f09 100%);
+  background-attachment: fixed;
+}
+
+/* drifting spore veils */
+.mold {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+.mold--a {
+  background:
+    radial-gradient(circle 240px at 12% 28%, rgba(159, 191, 59, 0.10), transparent 70%),
+    radial-gradient(circle 320px at 88% 66%, rgba(159, 191, 59, 0.07), transparent 70%);
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+.mold--b {
+  background:
+    radial-gradient(circle 200px at 70% 12%, rgba(163, 63, 34, 0.10), transparent 70%),
+    radial-gradient(circle 260px at 25% 85%, rgba(163, 63, 34, 0.08), transparent 70%);
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+@keyframes drift-a {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to   { transform: translate3d(3%, 2%, 0) scale(1.08); }
+}
+@keyframes drift-b {
+  from { transform: translate3d(2%, 1.5%, 0) scale(1.05); }
+  to   { transform: translate3d(-3%, -2%, 0) scale(1); }
+}
+
+.spores { position: fixed; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+.spores span {
+  position: absolute;
+  top: -4vh;
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--spore);
+  opacity: 0;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  8%   { opacity: 0.55; }
+  85%  { opacity: 0.3; }
+  100% { transform: translate3d(4vw, 108vh, 0); opacity: 0; }
+}
+
+/* masthead */
+.masthead {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 56px 28px 30px;
+  text-align: center;
+  border-bottom: 3px double var(--line);
+}
+.masthead-rune {
+  position: absolute;
+  right: 6px;
+  top: 34px;
+  width: 84px;
+  height: 84px;
+  color: var(--spore-deep);
+  opacity: 0.85;
+  animation: rune-turn 40s linear infinite;
+}
+@keyframes rune-turn { to { transform: rotate(360deg); } }
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--spore);
+}
+.title {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-shadow:
+    0 0 22px rgba(159, 191, 59, 0.35),
+    0 0 60px rgba(163, 63, 34, 0.30),
+    0 2px 0 rgba(0, 0, 0, 0.7);
+}
+.dek {
+  margin: 12px auto 20px;
+  max-width: 620px;
+  font-style: italic;
+  color: var(--ink-dim);
+}
+.plate {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 8px 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-dim);
+}
+.plate-seal {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--rust);
+  border-radius: 50%;
+  color: var(--lantern);
+  font-weight: bold;
+  animation: seal-pulse 3.2s ease-in-out infinite;
+}
+@keyframes seal-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 207, 122, 0.25); }
+  50%      { box-shadow: 0 0 14px 3px rgba(255, 207, 122, 0.35); }
+}
+
+/* two-column body */
+.cols {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 34px 28px 10px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 34px;
+  align-items: start;
+}
+@media (max-width: 840px) { .cols { grid-template-columns: 1fr; } }
+
+.ledger {
+  position: sticky;
+  top: 20px;
+  border: 1px solid var(--line);
+  background:
+    repeating-linear-gradient(180deg, transparent 0 27px, rgba(232, 227, 210, 0.05) 27px 28px),
+    linear-gradient(160deg, rgba(92, 122, 30, 0.14), rgba(0, 0, 0, 0.4));
+  padding: 18px 18px 14px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 840px) { .ledger { position: static; } }
+.ledger h2 {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--lantern);
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 8px;
+}
+.ledger dl { margin: 0; }
+.ledger dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--spore);
+  margin-top: 9px;
+}
+.ledger dd { margin: 2px 0 0; font-size: 0.92rem; color: var(--ink); }
+.ledger-note {
+  margin: 14px 0 0;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+/* entry body */
+.entry h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  color: var(--lantern);
+  margin: 34px 0 10px;
+  text-shadow: 0 0 14px rgba(255, 207, 122, 0.25);
+}
+.entry h2::before {
+  content: "✛ ";
+  color: var(--rust);
+}
+.entry p { margin: 0 0 14px; }
+.entry a { color: var(--spore); text-decoration: underline; text-underline-offset: 3px; }
+.entry a:hover { color: var(--lantern); }
+.entry strong { color: var(--ink); background: rgba(163, 63, 34, 0.28); padding: 0 3px; }
+.drop {
+  font-size: 1.06rem;
+}
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 4px 10px 0 0;
+  color: var(--spore);
+  text-shadow: 0 0 18px rgba(159, 191, 59, 0.5);
+}
+.kept {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.94em;
+  color: var(--lantern);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--rust);
+  border-left: 5px solid var(--rust);
+  padding: 2px 8px;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+/* colophon */
+.colophon {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  margin: 30px auto 0;
+  padding: 20px 28px 44px;
+  border-top: 3px double var(--line);
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.colophon p { margin: 0; }
+
+/* lantern flicker over the whole sheet, kept subtle for readability */
+.masthead, .entry h2 { animation: flicker 7s steps(1) infinite; }
+@keyframes flicker {
+  0%, 41%, 44%, 100% { opacity: 1; }
+  42% { opacity: 0.82; }
+  43% { opacity: 0.96; }
+  63% { opacity: 1; }
+  64% { opacity: 0.88; }
+  65% { opacity: 1; }
+}
