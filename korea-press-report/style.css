@@ -1,0 +1,162 @@
+/* Form 3B, Room 214 — the ledger class of Haldon Grove School */
+
+:root {
+  --paper: #f7f2e4;
+  --paper-deep: #efe7d0;
+  --ink: #1d2438;
+  --ink-soft: #3a4258;
+  --rule: #b9c4d6;
+  --margin: #c0392b;
+  --green: #1e6b46;
+  --red: #a3241d;
+  --stamp: #b0332a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #23283a;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 64%, rgba(255,255,255,0.04) 0 2px, transparent 3px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.report-head {
+  background: var(--paper-deep);
+  border-bottom: 4px double var(--ink);
+  padding: 1.4rem 1.5rem 1.1rem;
+  position: relative;
+  color: var(--ink);
+}
+
+.school-line {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+}
+
+.report-title {
+  margin: 0;
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--ink);
+  display: inline-block;
+  padding-bottom: 0.15em;
+}
+
+.report-sub {
+  margin: 0.7rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.seal {
+  position: absolute;
+  right: 1.4rem;
+  top: 1.1rem;
+  width: 96px;
+  height: 96px;
+  color: var(--stamp);
+  transform: rotate(-8deg);
+  opacity: 0.9;
+}
+.seal-t { font: 700 15px "Courier New", monospace; letter-spacing: 0.25em; }
+.seal-s { font: 10px "Courier New", monospace; letter-spacing: 0.12em; }
+
+.paper {
+  max-width: 46rem;
+  margin: 2rem auto 3rem;
+  background: var(--paper);
+  /* ruled notebook page, with a red margin line */
+  background-image:
+    linear-gradient(to right, transparent 2.6rem, var(--margin) 2.6rem, var(--margin) 2.7rem, transparent 2.7rem),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.55rem,
+      var(--rule) 1.55rem,
+      var(--rule) 1.6rem
+    );
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  padding: 1.6rem 1.6rem 1.6rem 3.6rem;
+}
+
+.entry { margin-bottom: 2.4rem; }
+
+.entry-date {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  border-bottom: 1px dashed var(--ink-soft);
+  padding-bottom: 0.3rem;
+}
+
+.entry h2 {
+  margin: 0.4rem 0 0.6rem;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.entry p { margin: 0 0 0.9rem; }
+
+.ledger, .mark-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.8rem 0 1rem;
+  font-size: 0.88rem;
+  background: rgba(255,255,255,0.5);
+}
+.ledger th, .mark-table th,
+.ledger td, .mark-table td {
+  border: 1px solid var(--ink-soft);
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+.ledger th, .mark-table th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  background: var(--paper-deep);
+}
+.ink-green { color: var(--green); }
+.ink-red { color: var(--red); }
+
+.card-line {
+  margin: 1rem 0;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--stamp);
+  background: #fffdf4;
+  font-style: italic;
+  color: var(--ink-soft);
+  box-shadow: 2px 2px 0 rgba(29,36,56,0.15);
+}
+
+a { color: var(--red); }
+a:hover { color: var(--ink); }
+
+.signed { font-size: 0.92rem; }
+.cc {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--ink-soft);
+  padding-top: 0.5rem;
+}
+
+.foot {
+  max-width: 46rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 1rem;
+  color: #cfd5e4;
+  font-size: 0.8rem;
+}
+.foot .small { font-size: 0.72rem; color: #9aa3ba; }
