@@ -1,0 +1,119 @@
+/* Harborside & Pine · Records Room · No. 11 */
+
+:root {
+  --ink: #24313b;
+  --ink-soft: #4c5c66;
+  --sea: #1f5f5b;
+  --sea-faint: #e3ede9;
+  --paper: #f7f4ec;
+  --rule: #cfd8d3;
+  --rose: #a04a3c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.mast { text-align: center; margin-bottom: 3.25rem; }
+
+.press {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin-bottom: 1.6rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.9rem;
+}
+
+.sub {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+}
+
+.orn {
+  margin-top: 1.4rem;
+  color: var(--rose);
+  letter-spacing: 0.6em;
+  font-size: 0.85rem;
+}
+
+.qa section { margin-bottom: 2.6rem; }
+
+.qa h2 {
+  font-weight: 400;
+  font-size: 1.22rem;
+  color: var(--sea);
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.qa h2 em { color: var(--ink); }
+
+.qa p { margin-bottom: 0.9rem; }
+
+strong { font-weight: 700; color: var(--ink); }
+
+.charge {
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--rose);
+  background: var(--sea-faint);
+  border-left: 3px solid var(--sea);
+  padding: 0.85rem 1.25rem;
+  margin: 1.1rem 0;
+}
+
+.colophon-box {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.6rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.colophon-box a, .qa a {
+  color: var(--sea);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.colophon-box a:hover, .qa a:hover {
+  border-bottom-color: var(--sea);
+}
+
+.ft {
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.ft .wave { color: var(--rose); }
