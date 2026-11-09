@@ -1,0 +1,285 @@
+/* The Liburnia Gazette — Column Nine, Tarsatica, A.D. 800 */
+
+:root {
+  --paper: #e9dcbe;
+  --paper-deep: #dcc99d;
+  --ink: #241a10;
+  --ink-soft: #4a3a26;
+  --seal: #7a1f14;
+  --frank: #1f3a5f;
+  --gold: #8a6a1e;
+  --rule: #2c2114;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", "Iowan Old Style", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.5;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 244, 214, 0.9), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(122, 31, 20, 0.14), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(44, 33, 20, 0.045) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgba(44, 33, 20, 0.03) 0 1px, transparent 1px 30px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 58%, #cbb27f 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* stone-wall texture along the very edge */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(44,33,20,0.06) 46px 48px),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(44,33,20,0.05) 34px 36px);
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 140px rgba(60, 40, 15, 0.45);
+  z-index: 0;
+}
+
+/* wax seal corner */
+.wax {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  width: 92px;
+  color: var(--seal);
+  opacity: 0.85;
+  transform: rotate(-12deg);
+  z-index: 5;
+  transition: transform 0.5s ease;
+  filter: drop-shadow(2px 3px 3px rgba(44, 33, 20, 0.4));
+}
+.wax.spin { transform: rotate(-12deg) scale(0.9); }
+.wax-text { font-family: "UnifrakturCook", serif; font-size: 22px; fill: currentColor; }
+
+.masthead {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 34px 22px 0;
+  text-align: center;
+}
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 6px 4px;
+  margin-bottom: 18px;
+}
+.paper-name {
+  font-family: "UnifrakturCook", "Old English Text MT", serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.02em;
+  margin: 0.1em 0 0.05em;
+  color: var(--ink);
+  text-shadow: 1px 1px 0 rgba(255, 248, 224, 0.7), 3px 3px 0 rgba(122, 31, 20, 0.18);
+}
+.paper-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 auto 10px;
+  max-width: 620px;
+}
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--seal);
+  font-size: 0.9rem;
+}
+.rule::before, .rule::after {
+  content: "";
+  flex: 1;
+  height: 4px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.mast-orn {
+  color: var(--rule);
+  max-width: 620px;
+  margin: 14px auto 6px;
+  opacity: 0.8;
+}
+.mast-orn svg { width: 100%; height: auto; display: block; }
+.edition {
+  font-family: "Special Elite", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 10px 0 18px;
+  color: var(--frank);
+}
+
+/* the running line */
+.ticker {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  background: linear-gradient(180deg, #f4ead0, #e4d3a8);
+  padding: 7px 0;
+  margin-bottom: 26px;
+}
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  font-family: "Special Elite", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--seal);
+  animation: run 40s linear infinite;
+}
+@keyframes run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* the classified sheet */
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto 40px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.col-span-2 { grid-column: span 2; }
+
+.ad {
+  position: relative;
+  border: 1.5px solid var(--rule);
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 9px, rgba(44,33,20,0.02) 9px 10px),
+    linear-gradient(180deg, rgba(255, 250, 232, 0.75), rgba(233, 220, 190, 0.55));
+  padding: 18px 20px 16px;
+  box-shadow: 3px 3px 0 rgba(44, 33, 20, 0.22);
+}
+.ad::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(44, 33, 20, 0.4);
+  pointer-events: none;
+}
+.ad-kicker {
+  font-family: "Special Elite", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 6px;
+}
+.ad h2, .ad h3 {
+  font-family: "UnifrakturCook", serif;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+.ad h2 { font-size: 1.9rem; }
+.ad h3 { font-size: 1.45rem; }
+.ad p { margin: 0 0 10px; }
+.ad p:last-child { margin-bottom: 0; }
+.ad a { color: var(--frank); }
+.ad a:hover { background: rgba(31, 58, 95, 0.12); }
+.ad strong { color: var(--seal); }
+
+/* drop cap on the chancery notice */
+.ad-notice p {
+  text-align: justify;
+  hyphens: auto;
+}
+.ad-notice p::first-letter {
+  font-family: "UnifrakturCook", serif;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding-right: 8px;
+  color: var(--seal);
+}
+
+/* the corrections leaf */
+.ad-corr {
+  border: 2.5px double var(--seal);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 224, 0.9), rgba(238, 222, 182, 0.7));
+}
+.ad-corr::before { border-color: rgba(122, 31, 20, 0.5); }
+.record-line {
+  margin: 14px 0 16px;
+  padding: 14px 18px;
+  border-left: 5px solid var(--seal);
+  border-right: 5px solid var(--seal);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 21px, rgba(122, 31, 20, 0.12) 21px 22px);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 22px;
+  color: var(--ink);
+  transition: background-color 0.4s ease;
+  cursor: help;
+}
+.record-line.lit {
+  background-color: rgba(255, 235, 170, 0.55);
+}
+.ad-corr p { text-align: justify; hyphens: auto; }
+
+/* wanted ads get a frank-blue stamp */
+.ad-wanted h3::after {
+  content: "☞";
+  float: right;
+  color: var(--frank);
+}
+
+.foot {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 10px 22px 46px;
+  text-align: center;
+  border-top: 4px double var(--rule);
+}
+.foot-orn { color: var(--seal); opacity: 0.75; max-width: 320px; margin: 0 auto 8px; }
+.foot-orn svg { width: 100%; display: block; }
+.foot p { margin: 2px 0; font-size: 0.85rem; color: var(--ink-soft); }
+.foot-small { font-style: italic; letter-spacing: 0.04em; }
+
+@media (max-width: 720px) {
+  .sheet { grid-template-columns: 1fr; }
+  .col-span-2 { grid-column: span 1; }
+  .wax { width: 64px; top: 10px; right: 10px; }
+  .mast-top { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
