@@ -1,0 +1,296 @@
+/* Court of the Trophy — Cause No. 1987-L — transcript styling */
+:root {
+  --ink: #2a1f14;
+  --faded-ink: #5a4632;
+  --parchment: #efe3c8;
+  --parchment-deep: #e3d0a8;
+  --oak: #6b3f1d;
+  --wax: #7a1f1f;
+  --brass: #9c7a2f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(156, 122, 47, 0.16), transparent 46%),
+    radial-gradient(ellipse at 84% 92%, rgba(122, 31, 31, 0.12), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(107, 63, 29, 0.045) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(90deg, rgba(107, 63, 29, 0.03) 0 1px, transparent 1px 9px),
+    linear-gradient(160deg, #f4e9cf 0%, #e8d5ab 48%, #d9c08c 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* the recording strip */
+.rec {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.55em 1.2em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: #f3e6c8;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.28) 0 10px, transparent 10px 20px),
+    linear-gradient(#241a10, #3a2a18);
+  border-bottom: 3px double var(--brass);
+  text-transform: uppercase;
+}
+.rec-dot {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: 50%;
+  background: #e0483a;
+  box-shadow: 0 0 10px 3px rgba(224, 72, 58, 0.75);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.72); }
+}
+
+/* the docket sheet */
+.record {
+  max-width: 56rem;
+  margin: 3.2rem auto 5rem;
+  padding: 3rem 3.2rem 2.4rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 250, 232, 0.9), transparent 55%),
+    linear-gradient(180deg, var(--parchment), var(--parchment-deep));
+  border: 1px solid #b99a5e;
+  outline: 4px double var(--oak);
+  outline-offset: 8px;
+  box-shadow:
+    0 30px 60px -18px rgba(42, 31, 20, 0.55),
+    0 4px 14px rgba(42, 31, 20, 0.3);
+}
+
+/* the gavel, hung in the margin */
+.record::before {
+  content: "";
+  position: absolute;
+  top: -2.6rem;
+  left: 50%;
+  width: 9.5rem;
+  height: 2rem;
+  transform: translateX(-50%) rotate(-7deg);
+  background:
+    linear-gradient(180deg, #8a5a2e, #5d3a1a 55%, #4a2d12),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 3px, transparent 3px 6px);
+  border-radius: 0.35rem;
+  box-shadow: 0 8px 12px rgba(42,31,20,0.35);
+}
+.record::after {
+  content: "";
+  position: absolute;
+  top: -2.15rem;
+  left: 50%;
+  width: 0.55rem;
+  height: 1.7rem;
+  transform: translateX(-50%);
+  background: linear-gradient(#9c7a2f, #6e541f);
+  border-radius: 0.2rem;
+}
+
+/* caption block */
+.caption { text-align: center; position: relative; }
+.state {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--oak);
+}
+.venue {
+  margin: 0.3rem 0 1.1rem;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--faded-ink);
+}
+h1 {
+  margin: 0 auto 0.8rem;
+  max-width: 22rem;
+  font-size: clamp(1.9rem, 4.6vw, 3rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-shadow: 1px 1px 0 rgba(255, 252, 240, 0.8);
+}
+h1 .name {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--wax);
+}
+.cause {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--faded-ink);
+}
+
+.parties {
+  width: 100%;
+  margin: 1.6rem 0 0.6rem;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+.parties th {
+  text-align: right;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--oak);
+  padding: 0.3rem 0.9rem 0.3rem 0.4rem;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.parties td {
+  padding: 0.3rem 0.4rem 0.3rem 0;
+  border-bottom: 1px dotted rgba(107, 63, 29, 0.4);
+}
+
+/* the seal */
+.seal {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+}
+.seal svg {
+  transform: rotate(9deg);
+  animation: settle 1.4s ease-out both;
+}
+@keyframes settle {
+  from { transform: rotate(40deg) scale(1.6); opacity: 0; }
+  to { transform: rotate(9deg) scale(1); opacity: 1; }
+}
+.seal-ring { fill: none; stroke: var(--wax); stroke-width: 3; opacity: 0.85; }
+.seal-ring.inner { stroke-width: 1.2; }
+.seal-text { font: 600 9.5px "Courier New", monospace; fill: var(--wax); letter-spacing: 0.12em; }
+.seal-num { font: 700 17px "Courier New", monospace; fill: var(--wax); }
+
+/* rules */
+.rule-double {
+  height: 7px;
+  border-top: 3px double var(--oak);
+  border-bottom: 1px solid var(--brass);
+  margin: 2rem 0;
+}
+
+/* pages of the transcript */
+.page {
+  font-size: 1.03rem;
+  border-left: 3px solid rgba(156, 122, 47, 0.5);
+  padding: 0.2rem 0 0.2rem 1.4rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+.page .folio {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+  margin: 0 0 0.9rem;
+}
+.page p { margin: 0 0 1.05rem; }
+.page p::first-letter { letter-spacing: 0.02em; }
+
+.w {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  color: var(--oak);
+}
+
+strong { color: var(--wax); font-weight: 700; }
+
+/* the line kept word for word */
+.kept {
+  font-style: italic;
+  background:
+    linear-gradient(transparent 55%, rgba(156, 122, 47, 0.28) 55%, rgba(156, 122, 47, 0.28) 92%, transparent 92%);
+  padding: 0 0.15em;
+}
+.kept.typing::after {
+  content: "\258C";
+  margin-left: 0.15em;
+  color: var(--oak);
+  animation: pulse 0.9s step-end infinite;
+}
+
+a {
+  color: var(--wax);
+  text-decoration: underline;
+  text-decoration-color: rgba(122, 31, 31, 0.45);
+  text-underline-offset: 3px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+a:hover, a:focus {
+  color: #fff3df;
+  background: var(--wax);
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+/* footer of the docket */
+.record-foot {
+  text-align: center;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+.record-foot p { margin: 0.2rem 1rem; }
+
+/* the wax button */
+.wax {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 50;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: #f3e6c8;
+  cursor: pointer;
+  user-select: none;
+  background: radial-gradient(circle at 34% 30%, #a03a30, var(--wax) 58%, #4c0f0f);
+  box-shadow: 0 6px 14px rgba(42, 31, 20, 0.5), inset 0 0 0 3px rgba(255, 230, 200, 0.22);
+  transition: transform 0.2s ease;
+}
+.wax:hover { transform: rotate(-14deg) scale(1.08); }
+.wax:active { transform: scale(0.9); }
+.wax.affixed { animation: stamp 0.5s ease-out; }
+@keyframes stamp {
+  0% { transform: scale(1.7) rotate(30deg); }
+  60% { transform: scale(0.9) rotate(-10deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@media (max-width: 640px) {
+  .record { margin: 2.4rem 0.8rem 3rem; padding: 2rem 1.2rem 1.6rem; }
+  .parties { font-size: 0.86rem; }
+  .parties th { white-space: normal; }
+  .seal { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-dot, .kept.typing::after, .seal svg { animation: none; }
+}
