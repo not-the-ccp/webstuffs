@@ -1,0 +1,250 @@
+/* Sleet-Day Plum Rusk — Card No. 13, The Gelissen Kitchen */
+
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:ital@0;1&display=swap');
+
+:root {
+  --plum: #3b1226;
+  --plum-deep: #1c0712;
+  --ink: #2b1620;
+  --paper: #f3e6cf;
+  --paper-aged: #e9d7b4;
+  --gold: #c9973f;
+  --gold-dim: #8a6a33;
+  --slate: #5d6b73;
+  --ember: #ff9d4d;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  background:
+    radial-gradient(1100px 500px at 15% -5%, rgba(122, 42, 82, 0.55), transparent 60%),
+    radial-gradient(900px 600px at 110% 15%, rgba(63, 84, 104, 0.5), transparent 55%),
+    radial-gradient(1400px 900px at 50% 120%, rgba(59, 18, 38, 0.9), transparent 70%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 9px),
+    linear-gradient(180deg, #241019 0%, #1a0a13 45%, #120609 100%);
+  background-attachment: fixed;
+}
+
+/* the sleet canvas sits behind the card, above the wallpaper */
+#sleet {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* the stove glow, hidden until lit */
+.glow {
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 45vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 130% at 50% 130%, rgba(255, 157, 77, 0.55), rgba(255, 122, 40, 0.15) 55%, transparent 75%);
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+body.lit .glow {
+  opacity: 1;
+  animation: flicker 5.5s ease-in-out infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  42% { opacity: 0.78; }
+  58% { opacity: 0.92; }
+  71% { opacity: 0.7; }
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 4.5rem auto 6rem;
+  padding: 3rem 3.25rem 2.5rem;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 248, 230, 0.65), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(122, 84, 40, 0.05) 0 1px, transparent 1px 26px),
+    linear-gradient(170deg, var(--paper) 0%, var(--paper-aged) 78%, #dcc49a 100%);
+  border: 3px double var(--gold-dim);
+  outline: 1px solid rgba(43, 22, 32, 0.35);
+  outline-offset: 6px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 90px rgba(122, 72, 30, 0.14);
+}
+
+/* corner pins, like the card nailed to the kitchen board */
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e8c877, var(--gold) 45%, #4c3a17 90%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.card::before { top: 12px; left: 12px; }
+.card::after { top: 12px; right: 12px; }
+
+.card-head {
+  text-align: center;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--gold-dim);
+  position: relative;
+}
+.card-head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 180px;
+  height: 8px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+  opacity: 0.7;
+}
+
+.kicker {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-family: "UnifrakturMaguntia", "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--plum-deep);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.latin {
+  font-style: italic;
+  color: var(--gold-dim);
+  letter-spacing: 0.14em;
+  margin: 0.6rem 0 0.9rem;
+}
+
+.plums { color: var(--plum); }
+
+h2 {
+  font-family: "UnifrakturMaguntia", "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: 1.9rem;
+  color: var(--plum);
+  border-bottom: 3px double var(--gold-dim);
+  padding-bottom: 0.35rem;
+  margin: 2.2rem 0 1.1rem;
+}
+
+h3 {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 1.6rem 0 0.5rem;
+}
+h3::before { content: "\2756\00a0"; color: var(--gold); }
+
+p { margin: 0 0 1rem; }
+strong { color: var(--plum-deep); }
+a { color: var(--plum); text-underline-offset: 3px; }
+a:hover { color: var(--gold-dim); }
+
+/* the kept line, word for word */
+.kept-line {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--plum-deep);
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 22, 32, 0.06) 0 1px, transparent 1px 24px),
+    linear-gradient(180deg, rgba(255, 252, 240, 0.9), rgba(233, 215, 180, 0.9));
+  border: 1px solid var(--gold-dim);
+  border-left: 6px solid var(--gold);
+  box-shadow: inset 0 0 30px rgba(122, 72, 30, 0.12), 2px 3px 0 rgba(43, 22, 32, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.kept-line:hover {
+  transform: rotate(-0.4deg) translateY(-2px);
+  box-shadow: inset 0 0 30px rgba(122, 72, 30, 0.12), 4px 6px 12px rgba(43, 22, 32, 0.3);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+}
+@media (max-width: 640px) {
+  .columns { grid-template-columns: 1fr; }
+  .card { margin: 2rem 0.75rem 5rem; padding: 2rem 1.4rem; }
+}
+
+ul.ingredients, ol.method { margin: 0; padding-left: 1.2rem; }
+ul.ingredients li, ol.method li { margin-bottom: 0.7rem; }
+ul.ingredients li::marker { content: "\1F351\00a0"; }
+ol.method li::marker {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--gold-dim);
+  font-weight: 700;
+}
+
+.card-foot {
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--gold-dim);
+  font-size: 0.98rem;
+  font-style: italic;
+  color: #4c3240;
+}
+
+/* the stove switch */
+#stove {
+  position: fixed;
+  z-index: 2;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--plum-deep);
+  border: 1px solid var(--gold-dim);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+#stove:hover { background: var(--plum); }
+body.lit #stove {
+  background: var(--ember);
+  color: var(--plum-deep);
+  border-color: var(--ember);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.lit .glow { animation: none; }
+  .kept-line { transition: none; }
+  html { scroll-behavior: auto; }
+}
