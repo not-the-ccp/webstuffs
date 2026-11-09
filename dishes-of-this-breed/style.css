@@ -1,0 +1,197 @@
+/* Letter to the Editor — filed with The Plate & Post, No. 48 correspondence shelf */
+
+:root {
+  --paper: #f4ead8;
+  --paper-deep: #eadfc7;
+  --ink: #2a2521;
+  --ink-soft: #4d443b;
+  --rule: #a8977a;
+  --stamp: #9c3b26;
+  --teal: #31584f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9cfb8;
+  background-image: repeating-linear-gradient(
+    0deg, rgba(0,0,0,0.02) 0 2px, transparent 2px 5px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 720px;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  padding: 3rem 3rem 2.5rem;
+  box-shadow: 0 14px 40px rgba(30, 22, 10, 0.35);
+  border-top: 6px double var(--rule);
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.6rem;
+}
+.letterhead .overline {
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.letterhead h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.02em;
+}
+.letterhead .address {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.to-line {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.2rem;
+}
+
+.dateline {
+  text-align: right;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.4rem;
+}
+
+body p { margin: 0 0 1em; text-align: justify; }
+body p a { color: var(--teal); }
+
+.ink-quoted {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92em;
+  background: var(--paper-deep);
+  padding: 0.05em 0.25em;
+}
+
+.gauge-block {
+  margin: 2rem 0;
+  padding: 1rem 1.1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+}
+.gauge-block h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+.gauge-block .gauge-note {
+  margin: 0 0 0.8rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink-soft);
+}
+.gauge {
+  position: relative;
+  height: 16px;
+  border: 1px solid var(--ink);
+  background: linear-gradient(90deg, #31584f 0%, #b8a13a 55%, #9c3b26 100%);
+  margin: 0 0 0.4rem;
+}
+.gauge .ticks {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg, transparent 0 9.8%, rgba(255,255,255,0.65) 9.8% 10%);
+}
+#needle {
+  position: absolute;
+  top: -7px;
+  width: 3px;
+  height: 30px;
+  background: var(--ink);
+  left: 30%;
+  transform: translateX(-50%);
+  transition: left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#gauge-label {
+  text-align: center;
+  font-size: 0.9rem;
+  min-height: 1.4em;
+  margin: 0.4rem 0 0;
+}
+#gauge-label strong { letter-spacing: 0.04em; }
+
+ol.wire {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  counter-reset: entry;
+}
+ol.wire li {
+  border-top: 1px dotted var(--rule);
+  padding: 0.45rem 0.3rem;
+  cursor: pointer;
+}
+ol.wire li:last-child { border-bottom: 1px dotted var(--rule); }
+ol.wire li .yr {
+  display: inline-block;
+  min-width: 4.4em;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+ol.wire li.active {
+  background: rgba(156, 59, 38, 0.10);
+  outline: 1px solid var(--stamp);
+}
+ol.wire li .heat {
+  float: right;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.signature {
+  margin-top: 1.8rem;
+  font-style: italic;
+}
+.signature .name {
+  font-family: "Snell Roundhand", "Segoe Script", cursive;
+  font-size: 1.6rem;
+  color: var(--teal);
+  margin: 0.2rem 0 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.2rem;
+  transform: rotate(7deg);
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  padding: 0.25rem 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.paper { position: relative; }
+
+footer.colophon {
+  border-top: 3px solid var(--ink);
+  margin-top: 2.2rem;
+  padding-top: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+footer.colophon a { color: var(--teal); }
