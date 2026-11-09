@@ -1,0 +1,345 @@
+/* Field Manual FM-14/EC — Ecuador, South American Series */
+:root {
+  --flag-yellow: #f7d618;
+  --flag-blue: #1d3c8f;
+  --flag-red: #d21f2c;
+  --ink: #1c1a17;
+  --paper: #f2e9d4;
+  --paper-deep: #e8dcc0;
+  --rust: #8a3b12;
+  --steam: #7a8a94;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+  background:
+    radial-gradient(1100px 480px at 78% -8%, rgba(210, 31, 44, 0.16), transparent 60%),
+    radial-gradient(900px 420px at 12% 8%, rgba(247, 214, 24, 0.14), transparent 55%),
+    radial-gradient(1400px 700px at 50% 115%, rgba(29, 60, 143, 0.28), transparent 70%),
+    linear-gradient(178deg, #14161f 0%, #1c1a24 34%, #221d26 62%, #2a2016 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ————— volcanic ridge behind the sheet ————— */
+.volcano {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.volcano svg { width: 100%; height: 100%; display: block; }
+.ridge.far {
+  fill: #232738;
+  stroke: #3a4059;
+  stroke-width: 2;
+}
+.ridge.near {
+  fill: #191b28;
+  stroke: #4a3c31;
+  stroke-width: 2;
+}
+.moon {
+  fill: var(--flag-yellow);
+  opacity: 0.85;
+  animation: moonGlow 6s ease-in-out infinite alternate;
+}
+@keyframes moonGlow {
+  from { opacity: 0.45; }
+  to   { opacity: 0.95; }
+}
+
+/* ————— the sheet ————— */
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 3rem auto 4rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(122, 138, 148, 0.05) 0 2px, transparent 2px 28px),
+    repeating-linear-gradient(90deg, rgba(138, 59, 18, 0.04) 0 2px, transparent 2px 28px),
+    radial-gradient(120% 60% at 50% 0%, #fbf5e6 0%, var(--paper) 45%, var(--paper-deep) 100%);
+  border: 2px solid var(--ink);
+  outline: 1px solid rgba(28, 26, 23, 0.35);
+  outline-offset: 5px;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 90px rgba(138, 59, 18, 0.10);
+}
+
+/* tricolour issue band */
+.flagband {
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr;
+  height: 26px;
+  border-bottom: 2px solid var(--ink);
+}
+.flagband span:nth-child(1) { background: var(--flag-yellow); }
+.flagband span:nth-child(2) { background: var(--flag-blue); }
+.flagband span:nth-child(3) { background: var(--flag-red); }
+
+/* ————— head ————— */
+.fm-head {
+  position: relative;
+  padding: 2.2rem 2.8rem 1rem;
+}
+.stamp {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.6rem;
+  transform: rotate(-9deg);
+  border: 3px double var(--flag-red);
+  color: var(--flag-red);
+  padding: 0.5rem 0.9rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s ease;
+}
+.stamp:hover { transform: rotate(-4deg) scale(1.04); }
+.stamp:active { transform: rotate(-9deg) scale(0.96); }
+.stamp-ring { display: block; font-size: 1.05rem; }
+.stamp-sub { display: block; font-size: 0.52rem; letter-spacing: 0.22em; margin-top: 0.2rem; }
+
+.series {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  text-shadow: 3px 3px 0 rgba(29, 60, 143, 0.18);
+}
+.subtitle {
+  margin: 0.5rem 0 1.4rem;
+  font-style: italic;
+  color: #4d463c;
+  max-width: 46ch;
+}
+.admin {
+  margin: 0;
+  border-top: 1px dashed rgba(28, 26, 23, 0.5);
+  border-bottom: 1px dashed rgba(28, 26, 23, 0.5);
+  padding: 0.7rem 0;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 0.35rem 1rem;
+  font-size: 0.92rem;
+}
+.admin dt {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--rust);
+  align-self: center;
+}
+.admin dd { margin: 0; }
+
+.rule {
+  height: 10px;
+  margin: 0 2.8rem;
+  border-top: 3px double var(--ink);
+  background:
+    radial-gradient(circle at 8px 5px, var(--ink) 1.5px, transparent 2px) 0 0 / 24px 10px repeat-x;
+  opacity: 0.7;
+}
+
+/* ————— equator line ————— */
+.equator {
+  position: relative;
+  margin: 1.6rem 2.8rem 0;
+  padding: 0.5rem 0;
+}
+.eq-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--flag-red);
+  width: 0%;
+  transition: width 2.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.eq-line.drawn { width: 100%; }
+.eq-line::before, .eq-line::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--flag-yellow);
+  border: 2px solid var(--ink);
+}
+.eq-line::before { left: -6px; }
+.eq-line::after { right: -6px; }
+.eq-label {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--flag-blue);
+  background: var(--paper);
+  padding: 0 1rem;
+}
+
+/* ————— body ————— */
+.manual { padding: 0.8rem 2.8rem 2rem; }
+section { margin: 1.7rem 0; }
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-left: 6px solid var(--flag-red);
+  padding-left: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+p { margin: 0 0 1rem; max-width: 72ch; }
+a {
+  color: var(--flag-blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+a:hover { color: var(--flag-red); background: rgba(247, 214, 24, 0.35); }
+
+blockquote.weird {
+  margin: 1.2rem 0;
+  padding: 1rem 1.3rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--rust);
+  background:
+    linear-gradient(120deg, rgba(138, 59, 18, 0.08), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(28, 26, 23, 0.06) 0 1px, transparent 1px 26px);
+  border: 1px solid var(--rust);
+  box-shadow: 4px 4px 0 rgba(138, 59, 18, 0.25);
+  position: relative;
+}
+blockquote.weird::before {
+  content: "CANTEEN LEDGER · UNPARSED · FILED ANYWAY";
+  position: absolute;
+  top: -0.62rem;
+  left: 0.8rem;
+  background: var(--paper);
+  padding: 0 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  color: var(--rust);
+}
+
+/* ————— altitude table ————— */
+.alt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: rgba(255, 252, 240, 0.6);
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 rgba(29, 60, 143, 0.2);
+}
+.alt-table th {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  background: var(--flag-blue);
+  color: #f5efdd;
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+}
+.alt-table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px dashed rgba(28, 26, 23, 0.35);
+  vertical-align: top;
+}
+.alt-table tbody tr:nth-child(odd) { background: rgba(29, 60, 143, 0.05); }
+.alt-table tbody tr:hover { background: rgba(247, 214, 24, 0.25); }
+.alt-table td:nth-child(3) {
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--flag-red);
+}
+
+/* ————— footer / altimeter ————— */
+.fm-foot {
+  margin: 2.4rem 2.8rem 0;
+  padding: 1.4rem 0 0.4rem;
+  border-top: 3px double var(--ink);
+  text-align: center;
+}
+.fm-foot p { max-width: none; margin: 0.3rem auto; font-size: 0.88rem; }
+.fm-foot .small { font-size: 0.74rem; color: #5a5245; }
+.altmeter { display: inline-block; text-align: center; margin-bottom: 0.6rem; }
+.altmeter svg { width: 170px; height: 102px; overflow: visible; }
+.dial { fill: none; stroke: var(--ink); stroke-width: 3; }
+.ticks line { stroke: var(--rust); stroke-width: 2; }
+.needle {
+  stroke: var(--flag-red);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform-origin: 100px 110px;
+  transform: rotate(0deg);
+  transition: transform 2.8s cubic-bezier(0.3, 1.2, 0.35, 1);
+}
+.needle.set { transform: rotate(52deg); }
+circle { fill: var(--ink); }
+.alt-read {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--flag-red);
+  font-size: 1.05rem;
+}
+
+/* steam rising off the sheet corners */
+.sheet::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -18px 0;
+  height: 40px;
+  background:
+    radial-gradient(60% 100% at 20% 100%, rgba(232, 220, 192, 0.22), transparent 70%),
+    radial-gradient(60% 100% at 80% 100%, rgba(232, 220, 192, 0.22), transparent 70%);
+  pointer-events: none;
+  animation: steam 5s ease-in-out infinite alternate;
+}
+@keyframes steam {
+  from { opacity: 0.25; transform: translateY(0); }
+  to   { opacity: 0.6;  transform: translateY(-10px); }
+}
+
+@media (max-width: 640px) {
+  .sheet { margin: 1rem 0.6rem 3rem; }
+  .fm-head, .manual, .fm-foot { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .rule, .equator { margin-left: 1.2rem; margin-right: 1.2rem; }
+  .admin { grid-template-columns: 1fr; gap: 0.15rem; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+}
