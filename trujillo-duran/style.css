@@ -1,0 +1,342 @@
+/* A Letter of Apology — to Manuel Trujillo Durán, 1871–1933
+   Set like a projection-room letter: dark theatre, gold lamplight,
+   film strips at the head and foot of the sheet. */
+
+:root {
+  --ink: #2a1d10;
+  --paper: #f3e5c3;
+  --paper-deep: #e7d3a7;
+  --night: #0e0a06;
+  --night-2: #1a120a;
+  --gold: #d8a83c;
+  --gold-bright: #f2c65e;
+  --lamp: #ffd98a;
+  --rust: #7a3b1e;
+  --sepia: #8c6b3f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", "Playfair Display", Georgia, serif;
+  color: var(--paper);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 217, 138, 0.14), transparent 55%),
+    radial-gradient(ellipse 90% 50% at 50% 115%, rgba(122, 59, 30, 0.25), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(216, 168, 60, 0.03) 0 2px, transparent 2px 90px),
+    linear-gradient(180deg, #080503 0%, var(--night) 18%, var(--night-2) 55%, #080503 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- projector lamp flicker overlay --- */
+.flicker {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: radial-gradient(ellipse 70% 55% at 50% 8%, rgba(255, 217, 138, 0.10), transparent 70%);
+  mix-blend-mode: screen;
+  animation: flick 4.2s steps(1, end) infinite;
+}
+@keyframes flick {
+  0%, 100% { opacity: 1; }
+  7%  { opacity: 0.55; }
+  8%  { opacity: 0.95; }
+  23% { opacity: 0.8; }
+  24% { opacity: 1; }
+  41% { opacity: 0.62; }
+  42% { opacity: 1; }
+  63% { opacity: 0.88; }
+  78% { opacity: 0.7; }
+  79% { opacity: 1; }
+}
+
+/* --- sprocket film strips --- */
+.strip {
+  height: 46px;
+  background:
+    repeating-linear-gradient(90deg,
+      #000 0 14px,
+      transparent 14px 30px);
+  background-color: #050302;
+  border-top: 1px solid rgba(216, 168, 60, 0.35);
+  border-bottom: 1px solid rgba(216, 168, 60, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.strip span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #1c130a, #0a0603);
+  box-shadow: inset 0 0 0 1px rgba(216, 168, 60, 0.28), 0 0 6px rgba(0, 0, 0, 0.8);
+}
+.strip span:nth-child(1)  { left: 2%; }  .strip span:nth-child(2)  { left: 11%; }
+.strip span:nth-child(3)  { left: 20%; }  .strip span:nth-child(4)  { left: 29%; }
+.strip span:nth-child(5)  { left: 38%; }  .strip span:nth-child(6)  { left: 47%; }
+.strip span:nth-child(7)  { left: 56%; }  .strip span:nth-child(8)  { left: 65%; }
+.strip span:nth-child(9)  { left: 74%; }  .strip span:nth-child(10) { left: 83%; }
+.strip span:nth-child(11) { left: 92%; }
+.strip span:nth-child(12) { left: 101%; }
+.strip span:nth-child(13) { left: 110%; }
+.strip span:nth-child(14) { left: 119%; }
+.strip span:nth-child(15) { left: 128%; }
+.strip span:nth-child(16) { left: 137%; }
+.strip span:nth-child(17) { left: 146%; }
+.strip span:nth-child(18) { left: 155%; }
+.strip-top span { animation: runtop 18s linear infinite; }
+.strip-bottom span { animation: runbot 18s linear infinite; }
+@keyframes runtop { from { transform: translateY(-50%) translateX(0); } to { transform: translateY(-50%) translateX(-39px); } }
+@keyframes runbot { from { transform: translateY(-50%) translateX(-39px); } to { transform: translateY(-50%) translateX(0); } }
+
+/* --- the theatre sheet --- */
+.theatre {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- marquee header --- */
+.marquee {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  border: 2px solid rgba(216, 168, 60, 0.5);
+  outline: 1px solid rgba(216, 168, 60, 0.18);
+  outline-offset: 6px;
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 0%, rgba(216, 168, 60, 0.12), transparent 70%),
+    linear-gradient(180deg, rgba(26, 18, 10, 0.9), rgba(14, 10, 6, 0.9));
+  margin-bottom: 2.25rem;
+  position: relative;
+}
+.marquee::before, .marquee::after {
+  content: "❦";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(216, 168, 60, 0.6);
+}
+.marquee::before { left: 0.7rem; }
+.marquee::after  { right: 0.7rem; }
+.marquee-top {
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.35em;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin: 0 0 0.9rem;
+  text-shadow: 0 0 10px rgba(216, 168, 60, 0.5);
+}
+.marquee h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  margin: 0.2rem 0 1rem;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 0 #000, 0 0 30px rgba(216, 168, 60, 0.35);
+}
+.marquee h1 .orn {
+  color: var(--gold-bright);
+  font-size: 0.6em;
+  vertical-align: 0.22em;
+  display: inline-block;
+  animation: spin 14s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.marquee-sub {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #e9d9b4;
+}
+.marquee-sub strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 1.18em;
+  color: var(--gold-bright);
+  text-shadow: 0 0 14px rgba(216, 168, 60, 0.5);
+}
+.aperture {
+  width: 92px;
+  margin: 1.2rem auto 0.2rem;
+}
+.iris { width: 100%; height: auto; display: block; }
+.iris .blade { transform-origin: 60px 60px; animation: iris-turn 26s linear infinite; }
+.iris .b2 { animation-duration: 26s; }
+@keyframes iris-turn { to { transform: rotate(60deg); } }
+
+/* --- the letter itself --- */
+.letter {
+  background:
+    radial-gradient(ellipse 140% 80% at 50% 0%, rgba(140, 107, 63, 0.14), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(140, 107, 63, 0.05) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  color: var(--ink);
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.2rem) 2.4rem;
+  border: 1px solid rgba(90, 60, 25, 0.55);
+  box-shadow:
+    0 0 0 6px rgba(216, 168, 60, 0.10),
+    0 0 0 7px rgba(90, 60, 25, 0.35),
+    0 30px 60px rgba(0, 0, 0, 0.65),
+    inset 0 0 60px rgba(122, 59, 30, 0.12);
+  position: relative;
+}
+/* wax-seal corner */
+.letter::after {
+  content: "MTD";
+  position: absolute;
+  top: -26px;
+  right: 28px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a33227, #5e1410 70%);
+  color: #f3d9c4;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55), inset 0 0 0 3px rgba(243, 217, 196, 0.25);
+  transform: rotate(-8deg);
+  letter-spacing: 0.08em;
+}
+.dateline {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--rust);
+  border-bottom: 1px solid rgba(122, 59, 30, 0.4);
+  padding-bottom: 0.9rem;
+  margin: 0 0 1.6rem;
+}
+.salutation {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+}
+.letter p {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  margin: 0 0 1.35rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.letter p::first-letter {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+}
+.letter > p:not(.salutation):not(.dateline):not(.close):not(.signature):first-of-type::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--rust);
+}
+.letter em { font-style: italic; }
+.letter strong { font-weight: 700; color: #1c1208; }
+.close { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 1.15rem; }
+.signature {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.95rem;
+  margin-bottom: 0 !important;
+}
+
+/* --- enclosure: ticket-stub box --- */
+.enclosure {
+  margin: 2.5rem 0 0;
+  padding: 1.3rem 1.4rem;
+  background:
+    repeating-linear-gradient(45deg, rgba(216, 168, 60, 0.05) 0 8px, transparent 8px 16px),
+    linear-gradient(180deg, rgba(26, 18, 10, 0.95), rgba(14, 10, 6, 0.95));
+  border: 1px dashed rgba(216, 168, 60, 0.55);
+  color: #d9c69a;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  position: relative;
+}
+.enclosure::before {
+  content: "STUBS";
+  position: absolute;
+  top: -0.85rem;
+  left: 1rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  background: var(--night);
+  padding: 0 0.6rem;
+}
+.enc-head {
+  font-family: "Special Elite", "Courier New", monospace;
+  color: var(--gold-bright);
+  letter-spacing: 0.12em;
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* --- elsewhere section --- */
+.elsewhere {
+  margin-top: 3rem;
+  padding: 1.6rem 1.4rem;
+  border-top: 1px solid rgba(216, 168, 60, 0.4);
+  border-bottom: 1px solid rgba(216, 168, 60, 0.4);
+  background: linear-gradient(180deg, rgba(216, 168, 60, 0.05), transparent 60%);
+}
+.elsewhere h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-bright);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+.elsewhere p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #e4d3ac;
+  margin: 0 0 1rem;
+}
+.elsewhere a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.elsewhere a:hover {
+  color: #fff1c9;
+  text-decoration-style: solid;
+  text-shadow: 0 0 12px rgba(242, 198, 94, 0.7);
+}
+
+/* --- colophon --- */
+.colophon {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: rgba(216, 168, 60, 0.85);
+  line-height: 2;
+}
+
+/* --- reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .flicker, .strip span, .iris .blade, .marquee h1 .orn { animation: none !important; }
+}
