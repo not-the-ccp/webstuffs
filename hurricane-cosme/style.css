@@ -1,0 +1,156 @@
+/* Hurricane Cosme (1989) — obituary stylesheet */
+
+/* Base */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f3ec;
+  color: #141414;
+  font-family: "Noto Serif", "Georgia", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #3d3a2e; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid #141414; outline-offset: 3px; }
+
+/* Page frame: an asymmetric three-column grid */
+.frame {
+  display: grid;
+  grid-template-columns: 250px 1fr 210px;
+  grid-template-rows: auto;
+  gap: 30px 42px;
+  max-width: 1060px;
+  margin: 46px auto;
+  padding: 0 20px;
+}
+
+.kicker {
+  grid-column: 1 / 4;
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #6b5b47;
+}
+
+.name {
+  grid-column: 1 / 4;
+  margin: 0;
+  font-size: clamp(2.4rem, 9vw, 6rem);
+  line-height: 1.02;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.dates {
+  grid-column: 1 / 4;
+  margin: 4px 0 2px;
+  font-size: 1.2rem;
+  color: #45392b;
+}
+
+.season {
+  grid-column: 1 / 4;
+  margin: 0 0 26px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #74644f;
+}
+
+/* Left rail: vital statistics, set apart */
+.vitals {
+  grid-column: 1;
+  border-right: 1px solid #c9bda8;
+  padding-right: 30px;
+  font-size: 0.92rem;
+}
+
+.vitals p { margin: 0 0 15px; }
+.vitals strong { color: #1c140c; }
+
+/* Right-hand main matter: two-column obituary text */
+.life {
+  grid-column: 2;
+  columns: 2;
+  column-gap: 34px;
+  column-rule: 1px solid #d9d0c1;
+}
+
+.life p { margin: 0 0 1.6rem; text-align: justify; }
+.life p:last-child { margin-bottom: 0; }
+
+.life .lead {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+/* Rotated pull-quote in the right margin */
+.pull {
+  grid-column: 3;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1.35rem;
+  font-style: italic;
+  color: #7a5c3d;
+  padding-top: 30px;
+  align-self: start;
+}
+
+.pull q { quotes: "“" "”"; }
+
+.pull::before {
+  content: "—";
+  font-size: 2.4rem;
+  color: #b9a684;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Closing notice, full width */
+.notice {
+  grid-column: 1 / 4;
+  border-top: 3px double #1c140c;
+  padding-top: 24px;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #332a1e;
+}
+
+/* Readable on narrow screens: single column, quote unrotated */
+@media (max-width: 880px) {
+  .frame {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .kicker, .name, .dates, .season, .notice { grid-column: 1; }
+  .vitals {
+    grid-column: 1;
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid #c9bda8;
+    padding-bottom: 20px;
+    margin-bottom: 18px;
+  }
+  .life { grid-column: 1; columns: 1; column-rule: none; }
+  .pull {
+    grid-column: 1;
+    writing-mode: horizontal-tb;
+    text-align: center;
+    font-size: 1.15rem;
+    padding-top: 0;
+    margin: 24px 0;
+  }
+  .pull::before { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
