@@ -1,0 +1,184 @@
+/* Case 12 — Mushroom Ketchup, The Condiment Gallery */
+
+:root {
+  --paper: #f6f1e7;
+  --panel: #efe7d8;
+  --ink: #2b241c;
+  --faded: #6d6254;
+  --walnut: #5b3a21;
+  --rust: #8a4b2a;
+  --line: #c9bda6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.case {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 3rem;
+}
+
+/* --- case head: the printed placard top --- */
+.case-head {
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.gallery {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.caseno {
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--walnut);
+}
+
+.rule {
+  height: 5px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin: 1.1rem auto 0;
+  max-width: 22rem;
+}
+
+h1 {
+  margin: 1.4rem auto 0.8rem;
+  font-size: 2.15rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  color: var(--walnut);
+}
+
+.accession {
+  max-width: 38rem;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+/* --- body prose --- */
+.prose p {
+  max-width: 40rem;
+  margin: 0 auto 1.4rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.prose .lead::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--rust);
+}
+
+.related a {
+  color: var(--walnut);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.related a:hover {
+  border-bottom-color: var(--walnut);
+}
+
+/* --- object card --- */
+.object-card {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  max-width: 46rem;
+  margin: 3.25rem auto;
+  padding: 2rem 2.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(43, 36, 28, 0.08) inset;
+}
+
+.bottle-wrap {
+  flex: 0 0 9.5rem;
+  text-align: center;
+}
+
+.bottle {
+  width: 9.5rem;
+  height: auto;
+  display: inline-block;
+}
+
+.object-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.9rem;
+}
+
+.object-body p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.provenance-label {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.88rem;
+}
+
+.slip {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--paper);
+  border-left: 3px solid var(--walnut);
+}
+
+.slip p {
+  font-size: 0.98rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.slip-note {
+  font-size: 0.8rem !important;
+  color: var(--faded);
+  font-style: italic;
+}
+
+/* --- footer --- */
+.placard-foot {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.placard-foot p {
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+@media (max-width: 40rem) {
+  html { font-size: 16px; }
+  .object-card { flex-direction: column; align-items: center; }
+  .object-body { width: 100%; }
+  h1 { font-size: 1.7rem; }
+}
