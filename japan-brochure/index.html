@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japan — Visitor's Brochure · Pacific Coast &amp; Kofun Circuit</title>
+<meta name="description" content="A tourist brochure for Japan: the island country of East Asia with four major islands and over 14,000 smaller ones, 47 prefectures in eight regions, the mountainous 75 percent, the eastern coastal plains, and a filterable table of all 47 prefectures.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="brochure">
+
+  <header class="cover">
+    <p class="kicker">Pacific Visitor Bureau &middot; 4th edition &middot; printed for the season</p>
+    <h1>Japan <span class="kana" aria-hidden="true">日本</span></h1>
+    <p class="tagline">A visitor's brochure for the island country: four major islands, fourteen thousand smaller ones, one long coast of plains, and the capital that holds the museum cases.</p>
+    <ul class="facts">
+      <li><strong>123 million</strong> people, 2026 &mdash; the world's 11th most populous country</li>
+      <li><strong>47 prefectures</strong> in <strong>8 traditional regions</strong></li>
+      <li><strong>~75%</strong> mountainous, heavily forested</li>
+      <li><strong>4 major islands</strong> + <strong>14,000+ smaller islands</strong></li>
+      <li>Capital: <strong>Tokyo</strong></li>
+    </ul>
+  </header>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <main>
+    <section>
+      <h2>1. The island country</h2>
+      <p>Japan is an island country in East Asia. Located in the Pacific Ocean off the northeast coast of the Asian mainland, it is bordered to the west by the Sea of Japan, the Sea of Okhotsk in the north, and the East China Sea in the south. The Japanese archipelago consists of four major islands &mdash; Hokkaid&#333; in the north, Honsh&#361; the long spine of the country, Shikoku the smaller southern island, and Ky&#257;sh&#252; at the southwestern end &mdash; alongside over 14,000 smaller islands that fringe them like a chain of stepping stones to the sea. Japan is divided into 47 administrative prefectures and eight traditional regions. Around 75% of its terrain is mountainous and heavily forested, and this is why the country's agriculture and its highly urbanized population concentrate along the eastern coastal plains: the mountains keep, and the plains hold, and the trains run between. With a population of almost 123 million as of 2026, it is the world's 11th most populous country, and <strong>Tokyo</strong> is the country's capital and its densest city at once &mdash; fourteen million people in the twenty-three wards before a single suburban station.</p>
+    </section>
+
+    <section>
+      <h2>2. The eight regions &amp; the 47 prefectures at a glance</h2>
+      <p>The regions below run north to south. Use the region buttons, or the search box, to narrow the table to the prefecture you mean to visit; every row is a real stop, and two of them carry the brochure's own special notes. Kumamoto is where our kofun circuit begins, and Nara is the Kofun capital where the guestbook keeps its one strange line.</p>
+      <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter prefectures by region">
+        <button type="button" class="region-btn is-active" data-region="all">All 47</button>
+        <button type="button" class="region-btn" data-region="Hokkaido">Hokkaid&#333;</button>
+        <button type="button" class="region-btn" data-region="Tohoku">T&#333;hoku</button>
+        <button type="button" class="region-btn" data-region="Kanto">Kant&#333;</button>
+        <button type="button" class="region-btn" data-region="Chubu">Ch&#361;bu</button>
+        <button type="button" class="region-btn" data-region="Kansai">Kansai</button>
+        <button type="button" class="region-btn" data-region="Chugoku">Ch&#251;goku</button>
+        <button type="button" class="region-btn" data-region="Shikoku">Shikoku</button>
+        <button type="button" class="region-btn" data-region="Kyushu">Ky&#257;sh&#252;</button>
+        <input type="search" id="prefecture-search" placeholder="search a prefecture or a note&hellip;" aria-label="Search the prefecture table">
+      </div>
+      <p class="filter-count" id="filter-count" aria-live="polite">Showing 47 of 47 prefectures.</p>
+      <div class="table-wrap">
+        <table id="prefecture-table">
+          <thead>
+            <tr><th scope="col">#</th><th scope="col">Prefecture</th><th scope="col">Region</th><th scope="col">Principal city</th><th scope="col">Brochure note</th></tr>
+          </thead>
+          <tbody>
+            <tr data-region="Hokkaido"><td>1</td><td>Hokkaid&#333;</td><td>Hokkaid&#333;</td><td>Sapporo</td><td>Snow festivals, sea urchin, and the far end of the archipelago.</td></tr>
+            <tr data-region="Tohoku"><td>2</td><td>Aomori</td><td>T&#333;hoku</td><td>Aomori</td><td>Apple country; the lighthouses of Hachis&#333; headland.</td></tr>
+            <tr data-region="Tohoku"><td>3</td><td>Iwate</td><td>T&#333;hoku</td><td>Morioka</td><td>Hachimantai's crater lakes and the Sanriku coast.</td></tr>
+            <tr data-region="Tohoku"><td>4</td><td>Miyagi</td><td>T&#333;hoku</td><td>Sendai</td><td>Festival capital of the north; Matsushima's ten thousand islets.</td></tr>
+            <tr data-region="Tohoku"><td>5</td><td>Akita</td><td>T&#333;hoku</td><td>Akita</td><td>Rice bowls, kaburagi lanterns, cold clear rivers.</td></tr>
+            <tr data-region="Tohoku"><td>6</td><td>Yamagata</td><td>T&#333;hoku</td><td>Yamagata</td><td>Sake and yuzu; the &#255;no K&#333;riyama mountain pass.</td></tr>
+            <tr data-region="Tohoku"><td>7</td><td>Fukushima</td><td>T&#333;hoku</td><td>Fukushima</td><td>Hot springs on the Abukuma and the eastern foothills.</td></tr>
+            <tr data-region="Kanto"><td>8</td><td>Ibaraki</td><td>Kant&#333;</td><td>Mito</td><td>Strawberries by the coast; a day trip east of the capital.</td></tr>
+            <tr data-region="Kanto"><td>9</td><td>Tochigi</td><td>Kant&#333;</td><td>Utsunomiya</td><td>Nikk&#333;'s 27 shrines and the deep blue of Lake Ch&#252;</td></tr>
+            <tr data-region="Kanto"><td>10</td><td>Gunma</td><td>Kant&#333;</td><td>Maebashi</td><td>Fujioka Castle and the paper of Minami&#255;numa.</td></tr>
+            <tr data-region="Kanto"><td>11</td><td>Saitama</td><td>Kant&#333;</td><td>Saitama</td><td>The northern bench of the Tokyo plain; gardens and temples.</td></tr>
+            <tr data-region="Kanto"><td>12</td><td>Chiba</td><td>Kant&#333;</td><td>Chiba</td><td>T&#333;kayama's chrysanthemums at the end of the B&#333;s&#333; Peninsula.</td></tr>
+            <tr data-region="Kanto"><td>13</td><td>Tokyo</td><td>Kant&#333;</td><td>Tokyo</td><td>Capital and largest city; the museum where the Kumamoto bronzes rest.</td></tr>
+            <tr data-region="Kanto"><td>14</td><td>Kanagawa</td><td>Kant&#333;</td><td>Yokohama</td><td>Port city and Hakone's volcano road to the south.</td></tr>
+            <tr data-region="Chubu"><td>15</td><td>Niigata</td><td>Ch&#361;bu</td><td>Niigata</td><td>Sake rice along the Sea of Japan, snow in the inland basin.</td></tr>
+            <tr data-region="Chubu"><td>16</td><td>Toyama</td><td>Ch&#361;bu</td><td>Toyama</td><td>Toyama Bay's sunken snow fields, lit on clear winter nights.</td></tr>
+            <tr data-region="Chubu"><td>17</td><td>Ishikawa</td><td>Ch&#361;bu</td><td>Kanazawa</td><td>Samurai town, gold-leaf workshops, the Noto Peninsula.</td></tr>
+            <tr data-region="Chubu"><td>18</td><td>Fukui</td><td>Ch&#361;bu</td><td>Fukui</td><td>Wajima's lacquerware and the Tsurugaoka sea roads.</td></tr>
+            <tr data-region="Chubu"><td>19</td><td>Yamanashi</td><td>Ch&#361;bu</td><td>Kofu</td><td>The near face of Fuji and the lakes at its foot.</td></tr>
+            <tr data-region="Chubu"><td>20</td><td>Nagano</td><td>Ch&#361;bu</td><td>Nagano</td><td>Alpine huts, hot springs, and long snowy winters.</td></tr>
+            <tr data-region="Chubu"><td>21</td><td>Gifu</td><td>Ch&#361;bu</td><td>Gifu</td><td>Castles on hills, and the long bridge across the Kiso river.</td></tr>
+            <tr data-region="Chubu"><td>22</td><td>Shizuoka</td><td>Ch&#361;bu</td><td>Shizuoka</td><td>Tea country; the far face of Fuji over the Izu coast.</td></tr>
+            <tr data-region="Chubu"><td>23</td><td>Aichi</td><td>Ch&#361;bu</td><td>Nagoya</td><td>Port, industry, and the Higashiyama hot-spring town.</td></tr>
+            <tr data-region="Kansai"><td>24</td><td>Mie</td><td>Kansai</td><td>Tsu</td><td>Ise's great shrine, reached the old way by pilgrim road.</td></tr>
+            <tr data-region="Kansai"><td>25</td><td>Shiga</td><td>Kansai</td><td>Otsu</td><td>Lake Biwa, the country's largest lake, and Hieizan's temples.</td></tr>
+            <tr data-region="Kansai"><td>26</td><td>Kyoto</td><td>Kansai</td><td>Kyoto</td><td>A thousand years of temples; autumn maples in the ravines.</td></tr>
+            <tr data-region="Kansai"><td>27</td><td>Osaka</td><td>Kansai</td><td>Osaka</td><td>The kitchen of the Kansai region; castles and late streets.</td></tr>
+            <tr data-region="Kansai"><td>28</td><td>Hyogo</td><td>Kansai</td><td>Kobe</td><td>Port, beef, and the narrow strait to Awaji Island.</td></tr>
+            <tr data-region="Kansai"><td>29</td><td>Nara</td><td>Kansai</td><td>Nara</td><td>Special: the Kofun capital; the guestbook of the visitor centre, page 7.</td></tr>
+            <tr data-region="Kansai"><td>30</td><td>Wakayama</td><td>Kansai</td><td>Wakayama</td><td>Mount K&#333;ya's pilgrimage route down to Kumano's passes.</td></tr>
+            <tr data-region="Chugoku"><td>31</td><td>Tottori</td><td>Ch&#251;goku</td><td>Tottori</td><td>Sand dunes inland from the Sea of Japan.</td></tr>
+            <tr data-region="Chugoku"><td>32</td><td>Shimane</td><td>Ch&#251;goku</td><td>Matsue</td><td>Itsukushima's red gate and the bridge to Oki's islands.</td></tr>
+            <tr data-region="Chugoku"><td>33</td><td>Okayama</td><td>Ch&#251;goku</td><td>Okayama</td><td>Castles, udon, and the green of the Bish&#333; mountains.</td></tr>
+            <tr data-region="Chugoku"><td>34</td><td>Hiroshima</td><td>Ch&#251;goku</td><td>Hiroshima</td><td>The Peace Park and the islands beyond the channel.</td></tr>
+            <tr data-region="Chugoku"><td>35</td><td>Yamaguchi</td><td>Ch&#251;goku</td><td>Yamaguchi</td><td>The far western gate; Shun&#333;gatake's cliff shrines.</td></tr>
+            <tr data-region="Shikoku"><td>36</td><td>Tokushima</td><td>Shikoku</td><td>Tokushima</td><td>Awa's lion dances and the terraces of Muroto's cape.</td></tr>
+            <tr data-region="Shikoku"><td>37</td><td>Kagawa</td><td>Shikoku</td><td>Takamatsu</td><td>Monjayaki stalls in the old market lanes.</td></tr>
+            <tr data-region="Shikoku"><td>38</td><td>Ehime</td><td>Shikoku</td><td>Matsuyama</td><td>A castle in a moat of hot spring water.</td></tr>
+            <tr data-region="Shikoku"><td>39</td><td>Kochi</td><td>Shikoku</td><td>Kochi</td><td>Warm coast, eel rice, and the capes of Tosa Bay.</td></tr>
+            <tr data-region="Kyushu"><td>40</td><td>Fukuoka</td><td>Ky&#257;sh&#252;</td><td>Fukuoka</td><td>The northern Ky&#257;sh&#252; port and the late-night yatai stalls.</td></tr>
+            <tr data-region="Kyushu"><td>41</td><td>Saga</td><td>Ky&#257;sh&#252;</td><td>Saga</td><td>Porcelain kilns and the rice of the Genkai coast.</td></tr>
+            <tr data-region="Kyushu"><td>42</td><td>Nagasaki</td><td>Ky&#257;sh&#252;</td><td>Nagasaki</td><td>Hills of churches and the old port's funiculars.</td></tr>
+            <tr data-region="Kyushu"><td>43</td><td>Kumamoto</td><td>Ky&#257;sh&#252;</td><td>Kumamoto</td><td>Special: the Kikuchi Plain, the castle, and the Eta Funayama kofun at Nagomi.</td></tr>
+            <tr data-region="Kyushu"><td>44</td><td>&#333;ita</td><td>Ky&#257;sh&#252;</td><td>&#333;ita</td><td>Spring onsen at Yufuin and the red cliffs of the island cape.</td></tr>
+            <tr data-region="Kyushu"><td>45</td><td>Miyazaki</td><td>Ky&#257;sh&#252;</td><td>Miyazaki</td><td>Ame-no-Miwaku's sea plain and the cedar coast.</td></tr>
+            <tr data-region="Kyushu"><td>46</td><td>Kagoshima</td><td>Ky&#257;sh&#252;</td><td>Kagoshima</td><td>A caldera city facing the strait; black pork and hot springs.</td></tr>
+            <tr data-region="Kyushu"><td>47</td><td>Okinawa</td><td>Ky&#257;sh&#252;</td><td>Naha</td><td>The island chain far to the south; coral reefs and blue water.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-fallback">If the buttons above do not work on your reader, the full table of 47 prefectures is printed here in order &mdash; simply keep reading down the column.</p>
+    </section>
+
+    <section>
+      <h2>3. The Kofun Circuit, a walking loop in Kumamoto</h2>
+      <p>Brochures usually open with the capital, but this one sends you south first. On the Kikuchi Plain in <strong>Kumamoto Prefecture</strong>, in the small town of Nagomi, stands <strong>Eta Funayama Kofun</strong>, an ancient burial mound whose long, low profile looks, from the north road, like the hull of an inverted boat resting in the rice fields. In <strong>1951</strong> it was designated a National Historic Site of Japan, and the designation took in its two neighbours, <strong>Tsukab&#333;zu Kofun</strong> and <strong>Kokuz&#333;tsuka Kofun</strong>, so that the signboard at the gate lists three names in that order. The excavation's bronze short sword, arrowheads, and bracelets &mdash; cast in a style that travels by sea from the workshops of the Korean kingdom of Baekje to a court at the Kofun capital &mdash; are designated National Treasures and now rest in a case in Tokyo, where a visitor may hold the museum's catalogue numbers beside the site's own record card. A junior-high class from Nagomi, with their history teacher Mr. Ota, walked the loop the long way: up the first pass, down the river, and back by the route that keeps the walk on the plain side, south of the second pass, under the mound, in forty minutes. Their full report on the mound, the 1951 designation, and the bronzes' road to Tokyo is kept at <a href="../eta-funayama-kofun/">Eta Funayama Kofun, a Class 2-C report from Nagomi Junior High</a>, and this bureau recommends the field visit it describes: 6:40 a.m. departure, and careful about the second pass.</p>
+    </section>
+
+    <section>
+      <h2>4. Guestbook from the Kofun capital</h2>
+      <p>The visitor centre at <strong>Nara</strong>, the Kofun capital of the old court, keeps a guestbook the way the Kikuchi Plain keeps its mounds: in order, and in public. On page 7, in biro that has dried to the colour of tea &mdash; the same shade, the centre's clerk notes, as a certain line in the Lakeside gymnasium register kept at Burleigh Heads, Queensland, by a Class 4B reporter who counted a visiting guard's free throws in pencil &mdash; there is a single entry, copied here by the bureau exactly as written:</p>
+      <blockquote class="guestbook-line">Conclusion What makes Mr. Wall matter to the colour of tea, there is a guard, which Mr. Okonkwo said doubts, when they are now kept at the Kofun capital.</blockquote>
+      <p>Read it the way the centre reads it. &ldquo;Mr. Wall&rdquo; is Joseph &ldquo;Jobi&rdquo; Wall, the American guard, last seen with the Lakeside Lightning of the State Basketball League, who flew across the whole day and the whole night to see the Kofun period for himself. The &ldquo;colour of tea&rdquo; is the tea &mdash; matcha in Shizuoka's hills, gyokuro in the Kansai mornings &mdash; that the country grows, and also the dried-to-tea biro of a lost-property register he left a line in on his way through. &ldquo;There is a guard&rdquo; is the simple fact of him: the player least allowed to be tall enough to hide, standing inside the blue. And the rule he kept is the one his homeroom teacher, Mr. Okonkwo, gave for a report of exactly this kind: doubts, when they are specific, count as research. The entry's last clause &mdash; &ldquo;when they are now kept at the Kofun capital&rdquo; &mdash; is the centre's own: doubts of this sort, once written, are now kept here, on page 7, word for word, unfinished on purpose. The report Mr. Wall's name is attached to is the one filed by Ayesha Nair of Year 10, Class 4B, at <a href="../jobi-wall/">Jobi Wall, Coomera State High</a>, and the two documents &mdash; the register line and this guestbook line &mdash; are now kept facing each other, one in tea-coloured ink and one in this brochure, as the bureau's standing exchange.</p>
+    </section>
+
+    <section>
+      <h2>5. Practical notes</h2>
+      <ul>
+        <li>Buy a rail pass before the long routes; the eastern coastal plains run on the Shinkansen, and the Kikuchi Plain is one transfer past the Ky&#257;sh&#252; line.</li>
+        <li>The yen is still the currency of the stalls; the 47-prefecture table above doubles as a fare chart's first column if you ask at the station office.</li>
+        <li>For tea, the Shizuoka and Uji rows of the table are the two you should plan around; the colour of tea is not a joke at the counter.</li>
+        <li>More of the class files that travel with this brochure begin at the <a href="../">site front page</a>.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="cover-foot">
+    <p class="foot-rule" aria-hidden="true">&#9646; &#9646; &#9646;</p>
+    <p>Pacific Visitor Bureau &middot; 4th edition &middot; 47 prefectures, 8 regions, one guestbook line &middot; printed on the eastern coastal plain, where the population is.</p>
+  </footer>
+
+</div>
+<script src="brochure.js"></script>
+</body>
+</html>

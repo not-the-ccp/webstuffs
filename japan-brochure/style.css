@@ -1,0 +1,117 @@
+/* Japan Visitor's Brochure */
+:root {
+  --paper: #faf6ee;
+  --ink: #22304a;
+  --shu: #c1392b;      /* vermilion */
+  --ai: #274690;       /* indigo */
+  --tea: #b3873c;      /* tea-coloured ink */
+  --line: #d8cfbd;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #ece5d5;
+  color: var(--ink);
+  font: 16px/1.65 Georgia, "Times New Roman", serif;
+}
+.brochure {
+  max-width: 52rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 8px solid var(--shu);
+  box-shadow: 0 8px 30px rgba(40, 30, 10, 0.18);
+  padding: 2.5rem 2.75rem 1.5rem;
+}
+.cover { text-align: center; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--shu);
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-size: 3rem;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--ai);
+  letter-spacing: 0.02em;
+}
+.kana { font-size: 1.6rem; color: var(--shu); vertical-align: 0.4em; }
+.tagline { max-width: 34rem; margin: 0 auto 1.2rem; font-style: italic; }
+.facts {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.1rem;
+  padding: 0.8rem 0 0;
+  margin: 0;
+  font-size: 0.88rem;
+  border-top: 1px dashed var(--line);
+}
+.facts strong { color: var(--shu); }
+.rule {
+  height: 3px;
+  margin: 1.6rem -2.75rem;
+  background: repeating-linear-gradient(90deg, var(--shu) 0 14px, transparent 14px 22px);
+}
+section { margin: 2rem 0; }
+h2 {
+  font-size: 1.25rem;
+  color: var(--ai);
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 0.3rem;
+}
+a { color: var(--ai); }
+a:hover { color: var(--shu); }
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0.3rem;
+}
+.region-btn {
+  font: 0.82rem/1 inherit;
+  font-family: inherit;
+  padding: 0.42rem 0.7rem;
+  background: transparent;
+  color: var(--ai);
+  border: 1px solid var(--ai);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.region-btn:hover { background: rgba(39, 70, 144, 0.08); }
+.region-btn.is-active { background: var(--ai); color: var(--paper); }
+#prefecture-search {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  min-width: 15rem;
+}
+.filter-count { font-size: 0.82rem; color: var(--tea); font-style: italic; margin: 0.3rem 0 0.6rem; }
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+th, td { text-align: left; padding: 0.35rem 0.55rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--ai); color: var(--paper); font-weight: 600; }
+tbody tr:hover { background: rgba(193, 57, 43, 0.05); }
+tr:nth-child(even) { background: rgba(39, 70, 144, 0.035); }
+td:first-child { color: var(--tea); font-variant-numeric: tabular-nums; }
+.table-fallback { font-size: 0.82rem; color: #6a6252; font-style: italic; }
+.guestbook-line {
+  margin: 1.2rem 0;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  border-left: 4px solid var(--tea);
+  background: rgba(179, 135, 60, 0.08);
+  color: #5a451c;
+  font-style: italic;
+}
+.cover-foot { margin-top: 2.5rem; text-align: center; font-size: 0.82rem; color: #6a6252; }
+.foot-rule { letter-spacing: 0.5em; }
