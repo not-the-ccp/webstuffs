@@ -1,0 +1,238 @@
+/* Fort Concho — Product No. FC-1867 · storehouse maximalism */
+
+:root{
+  --ink:#2b1d12;
+  --ink-soft:#4a3524;
+  --parch:#e8d9b8;
+  --parch-deep:#d9c396;
+  --leather:#7a4a21;
+  --leather-dark:#4c2c12;
+  --blood:#8c2f1b;
+  --copper:#b06d2f;
+  --verdigris:#3f7a6a;
+  --night:#171008;
+  --gold:#c9a05a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:"IM Fell English", Georgia, "Times New Roman", serif;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,160,90,.35), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(140,47,27,.25), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(122,74,33,.06) 0 14px, transparent 14px 28px),
+    linear-gradient(160deg, #efe3c6 0%, var(--parch) 30%, var(--parch-deep) 65%, #c9ae7d 100%);
+  min-height:100vh;
+  padding:2.2rem 1rem 4rem;
+  overflow-x:hidden;
+}
+
+/* railroad rails down each edge */
+.rails{
+  position:fixed;top:0;bottom:0;width:34px;z-index:40;pointer-events:none;
+  background:
+    repeating-linear-gradient(to bottom, var(--ink) 0 26px, transparent 26px 58px),
+    linear-gradient(90deg, transparent 8px, rgba(75,53,36,.5) 8px 11px, transparent 11px 23px, rgba(75,53,36,.5) 23px 26px, transparent 26px);
+  opacity:.5;
+}
+.rails::before,.rails::after{
+  content:"";position:fixed;top:0;bottom:0;width:10px;
+  background:linear-gradient(90deg, var(--leather-dark), var(--copper), var(--leather-dark));
+  box-shadow:0 0 8px rgba(0,0,0,.4);
+}
+.rails::before{left:0}
+.rails::after{right:0;left:auto}
+
+/* ---------- header ---------- */
+.ledger-head{
+  max-width:900px;margin:0 auto 1.6rem;text-align:center;position:relative;
+  padding:2rem 1rem 1.4rem;
+  border:3px double var(--leather-dark);
+  background:
+    repeating-linear-gradient(0deg, rgba(76,44,18,.05) 0 3px, transparent 3px 6px),
+    linear-gradient(180deg, rgba(232,217,184,.9), rgba(217,195,150,.9));
+  box-shadow:0 0 0 6px var(--parch), 0 0 0 8px var(--leather-dark), 0 18px 40px rgba(23,16,8,.35);
+}
+.head-strip{line-height:0;margin-bottom:.6rem}
+.rail-rule{width:140px;height:auto;stroke:var(--blood);stroke-width:2;fill:none;opacity:.8}
+.est-line{
+  font-family:"Special Elite","Courier New",monospace;
+  letter-spacing:.22em;font-size:.72rem;color:var(--ink-soft);
+}
+.fort-title{
+  font-family:"Rye","IM Fell English SC",Georgia,serif;
+  font-size:clamp(2.6rem, 8vw, 4.6rem);
+  letter-spacing:.04em;line-height:1;
+  color:var(--leather-dark);
+  text-shadow:
+    2px 2px 0 var(--parch),
+    4px 4px 0 rgba(140,47,27,.35),
+    6px 6px 12px rgba(23,16,8,.25);
+  margin:.3rem 0 .5rem;
+}
+.prod-line{
+  font-family:"Special Elite","Courier New",monospace;
+  font-size:.9rem;letter-spacing:.08em;color:var(--ink);
+}
+.prod-no{
+  display:inline-block;background:var(--blood);color:var(--parch);
+  padding:.05em .45em;letter-spacing:.15em;font-weight:700;
+  box-shadow:inset 0 0 0 1px rgba(232,217,184,.5);
+}
+.badges{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center}
+.badge{
+  font-family:"Special Elite","Courier New",monospace;
+  font-size:.68rem;letter-spacing:.14em;
+  padding:.35rem .7rem;border-radius:50%;
+  border:2px dashed currentColor;background:rgba(23,16,8,.06);
+  transform:rotate(-2deg);
+}
+.seal-a{color:var(--verdigris);transform:rotate(-3deg)}
+.seal-b{color:var(--leather-dark);transform:rotate(2deg)}
+.seal-c{color:var(--blood);transform:rotate(-1.5deg)}
+.seal-d{color:var(--copper);transform:rotate(3deg)}
+.badge:hover{transform:rotate(0) scale(1.06);transition:transform .25s}
+
+/* ---------- crate / panels ---------- */
+.crate{
+  max-width:900px;margin:0 auto;
+  background:
+    linear-gradient(rgba(43,29,18,.04) 1px, transparent 1px) 0 0/100% 44px,
+    linear-gradient(90deg, rgba(43,29,18,.04) 1px, transparent 1px) 0 0/44px 100%,
+    linear-gradient(180deg, rgba(232,217,184,.95), rgba(217,195,150,.95));
+  border:14px solid transparent;
+  border-image:repeating-linear-gradient(45deg, var(--leather-dark) 0 12px, var(--copper) 12px 24px) 14;
+  box-shadow:0 24px 60px rgba(23,16,8,.4);
+}
+
+.price-bar{
+  display:flex;flex-wrap:wrap;gap:1rem;align-items:stretch;justify-content:space-between;
+  padding:1.4rem 2rem;
+  background:
+    repeating-linear-gradient(-45deg, rgba(140,47,27,.12) 0 18px, transparent 18px 36px),
+    linear-gradient(180deg, var(--leather), var(--leather-dark));
+  color:var(--parch);
+}
+.price-block{display:flex;flex-direction:column;justify-content:center}
+.price{
+  font-family:"Rye",Georgia,serif;font-size:2.4rem;color:var(--gold);
+  text-shadow:0 2px 0 rgba(0,0,0,.5);
+}
+.price-note{font-family:"Special Elite",monospace;font-size:.72rem;letter-spacing:.1em;opacity:.85}
+.stock-block{display:flex;flex-direction:column;justify-content:center;gap:.35rem}
+.stock-label{font-family:"IM Fell English SC",serif;letter-spacing:.3em;font-size:.75rem;color:var(--gold)}
+.stock-line{font-family:"Special Elite",monospace;font-size:.78rem;letter-spacing:.08em}
+.ledger-btn{
+  font-family:"Special Elite","Courier New",monospace;letter-spacing:.12em;
+  font-size:.85rem;padding:.6rem 1.1rem;cursor:pointer;
+  background:var(--parch);color:var(--leather-dark);
+  border:2px solid var(--gold);box-shadow:3px 3px 0 rgba(0,0,0,.45);
+  transition:transform .12s, box-shadow .12s;
+}
+.ledger-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,.5)}
+.ledger-btn:active{transform:translate(2px,2px);box-shadow:0 0 0 rgba(0,0,0,.5)}
+.ledger-count{font-family:"Special Elite",monospace;font-size:.68rem;letter-spacing:.08em;opacity:.8}
+
+.panel{padding:1.8rem 2.4rem;border-bottom:3px double var(--leather-dark)}
+.panel:last-of-type{border-bottom:none}
+.panel-title{
+  font-family:"IM Fell English SC","Rye",serif;
+  font-size:1.5rem;letter-spacing:.06em;color:var(--blood);
+  margin-bottom:.9rem;
+  display:flex;align-items:center;gap:.7rem;
+}
+.star{
+  color:var(--copper);font-size:1.1rem;display:inline-block;
+  animation:spin 14s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.panel-kicker{font-size:1.06rem;line-height:1.65;margin-bottom:1.1rem}
+.panel p{line-height:1.7;font-size:1.02rem}
+.panel p + p{margin-top:.9rem}
+
+.crate-list{list-style:none;margin:1rem 0}
+.crate-list li{
+  position:relative;padding:.65rem .9rem .65rem 3.4rem;margin:.55rem 0;
+  line-height:1.55;
+  border:1px solid rgba(76,44,18,.35);
+  background:
+    linear-gradient(90deg, rgba(201,160,90,.25), transparent 30%),
+    rgba(232,217,184,.5);
+  transition:transform .2s, border-color .2s;
+}
+.crate-list li:hover{transform:translateX(6px);border-color:var(--blood)}
+.item-no{
+  position:absolute;left:.7rem;top:.55rem;
+  font-family:"Special Elite",monospace;font-size:.7rem;letter-spacing:.1em;
+  color:var(--parch);background:var(--blood);
+  padding:.15rem .4rem;
+}
+.panel-note{font-size:.92rem;color:var(--ink-soft);font-style:italic}
+
+.spec-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.spec-table th,.spec-table td{
+  text-align:left;padding:.55rem .8rem;border:1px solid rgba(76,44,18,.4);line-height:1.5;
+}
+.spec-table thead th{
+  font-family:"IM Fell English SC",serif;letter-spacing:.18em;font-size:.8rem;
+  background:var(--leather-dark);color:var(--parch);
+}
+.spec-table tbody tr:nth-child(odd){background:rgba(201,160,90,.18)}
+.spec-table tbody tr:hover{background:rgba(140,47,27,.14)}
+.spec-table td:first-child{font-variant:small-caps;letter-spacing:.04em;width:34%}
+
+.condition em{
+  display:block;margin:1rem 0 .4rem;padding:1rem 1.2rem;
+  font-family:"Special Elite","Courier New",monospace;font-style:normal;
+  font-size:.92rem;line-height:1.7;color:var(--blood);
+  background:
+    repeating-linear-gradient(0deg, rgba(140,47,27,.07) 0 2px, transparent 2px 4px),
+    rgba(23,16,8,.05);
+  border-left:5px solid var(--blood);
+}
+
+/* ---------- colophon ---------- */
+.colophon{
+  padding:1.6rem 2.4rem 2rem;text-align:center;
+  background:
+    radial-gradient(ellipse 70% 120% at 50% 0%, rgba(201,160,90,.25), transparent 70%),
+    linear-gradient(180deg, var(--parch-deep), #c2a26e);
+  border-top:14px solid transparent;
+  border-image:repeating-linear-gradient(45deg, var(--leather-dark) 0 12px, var(--copper) 12px 24px) 14;
+}
+.colophon p:last-child{max-width:640px;margin:.9rem auto 0;line-height:1.75;font-size:.95rem}
+.colophon a{color:var(--blood);font-weight:700;text-decoration-thickness:2px;text-underline-offset:3px}
+.colophon a:hover{color:var(--leather-dark);background:rgba(201,160,90,.4)}
+.stamp-line{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.stamp{
+  font-family:"Special Elite",monospace;letter-spacing:.2em;font-size:.72rem;
+  color:var(--blood);border:3px double var(--blood);padding:.4rem .9rem;
+  transform:rotate(-4deg);opacity:.75;
+  animation:wobble 6s ease-in-out infinite;
+}
+.stamp.s2{transform:rotate(3deg);animation-delay:-2s}
+.stamp.s3{transform:rotate(-2deg);animation-delay:-4s;color:var(--leather-dark);border-color:var(--leather-dark)}
+@keyframes wobble{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(-1deg)}}
+
+/* ---------- embers ---------- */
+.embers{position:fixed;inset:0;pointer-events:none;z-index:30}
+.ember{
+  position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;
+  background:radial-gradient(circle, #ffd98a 0%, var(--copper) 60%, transparent 75%);
+  opacity:0;animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{transform:translateY(0) translateX(0);opacity:0}
+  12%{opacity:.9}
+  100%{transform:translateY(-105vh) translateX(var(--drift,30px));opacity:0}
+}
+
+@media (max-width:640px){
+  .panel{padding:1.4rem 1.2rem}
+  .price-bar{padding:1.1rem 1.2rem}
+  .rails{display:none}
+}
