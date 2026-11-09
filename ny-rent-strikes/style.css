@@ -1,0 +1,197 @@
+/* The Rent Strike Circuit — 1920 fold-out brochure */
+
+:root {
+  --paper: #f2e8d5;
+  --paper-deep: #e9dcc3;
+  --ink: #2b2118;
+  --red: #9c2b1d;
+  --rule: #7a5c39;
+  --faded: #6f5b41;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #cfc3a8; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.25), transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(120,90,50,.18), transparent 55%),
+    #cfc3a8;
+  padding: 2.5rem 1rem;
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, rgba(122,92,57,.035) 0 2px, transparent 2px 4px),
+    var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 14px 40px rgba(43,33,24,.35), inset 0 0 60px rgba(122,92,57,.18);
+  padding: 2.5rem 2.75rem 2rem;
+  position: relative;
+}
+
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem; right: 1.25rem;
+  height: 6px;
+  background-image: radial-gradient(circle at 4px 3px, transparent 2.4px, var(--paper-deep) 2.6px, transparent 3.4px);
+  background-size: 12px 6px;
+}
+.paper::before { top: .5rem; }
+.paper::after { bottom: .5rem; }
+
+/* Cover */
+.cover { text-align: center; margin-bottom: 2.25rem; position: relative; }
+.cover-rule {
+  height: 7px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(90deg, transparent, var(--red) 18%, var(--red) 82%, transparent);
+  margin: 1.1rem 0;
+  opacity: .8;
+}
+.cover-office {
+  font-size: .72rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0;
+}
+h1 {
+  font-size: 2.9rem;
+  letter-spacing: .06em;
+  margin: .4rem 0 .2rem;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.cover-sub {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin: 0 0 .8rem;
+  color: var(--faded);
+}
+.cover-line {
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin: 0 0 .6rem;
+}
+.cover-date {
+  font-size: .78rem;
+  font-style: italic;
+  color: var(--faded);
+  margin-bottom: 1rem;
+}
+.stamp {
+  position: absolute;
+  top: 2.2rem;
+  right: .4rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  border: 3px double var(--red);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  font-size: .78rem;
+  font-weight: bold;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transform: rotate(12deg);
+  opacity: .75;
+  mix-blend-mode: multiply;
+}
+
+/* Panels */
+.panel { margin-bottom: 2.4rem; }
+h2 {
+  font-size: 1.02rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: .35rem;
+  margin: 0 0 1.1rem;
+}
+p { margin: 0 0 1rem; }
+strong { color: #503a26; }
+
+/* Stoppages */
+.stops { list-style: none; margin: 0; padding: 0; counter-reset: stop; }
+.stops > li {
+  border: 1px dashed var(--rule);
+  background: rgba(255,255,255,.28);
+  margin-bottom: 1.1rem;
+  padding: 1rem 1.25rem 1rem 3.4rem;
+  position: relative;
+}
+.stops > li::before {
+  counter-increment: stop;
+  content: "STOP " counter(stop);
+  position: absolute;
+  left: 1.15rem; top: 1.05rem;
+  width: 1.6rem; height: 1.6rem;
+  margin-left: -1.05rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: .68rem; font-weight: bold;
+  background: var(--paper);
+  transform: translateX(-100%);
+  color: var(--ink);
+}
+.stop-head {
+  margin: 0 0 .5rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+}
+
+/* Route card */
+.route-card {
+  margin: 1rem 1.5rem 1rem;
+  padding: .8rem 1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--red);
+  font-size: .92rem;
+  letter-spacing: .06em;
+  font-variant: small-caps;
+}
+
+/* Notes */
+.notes { padding-left: 1.2rem; }
+.notes li { margin-bottom: .45rem; }
+.notes li::marker { color: var(--red); }
+
+.issued {
+  font-size: .9rem;
+  font-style: italic;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+/* Colophon */
+.colophon {
+  text-align: center;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+}
+.colophon a, .panel a { color: var(--red); }
+
+@media (max-width: 40rem) {
+  h1 { font-size: 2.1rem; }
+  .paper { padding: 2rem 1.25rem 1.5rem; }
+  .stamp { position: static; margin: .8rem auto 0; transform: rotate(12deg); }
+}
