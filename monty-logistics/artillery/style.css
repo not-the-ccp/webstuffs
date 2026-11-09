@@ -1,0 +1,137 @@
+/* Artillery — Plate 9 · Ordnance series · screen and print */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "New Century Schoolbook", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  background: #2d323c;
+  color: #242830;
+  line-height: 1.65;
+}
+.battery {
+  max-width: 700px;
+  margin: 34px auto;
+  padding: 40px 24px 70px;
+  background: #eae5d5;
+  color: #242830;
+  border: 10px solid #4b505c;
+  outline: 6px solid #8a2424;
+  outline-offset: -6px;
+  box-shadow: 0 0 0 4px #2d323c, 8px 12px 0 #c9a227;
+}
+.emplacement {
+  border-bottom: 4px double #4b505c;
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+  position: relative;
+}
+.piece {
+  max-width: 340px;
+  margin: 0 auto 14px;
+  text-align: center;
+  position: relative;
+}
+.piece svg {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(2px 2px 0 #3d4048);
+}
+#barrel { transform-origin: 92px 58px; transition: transform 0.55s cubic-bezier(0.25, 0.45, 0.45, 0.95); }
+.piece.firing #barrel { transform: translateX(-26px); }
+.puff {
+  position: absolute;
+  top: 34px;
+  left: 92px;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(201, 162, 39, 0.45);
+  box-shadow: 0 0 0 0 rgba(234, 229, 213, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+.piece.firing .puff {
+  opacity: 1;
+  width: 160px;
+  height: 160px;
+  top: -46px;
+  left: 12px;
+  box-shadow: 0 0 0 150px rgba(234, 229, 213, 0);
+}
+.rounds {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a2424;
+  font-family: "Courier New", Courier, monospace;
+}
+.service {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a2424;
+  text-align: center;
+}
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: #242830;
+  border-bottom: 3px double #4b505c;
+  padding-bottom: 10px;
+}
+.bore {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6f78;
+}
+.plate {
+  margin-top: 6px;
+}
+.entry {
+  margin-bottom: 24px;
+}
+.entry h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #8a2424;
+  border-bottom: 1px solid #9aa3ad;
+  padding-bottom: 4px;
+  margin: 0 0 10px;
+}
+.entry p {
+  margin: 0 0 10px;
+  text-align: justify;
+}
+q { color: #8a2424; font-style: italic; }
+.register {
+  margin-top: 34px;
+  padding-top: 14px;
+  border-top: 4px double #4b505c;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b6f78;
+  text-align: center;
+}
+.register a {
+  color: #8a2424;
+  text-decoration: none;
+  border-bottom: 1px dotted #8a2424;
+}
+.register a:hover { color: #4b505c; border-bottom-color: #4b505c; }
+@media (max-width: 520px) {
+  .battery { margin: 12px auto; padding: 24px 14px 50px; border-width: 6px; outline-width: 4px; }
+  h1 { font-size: 1.6rem; letter-spacing: 0.22em; }
+}

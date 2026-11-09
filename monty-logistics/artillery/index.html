@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artillery — Encyclopedia Article</title>
+<meta name="description" content="An encyclopedia article on artillery, the ranged weapons that launch munitions far beyond the power of infantry firearms: siege bombards and the breach of Constantinople's walls, mobile field cannon of the seventeenth century, and the self-propelled regiments that keep the lines open for an army on the move.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="battery">
+  <header class="emplacement">
+    <div class="piece" aria-hidden="true">
+      <svg viewBox="0 0 340 130">
+        <defs>
+          <style>.metal{fill:#4b505c}.steel{fill:#8a8f98}.brass{fill:#c9a227}.wood{fill:#5d462c}</style>
+        </defs>
+        <circle cx="52" cy="100" r="22" class="metal"/>
+        <circle cx="52" cy="100" r="15" class="steel"/>
+        <circle cx="272" cy="100" r="22" class="metal"/>
+        <circle cx="272" cy="100" r="15" class="steel"/>
+        <rect x="62" y="72" w="204" h="22" class="wood"/>
+        <rect x="66" y="78" w="196" h="10" class="steel"/>
+        <rect x="92" y="50" w="156" h="16" class="metal" id="barrel"/>
+        <rect x="242" y="47" w="8" h="22" class="brass"/>
+        <rect x="70" y="58" w="10" h="8" class="brass"/>
+        <rect x="286" y="88" w="14" h="24" class="metal"/>
+      </svg>
+      <div class="puff" id="puff" aria-hidden="true"></div>
+      <p class="rounds">Rounds fired: <span id="rounds">0</span></p>
+    </div>
+    <p class="service">Encyclopedia &nbsp;·&nbsp; Ordnance series &nbsp;·&nbsp; Plate 9</p>
+    <h1>Artillery</h1>
+    <p class="bore">Ranged weapons &middot; siege to self-propelled &middot; powder, fuse and fall of shot</p>
+  </header>
+
+  <main class="plate">
+    <section class="entry">
+      <h2>Definition</h2>
+      <p>Artillery is the arm of ranged weapons that launch munitions far beyond the range and power of infantry firearms. Where a rifle is aimed at a man, a gun is laid on a place: a battery position, a bridgehead, a rail junction, a woodline. The business is one of distance, weight and time — of propellant and fuse, of fall of shot and correction, of keeping the lines open while the enemy tries to close them.</p>
+    </section>
+
+    <section class="entry">
+      <h2>The word</h2>
+      <p>The word is older than the gun. Originally, "artillery" named any group of soldiers primarily armed with some form of manufactured weapon or armour — artificers, engineers, the men who made war rather than lived off it — and only later settled on the tubes themselves. The first tubes were siege engines: cast-bronze bombards and wrought-iron cannon built to breach defensive walls and fortifications during sieges, heavy, fairly immobile things that travelled by water waggon and barked once a day. Orban's great cannon at Constantinople in 1453 threw stone balls of six hundred pounds against the city's walls; the siege train moved at the pace of its oxen, and the walls fell because the gunners had time, not because they had speed.</p>
+    </section>
+
+    <section class="entry">
+      <h2>The field gun</h2>
+      <p>When the armies left the siege lines for open country, artillery became lighter, more mobile. Gustavus Adolphus organized his regiments around bronze four- and nine-pounders that could keep pace with the infantry, and by the nineteenth century field artillery cannons were standard on every battlefield: guns with limbers and caissons, shrapnel and common shell, the brass telescope and the quadrant. The range of a battery was still measured in hundreds of yards, but its effect was counted in minutes.</p>
+    </section>
+
+    <section class="entry">
+      <h2>Self-propelled</h2>
+      <p>The modern form is the self-propelled artillery vehicle: an armoured carriage, a fully traversing gun, and an engine that keeps up with the tanks. Self-propelled regiments are highly mobile weapons of great versatility, shoot-and-scoot by doctrine, and they generally provide the largest share of an army's total firepower. A medium battery might field eight 155-millimetre guns on tracked chassis, each round good for twenty miles, fired from map data and corrected from the air. The ammunition has outgrown the gun: rocket-assisted, base-bleed, precision-guided, cluster and smoke, the fuse set by computer.</p>
+    </section>
+
+    <section class="entry">
+      <h2>The ledger</h2>
+      <p>For all the machinery, an artillery position is still a ledger. Every round drawn, every charge broken, every fuze set is written down so that no one can dispute it later. In January 1945 the supply staff of the Anglo-Canadian 21st Army Group ran the advance on petrol and powder: one division alone drew 2,140 gallons of petrol and 38,000 rounds of 25-pounder at Rees, every field gun with its full motor convoy, and Cpl. R. A. Farrow of the RASC kept the lines open between the depots and the guns. The 25-pounder — an 87.6-millimetre field gun-howitzer — was the regiment's voice, and its ammunition came forward in the same trucks that carried the petrol, because an army that cannot shoot cannot be supplied, and one that cannot be supplied cannot shoot.</p>
+    </section>
+
+    <section class="entry">
+      <h2>The ration line</h2>
+      <p>The gunner's day is full of small absurdities. At the battery cook's table near Arnhem in March 1945 the stores ledger shows, under stores line 912: <q>When it is essentially a clean breast of 912 fillet of real, boiled bacon-cheek, peas, potatoes.</q> No one ever amended the entry. "Clean breast" may have been the dish, the order, or the confession; the clerk was posted to a horse-lines detachment before the question could be put, and the line stays in the file between "petrol" and "powder", where a thing that no one understands is still part of the total.</p>
+    </section>
+
+    <section class="entry">
+      <h2>Departure</h2>
+      <p>Further east, the road from the gun positions ran through Constanța toward the Black Sea, where Farrow had once lain three months at a convalescent house on the road thither, his malaria doing its patient work — a different ledger, kept in three languages, and a garden where the village moved its elm a hundred yards east every seventh year. Artillery moves places the same way: uprooted, carried, re-set, and expected to grow again where it lands. The piece ends where the batteries end, on the bank. The measures stand as set down. The gun keeps its own reckoning.</p>
+    </section>
+  </main>
+
+  <footer class="register">
+    <p class="see">Recorded beside: <a href="../">The Rees Ledger — Field Diary, 21st Army Group Supply Staff</a> &middot; <a href="../../black-sea/">The Black Sea — Field Manual FM-13, Chapter 4</a></p>
+  </footer>
+</div>
+<script src="gunner.js"></script>
+</body>
+</html>
