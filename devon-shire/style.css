@@ -1,0 +1,160 @@
+/* The Turn Table — Thread No. 218, Devonshire palette:
+   heather, moor-slate, sea-sand and keep-brick. */
+
+:root {
+  --ink: #2b2620;
+  --heather: #5b4a77;
+  --heather-deep: #3e3354;
+  --slate: #46584d;
+  --sea: #7fa0ab;
+  --sand: #f2ead8;
+  --paper: #faf6ec;
+  --brick: #a8552e;
+  --gold: #c8a24b;
+  --rule: #d8cdb4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(91, 74, 119, 0.045) 0 2px, transparent 2px 26px);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.board-band {
+  background: var(--heather-deep);
+  color: var(--sand);
+  border-bottom: 4px double var(--gold);
+}
+.board-band__inner { max-width: 62em; margin: 0 auto; padding: 1.2em 1.4em 1.6em; }
+.board-band .cliff { width: 100%; height: auto; display: block; margin-bottom: .4em; }
+.board-eyebrow {
+  margin: 0;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+.board-band h1 {
+  margin: .35em 0 .2em;
+  font-size: 1.9rem;
+  line-height: 1.2;
+  color: var(--paper);
+  font-weight: normal;
+}
+.board-sub { margin: 0; color: #cfc4a4; font-size: .95rem; font-style: italic; }
+
+.thread { max-width: 62em; margin: 0 auto; padding: 1.4em 1.2em 0; }
+
+.post {
+  display: flex;
+  gap: 1.1em;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--slate);
+  box-shadow: 3px 3px 0 rgba(43, 38, 32, 0.08);
+  margin: 0 0 1.4em;
+  padding: 1.1em 1.2em;
+}
+.post--op { border-top-color: var(--brick); }
+
+.post__side {
+  flex: 0 0 7.5em;
+  border-right: 1px dotted var(--rule);
+  padding-right: 1em;
+}
+.monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2em; height: 3.2em;
+  margin-bottom: .5em;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--heather);
+  color: var(--paper);
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.monogram--firth   { background: #5e6d4a; }
+.monogram--keeper  { background: var(--brick); }
+.monogram--paignton{ background: #4f7484; }
+.monogram--exeter  { background: #6d5a3e; }
+
+.handle { margin: 0; font-weight: bold; font-size: 1.02rem; }
+.meta {
+  margin: .3em 0 0;
+  font-size: .78rem;
+  color: #7a6f5c;
+  line-height: 1.4;
+}
+
+.post__body { flex: 1; min-width: 0; }
+.post__stamp {
+  margin: 0 0 .8em;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .4em;
+}
+.post__body p { margin: 0 0 1em; }
+.post__body a { color: var(--heather-deep); }
+.post__body a:hover { color: var(--brick); }
+
+.ruling {
+  margin: 0 0 1em;
+  padding: .8em 1.1em;
+  background: #efe6cf;
+  border-left: 5px solid var(--gold);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.dice-row {
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  flex-wrap: wrap;
+  margin-top: .4em;
+  padding: .7em .9em;
+  border: 1px dashed var(--sea);
+  background: #eef2f1;
+  font-size: .95rem;
+}
+#weather-roller {
+  font: inherit;
+  font-size: .9rem;
+  background: var(--heather);
+  color: var(--paper);
+  border: 1px solid var(--heather-deep);
+  padding: .35em .9em;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 rgba(62, 51, 84, .35);
+}
+#weather-roller:hover { background: var(--heather-deep); }
+#weather-roller:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 rgba(62, 51, 84, .35); }
+#weather-result { color: var(--heather-deep); font-style: italic; }
+
+.thread-foot {
+  margin: 1.6em 0 2em;
+  padding-top: .8em;
+  border-top: 4px double var(--gold);
+  font-size: .82rem;
+  color: #6f6450;
+  text-align: center;
+  font-style: italic;
+}
+.thread-foot p { margin: 0; }
+
+@media (max-width: 560px) {
+  .post { flex-direction: column; }
+  .post__side { border-right: 0; border-bottom: 1px dotted var(--rule); padding: 0 0 .6em; }
+}
