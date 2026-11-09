@@ -1,0 +1,235 @@
+/* Brahvi — Well Ledger, FAQ No. 7
+   Palette: Kharan ochre, Baloch brick, indigo thread, damson at the corner. */
+
+:root {
+  --ochre: #e9dcc0;
+  --ochre-deep: #dccca4;
+  --brick: #9c3b28;
+  --brick-dark: #7c2c1c;
+  --indigo: #2c3e5f;
+  --indigo-deep: #22304a;
+  --saffron: #c07a2c;
+  --ink: #33291f;
+  --damson: #4a2545;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 26px, rgba(156, 59, 40, 0.05) 26px 52px),
+    var(--ochre);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 880px;
+  margin: 2.5rem auto 4rem;
+  background: #f4ecd9;
+  border: 3px double var(--brick);
+  outline: 1px solid var(--indigo);
+  outline-offset: 5px;
+  box-shadow: 0 14px 40px rgba(51, 41, 31, 0.25);
+  padding: 0 0 2rem;
+  position: relative;
+}
+
+/* Balochi rug band along the top edge: geometric lozenge strip */
+.sheet::before {
+  content: "";
+  display: block;
+  height: 22px;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--brick) 0 12px,
+      var(--saffron) 12px 24px,
+      var(--indigo) 24px 36px,
+      var(--brick-dark) 36px 48px);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 98% 100%, 96% 60%, 94% 100%, 92% 60%, 90% 100%, 88% 60%, 86% 100%, 84% 60%, 82% 100%, 80% 60%, 78% 100%, 76% 60%, 74% 100%, 72% 60%, 70% 100%, 68% 60%, 66% 100%, 64% 60%, 62% 100%, 60% 60%, 58% 100%, 56% 60%, 54% 100%, 52% 60%, 50% 100%, 48% 60%, 46% 100%, 44% 60%, 42% 100%, 40% 60%, 38% 100%, 36% 60%, 34% 100%, 32% 60%, 30% 100%, 28% 60%, 26% 100%, 24% 60%, 22% 100%, 20% 60%, 18% 100%, 16% 60%, 14% 100%, 12% 60%, 10% 100%, 8% 60%, 6% 100%, 4% 60%, 2% 100%, 0 60%);
+}
+
+.masthead { padding: 1.6rem 2.4rem 0.6rem; }
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin: 0 0 0.8rem;
+}
+
+.masthead-row { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--brick-dark);
+  text-shadow: 2px 2px 0 rgba(44, 62, 95, 0.18);
+}
+
+.tagline { margin: 0.3rem 0 0; font-style: italic; color: var(--indigo-deep); }
+
+.urdu { font-size: 1.15em; unicode-bidi: isolate; }
+
+/* The well, drawn in the margin */
+.well {
+  position: relative;
+  width: 130px;
+  height: 150px;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.well-mouth {
+  position: absolute;
+  left: 15px; top: 82px;
+  width: 100px; height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 35%, #10131c 0 42%, var(--indigo-deep) 43% 60%, var(--indigo) 61% 75%, #8a7a5e 76% 100%);
+  border: 3px solid #6f5f45;
+}
+.rope {
+  position: absolute;
+  left: 62px; top: 0;
+  width: 3px; height: 56px;
+  background: repeating-linear-gradient(180deg, #8a6a3f 0 4px, #6f5230 4px 8px);
+}
+.bucket {
+  position: absolute;
+  left: 52px; top: 40px;
+  width: 24px; height: 20px;
+  background: linear-gradient(180deg, #7c5a34, #5e4326);
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+  animation: bucket-dip 4.5s ease-in-out infinite;
+}
+@keyframes bucket-dip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(26px); }
+}
+.well-label {
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 130px;
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+  color: var(--indigo);
+}
+
+.page-rule {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.4rem 0 0;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--brick);
+  border-bottom: 1px solid var(--brick);
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--brick-dark);
+}
+
+.damson-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--damson);
+}
+
+/* The damson stain, at the corner where the jar sits */
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: 118px; right: 34px;
+  width: 90px; height: 78px;
+  background:
+    radial-gradient(ellipse at 40% 45%, rgba(74, 37, 69, 0.34) 0 34%, rgba(74, 37, 69, 0.22) 52%, transparent 72%),
+    radial-gradient(ellipse at 66% 62%, rgba(74, 37, 69, 0.2) 0 28%, transparent 60%);
+  border-radius: 55% 45% 60% 40% / 50% 60% 40% 55%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+main { padding: 0.4rem 2.4rem 0; }
+
+.intro { font-size: 1.02rem; }
+
+.qa {
+  margin: 1.7rem 0;
+  padding: 1rem 1.2rem 1.2rem;
+  background: rgba(233, 220, 192, 0.45);
+  border-left: 6px solid var(--brick);
+}
+
+.qa h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.12rem;
+  color: var(--indigo-deep);
+  line-height: 1.4;
+}
+
+.q-no {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  background: var(--indigo);
+  color: var(--ochre);
+  padding: 0.18rem 0.5rem;
+  margin-right: 0.55rem;
+  border: 1px solid var(--saffron);
+}
+
+.qa a { color: var(--brick-dark); }
+.qa a:hover { background: rgba(192, 122, 44, 0.25); }
+
+.verbatim {
+  font-family: "Courier New", monospace;
+  font-size: 1.02rem;
+  color: var(--brick-dark);
+  background: #efe4c8;
+  border: 1px dashed var(--brick);
+  padding: 0.7rem 1rem;
+  margin: 0.8rem 0;
+}
+
+.stanza {
+  font-style: italic;
+  background: #efe4c8;
+  border: 1px solid var(--indigo);
+  padding: 0.9rem 1.1rem;
+  margin: 0.9rem 0;
+}
+.stanza-line { display: block; }
+.stanza-catch {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.66rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: var(--indigo);
+}
+
+.foot { padding: 1.6rem 2.4rem 0; margin-top: 2rem; border-top: 3px double var(--brick); }
+.foot-line { font-size: 0.82rem; color: var(--indigo-deep); margin: 0 0 0.4rem; }
+.foot-nav { font-size: 0.9rem; margin: 0 0 0.8rem; }
+.foot-nav a { color: var(--brick-dark); }
+.stamp {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--brick);
+  border: 2px solid var(--brick);
+  padding: 0.3rem 0.7rem;
+  transform: rotate(-2deg);
+  opacity: 0.8;
+}
