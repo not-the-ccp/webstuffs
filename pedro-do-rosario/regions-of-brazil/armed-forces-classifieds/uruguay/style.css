@@ -1,0 +1,106 @@
+/* The Delta Ledger — Supplements, travel desk */
+:root {
+  --ink: #23201b;
+  --paper: #f4efe3;
+  --rule: #8a7d63;
+  --accent: #7a3b2e;
+  --small: 0.82rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e2d0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 2rem 1.75rem 2.5rem;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+
+.masthead { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 1rem; }
+.mast-small { font-size: var(--small); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.4rem; color: #5d5342; }
+h1 { font-size: 2.6rem; margin: 0.1em 0; letter-spacing: 0.04em; }
+.mast-sub { font-size: var(--small); font-style: italic; margin: 0; color: #5d5342; }
+.stamp {
+  display: inline-block;
+  margin-top: 0.6rem;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  padding: 0.25rem 0.6rem;
+  transform: rotate(-1.5deg);
+}
+
+.notice { font-size: 1.02rem; }
+.dropcap { float: left; font-size: 2.8rem; line-height: 1; padding-right: 0.4rem; color: var(--accent); }
+
+.group { margin-top: 2rem; }
+.group-head {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.9rem;
+}
+.group-head span { text-transform: none; letter-spacing: 0; font-style: italic; font-size: 0.85rem; color: #5d5342; }
+
+blockquote.misbound {
+  margin: 1.1rem 1.5rem;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: #efe7d4;
+  font-style: italic;
+  font-size: 1.08rem;
+}
+
+.clock {
+  margin-top: 1.2rem;
+  border: 1px solid var(--rule);
+  background: #efe7d4;
+  padding: 1rem 1.1rem 1.2rem;
+}
+.clock-head { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 0.4rem; }
+.clock-head span { text-transform: none; font-style: italic; font-size: 0.8rem; letter-spacing: 0; color: #5d5342; }
+.clock-lede { font-size: var(--small); margin: 0 0 0.8rem; }
+.clock-controls { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.clock-controls label { font-size: var(--small); text-transform: uppercase; letter-spacing: 0.08em; }
+.clock-controls input[type="range"] { width: 11rem; accent-color: var(--accent); }
+.clock-count { font-size: 1.3rem; min-width: 2ch; text-align: center; }
+.clock-controls button {
+  font: inherit;
+  font-size: var(--small);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.2rem 0.55rem;
+  cursor: pointer;
+}
+.clock-controls button:hover { background: var(--accent); color: var(--paper); }
+
+.clock-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.clock-table th { text-align: left; font-weight: normal; width: 42%; padding: 0.3rem 0.4rem 0.3rem 0; vertical-align: top; }
+.clock-table td { padding: 0.3rem 0.4rem; border-bottom: 1px dotted var(--rule); font-weight: bold; }
+.clock-table tr:last-child td { border-bottom: none; }
+.clock-note { font-size: var(--small); font-style: italic; margin-top: 0.8rem; color: #5d5342; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--ink); }
+
+.ledger-footer { margin-top: 2.5rem; border-top: 3px double var(--rule); padding-top: 0.8rem; font-size: var(--small); text-align: center; }
+.ledger-footer .rule { letter-spacing: 0.15em; margin: 0.4rem 0 0; }
