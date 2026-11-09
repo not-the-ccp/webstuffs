@@ -1,0 +1,390 @@
+/* FM/RS-49 · Chapter XLIX — Riverine Forward Service field manual */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap');
+
+:root {
+  --khaki: #b8a878;
+  --khaki-deep: #8a7b52;
+  --paper: #e9e1c8;
+  --paper-dark: #d8cda9;
+  --ink: #241f14;
+  --red: #9c3b2a;
+  --stamp-red: #a33524;
+  --seal-navy: #2c3a4a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 17px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 244, 214, 0.9), transparent 60%),
+    radial-gradient(ellipse 80% 40% at 85% 110%, rgba(140, 118, 66, 0.28), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(36, 31, 20, 0.05) 34px 35px),
+    linear-gradient(178deg, #ded3b0 0%, var(--paper) 30%, var(--paper-dark) 100%);
+  min-height: 100vh;
+}
+
+/* drifting survey grid behind everything */
+.grid-paper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 59px, rgba(44, 58, 74, 0.10) 59px 60px),
+    repeating-linear-gradient(0deg, transparent 0 59px, rgba(44, 58, 74, 0.10) 59px 60px),
+    repeating-linear-gradient(90deg, transparent 0 295px, rgba(156, 59, 42, 0.12) 295px 297px);
+  animation: grid-drift 90s linear infinite;
+}
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to   { background-position: 295px 0, 0 295px, 0 0; }
+}
+
+header, main, footer, .ledger-strip { position: relative; z-index: 1; }
+
+/* ---------- masthead ---------- */
+.manual-head {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 28px 8px;
+  position: relative;
+  border-top: 10px double var(--ink);
+  border-bottom: 4px solid var(--ink);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 226, 0.55), transparent 70%);
+}
+
+.svc {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--seal-navy);
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.manual-head h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: clamp(40px, 7vw, 72px);
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 3px 3px 0 rgba(156, 59, 42, 0.25);
+}
+
+.manual-head h1 .fm {
+  display: block;
+  font-size: 0.42em;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  color: var(--red);
+  margin-top: 6px;
+}
+
+.chapter {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: clamp(15px, 2.4vw, 21px);
+  margin: 18px 0 4px;
+  color: var(--seal-navy);
+}
+
+.subchapter {
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  color: var(--khaki-deep);
+  margin: 0 0 10px;
+}
+
+/* classification stamps */
+.stamps { text-align: center; margin: 18px 0 6px; }
+.stamp {
+  display: inline-block;
+  margin: 6px 10px;
+  padding: 8px 16px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--stamp-red);
+  border: 3px double var(--stamp-red);
+  border-radius: 6px;
+  transform: rotate(-3deg);
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+  animation: stamp-in 0.7s cubic-bezier(0.2, 1.6, 0.4, 1) backwards;
+}
+.stamp-a { transform: rotate(-3.5deg); animation-delay: 0.15s; }
+.stamp-b { transform: rotate(2deg); color: var(--seal-navy); border-color: var(--seal-navy); animation-delay: 0.4s; }
+.stamp-c { transform: rotate(-1.5deg); border-radius: 50%; padding: 14px 20px; animation-delay: 0.65s; }
+@keyframes stamp-in {
+  from { transform: scale(2.2) rotate(-3.5deg); opacity: 0; }
+  to   { transform: scale(1); opacity: 0.82; }
+}
+
+/* perforated rule bar */
+.rule-bar {
+  max-width: 860px;
+  margin: 0 auto;
+  height: 14px;
+  background:
+    repeating-linear-gradient(90deg, var(--red) 0 18px, transparent 18px 26px);
+  opacity: 0.55;
+}
+
+/* ---------- sections ---------- */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 8px 28px 40px;
+}
+
+.sect {
+  background: linear-gradient(180deg, rgba(255, 250, 234, 0.72), rgba(233, 225, 200, 0.25));
+  border: 1.5px dashed var(--khaki-deep);
+  outline: 1.5px solid rgba(36, 31, 20, 0.25);
+  outline-offset: 4px;
+  padding: 26px 30px 28px;
+  margin: 44px 0;
+  position: relative;
+  box-shadow: 6px 6px 0 rgba(36, 31, 20, 0.08);
+}
+
+.sect::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 34px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #efe6cb, var(--khaki-deep));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.sect h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 22px;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 10px;
+}
+
+.sect h2 .no {
+  font-size: 40px;
+  line-height: 1;
+  color: var(--red);
+  -webkit-text-stroke: 1px var(--ink);
+}
+
+.sect p { margin: 0 0 14px; }
+.sect p strong { color: var(--seal-navy); }
+
+/* keeper's card */
+.keeper-card {
+  font-family: 'Special Elite', cursive;
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 20px 0;
+  padding: 20px 26px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(36, 31, 20, 0.08) 30px 31px),
+    linear-gradient(180deg, #f2ead2, #e4d9b6);
+  border: 2px solid var(--ink);
+  box-shadow: inset 0 0 0 6px rgba(255, 250, 234, 0.6), 8px 8px 0 rgba(44, 58, 74, 0.18);
+  position: relative;
+}
+.keeper-card::after {
+  content: "STATION CARD — 49N";
+  position: absolute;
+  top: -13px;
+  right: 18px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  background: var(--paper);
+  padding: 2px 10px;
+  border: 1.5px solid var(--ink);
+  color: var(--seal-navy);
+}
+.keeper-card p { margin: 0; }
+
+/* register table */
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 12px;
+  font-size: 15px;
+  background: rgba(255, 251, 238, 0.85);
+}
+.ledger-table caption {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-bottom: 8px;
+  caption-side: top;
+  color: var(--seal-navy);
+}
+.ledger-table th {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  background: var(--seal-navy);
+  color: var(--paper);
+  padding: 8px 10px;
+  text-align: left;
+  border: 1.5px solid var(--ink);
+}
+.ledger-table td {
+  padding: 9px 10px;
+  border: 1px dashed var(--khaki-deep);
+  vertical-align: top;
+}
+.ledger-table tbody tr { transition: background 0.3s; }
+.ledger-table tbody tr.at-bench { background: rgba(156, 59, 42, 0.07); box-shadow: inset 4px 0 0 var(--red); }
+.ledger-table tbody tr:hover { background: rgba(156, 59, 42, 0.1); }
+.ledger-table td:first-child { font-weight: 700; color: var(--red); text-align: center; }
+
+.fine-print {
+  font-size: 13px;
+  color: var(--khaki-deep);
+  font-style: italic;
+  border-top: 1px dotted var(--khaki-deep);
+  padding-top: 10px;
+}
+
+/* field signals list */
+.signals { padding-left: 0; list-style: none; counter-reset: sig; }
+.signals li {
+  counter-increment: sig;
+  position: relative;
+  padding: 12px 14px 12px 58px;
+  margin: 0 0 12px;
+  border-left: 4px solid var(--red);
+  background: linear-gradient(90deg, rgba(233, 225, 200, 0.6), transparent 60%);
+  transition: transform 0.2s;
+}
+.signals li:hover { transform: translateX(6px); }
+.signals li::before {
+  content: "SIGNAL " counter(sig, decimal-leading-zero);
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+}
+
+a {
+  color: var(--seal-navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  transition: color 0.15s, background 0.15s;
+}
+a:hover { color: var(--red); background: rgba(156, 59, 42, 0.12); }
+
+.close-line {
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  font-size: 16px;
+  color: var(--seal-navy);
+  border-top: 2px solid var(--ink);
+  margin-top: 22px;
+  padding-top: 14px;
+}
+
+/* footer */
+.manual-foot {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 26px 28px 120px;
+  text-align: center;
+  border-top: 10px double var(--ink);
+}
+.foot-svc {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  font-size: 12px;
+  margin: 0 0 6px;
+  color: var(--seal-navy);
+}
+.foot-line {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--khaki-deep);
+  margin: 0;
+}
+
+/* bottom ledger strip */
+.ledger-strip {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, var(--ink), #14110a);
+  color: var(--paper);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding: 7px 0;
+  border-top: 3px solid var(--red);
+  overflow: hidden;
+  white-space: nowrap;
+}
+#ledger-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 38s linear infinite;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .sect { padding: 20px 18px 22px; }
+  .ledger-table { font-size: 13px; }
+  .stamp { display: block; margin: 8px auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-paper, #ledger-text, .stamp { animation: none; }
+  #ledger-text { padding-left: 16px; }
+}
