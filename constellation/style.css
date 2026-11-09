@@ -1,0 +1,142 @@
+/* The Atlantic Line, La Caleta edition — letters column */
+
+:root {
+  --paper: #f6f3ec;
+  --ink: #211d18;
+  --faded: #6d665c;
+  --rule: #b9b0a2;
+  --accent: #33506b;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #e9e5db; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--ink);
+  background: #e9e5db;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 3.5rem auto 4.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 3rem 3.25rem 2.25rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 18px 40px -30px rgba(33,29,24,0.4);
+}
+
+/* masthead */
+.masthead .office {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.3rem;
+}
+
+.masthead .imprint {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1.1rem;
+}
+
+.skyline {
+  display: block;
+  width: 100%;
+  height: 64px;
+  margin: 0.2rem 0 0.35rem;
+}
+
+.skyline .stars circle { fill: var(--accent); }
+.skyline .lines line {
+  stroke: var(--accent);
+  stroke-width: 0.75;
+  stroke-dasharray: 2 3;
+  opacity: 0.55;
+}
+
+.star { animation: twinkle 4s ease-in-out infinite; }
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.cap-line {
+  font-size: 0.74rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+  max-width: 34rem;
+}
+
+/* letter */
+.salutation { margin: 0 0 1.2rem; font-size: 1.02rem; }
+
+.letter p { margin: 0 0 1.15rem; }
+
+.drop {
+  margin-bottom: 1.15rem;
+}
+.drop .cap,
+.salutation + p .cap {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.85;
+  padding: 0.06em 0.14em 0 0;
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(51, 80, 107, 0.35);
+}
+a:hover { border-bottom-color: var(--accent); }
+
+blockquote.ledger {
+  margin: 1.5rem 1.5rem 1.5rem 1.25rem;
+  padding: 0.9rem 1.2rem 0.9rem 1.3rem;
+  border-left: 3px double var(--accent);
+  font-style: italic;
+  color: #3a352e;
+  background: rgba(51, 80, 107, 0.045);
+}
+blockquote.ledger p { margin: 0; }
+
+.sign { margin-top: 1.9rem; line-height: 1.5; }
+.sign .name {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-size: 1.05rem;
+}
+.sign .addr {
+  font-size: 0.76rem;
+  color: var(--faded);
+  letter-spacing: 0.04em;
+}
+
+/* footer */
+.foot { margin-top: 2.4rem; }
+.rule-double {
+  border-top: 3px double var(--rule);
+  margin-bottom: 0.7rem;
+}
+.foot p {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 620px) {
+  .sheet { margin: 0; padding: 2rem 1.25rem; border-left: none; border-right: none; }
+  body { font-size: 16px; }
+}
