@@ -1,0 +1,115 @@
+/* Kraków Główny Lost Property Office — Name Counter, Window 3 */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9dcc0;
+  --ink: #2b241a;
+  --faded-ink: #5c5140;
+  --red: #9c2b1f;
+  --red-faint: rgba(156, 43, 31, 0.16);
+  --blue: #24466b;
+  --green: #3d6b3a;
+  --rule: #8a7a5c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #c9b98f; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, #d6c79f 0%, #c9b98f 70%);
+}
+
+.paper {
+  max-width: 44rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box,
+    var(--paper);
+  border: 2px solid var(--rule);
+  outline: 1px dashed var(--rule);
+  outline-offset: 5px;
+  box-shadow: 0 14px 30px rgba(43, 36, 26, 0.35), 0 2px 6px rgba(43, 36, 26, 0.25);
+  padding: 2.75rem 2.5rem 2rem;
+  position: relative;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(138, 122, 92, 0.14) 27px 28px);
+}
+
+/* Rubber stamps */
+.stamp {
+  position: absolute;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  border: 3px solid;
+  border-radius: 6px;
+  padding: 0.15rem 0.55rem;
+  text-transform: uppercase;
+  opacity: 0.82;
+  transform: rotate(-7deg);
+  mix-blend-mode: multiply;
+  user-select: none;
+}
+.stamp--red { top: 1.4rem; right: 1.6rem; color: var(--red); border-color: var(--red); }
+.stamp--blue { top: 4.6rem; right: 3.1rem; color: var(--blue); border-color: var(--blue); transform: rotate(4deg); font-size: 0.8rem; }
+
+.notice-head { text-align: center; margin-bottom: 1.25rem; }
+
+.office {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin: 0 auto 0.6rem;
+  max-width: 32rem;
+  font-variant: small-caps;
+}
+
+.notice-sub {
+  font-style: italic;
+  color: var(--faded-ink);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+.rule--double { border-top: 3px double var(--rule); }
+
+.notice h2, .claims h2 {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+}
+.notice--lost h2 { color: var(--red); }
+.notice--found h2 { color: var(--green); }
+
+p { line-height: 1.65; margin: 0 0 1rem; font-size: 1.02rem; }
+
+.notice--lost { background: var(--red-faint); border-left: 4px solid var(--red); padding: 1rem 1.1rem 0.2rem; }
+.notice--found { background: rgba(61, 107, 58, 0.10); border-left: 4px solid var(--green); padding: 1rem 1.1rem 0.2rem; }
+
+.claims ol { padding-left: 1.3rem; }
+.claims li { line-height: 1.6; margin-bottom: 0.55rem; font-size: 1rem; }
+
+.fine-print { font-size: 0.88rem; color: var(--faded-ink); border-top: 1px dotted var(--rule); padding-top: 0.8rem; }
+
+a { color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+
+.foot { text-align: center; margin-top: 1.6rem; }
+.signed { font-style: italic; font-size: 0.92rem; color: var(--faded-ink); }
+.back-link { font-size: 0.85rem; }
