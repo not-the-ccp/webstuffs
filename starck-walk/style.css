@@ -1,0 +1,95 @@
+/* The Starck Walk — Routes Off Shelf, Walking Series No. 214 */
+:root {
+  --paper: #f4efe6;
+  --ink: #1d1a16;
+  --rule: #b9ad97;
+  --accent: #d94f04;
+  --stop: #2f3a2f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.route {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+.eyebrow {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-size: 2.6rem;
+  margin: 0 0 0.75rem;
+  line-height: 1.1;
+}
+.sub {
+  font-size: 1.05rem;
+  max-width: 62ch;
+}
+.route-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.5rem 0;
+  margin: 1.25rem 0 2rem;
+  font-size: 0.95rem;
+}
+.route-facts strong { color: var(--accent); }
+ol.stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+.stop {
+  border-left: 4px solid var(--rule);
+  margin: 0 0 1.4rem 0.5rem;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  cursor: pointer;
+}
+.stop:hover { border-left-color: var(--accent); }
+.stop.logged { border-left-color: var(--stop); background: #ece5d5; }
+.stop h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1.2rem;
+}
+.km {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--stop);
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+}
+.stop p:last-child { margin-bottom: 1rem; }
+.ledger {
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 1rem;
+}
+.ledger h2 { font-size: 1.4rem; margin: 0 0 0.5rem; }
+.panel {
+  background: #efe8d8;
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1.1rem;
+  margin-top: 0.8rem;
+}
+.panel .log { margin: 0 0 0.5rem; font-style: italic; }
+.panel .totals { margin: 0; font-variant: small-caps; letter-spacing: 0.06em; }
+.panel .totals strong { color: var(--accent); }
+nav.cross {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+nav.cross a { color: var(--accent); }
