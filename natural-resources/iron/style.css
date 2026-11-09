@@ -1,0 +1,195 @@
+/* The Elements, An Encyclopaedia — Entry 27-C, Iron */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ece5d2;
+  --ink: #2b2620;
+  --oxblood: #6e1f1a;
+  --rule: #8a7a5e;
+  --faded: #6b6152;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #ddd5c2; }
+
+body {
+  margin: 0 auto;
+  max-width: 62rem;
+  padding: 2.5rem 1.5rem 4rem;
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(122, 96, 54, 0.10), transparent 45%),
+    radial-gradient(ellipse at 90% 95%, rgba(122, 96, 54, 0.14), transparent 40%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  line-height: 1.62;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  box-shadow: 0 0 40px rgba(43, 38, 32, 0.18);
+}
+
+/* corner stamp */
+.stamp {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--oxblood);
+  border: 2px double var(--oxblood);
+  border-radius: 4px;
+  padding: 0.35rem 0.6rem;
+  transform: rotate(-4deg);
+  opacity: 0.75;
+}
+
+/* running header */
+.series {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0.35rem 0 0.2rem;
+  font-size: 3.1rem;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+h1 .symbol {
+  font-size: 1.5rem;
+  color: var(--oxblood);
+  border: 1px solid var(--oxblood);
+  border-radius: 50%;
+  padding: 0.2rem 0.55rem;
+  margin-left: 0.6rem;
+  vertical-align: middle;
+}
+
+.pronunciation {
+  margin: 0.4rem 0 0.9rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.plimsoll {
+  border: 0;
+  border-top: 3px double var(--rule);
+  margin: 0 0 1.4rem;
+}
+
+h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 2.1rem 0 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+p { margin: 0 0 1rem; text-align: justify; }
+
+p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.86;
+  padding: 0.12rem 0.5rem 0 0;
+  color: var(--oxblood);
+  font-weight: 700;
+}
+
+dfn { font-style: normal; font-weight: 700; }
+
+/* infobox */
+.infobox {
+  float: right;
+  width: 16rem;
+  margin: 0.4rem 0 1rem 1.4rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  font-size: 0.85rem;
+}
+
+.infobox h2 {
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.infobox table { width: 100%; border-collapse: collapse; margin: 0; }
+
+.infobox th {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  width: 44%;
+  color: var(--oxblood);
+  border-bottom: 1px dotted var(--rule);
+}
+
+.infobox td {
+  padding: 0.3rem 0.8rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.infobox-note {
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--faded);
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+/* kept line */
+.kept-line {
+  margin: 1.2rem 1.5rem 1.2rem 2.2rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid var(--oxblood);
+  background: var(--paper-deep);
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* see also */
+ul.see-also {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+ul.see-also li { margin-bottom: 0.55rem; }
+
+a { color: var(--oxblood); text-decoration: none; border-bottom: 1px dotted var(--oxblood); }
+a:hover { background: rgba(110, 31, 26, 0.08); }
+
+.sign-off {
+  margin-top: 2.5rem;
+  padding-top: 0.7rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.8rem;
+  color: var(--faded);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 40rem) {
+  .infobox { float: none; width: 100%; margin: 1rem 0; }
+  .stamp { display: none; }
+  h1 { font-size: 2.3rem; }
+  p { text-align: left; }
+}
