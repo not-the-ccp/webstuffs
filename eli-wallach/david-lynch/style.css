@@ -1,0 +1,186 @@
+/* David Lynch — Field Notes · Sheet 442 */
+
+:root {
+  --night: #0b0d16;
+  --night-2: #12152a;
+  --bone: #e9e2cf;
+  --bone-dim: #b7ae96;
+  --red: #e0413f;
+  --red-deep: #7c1f1f;
+  --gold: #d8b45a;
+  --line: #3a3f5c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night); }
+
+body {
+  margin: 0 auto;
+  max-width: 74rem;
+  padding: 2.5rem 1.25rem 3.5rem;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, #1b1f3a 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 108%, #2a1416 0%, transparent 55%),
+    var(--night);
+  color: var(--bone);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.68;
+  font-size: 1.06rem;
+}
+
+.field-sheet {
+  border: 1px solid var(--line);
+  outline: 1px dashed #23273f;
+  outline-offset: 6px;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.014) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, var(--night-2) 0%, var(--night) 260px);
+  padding: 2.2rem clamp(1.1rem, 4vw, 3rem) 2.4rem;
+  box-shadow: 0 0 70px rgba(224, 65, 63, 0.07), 0 24px 60px rgba(0,0,0,0.55);
+}
+
+.sheet-header {
+  border-bottom: 3px double var(--red-deep);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.shelf-mark {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rec {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 8px 2px rgba(224, 65, 63, 0.7);
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0.5rem 0 0.3rem;
+  color: var(--bone);
+  text-shadow: 0 0 22px rgba(224, 65, 63, 0.28);
+}
+
+.dates {
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  font-style: italic;
+  margin: 0 0 0.2rem;
+}
+
+.tagline {
+  color: var(--bone-dim);
+  font-style: italic;
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* film strip */
+.strip {
+  height: 1.1rem;
+  background-image: radial-gradient(circle at 8px 50%, var(--night) 0 0.28rem, transparent 0.3rem),
+    radial-gradient(circle at 8px 50%, #262c4a 0 0.28rem, transparent 0.3rem);
+  background-size: 1.6rem 1.1rem;
+  background-position: 0.4rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.8rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: minmax(15rem, 22rem) 1fr;
+  gap: 2.4rem;
+}
+
+@media (max-width: 56rem) {
+  .field-grid { grid-template-columns: 1fr; }
+}
+
+.specimen table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+.specimen caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--red-deep);
+  margin-bottom: 0.4rem;
+}
+
+.specimen th {
+  text-align: left;
+  vertical-align: top;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bone-dim);
+  padding: 0.45rem 0.9rem 0.45rem 0;
+  white-space: nowrap;
+  width: 11rem;
+}
+
+.specimen td { padding: 0.45rem 0; border-bottom: 1px dotted #2b3050; }
+
+.notes h2 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 2.1rem 0 0.8rem;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--red-deep);
+}
+
+.notes p { margin: 0 0 1.05rem; }
+
+.lead {
+  font-size: 1.12rem;
+  color: #f1ead6;
+}
+
+.notes strong { color: var(--gold); font-weight: 400; letter-spacing: 0.03em; }
+
+.notes a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(216, 180, 90, 0.6);
+}
+.notes a:hover, .nav a:hover { color: #f0d68a; border-bottom-color: #f0d68a; }
+
+.colophon {
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--red-deep);
+  font-size: 0.9rem;
+  color: var(--bone-dim);
+}
+
+.colophon .nav { margin-top: 0.5rem; }
+.colophon a {
+  color: var(--bone);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(233, 226, 207, 0.45);
+}
+.colophon a:hover { color: var(--gold); }
