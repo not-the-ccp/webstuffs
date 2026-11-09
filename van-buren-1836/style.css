@@ -1,0 +1,122 @@
+/* The Hudson Weather Almanac — Entry 191 */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #23241f;
+  --faint: #6d6a5e;
+  --rule: #b9b2a0;
+  --accent: #1f4d43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+}
+
+.entry {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.entry-head {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+h1 .sub {
+  display: block;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-top: 0.6rem;
+}
+
+.station-line {
+  margin: 1.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--faint);
+  font-style: italic;
+}
+
+.observations {
+  margin-bottom: 2.4rem;
+}
+
+.observations h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.observations p {
+  margin: 0 0 1.05rem;
+}
+
+.observations p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 700; }
+
+.keeper-line {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(31, 77, 67, 0.05);
+}
+
+.keeper-line p {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.02rem;
+}
+
+.entry-foot {
+  border-top: 3px double var(--rule);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+.entry-foot .colophon { font-style: italic; }
+
+.foot-links a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.foot-links a:hover { border-bottom-color: var(--accent); }
+
+a { color: var(--accent); }
