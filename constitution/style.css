@@ -1,0 +1,206 @@
+/* Sheet No. 43 — The Framing Line · State Border Answers Desk */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9dcbc;
+  --ink: #2c2416;
+  --ink-faint: #6b5c40;
+  --rule: #8a2f1f;
+  --rule-dark: #5c1d12;
+  --stamp: #7a1f1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d9cbaa;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(90, 70, 40, .05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(90deg, rgba(90, 70, 40, .04) 0 2px, transparent 2px 34px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 900px;
+  margin: 2.2rem auto 3rem;
+  background: var(--paper);
+  border: 1px solid #7d6a45;
+  box-shadow: 0 0 0 6px rgba(243, 234, 214, .55), 0 14px 34px rgba(50, 38, 16, .28);
+  padding: 2.4rem clamp(1.1rem, 4.5vw, 3rem) 1.6rem;
+}
+
+/* header */
+.tt-head {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.office-line {
+  margin: 0 0 .8rem;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.line-name {
+  margin: 0 0 .1rem;
+  font-size: .85rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--rule-dark);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.6rem, 4.4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.12;
+}
+
+.sheet-no {
+  margin: 0 0 .9rem;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.first-rule { margin: 0; text-align: justify; }
+
+/* sections */
+.sec { margin: 1.6rem 0; }
+
+.sec h2 {
+  font-size: 1.08rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .35rem;
+  margin: 0 0 .8rem;
+}
+
+.sec-no {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--rule);
+  font-weight: 700;
+  margin-right: .35em;
+}
+
+.sec p { margin: .7rem 0; text-align: justify; }
+
+/* timetable */
+.table-note {
+  font-size: .85rem;
+  color: var(--ink-faint);
+  text-align: justify;
+}
+
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: .9rem;
+  background: rgba(255, 250, 235, .5);
+  border-top: 2px solid var(--rule-dark);
+  border-bottom: 2px solid var(--rule-dark);
+}
+
+table.tt thead th {
+  text-align: left;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rule-dark);
+  border-bottom: 1px solid var(--rule);
+  padding: .5rem .6rem;
+}
+
+table.tt tbody td {
+  padding: .55rem .6rem;
+  border-bottom: 1px dotted #a08a5e;
+  vertical-align: top;
+}
+
+table.tt tbody td:nth-child(3) { white-space: nowrap; }
+table.tt tbody td:nth-child(4) { text-align: right; white-space: nowrap; }
+table.tt tbody td:first-child {
+  color: var(--rule);
+  font-weight: 700;
+  text-align: center;
+  width: 2.4rem;
+}
+
+table.tt tbody tr.origin td,
+table.tt tbody tr.terminus td {
+  background: var(--paper-deep);
+  font-weight: 700;
+}
+
+table.tt tbody tr.quorum td {
+  background: #efe0b8;
+}
+
+table.tt tbody tr.quorum td:first-child { color: var(--stamp); }
+
+/* the stamped sign */
+tr td:first-child::after {
+  content: "";
+}
+tr[data-stn].ratified td:first-child::after {
+  content: " \25C6";
+  color: var(--stamp);
+}
+
+/* kept line */
+.kept-line {
+  margin: 1rem 1.2rem;
+  padding: .9rem 1.1rem;
+  border-left: 4px solid var(--rule);
+  background: rgba(138, 47, 31, .06);
+  font-style: italic;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+/* footer */
+.sheet-ft {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: .9rem;
+}
+
+.ft-line {
+  margin: 0;
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.ft-rule {
+  margin: .7rem auto 0;
+  height: 6px;
+  max-width: 260px;
+  background:
+    linear-gradient(var(--rule), var(--rule)) center / 100% 2px no-repeat,
+    linear-gradient(var(--rule), var(--rule)) center / 100% 2px no-repeat 0 4px;
+}
+
+a { color: var(--rule-dark); }
+a:hover { color: var(--stamp); }
+
+@media (max-width: 620px) {
+  table.tt { font-size: .8rem; }
+  table.tt thead th:nth-child(4),
+  table.tt tbody td:nth-child(4) { display: none; }
+}
