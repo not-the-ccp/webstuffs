@@ -1,0 +1,183 @@
+/* Hall C Concession Desk — Lost Property notice, Claim No. 1967-D */
+
+:root {
+  --paper: #f4ead2;
+  --paper-edge: #e5d5ac;
+  --ink: #2b241a;
+  --red: #8e1f1f;
+  --gold: #b8860b;
+  --board: #4c3b28;
+  --stencil: #6b5a3e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    repeating-linear-gradient(90deg, #55432d 0 46px, #4c3b28 46px 92px),
+    var(--board);
+  background-blend-mode: multiply;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  padding: 3rem 1rem 4rem;
+}
+
+/* the pinboard, with two brass pins */
+.board {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pin {
+  position: absolute;
+  top: 1.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f0d080, #a9781a 65%, #6e4c0d);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.pin-a { left: calc(50% - 12rem); }
+.pin-b { left: calc(50% + 10.6rem); }
+
+.notice {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--paper-edge);
+  outline-offset: 4px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  padding: 2.25rem 2.5rem 1.5rem;
+  transform: rotate(-0.4deg);
+}
+
+.masthead { position: relative; text-align: center; }
+
+.desk {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 0 0.2rem;
+}
+
+.desk-sub {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+  color: var(--stencil);
+}
+
+.claim-stamp {
+  position: absolute;
+  right: -0.5rem;
+  top: 0.25rem;
+  transform: rotate(6deg);
+  border: 3px double var(--red);
+  color: var(--red);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  padding: 0.4rem 0.7rem;
+  text-align: center;
+  opacity: 0.9;
+  background: rgba(244, 234, 210, 0.6);
+}
+
+h1 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin: 0.4rem 0 0.5rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 .small {
+  display: block;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+  color: var(--red);
+}
+
+.found-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--stencil);
+  margin: 0;
+}
+
+.rule {
+  border: none;
+  border-top: 3px double var(--ink);
+  margin: 1.4rem 0;
+}
+
+.item h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+.item p { margin: 0 0 0.9rem; line-height: 1.65; }
+
+.item p strong { color: var(--red); }
+
+.conditions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.55;
+}
+.conditions li {
+  padding: 0.45rem 0 0.45rem 1.4rem;
+  position: relative;
+  border-bottom: 1px dotted var(--stencil);
+}
+.conditions li::before {
+  content: "\25A1";
+  position: absolute;
+  left: 0.1rem;
+  color: var(--ink);
+}
+.conditions li:last-child::before { content: "\25A0"; color: var(--red); }
+
+blockquote.tag-line {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: #efe2bd;
+  border-left: 6px solid var(--red);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  transform: rotate(0.3deg);
+}
+
+.fineprint {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: var(--stencil);
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+a { color: var(--red); }
+a:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .notice { padding: 1.5rem 1.2rem 1.2rem; transform: none; }
+  .claim-stamp { position: static; display: inline-block; margin-bottom: 0.8rem; }
+  .pin-a, .pin-b { display: none; }
+}
