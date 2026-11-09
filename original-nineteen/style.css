@@ -1,0 +1,331 @@
+/* Lost & Found Notice 19/66 — The Original Nineteen */
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&family=Special+Elite&family=Oswald:wght@300;500&display=swap');
+
+:root {
+  --paper: #f3ecd9;
+  --ink: #1d2438;
+  --navy: #0d1226;
+  --mars: #c8502e;
+  --gold: #d9a441;
+  --line: #2a3350;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 17px;
+  line-height: 1.65;
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(217, 164, 65, 0.14), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(200, 80, 46, 0.16), transparent 55%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.014) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #05070f 0%, var(--navy) 45%, #141b33 100%);
+  background-attachment: fixed;
+}
+
+/* --- starfield, drawn in CSS --- */
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(1.5px 1.5px at 78% 12%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(2px 2px at 34% 71%, rgba(217,164,65,.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 62% 44%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(2.5px 2.5px at 88% 78%, rgba(200,80,46,.75), transparent 60%),
+    radial-gradient(1.5px 1.5px at 22% 42%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(2px 2px at 48% 8%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 91% 33%, rgba(217,164,65,.65), transparent 60%),
+    radial-gradient(2px 2px at 5% 85%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 70% 92%, rgba(255,255,255,.5), transparent 60%);
+  animation: twinkle 4.5s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  from { opacity: 0.45; }
+  to   { opacity: 1; }
+}
+
+/* --- the Moon --- */
+.orb {
+  position: fixed;
+  top: -90px;
+  right: -90px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 38% 34%, #efe8d4 0%, #cfc6ab 45%, #8f8a77 78%, #5d5a4e 100%);
+  box-shadow:
+    0 0 80px rgba(239, 232, 212, 0.25),
+    inset -24px -30px 70px rgba(20, 24, 45, 0.55);
+  animation: drift 26s ease-in-out infinite alternate;
+}
+.crater {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(90,86,74,.5), rgba(70,66,56,.25));
+  box-shadow: inset 2px 3px 6px rgba(30,28,22,.5);
+}
+.c1 { width: 64px; height: 64px; top: 34%; left: 52%; }
+.c2 { width: 34px; height: 34px; top: 62%; left: 26%; }
+.c3 { width: 22px; height: 22px; top: 22%; left: 24%; }
+@keyframes drift {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to   { transform: translate(-14px, 12px) rotate(8deg); }
+}
+
+/* --- the notice card --- */
+.notice {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 6vh auto 12vh;
+  background:
+    repeating-linear-gradient(0deg, rgba(42, 51, 80, 0.028) 0 1px, transparent 1px 28px),
+    radial-gradient(600px 300px at 85% 0%, rgba(217, 164, 65, 0.12), transparent 65%),
+    var(--paper);
+  border: 2px solid var(--line);
+  outline: 6px dashed rgba(217, 164, 65, 0.35);
+  outline-offset: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  padding: 54px 60px 40px;
+}
+
+/* masking tape corners */
+.tape {
+  position: absolute;
+  width: 150px;
+  height: 38px;
+  background: linear-gradient(90deg, rgba(217,164,65,.85), rgba(217,164,65,.65));
+  opacity: 0.85;
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  z-index: 2;
+}
+.tape-l { top: -16px; left: 42px; transform: rotate(-7deg); }
+.tape-r { top: -14px; right: 42px; transform: rotate(6deg); }
+
+/* --- masthead --- */
+.masthead { text-align: center; position: relative; }
+
+.agency {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 14px;
+  color: var(--line);
+}
+
+h1 {
+  font-family: "Unica One", "Oswald", cursive;
+  font-size: clamp(52px, 9vw, 96px);
+  line-height: 0.95;
+  margin: 8px 0 4px;
+  letter-spacing: 0.04em;
+}
+h1 .lost {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--mars);
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+h1 .found { color: var(--ink); display: inline-block; transform: rotate(1.5deg); }
+h1 .amp {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--gold);
+  -webkit-text-stroke: 0;
+  font-size: 0.6em;
+  vertical-align: 0.12em;
+}
+
+.notice-no {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.24em;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--mars);
+  margin: 10px 0 2px;
+}
+#counter {
+  display: inline-block;
+  min-width: 1.6em;
+  text-align: center;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 2px solid var(--gold);
+}
+
+.rule {
+  color: var(--gold);
+  letter-spacing: 1.2em;
+  text-indent: 1.2em;
+  margin: 14px 0 0;
+  font-size: 13px;
+}
+
+/* --- radar badge --- */
+.radar {
+  width: 64px;
+  height: 64px;
+  margin: 18px auto 6px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  position: relative;
+  background:
+    radial-gradient(circle, transparent 0 30%, rgba(42,51,80,.15) 31% 32%, transparent 33% 60%, rgba(42,51,80,.15) 61% 62%, transparent 63%),
+    rgba(13, 18, 38, 0.04);
+}
+.radar::before, .radar::after {
+  content: "";
+  position: absolute;
+  background: rgba(42, 51, 80, 0.25);
+}
+.radar::before { left: 50%; top: 4px; bottom: 4px; width: 1px; }
+.radar::after { top: 50%; left: 4px; right: 4px; height: 1px; }
+.radar .sweep {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(200, 80, 46, 0.55), transparent 70deg, transparent 360deg);
+  animation: sweep 3.2s linear infinite;
+}
+@keyframes sweep {
+  to { transform: rotate(360deg); }
+}
+
+/* --- body copy --- */
+main h2 {
+  font-family: "Unica One", "Oswald", cursive;
+  font-size: 26px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 6px;
+  margin: 44px 0 16px;
+}
+main h2::before { content: "◆ "; color: var(--mars); }
+
+main p { margin: 0 0 16px; }
+
+strong {
+  background: linear-gradient(transparent 62%, rgba(217, 164, 65, 0.55) 62%);
+  padding: 0 2px;
+}
+
+a { color: var(--mars); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { background: var(--gold); color: var(--navy); }
+
+/* --- roster badges --- */
+.badges {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  counter-reset: none;
+}
+.badges li {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1.5px solid var(--line);
+  border-left: 6px solid var(--mars);
+  background:
+    repeating-linear-gradient(-45deg, rgba(42,51,80,.05) 0 6px, transparent 6px 12px),
+    rgba(255, 255, 255, 0.4);
+  padding: 9px 12px 9px 10px;
+  box-shadow: 3px 3px 0 rgba(29, 36, 56, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.badges li:hover {
+  transform: translate(-2px, -2px) rotate(-0.4deg);
+  box-shadow: 6px 6px 0 rgba(200, 80, 46, 0.35);
+  border-left-color: var(--gold);
+}
+.badges li:nth-child(even) { border-left-color: var(--gold); }
+
+/* --- found note: the woven crate --- */
+.found-note {
+  border: 2px dashed var(--line);
+  padding: 22px 24px;
+  background:
+    repeating-linear-gradient(45deg, rgba(42,51,80,.035) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(-45deg, rgba(200,80,46,.04) 0 8px, transparent 8px 16px),
+    rgba(255, 255, 255, 0.35);
+}
+.found-note h2 { margin-top: 0; }
+
+/* --- seal --- */
+.seal {
+  position: absolute;
+  bottom: 46px;
+  right: 34px;
+  width: 108px;
+  height: 108px;
+  opacity: 0.9;
+  animation: spin-slow 40s linear infinite;
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.seal-ring { fill: none; stroke: var(--mars); stroke-width: 3; stroke-dasharray: 4 3; }
+.seal-ring.inner { stroke: var(--gold); stroke-dasharray: none; stroke-width: 1.5; }
+.seal-rocket { fill: var(--line); }
+.seal-fin { fill: var(--mars); }
+.seal-flame { fill: var(--gold); animation: flicker 0.9s ease-in-out infinite alternate; transform-origin: 60px 84px; }
+@keyframes flicker {
+  from { transform: scaleY(0.7); opacity: 0.7; }
+  to   { transform: scaleY(1.15); opacity: 1; }
+}
+.seal-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  fill: var(--line);
+  text-anchor: middle;
+}
+
+/* --- colophon --- */
+.colophon {
+  margin-top: 46px;
+  padding-top: 16px;
+  border-top: 2px solid var(--line);
+  text-align: center;
+}
+.colophon p {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  color: var(--line);
+}
+.colophon .rule { text-align: center; letter-spacing: 1.6em; text-indent: 1.6em; }
+.colophon .fine {
+  font-family: "Special Elite", monospace;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .notice { padding: 40px 22px 30px; margin: 3vh 12px 8vh; outline: 4px dashed rgba(217,164,65,.3); outline-offset: 5px; }
+  .orb { width: 180px; height: 180px; top: -60px; right: -60px; }
+  .seal { width: 76px; height: 76px; right: 18px; bottom: 18px; }
+}
