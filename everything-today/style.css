@@ -1,0 +1,163 @@
+/* Dream Dictionary leaf — paper, ribbon, and the kettle line */
+
+:root {
+  --paper: #f4eddc;
+  --paper-edge: #e7dcc3;
+  --ink: #2b2620;
+  --ink-faded: #5a5142;
+  --rule: #8a7d63;
+  --stamp: #7c3b2e;
+  --ribbon: #43587a;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #26221c; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  line-height: 1.62;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #353026 0%, #26221c 70%);
+}
+
+.leaf {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0 2px, transparent 2px 5px),
+    radial-gradient(140% 100% at 50% 0%, rgba(255,255,255,0.5) 0%, transparent 55%);
+  border: 1px solid #c9bb9b;
+  border-top-width: 3px;
+  border-bottom-width: 6px;
+  box-shadow:
+    0 1px 0 #d8ccb0 inset,
+    0 18px 40px rgba(0,0,0,0.55);
+  padding: 3rem 3.2rem 2.4rem;
+  position: relative;
+}
+
+.leaf::before {
+  /* worn top corner */
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  border-style: solid;
+  border-width: 0 26px 26px 0;
+  border-color: transparent #26221c transparent transparent;
+}
+
+.leaf-head {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
+}
+
+.series {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--ink-faded);
+  margin: 0 0 0.7rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.entry-no {
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  margin: 0;
+}
+
+.entry-no em { font-style: italic; }
+
+.entry p { margin: 0 0 1.05rem; text-align: justify; hyphens: auto; }
+
+.definition {
+  font-size: 1.02rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--rule);
+}
+
+.definition strong { font-variant: small-caps; letter-spacing: 0.04em; }
+
+.omens-label {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.4rem 0;
+  margin: 1.6rem 0 0.9rem;
+}
+
+.omens {
+  list-style: none;
+  margin: 0 0 1.4rem;
+  padding: 0;
+}
+
+.omens li {
+  padding: 0.35rem 0.8rem 0.35rem 1.4rem;
+  position: relative;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+
+.omens li::before {
+  content: "✶";
+  position: absolute;
+  left: 0.15rem;
+  color: var(--stamp);
+}
+
+.omens strong { font-variant: small-caps; }
+
+.colophon {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  border-top: 3px double var(--rule);
+  padding-top: 0.8rem;
+  text-align: center;
+}
+
+.cross {
+  margin-top: 1.8rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--ink-faded);
+}
+
+.cross p { margin: 0; text-align: justify; }
+
+a {
+  color: var(--ribbon);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ribbon);
+}
+
+a:hover { background: rgba(67, 88, 122, 0.12); }
+
+/* the kettle line, stamped */
+.entry p:nth-of-type(4) {
+  position: relative;
+}
+
+@media (max-width: 560px) {
+  .leaf { padding: 2rem 1.4rem 1.8rem; }
+  h1 { font-size: 1.35rem; }
+  .entry p, .cross p { text-align: left; }
+}
