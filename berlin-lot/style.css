@@ -1,0 +1,393 @@
+/* Lot 81 — The Berlin Papers, 1848–1989 · Voss & Nickel, Room 6, Klosterstraße */
+
+:root {
+  --prussian: #0d3b54;
+  --prussian-deep: #082634;
+  --gold: #c9a23b;
+  --gold-pale: #e9d9a8;
+  --crimson: #8e1e30;
+  --cream: #faf7ef;
+  --paper: #fffdf5;
+  --ink: #1b1b16;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(700px 450px at 12% 15%, rgba(14, 60, 84, 0.55), transparent 48%),
+    radial-gradient(600px 400px at 92% 8%, rgba(8, 38, 52, 0.6), transparent 42%),
+    linear-gradient(150deg, var(--prussian-deep) 0%, var(--prussian) 55%, #16506e 100%);
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Serif", "Georgia", "Times New Roman", serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(201, 162, 59, 0.06) 24px, rgba(201, 162, 59, 0.06) 26px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(201, 162, 59, 0.06) 24px, rgba(201, 162, 59, 0.06) 26px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+main.lot {
+  position: relative;
+  max-width: 860px;
+  margin: 36px auto;
+  padding: 52px 64px 70px;
+  background: var(--paper);
+  border: 11px solid var(--gold);
+  box-shadow: 0 0 0 10px var(--prussian-deep), 0 0 0 12px var(--gold),
+    14px 14px 0 var(--ink);
+  z-index: 1;
+}
+
+.gate-box {
+  position: absolute;
+  top: -74px;
+  left: 50%;
+  transform: translatex(-50%);
+  text-align: center;
+}
+
+.gate {
+  width: 170px;
+  height: 96px;
+  filter: drop-shadow(3px 3px 0 var(--ink));
+}
+
+.sale-head {
+  text-align: center;
+  background: var(--prussian);
+  color: var(--gold-pale);
+  padding: 30px 20px 24px;
+  margin: -52px -64px 34px;
+  border-bottom: 5px double var(--gold);
+  position: relative;
+  box-shadow: 0 8px 0 var(--ink);
+}
+
+.firm-name {
+  font-size: 1.9rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.firm-line {
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
+  font-style: italic;
+}
+
+.rule {
+  border: none;
+  margin: 18px 0;
+}
+
+.rule-double {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 14px, transparent 14px, transparent 28px);
+  border: 2px solid var(--prussian-deep);
+}
+
+.rule-single {
+  height: 3px;
+  background: var(--prussian);
+  border: 1px solid var(--ink);
+}
+
+.sale-name {
+  font-size: 1.35rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin: 10px 0 2px;
+  font-weight: bold;
+}
+
+.sale-line {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  margin: 0;
+}
+
+.lot-no {
+  position: absolute;
+  top: -40px;
+  right: -34px;
+  font-size: 9rem;
+  font-weight: bold;
+  color: rgba(201, 162, 59, 0.10);
+  line-height: 1;
+  transform: rotate(-12deg);
+}
+
+.ornament-line {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--crimson);
+  margin: 8px 0 18px;
+  letter-spacing: 12px;
+}
+
+h1 {
+  font-size: 2.1rem;
+  letter-spacing: 0.14em;
+  color: var(--prussian-deep);
+  margin: 0 0 4px;
+  padding: 14px 22px;
+  display: inline-block;
+  background: var(--gold-pale);
+  border: 5px double var(--gold);
+  box-shadow: 6px 6px 0 var(--ink);
+  text-transform: uppercase;
+}
+
+.dash {
+  color: var(--crimson);
+  margin: 0 10px;
+}
+
+.lot-sub {
+  font-size: 1.05rem;
+  color: var(--crimson);
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+table.estimate {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 28px;
+  font-size: 0.95rem;
+}
+
+table.estimate td {
+  padding: 7px 4px;
+  border-bottom: 1px dotted #8a7a52;
+}
+
+table.estimate .label {
+  width: 34%;
+  font-weight: bold;
+  color: var(--prussian);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--prussian);
+}
+
+table.estimate .leader {
+  border-bottom: 1px dotted #8a7a52;
+}
+
+table.estimate .value {
+  font-weight: bold;
+  color: var(--ink);
+  text-align: right;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--crimson);
+  margin: 30px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 4px double var(--prussian);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+section.desc p, section.contents li {
+  font-size: 1.02rem;
+  text-align: justify;
+}
+
+section.contents {
+  background: rgba(233, 217, 168, 0.25);
+  border: 3px solid var(--gold);
+  padding: 18px 26px;
+  margin: 24px 0;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+ol.lot-list {
+  padding-left: 24px;
+}
+
+ol.lot-list li {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+section.condition, section.provenance {
+  font-size: 0.98rem;
+}
+
+section.provenance {
+  background: var(--cream);
+  border: 2px solid var(--prussian);
+  padding: 16px 22px;
+  margin-top: 26px;
+}
+
+p.terms {
+  margin-top: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.08em;
+  color: var(--prussian-deep);
+}
+
+.bidline {
+  margin: 34px 0 6px;
+  text-align: center;
+}
+
+.bid-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--prussian);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.bid-amount {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--crimson);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: block;
+  text-shadow: 1px 1px 0 var(--gold-pale);
+}
+
+button.gavel {
+  background: var(--crimson);
+  color: var(--gold-pale);
+  border: 4px solid var(--ink);
+  padding: 16px 34px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-family: "Georgia", "Times New Roman", serif;
+  cursor: pointer;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+button.gavel:hover {
+  background: #a82438;
+}
+
+button.gavel:active {
+  transform: translate(8px, 8px);
+  box-shadow: none;
+}
+
+button.gavel:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.sold-stamp {
+  display: inline-block;
+  margin-right: 12px;
+  font: bold 1.6rem "Georgia", serif;
+  color: var(--crimson);
+  text-shadow: 2px 2px 0 #000000;
+  animation: stamp 0.7s ease;
+}
+
+@keyframes stamp {
+  0% { transform: scale(0.1) rotate(-45deg); }
+  60% { transform: scale(1.15) rotate(6deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.colophon {
+  margin-top: 44px;
+  padding-top: 22px;
+  border-top: 5px double var(--gold);
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--prussian-deep);
+}
+
+.stamp {
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 0 14px;
+}
+
+.nav-line {
+  margin: 6px 0;
+}
+
+.nav-line a {
+  color: var(--prussian-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+.nav-line a:hover {
+  background: var(--prussian-deep);
+  color: var(--gold-pale);
+  border-bottom-color: var(--gold-pale);
+}
+
+.petal {
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  background: var(--crimson);
+  border-radius: 55% 55% 0 0;
+  opacity: 0.75;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translatey(130vh) rotate(720deg); }
+}
+
+@media (max-width: 640px) {
+  main.lot {
+    margin: 16px auto;
+    padding: 30px 18px 40px;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .sale-head {
+    margin: -30px -18px 22px;
+    padding: 20px 12px 16px;
+  }
+  .lot-no {
+    font-size: 5.5rem;
+    top: -24px;
+    right: -14px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    padding: 10px 14px;
+  }
+}
