@@ -1,0 +1,194 @@
+/* Card 215 — Blackberry Galette, Lutruwita Style. A worn card from a family recipe book. */
+
+:root {
+  --paper: #f4ecda;
+  --paper-edge: #e9dfc6;
+  --ink: #3a2f24;
+  --ink-faded: #5c4c38;
+  --blue-ink: #2c4a6e;
+  --pencil: #6f6a60;
+  --berry: #5c2a45;
+  --stamp: #a23b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 48px 16px 72px;
+  background:
+    radial-gradient(ellipse at 20% 8%, rgba(122, 90, 48, 0.16), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(122, 90, 48, 0.12), transparent 50%),
+    linear-gradient(180deg, #6b5a41 0%, #57482f 60%, #463923 100%);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.shelf {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background: linear-gradient(180deg, #3d3120, #2c2316);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.card {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 48px 36px;
+  background:
+    radial-gradient(ellipse at 78% 64%, rgba(141, 84, 40, 0.14), transparent 18%),
+    radial-gradient(ellipse at 12% 92%, rgba(90, 60, 30, 0.10), transparent 16%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(92, 70, 40, 0.035) 26px 27px),
+    linear-gradient(160deg, #f8f1e1 0%, var(--paper) 55%, var(--paper-edge) 100%);
+  border: 1px solid #cbbd9a;
+  border-radius: 3px 14px 12px 4px;
+  box-shadow:
+    inset 0 0 42px rgba(122, 92, 48, 0.16),
+    0 14px 30px rgba(0, 0, 0, 0.42);
+  transform: rotate(-0.4deg);
+}
+
+.card::before {
+  /* coffee ring, upper left */
+  content: "";
+  position: absolute;
+  top: 30px; left: 26px;
+  width: 64px; height: 64px;
+  border: 3px solid rgba(133, 90, 42, 0.18);
+  border-radius: 50%;
+  transform: rotate(8deg) scaleY(0.96);
+  pointer-events: none;
+}
+
+.cardhead { position: relative; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
+
+.bookline {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+h1 em { font-style: italic; }
+
+.attrib {
+  margin: 8px 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--blue-ink);
+}
+
+.stamp {
+  position: absolute;
+  top: 6px; right: 0;
+  transform: rotate(9deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  padding: 4px 10px 3px 13px;
+  opacity: 0.72;
+  border-radius: 4px;
+}
+
+.preamble p { margin: 0.9em 0; text-align: justify; hyphens: auto; }
+.preamble .hand {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.12rem;
+  color: var(--pencil);
+}
+
+.cardrule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 12px;
+  color: var(--ink-faded);
+}
+.cardrule::before, .cardrule::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dashed #a08c66;
+}
+.cardrule span {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.5rem;
+  color: var(--berry);
+}
+
+.ingredients { list-style: none; margin: 0; padding: 0; font-size: 0.98rem; }
+.ingredients li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 5px 2px;
+  border-bottom: 1px dotted rgba(92, 70, 40, 0.35);
+}
+.amt {
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap;
+  color: var(--berry);
+  font-weight: 700;
+}
+
+.pencil {
+  display: block;
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.05rem;
+  color: var(--pencil);
+  margin-top: 2px;
+  cursor: pointer;
+}
+.pencil .drawer-line {
+  display: block;
+  overflow: hidden;
+  max-height: 3.2em;
+  transition: max-height 0.7s ease, opacity 0.7s ease;
+}
+.pencil .drawer-line.closed { max-height: 0; opacity: 0; }
+
+.method { margin: 0; padding-left: 1.5em; font-size: 0.98rem; }
+.method li { margin: 0.55em 0; padding-left: 0.3em; }
+.method li::marker { font-family: "Courier New", Courier, monospace; color: var(--berry); font-weight: 700; }
+
+.cardfoot {
+  margin-top: 30px;
+  border-top: 2px solid var(--ink);
+  padding-top: 14px;
+}
+.sign { margin: 0 0 8px; }
+.postscript {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.1rem;
+  color: var(--pencil);
+}
+.filing {
+  margin: 10px 0 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-faded);
+}
+
+a { color: var(--blue-ink); }
+a:hover { color: var(--berry); }
+
+@media (max-width: 560px) {
+  .card { padding: 28px 22px; transform: none; }
+  .stamp { position: static; display: inline-block; margin-top: 12px; }
+}
