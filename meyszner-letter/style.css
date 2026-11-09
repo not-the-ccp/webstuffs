@@ -1,0 +1,158 @@
+/* Kod Čuvara — a small dining-room page, set like the house keeps its ledgers.
+   Late-90s personal homepage: starry field, bevels, web-safe colour, a scroll line. */
+
+html { background: #000033; }
+
+body {
+  background-color: #000033;
+  background-image:
+    radial-gradient(circle at 12% 22%, #ffffcc 1px, transparent 2px),
+    radial-gradient(circle at 78% 14%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 45% 68%, #ccffff 1px, transparent 2px),
+    radial-gradient(circle at 88% 82%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 28% 88%, #ffffcc 1px, transparent 2px);
+  background-size: 220px 220px;
+  color: #000000;
+  font-family: "Times New Roman", Georgia, serif;
+  margin: 0;
+  padding: 12px 0 30px 0;
+}
+
+.frame {
+  width: 640px;
+  margin: 0 auto;
+}
+
+/* banner, bevelled like an old toolbar */
+table.banner {
+  background: #000080;
+  border: 4px outset #c0c0c0;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+}
+.bannertitle {
+  color: #ffff00;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 4px;
+}
+.banner-sub {
+  color: #c0c0c0;
+  font-size: 12px;
+  margin: 6px 0 0 0;
+}
+.blink {
+  color: #ff0000;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% { visibility: hidden; }
+}
+
+/* scrolling line */
+#scroll {
+  background: #c0c0c0;
+  border: 2px inset #808080;
+  color: #000080;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 3px 0;
+  margin-bottom: 8px;
+}
+#scroll { display: block; }
+
+/* counter box */
+table.counterbox {
+  background: #c0c0c0;
+  border: 4px outset #ffffff;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+}
+.counterlabel {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: #000000;
+}
+.counterdigit {
+  background: #000000;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding: 2px 8px;
+  border: 2px inset #808080;
+}
+
+/* the letter itself: paper on the dark field */
+.letter {
+  background: #fffff0;
+  border: 4px ridge #c0c0c0;
+  padding: 22px 28px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #1a1a1a;
+}
+.letter p { margin: 0 0 14px 0; }
+.letter a { color: #000080; }
+.letter a:visited { color: #800080; }
+.addressed, .dateline {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: #333333;
+}
+.dateline { color: #666666; }
+.signature {
+  margin-top: 20px;
+  font-style: italic;
+}
+.postscript {
+  font-style: normal;
+  font-size: 13px;
+  color: #666666;
+}
+
+/* guestbook */
+table.guestbook {
+  background: #c0c0c0;
+  border: 4px outset #ffffff;
+  margin-top: 12px;
+  padding: 8px 12px;
+}
+.guesthead {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: #800000;
+  border-bottom: 2px groove #808080;
+  padding-bottom: 4px;
+}
+.guestbook form { margin: 8px 0; font-size: 13px; }
+.guestbook input[type=text] {
+  border: 2px inset #808080;
+  background: #ffffff;
+  font-family: "Courier New", monospace;
+}
+.guestbook input[type=submit] {
+  border: 3px outset #ffffff;
+  background: #c0c0c0;
+  font-family: "Courier New", monospace;
+  cursor: pointer;
+}
+.guestbook ul {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+/* footer */
+table.footer {
+  margin-top: 12px;
+  background: #000080;
+  border: 4px outset #c0c0c0;
+  padding: 8px 12px;
+}
+.foot a { color: #ffff00; text-decoration: underline; }
+.foot a:visited { color: #ff9999; }
