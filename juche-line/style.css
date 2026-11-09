@@ -1,0 +1,370 @@
+/* The Juche Line — Pyŏngyang Station, 28 December 1955 */
+
+:root {
+  --crimson: #7e1010;
+  --deep: #2a0505;
+  --ink: #1c0303;
+  --gold: #f0c75e;
+  --gold-dim: #b98f34;
+  --paper: #f6ecd8;
+  --paper-dim: #e8d8b8;
+  --rail: #3d2a1a;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --display: "Archivo Black", "Arial Black", sans-serif;
+  --body: "Spectral", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--paper);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(240, 199, 94, 0.16), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(240, 199, 94, 0.035) 0 2px, transparent 2px 46px),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 90px),
+    linear-gradient(180deg, #430a0a 0%, var(--deep) 34%, var(--ink) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- starfield ---------- */
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: var(--gold);
+  opacity: 0.14;
+  animation: starpulse 7s ease-in-out infinite;
+}
+.s1 { top: 6%; left: 5%; font-size: 34px; animation-delay: 0s; }
+.s2 { top: 12%; right: 8%; font-size: 22px; animation-delay: 1.3s; }
+.s3 { top: 41%; left: 2%; font-size: 18px; animation-delay: 2.6s; }
+.s4 { top: 58%; right: 3%; font-size: 40px; animation-delay: 3.9s; }
+.s5 { bottom: 18%; left: 7%; font-size: 26px; animation-delay: 5.1s; }
+.s6 { bottom: 6%; right: 12%; font-size: 16px; animation-delay: 6.2s; }
+
+@keyframes starpulse {
+  0%, 100% { opacity: 0.08; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.3; transform: scale(1.18) rotate(22deg); }
+}
+
+/* ---------- header ---------- */
+
+.station-head {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3.2rem 1rem 1.4rem;
+  border-bottom: 3px double var(--gold);
+  background:
+    linear-gradient(180deg, rgba(126, 16, 16, 0.55), rgba(42, 5, 5, 0) 90%);
+}
+
+.emblem {
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 0.6rem;
+  filter: drop-shadow(0 0 14px rgba(240, 199, 94, 0.45));
+  animation: emblemspin 60s linear infinite;
+}
+
+@keyframes emblemspin { to { transform: rotate(360deg); } }
+
+.depot {
+  font-family: var(--mono);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--gold);
+  text-shadow:
+    0 2px 0 #5e1212,
+    0 0 30px rgba(240, 199, 94, 0.35);
+}
+
+.force {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin: 0.7rem 0 0.3rem;
+}
+
+.gauging {
+  font-style: italic;
+  color: var(--paper-dim);
+  max-width: 46ch;
+  margin: 0.2rem auto 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- ticker ---------- */
+
+.ticker {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  background: rgba(20, 3, 3, 0.85);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  white-space: nowrap;
+  padding: 0.45rem 0;
+}
+
+.ticker-inner {
+  display: inline-block;
+  padding-right: 2rem;
+  animation: tick 26s linear infinite;
+}
+
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- panels ---------- */
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.4rem 1rem 3rem;
+}
+
+.panel {
+  position: relative;
+  margin: 0 0 2.2rem;
+  padding: 1.6rem 1.8rem 1.5rem;
+  background:
+    linear-gradient(160deg, rgba(246, 236, 216, 0.06), rgba(246, 236, 216, 0.015) 55%),
+    linear-gradient(180deg, #320808, #230505);
+  border: 1px solid var(--gold-dim);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(240, 199, 94, 0.12),
+    inset 0 0 60px rgba(126, 16, 16, 0.35);
+}
+
+.panel::before,
+.panel::after {
+  content: "★";
+  position: absolute;
+  color: var(--gold);
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+.panel::before { top: 0.45rem; left: 0.6rem; }
+.panel::after { top: 0.45rem; right: 0.6rem; }
+
+.panel h2 {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.95rem;
+  color: var(--gold);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--gold-dim);
+}
+
+.panel p {
+  line-height: 1.75;
+  font-size: 1.02rem;
+  margin: 0 0 1rem;
+}
+.panel p:last-child { margin-bottom: 0; }
+
+.panel em { color: var(--gold); font-style: italic; }
+
+a { color: var(--gold); }
+a:hover { color: #ffe6a3; text-shadow: 0 0 8px rgba(255, 230, 163, 0.5); }
+
+/* ---------- timetable ---------- */
+
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  background: rgba(12, 2, 2, 0.72);
+  border: 1px solid var(--gold-dim);
+}
+
+.timetable caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  font-family: var(--body);
+  color: var(--paper-dim);
+  padding: 0 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.timetable th {
+  background: var(--crimson);
+  color: var(--gold);
+  text-align: left;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #5c1010;
+}
+
+.timetable td {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid rgba(240, 199, 94, 0.25);
+  vertical-align: top;
+}
+
+.timetable tr:nth-child(even) td { background: rgba(126, 16, 16, 0.16); }
+.timetable tr:hover td { background: rgba(240, 199, 94, 0.1); }
+
+.time {
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.service { white-space: nowrap; }
+
+tr.hero-row td {
+  background: linear-gradient(90deg, rgba(240, 199, 94, 0.22), rgba(126, 16, 16, 0.3)) !important;
+  border-color: var(--gold);
+}
+tr.hero-row .service {
+  font-size: 1.02rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(240, 199, 94, 0.6);
+}
+tr.hero-row.flash td {
+  background: rgba(240, 199, 94, 0.3) !important;
+}
+
+.clockline {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  color: var(--paper-dim);
+  margin-top: 0.8rem;
+}
+.clock {
+  color: var(--gold);
+  font-weight: 600;
+  animation: clockblink 2s steps(2) infinite;
+}
+@keyframes clockblink { 50% { opacity: 0.55; } }
+
+/* ---------- reward notice ---------- */
+
+.notice {
+  background:
+    linear-gradient(160deg, rgba(240, 199, 94, 0.08), rgba(240, 199, 94, 0.02)),
+    linear-gradient(180deg, #33090b, #240507);
+  border: 2px solid var(--gold);
+}
+
+.reward {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.8;
+  color: var(--gold);
+  border: 1px dashed var(--gold-dim);
+  background: rgba(12, 2, 2, 0.6);
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+
+.notice-lede { font-size: 0.98rem; }
+.notice-foot { font-size: 0.9rem; color: var(--paper-dim); }
+
+/* ---------- fares ---------- */
+
+.fare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  margin-bottom: 1.2rem;
+  background: rgba(12, 2, 2, 0.72);
+}
+.fare-table caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  font-family: var(--body);
+  color: var(--paper-dim);
+  padding: 0 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+.fare-table th {
+  background: var(--crimson);
+  color: var(--gold);
+  text-align: left;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #5c1010;
+}
+.fare-table td {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgba(240, 199, 94, 0.25);
+}
+
+.rules {
+  padding-left: 1.3rem;
+  line-height: 1.75;
+}
+.rules li { margin-bottom: 0.55rem; }
+.rules li::marker { color: var(--gold); }
+
+/* ---------- footer ---------- */
+
+.line-foot {
+  position: relative;
+  z-index: 1;
+  border-top: 3px double var(--gold);
+  padding: 1.4rem 1rem 2.2rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  color: var(--paper-dim);
+  background: linear-gradient(0deg, rgba(126, 16, 16, 0.35), transparent);
+}
+.line-foot a { color: var(--gold); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .timetable { font-size: 0.74rem; }
+  .timetable th, .timetable td { padding: 0.45rem 0.45rem; }
+  .panel { padding: 1.2rem 1rem; }
+}
