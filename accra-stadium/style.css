@@ -1,0 +1,185 @@
+/* The Crowding at Ohene Djan Stadium — court transcript excerpt */
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ece4d0;
+  --ink: #23201a;
+  --faded: #5c5546;
+  --green: #0b5d2e;
+  --gold: #b8860b;
+  --red: #8f1d1d;
+  --rule: #c9bfa4;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #1c2a21; }
+
+body {
+  margin: 0;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.05), transparent 60%),
+    #1c2a21;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 860px;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(140,120,80,.06) 27px 28px);
+  border: 1px solid #0e1712;
+  box-shadow: 0 0 0 6px rgba(244,239,226,.12), 0 24px 60px rgba(0,0,0,.55);
+  padding: 2.75rem 3rem 2rem;
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid var(--green);
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  transform: rotate(4deg);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  color: var(--red);
+  border: 2px solid var(--red);
+  padding: .3rem .7rem;
+  opacity: .85;
+}
+
+.caption { text-align: center; margin-bottom: 2rem; }
+
+.court-line {
+  margin: .1rem 0;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.rule { height: 0; border: none; margin: .9rem 0; }
+.rule.triple {
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 4px;
+}
+
+.suit {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.parties {
+  font-size: .95rem;
+  line-height: 1.9;
+}
+.parties span { display: block; font-size: .8rem; color: var(--faded); font-style: italic; }
+.parties strong { font-weight: 700; letter-spacing: .02em; }
+
+.judge {
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--faded);
+  margin-top: .8rem;
+}
+
+.transcript { margin-top: 1.5rem; }
+
+.line {
+  margin: 0 0 1.35rem;
+  padding-left: 3.2rem;
+  text-indent: -3.2rem;
+  padding-right: 2rem;
+  position: relative;
+}
+
+.folio {
+  position: absolute;
+  left: 0;
+  top: .1rem;
+  text-indent: 0;
+  width: 2.4rem;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: .75rem;
+  color: var(--faded);
+}
+
+.who {
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 700;
+  font-size: .86rem;
+  letter-spacing: .05em;
+  color: var(--green);
+}
+
+.transcript strong { letter-spacing: .02em; }
+.transcript em { color: var(--faded); }
+
+.exhibit {
+  margin: 2.2rem 0 0;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 6px solid var(--gold);
+  padding: 1.4rem 1.6rem;
+}
+
+.exhibit-label {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 .8rem;
+}
+
+.exhibit blockquote {
+  margin: 0;
+  font-size: 1.02rem;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.exhibit-note {
+  font-size: .8rem;
+  color: var(--faded);
+  margin: .9rem 0 0;
+  font-style: italic;
+}
+
+.colophon {
+  margin-top: 2.4rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+  font-size: .82rem;
+  color: var(--faded);
+  text-align: center;
+}
+
+.colophon .nav a {
+  color: var(--green);
+  font-style: normal;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--green);
+}
+.colophon .nav a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+@media (max-width: 640px) {
+  .page { margin: .5rem; padding: 2.2rem 1.2rem 1.4rem; }
+  .line { padding-left: 2.2rem; text-indent: -2.2rem; padding-right: 0; }
+  .folio { width: 1.7rem; }
+  .stamp { font-size: .65rem; top: .8rem; right: .8rem; }
+}
