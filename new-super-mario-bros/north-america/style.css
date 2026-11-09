@@ -1,0 +1,157 @@
+/* Chapter XXIII — Of the New Continent · The Book of Manners
+   Letterpress on newsprint: parchment, walnut ink, Exchange green, brick red. */
+
+:root {
+  --parchment: #f2e8d3;
+  --parchment-deep: #e7d9ba;
+  --ink: #2b2118;
+  --ink-soft: #4c3d2c;
+  --exchange-green: #1f4d2e;
+  --brick: #8c2f24;
+  --gold: #7a5c2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(122, 92, 46, 0.035) 0 2px, transparent 2px 5px),
+    var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.chapter {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  border: double 4px var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: 5px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 240, 0.5), transparent 12rem),
+    var(--parchment);
+}
+
+.plate {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.rose {
+  width: 9rem;
+  height: 9rem;
+  animation: slow-turn 140s linear infinite;
+}
+
+@keyframes slow-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rose-label {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  fill: var(--ink-soft);
+}
+
+.chapter-head {
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.imprint {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--exchange-green);
+  font-weight: 700;
+}
+
+.chapter-title {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin: 0.4rem 0 1rem;
+  color: var(--ink);
+}
+
+.rule {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.text h2 {
+  font-size: 1.15rem;
+  color: var(--exchange-green);
+  border-left: 4px solid var(--brick);
+  padding-left: 0.6rem;
+  margin: 2rem 0 0.75rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.sec { color: var(--brick); font-variant: normal; margin-right: 0.35rem; }
+
+.text p { margin: 0 0 1.1rem; }
+
+.text > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.85;
+  padding: 0.1rem 0.45rem 0 0;
+  color: var(--brick);
+  font-weight: 700;
+}
+
+em { color: var(--ink); }
+
+strong { color: var(--exchange-green); font-weight: 700; }
+
+.text em {
+  border-bottom: 1px dotted var(--gold);
+}
+
+.chapter-foot {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--gold);
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.foot-rule {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+.foot-links { margin: 0; font-size: 0.9rem; }
+
+.foot-links a,
+.text a {
+  color: var(--exchange-green);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(31, 77, 46, 0.4);
+}
+
+.foot-links a:hover,
+.text a:hover {
+  color: var(--brick);
+  border-bottom-color: var(--brick);
+}
