@@ -1,0 +1,185 @@
+/* Placard No. 114 — the wall, the card, and the green-pencil margin */
+
+:root {
+  --wall: #a8a294;
+  --card: #f6f2e7;
+  --ink: #2b2a26;
+  --faint: #6f6a5c;
+  --rule: #b9b09a;
+  --red: #8a2f2b;
+  --green: #3f6b4f;
+}
+
+* { box-sizing: border-box; }
+
+body.wall {
+  margin: 0;
+  min-height: 100vh;
+  padding: 9vh 16px 12vh;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 250, 0.28), rgba(0, 0, 0, 0.22)),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0 2px, rgba(255,255,255,0.015) 2px 4px),
+    var(--wall);
+  display: flex;
+  justify-content: center;
+  font-family: "Georgia", "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.placard {
+  position: relative;
+  width: 100%;
+  max-width: 46rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.03)),
+    var(--card);
+  border: 1px solid #8f8875;
+  border-radius: 3px;
+  padding: 2.4rem 2.8rem 1.8rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 14px 30px rgba(20, 18, 12, 0.35),
+    0 3px 8px rgba(20, 18, 12, 0.25);
+}
+
+/* mounting screws */
+.placard::before,
+.placard::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f5f5ef, #9c9585 60%, #6d675a);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+.placard::before { left: 0.7rem; }
+.placard::after { right: 0.7rem; }
+
+.placard-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+.placard-head p {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.placard-no { color: var(--red); }
+
+h1 {
+  margin: 0 0 0.15rem;
+  font-size: 2.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+.attrib {
+  margin: 0 0 0.2rem;
+  font-style: italic;
+  font-size: 1.02rem;
+}
+.medium {
+  margin: 0 0 1rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+.rule {
+  border: 0;
+  border-top: 2px solid var(--rule);
+  margin: 1.1rem 0;
+}
+.rule:last-of-type { margin-top: 1.4rem; }
+
+p {
+  line-height: 1.62;
+  font-size: 0.98rem;
+  margin: 0 0 0.95rem;
+}
+
+.drop::first-letter {
+  font-size: 2.1em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--red);
+}
+
+blockquote.marginalia {
+  margin: 1.1rem 1.2rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--green);
+  background: rgba(63, 107, 79, 0.06);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+blockquote.marginalia::before {
+  content: "In the margin, in a different hand —";
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.marginal-note {
+  font-size: 0.9rem;
+  color: #454238;
+}
+
+a {
+  color: #5c4a8f;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--red); }
+
+.placard-foot dl {
+  margin: 0 0 1rem;
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0.25rem 1rem;
+}
+.placard-foot dt {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding-top: 0.15rem;
+}
+.placard-foot dd { margin: 0; font-size: 0.85rem; line-height: 1.4; }
+
+.fine {
+  margin: 0.9rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (max-width: 560px) {
+  .placard { padding: 2rem 1.3rem 1.4rem; }
+  .placard-foot dl { grid-template-columns: 1fr; gap: 0.1rem; }
+  h1 { font-size: 1.9rem; }
+}
