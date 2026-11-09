@@ -1,0 +1,164 @@
+/* Nani's Boro Paddy Pot — family recipe card, 1998-era kitchen table style */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000066;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.6px),
+    radial-gradient(#ffffcc 0.8px, transparent 1.4px);
+  background-size: 90px 90px, 60px 60px;
+  background-position: 0 0, 30px 45px;
+  font-family: Verdana, Geneva, sans-serif;
+  color: #000000;
+}
+
+.marquee {
+  background: #000000;
+  border-top: 3px ridge #c0c0c0;
+  border-bottom: 3px ridge #c0c0c0;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 4px 0;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 22s linear infinite;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.card {
+  max-width: 720px;
+  margin: 18px auto 30px;
+  background: #ffffcc;
+  border: 4px outset #c0c0c0;
+  box-shadow: 6px 6px 0 #000000;
+  padding: 10px 22px 26px;
+}
+
+.masthead h1 {
+  color: #800000;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 34px;
+  margin: 6px 0 2px;
+  letter-spacing: 1px;
+}
+.kicker {
+  text-align: center;
+  color: #000080;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 8px 0 2px;
+}
+.standfirst {
+  text-align: center;
+  font-style: italic;
+  color: #333333;
+  font-size: 13px;
+}
+.newtag {
+  text-align: center;
+  color: #ff00ff;
+  font-weight: bold;
+  font-size: 12px;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink { to { visibility: hidden; } }
+
+hr.bevel {
+  border: 0;
+  border-top: 3px ridge #c0c0c0;
+  margin: 18px 0;
+}
+
+.entry h2 {
+  color: #000080;
+  font-size: 16px;
+  border-bottom: 1px dashed #800000;
+  padding-bottom: 3px;
+}
+.entry p { font-size: 13px; line-height: 1.65; }
+.entry a { color: #0000ee; }
+.entry a:visited { color: #551a8b; }
+.entry a:hover { color: #ff0000; }
+
+ul.roll {
+  background: #ffffff;
+  border: 2px inset #c0c0c0;
+  padding: 10px 10px 10px 26px;
+  font-size: 13px;
+}
+ul.roll li { margin: 4px 0; }
+
+table.figures {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  background: #ffffff;
+}
+table.figures th, table.figures td {
+  border: 2px outset #c0c0c0;
+  padding: 4px 6px;
+  text-align: left;
+  vertical-align: top;
+}
+table.figures th { background: #c0c0c0; color: #000080; }
+
+.box {
+  border: 3px ridge #c0c0c0;
+  background: #ffffff;
+  padding: 10px 14px;
+  margin-top: 16px;
+}
+.box h2 { font-size: 14px; color: #800000; margin-top: 0; }
+.box .sub { font-size: 11px; color: #555555; font-weight: normal; }
+#gb { font-size: 12px; }
+#gb li { margin: 6px 0; }
+.gname { font-weight: bold; color: #000080; }
+.gdate { color: #666666; font-style: italic; }
+#gbform label { display: block; font-size: 12px; margin: 6px 0; }
+#gbform input {
+  border: 2px inset #c0c0c0;
+  background: #fffff0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  width: 260px;
+}
+#gbform button {
+  border: 3px outset #c0c0c0;
+  background: #c0c0c0;
+  font-size: 12px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+#gbform button:active { border-style: inset; }
+
+.counter { text-align: center; }
+.digits {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
+  letter-spacing: 4px;
+  color: #00ff00;
+  background: #000000;
+  display: inline-block;
+  border: 3px inset #c0c0c0;
+  padding: 4px 14px;
+}
+.fineprint { font-size: 11px; color: #555555; }
+.colophon { font-size: 12px; color: #555555; font-style: italic; }
+
+.pagefoot {
+  text-align: center;
+  color: #ffffcc;
+  font-size: 11px;
+  padding: 0 0 24px;
+}
