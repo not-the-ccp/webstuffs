@@ -1,0 +1,120 @@
+/* By the West Bank — letter to the editor */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #22201b;
+  --faded: #6d6759;
+  --rule: #b6ad97;
+  --accent: #5c4a2e;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.65;
+}
+
+.letter {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+
+header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.kicker {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.01em;
+}
+
+.dateline {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.letter p {
+  margin: 0 0 1.35rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.salutation,
+.closing,
+.signature {
+  text-align: left;
+}
+
+.signature {
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1.45;
+}
+
+em { font-style: italic; }
+
+.related {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.92rem;
+  color: var(--faded);
+}
+
+.related-head {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+}
+
+.related p {
+  margin: 0;
+  text-align: left;
+  hyphens: none;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+::selection {
+  background: #e5dcc4;
+}
+
+@media (max-width: 480px) {
+  html { font-size: 16px; }
+  .letter { padding: 3rem 1.25rem 3rem; }
+  .letter p { text-align: left; }
+}
