@@ -1,0 +1,192 @@
+/* The Dreamer's Glossary, Vol. III, Entry 58 — a printed page, aged */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English+SC&display=swap');
+
+:root {
+  --paper: #ece3cf;
+  --paper-deep: #e3d8bd;
+  --ink: #2c2417;
+  --ink-soft: #55482f;
+  --rule: #8a7a56;
+  --ochre: #9a5a1f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #241f18; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem 4rem;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #2e281f 0%, #241f18 70%);
+  font-family: "EB Garamond", "Georgia", serif;
+  color: var(--ink);
+}
+
+.page {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(140% 120% at 20% 0%, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 45%),
+    radial-gradient(100% 100% at 85% 100%, rgba(122,94,44,.28) 0%, rgba(122,94,44,0) 55%),
+    var(--paper);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.25) inset,
+    0 24px 60px rgba(0,0,0,.55),
+    0 4px 14px rgba(0,0,0,.4);
+  padding: 3.25rem 3.5rem 2.5rem;
+  border: 1px solid #b9a87e;
+}
+
+/* worn edges and a foxed stain */
+.deckle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 90px rgba(90, 70, 35, .35),
+    inset 0 0 14px rgba(70, 55, 28, .3);
+}
+
+.plate {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.book {
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  letter-spacing: .14em;
+  font-size: .72rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+
+.word {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: .01em;
+}
+
+.pronun {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin: .35rem 0 1rem;
+}
+
+.bridge {
+  width: 11rem;
+  max-width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+.bridge .arch { fill: none; stroke: var(--ink-soft); stroke-width: 1.4; }
+.bridge .deck { stroke: var(--ink); stroke-width: 2.2; fill: none; }
+
+.flourish {
+  color: var(--rule);
+  font-size: 1rem;
+  margin-top: .8rem;
+  letter-spacing: 1.2em;
+  padding-left: 1.2em;
+}
+
+.def { font-size: 1.08rem; line-height: 1.62; }
+.def p { margin: 0 0 1.15rem; }
+
+.defline { text-align: left; }
+.defline::first-letter {
+  font-size: 2.6em;
+  font-weight: 600;
+  float: left;
+  line-height: .82;
+  padding: .06em .12em 0 0;
+  color: var(--ink);
+}
+
+.num {
+  font-weight: 600;
+  color: var(--ochre);
+  margin-right: .15em;
+}
+
+.strong, strong { font-weight: 600; }
+em { font-style: italic; }
+
+.kept {
+  display: inline;
+  font-weight: 600;
+  background: linear-gradient(transparent 82%, rgba(154, 90, 31, .22) 82%);
+  border-bottom: 1px solid rgba(154, 90, 31, .55);
+  padding: 0 .1em;
+}
+
+.margin {
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: 1rem 1.2rem 1.1rem;
+  margin: 1.6rem 0;
+  font-size: .92rem;
+  line-height: 1.55;
+  transform: rotate(-.35deg);
+  box-shadow: 2px 3px 8px rgba(60, 45, 20, .18);
+}
+.margin h2 {
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  font-size: .78rem;
+  letter-spacing: .16em;
+  margin: 0 0 .5rem;
+  color: var(--ink-soft);
+}
+.margin p { margin: 0; }
+.seal {
+  display: inline-block;
+  margin-top: .55rem;
+  border: 1.5px solid var(--ochre);
+  color: var(--ochre);
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  padding: .25em .6em;
+  transform: rotate(2deg);
+  opacity: .85;
+}
+
+.cross {
+  border-top: 3px double var(--rule);
+  padding-top: 1.2rem;
+  font-size: .98rem;
+  line-height: 1.6;
+}
+.cross-title {
+  font-family: "IM Fell English SC", "EB Garamond", serif;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  color: var(--ink-soft);
+  margin: 0 0 .7rem;
+}
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--ochre); text-decoration-color: var(--ochre); }
+
+.colophon {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.colophon p { margin: 0; }
+
+@media (max-width: 640px) {
+  .page { padding: 2.2rem 1.4rem 1.8rem; }
+}
