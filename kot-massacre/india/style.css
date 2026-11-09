@@ -1,0 +1,94 @@
+/* The New Road Encyclopedia — Article No. 104: late-1990s window dressing */
+html { background: #000033; }
+body {
+  margin: 0;
+  padding: 24px 10px 40px;
+  color: #ffffcc;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.starfield {
+  position: fixed; inset: 0; z-index: -1;
+  background-color: #000033;
+  background-image:
+    radial-gradient(circle at 12% 22%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 78% 14%, #99ccff 1px, transparent 2px),
+    radial-gradient(circle at 45% 64%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 88% 82%, #ffff99 1px, transparent 2px),
+    radial-gradient(circle at 28% 88%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 62% 40%, #99ccff 1px, transparent 2px);
+  background-size: 340px 340px, 420px 420px, 280px 280px, 500px 500px, 380px 380px, 460px 460px;
+}
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #000066;
+  border: 6px outset #999999;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 18px 26px 26px;
+}
+.masthead { border-bottom: 3px double #ff9900; padding-bottom: 10px; }
+.org { font-size: 11px; color: #99ccff; letter-spacing: 1px; }
+h1 {
+  margin: 4px 0 2px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 42px;
+  color: #ffff00;
+  text-shadow: 2px 2px 0 #990000;
+}
+.subtitle { color: #ccffcc; font-size: 12px; font-style: italic; }
+.ticker {
+  overflow: hidden; white-space: nowrap;
+  background: #000000; color: #00ff00;
+  border: 2px inset #666666;
+  font-size: 11px; padding: 3px 0;
+}
+.ticker span { display: inline-block; padding-left: 100%; animation: scroll 28s linear infinite; }
+.ticker span + span { padding-left: 0; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-200%); } }
+.article h2 {
+  font-family: "Times New Roman", Times, serif;
+  color: #ffcc00;
+  font-size: 19px;
+  border-bottom: 1px solid #ff9900;
+  margin-top: 22px;
+}
+dfn { color: #ffffff; font-weight: bold; }
+strong { color: #ffffff; }
+a { color: #66ffff; text-decoration: underline; }
+a:hover { color: #ff9900; background: #000000; }
+blockquote.kept-line {
+  margin: 14px 22px;
+  padding: 12px 16px;
+  background: #333300;
+  border: 4px ridge #cc9900;
+  color: #ffffcc;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+  font-style: italic;
+}
+.see-also { margin-top: 26px; border-top: 3px double #ff9900; padding-top: 8px; }
+.boxes { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.box {
+  flex: 1 1 240px;
+  background: #003300;
+  border: 4px outset #339933;
+  padding: 10px 14px;
+}
+.box-title { margin: 0 0 8px; color: #ffff00; font-size: 12px; letter-spacing: 2px; text-align: center; }
+.counter-digits { text-align: center; margin: 4px 0; }
+.counter-digits span {
+  display: inline-block;
+  background: #000000; color: #ff3333;
+  border: 2px inset #666666;
+  font-family: "Courier New", monospace;
+  font-size: 22px;
+  padding: 2px 7px;
+  margin: 0 2px;
+}
+.box-note, .guest { font-size: 11px; color: #ccffcc; }
+.foot { margin-top: 26px; border-top: 3px double #ff9900; padding-top: 10px; text-align: center; }
+.seal { font-size: 11px; color: #99ccff; letter-spacing: 1px; }
+.blink { color: #ff9900; font-size: 11px; animation: blink 1.2s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
