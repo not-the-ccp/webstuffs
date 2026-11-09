@@ -1,0 +1,223 @@
+/* Product Sheet No. 41 — The Doughnut, Cheltenham Works */
+:root {
+  --paper: #efe9dc;
+  --paper-deep: #e4dcc8;
+  --ink: #23201a;
+  --faded: #6d6350;
+  --oxblood: #6e2222;
+  --brass: #8a6b2f;
+  --rule: #b5a98a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(105, 85, 50, 0.05) 0 1px, transparent 1px 28px),
+    radial-gradient(ellipse at 50% -10%, #faf5e9 0%, var(--paper) 55%, var(--paper-deep) 100%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.works {
+  text-align: center;
+  padding: 2.2rem 1rem 0.6rem;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+}
+.works-line {
+  margin: 0.1rem 0;
+  font-size: 1.05rem;
+  color: var(--oxblood);
+  border-bottom: 3px double var(--oxblood);
+  display: inline-block;
+  padding: 0 1.2rem 0.25rem;
+}
+.works-line.thin {
+  color: var(--faded);
+  border: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+}
+.works-no {
+  display: inline-block;
+  margin-left: 1rem;
+  border: 2px solid var(--brass);
+  color: var(--brass);
+  padding: 0.05rem 0.55rem;
+  font-size: 0.72rem;
+  transform: rotate(-4deg);
+  border-radius: 2px;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 1.5rem auto 3rem;
+  padding: 2.4rem 2.6rem 1.6rem;
+  background: #f9f4e6;
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 6px;
+  box-shadow: 0 18px 40px -18px rgba(40, 30, 10, 0.35);
+  position: relative;
+}
+.sheet::after {
+  /* the ring of the building, faintly, in the corner */
+  content: "";
+  position: absolute;
+  right: 1.4rem; top: 1.4rem;
+  width: 3.4rem; height: 3.4rem;
+  border: 2px solid rgba(110, 34, 34, 0.28);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 8px #f9f4e6, inset 0 0 0 10px rgba(110, 34, 34, 0.14);
+  pointer-events: none;
+}
+
+.product-head { border-bottom: 3px solid var(--ink); padding-bottom: 1rem; }
+.product-no {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  color: var(--oxblood);
+  font-size: 0.95rem;
+}
+h1 {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  margin: 0.5rem 0 0.6rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+.product-sub { margin: 0 0 1.1rem; color: var(--faded); font-size: 0.92rem; font-style: italic; }
+.provenance p { margin: 0.3rem 0; font-size: 0.95rem; }
+.label {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--oxblood);
+}
+
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 1.02rem;
+  font-weight: normal;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin-top: 2.2rem;
+}
+
+.description p { text-align: justify; }
+.description a, .related a { color: var(--oxblood); }
+
+/* receiving line */
+.feedline {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1.4rem 0 0.4rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px dashed var(--brass);
+  background:
+    repeating-linear-gradient(90deg, rgba(138, 107, 47, 0.06) 0 6px, transparent 6px 12px),
+    #f3efe1;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #6c5520;
+}
+.feed-tag {
+  border: 1px solid var(--brass);
+  padding: 0.1rem 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  animation: blinktag 2.4s steps(2) infinite;
+}
+@keyframes blinktag { 50% { background: rgba(138, 107, 47, 0.14); } }
+.feed-readout { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.feed-meter { display: flex; align-items: flex-end; gap: 2px; height: 18px; }
+.feed-meter i {
+  width: 4px;
+  background: var(--brass);
+  opacity: 0.35;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+.feed-meter i.on { opacity: 1; }
+.feed-meter i:nth-child(1) { height: 25%; }
+.feed-meter i:nth-child(2) { height: 35%; }
+.feed-meter i:nth-child(3) { height: 45%; }
+.feed-meter i:nth-child(4) { height: 55%; }
+.feed-meter i:nth-child(5) { height: 65%; }
+.feed-meter i:nth-child(6) { height: 75%; }
+.feed-meter i:nth-child(7) { height: 85%; }
+.feed-meter i:nth-child(8) { height: 100%; }
+
+/* specification table */
+.specs dl {
+  margin: 1rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+.specs dt {
+  margin-top: 0.9rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--oxblood);
+  font-size: 0.9rem;
+}
+.specs dd {
+  margin: 0.15rem 0 0 0;
+  font-size: 0.95rem;
+  text-align: justify;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule);
+}
+
+/* the stewpan clause */
+.clause {
+  margin: 2rem 0;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--oxblood);
+  background:
+    linear-gradient(180deg, rgba(110, 34, 34, 0.05), transparent 30%),
+    #f6efdd;
+}
+.clause h3 {
+  margin-top: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-weight: normal;
+  color: var(--oxblood);
+}
+.clause p { text-align: justify; }
+.clause-quote {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--oxblood);
+  background: #fbf6e8;
+  font-style: italic;
+  font-size: 1.05rem;
+  box-shadow: 3px 3px 0 rgba(110, 34, 34, 0.15);
+}
+
+.related p { margin: 0.7rem 0; font-size: 0.95rem; }
+
+.colophon {
+  text-align: center;
+  padding: 1.5rem 1rem 3rem;
+  color: var(--faded);
+  font-size: 0.82rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  border-top: 3px double var(--oxblood);
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.colophon p { margin: 0.25rem 0; }
+
+@media (max-width: 620px) {
+  .sheet { padding: 1.6rem 1.2rem; margin: 1rem 0.5rem 2rem; }
+  .sheet::after { display: none; }
+  .feedline { flex-wrap: wrap; }
+  .feed-meter { display: none; }
+}
