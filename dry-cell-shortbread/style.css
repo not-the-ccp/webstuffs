@@ -1,0 +1,141 @@
+:root {
+  --ink: #2b2620;
+  --faint: #6f6455;
+  --paper: #f6f0e2;
+  --card: #fbf7ec;
+  --line: #d8cdae;
+  --brass: #8a6a1f;
+  --copper: #a4551e;
+  --scope-bg: #10160f;
+  --trace: #7fd96a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.card {
+  max-width: 46rem;
+  margin: 2.5rem auto 3rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2.25rem 2.5rem 1.5rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(43, 38, 32, 0.12);
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 140px;
+  height: 28px;
+  transform: translateX(-50%) rotate(-1.5deg);
+  background: rgba(216, 205, 174, 0.65);
+  border: 1px solid rgba(111, 100, 85, 0.25);
+}
+
+.card-head { text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.dek { margin: 0; font-style: italic; color: var(--faint); font-size: 0.95rem; }
+
+h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+  margin: 1.8rem 0 0.8rem;
+}
+
+h3 { font-size: 1rem; margin: 1.2rem 0 0.4rem; font-variant: small-caps; }
+
+p, li { font-size: 1rem; }
+
+a { color: var(--copper); }
+a:hover { color: var(--brass); }
+
+.method {
+  border: 1px dashed var(--line);
+  padding: 0.25rem 1.4rem;
+  margin: 1rem 0;
+  background: rgba(246, 240, 226, 0.6);
+}
+
+.yields { font-style: italic; color: var(--faint); }
+
+.ingredients li, .notes li { margin-bottom: 0.35rem; }
+
+.scope {
+  margin: 1.25rem 0 0.5rem;
+  background: var(--scope-bg);
+  border: 6px solid #3a3325;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem 0.8rem;
+}
+
+.scope canvas { width: 100%; height: auto; display: block; background: var(--scope-bg); }
+
+.dial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.7rem 0 0.5rem;
+}
+
+.dial button {
+  font-family: inherit;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.75rem;
+  background: #1c2418;
+  color: var(--trace);
+  border: 1px solid var(--trace);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.dial button.on {
+  background: var(--trace);
+  color: var(--scope-bg);
+  font-weight: bold;
+}
+
+.readout {
+  color: var(--trace);
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  margin: 0.3rem 0 0;
+}
+
+.card-foot {
+  border-top: 2px solid var(--ink);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--faint);
+  text-align: center;
+}
+
+.card-foot p { margin: 0.25rem 0; }

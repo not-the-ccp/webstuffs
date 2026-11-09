@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dry-Cell Shortbread — A Family Recipe</title>
+<meta name="description" content="Card 3127 of the Michaelis family book: dry-cell shortbread from the Hampstead bench, with a long preamble on electronics — transistors, diodes, integrated circuits, and the small rectifier that turns a wavy current straight — twenty-four strips to a tray.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+  <div class="tape" aria-hidden="true"></div>
+  <header class="card-head">
+    <p class="eyebrow">Card 3127 &middot; The Michaelis Family Book &middot; Bench copy, Hampstead, transferred to the stewards&rsquo; table</p>
+    <h1>Dry-Cell Shortbread</h1>
+    <p class="dek">Twenty-four strips to a tray &middot; sixteen minutes at 160&deg;C &middot; served at the 10:00 discussion, with a pot of tea</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>The long preamble, as it stands on the card</h2>
+      <p>
+        Electronics is a scientific and engineering discipline that studies and applies the
+        principles of physics to design, create, and operate devices that manipulate electrons
+        and other electrically charged particles. It is a subfield of physics and electrical
+        engineering which uses active devices such as transistors, diodes, and integrated
+        circuits to control and amplify the flow of electric current and to convert it from one
+        form to another &mdash; from alternating current (AC) to direct current (DC), from analog
+        signals to digital signals. The card does not go on about electronic devices having
+        influenced telecommunications and entertainment; the card knows better. The card was
+        written on a workbench in a mews in Hampstead, and the bench was where the influence
+        went in through one side and came out, warm, on the other.
+      </p>
+      <p>
+        The bench belonged to Armand Michaelis, the French father of Robert Armand R&eacute;n&eacute;
+        Michaelis, the actor and singer who took the family&rsquo;s three given names and made a
+        stage out of them. Armand was an instrument man &mdash; the family word for a repairer of
+        wirelesses, gramophones, and anything else that hummed &mdash; and the rule of the bench,
+        written in his hand at the top of the family book, is that every recipe kept on it must
+        carry one working dial, because a household that can convert a wavy current into a
+        straight one can certainly butter biscuits. His sons kept the rule. The card below
+        keeps the rule. Its working dial is the rectifier, and the rectifier comes first,
+        because the card is ordered the way the bench was ordered: power before pastry.
+      </p>
+    </section>
+
+    <section class="rectifier-block">
+      <h2>The family rectifier, 1936</h2>
+      <p>
+        In 1936 Armand built a small rectifier on the bench from two oxide diodes and a
+        smoothing capacitor of his own winding, and he used it first to run the bench lamp and
+        then, by his own pencilled note, to &ldquo;steady the current for the tea &mdash; the kettle
+        takes either, the lamp does not.&rdquo; The card records the four states of the circuit the
+        way the bench was taught, one at a time: the raw alternating current, which runs equal
+        both ways and powers nothing that cares about direction; the half-wave take, which
+        lets every other crest through and throws the rest away; the full-wave take, which
+        turns every crest the right way around; and the full-wave take with the smoothing
+        capacitor closed, which flattens what remains into a low ripple that the family calls
+        <em>ready to eat</em>. The dial below works the same order. Where there is no dial,
+        this paragraph stands in its place, and the card is complete without it.
+      </p>
+      <figure class="scope" id="scope-figure">
+        <canvas id="scope" width="640" height="220" role="img"
+          aria-label="Oscilloscope trace of the family rectifier, showing the selected circuit state">
+          A scope trace of the rectifier in the currently selected state.
+        </canvas>
+        <div class="dial" role="group" aria-label="Rectifier states">
+          <button type="button" data-mode="ac" class="on">Raw AC</button>
+          <button type="button" data-mode="half">Half-wave</button>
+          <button type="button" data-mode="full">Full-wave</button>
+          <button type="button" data-mode="smooth">Full-wave + capacitor</button>
+        </div>
+        <p class="readout"><span id="dc-output">DC output: &mdash;</span> &middot; <span id="state-note">The current runs equal both ways. The bench lamp will not commit.</span></p>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Last Michaelmas, and the town it settled on</h2>
+      <p>
+        The card left Hampstead in 1951, when Robert, who by then had the ledger and the lamp
+        and the duty book of a warden in the west of England, sent the family book&rsquo;s working
+        leaves to the only table in the north that asked for them: the stewards&rsquo; table in the
+        former weaving shed on the north side of the Colne, where the spring breakfast
+        discussion is served hot at 10:00. <a href="../huddersfield/">Chapter 9 of the Huddersfield field manual</a>
+        draws the shed&rsquo;s bearing &mdash; 355&deg;, 550 metres from the square &mdash; and records that
+        the water there is soft in the way that makes boilers scale slowly and everything else
+        do better. The records desk keeps one further sheet last Michaelmas, of a French father and a mild variety of the town itself: it is this card, which Armand had
+        re-copied in 1947 so that the ink would outlive him, and which arrived at the desk
+        last Michaelmas with a note in Robert&rsquo;s hand asking that it be read <em>in the town&rsquo;s
+        own mild variety</em> &mdash; the way Huddersfield says Huddersfield, the way the Holme
+        and the Colne refuse, in the field manual&rsquo;s words, to negotiate, the way a
+        small rectangular biscuit says <em>current</em> without raising its voice. The card is
+        filed with the programmes, on the side that faces the tea urn, beside the shelf
+        under the loaf. Robert&rsquo;s own entry in this collection, at
+        <a href="../robert-michaelis/">Robert Michaelis (1878&ndash;1965) &mdash; Actor, Singer &amp; Air Raid Warden</a>,
+        keeps the household rule of the scrapbook &mdash; that what arrives arrives &mdash; and it is
+        by that rule that the card sits now, re-copied, unhurried, and in no hurry to be
+        corrected. The coal loaf is still the town&rsquo;s own; this is the one that came in on
+        the bench, and the two have not missed a single 10:00 since.
+      </p>
+    </section>
+
+    <section class="method">
+      <h2>The recipe, in the family&rsquo;s hand</h2>
+      <p class="yields">Yields 24 strips &mdash; one tray, 24 volts, one 10:00. Total: 160 g of butter, 80 g of sugar, 280 g of flour, and salt to the cell.</p>
+      <h3>For the dough</h3>
+      <ul class="ingredients">
+        <li>160 g unsalted butter, softened until it takes a thumbprint and holds it for exactly ten seconds</li>
+        <li>80 g icing sugar &mdash; sieved twice, once before, once after, the family&rsquo;s word for it being <em>de-oxidised</em></li>
+        <li>280 g plain flour, plus a little more for the bench top, which doubles as the work surface and the rectifier&rsquo;s heat sink</li>
+        <li>Salt, four pinches &mdash; one per cell of the family&rsquo;s 1936 battery, and no more, because the cell is dry and asks for nothing</li>
+      </ul>
+      <h3>Method</h3>
+      <ol>
+        <li>Beat the butter and the sugar for three full minutes. The mixture is done when it stands up like a crest &mdash; the family&rsquo;s word for it is <em>full-wave</em>, and a reader of the dial above will know exactly what that means.</li>
+        <li>Fold in the flour and the four pinches of salt by hand, no more than thirty turns, until the dough holds a rectangle. It will want to become a circle. It must not.</li>
+        <li>Rest the dough, wrapped, for at least sixty minutes. The card marks the time on a dial: the rectifier&rsquo;s lamp is lit when you begin, and it may still be lit when you return; either way, the dough is ready when the dial sits still.</li>
+        <li>Roll to 5 mm on the floured bench and cut into twenty-four strips of 48&nbsp;mm by 17&nbsp;mm, the size of a good dry cell, with the long axis of each strip pointing to the 12&nbsp;o&rsquo;clock position of the tray, which the family treats as north, as the bench always was.</li>
+        <li>Bake at 160&deg;C, fan, for 16 minutes. They are done when the edges go the colour of a filament and the middle still reads slightly analog &mdash; the family&rsquo;s word for <em>soft at the centre</em>.</li>
+        <li>Close the capacitor. That is: cool on the tray, undisturbed, until the ripple dies. They keep, in a tin by the tea urn, until the next 10:00, and not one minute beyond it.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Card notes</h2>
+      <ul class="notes">
+        <li>The 24 is not decorative. It is the number of strips a tray takes and the number of volts the bench ran on, and Armand insisted on the coincidence every time the tin was opened.</li>
+        <li>Do not substitute the icing sugar for caster. Caster is the half-wave take: it gets across, but it throws away half the sugar and shows it on the biscuit.</li>
+        <li>The four pinches of salt are the dry cells. A fifth pinch is the card&rsquo;s only recorded failure, and it is not to be re-run.</li>
+        <li>For the stewards&rsquo; table, the tray is set square to the tea urn so that a reader walking in from the Colne side can count the strips without turning the head. The head should not have to turn.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="card-foot">
+    <p>Card 3127 &middot; re-copied 1947 in the hand of Armand Michaelis &middot; transferred 1951 by his son &middot; read since, each spring, in the town&rsquo;s own mild variety</p>
+    <p>
+      <a href="../huddersfield/">Huddersfield &mdash; Field Manual, Chapter 9</a> &middot;
+      <a href="../robert-michaelis/">Robert Michaelis (1878&ndash;1965)</a> &middot;
+      <a href="../luolishania/coal-loaf/">Coal Loaf &mdash; a family recipe</a> &middot;
+      <a href="../">Return to Webstuffs</a>
+    </p>
+  </footer>
+</div>
+<script src="bench.js"></script>
+</body>
+</html>
