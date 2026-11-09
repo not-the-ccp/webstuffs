@@ -1,0 +1,255 @@
+/* The Gif — newsletter of the Heorot Society */
+:root {
+  --ink: #241c12;
+  --parchment: #efe6d3;
+  --parchment-deep: #e6d9bd;
+  --oxblood: #7a2e1d;
+  --brass: #9a7b2d;
+  --moss: #4d5a33;
+  --fog: rgba(239, 230, 211, 0.85);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(154, 123, 45, 0.14), transparent 45%),
+    radial-gradient(ellipse at 90% 95%, rgba(122, 46, 29, 0.10), transparent 40%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+/* Rotated membership stamp, overlapping the masthead */
+.stamp {
+  position: absolute;
+  top: 64px;
+  right: -18px;
+  transform: rotate(9deg);
+  border: 3px double var(--oxblood);
+  color: var(--oxblood);
+  padding: 0.4em 0.9em;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--fog);
+  box-shadow: 2px 3px 0 rgba(36, 28, 18, 0.15);
+  z-index: 5;
+}
+
+/* Masthead: oversized, off-centre */
+.masthead {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3.2rem 2rem 1.2rem 2rem;
+  position: relative;
+}
+.eyebrow {
+  margin: 0 0 1rem 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(4.5rem, 14vw, 9.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: var(--oxblood);
+  text-shadow: 4px 4px 0 var(--parchment-deep);
+  padding-left: 0.4rem;
+}
+.issue {
+  margin: 1.1rem 0 0.4rem 0.4rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink);
+}
+.tagline {
+  margin: 0.2rem 0 0 0.4rem;
+  max-width: 34rem;
+  font-size: 1rem;
+  color: #4a3d2a;
+}
+
+/* The sheet: asymmetric grid, panels offset like loose leaves */
+.sheet {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 2rem 3rem 2rem;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  grid-auto-rows: auto;
+  gap: 2.2rem 2.4rem;
+  position: relative;
+}
+
+.panel {
+  background: #f6efdd;
+  border: 1px solid rgba(36, 28, 18, 0.25);
+  padding: 1.5rem 1.6rem 1.4rem 1.6rem;
+  box-shadow: 3px 4px 0 rgba(36, 28, 18, 0.12);
+  position: relative;
+}
+.panel::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 18%;
+  width: 54px;
+  height: 12px;
+  background: var(--brass);
+  opacity: 0.55;
+  transform: rotate(-2deg);
+}
+
+/* Offsetting the reading path: staggered columns */
+.panel--letter   { grid-column: 1 / 2; margin-top: 0; }
+.panel--text     { grid-column: 2 / 3; margin-top: 3.5rem; transform: rotate(0.5deg); }
+.panel--reading  { grid-column: 1 / 2; margin-top: 1.2rem; transform: rotate(-0.4deg); }
+.panel--progress { grid-column: 2 / 3; margin-top: 0.4rem; background: var(--parchment-deep); }
+.panel--post     { grid-column: 1 / 3; transform: none; }
+.panel--register { grid-column: 1 / 3; transform: rotate(0.3deg); }
+
+.kicker {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+.panel h2 {
+  margin: 0 0 0.9rem 0;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: var(--oxblood);
+}
+
+p { margin: 0 0 0.9rem 0; }
+p:last-child { margin-bottom: 0; }
+
+/* Oversized drop cap floating into the margin */
+.dropcap {
+  float: left;
+  font-size: 4.6rem;
+  line-height: 0.8;
+  padding: 0.12em 0.14em 0 0;
+  color: var(--oxblood);
+  font-weight: 700;
+}
+
+/* The text ledger */
+.ledger { list-style: none; margin: 0; padding: 0; }
+.ledger li {
+  margin: 0 0 0.85rem 0;
+  padding-left: 1.3rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+.ledger li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--brass);
+  font-size: 0.7rem;
+  top: 0.35em;
+}
+.ledger strong { color: var(--oxblood); }
+
+/* The spoken line: the room's words, printed as spoken */
+.spoken {
+  margin: 1.4rem 0 1.4rem 0.6rem;
+  padding: 1.1rem 1.4rem;
+  background: #fff9ea;
+  border-left: 6px solid var(--oxblood);
+  font-size: 1.5rem;
+  font-style: italic;
+  transform: rotate(-0.6deg);
+  box-shadow: 2px 3px 0 rgba(36, 28, 18, 0.12);
+}
+.spoken p { margin: 0; }
+.spoken .attrib {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  font-style: normal;
+  color: #6b5a3e;
+}
+
+/* Count and draw */
+.count { font-size: 1.1rem; }
+.draw {
+  font-size: 0.95rem;
+  color: #4a3d2a;
+}
+button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--moss);
+  color: var(--parchment);
+  border: 1px solid #38421f;
+  padding: 0.35em 0.9em;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+button:hover { background: #3b4526; }
+
+a { color: var(--oxblood); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { color: #a3402a; }
+
+/* The register, tilted like a book pulled off the shelf */
+table.register {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: #fff9ea;
+}
+.register th, .register td {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid rgba(36, 28, 18, 0.2);
+}
+.register th {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  border-bottom: 2px solid var(--brass);
+}
+.register td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.register-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #6b5a3e;
+}
+
+/* Colophon */
+.colophon {
+  grid-column: 1 / 3;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #6b5a3e;
+  border-top: 3px double var(--brass);
+  padding-top: 1rem;
+}
+.colophon p { margin: 0.3rem 0; }
+
+@media (max-width: 56rem) {
+  .sheet { grid-template-columns: 1fr; gap: 2rem; }
+  .panel--letter, .panel--text, .panel--reading,
+  .panel--progress, .panel--post, .panel--register {
+    grid-column: 1 / 2;
+    margin-top: 0;
+    transform: none;
+  }
+  .stamp { position: static; display: inline-block; margin: 1rem 2rem 0; transform: rotate(-3deg); }
+  .masthead h1 { padding-left: 0; }
+}
