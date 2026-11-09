@@ -1,0 +1,114 @@
+/* Rūja Street School — Term Report sheet */
+:root {
+  --paper: #f6efd9;
+  --rule: #a9c4dd;
+  --margin: #d1655a;
+  --ink: #23407a;
+  --ink-soft: #3a5586;
+  --pencil: #6b7280;
+  --red: #b23a30;
+  --gold: #c99a2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(201, 154, 46, 0.10), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(178, 58, 48, 0.10), transparent 40%),
+    #efe4c4;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #2c2416;
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background:
+    linear-gradient(90deg, transparent 2.4rem, var(--margin) 2.4rem, var(--margin) calc(2.4rem + 2px), transparent calc(2.4rem + 2px)),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.55rem,
+      var(--rule) 1.55rem,
+      var(--rule) calc(1.55rem + 1px)
+    ),
+    var(--paper);
+  border: 1px solid #c9b98a;
+  box-shadow: 0 14px 30px rgba(60, 40, 10, 0.25);
+  padding: 2.2rem 2rem 1.6rem 4.2rem;
+}
+
+.sheet-head { border-bottom: 3px double var(--ink); padding-bottom: 0.9rem; margin-bottom: 1.4rem; }
+
+.letterhead { display: flex; align-items: center; gap: 0.9rem; }
+.roze { width: 3.4rem; height: 3.4rem; color: var(--red); flex: none; }
+.school {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  font-weight: bold;
+  color: var(--ink);
+}
+.form { margin: 0.2rem 0 0; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--ink-soft); font-style: italic; }
+
+.details { border-collapse: collapse; width: 100%; margin-top: 0.9rem; font-size: 0.92rem; }
+.details td { padding: 0.12rem 0.4rem 0.12rem 0; vertical-align: top; }
+.details td:first-child {
+  width: 11rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted #b09d6d;
+}
+.details td:last-child { border-bottom: 1px dotted #b09d6d; }
+
+.mark { color: var(--red); font-weight: bold; font-size: 1.05rem; cursor: pointer; }
+.corr {
+  display: none;
+  margin-left: 0.6rem;
+  padding: 0.05rem 0.4rem;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  transform: rotate(-2deg);
+}
+.corr.show { display: inline-block; }
+
+.report h2 {
+  font-size: 1.02rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin: 1.3rem 0 0.5rem;
+}
+.report h2::before { content: "§ "; color: var(--red); }
+
+.report p { margin: 0 0 0.75rem; text-align: justify; }
+.report strong { color: var(--red); }
+.report em { color: var(--ink-soft); }
+
+.report a { color: var(--ink); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.report a:hover { background: rgba(201, 154, 46, 0.22); }
+
+.pencil {
+  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
+  color: var(--pencil);
+  background: linear-gradient(transparent 82%, rgba(107, 114, 128, 0.25) 82%);
+  padding: 0 0.15rem;
+}
+
+.sheet-foot { margin-top: 1.8rem; border-top: 3px double var(--ink); padding-top: 0.7rem; }
+.sign { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
+.sig { font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive; color: var(--ink); }
+.footnote {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a7748;
+}
