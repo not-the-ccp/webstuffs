@@ -1,0 +1,131 @@
+/* Sale No. 214 — Lot 118, set in web-safe colours of the Long Room */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000033;
+  background-image: url("stars.svg");
+  background-repeat: repeat;
+  color: #ffffcc;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+
+.frame {
+  width: 780px;
+  margin: 18px auto;
+  background-color: #003333;
+  border: 6px outset #999999;
+  padding: 16px 22px;
+}
+
+.mast {
+  width: 100%;
+  border-bottom: 3px double #ffcc00;
+}
+.mast-left { vertical-align: bottom; }
+.firm {
+  margin: 0;
+  color: #ffcc00;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.firm-sub {
+  margin: 2px 0 6px 0;
+  color: #ccffcc;
+  font-size: 11px;
+}
+.mast-right { text-align: right; vertical-align: bottom; }
+.sale { margin: 0; color: #ff9966; font-size: 20px; font-weight: bold; }
+.sale-sub { margin: 2px 0 6px 0; color: #ccffcc; font-size: 11px; }
+
+.ticker {
+  margin: 0;
+  padding: 3px 0;
+  background-color: #000000;
+  color: #00ff00;
+  border: 2px inset #999999;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.lot {
+  margin-top: 14px;
+  border: 4px ridge #ffcc00;
+  background-color: #001a4d;
+  padding: 14px 18px;
+}
+.lot-kicker {
+  margin: 0;
+  color: #ff6699;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.lot-cond { color: #ccffcc; font-weight: normal; letter-spacing: 0; }
+.lot h1 {
+  margin: 2px 0 4px 0;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.lot-sub { margin: 0 0 12px 0; color: #99ccff; font-size: 13px; font-style: italic; }
+
+.grid {
+  width: 100%;
+}
+.description {
+  float: left;
+  width: 520px;
+}
+.description p { line-height: 1.55; }
+.description strong { color: #ffcc00; }
+
+.appur { line-height: 1.5; }
+.appur li { margin-bottom: 10px; }
+.appur strong { color: #ffcc00; }
+
+a { color: #66ffff; }
+a:visited { color: #cc99ff; }
+a:hover { color: #ffffff; background-color: #333366; }
+
+.side {
+  float: right;
+  width: 200px;
+}
+.counter-box, .guestbook, .best-bid {
+  border: 3px inset #999999;
+  background-color: #000033;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+}
+.box-kicker {
+  margin: 0 0 4px 0;
+  color: #ffcc00;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.counter {
+  margin: 0;
+  color: #00ff00;
+  font-size: 24px;
+  text-align: center;
+  background-color: #000000;
+  border: 2px outset #333366;
+  letter-spacing: 6px;
+}
+.box-note { margin: 4px 0 0 0; color: #99ccff; font-size: 10px; font-style: italic; }
+.gb-line { margin: 5px 0; color: #ccffcc; font-size: 10px; }
+.bid { margin: 0; color: #ff9966; font-weight: bold; }
+
+.foot {
+  clear: both;
+  margin-top: 14px;
+  border-top: 3px double #ffcc00;
+  padding-top: 8px;
+  color: #ccffcc;
+  font-size: 11px;
+}
