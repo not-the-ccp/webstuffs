@@ -1,0 +1,143 @@
+/* Christmas Island, Field Notes — Magsaysay Avenue Natural History & Supper Club */
+
+:root {
+  --ink: #1e1a16;
+  --paper: #f6f1e7;
+  --rule: #d8cfbd;
+  --crab: #8a2f1d;
+  --sea: #33555b;
+  --muted: #7a715f;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.club-line {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin: 0 0 1rem;
+}
+
+.byline {
+  font-size: 0.92rem;
+  color: var(--sea);
+  font-style: italic;
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.notes h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crab);
+  margin: 2.75rem 0 0.9rem;
+}
+
+.notes p {
+  margin: 0 0 1.05rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote.find {
+  margin: 1.5rem 0 0.4rem;
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.find-source {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 1.2rem;
+}
+
+.counter-box {
+  margin: 3rem 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border: 1px solid var(--rule);
+  background: #efe8d9;
+}
+
+.counter-label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+
+.counter-odometer {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  margin: 0;
+  color: var(--crab);
+}
+
+.file-footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--sea);
+}
+
+.file-footer a {
+  color: inherit;
+}
+
+a {
+  color: var(--crab);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--ink);
+}
