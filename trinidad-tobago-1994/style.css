@@ -1,0 +1,276 @@
+/* The Rink Catalogue — product sheet HTB-94-037 */
+/* Screen: invoice/despatch-note look, serif rules, stock wear */
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, "FreeSerif", serif;
+  color: #222;
+  background: #f6f3ec;
+  line-height: 1.5;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 34px 20px;
+}
+
+.masthead {
+  border-bottom: 3px double #000;
+  padding-bottom: 18px;
+  margin-bottom: 30px;
+}
+
+.kicker {
+  margin: 0 0 6px 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #555;
+}
+
+.shop-title {
+  margin: 0;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.shop-sub {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid #999;
+  margin: 18px 0;
+}
+
+.product-page {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  gap: 42px;
+  align-items: start;
+}
+
+.gallery .stage {
+  border: 1px solid #b7b1a5;
+  background: #fff;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.gallery .stage svg {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.stage-cap {
+  margin: 8px 0 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #666;
+}
+
+.release-tag {
+  display: inline-block;
+  margin: 0 0 8px 0;
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #8a1f1f;
+  border: 1px solid #8a1f1f;
+  padding: 3px 10px;
+}
+
+.product-name {
+  margin: 0 0 8px 0;
+  font-size: 1.55rem;
+  line-height: 1.25;
+}
+
+.sku-line {
+  margin: 0 0 14px 0;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #000;
+}
+
+.price {
+  font-size: 1.9rem;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+.price-note {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.deck {
+  margin: 0 0 22px 0;
+  font-size: 0.95rem;
+  color: #333;
+  font-style: italic;
+}
+
+.order-form {
+  border: 1px solid #b7b1a5;
+  background: #fff;
+  padding: 16px;
+  margin-bottom: 26px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.field-label {
+  display: block;
+  margin: 0 0 6px 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #555;
+}
+
+.field {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #888;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 9px 22px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: #333; }
+.btn-primary:focus { outline: 2px solid #8a1f1f; }
+
+.prose h3 {
+  margin: 0 0 12px 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-bottom: 1px solid #999;
+  padding-bottom: 5px;
+}
+
+.prose p {
+  margin: 0 0 14px 0;
+  text-align: justify;
+}
+
+.inscription {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #111;
+  border-left: 3px solid #000;
+  padding-left: 14px;
+  margin: 22px 0 4px 0;
+}
+
+.inscription-note {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0 0 22px 0;
+  font-style: italic;
+}
+
+.specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 26px;
+  font-size: 0.82rem;
+}
+
+.specs caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.specs th,
+.specs td {
+  border: 1px solid #b7b1a5;
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.specs th {
+  background: #f0ede4;
+  width: 30%;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.related {
+  border-top: 3px double #000;
+  padding-top: 16px;
+}
+
+.related h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #555;
+}
+
+.related a {
+  color: #111;
+  text-decoration: underline;
+}
+
+.colophon {
+  margin-top: 42px;
+  padding-top: 14px;
+  border-top: 1px solid #999;
+  font-size: 0.78rem;
+  color: #555;
+  text-align: center;
+}
+
+.colophon a { color: #111; text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .product-page { grid-template-columns: 1fr; }
+  .wrapper { padding: 20px 14px; }
+}
