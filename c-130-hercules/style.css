@@ -1,0 +1,412 @@
+/* Lockheed C-130 Hercules — Term Report, Form 4B
+   Maximalist aviation stylesheet: sky, runway, prop, manila paper, stamps. */
+
+:root {
+  --sky-top: #0c2440;
+  --sky-mid: #1b4772;
+  --horizon: #e9a77b;
+  --sun: #f6d87c;
+  --manila: #f7ead1;
+  --ink: #262420;
+  --red: #9c2b2b;
+  --red-dim: #7a1f1f;
+  --amber: #f2c14e;
+  --tarmac: #363636;
+  --edge: #f2e8cf;
+  --prop-time: 1.7s;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--tarmac);
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  color: var(--ink);
+  line-height: 1.62;
+}
+
+/* ---- sky ---- */
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--horizon) 100%),
+    radial-gradient(600px 400px at 12% 10%, rgba(255,255,255,.06), transparent 40%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035), rgba(255,255,255,.035) 1px, transparent 1px, transparent 34px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.035), rgba(255,255,255,.035) 1px, transparent 1px, transparent 34px);
+  background-size: 100% 100%, auto, 54px 54px, 54px 54px;
+  background-attachment: fixed;
+}
+
+.sun {
+  position: fixed;
+  top: 56px;
+  right: 90px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--sun);
+  box-shadow: 0 0 56px rgba(246,216,124,.65), 0 0 130px rgba(246,216,124,.4);
+  z-index: -1;
+  animation: pulse-sun 5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-sun {
+  from { transform: scale(1); opacity: .92; }
+  to   { transform: scale(1.1); opacity: 1; }
+}
+
+/* ---- clouds ---- */
+.cloud {
+  position: fixed;
+  z-index: -1;
+  background: rgba(255,255,255,.85);
+  border-radius: 55% 45% 60% 50% / 50% 60% 45% 55%;
+  filter: blur(1.6px);
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  from { left: 110%; }
+  to   { left: -40%; }
+}
+
+/* ---- runway and edge lights ---- */
+.runway {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 170px;
+  z-index: -1;
+  background: #2c2c2c;
+  background-image:
+    linear-gradient(to bottom, transparent 62%, rgba(0,0,0,.42) 62%),
+    repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(255,255,255,.11) 10px, rgba(255,255,255,.11) 12px),
+    linear-gradient(105deg, transparent 48.5%, var(--edge) 48.5%, var(--edge) 51.5%, transparent 51.5%),
+    linear-gradient(75deg, transparent 48.5%, var(--edge) 48.5%, var(--edge) 51.5%, transparent 51.5%);
+  background-size: 100% 170px, 100% 22px, 220% 220%, 220% 220%;
+  background-position: bottom, bottom, 50% 100%, 50% 100%;
+  box-shadow: 0 -8px 24px rgba(0,0,0,.55);
+}
+
+.lights {
+  position: fixed;
+  bottom: 44px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 7vw;
+  pointer-events: none;
+}
+
+.light {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffd166;
+  box-shadow: 0 0 10px #ffd166;
+  animation: blink 1.7s ease-in-out infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: .22; box-shadow: 0 0 5px #ffd166; }
+  to   { opacity: 1; box-shadow: 0 0 16px #ffd166, 0 0 34px rgba(242,193,78,.5); }
+}
+
+/* ---- propeller ---- */
+.prop {
+  position: fixed;
+  top: 38px;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 150px;
+  height: 150px;
+  z-index: 0;
+  animation: spin var(--prop-time) linear infinite;
+}
+
+.hub {
+  position: absolute;
+  inset: 58px;
+  border-radius: 50%;
+  background: #444;
+  border: 7px double #1a1a1a;
+  box-shadow: inset 0 0 14px #000, 0 0 20px rgba(0,0,0,.65);
+  z-index: 2;
+}
+
+.blade {
+  position: absolute;
+  top: 66px;
+  left: 50%;
+  width: 68px;
+  height: 6px;
+  background: linear-gradient(90deg, #666, #aaa, #666);
+  border-radius: 3px;
+  transform-origin: 0 50%;
+  filter: blur(1.4px);
+  opacity: .88;
+}
+.blade.b1 { transform: translatex(-50%) rotate(0deg); }
+.blade.b2 { transform: translatex(-50%) rotate(90deg); }
+.blade.b3 { transform: translatex(-50%) rotate(180deg); }
+.blade.b4 { transform: translatex(-50%) rotate(270deg); }
+
+@keyframes spin {
+  to { transform: translatex(-50%) rotate(360deg); }
+}
+
+/* ---- report sheet ---- */
+.sheet {
+  position: relative;
+  z-index: 3;
+  width: min(920px, 90vw);
+  margin: 72px auto 72px;
+  background: var(--manila);
+  color: var(--ink);
+  padding: 48px 46px 64px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.5);
+  border: 1.6px solid #8a7a62;
+  border-top: 3.5px double #8a7a62;
+  transform: rotate(-0.5deg);
+  background-image:
+    radial-gradient(560px 300px at 82% -8%, rgba(156,43,43,.09), transparent 58%),
+    radial-gradient(420px 280px at -8% 112%, rgba(27,71,100,.07), transparent 52%);
+  background-attachment: fixed;
+}
+
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  width: 15px; height: 12px;
+  border: 2.2px solid #5c4f42;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,.4);
+}
+.sheet::before { left: 17%; }
+.sheet::after  { left: 51%; }
+
+.staple {
+  position: absolute;
+  top: -16px;
+  width: 16px; height: 12px;
+  border: 2.4px solid #5c4f42;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,0,0,.45);
+}
+.staple.s1 { left: 16%; }
+.staple.s2 { left: 50%; }
+
+/* header */
+.school-head {
+  border-bottom: 5px double #6e4a2c;
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+  position: relative;
+}
+.school-name {
+  font-family: "Impact", "Arial Black", "Franklin Gothic Bold", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #4a3318;
+  margin: 0 0 4px;
+}
+.school-sub {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .82rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #6e5844;
+  margin: 0 0 8px;
+}
+.zulu-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .82rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #6e5844;
+  text-align: right;
+  margin: -4px 0 10px;
+}
+.zulu-tag { font-size: .72em; opacity: .8; }
+
+h1 {
+  font-family: "Impact", "Arial Black", "Franklin Gothic Bold", sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  color: #22405d;
+  margin: 12px 0 6px;
+  line-height: 1.12;
+  text-shadow: 1px 1px 0 #d9c48a;
+}
+h1 .sub {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: .26em;
+  color: #6e4a2c;
+  margin-top: 7px;
+}
+
+.meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .88rem;
+  margin: 8px 0 6px;
+  background: #fdf9ec;
+  border: 1.2px solid #b8a888;
+}
+.meta-table th {
+  text-align: right;
+  padding: 6px 10px;
+  color: #6e543c;
+  border-bottom: 1px solid #d8c7a6;
+  width: 32%;
+}
+.meta-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #d8c7a6;
+}
+
+/* report body */
+.report h2 {
+  font-family: "Impact", "Arial Black", "Franklin Gothic Bold", sans-serif;
+  font-size: 1.28rem;
+  letter-spacing: .45em;
+  text-transform: uppercase;
+  color: #1d3e5c;
+  margin: 36px 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 6px double #c86d2b;
+  position: relative;
+}
+.report h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 230px; height: 4px;
+  background: repeating-linear-gradient(90deg, #b7410f, #b7410f 4px, transparent 4px, transparent 11px);
+}
+.report p { margin: 0 0 14px; text-align: justify; }
+.report strong { color: #7a1f1f; }
+
+.report table.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .9rem;
+  background: #fdf9ec;
+}
+.spec-table th, .spec-table td {
+  border: 1.1px solid #c9b894;
+  padding: 7px 10px;
+  text-align: left;
+}
+.spec-table th { background: #e8dcc0; color: #6e543c; width: 30%; text-transform: uppercase; letter-spacing: .16em; font-size: .8rem; }
+.spec-table tr:nth-child(even) td { background: #f5ece0; }
+
+blockquote.line-quote {
+  margin: 18px 24px;
+  padding: 16px 20px;
+  border-left: 7px solid var(--red);
+  background: rgba(156,43,43,.07);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.08rem;
+  letter-spacing: .05em;
+  color: #7a1f1f;
+  font-style: italic;
+  position: relative;
+}
+blockquote.line-quote::before {
+  content: "✎";
+  position: absolute;
+  top: -16px; left: -12px;
+  font-size: 2.2rem;
+  color: var(--red-dim);
+}
+
+.grade-row {
+  margin-top: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.grade {
+  border: 4px dashed var(--red);
+  color: var(--red-dim);
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 1.45rem;
+  letter-spacing: .55em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s;
+}
+.grade:active { transform: scale(.96); }
+.grade-mark { font-size: 2.2rem; }
+.grade-word {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  letter-spacing: .26em;
+  color: #5c4738;
+  margin-top: 7px;
+  display: block;
+}
+.filed {
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #6e5844;
+  margin-top: 12px;
+}
+
+.school-foot {
+  margin-top: 50px;
+  padding-top: 18px;
+  border-top: 2.2px solid #b8a888;
+  font-family: "Courier New", Courier, monospace;
+  font-size: .78rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #6e5844;
+  text-align: center;
+}
+
+a {
+  color: #9c2b2b;
+  text-decoration: underline dotted #9c2b2b;
+  outline: none;
+}
+a:focus-visible { box-shadow: 0 0 0 4px rgba(242,193,78,.55); }
+
+em { color: #4a3318; font-style: italic; }
+
+@media (max-width: 640px) {
+  .sheet { margin: 42px 16px 56px; padding: 32px 22px 44px; transform: none; }
+  .prop, .lights, .sun { display: none; }
+  h1 { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky, .sun, .cloud, .runway, .prop, .light { animation: none !important; transition: none !important; }
+  .blade { filter: none; opacity: 1; }
+  .grade { transition: none; }
+}
