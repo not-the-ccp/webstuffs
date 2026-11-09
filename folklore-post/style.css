@@ -1,0 +1,438 @@
+/* To the Editor of The Gif — On the Folklore of This Parish
+   A letter, pressed into parchment, wax, and fog. */
+
+:root {
+  --parchment: #f3e8cf;
+  --parchment-deep: #e8d9b6;
+  --ink: #2c1e0f;
+  --ink-soft: #4a3620;
+  --ink-faded: #7a6244;
+  --wax: #7a1f1a;
+  --wax-deep: #541109;
+  --gold: #a67c2e;
+  --gold-bright: #c99a3f;
+  --smoke: #8d94a6;
+  --serif: "IM Fell English", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --caps: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  --hand: "IM Fell DW", "IM Fell English", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #17120b; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--serif);
+  font-size: 1.13rem;
+  line-height: 1.72;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(255, 244, 214, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 85% 110%, rgba(141, 148, 166, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(44, 30, 15, 0.05) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, #241b10 0%, #17120b 55%, #100d08 100%);
+  overflow-x: hidden;
+}
+
+/* ---------- the fog ---------- */
+.fog {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.fog-band {
+  position: absolute;
+  left: -30%;
+  width: 160%;
+  height: 34vh;
+  border-radius: 50%;
+  filter: blur(38px);
+  opacity: 0;
+  animation: fog-drift 52s linear infinite;
+}
+.fog-band--one {
+  top: 6%;
+  background: radial-gradient(ellipse at center, rgba(220, 226, 238, 0.10), transparent 70%);
+  animation-duration: 52s;
+}
+.fog-band--two {
+  top: 44%;
+  background: radial-gradient(ellipse at center, rgba(220, 226, 238, 0.07), transparent 70%);
+  animation-duration: 71s;
+  animation-delay: -24s;
+}
+.fog-band--three {
+  top: 74%;
+  background: radial-gradient(ellipse at center, rgba(200, 210, 230, 0.08), transparent 70%);
+  animation-duration: 88s;
+  animation-delay: -40s;
+}
+@keyframes fog-drift {
+  0%   { transform: translateX(-8%) translateY(0); opacity: 0; }
+  12%  { opacity: 1; }
+  50%  { transform: translateX(6%) translateY(-2vh); }
+  88%  { opacity: 1; }
+  100% { transform: translateX(-8%) translateY(0); opacity: 0; }
+}
+
+/* paper grain over everything, very faint */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.05;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(44,30,15,.5) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgba(44,30,15,.4) 0 1px, transparent 1px 9px);
+  mix-blend-mode: multiply;
+}
+
+/* ---------- the sheet ---------- */
+.sheet {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+  margin: 4.5rem auto 6rem;
+  padding: 3.4rem 3.2rem 2.8rem;
+  background:
+    radial-gradient(600px 220px at 50% 0%, rgba(122, 31, 26, 0.05), transparent 70%),
+    radial-gradient(700px 500px at 100% 100%, rgba(166, 124, 46, 0.10), transparent 60%),
+    radial-gradient(500px 400px at 0% 85%, rgba(141, 148, 166, 0.12), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(122, 98, 68, 0.045) 0 3px, transparent 3px 8px),
+    linear-gradient(175deg, var(--parchment) 0%, var(--parchment-deep) 58%, #ddc99f 100%);
+  border: 1px solid rgba(90, 66, 32, 0.55);
+  box-shadow:
+    0 0 0 6px rgba(23, 18, 11, 0.85),
+    0 0 0 7px rgba(166, 124, 46, 0.35),
+    0 30px 70px rgba(0, 0, 0, 0.65),
+    inset 0 0 90px rgba(122, 98, 68, 0.22);
+}
+.sheet::before,
+.sheet::after {
+  content: "\2766";
+  position: absolute;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 1.2em;
+  padding-left: 1.2em;
+  opacity: 0.8;
+}
+.sheet::before { top: 0.55rem; }
+.sheet::after { bottom: 0.45rem; content: "\2767 \2766 \2767"; }
+
+/* ---------- letterhead ---------- */
+.letterhead { text-align: center; margin-bottom: 2.2rem; }
+.letterhead-house {
+  font-family: var(--caps);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0 0 0.9rem;
+}
+.letterhead-title {
+  font-family: var(--caps);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--wax-deep);
+  margin: 0 0 1rem;
+}
+.letterhead-sig {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 5.4vw, 2.9rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 250, 235, 0.6);
+}
+.letterhead-sub {
+  font-family: var(--hand);
+  font-size: 0.95rem;
+  color: var(--ink-faded);
+  margin: 0.8rem 0 0;
+}
+.letterhead-sub::before,
+.letterhead-sub::after { content: " \2014 "; color: var(--gold); }
+
+/* ---------- postmark & stamp ---------- */
+.postmark {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 7.2rem;
+  height: 7.2rem;
+  z-index: 3;
+  opacity: 0;
+  transform: rotate(-14deg) scale(1.9);
+  transition: opacity 0.9s ease 0.4s, transform 0.9s cubic-bezier(0.2, 1.4, 0.4, 1) 0.4s;
+  pointer-events: none;
+}
+.postmark.stamped { opacity: 1; transform: rotate(-14deg) scale(1); }
+.postmark-ring {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--ink-soft);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  box-shadow: inset 0 0 0 4px var(--parchment), inset 0 0 0 5.5px var(--ink-soft);
+  color: var(--ink-soft);
+  font-family: var(--caps);
+  opacity: 0.85;
+  background: repeating-radial-gradient(circle at center, transparent 0 5px, rgba(74, 54, 32, 0.12) 5px 6px);
+}
+.postmark-top { font-size: 0.92rem; letter-spacing: 0.3em; }
+.postmark-mid { font-size: 0.68rem; letter-spacing: 0.22em; }
+.postmark-bot { font-size: 0.55rem; letter-spacing: 0.1em; text-align: center; line-height: 1.5; }
+.postmark::before,
+.postmark::after {
+  content: "";
+  position: absolute;
+  left: -2.4rem;
+  right: -2.4rem;
+  border-top: 1.6px solid var(--ink-soft);
+  opacity: 0.7;
+}
+.postmark::before { top: 42%; transform: rotate(-8deg); }
+.postmark::after { top: 58%; transform: rotate(-4deg); }
+
+.stamp {
+  position: absolute;
+  top: 0.9rem;
+  left: 1.4rem;
+  width: 6.6rem;
+  height: 8.2rem;
+  z-index: 3;
+  background:
+    repeating-linear-gradient(0deg, rgba(122, 31, 26, 0.08) 0 2px, transparent 2px 6px),
+    linear-gradient(160deg, #efe3c6, #e2cfa4);
+  padding: 0.45rem;
+  transform: rotate(3deg);
+  box-shadow: 2px 3px 8px rgba(23, 18, 11, 0.35);
+  outline: 2px dashed transparent;
+  background-clip: padding-box;
+}
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  background:
+    radial-gradient(circle 2px at 2px 2px, transparent 0 62%, var(--parchment) 63%) ;
+  border: 2px dashed var(--wax);
+  border-radius: 2px;
+  pointer-events: none;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.75;
+}
+.stamp-inner {
+  width: 100%;
+  height: 100%;
+  border: 1.6px solid var(--wax);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--wax-deep);
+  gap: 0.3rem;
+  padding: 0.4rem;
+}
+.stamp-value {
+  font-family: var(--caps);
+  font-size: 2.3rem;
+  line-height: 1;
+}
+.stamp-caption {
+  font-family: var(--hand);
+  font-size: 0.66rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* ---------- the letter body ---------- */
+.salute {
+  font-family: var(--hand);
+  font-size: 1.08rem;
+  margin: 1.6rem 0 1.2rem;
+  color: var(--ink-soft);
+}
+.salute a { color: var(--wax-deep); }
+
+.body {
+  margin: 0 0 1.35rem;
+  text-align: justify;
+  hyphens: auto;
+  color: var(--ink);
+}
+.body a {
+  color: var(--wax-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--wax);
+  transition: background-color 0.2s ease, border-bottom-style 0.2s ease;
+}
+.body a:hover, .body a:focus {
+  background: rgba(166, 124, 46, 0.18);
+  border-bottom-style: solid;
+}
+.ink-note {
+  background-image: linear-gradient(transparent 62%, rgba(122, 31, 26, 0.16) 62%);
+}
+
+.dropcap {
+  float: left;
+  font-family: var(--caps);
+  font-size: 4.6rem;
+  line-height: 0.82;
+  padding: 0.32rem 0.55rem 0 0;
+  color: var(--wax);
+  text-shadow: 2px 2px 0 rgba(166, 124, 46, 0.35);
+}
+
+.strong, .body strong {
+  font-family: var(--caps);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.spoken-line {
+  display: inline;
+  font-family: var(--hand);
+  font-size: 1.05em;
+  color: var(--wax-deep);
+  background:
+    linear-gradient(transparent 55%, rgba(166, 124, 46, 0.28) 55% 92%, transparent 92%);
+  box-shadow: inset 0 -1px 0 rgba(122, 31, 26, 0.25);
+}
+
+/* ---------- signature & seal ---------- */
+.signature-block {
+  margin: 2.2rem 0 2.4rem;
+  text-align: right;
+}
+.signature-name {
+  display: block;
+  font-family: var(--hand);
+  font-style: italic;
+  font-size: 1.7rem;
+  color: var(--ink);
+  transform: rotate(-1.5deg);
+}
+.signature-line {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--caps);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-faded);
+}
+
+.seal-wrap { text-align: center; margin: 0 0 2rem; }
+.seal {
+  position: relative;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.seal:hover { transform: scale(1.06) rotate(-3deg); }
+.seal:active { transform: scale(0.94); }
+.seal-svg {
+  width: 7.5rem;
+  height: 7.5rem;
+  display: block;
+  filter: drop-shadow(3px 5px 5px rgba(23, 18, 11, 0.4));
+}
+.seal-wax {
+  fill: var(--wax);
+  stroke: var(--wax-deep);
+  stroke-width: 2;
+}
+.seal.sealed .seal-wax { fill: #8f2620; }
+.seal-ring {
+  fill: none;
+  stroke: rgba(243, 232, 207, 0.55);
+  stroke-width: 1.4;
+  stroke-dasharray: 3 3;
+}
+.seal-text {
+  font-family: var(--caps);
+  fill: rgba(243, 232, 207, 0.9);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.seal-hint {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--hand);
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  text-decoration: underline dotted;
+}
+.seal-message {
+  font-family: var(--hand);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  max-width: 30rem;
+  margin: 0.9rem auto 0;
+  min-height: 2.6em;
+  transition: color 0.4s ease;
+}
+.seal-message.sealed { color: var(--wax-deep); }
+
+/* ---------- colophon ---------- */
+.colophon {
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(90, 66, 32, 0.4);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+}
+.colophon p { margin: 0.5rem 0; }
+.colophon a { color: var(--wax-deep); }
+.fleuron { font-size: 1.5rem; color: var(--gold); margin-bottom: 0.8rem !important; }
+.fleuron::before { content: "\2502  "; color: var(--gold); }
+.fleuron::after { content: "  \2502"; color: var(--gold); }
+.colophon-fog {
+  font-style: italic;
+  color: var(--smoke);
+  animation: fog-pulse 7s ease-in-out infinite;
+}
+@keyframes fog-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 640px) {
+  .sheet { margin: 2.2rem 0.9rem 3.5rem; padding: 2.6rem 1.4rem 2rem; }
+  .postmark { width: 5.4rem; height: 5.4rem; top: 9.4rem; right: 0.8rem; opacity: 0.85; }
+  .postmark-top { font-size: 0.7rem; }
+  .postmark-bot { font-size: 0.44rem; }
+  .stamp { position: static; margin: 0 auto 1.6rem; }
+  .body { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fog-band { animation: none; opacity: 0.4; }
+  .postmark { transition: none; opacity: 1; transform: rotate(-14deg); }
+  .colophon-fog { animation: none; }
+}
