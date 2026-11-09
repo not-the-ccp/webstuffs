@@ -1,0 +1,172 @@
+/* The Frozen North — Supplement: Questions and Answers on Knud Rasmussen */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #23211c;
+  --ink-soft: #55503f;
+  --line: #c9c0ab;
+  --accent: #5a6e6a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #ece6d8;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+.book {
+  max-width: 44rem;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 4.5rem 2.5rem 3rem;
+  box-shadow: 0 0 2.5rem rgba(35, 33, 28, 0.12);
+}
+
+.plate {
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.book-title {
+  font-variant: small-caps;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
+  color: var(--ink-soft);
+}
+
+.book-sub {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 auto 1.4rem;
+  max-width: 30rem;
+}
+
+.ornament {
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  margin: 1.6rem 0;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  margin: 0.5rem 0 1rem;
+  text-align: center;
+}
+
+h1 .sub {
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.dates {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.intro p {
+  font-size: 0.98rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.intro p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
+.qa {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.q {
+  border-bottom: 1px solid var(--line);
+}
+
+.q summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.15rem 2rem 1.15rem 0;
+  position: relative;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  transition: background 0.25s ease;
+}
+
+.q summary::-webkit-details-marker { display: none; }
+
+.q summary:hover { background: rgba(90, 110, 106, 0.06); }
+
+.q summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.1rem;
+  top: 1.1rem;
+  font-family: "Times New Roman", serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.q[open] summary::after { content: "\2013"; transform: none; }
+
+.num {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-right: 0.7rem;
+}
+
+.a {
+  padding: 0 0 1.4rem 2.6rem;
+}
+
+.a p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.a em, .intro em, .dates em { font-style: italic; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(90, 110, 106, 0.4);
+  transition: border-color 0.2s ease;
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+.colophon {
+  text-align: center;
+  margin-top: 3.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+
+@media (max-width: 640px) {
+  .book { padding: 2.5rem 1.3rem 2rem; }
+  .a { padding-left: 0; }
+  .intro p, .a p { text-align: left; }
+}
