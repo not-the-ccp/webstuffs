@@ -1,0 +1,251 @@
+/* Entry No. 216 — Fruit · The Dreamer's Concordance */
+
+:root {
+  --paper: #faf6ee;
+  --ink: #2b241c;
+  --ink-soft: #5c5344;
+  --pomegranate: #8c2f2b;
+  --mustard: #a5842c;
+  --rule: #d8cfbd;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main,
+header.conc-header,
+footer.colophon {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ——— header ——— */
+
+.conc-header {
+  text-align: center;
+  padding-top: 3.5rem;
+}
+
+.pomegranate-mark {
+  width: 74px;
+  height: 74px;
+  color: var(--pomegranate);
+}
+
+.seeds { opacity: 0.85; }
+
+.eyebrow {
+  margin: 1.4rem 0 0;
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mustard);
+}
+
+h1 {
+  margin: 0.4rem 0 0;
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  margin: 0.8rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  font-style: italic;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2rem auto 0;
+  max-width: 22rem;
+}
+
+.rule-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.spark {
+  width: 6px;
+  height: 6px;
+  background: var(--pomegranate);
+  transform: rotate(45deg);
+}
+
+/* ——— entries ——— */
+
+.entry { margin: 3rem 0; }
+
+.entry h2 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.entry p { margin: 0 0 1.1rem; }
+
+a {
+  color: var(--pomegranate);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--ink); }
+
+/* roster */
+
+.roster {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roster li {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
+}
+
+.roster strong { color: var(--pomegranate); }
+
+/* symbols */
+
+.symbols { margin: 0 0 2rem; }
+
+.symbols dt {
+  font-weight: 600;
+  margin-top: 1.2rem;
+}
+
+.symbols dt::before {
+  content: "◆ ";
+  color: var(--mustard);
+  font-size: 0.7em;
+  vertical-align: 0.15em;
+}
+
+.symbols dd {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
+}
+
+/* ——— the desk pomegranate ——— */
+
+.desk-pomegranate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  align-items: center;
+  border: 1px solid var(--rule);
+  padding: 1.4rem;
+  background: #f4eddd;
+}
+
+.pome {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--pomegranate);
+  font: inherit;
+  display: block;
+}
+
+.pome svg { width: 110px; height: 110px; display: block; }
+
+.pome-seeds circle {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pome-seeds circle.lit { opacity: 1; }
+
+.press-line {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.count-read { flex: 1; min-width: 14rem; }
+
+.count-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+#count-caption.done {
+  color: var(--pomegranate);
+  font-style: italic;
+}
+
+/* ——— kept line ——— */
+
+.kept-line {
+  margin: 1.6rem 0;
+  padding: 1.2rem 1.6rem;
+  border-top: 2px solid var(--pomegranate);
+  border-bottom: 2px solid var(--pomegranate);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ——— colophon ——— */
+
+.colophon {
+  text-align: center;
+  margin: 4rem 0 0;
+  padding-bottom: 3rem;
+}
+
+.colophon p {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.colophon-lights {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.colophon-lights span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mustard);
+  opacity: 0.7;
+}
+
+@media (max-width: 40rem) {
+  body { font-size: 16px; }
+  h1 { font-size: 2.4rem; }
+}
