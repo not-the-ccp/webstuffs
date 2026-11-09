@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Barge &amp; Bell — Newsletter No. 12 · 87-Mile Boatmen &amp; Bargees' Club</title>
+<meta name="description" content="Newsletter No. 12 of the 87-Mile Boatmen &amp; Bargees' Club, issued from Lock House 13, Bradford-on-Avon: the Kennet and Avon waterway in full — 87 miles from Bristol to Reading, two rivers and one 57-mile canal, 105 locks, the 1794–1810 build, the autumn gauge readings, and the archivist's WebDewey business.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="letter">
+  <header class="head">
+    <p class="club">The 87-Mile Boatmen &amp; Bargees&rsquo; Club &middot; Lock House 13, Bradford-on-Avon, Wiltshire</p>
+    <h1>The Barge &amp; Bell</h1>
+    <p class="no">Newsletter No. 12 &middot; Michaelmas &middot; issued the second Saturday of the month, as ever, after the lockages and before the coffee</p>
+    <p class="motto">&ldquo;Fifty-seven miles of brick and lime, and ten miles each end that the river did for us.&rdquo; &mdash; the club motto, painted above the till in the lock house</p>
+  </header>
+
+  <section>
+    <h2><span class="num">1.</span> From the Chair</h2>
+    <p>Members, &mdash; the water holds at a respectable 1.9 m above the Bath weir sill and the whole length answered the August call for boats. Thirty-one craft came in: nineteen from the Reading side, twelve from Bristol, one narrowboat of unknown nationality that claimed to be &ldquo;mostly Irish, all stubborn,&rdquo; and our own <em>Marigold</em>, which is how the club measures its own success. The waterway in its fullness &mdash; the Kennet and Avon &mdash; runs 87 miles, 140 kilometres: the River Avon from Bristol to Bath, the canal from Bath to Newbury, and the River Kennet from Newbury to the Thames at Reading. The name, as every new member learns at the second cup of tea, refers to the entire navigation, not merely the central canal section, and the club has now outlived three generations of members who insisted otherwise. In all we pass 105 locks on the length. The two river stretches were made navigable in the early 18th century, and the 57-mile &mdash; 92-kilometre &mdash; canal section was constructed between 1794 and 1810, which the surveyor&rsquo;s ledger, kept in the lock house, records in a hand that grows steadily more cross as the years progress. The late 19th and early 20th centuries took their toll on the trade, and the narrowboat era we now live in arrived quietly, the way all second innings arrive.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">2.</span> The Lock Survey &amp; the Counter</h2>
+    <p>Mr. Palfrey, gauge keeper, has set out the reckoning below, and the club&rsquo;s little counter will do the arithmetic of a passage for any member who will try it: choose a start and an end, and it reports the miles and the locks between them, with a lock-line drawn out in the manner of the old lockages. Without the counter the same reckoning stands in the table, so the matter is not lost to those of us who read paper only.</p>
+    <div class="counter" id="counter">
+      <div class="counter-controls">
+        <label>From
+          <select id="from-pt">
+            <option value="reading">Reading (mile 0)</option>
+            <option value="newbury">Newbury (mile 13)</option>
+            <option value="devizes">Devizes (mile 42)</option>
+            <option value="bradford">Bradford-on-Avon (mile 57)</option>
+            <option value="bath">Bath (mile 66)</option>
+            <option value="bristol" selected>Bristol (mile 87)</option>
+          </select>
+        </label>
+        <label>To
+          <select id="to-pt">
+            <option value="reading">Reading (mile 0)</option>
+            <option value="newbury">Newbury (mile 13)</option>
+            <option value="devizes">Devizes (mile 42)</option>
+            <option value="bradford" selected>Bradford-on-Avon (mile 57)</option>
+            <option value="bath">Bath (mile 66)</option>
+            <option value="bristol">Bristol (mile 87)</option>
+          </select>
+        </label>
+        <button id="run-passage" type="button">Make the passage</button>
+      </div>
+      <p class="counter-readout" id="readout" aria-live="polite">Bristol to Bradford-on-Avon: 30 miles, 5 locks. The counter stands ready; the table stands ready in its place.</p>
+      <div class="lockline" id="lockline" aria-hidden="true"></div>
+    </div>
+    <table class="stations">
+      <caption>The reckoning, kept by the gauge keeper, Michaelmas</caption>
+      <thead>
+        <tr><th>Point</th><th>Mile</th><th>Stretches passed</th><th>Locks from Reading</th><th>Gauge</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reading, on the Thames</td><td>0</td><td>&mdash;</td><td>0</td><td>2.1 m</td></tr>
+        <tr><td>Newbury, the Kennet met</td><td>13</td><td>river Kennet</td><td>26</td><td>2.0 m</td></tr>
+        <tr><td>Devizes, the hill country</td><td>42</td><td>canal, western half</td><td>74</td><td>1.7 m</td></tr>
+        <tr><td>Bradford-on-Avon, lock house 13</td><td>57</td><td>canal, in full</td><td>100</td><td>1.6 m</td></tr>
+        <tr><td>Bath, the canal met</td><td>66</td><td>canal + river Avon</td><td>102</td><td>1.9 m</td></tr>
+        <tr><td>Bristol, at the Severn mouth</td><td>87</td><td>the whole navigation</td><td>105</td><td>tidal</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="num">3.</span> The Archivist&rsquo;s Corner: a Matter of Catalogues</h2>
+    <p>Miss Farrow, treasurer and archivist, reports that the club&rsquo;s ledger shelf &mdash; the one beside the tide table, under the painted motto &mdash; has at last been put in order by a system it can be found in. She applied to the decimal system&rsquo;s keeping office in April, and the office has answered in the manner of such offices: a card, a key, and a letter of four pages, the fourth of which is the sentence every archivist in the country now carries in his or her coat pocket. It reads: <em>&ldquo;The privilege belongs to the real, working system and licenses online access to WebDewey, a continuously updated version for catalogers.&rdquo;</em> Miss Farrow has numbered the shelf accordingly: 354 for the canal&rsquo;s engineering, 620.1 for the locks, 942.09 for the 1794&ndash;1810 surveyor&rsquo;s ledger, and 633.7 for the water itself, which she notes is the only entry that resists being numbered. The water keeps its own catalogue.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">4.</span> Correspondence &amp; Small Notices</h2>
+    <p>A note of gratitude to the waterkeepers of the Al-Jawf Society, whose letter about Lake Dumat al-Jandal &mdash; <a href="../dumat-al-jandal/">their Newsletter No. 31</a> &mdash; arrived with the post and stood on the till for two days; we found the engineer&rsquo;s marginalia in it as hard to explain as our own lockages of 1803. The club&rsquo;s standing comparison with the Federative Line &mdash; <a href="../federative-line/">their official timetable</a> &mdash; is renewed: they have not yet run their 7,491 kilometres, we have run ours 87 for two hundred and twelve years, and the arithmetic favours the smaller waterway. New members: the waiting list stands at four, and the entrance fee remains one lockage of <em>Marigold</em> in either direction, or the setting of one false rudder. The whole club, such as it is, stands on the shelf at <a href="../">Webstuffs, the front page</a>, where the next letter of the month will find us.</p>
+  </section>
+
+  <footer class="tail">
+    <p class="signed">&mdash; issued from Lock House 13, Bradford-on-Avon, by the secretary of the 87-Mile Boatmen &amp; Bargees&rsquo; Club<br>
+    The Barge &amp; Bell &middot; No. 12 &middot; 87 miles &middot; 105 locks &middot; whatever is measured, keep</p>
+  </footer>
+</main>
+<script src="counter.js"></script>
+</body>
+</html>
