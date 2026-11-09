@@ -1,0 +1,218 @@
+/* Lot 507 — Hale & Ingram, Catalogue No. 23. Auction catalogue sheet. */
+
+:root {
+  --paper: #f3ecd8;
+  --paper-deep: #eadfc2;
+  --ink: #2c2519;
+  --faint: #6d6350;
+  --rule: #3a3226;
+  --stamp: #9c3a2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #4a4238;
+  background-image: radial-gradient(ellipse at 50% 0%, #5a5145 0%, #403a31 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  padding: 32px 12px 64px;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(0deg, rgba(120, 98, 60, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 98, 60, 0.04) 1px, transparent 1px);
+  background-size: 100% 3px, 5px 100%;
+  border: 1px solid #7a6c50;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45), inset 0 0 60px rgba(120, 98, 60, 0.12);
+  padding: 40px 48px 32px;
+  position: relative;
+}
+
+/* House masthead */
+.house { text-align: center; margin-bottom: 18px; }
+.house-name {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+.house-sub {
+  margin: 2px 0 0;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--faint);
+}
+
+/* Catalogue head */
+.catalogue-head { text-align: center; padding: 10px 0 4px; }
+.catalogue-no {
+  margin: 0 0 14px;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+.lot {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+}
+h1 {
+  margin: 4px 0 2px;
+  font-size: 3.4rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+.subtitle {
+  margin: 2px 0 10px;
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  font-size: 1rem;
+}
+.sale-line {
+  margin: 8px auto 0;
+  max-width: 34rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+/* Rules */
+.rule { margin: 16px 0; }
+.rule.double {
+  height: 6px;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+main h2 {
+  font-size: 0.95rem;
+  font-variant: small-caps;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0 10px;
+}
+main h2::before, main h2::after { content: " \2022 "; color: var(--faint); }
+
+p { margin: 0 0 12px; }
+a { color: var(--ink); }
+a:hover { color: var(--stamp); }
+
+/* Item list */
+.item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+.item-list li {
+  padding: 0 0 12px 2.2rem;
+  position: relative;
+  font-size: 0.98rem;
+}
+.itemno {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-style: italic;
+  color: var(--faint);
+}
+.item-list em { font-style: italic; }
+
+/* Ledger table */
+.ledger table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.ledger td {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 7px 8px;
+  vertical-align: top;
+}
+.ledger td:first-child {
+  width: 150px;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+  border-right: 1px dotted var(--faint);
+  background: var(--paper-deep);
+}
+
+/* Paddle */
+.paddle {
+  margin: 26px 0 6px;
+  text-align: center;
+  border-top: 1px solid var(--faint);
+  border-bottom: 1px solid var(--faint);
+  padding: 10px 0;
+}
+.paddle-label {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+#paddle-btn {
+  font-family: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+  padding: 7px 22px;
+  background: var(--paper-deep);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  box-shadow: 2px 2px 0 var(--rule);
+  cursor: pointer;
+}
+#paddle-btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--rule); }
+#paddle-count { margin: 8px 0 0; font-style: italic; color: var(--faint); font-size: 0.9rem; }
+
+/* Colophon */
+.colophon { text-align: center; margin-top: 18px; }
+.colophon p {
+  font-size: 0.78rem;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  color: var(--faint);
+}
+
+/* Stamp */
+.stamp {
+  position: absolute;
+  top: 34px;
+  right: 30px;
+  transform: rotate(12deg);
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-align: center;
+  line-height: 1.5;
+  padding: 6px 10px;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 26px 18px; }
+  h1 { font-size: 2.4rem; }
+  .stamp { position: static; display: inline-block; margin: 14px auto 0; }
+}
