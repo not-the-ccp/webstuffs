@@ -1,0 +1,171 @@
+/* Damascus — Travel Guide Entry No. 37 · The Routes Off Shelf I */
+
+:root {
+  --ivory: #f6f0df;
+  --parchment: #efe6cd;
+  --ink: #2c2416;
+  --faded: #6f6247;
+  --teal: #1f5f5b;
+  --deep: #143f3d;
+  --gold: #b98a2f;
+  --jasmine: #f9f6ea;
+  --plaster: #e8dcc0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(185, 138, 47, 0.05) 0 2px, transparent 2px 90px),
+    repeating-linear-gradient(0deg, rgba(31, 95, 91, 0.04) 0 2px, transparent 2px 90px);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px double var(--teal);
+  position: relative;
+}
+
+.masthead::before,
+.masthead::after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.masthead::before { left: 8%; }
+.masthead::after { right: 8%; }
+
+.mast-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.06em;
+  color: var(--deep);
+}
+
+.mast-arabic {
+  font-size: 1.6rem;
+  margin: 0.4rem 0 0;
+  color: var(--teal);
+}
+
+.mast-sub {
+  max-width: 34rem;
+  margin: 0.8rem auto 0;
+  color: var(--faded);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+.arch {
+  display: block;
+  margin: 1.2rem auto 0.6rem;
+  width: 150px;
+  color: var(--teal);
+}
+
+.mast-stamp {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  margin: 0.4rem 0 0;
+}
+
+.guide {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+}
+
+.entry {
+  background: var(--jasmine);
+  border: 1px solid var(--plaster);
+  border-top: 4px solid var(--teal);
+  border-radius: 90px 90px 6px 6px; /* the gateway arch */
+  padding: 1.4rem 1.6rem 1.5rem;
+  margin: 1.6rem 0;
+  box-shadow: 0 2px 0 rgba(44, 36, 22, 0.08);
+}
+
+.entry-date {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  color: var(--deep);
+  margin: 0 0 0.7rem;
+  border-bottom: 1px dotted var(--gold);
+  padding-bottom: 0.4rem;
+}
+
+p { margin: 0 0 0.9rem; }
+em { color: var(--teal); }
+
+a { color: var(--deep); }
+a:hover { color: var(--gold); }
+
+blockquote.card {
+  background: var(--parchment);
+  border-left: 4px solid var(--gold);
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+blockquote.card p { margin: 0; }
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  text-align: center;
+  border-top: 3px double var(--teal);
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.colophon-rule { letter-spacing: 0.6em; color: var(--gold); }
+
+.drone-line { font-style: italic; color: var(--teal); }
+
+.hold {
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--teal);
+  color: var(--jasmine);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+.hold:hover { background: var(--deep); }
+.hold.held { background: var(--gold); }
