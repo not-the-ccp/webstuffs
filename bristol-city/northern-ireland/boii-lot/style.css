@@ -1,0 +1,175 @@
+/* Lot 41 — The Boii · The Lagan Ledger Small Ads Sale, Catalogue 12 */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #2b2620;
+  --rule: #8a7a5c;
+  --accent: #7a2e1f;
+  --faded: #6e6350;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.catalogue-masthead {
+  position: relative;
+  border-bottom: 3px double var(--rule);
+  padding: 2rem 1rem 1.25rem;
+  text-align: center;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(138, 122, 92, 0.08) 26px 27px);
+}
+
+.masthead-wrap { max-width: 46rem; margin: 0 auto; }
+
+.paper-name {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  margin: 0 0 0.35rem;
+  color: var(--faded);
+}
+
+.catalogue-masthead h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0 0 0.4rem;
+}
+
+.paper-line { margin: 0; font-size: 0.85rem; color: var(--faded); }
+
+.stamp {
+  position: absolute;
+  top: 0.9rem;
+  right: 1.1rem;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  padding: 0.3rem 0.5rem;
+  transform: rotate(7deg);
+  opacity: 0.75;
+}
+
+main.lot {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+.lot-title {
+  font-size: 1.35rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--rule);
+  background: rgba(138, 122, 92, 0.1);
+  padding: 0.7rem 1rem;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.lot-section { margin-bottom: 1.75rem; }
+
+.lot-head {
+  font-size: 1rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+}
+
+blockquote.notice {
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(122, 46, 31, 0.06);
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+blockquote.notice p { margin: 0; }
+
+table.reckoner-static {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+table.reckoner-static th,
+table.reckoner-static td {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+
+table.reckoner-static th {
+  background: rgba(138, 122, 92, 0.15);
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.reckoner-head {
+  font-size: 0.95rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--accent);
+}
+
+.reckoner-copy { font-size: 0.95rem; }
+
+form.reckoner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px dashed var(--rule);
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+form.reckoner label { font-variant: small-caps; letter-spacing: 0.06em; }
+
+form.reckoner input {
+  width: 8rem;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+form.reckoner input:focus { outline: 2px solid var(--accent); }
+
+.reckoner-out {
+  flex-basis: 100%;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+
+.reckoner-out .above { color: var(--accent); font-weight: bold; }
+
+.catalogue-footer {
+  border-top: 3px double var(--rule);
+  padding: 1.25rem 1rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.catalogue-footer p { max-width: 46rem; margin: 0.4rem auto; }
+
+.nav a { color: var(--accent); }
