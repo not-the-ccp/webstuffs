@@ -1,0 +1,116 @@
+/* The Court Street Weather Almanac — old-plate almanac styling */
+:root{
+  --parchment:#f2e8d5;
+  --parchment-deep:#e8dabf;
+  --ink:#2c2418;
+  --faded:#6b5d45;
+  --oxblood:#6e2a1e;
+  --sea:#31555c;
+  --brass:#8a6a2b;
+}
+*{box-sizing:border-box}
+html{background:#d9cbaa}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,250,235,.55), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(108,88,55,.045) 0 2px, transparent 2px 5px),
+    var(--parchment);
+  font-family:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+  line-height:1.62;
+}
+.frame{
+  position:fixed; inset:10px; pointer-events:none; z-index:5;
+  border:1px solid rgba(44,36,24,.35);
+  outline:1px solid rgba(44,36,24,.25);
+  outline-offset:3px;
+}
+.masthead{
+  max-width:880px; margin:0 auto; padding:56px 32px 8px;
+  text-align:center;
+}
+.office{
+  font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--oxblood); margin:0 0 18px;
+}
+h1{
+  font-size:clamp(30px,5vw,46px); font-weight:600; margin:0;
+  letter-spacing:.03em;
+}
+h1::after{
+  content:"\2605"; display:block; font-size:15px; color:var(--brass);
+  margin-top:10px; letter-spacing:.5em;
+}
+.entry-no{
+  font-size:13px; font-style:italic; color:var(--faded);
+  margin:14px 0 26px;
+}
+.entry-no .num{
+  font-style:normal; font-weight:700; color:var(--oxblood);
+  font-size:15px; padding:0 4px;
+}
+.mastbar{
+  display:flex; align-items:center; justify-content:center; gap:34px;
+  border-top:3px double var(--ink); border-bottom:1px solid var(--ink);
+  padding:16px 6px; margin:0 auto;
+}
+.gauge{color:var(--sea)}
+.needle{transform-origin:60px 62px; animation:swing 9s ease-in-out infinite alternate}
+@keyframes swing{
+  from{transform:rotate(-24deg)}
+  to{transform:rotate(16deg)}
+}
+.gauge-label{
+  display:block; font-size:9px; letter-spacing:.18em; color:var(--faded);
+  margin-top:4px;
+}
+.mastbar-text{max-width:420px; text-align:left}
+.observed{font-size:14px; margin:0 0 6px}
+.recorder{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--faded); margin:0}
+.page{max-width:880px; margin:0 auto; padding:10px 32px 40px}
+.entry{margin:34px 0}
+.entry h2{
+  font-size:14px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--oxblood);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:7px; margin:0 0 16px;
+}
+.entry h2::before{content:"\2736  "; color:var(--brass)}
+.lead::first-letter{
+  float:left; font-size:52px; line-height:.82; padding:4px 8px 0 0;
+  color:var(--oxblood); font-family:Georgia,serif;
+}
+strong{color:var(--sea)}
+table.readings{
+  width:100%; border-collapse:collapse; margin:8px 0 6px;
+  font-size:14px; background:rgba(255,252,244,.5);
+  border:1px solid var(--ink);
+}
+.readings th{
+  font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  background:var(--ink); color:var(--parchment); padding:8px 10px; text-align:left;
+}
+.readings td{padding:8px 10px; border-top:1px solid rgba(44,36,24,.35); vertical-align:top}
+.readings tr:nth-child(even) td{background:rgba(138,106,43,.07)}
+.mono{font-family:"Courier New",Courier,monospace; font-size:13px; white-space:nowrap}
+.table-note{font-size:12.5px; font-style:italic; color:var(--faded)}
+blockquote{
+  margin:14px 0 14px 8px; padding:12px 18px;
+  border-left:3px solid var(--oxblood);
+  background:rgba(138,106,43,.06);
+  font-style:italic;
+}
+.almanac-foot{
+  max-width:880px; margin:0 auto; padding:18px 32px 60px;
+  border-top:3px double var(--ink);
+  text-align:center; font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--faded);
+}
+a{color:var(--sea)}
+a:hover{color:var(--oxblood)}
+@media (max-width:640px){
+  .mastbar{flex-direction:column; gap:18px}
+  .mastbar-text{text-align:center}
+  .frame{inset:5px}
+}
