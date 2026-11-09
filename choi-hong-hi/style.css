@@ -1,0 +1,280 @@
+/* Sale No. 117 — Lot 418 · Aldgate & Vane · Wapping */
+
+:root {
+  --ink: #1a1410;
+  --hanji: #f3ead6;
+  --hanji-deep: #e9dcbd;
+  --taegeuk-red: #c8102e;
+  --taegeuk-blue: #003a70;
+  --gold: #8a6a1f;
+  --faded: #6b5d47;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background-color: var(--hanji);
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(200, 16, 46, 0.10), transparent 60%),
+    radial-gradient(ellipse 120% 60% at 50% 110%, rgba(0, 58, 112, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(26, 20, 16, 0.028) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgba(26, 20, 16, 0.02) 0 1px, transparent 1px 26px),
+    linear-gradient(var(--hanji), var(--hanji-deep));
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ---- the taegeuk wheel, turning at the top of the page ---- */
+.taegeuk {
+  position: fixed;
+  top: -90px;
+  right: -90px;
+  width: 260px;
+  height: 260px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  animation: wheel 60s linear infinite;
+  filter: drop-shadow(0 6px 18px rgba(26, 20, 16, 0.25));
+}
+@keyframes wheel {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---- masthead ---- */
+.masthead {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3.5rem 1.25rem 1.5rem;
+  border-bottom: double 6px var(--ink);
+  background:
+    linear-gradient(90deg, rgba(200, 16, 46, 0.06) 0%, transparent 30%, transparent 70%, rgba(0, 58, 112, 0.06) 100%);
+}
+.masthead::before,
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: var(--ink);
+}
+.masthead::before { top: 10px; }
+.masthead::after  { top: 14px; }
+.house {
+  margin: 1rem 0 0;
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  font-size: 1.15rem;
+}
+.address {
+  margin: 0.35rem 0 1.25rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--faded);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--taegeuk-blue);
+  text-shadow: 2px 2px 0 var(--hanji-deep), 4px 4px 0 rgba(200, 16, 46, 0.35);
+}
+.sale-sub {
+  margin: 0.9rem 0 0.25rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.05rem;
+}
+.date-line {
+  margin: 0.5rem auto 0;
+  max-width: 46ch;
+  font-size: 0.92rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+/* ---- the lot sheet ---- */
+.lot {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 2.5rem auto 3rem;
+  padding: 2.25rem 2.5rem 2.5rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(138, 106, 31, 0.05) 0 1px, transparent 1px 22px),
+    #f7f0dd;
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--gold);
+  outline-offset: 5px;
+  box-shadow:
+    0 0 0 1px rgba(26, 20, 16, 0.15) inset,
+    14px 14px 0 rgba(0, 58, 112, 0.14),
+    -14px 14px 0 rgba(200, 16, 46, 0.10),
+    0 24px 48px rgba(26, 20, 16, 0.28);
+}
+.lot > .lot-rule { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.75rem; }
+.rule-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.rule-mark {
+  font-size: 1.3rem;
+  color: var(--taegeuk-red);
+  animation: tick 3s ease-in-out infinite alternate;
+}
+.rule-mark:last-child { color: var(--taegeuk-blue); animation-delay: 1.5s; }
+@keyframes tick { from { opacity: 0.35; } to { opacity: 1; } }
+
+/* lot head */
+.lot-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.lot-no {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--ink);
+  padding: 0.5rem 0.9rem 0.6rem;
+  background: linear-gradient(160deg, var(--hanji) 60%, var(--hanji-deep));
+  box-shadow: 4px 4px 0 rgba(26, 20, 16, 0.35);
+  transform: rotate(-2deg);
+}
+.lot-word {
+  font-variant: small-caps;
+  letter-spacing: 0.25em;
+  font-size: 0.85rem;
+}
+.lot-figure {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.05;
+  font-family: "Big Caslon", "Baskerville", "Palatino Linotype", Georgia, serif;
+  color: var(--taegeuk-red);
+}
+h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--taegeuk-blue);
+}
+.lot-sub { margin: 0.4rem 0 0; font-style: italic; color: var(--faded); }
+.estimate {
+  margin: 0.9rem 0 0;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  color: var(--gold);
+  border-top: 1px solid rgba(138, 106, 31, 0.5);
+  padding-top: 0.5rem;
+}
+
+/* the red seal */
+.seal {
+  width: 74px;
+  height: 74px;
+  display: grid;
+  place-items: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--taegeuk-red);
+  border: 3px solid var(--taegeuk-red);
+  border-radius: 6px;
+  transform: rotate(8deg);
+  opacity: 0;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s ease;
+  background: rgba(200, 16, 46, 0.05);
+  box-shadow: inset 0 0 0 2px rgba(200, 16, 46, 0.25);
+}
+.seal.stamped {
+  opacity: 0.92;
+  animation: stamp 0.35s cubic-bezier(0.2, 2.2, 0.4, 1);
+}
+@keyframes stamp {
+  0%   { transform: rotate(8deg) scale(2.1); opacity: 0; }
+  70%  { transform: rotate(8deg) scale(0.94); opacity: 0.95; }
+  100% { transform: rotate(8deg) scale(1); opacity: 0.92; }
+}
+
+/* ---- entries ---- */
+.entry { margin-bottom: 1.75rem; }
+h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  color: var(--taegeuk-red);
+}
+.entry p { margin: 0 0 0.8rem; }
+.entry q {
+  font-style: italic;
+  border-bottom: 2px solid rgba(200, 16, 46, 0.35);
+}
+a {
+  color: var(--taegeuk-blue);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 58, 112, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+a:hover {
+  color: var(--taegeuk-red);
+  background: rgba(200, 16, 46, 0.08);
+  text-decoration-color: var(--taegeuk-red);
+}
+.small-print {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  border-top: 1px dashed rgba(26, 20, 16, 0.4);
+  padding-top: 0.75rem;
+}
+
+/* ---- footer ---- */
+.foot {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border-top: double 6px var(--ink);
+}
+.foot-line {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+}
+#session-clock { color: var(--taegeuk-red); font-style: italic; }
+.foot-sub {
+  margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .lot { padding: 1.5rem 1.1rem; margin: 1.5rem 0.75rem 2rem; }
+  .lot-head { grid-template-columns: auto 1fr; }
+  .seal { grid-column: 2; justify-self: end; margin-top: 0.5rem; }
+  .taegeuk { width: 160px; height: 160px; top: -60px; right: -60px; }
+  body { font-size: 16.5px; }
+}
