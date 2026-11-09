@@ -1,0 +1,179 @@
+/* The Night Table Record Exchange — product page: CRAZY, 12" single */
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=UnifrakturCook:wght@700&display=swap');
+
+:root {
+  --ink: #0d0a1f;
+  --violet: #2b1e5e;
+  --neon: #ffd166;
+  --pink: #ff5d8f;
+  --cyan: #45f0d8;
+  --paper: #f7efdd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--paper);
+  font-family: 'Space Mono', 'Courier New', monospace;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(255, 93, 143, .34), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 85% 20%, rgba(69, 240, 216, .16), transparent 65%),
+    radial-gradient(ellipse 120% 70% at 50% 115%, rgba(255, 209, 102, .14), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, .022) 0 2px, transparent 2px 9px),
+    linear-gradient(180deg, #170f33 0%, #2b1e5e 45%, #12082b 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ---- ticker ---- */
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 209, 102, .5);
+  background: rgba(13, 10, 31, .55);
+  padding: .45rem 0;
+}
+.ticker-track { display: inline-block; animation: slide 28s linear infinite; }
+.ticker-track span {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  color: var(--neon);
+  text-transform: uppercase;
+}
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- masthead ---- */
+.mast { text-align: center; padding: 3rem 1.2rem 1.4rem; position: relative; }
+.sun { width: 92px; height: 92px; margin: 0 auto 1rem; display: block; animation: spin 26s linear infinite; }
+.sun .rays { transform-origin: 100px 100px; animation: spin 40s linear infinite reverse; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.shop { font-size: .74rem; letter-spacing: .28em; text-transform: uppercase; color: var(--cyan); margin: 0 0 1.2rem; }
+.mast h1 {
+  font-family: 'Righteous', 'Arial Black', sans-serif;
+  font-size: clamp(3.2rem, 11vw, 7.5rem);
+  margin: 0;
+  line-height: .95;
+  color: #fff;
+  text-shadow:
+    0 0 18px rgba(255, 93, 143, .8),
+    0 0 46px rgba(255, 209, 102, .5),
+    4px 4px 0 var(--violet);
+  letter-spacing: .04em;
+}
+.mast .amp { color: var(--neon); font-size: .5em; vertical-align: middle; padding: 0 .2em; }
+.mast .artists { font-size: .42em; display: inline-block; color: var(--cyan); text-shadow: 0 0 14px rgba(69, 240, 216, .7); letter-spacing: .12em; }
+.sub { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--neon); margin: 1.1rem 0 0; }
+
+/* ---- cradle ---- */
+.cradle { max-width: 960px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+
+/* ---- hero ---- */
+.hero { display: flex; gap: 2.4rem; align-items: center; flex-wrap: wrap; justify-content: center; margin: 2.4rem 0 3rem; }
+.disc-wrap { text-align: center; }
+.disc {
+  width: 230px; height: 230px; border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255,255,255,.14), transparent 45%),
+    repeating-radial-gradient(circle, #111 0 2px, #1d1830 2px 4.5px);
+  box-shadow: 0 0 0 2px rgba(255, 209, 102, .35), 0 0 42px rgba(255, 93, 143, .45), inset 0 0 34px rgba(0,0,0,.8);
+  animation: spin 4.2s linear infinite;
+}
+.disc:hover { animation-play-state: paused; }
+.label-disc {
+  position: absolute; inset: 0; margin: auto;
+  width: 92px; height: 92px; border-radius: 50%;
+  background: radial-gradient(circle, #3a2a72 0 55%, var(--pink) 56% 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: .5rem; letter-spacing: .12em; text-transform: uppercase;
+  animation: spin-rev 4.2s linear infinite;
+}
+.disc:hover ~ .spindle { opacity: .4; }
+@keyframes spin-rev { to { transform: rotate(-360deg); } }
+.spindle {
+  position: absolute; inset: 0; margin: auto; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--paper); z-index: 2;
+  box-shadow: 0 0 8px rgba(255,255,255,.9);
+  transition: opacity .3s;
+}
+.disc-cap { font-size: .72rem; color: rgba(247, 239, 221, .65); margin-top: 1rem; font-style: italic; }
+
+.buybox {
+  flex: 1 1 340px; max-width: 460px;
+  border: 1px solid rgba(255, 209, 102, .55);
+  outline: 1px dashed rgba(69, 240, 216, .4); outline-offset: 6px;
+  padding: 1.6rem 1.8rem;
+  background: rgba(13, 10, 31, .5);
+}
+.price { font-family: 'Righteous', sans-serif; font-size: 2.4rem; color: var(--neon); margin: 0; text-shadow: 0 0 16px rgba(255, 209, 102, .6); }
+.price .cents { font-family: 'Space Mono', monospace; font-size: .8rem; color: rgba(247,239,221,.6); letter-spacing: .06em; }
+.stock { font-size: .82rem; }
+.buy-row { display: flex; align-items: center; gap: 1rem; margin-top: 1.2rem; }
+.add {
+  font-family: 'Righteous', sans-serif; font-size: 1rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink); background: var(--neon); border: none; padding: .8rem 1.6rem; cursor: pointer;
+  box-shadow: 4px 4px 0 var(--pink);
+  transition: transform .12s, box-shadow .12s;
+}
+.add:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--pink); }
+.add:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--pink); }
+.count { font-size: .8rem; color: var(--cyan); letter-spacing: .1em; }
+.fineprint { font-size: .72rem; font-style: italic; color: rgba(247, 239, 221, .6); margin-bottom: 0; }
+
+/* ---- blocks ---- */
+.block { margin: 0 0 2.8rem; }
+.block h2 {
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.5rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--pink); margin: 0 0 1rem;
+  text-shadow: 0 0 12px rgba(255, 93, 143, .5);
+}
+.bar { display: inline-block; width: .7em; height: .7em; background: var(--neon); margin-right: .55em; transform: rotate(45deg); box-shadow: 3px 3px 0 var(--cyan); }
+.block p { font-size: .92rem; max-width: 66ch; }
+.block a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(69, 240, 216, .5); }
+.block a:hover { color: var(--neon); text-decoration-color: var(--neon); }
+
+/* ---- tables ---- */
+table { width: 100%; border-collapse: collapse; font-size: .84rem; background: rgba(13, 10, 31, .45); }
+.tracks th, .specs th {
+  background: var(--violet); color: var(--neon); text-align: left;
+  letter-spacing: .18em; text-transform: uppercase; font-size: .72rem; padding: .55rem .8rem;
+}
+.tracks td { padding: .55rem .8rem; border-bottom: 1px dashed rgba(255, 209, 102, .25); }
+.tracks .no { color: var(--pink); font-weight: 700; width: 3.2em; }
+.tracks .len { text-align: right; color: var(--cyan); width: 5em; }
+.specs td { padding: .55rem .8rem; border-bottom: 1px dashed rgba(255, 209, 102, .25); vertical-align: top; }
+.specs th { width: 11em; color: var(--cyan); background: rgba(43, 30, 94, .7); }
+.tbl-note { font-size: .76rem; font-style: italic; color: rgba(247, 239, 221, .65); }
+
+/* ---- reviews ---- */
+.reviews { list-style: none; margin: 0; padding: 0; }
+.reviews li {
+  border-left: 3px solid var(--pink);
+  background: rgba(13, 10, 31, .4);
+  padding: .9rem 1.1rem; margin: 0 0 .9rem;
+  font-size: .86rem;
+}
+.stars { color: var(--neon); letter-spacing: .18em; margin-right: .4em; text-shadow: 0 0 10px rgba(255, 209, 102, .6); }
+.backrow { font-size: .8rem; }
+
+/* ---- footer ---- */
+.foot {
+  text-align: center;
+  border-top: 1px solid rgba(255, 209, 102, .4);
+  padding: 1.6rem 1.2rem 2.6rem;
+  background: rgba(13, 10, 31, .6);
+}
+.eq { display: flex; justify-content: center; align-items: flex-end; gap: 4px; height: 42px; margin-bottom: 1.2rem; }
+.eq i { width: 6px; background: linear-gradient(180deg, var(--pink), var(--neon)); animation: bounce 1s ease-in-out infinite alternate; }
+@keyframes bounce { from { height: 8%; } to { height: 100%; } }
+.foot p { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(247, 239, 221, .55); margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .sun, .sun .rays, .disc, .label-disc, .eq i { animation: none; }
+}
