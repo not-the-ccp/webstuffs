@@ -1,0 +1,138 @@
+/* Bench No. 4 — build log sheet */
+
+:root {
+  --walnut: #4b2e1e;
+  --walnut-deep: #33200f;
+  --kraft: #e9dcc0;
+  --kraft-line: #c9b58e;
+  --ink: #2c241c;
+  --turf: #3e5e3a;
+  --water: #7fa3ad;
+  --pencil: #6b6157;
+  --brass: #a8842f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, var(--kraft-line) 27px 28px),
+    var(--kraft);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.masthead {
+  border-bottom: 4px double var(--walnut);
+  padding: 1.5rem 0 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border: 1px solid var(--brass);
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  transform: rotate(-1.5deg);
+  background: rgba(255, 253, 246, 0.55);
+}
+
+h1 {
+  font-size: 2.3rem;
+  color: var(--walnut-deep);
+  margin: 0.6rem 0 0.25rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--pencil);
+  margin: 0;
+}
+
+.drying {
+  position: relative;
+  height: 14px;
+  border: 1px solid var(--walnut);
+  background: rgba(127, 163, 173, 0.18);
+  margin: 0.9rem 0 0.25rem;
+}
+
+.drying-fill {
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(90deg, var(--water) 0 6px, #93b6bf 6px 12px);
+  transition: width 2.4s ease-out;
+}
+
+.drying-label {
+  position: absolute;
+  right: 0.4rem;
+  top: -0.35rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.65rem;
+  color: var(--walnut);
+  background: var(--kraft);
+  padding: 0 0.3rem;
+}
+
+.entry {
+  background: rgba(255, 253, 246, 0.6);
+  border-left: 6px solid var(--walnut);
+  padding: 1rem 1.25rem 1.1rem;
+  margin: 0 0 1.1rem;
+}
+
+.entry h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--walnut-deep);
+  margin: 0 0 0.6rem;
+  border-bottom: 1px dashed var(--kraft-line);
+  padding-bottom: 0.4rem;
+}
+
+.entry p { margin: 0 0 0.7rem; }
+
+.entry p:last-child { margin-bottom: 0; }
+
+strong { color: var(--walnut-deep); }
+
+.pencil-note {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--pencil);
+  border-left: 2px solid var(--brass);
+  padding-left: 0.75rem;
+  background: rgba(233, 220, 192, 0.5);
+}
+
+a {
+  color: var(--turf);
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--walnut-deep); }
+
+.foot {
+  border-top: 4px double var(--walnut);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--pencil);
+  text-align: center;
+}
+
+.foot p { margin: 0.2rem 0; }
