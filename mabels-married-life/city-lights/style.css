@@ -1,0 +1,106 @@
+/* City Lights — liner notes, AURELIA LAC 7 */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #211d18;
+  --faint: #6e6353;
+  --rule: #cfc5b2;
+  --accent: #8a2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.liner {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.liner-header {
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 2.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.series {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--faint);
+  margin: 0.7rem 0 0.4rem;
+}
+
+.notes-by {
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin: 0;
+}
+
+.liner-section { margin-bottom: 2.4rem; }
+
+h2 {
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+
+.tracklist ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.4rem;
+}
+
+.tracklist li { margin-bottom: 0.55rem; }
+.tracklist li em { color: var(--ink); }
+
+.side-two {
+  font-size: 0.92rem;
+  color: var(--faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+}
+
+.liner-footer {
+  border-top: 3px double var(--ink);
+  margin-top: 1rem;
+  padding-top: 1.4rem;
+  text-align: center;
+}
+
+.small {
+  font-size: 0.78rem;
+  color: var(--faint);
+  letter-spacing: 0.06em;
+}
+
+.nav-link { font-size: 0.85rem; margin: 0.6rem 0 0; }
