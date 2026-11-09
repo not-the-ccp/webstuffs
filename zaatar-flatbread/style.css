@@ -1,0 +1,203 @@
+/* Card No. 23 — Zaatar Flatbread: a biscuit-tin recipe card, kept under the yard clock */
+
+:root {
+  --card: #f2ecd9;
+  --card-edge: #e3d8ba;
+  --ink: #33301f;
+  --faded: #6c6248;
+  --rule: #b3a06a;
+  --green: #4c5a2e;
+  --red: #8e2f22;
+  --stamp: #5c6b35;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 3rem 1rem 4rem;
+  background:
+    repeating-linear-gradient(90deg, rgba(80, 96, 50, 0.06) 0 2px, transparent 2px 96px),
+    linear-gradient(160deg, #b9b08a 0%, #a49a6c 55%, #8d8153 100%);
+  font-family: "EB Garamond", Georgia, serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  background:
+    radial-gradient(circle at 14% 6%, rgba(76, 90, 46, 0.08), transparent 30%),
+    radial-gradient(circle at 86% 98%, rgba(110, 80, 40, 0.10), transparent 34%),
+    linear-gradient(180deg, #f7f2e0 0%, var(--card) 42%, #ece1c3 100%);
+  border: 1px solid var(--card-edge);
+  box-shadow:
+    0 2px 4px rgba(50, 45, 20, 0.25),
+    0 18px 40px rgba(50, 45, 20, 0.35),
+    inset 0 0 60px rgba(140, 130, 70, 0.12);
+  padding: 2.6rem 2.8rem 1.6rem;
+  transform: rotate(0.35deg);
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 14px;
+  background: radial-gradient(ellipse at center, rgba(80, 70, 30, 0.14), transparent 70%);
+  pointer-events: none;
+}
+.card::before { top: 0; }
+.card::after { bottom: 0; }
+
+.tape {
+  position: absolute;
+  width: 120px;
+  height: 34px;
+  background: rgba(233, 222, 190, 0.55);
+  border-left: 1px dashed rgba(110, 95, 55, 0.35);
+  border-right: 1px dashed rgba(110, 95, 55, 0.35);
+  box-shadow: 0 1px 3px rgba(50, 45, 20, 0.2);
+}
+.tape-top { top: -14px; right: 58px; transform: rotate(6deg); }
+.tape-bottom { bottom: -12px; left: 50px; transform: rotate(-5deg); }
+
+.head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.5rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+}
+.card-no { color: var(--red); font-weight: 700; letter-spacing: 0.18em; }
+
+h1 {
+  font-family: "Caveat", cursive;
+  font-size: 3.3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 1rem 0 0.3rem;
+}
+
+.byline {
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  color: var(--faded);
+  margin: 0.2rem 0 0.6rem;
+}
+
+.serves {
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--faded);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.45rem 0;
+  margin-top: 0.8rem;
+}
+
+.disc-figure {
+  margin: 1.4rem auto 0.4rem;
+  width: 240px;
+}
+.disc { width: 100%; height: auto; display: block; }
+.disc-text {
+  font-family: "Special Elite", "Courier New", monospace;
+  fill: #e9dcc3;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+.disc-text.small { font-size: 10px; }
+.disc-figure figcaption {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--faded);
+  margin-top: 0.4rem;
+}
+
+section { margin: 1.5rem 0; }
+
+h2 {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+p { font-size: 1.06rem; line-height: 1.55; margin: 0 0 0.9rem; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0; padding-left: 1.3rem; }
+li { font-size: 1.03rem; line-height: 1.5; margin-bottom: 0.45rem; }
+li::marker { color: var(--green); font-family: "Special Elite", monospace; }
+
+.found-line {
+  margin: 1.1rem 0;
+  padding: 0.9rem 1.2rem;
+  background: rgba(76, 90, 46, 0.07);
+  border-left: 4px solid var(--green);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.found-line p { margin: 0; }
+.found-line footer {
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--faded);
+  margin-top: 0.5rem;
+}
+
+a { color: var(--red); text-decoration: underline; text-decoration-color: rgba(142, 47, 34, 0.4); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--red); }
+
+.card-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.8rem;
+}
+.stamp {
+  font-family: "Special Elite", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 0.5rem 0.7rem;
+  text-align: center;
+  line-height: 1.5;
+  transform: rotate(-6deg);
+  opacity: 0.85;
+}
+.foot-line {
+  font-family: "Special Elite", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--faded);
+  margin: 0;
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .card { padding: 2rem 1.4rem 1.4rem; transform: none; }
+  .card-foot { flex-direction: column; align-items: flex-start; }
+  .foot-line { text-align: left; }
+}
