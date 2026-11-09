@@ -1,0 +1,187 @@
+/* Minutes of the Meeting — red minute book, item no. 597 */
+
+:root {
+  --ink: #2b2620;
+  --faded: #6e645a;
+  --rule: #c9bfae;
+  --paper: #f7f3ea;
+  --card: #fbf8f1;
+  --red: #8c3b2e;
+  --red-soft: #a05548;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+}
+
+.masthead {
+  text-align: center;
+  padding-bottom: 2.25rem;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.9rem;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.92rem;
+  margin: 0 auto;
+  max-width: 36rem;
+}
+
+.rule {
+  display: block;
+  width: 5rem;
+  height: 1px;
+  background: var(--rule);
+  margin: 1.75rem auto 0;
+}
+
+footer .rule { margin-bottom: 1.5rem; }
+
+.panel-tag {
+  font-size: 0.78rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.panel-tag .num {
+  display: inline-block;
+  min-width: 3.2rem;
+  color: var(--faded);
+}
+
+section { margin-bottom: 2.75rem; }
+
+.present {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 1.75rem 1.25rem;
+}
+
+.roll {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.roll li {
+  padding: 0.3rem 0 0.3rem 1.1rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.roll li::before {
+  content: "\00b7";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.absent {
+  font-size: 0.9rem;
+  color: var(--faded);
+  font-style: italic;
+  margin: 0;
+}
+
+.item p { margin: 0 0 1rem; }
+
+em { color: var(--red-soft); }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--red); text-decoration-color: var(--red); }
+
+.signatures {
+  margin-top: 3.25rem;
+}
+
+.sign-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sign-table td {
+  padding: 1.6rem 0.5rem 0.4rem;
+  vertical-align: bottom;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.sig-name {
+  display: block;
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  font-size: 1.5rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.certified {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px dashed var(--red);
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.certified.shown { opacity: 1; }
+
+.foot {
+  margin-top: 3.5rem;
+  font-size: 0.88rem;
+  color: var(--faded);
+}
+
+.foot p { margin: 0 auto; max-width: 38rem; }
+
+@media (max-width: 30rem) {
+  .sheet { padding: 2.5rem 1.25rem 3.5rem; }
+  h1 { font-size: 1.9rem; }
+}
