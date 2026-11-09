@@ -1,0 +1,162 @@
+/* The Name Over the Quay — Studio 12 broadcast sheet */
+:root {
+  --ink: #1c1a22;
+  --paper: #f3ead7;
+  --paper-deep: #eadfc4;
+  --amber: #c98a2b;
+  --rust: #8c3b1e;
+  --teal: #23474a;
+  --wire: #6d6152;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(28, 26, 34, 0.035) 0 1px, transparent 1px 28px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+main.play {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  background:
+    radial-gradient(ellipse at top, rgba(201, 138, 43, 0.10), transparent 55%),
+    var(--paper);
+  border-left: 3px double var(--wire);
+  border-right: 3px double var(--wire);
+}
+
+/* on-air lamp */
+.onair {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: var(--rust);
+  margin: 0 0 0.75rem;
+}
+.lamp {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--rust);
+  box-shadow: 0 0 0 3px rgba(140, 59, 30, 0.25);
+}
+.lamp.lit { animation: flicker 1.4s steps(2, end) infinite; }
+@keyframes flicker {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(140, 59, 30, 0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(140, 59, 30, 0.10); }
+}
+
+/* frequency dial */
+.dial {
+  position: relative;
+  height: 1.6rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin: 0 0 1.25rem;
+  background: var(--paper-deep);
+}
+.dial .tick {
+  position: absolute;
+  top: 0.25rem;
+  width: 2px;
+  height: 0.55rem;
+  background: var(--ink);
+}
+.dial .t1 { left: 12%; } .dial .t2 { left: 30%; } .dial .t3 { left: 48%; }
+.dial .t4 { left: 62%; } .dial .t5 { left: 78%; } .dial .t6 { left: 90%; }
+.dial .needle {
+  position: absolute;
+  left: 48%;
+  top: -3px;
+  width: 3px;
+  height: 1.35rem;
+  background: var(--rust);
+}
+
+/* header */
+.play-head { text-align: center; }
+.series {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wire);
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.35rem;
+  color: var(--teal);
+}
+.subtitle { font-style: italic; color: var(--rust); margin: 0 0 0.6rem; }
+.bismillah {
+  font-size: 2.6rem;
+  margin: 0.4rem 0;
+  color: var(--teal);
+}
+.plimsoll {
+  border: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 4px;
+  margin: 1.1rem 0 1.4rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: var(--teal);
+  border-bottom: 1px dotted var(--wire);
+  padding-bottom: 0.25rem;
+  margin: 2rem 0 0.8rem;
+}
+.cast-head { font-variant: small-caps; }
+
+/* script typography */
+.billing { text-align: justify; }
+a { color: var(--rust); }
+a:hover { color: var(--teal); }
+cite { font-style: normal; background: var(--paper-deep); padding: 0 0.25em; }
+
+.cast { list-style: none; padding-left: 0; }
+.cast li { margin: 0.3rem 0; }
+
+.sfx {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--wire);
+  border-left: 3px solid var(--amber);
+  padding: 0.1rem 0 0.1rem 0.8rem;
+  margin: 0.9rem 0;
+}
+
+.line {
+  margin: 1rem 0 1rem 1.25rem;
+  padding-left: 0.9rem;
+  border-left: 2px dotted var(--wire);
+}
+.who {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+}
+
+.sign-off {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--wire);
+}
