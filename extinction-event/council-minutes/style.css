@@ -1,0 +1,418 @@
+/* Minutes No. 231 — the council's own end times, kept warm at 325 degrees */
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono&display=swap");
+
+:root {
+  --ink: #2a2018;
+  --parchment: #efe2c0;
+  --parchment-deep: #e3d0a3;
+  --gold: #c9a227;
+  --gold-dim: #8a711c;
+  --oxblood: #7a1f1f;
+  --night: #0c0a14;
+  --ember: #b3431e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  font-size: 1.22rem;
+  line-height: 1.62;
+  background:
+    radial-gradient(120% 60% at 50% -10%, #2b1030 0%, #14101f 34%, var(--night) 72%) fixed,
+    var(--night) fixed;
+  min-height: 100vh;
+}
+
+/* ---- the last sky, behind everything ---- */
+.last-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.dying-sun {
+  position: absolute;
+  top: 7vh;
+  left: 50%;
+  width: 34vmin;
+  height: 34vmin;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 42%, #f4d78a 0%, #d99a2b 38%, #b3431e 62%, rgba(107, 26, 20, 0) 72%);
+  filter: blur(1px);
+  animation: ember-pulse 9s ease-in-out infinite;
+}
+
+@keyframes ember-pulse {
+  0%, 100% { opacity: 0.72; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 18%, rgba(239, 226, 192, 0.9), transparent 55%),
+    radial-gradient(1px 1px at 34% 9%,  rgba(239, 226, 192, 0.7), transparent 55%),
+    radial-gradient(1.2px 1.2px at 58% 22%, rgba(201, 162, 39, 0.8), transparent 55%),
+    radial-gradient(1px 1px at 77% 14%, rgba(239, 226, 192, 0.6), transparent 55%),
+    radial-gradient(1.3px 1.3px at 91% 26%, rgba(239, 226, 192, 0.8), transparent 55%);
+  background-size: 620px 480px;
+  animation: star-drift 240s linear infinite;
+}
+
+.stars-b {
+  background-size: 410px 350px;
+  background-position: 160px 90px;
+  opacity: 0.6;
+  animation-duration: 160s;
+  animation-direction: reverse;
+}
+
+@keyframes star-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 620px 480px; }
+}
+
+/* the strata at the bottom of the sky: the wall the five endings are set into */
+.last-sky .strata {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 16vh;
+  opacity: 0.85;
+}
+
+.last-sky .strata i { flex: 1.6; background: linear-gradient(180deg, #241c14, #2c2116); }
+.last-sky .strata i:nth-child(2) { flex: 1.2; background: #33261a; }
+.last-sky .strata i:nth-child(3) { flex: 2.4; background: #1d1610; }
+.last-sky .strata i:nth-child(4) { flex: 1.1; background: #3a2a1c; }
+.last-sky .strata i.seam {
+  flex: 0.25;
+  background: linear-gradient(90deg, #000, #0a0705 50%, #000);
+  box-shadow: 0 0 14px 2px rgba(201, 162, 39, 0.35);
+  animation: seam-breathe 6s ease-in-out infinite;
+}
+
+@keyframes seam-breathe {
+  0%, 100% { box-shadow: 0 0 10px 1px rgba(201, 162, 39, 0.25); }
+  50%      { box-shadow: 0 0 22px 4px rgba(201, 162, 39, 0.55); }
+}
+
+/* ---- masthead ---- */
+.masthead {
+  text-align: center;
+  padding: 11vh 1.2rem 3rem;
+  color: var(--parchment);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.crest {
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 0.6rem;
+  display: block;
+  animation: crest-sway 14s ease-in-out infinite;
+}
+
+@keyframes crest-sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50%      { transform: rotate(1.4deg); }
+}
+
+.crest-ring   { fill: none; stroke: var(--gold); stroke-width: 2.4; stroke-dasharray: 4 3; }
+.crest-sun    { fill: var(--gold); opacity: 0.85; animation: ember-pulse 9s ease-in-out infinite; transform-origin: 60px 44px; }
+.crest-hourglass path { stroke: var(--parchment); stroke-width: 2; }
+.crest .sand-top, .crest .sand-bottom { fill: var(--gold); stroke: none; }
+.crest-rays   { stroke: var(--gold-dim); stroke-width: 2; }
+.crest .dot   { fill: var(--gold); }
+
+.council-line {
+  font-family: "Space Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.8rem;
+}
+
+.masthead h1 {
+  font-family: "IM Fell English", "Iowan Old Style", Georgia, serif;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0.1em 0;
+}
+
+.subhead {
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  color: var(--parchment-deep);
+  max-width: 34em;
+  margin: 0 auto 1rem;
+}
+
+.session-line {
+  font-family: "Space Mono", "Courier New", monospace;
+  font-size: 0.8rem;
+  color: rgba(239, 226, 192, 0.85);
+  margin: 0;
+}
+
+.bell-count {
+  color: var(--gold);
+  animation: bell-blink 2.4s steps(2, jump-none) infinite;
+}
+
+@keyframes bell-blink {
+  50% { opacity: 0.35; }
+}
+
+/* ---- the minute itself: ruled parchment on the last night ---- */
+.minutes {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto 4rem;
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.4rem) 3rem;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(180deg, transparent 0 2.05rem, rgba(122, 31, 31, 0.12) 2.05rem calc(2.05rem + 1px)),
+    linear-gradient(105deg, rgba(122, 31, 31, 0.16) 0 64px, transparent 64px),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  border: 1px solid rgba(42, 32, 24, 0.5);
+  box-shadow:
+    0 0 0 6px rgba(12, 10, 20, 0.85),
+    0 0 0 7px rgba(201, 162, 39, 0.4),
+    0 30px 80px rgba(0, 0, 0, 0.65);
+}
+
+/* the red margin rule of a proper minute book */
+.minutes::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 76px;
+  width: 1px;
+  background: rgba(122, 31, 31, 0.4);
+}
+
+/* wax seal, top right of the minute */
+.minutes::after {
+  content: "\27E8";
+  position: absolute;
+  top: -34px;
+  right: 22px;
+  width: 74px;
+  height: 74px;
+  line-height: 62px;
+  text-align: center;
+  font-size: 2.2rem;
+  color: rgba(239, 226, 192, 0.9);
+  border-radius: 47% 53% 50% 50% / 52% 48% 52% 48%;
+  background: radial-gradient(circle at 36% 30%, #a13125, #6d1712 68%, #4c0e0b);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.55), inset 0 -4px 10px rgba(255, 200, 120, 0.18), 0 8px 18px rgba(0, 0, 0, 0.5);
+  transform: rotate(9deg);
+}
+
+.minutes h2 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.55rem;
+  letter-spacing: 0.03em;
+  margin: 2.2rem 0 0.8rem;
+  color: var(--oxblood);
+  text-align: center;
+}
+
+.minutes h2::before, .minutes h2::after {
+  content: "\2766";
+  color: var(--gold-dim);
+  font-size: 0.9em;
+  display: inline-block;
+  margin: 0 0.7em;
+}
+
+.minutes h2::after { content: "\2765"; }
+
+.minutes p { margin: 0 0 1.05rem; }
+
+.minutes a {
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--oxblood);
+  transition: background 0.2s, color 0.2s;
+}
+
+.minutes a:hover, .minutes a:focus {
+  background: var(--oxblood);
+  color: var(--parchment);
+}
+
+/* quorum */
+.quorum dl {
+  margin: 0;
+  border-top: 2px solid var(--gold-dim);
+}
+
+.quorum dl > div {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0.8rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted rgba(42, 32, 24, 0.4);
+}
+
+.quorum dt {
+  font-family: "Space Mono", monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-dim);
+  padding-top: 0.3rem;
+}
+
+.quorum dd { margin: 0; }
+
+.quorum-note {
+  font-style: italic;
+  color: rgba(42, 32, 24, 0.78);
+}
+
+/* item numbers in the margin */
+.item { position: relative; padding-left: 0.2rem; }
+
+.item h2::before { content: "\2741\2741"; margin-left: 0; }
+
+.filing {
+  border: 1px dashed var(--gold-dim);
+  padding: 1.4rem 1.4rem 0.4rem;
+  margin-top: 1.6rem;
+  background: rgba(201, 162, 39, 0.07);
+}
+
+.filing p:last-of-type { margin-bottom: 1.2rem; }
+
+/* resolutions: each one gets a seal when it enters the light */
+.resolutions ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: resolution;
+}
+
+.resolution {
+  counter-increment: resolution;
+  position: relative;
+  padding: 0.9rem 6.2rem 0.9rem 3.2rem;
+  margin-bottom: 0.9rem;
+  background: rgba(239, 226, 192, 0.5);
+  border: 1px solid rgba(42, 32, 24, 0.35);
+  box-shadow: 2px 3px 0 rgba(42, 32, 24, 0.2);
+}
+
+.resolution::before {
+  content: "RESOLUTION " counter(resolution, upper-roman);
+  position: absolute;
+  left: 0.7rem;
+  top: 0.95rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--gold-dim);
+}
+
+.seal {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-11deg) scale(2.4);
+  font-family: "Space Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  color: var(--oxblood);
+  border: 2.5px double var(--oxblood);
+  padding: 0.35rem 0.5rem;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+
+.resolution.seen .seal {
+  opacity: 0.85;
+  transform: translateY(-50%) rotate(-11deg) scale(1);
+}
+
+/* adjournment & signatures */
+.adjourn { text-align: center; }
+
+.signatures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 2.2rem;
+  margin-top: 1.6rem;
+}
+
+.sig {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(42, 32, 24, 0.85);
+  border-bottom: 1px solid rgba(42, 32, 24, 0.5);
+  padding: 0 0.4rem 0.1rem;
+}
+
+/* filed beside */
+.filed-beside {
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  border-top: 2px solid var(--gold-dim);
+}
+
+.filed-beside h2 { margin-top: 0; font-size: 1.25rem; }
+
+.filed-beside p { margin: 0.4rem 0; font-size: 1.05rem; }
+
+/* colophon */
+.colophon {
+  text-align: center;
+  padding: 0 1.2rem 7vh;
+  color: rgba(239, 226, 192, 0.75);
+  font-size: 0.9rem;
+}
+
+.colophon .stamp {
+  display: inline-block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  border: 2px double var(--gold);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  margin-bottom: 1rem;
+  animation: stamp-fade 3s ease-in-out infinite alternate;
+}
+
+@keyframes stamp-fade {
+  from { opacity: 0.55; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 620px) {
+  .minutes::before { display: none; }
+  .quorum dl > div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .resolution { padding-right: 4.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dying-sun, .stars, .last-sky .strata i.seam, .crest, .bell-count, .colophon .stamp { animation: none; }
+}
