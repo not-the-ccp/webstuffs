@@ -1,0 +1,55 @@
+/* Theban Necropolis Weather Almanac — Entry No. 1, West Bank Station */
+
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f4efe3;
+  color: #2b2a26;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.sky {
+  position: relative;
+  height: 56px;
+  background: linear-gradient(to bottom, #d8dde2, #eae2cf);
+  border-bottom: 1px solid #8a7f68;
+  overflow: hidden;
+}
+.front {
+  position: absolute;
+  top: 10px;
+  left: -160px;
+  width: 160px;
+  height: 26px;
+  background: repeating-linear-gradient(to right, #43596e 0 14px, transparent 14px 22px);
+  opacity: 0.35;
+  animation: drift 46s linear infinite;
+}
+.sheet { max-width: 760px; margin: 0 auto; padding: 30px 26px; background: #fff; }
+.masthead { border-bottom: 2px solid #1a1a1a; padding-bottom: 14px; margin-bottom: 26px; }
+.kicker { font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; color: #6b5d4d; margin: 0 0 6px 0; }
+.masthead h1 { font-size: 24px; margin: 0 0 4px 0; font-weight: normal; line-height: 1.25; }
+.masthead .comma { margin-left: 4px; }
+.station { font-size: 13px; color: #444; margin: 0 0 6px 0; }
+.reading { font-size: 13px; color: #555; margin: 0; }
+.reading #live-temp { font-weight: bold; }
+main { padding-top: 6px; }
+.entry { margin-bottom: 30px; }
+.entry-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8a7c6a; margin: 0 0 6px 0; }
+.entry h2 { font-size: 17px; margin: 0 0 8px 0; font-weight: normal; border-bottom: 1px solid #d8d0c4; padding-bottom: 4px; }
+.entry p { margin: 0 0 12px 0; }
+blockquote.marginalia { margin: 10px 0 14px 0; padding-left: 16px; border-left: 2px solid #1a1a1a; font-style: italic; color: #333; }
+table.normals, table.inventory { width: 100%; border-collapse: collapse; margin: 10px 0 4px 0; font-size: 13px; }
+table.normals th, table.normals td, table.inventory th, table.inventory td { border-bottom: 1px solid #ddd6cb; padding: 5px 6px; text-align: left; }
+table.inventory td.nums, table.inventory tfoot th { text-align: right; }
+table.normals tfoot td, table.normals tfoot th { font-weight: bold; border-top: 2px solid #1a1a1a; }
+table.inventory tfoot { font-weight: bold; }
+table.inventory tfoot td { border-top: 2px solid #1a1a1a; }
+.note { font-size: 12px; color: #666; margin-top: 2px; }
+.filter { margin: 10px 0 10px 0; }
+.filter button { font-family: inherit; font-size: 11.5px; background: #fff; border: 1px solid #b9a894; padding: 4px 10px; margin: 0 6px 6px 0; border-radius: 2px; cursor: pointer; }
+.filter button.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+.colophon { margin-top: 40px; padding-top: 14px; border-top: 2px solid #1a1a1a; font-size: 12px; color: #555; }
+.colophon .nav { margin-top: 8px; }
+.entry a, .colophon a { color: #1a1a1a; text-decoration: underline; }
+@keyframes drift { from { left: -160px; } to { left: 100%; } }
