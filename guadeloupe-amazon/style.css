@@ -1,0 +1,360 @@
+/* The Roseau & Pointe-à-Pitre Advertiser — classified column of the Lesser Antilles */
+
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=Caudex:wght@400;700&display=swap');
+
+:root {
+  --canopy: #1e5c3a;
+  --canopy-deep: #0d3524;
+  --violet: #7a1fa8;
+  --violet-deep: #4a1166;
+  --paper: #f4ecd8;
+  --paper-warm: #efe2c4;
+  --ink: #26170b;
+  --red: #a3281f;
+  --gold: #b8860b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'IM Fell English', 'Caudex', Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 90% 55% at 8% 0%, rgba(30, 92, 58, 0.85) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgba(122, 31, 168, 0.75) 0%, transparent 55%),
+    repeating-linear-gradient(45deg, rgba(244, 236, 216, 0.05) 0 2px, transparent 2px 14px),
+    linear-gradient(165deg, var(--canopy-deep) 0%, #123b2a 40%, #2a1040 78%, var(--violet-deep) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ---- feather ornaments ---- */
+.feather {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  z-index: 5;
+  opacity: 0.9;
+  animation: featherSway 7s ease-in-out infinite alternate;
+  filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.45));
+}
+.feather-tl { top: 0; left: 0; transform-origin: top left; }
+.feather-br { bottom: 0; right: 0; transform-origin: bottom right; animation-delay: -3.5s; }
+@keyframes featherSway {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(4deg); }
+}
+
+/* ---- masthead ---- */
+.masthead {
+  text-align: center;
+  padding: 2.2rem 1rem 1rem;
+  color: var(--paper);
+  position: relative;
+}
+.masthead::before,
+.masthead::after {
+  content: "";
+  display: block;
+  height: 6px;
+  margin: 0.9rem auto;
+  max-width: 46rem;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 22px, transparent 22px 30px, #e0b84c 30px 52px, transparent 52px 60px);
+}
+.masthead-top {
+  font-family: 'Caudex', sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #d9c99a;
+  margin: 0;
+}
+.masthead h1 {
+  font-family: 'UnifrakturMaguntia', 'Caudex', serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  margin: 0.2rem 0;
+  color: #f2e6c4;
+  text-shadow:
+    0 0 24px rgba(224, 184, 76, 0.45),
+    3px 3px 0 rgba(122, 31, 168, 0.7),
+    6px 6px 0 rgba(0, 0, 0, 0.35);
+}
+.masthead-sub {
+  font-family: 'Caudex', sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
+  color: #e8d9ae;
+}
+.masthead-sub span { border: 1px solid rgba(232, 217, 174, 0.55); padding: 0.1rem 0.55rem; }
+.masthead-sub em { font-family: 'IM Fell English', serif; text-transform: none; letter-spacing: 0.02em; font-size: 0.95rem; }
+.dateline {
+  margin: 0.6rem 0 0;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #cbb87f;
+}
+
+/* ---- ticker ---- */
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  background: linear-gradient(90deg, rgba(21, 8, 30, 0.85), rgba(30, 92, 58, 0.55), rgba(21, 8, 30, 0.85));
+  padding: 0.35rem 0;
+  margin-bottom: 1.6rem;
+}
+.ticker span {
+  display: inline-block;
+  font-family: 'Caudex', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  color: #f2d449;
+  text-transform: uppercase;
+  animation: tickerRun 26s linear infinite;
+}
+@keyframes tickerRun {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- columns & ads ---- */
+.columns {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+}
+@media (max-width: 56rem) {
+  .columns { grid-template-columns: 1fr; }
+}
+
+.ad {
+  position: relative;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(122, 31, 168, 0.10), transparent 40%),
+    radial-gradient(circle at 0% 100%, rgba(30, 92, 58, 0.12), transparent 40%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(38, 23, 11, 0.06) 27px 28px),
+    linear-gradient(175deg, var(--paper) 0%, var(--paper-warm) 100%);
+  border: 2px solid var(--ink);
+  outline: 1px dashed rgba(38, 23, 11, 0.4);
+  outline-offset: 4px;
+  padding: 1.15rem 1.25rem 1.3rem;
+  box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.4);
+  transform: rotate(-0.35deg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ad:nth-child(even) { transform: rotate(0.4deg); }
+.ad:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 10px 11px 0 rgba(0, 0, 0, 0.45);
+}
+.ad::before {
+  content: "❦";
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper);
+  padding: 0 0.5rem;
+  color: var(--violet);
+  font-size: 1.1rem;
+}
+
+.ad.lead {
+  grid-column: 1 / -1;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(30, 92, 58, 0.14), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(122, 31, 168, 0.12), transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(38, 23, 11, 0.06) 27px 28px),
+    linear-gradient(175deg, #f6eed9 0%, var(--paper-warm) 100%);
+  border-width: 3px;
+}
+
+.ad-head {
+  font-family: 'Caudex', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  color: var(--canopy-deep);
+  border-bottom: 3px double var(--ink);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.35rem;
+  position: relative;
+}
+.ad.lead .ad-head { font-size: 1.15rem; color: var(--violet-deep); }
+
+.ad-body { margin: 0 0 0.7rem; }
+.ad-body strong { color: var(--violet-deep); }
+.ad.lead .ad-body strong { color: var(--canopy-deep); }
+
+.ad-foot {
+  font-size: 0.86rem;
+  font-style: italic;
+  margin: 0.6rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px dotted rgba(38, 23, 11, 0.5);
+}
+
+.price-tag {
+  display: inline-block;
+  font-family: 'Caudex', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--paper);
+  background: linear-gradient(120deg, var(--canopy), var(--violet));
+  padding: 0.15rem 0.55rem;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+  white-space: nowrap;
+}
+
+/* lead ad parrot */
+.parrot-slot {
+  float: right;
+  margin: 0 0 0.4rem 0.9rem;
+  width: 84px;
+  height: 84px;
+  border: 2px solid var(--violet);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(242, 212, 73, 0.5), transparent 55%),
+    linear-gradient(160deg, #dfe8c9, #b9c98f);
+  display: grid;
+  place-items: center;
+  box-shadow: 3px 3px 0 rgba(74, 17, 102, 0.35);
+}
+.parrot {
+  width: 60px;
+  height: 60px;
+  animation: parrotBob 4s ease-in-out infinite;
+  filter: drop-shadow(1px 2px 1px rgba(13, 53, 36, 0.4));
+}
+@keyframes parrotBob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+/* crossed-out ad */
+.ad.crossed {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(163, 40, 31, 0.10), transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(38, 23, 11, 0.06) 27px 28px),
+    linear-gradient(175deg, var(--paper) 0%, #e9dcc0 100%);
+}
+.ad.crossed .ad-head { color: var(--red); }
+.strike { position: relative; display: inline-block; white-space: nowrap; }
+.strike::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  top: 52%;
+  height: 3px;
+  width: 0;
+  background: var(--red);
+  transform: rotate(-3deg);
+  transition: width 1.4s ease 0.8s;
+}
+.strike.struck::after { width: 104%; }
+
+/* small ads list */
+.small-ads { list-style: none; margin: 0; padding: 0; }
+.small-ads li {
+  margin: 0 0 0.75rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.small-ads li:last-child { margin-bottom: 0; }
+.small-ads li::before {
+  content: "✒";
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: var(--violet);
+}
+
+/* links */
+a {
+  color: var(--violet-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--violet);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+a:hover {
+  background: linear-gradient(120deg, rgba(122, 31, 168, 0.18), rgba(30, 92, 58, 0.18));
+  color: var(--canopy-deep);
+  border-bottom-style: solid;
+}
+.home-link { font-style: normal; font-family: 'Caudex', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+/* stamped SOLD corner on the crossed ad when struck */
+.ad.crossed::after {
+  content: "STRIKEN 2015";
+  position: absolute;
+  right: 0.7rem;
+  top: 0.55rem;
+  font-family: 'Caudex', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  border: 2px solid var(--red);
+  padding: 0.1rem 0.45rem;
+  transform: rotate(8deg) scale(0);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.2s, opacity 0.4s ease 2.2s;
+}
+.ad.crossed.stamped::after {
+  transform: rotate(8deg) scale(1);
+  opacity: 0.9;
+}
+
+/* ---- colophon ---- */
+.colophon {
+  text-align: center;
+  color: #e8d9ae;
+  padding: 1.6rem 1rem 2.4rem;
+  font-size: 0.92rem;
+  border-top: 2px solid var(--gold);
+  margin: 1rem auto 0;
+  max-width: 62rem;
+}
+.colophon p { margin: 0.3rem 0; }
+.colophon-small {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #cbb87f;
+}
+
+/* gentle page-entry animation */
+.ad { animation: adRise 0.7s ease both; }
+.ad:nth-child(1) { animation-delay: 0.05s; }
+.ad:nth-child(2) { animation-delay: 0.15s; }
+.ad:nth-child(3) { animation-delay: 0.25s; }
+.ad:nth-child(4) { animation-delay: 0.35s; }
+.ad:nth-child(5) { animation-delay: 0.45s; }
+.ad:nth-child(6) { animation-delay: 0.55s; }
+@keyframes adRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; }
+}
+
+/* keep motion quiet for those who ask */
+@media (prefers-reduced-motion: reduce) {
+  .ticker span, .parrot, .feather, .ad { animation: none; }
+  .strike::after { transition: none; }
+}
