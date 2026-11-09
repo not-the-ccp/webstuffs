@@ -1,0 +1,148 @@
+/* The Gaia Table — a medieval-palate quarterly.
+   Alexandria black, Lindblum blue, pomegranate ink, salt-paper. */
+
+:root {
+  --paper: #efe3c8;
+  --paper-deep: #e6d5ae;
+  --ink: #2b1d12;
+  --pomegranate: #7d1f2b;
+  --lindblum-blue: #1f3a5f;
+  --forest-black: #191210;
+  --gold: #b8892e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--forest-black);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, #2a1c14 0%, var(--forest-black) 65%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  line-height: 1.65;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 2.5rem 2.75rem 2rem;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(43,29,18,0.03) 0 2px, transparent 2px 4px);
+  border: 3px double var(--ink);
+  outline: 1px solid var(--gold);
+  outline-offset: 6px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--pomegranate);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  color: var(--lindblum-blue);
+  font-size: 0.8rem;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+  color: var(--forest-black);
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.standfirst {
+  font-style: italic;
+  color: var(--pomegranate);
+  margin: 0;
+}
+
+.scoreline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.score { color: var(--gold); font-weight: bold; }
+.score-meta { color: var(--lindblum-blue); }
+
+.review p { margin: 0 0 1.1rem; }
+
+.review p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.15rem 0.4rem 0 0;
+  color: var(--pomegranate);
+  font-weight: bold;
+}
+
+.review em { color: var(--lindblum-blue); }
+.review a { color: var(--pomegranate); }
+.review a:hover { color: var(--lindblum-blue); }
+
+.verdict {
+  border-left: 4px solid var(--gold);
+  background: var(--paper-deep);
+  padding: 0.75rem 1rem;
+  font-style: italic;
+}
+
+.colophon-note {
+  margin-top: 1.75rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px dashed var(--ink);
+  font-size: 0.92rem;
+  background: rgba(31,58,95,0.05);
+}
+
+.foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--pomegranate);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--lindblum-blue);
+}
+
+.ladle-btn {
+  margin: 0.75rem auto 0.35rem;
+  font-family: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  color: var(--paper);
+  background: var(--pomegranate);
+  border: 1px solid var(--gold);
+  padding: 0.45rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.ladle-btn:hover { background: var(--lindblum-blue); }
+
+.ladle-msg {
+  display: inline-block;
+  min-height: 1.4em;
+  font-style: italic;
+  color: var(--pomegranate);
+  font-variant: normal;
+}
+
+@media (max-width: 600px) {
+  .paper { margin: 1rem 0.75rem; padding: 1.5rem 1.25rem; }
+  h1 { font-size: 1.6rem; }
+}
