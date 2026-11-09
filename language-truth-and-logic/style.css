@@ -1,0 +1,138 @@
+/* The House Cataloguing Room — Item 33 */
+:root {
+  --paper: #f7f3ea;
+  --ink: #211d16;
+  --faded: #6d6455;
+  --oxford: #24406b;
+  --rule: #c9c0aa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.head {
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.6rem;
+}
+
+.room {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  font-weight: 400;
+  margin: 0 0 0.8rem;
+}
+
+.by, .price {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: var(--faded);
+}
+
+.price { margin-top: 0.7rem; font-variant: small-caps; letter-spacing: 0.04em; }
+
+.plate-fig {
+  text-align: center;
+  margin: 2.2rem auto 2.4rem;
+}
+
+.volume { height: 240px; width: auto; }
+
+figcaption {
+  font-size: 0.82rem;
+  color: var(--faded);
+  font-style: italic;
+  max-width: 26rem;
+  margin: 0.8rem auto 0;
+}
+
+.section {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.02rem;
+  margin: 2.2rem 0 0.6rem;
+  color: var(--oxford);
+}
+
+p { margin: 0 0 1.1rem; text-align: justify; hyphens: auto; }
+
+a { color: var(--oxford); }
+
+blockquote.ledger {
+  margin: 1.4rem 0;
+  padding: 1rem 1.4rem;
+  border-left: 3px solid var(--oxford);
+  background: #efe9da;
+  font-style: italic;
+}
+
+blockquote.ledger p { margin: 0; }
+
+.spec {
+  margin: 2.6rem 0 0;
+  border-top: 3px double var(--ink);
+  padding-top: 1.4rem;
+}
+
+.spec h2 {
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.9rem;
+}
+
+.spec table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.spec th {
+  text-align: left;
+  vertical-align: top;
+  font-weight: 400;
+  color: var(--faded);
+  width: 10rem;
+  padding: 0.3rem 0.8rem 0.3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.spec td {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tail {
+  margin-top: 2.6rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+
+.tail p { text-align: center; }
+.see-head { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.7rem; margin: 0 0 0.5rem; }
+.colophon { font-style: italic; margin-top: 0.8rem; }
