@@ -1,0 +1,162 @@
+/* Lost & Found notice — Tower Hamlets Council, Notice No. 118 */
+
+:root {
+  --paper: #f4ecd8;
+  --ink: #2b2620;
+  --faded: #6d6353;
+  --rule: #8a7d64;
+  --stamp-red: #a8331f;
+  --stamp-blue: #2d4a72;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 48px 16px 72px;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(0,0,0,0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(0,0,0,0.14), transparent 50%),
+    #4a4237;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.notice {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(120,100,60,0.05) 27px 28px),
+    linear-gradient(160deg, #f7f0dd 0%, var(--paper) 60%, #ecdfc0 100%);
+  border: 1px solid #b3a37f;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 18px 40px rgba(0,0,0,0.45),
+    inset 0 0 60px rgba(140,115,70,0.18);
+  padding: 56px 56px 40px;
+  transform: rotate(-0.35deg);
+}
+
+/* adhesive tape */
+.tape {
+  position: absolute;
+  top: -14px;
+  width: 120px;
+  height: 34px;
+  background: linear-gradient(180deg, rgba(250,245,225,0.75), rgba(230,220,190,0.55));
+  border-left: 1px solid rgba(160,140,95,0.4);
+  border-right: 1px solid rgba(160,140,95,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.tape-left  { left: 40px;  transform: rotate(-6deg); }
+.tape-right { right: 40px; transform: rotate(5deg); }
+
+.masthead { text-align: center; }
+
+.office-line {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 700;
+}
+h1 .amp {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-style: italic;
+  font-size: 2.4rem;
+  vertical-align: 4px;
+}
+
+.notice-no {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.notice-no strong { color: var(--ink); font-size: 1.05rem; }
+
+.rule {
+  border-top: 3px double var(--rule);
+  margin: 26px 0;
+}
+
+.item { margin-bottom: 26px; }
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  margin: 0 0 12px;
+}
+
+p { margin: 0 0 12px; }
+strong { font-variant: small-caps; letter-spacing: 0.02em; }
+
+.survey-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  background: rgba(140,110,60,0.10);
+  border-left: 3px solid var(--rule);
+  padding: 4px 10px;
+  display: inline;
+}
+
+a { color: var(--stamp-blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+/* rubber stamps */
+.stamp {
+  position: relative;
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border: 3px solid currentColor;
+  border-radius: 6px;
+  padding: 8px 18px;
+  transform: rotate(-4deg);
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+}
+.stamp-found {
+  position: absolute;
+  top: 118px;
+  right: 44px;
+  color: var(--stamp-red);
+  font-size: 0.95rem;
+}
+.stamp-keep {
+  color: var(--stamp-blue);
+  font-size: 0.78rem;
+  transform: rotate(3deg);
+  margin: 0 0 14px;
+}
+
+.colophon {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--faded);
+  letter-spacing: 0.05em;
+}
+.colophon p { margin: 4px 0; }
+
+@media (max-width: 640px) {
+  .notice { padding: 40px 22px 30px; transform: none; }
+  .stamp-found { position: static; display: block; width: max-content; margin: 14px auto 0; }
+  h1 { font-size: 2.2rem; }
+}
