@@ -1,0 +1,135 @@
+/* Field Sheet FM 14-2 — The Union Board */
+
+:root {
+  --paper: #f6f2e9;
+  --ink: #2f2a24;
+  --faded: #5b4a32;
+  --hair: #b8ad97;
+  --accent: #7a2e1d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+.manual {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.series,
+.sheet-title,
+.sheet-head h1,
+h2,
+.register,
+.plate figcaption,
+.colophon {
+  font-family: Georgia, serif;
+}
+
+.sheet-head { text-align: center; margin-bottom: 2.5rem; }
+
+.series {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+}
+
+.sheet-title {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--faded);
+  margin: 0 0 1.2rem;
+}
+
+.rule {
+  width: 5.5rem;
+  height: 1px;
+  background: var(--hair);
+  margin: 1.2rem auto;
+}
+.rule.gold {
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--faded) 30%, var(--accent) 50%, var(--faded) 70%, transparent);
+}
+
+.register {
+  border-collapse: collapse;
+  margin: 1.6rem auto 0;
+  font-size: 0.92rem;
+}
+.register th, .register td {
+  border-top: 1px solid var(--hair);
+  padding: 0.45rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+.register th {
+  width: 9.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: var(--faded);
+}
+
+.plate { margin: 2.8rem 0; }
+.plate svg { width: 100%; height: auto; display: block; }
+
+main section { margin-bottom: 2.6rem; }
+
+h2 {
+  font-size: 1.18rem;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--hair);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+strong { font-weight: bold; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--hair); }
+a:hover { border-bottom-color: var(--accent); }
+
+blockquote.oracle-card {
+  margin: 1.6rem 2.2rem;
+  padding: 1.2rem 1.4rem;
+  border-top: 1px solid var(--faded);
+  border-bottom: 1px solid var(--faded);
+  font-style: italic;
+  color: var(--faded);
+}
+blockquote.oracle-card p { margin: 0; font-size: 0.98rem; }
+
+.colophon {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--hair);
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faded);
+}
+.colophon p { margin: 0.3rem 0; }
+.fine-print { font-style: italic; font-size: 0.78rem; }
