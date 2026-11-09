@@ -1,0 +1,290 @@
+/* Meridian Hall School — National Defence Studies, Form 3B
+   File No. PVM/3B/1884 — sheet kept in spruce green, snow, and register blue */
+
+:root {
+  --spruce: #1d3a24;
+  --spruce-deep: #122417;
+  --snow: #f2efe6;
+  --ink: #22301f;
+  --brass: #b8912f;
+  --brass-pale: #e6cf8e;
+  --flag-blue: #002f6c;
+  --flag-red: #ce2b37;
+  --paper: #efe9d8;
+  --stamp-red: #a33327;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.16rem;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(242,239,230,0.9), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(29,58,36,0.05) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(-45deg, rgba(0,47,108,0.04) 0 2px, transparent 2px 34px),
+    linear-gradient(180deg, #dfe6d8 0%, var(--paper) 30%, #e7dfc8 70%, #d5cdae 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---------- snow field ---------- */
+.snowfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.flake {
+  position: absolute;
+  top: -4vh;
+  color: var(--snow);
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(29,58,36,0.25);
+  animation: fall linear infinite;
+  opacity: 0.85;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(300deg); }
+}
+
+/* ---------- march bar ---------- */
+.marchbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 34px;
+  background: linear-gradient(180deg, var(--spruce-deep), var(--spruce));
+  border-bottom: 3px double var(--brass);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 18px;
+  z-index: 5;
+  overflow: hidden;
+}
+.marcher {
+  width: 10px; height: 10px;
+  background: var(--brass-pale);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  animation: march 1.4s steps(2, end) infinite;
+}
+.m2 { animation-delay: 0.15s; }
+.m3 { animation-delay: 0.3s; }
+.m4 { animation-delay: 0.45s; }
+@keyframes march {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(120vw) translateY(-4px); }
+  100% { transform: translateX(120vw) translateY(0); }
+}
+.march-caption {
+  margin-left: auto;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-pale);
+  white-space: nowrap;
+}
+
+/* ---------- sheet ---------- */
+.report {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 70px auto 60px;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 30px, rgba(0,47,108,0.06) 30px 31px),
+    linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.2));
+  border: 1px solid rgba(29,58,36,0.5);
+  box-shadow:
+    0 0 0 8px rgba(29,58,36,0.08),
+    0 24px 60px rgba(18,36,23,0.35),
+    inset 0 0 80px rgba(184,145,47,0.07);
+  padding: 40px clamp(20px, 6vw, 64px) 56px;
+}
+.report::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid var(--spruce);
+  outline: 1px solid var(--brass);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+/* ---------- cover ---------- */
+.cover { text-align: center; }
+.series-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--spruce);
+  border-top: 2px solid var(--brass);
+  border-bottom: 2px solid var(--brass);
+  padding: 8px 0;
+  margin-bottom: 26px;
+}
+.cover h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 4px;
+  color: var(--spruce-deep);
+  text-shadow: 2px 2px 0 rgba(184,145,47,0.35);
+}
+.subtitle {
+  font-style: italic;
+  color: var(--flag-blue);
+  font-size: 1.25rem;
+  margin-top: 0;
+}
+.cross {
+  width: 190px;
+  margin: 26px auto 8px;
+  display: block;
+  color: var(--spruce);
+  animation: cross-breathe 6s ease-in-out infinite;
+}
+@keyframes cross-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+.roll {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 18px;
+  max-width: 640px;
+  margin: 28px auto 0;
+  text-align: left;
+  font-family: "Courier New", monospace;
+  font-size: 0.86rem;
+}
+.roll dt {
+  color: var(--brass);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.roll dd { margin: 0; color: var(--ink); }
+
+/* ---------- sections ---------- */
+.sec { margin-top: 38px; }
+.sec h2 {
+  font-size: 1.5rem;
+  color: var(--spruce);
+  border-bottom: 3px double var(--brass);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+.stamp {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  padding: 1px 8px;
+  margin-right: 10px;
+  transform: rotate(-2deg);
+  letter-spacing: 0.1em;
+}
+.sec p { margin: 0 0 14px; }
+.sec strong { color: var(--spruce-deep); }
+
+a {
+  color: var(--flag-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+  transition: background 0.2s;
+}
+a:hover { background: rgba(184,145,47,0.22); text-decoration-color: var(--spruce); }
+
+/* ---------- held line ---------- */
+.held-line {
+  display: block;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--flag-blue);
+  border-left: 5px solid var(--brass);
+  padding: 10px 16px;
+  margin: 18px 0 18px 8px;
+  background:
+    linear-gradient(90deg, rgba(0,47,108,0.06), transparent 70%),
+    repeating-linear-gradient(180deg, transparent 0 22px, rgba(163,51,39,0.08) 22px 23px);
+  box-shadow: inset 0 0 24px rgba(29,58,36,0.05);
+}
+
+.grade {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  border: 2px dashed var(--spruce);
+  padding: 8px 14px;
+  transform: rotate(-1deg);
+  background: rgba(242,239,230,0.6);
+}
+
+/* ---------- footer ---------- */
+.foot {
+  margin-top: 44px;
+  border-top: 3px double var(--spruce);
+  padding-top: 18px;
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--spruce-deep);
+  background:
+    linear-gradient(180deg, transparent, rgba(29,58,36,0.07));
+}
+
+/* ---------- SATISFIED stamp ---------- */
+.stamp-big {
+  position: fixed;
+  right: 3vw;
+  bottom: 4vh;
+  z-index: 6;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: var(--stamp-red);
+  border: 4px double var(--stamp-red);
+  padding: 10px 26px;
+  transform: rotate(-14deg);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.stamp-big.landed {
+  animation: land 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+}
+@keyframes land {
+  0% { opacity: 0; transform: rotate(-14deg) scale(3); }
+  70% { opacity: 0.95; transform: rotate(-14deg) scale(0.94); }
+  100% { opacity: 0.85; transform: rotate(-14deg) scale(1); }
+}
+
+/* ---------- reading light on scroll ---------- */
+@supports (background: -webkit-mask-image) {
+  .report { -webkit-print-color-adjust: exact; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flake, .marcher, .cross { animation: none; }
+  .stamp-big { opacity: 0.85; }
+}
+
+@media (max-width: 620px) {
+  .roll { grid-template-columns: 1fr; }
+  .march-caption { display: none; }
+}
