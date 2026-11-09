@@ -1,0 +1,161 @@
+/* The Low — Dining Table No. 42: 1897 reading-room paper, Columbia crimson and gilt */
+:root {
+  --paper: #f6f0e1;
+  --paper-deep: #efe6cf;
+  --ink: #2b241a;
+  --crimson: #750014;
+  --crimson-soft: #8d2a3a;
+  --gold: #a8842c;
+  --gold-pale: #d8c389;
+  --stone: #b9a986;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #241a16;
+  background-image: radial-gradient(circle at 50% -10%, #3a2a22 0%, #241a16 60%);
+  color: var(--ink);
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  line-height: 1.65;
+}
+
+.arch {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.arch svg { width: 100%; height: 140px; display: block; }
+.arch .arc { fill: none; stroke: var(--gold-pale); stroke-width: 3; opacity: 0.85; }
+.arch .arc.inner { stroke-width: 1.5; opacity: 0.55; }
+.arch .laurel ellipse { fill: none; stroke: var(--gold-pale); stroke-width: 1.4; opacity: 0.7; }
+
+.sheet {
+  max-width: 980px;
+  margin: 0 auto 64px;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(0deg, transparent 0 26px, rgba(168, 132, 44, 0.05) 26px 27px);
+  border-top: 6px double var(--crimson);
+  border-bottom: 6px double var(--crimson);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 40px clamp(20px, 6vw, 72px) 48px;
+}
+
+.masthead { text-align: center; }
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin: 0 0 10px;
+}
+h1 {
+  font-size: clamp(3rem, 9vw, 5rem);
+  margin: 0;
+  color: var(--crimson);
+  letter-spacing: 0.04em;
+  font-variant: small-caps;
+  text-shadow: 1px 1px 0 var(--gold-pale);
+}
+.address {
+  font-style: italic;
+  color: var(--crimson-soft);
+  margin: 6px 0 2px;
+}
+.sub { font-size: 0.95rem; margin: 0 0 14px; }
+
+.stars { margin: 10px 0 4px; font-size: 1.6rem; letter-spacing: 0.2em; }
+.star { color: var(--gold); opacity: 0.35; transition: opacity 0.5s ease, transform 0.5s ease; display: inline-block; }
+.star.lit { opacity: 1; transform: scale(1.12); }
+.star.half { background: linear-gradient(90deg, var(--gold) 50%, rgba(168,132,44,0.35) 50%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+.score { color: var(--ink); font-size: 0.9rem; letter-spacing: 0.05em; margin-left: 0.6em; }
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  margin: 22px 0 0;
+}
+.card div { padding: 12px 14px; border-left: 1px dashed var(--stone); }
+.card div:first-child { border-left: none; }
+.card dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--crimson);
+  margin: 0 0 4px;
+}
+.card dd { margin: 0; font-size: 0.9rem; }
+
+.rule {
+  height: 3px;
+  margin: 26px auto 8px;
+  max-width: 320px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  position: relative;
+}
+.rule::after {
+  content: "\25C6";
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  background: var(--paper);
+  padding: 0 10px;
+  font-size: 0.8rem;
+}
+
+.review section { margin: 28px 0; }
+.review h2 {
+  font-variant: small-caps;
+  color: var(--crimson);
+  border-bottom: 1px solid var(--gold-pale);
+  padding-bottom: 6px;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+}
+p { margin: 0 0 14px; }
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.85;
+  padding: 4px 10px 0 0;
+  color: var(--crimson);
+  font-family: Georgia, serif;
+}
+strong { color: var(--crimson-soft); font-variant: small-caps; letter-spacing: 0.04em; }
+a { color: var(--crimson); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--crimson-soft); }
+
+q.kept {
+  display: block;
+  margin: 14px 0;
+  padding: 14px 22px;
+  border-left: 4px solid var(--crimson);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.05rem;
+  quotes: "\201C" "\201D";
+  box-shadow: inset 0 0 18px rgba(168, 132, 44, 0.15);
+}
+
+.foot { margin-top: 36px; text-align: center; font-size: 0.9rem; }
+.dashed {
+  border-top: 1px dashed var(--stone);
+  max-width: 420px;
+  margin: 0 auto 14px;
+}
+#estamp {
+  display: inline-block;
+  margin-left: 0.8em;
+  padding: 2px 10px;
+  border: 1px solid var(--gold);
+  color: var(--crimson);
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  transform: rotate(-1deg);
+}
+.small { color: #6d5f47; font-size: 0.78rem; letter-spacing: 0.08em; }
