@@ -1,0 +1,150 @@
+/* Matchday Field Manual — Franklin's Gardens, Rev. C
+   Field-office look: pitch green, chalk lines, matchday programme paper. */
+
+:root {
+  --pitch: #1e4d2b;
+  --pitch-dark: #143820;
+  --chalk: #f4f1e6;
+  --line: #ffffff;
+  --ink: #22301f;
+  --umber: #7a3b2e;
+  --amber: #c9a227;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, 0.045) 0 46px,
+      rgba(0, 0, 0, 0.05) 46px 92px),
+    var(--pitch);
+  color: var(--chalk);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.55;
+}
+
+main, header, footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.stamp {
+  max-width: 760px;
+  margin: 1.4rem auto -0.6rem;
+  padding: 0 1.25rem;
+}
+.stamp::after {
+  content: "FRANKLIN’S GARDENS · FIELD OFFICE";
+  display: inline-block;
+  border: 2px solid var(--umber);
+  color: var(--umber);
+  background: var(--chalk);
+  padding: 0.2rem 0.7rem;
+  letter-spacing: 0.18em;
+  font-weight: bold;
+  font-size: 0.72rem;
+  transform: rotate(-2deg);
+  border-radius: 3px;
+}
+
+.masthead {
+  border-bottom: 4px double var(--line);
+  padding-top: 2.2rem;
+  padding-bottom: 1.4rem;
+}
+.board-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--amber);
+  margin: 0 0 0.6rem;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.15;
+  margin: 0 0 0.7rem;
+  color: var(--line);
+  text-shadow: 0 2px 0 var(--pitch-dark);
+}
+.dek {
+  font-size: 0.98rem;
+  color: #e8e4d4;
+  max-width: 60ch;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b9c4a8;
+  margin-top: 0.9rem;
+}
+.meta span { border-bottom: 1px dotted var(--amber); }
+
+.manual {
+  background: var(--chalk);
+  color: var(--ink);
+  margin-top: 1.6rem;
+  margin-bottom: 2rem;
+  padding: 1.6rem 1.4rem 0.6rem;
+  border: 1px solid var(--pitch-dark);
+  border-left: 8px solid var(--pitch);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+.manual::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(34, 48, 31, 0.4);
+  pointer-events: none;
+}
+
+.clause { margin-bottom: 1.5rem; }
+.clause h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.12rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 3px solid var(--umber);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.7rem;
+}
+.clause p { margin: 0 0 0.7rem; font-size: 0.95rem; }
+
+a { color: var(--umber); }
+a:hover { color: var(--pitch); }
+
+ol.orders { padding-left: 1.4rem; font-size: 0.95rem; }
+ol.orders li { margin-bottom: 0.6rem; }
+ol.orders li::marker { font-weight: bold; color: var(--umber); }
+
+strong { color: var(--pitch); }
+
+.colophon {
+  padding-bottom: 2.5rem;
+  font-size: 0.78rem;
+  color: #cfd6bf;
+  text-align: center;
+}
+.strip {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.5rem; }
+  .manual { padding: 1.2rem 0.9rem; }
+}
