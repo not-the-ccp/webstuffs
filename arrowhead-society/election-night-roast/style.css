@@ -1,0 +1,377 @@
+/* Card No. 7 — The Election Night Roast
+   The Society Kitchen Book, Room 3, the old rehearsal floor */
+
+:root {
+  --labor-red: #c8102e;
+  --deep-red: #7a0c1e;
+  --brick: #a23b2d;
+  --cream: #f6ecd9;
+  --cream-deep: #efdfc0;
+  --ink: #2b1a12;
+  --gold: #c9972c;
+  --steel: #4a5560;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Libre Baskerville", Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 15% -10%, rgba(200, 16, 46, 0.35), transparent 55%),
+    radial-gradient(ellipse at 90% 0%, rgba(201, 151, 44, 0.22), transparent 45%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 26px),
+    linear-gradient(160deg, #3d1013 0%, #5a1420 34%, #6e1a22 58%, #40101a 100%);
+  background-attachment: fixed;
+  padding: 4.5rem 1rem 6rem;
+}
+
+/* ---------- the kitchen wall behind the card ---------- */
+
+.kitchen-wall {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.tile-row {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  height: 9rem;
+  background-image:
+    linear-gradient(rgba(246, 236, 217, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246, 236, 217, 0.10) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  transform: skewY(-2deg);
+}
+.tile-row-one { top: 6rem; animation: drift 60s linear infinite alternate; }
+.tile-row-two { top: 52rem; animation: drift 48s linear infinite alternate-reverse; }
+@keyframes drift {
+  from { transform: skewY(-2deg) translateX(-2.5rem); }
+  to   { transform: skewY(-2deg) translateX(2.5rem); }
+}
+
+.string-lights { position: absolute; top: 0.6rem; left: 0; right: 0; height: 3rem; }
+.string-lights svg { width: 100%; height: 100%; }
+.wire { stroke: rgba(246, 236, 217, 0.55); stroke-width: 1.5; }
+.bulb {
+  position: absolute;
+  width: 0.85rem;
+  height: 1.1rem;
+  border-radius: 50% 50% 50% 50% / 42% 42% 58% 58%;
+  background: radial-gradient(circle at 35% 30%, #ffe9b0, var(--gold) 65%, #8a5f14);
+  box-shadow: 0 0 14px 4px rgba(255, 210, 120, 0.55);
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+.bulb:nth-child(odd) { animation-delay: 1.7s; }
+.b1 { left: 6%;  top: 2.4rem; } .b2 { left: 18%; top: 3.1rem; }
+.b3 { left: 30%; top: 3.4rem; } .b4 { left: 43%; top: 3.2rem; }
+.b5 { left: 56%; top: 2.6rem; } .b6 { left: 69%; top: 2.1rem; }
+.b7 { left: 82%; top: 1.9rem; } .b8 { left: 94%; top: 2.1rem; }
+@keyframes twinkle {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 14px 4px rgba(255, 210, 120, 0.55); }
+  50%      { opacity: 0.5; box-shadow: 0 0 5px 1px rgba(255, 210, 120, 0.25); }
+}
+
+/* ---------- the card itself ---------- */
+
+.card {
+  position: relative;
+  z-index: 1;
+  max-width: 47rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 50% -5%, rgba(200, 16, 46, 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 2.05rem, rgba(43, 26, 18, 0.055) 2.05rem 2.15rem),
+    linear-gradient(175deg, var(--cream) 0%, var(--cream-deep) 78%, #e7d3ac 100%);
+  border: 2px solid var(--deep-red);
+  outline: 1px dashed var(--gold);
+  outline-offset: 6px;
+  box-shadow:
+    0 2px 0 var(--gold),
+    0 14px 40px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(122, 12, 30, 0.12);
+  padding: 2.6rem 2.9rem 2rem;
+  transform: rotate(-0.4deg);
+}
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 44%, var(--labor-red) 44%, var(--labor-red) 56%, transparent 56%),
+    linear-gradient(-45deg, transparent 44%, var(--labor-red) 44%, var(--labor-red) 56%, transparent 56%);
+  opacity: 0.5;
+}
+.card::before { top: 0.7rem; left: 0.7rem; }
+.card::after  { bottom: 0.7rem; right: 0.7rem; }
+
+/* corner tape */
+.card .card-head { position: relative; text-align: center; }
+
+.card-no {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--deep-red);
+  border-top: 1px solid var(--deep-red);
+  border-bottom: 1px solid var(--deep-red);
+  padding: 0.45rem 0;
+  margin: 0 0 1.6rem;
+}
+.card-no .dash { color: var(--gold); }
+
+.rosette { width: 88px; height: 88px; display: block; margin: 0 auto 0.6rem; animation: sway 7s ease-in-out infinite; }
+.rosette-petals circle { fill: var(--labor-red); stroke: var(--deep-red); stroke-width: 1.5; }
+.rosette-eye { fill: var(--cream); stroke: var(--deep-red); stroke-width: 2; }
+.rosette-ribbons path { fill: var(--deep-red); }
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+
+h1 {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 4.6rem);
+  line-height: 1;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--labor-red);
+  text-shadow:
+    2px 2px 0 var(--cream-deep),
+    4px 4px 0 rgba(122, 12, 30, 0.35);
+}
+
+.sub {
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+  color: var(--steel);
+  margin: 0 auto 1.2rem;
+  max-width: 34rem;
+}
+
+/* steam off the card header */
+.steam { position: relative; height: 2.4rem; margin-bottom: 0.4rem; }
+.steam i {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: linear-gradient(to top, rgba(74, 85, 96, 0.4), transparent);
+  filter: blur(2px);
+  animation: rise 3.8s ease-in infinite;
+}
+.steam i:nth-child(2) { left: 46%; animation-delay: 1.3s; }
+.steam i:nth-child(3) { left: 54%; animation-delay: 2.5s; }
+@keyframes rise {
+  0%   { transform: translateY(0) scaleX(1); opacity: 0; }
+  25%  { opacity: 0.9; }
+  100% { transform: translateY(-3.4rem) translateX(0.5rem) scaleX(2.4); opacity: 0; }
+}
+
+/* ---------- text ---------- */
+
+main { border-top: 3px double var(--labor-red); padding-top: 1.4rem; }
+
+h2 {
+  font-family: "Caveat", cursive;
+  font-size: 2.1rem;
+  color: var(--deep-red);
+  margin: 0 0 0.8rem;
+}
+
+p { line-height: 1.75; margin: 0 0 1.1rem; font-size: 0.98rem; }
+p::first-letter { letter-spacing: 0.02em; }
+
+.preamble > p:first-of-type::first-letter {
+  font-family: "Libre Baskerville", serif;
+  font-size: 3.4rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.15rem 0.5rem 0 0;
+  color: var(--labor-red);
+}
+
+strong { color: var(--deep-red); }
+a { color: var(--deep-red); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { background: rgba(200, 16, 46, 0.12); }
+
+/* the line, kept word for word */
+blockquote {
+  margin: 1.6rem 0;
+  padding: 1.3rem 1.5rem 1.3rem 3.2rem;
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.65rem, rgba(200, 16, 46, 0.14) 1.65rem 1.7rem),
+    linear-gradient(90deg, rgba(201, 151, 44, 0.16), transparent 30%);
+  border-left: 6px solid var(--labor-red);
+  font-family: "Caveat", cursive;
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: var(--ink);
+  box-shadow: inset 0 0 24px rgba(122, 12, 30, 0.14);
+}
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0.7rem;
+  top: 0.2rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: 3rem;
+  color: var(--labor-red);
+  opacity: 0.7;
+}
+blockquote em { font-style: normal; border-bottom: 2px dotted var(--gold); }
+blockquote.heard { animation: hear 2.2s ease-in-out 1; }
+@keyframes hear {
+  0%   { background-color: transparent; }
+  50%  { background-color: rgba(200, 16, 46, 0.14); }
+  100% { background-color: transparent; }
+}
+.correction-note {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+/* ---------- the recipe body ---------- */
+
+.servings {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--steel);
+  border-bottom: 1px dashed var(--steel);
+  padding-bottom: 0.8rem;
+}
+
+h3 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--labor-red);
+  margin: 1.6rem 0 0.6rem;
+}
+h3::after {
+  content: "";
+  display: inline-block;
+  width: 4rem;
+  height: 2px;
+  margin-left: 0.7rem;
+  vertical-align: middle;
+  background: linear-gradient(90deg, var(--labor-red), transparent);
+}
+
+.things { list-style: none; margin: 0 0 0.4rem; padding: 0; }
+.things li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1.7rem;
+  line-height: 1.6;
+  font-size: 0.96rem;
+  border-bottom: 1px dotted rgba(43, 26, 18, 0.28);
+}
+.things li::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.85rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e0556d, var(--labor-red) 60%, var(--deep-red));
+  box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.25);
+}
+
+.method { padding-left: 1.1rem; }
+.method li {
+  margin-bottom: 0.85rem;
+  line-height: 1.7;
+  font-size: 0.96rem;
+  padding-left: 1.4rem;
+}
+.method li::marker {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--labor-red);
+}
+
+.keepnote {
+  margin-top: 1.6rem;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(90deg, rgba(201, 151, 44, 0.14), transparent 80%);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  font-style: italic;
+}
+
+/* ---------- colophon & stamp ---------- */
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 3px double var(--labor-red);
+  text-align: center;
+}
+.colophon p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--steel);
+  margin: 0.9rem 0 0;
+}
+
+.stamp {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 4.6rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--deep-red);
+  border: 1px solid var(--gold);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.stamp:hover { transform: rotate(2deg) scale(1.05); background: var(--labor-red); }
+
+.rosette-stamp {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: land 0.5s ease forwards;
+}
+.rosette-stamp circle, .rosette-stamp path { transform-origin: center; }
+@keyframes land {
+  0%   { transform: scale(2.4) rotate(-18deg); opacity: 0; }
+  70%  { transform: scale(0.9) rotate(6deg);   opacity: 1; }
+  100% { transform: scale(1) rotate(0);        opacity: 0.9; }
+}
+
+@media (max-width: 40rem) {
+  body { padding: 3.5rem 0.6rem 4rem; }
+  .card { padding: 1.8rem 1.4rem 1.4rem; transform: none; }
+  .stamp { position: static; display: block; margin: 1.4rem auto 0; }
+}
