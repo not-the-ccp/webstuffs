@@ -1,0 +1,189 @@
+/* The Pontic Ledger — classifieds column, wharf-wall print */
+
+:root {
+  --paper: #f2ecdd;
+  --paper-deep: #e7dfc8;
+  --ink: #2a2519;
+  --ink-faded: #5c5440;
+  --rule: #8a7d5e;
+  --red: #8e3b23;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d9d2bd; }
+
+body {
+  margin: 0 auto;
+  max-width: 980px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,.5), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(120,100,60,.18), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(120,100,60,.028) 0 2px, transparent 2px 5px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  font-size: 17px;
+  line-height: 1.5;
+  padding: 2.2rem 1.4rem 3rem;
+  box-shadow: 0 0 0 1px rgba(90,75,40,.25), 0 18px 50px rgba(40,30,10,.35);
+  position: relative;
+}
+
+/* masthead */
+.masthead {
+  position: relative;
+  text-align: center;
+  border-bottom: 4px double var(--ink);
+  padding-bottom: .9rem;
+}
+
+.overline {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin: 0 0 .5rem;
+}
+
+h1 {
+  font-size: 3.1rem;
+  letter-spacing: .04em;
+  margin: 0;
+  font-variant: small-caps;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: .82rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin: .4rem 0 0;
+}
+
+.stamp {
+  position: absolute;
+  top: 1rem;
+  right: .2rem;
+  transform: rotate(8deg);
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  line-height: 1.5;
+  padding: .45rem .6rem;
+  opacity: .75;
+  border-radius: 2px;
+  user-select: none;
+}
+
+.stamp.paid::after {
+  content: "PAID IN FULL";
+  display: block;
+  font-size: .58rem;
+  text-align: center;
+  border-top: 1px solid var(--red);
+  margin-top: .3rem;
+  padding-top: .2rem;
+}
+
+/* editor's line */
+.ledger-note {
+  font-size: .95rem;
+  font-style: italic;
+  border-bottom: 1px solid var(--rule);
+  padding: .8rem .2rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.ledger-note a, .ad a, .colophon a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--red);
+}
+.ledger-note a:hover, .ad a:hover, .colophon a:hover {
+  background: rgba(142,59,35,.08);
+}
+
+.count {
+  display: inline-block;
+  font-style: normal;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin-left: .6rem;
+  border: 1px solid var(--rule);
+  padding: .1rem .45rem;
+}
+
+/* three column newspaper body */
+.cols {
+  column-count: 3;
+  column-gap: 1.6rem;
+  column-rule: 1px solid var(--rule);
+}
+
+.col { break-inside: avoid-column; }
+
+.cols .col { margin-bottom: 1.2rem; }
+
+h2 {
+  font-size: .85rem;
+  font-variant: small-caps;
+  letter-spacing: .2em;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: .25rem 0;
+  margin: 1.1rem 0 .8rem;
+}
+
+.ad {
+  break-inside: avoid;
+  border-bottom: 1px dotted var(--rule);
+  padding: .1rem 0 .8rem;
+  margin-bottom: .8rem;
+  font-size: .88rem;
+}
+
+.ad:last-child { border-bottom: none; }
+
+.ad-head {
+  font-weight: 700;
+  font-size: .9rem;
+  margin: 0 0 .35rem;
+}
+
+.price {
+  display: block;
+  font-weight: 400;
+  font-style: italic;
+  font-size: .8rem;
+  color: var(--ink-faded);
+}
+
+/* tail */
+.tail {
+  margin-top: 2rem;
+  border-top: 4px double var(--ink);
+  padding-top: .8rem;
+  text-align: center;
+}
+
+.colophon {
+  font-size: .78rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .cols { column-count: 1; }
+  h1 { font-size: 2.3rem; }
+  .stamp { position: static; display: inline-block; margin-top: .8rem; }
+}
