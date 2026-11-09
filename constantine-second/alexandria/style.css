@@ -1,0 +1,309 @@
+/* Product No. 40 — The Bride of the Mediterranean: Alexandria, in the box */
+:root {
+  --papyrus: #f1e8d2;
+  --papyrus-deep: #e6d8b4;
+  --sea: #123c56;
+  --sea-deep: #0b2739;
+  --tide: #2d6d84;
+  --sand: #c9a85e;
+  --brass: #b98a2f;
+  --brass-bright: #e8c766;
+  --ox: #8a2f2a;
+  --ink: #1d2b33;
+  --rule: #b7a877;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.66;
+  background:
+    radial-gradient(1100px 520px at 50% -140px, rgba(45, 109, 132, 0.30), transparent 70%),
+    repeating-linear-gradient(
+      0deg, transparent, transparent 30px, rgba(183, 168, 119, 0.20) 31px),
+    linear-gradient(var(--papyrus), var(--papyrus-deep));
+  min-height: 100vh;
+}
+
+/* Greek-key band under the header */
+.keyband {
+  height: 16px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--sea-deep) 0 10px, transparent 10px 16px,
+      var(--sea-deep) 16px 26px, transparent 26px 32px);
+  border-top: 2px solid var(--brass);
+  border-bottom: 2px solid var(--brass);
+  position: relative;
+}
+.keyband::after {
+  content: "";
+  position: absolute;
+  inset: 4px 0;
+  background: repeating-linear-gradient(
+    90deg, transparent 0 6px, var(--brass-bright) 6px 10px, transparent 10px 32px);
+  opacity: 0.55;
+}
+
+.masthead {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 3.4rem 1.4rem 1.8rem;
+  text-align: center;
+}
+.catalogue {
+  font-family: "Special Elite", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin: 0 0 0.9rem;
+}
+h1 {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.08;
+  margin: 0 0 0.7rem;
+  color: var(--sea-deep);
+  text-shadow: 0 1px 0 var(--brass-bright);
+}
+.dek {
+  font-style: italic;
+  color: var(--sea);
+  margin: 0 0 1rem;
+}
+.meta {
+  font-family: "Special Elite", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin: 0 0 1.6rem;
+}
+.sku {
+  border: 1px solid var(--brass);
+  padding: 0.05em 0.45em;
+  border-radius: 2px;
+}
+.price { color: var(--ox); font-weight: bold; }
+
+/* the lighthouse and its beam */
+.beacon {
+  position: relative;
+  width: 120px;
+  margin: 0 auto;
+}
+.beacon svg { display: block; }
+#beam-shape {
+  transform-origin: 44px 34px;
+  animation: sweep 9s ease-in-out infinite;
+  opacity: 0.9;
+}
+@keyframes sweep {
+  0%, 12%   { transform: rotate(0deg);   opacity: 0.9; }
+  42%       { transform: rotate(38deg);  opacity: 0.55; }
+  62%       { transform: rotate(0deg);   opacity: 0.9; }
+  100%      { transform: rotate(0deg);   opacity: 0.9; }
+}
+.beacon::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 8px;
+  margin: -2px auto 0;
+  background: radial-gradient(ellipse at center, rgba(18, 60, 86, 0.35), transparent 70%);
+}
+
+.product {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1.2rem 1.4rem 2rem;
+}
+.product section {
+  background:
+    linear-gradient(rgba(255, 252, 240, 0.6), rgba(255, 252, 240, 0.35)),
+    repeating-linear-gradient(
+      -45deg, transparent, transparent 22px, rgba(45, 109, 132, 0.05) 23px);
+  border: 1px solid var(--rule);
+  border-top: 3px double var(--sea-deep);
+  padding: 1.6rem 1.7rem 1.8rem;
+  margin: 0 0 2rem;
+  position: relative;
+}
+.product section::before {
+  content: "❖";
+  position: absolute;
+  top: -0.85rem;
+  left: 1.4rem;
+  background: var(--papyrus);
+  padding: 0 0.5rem;
+  color: var(--brass);
+  font-size: 1rem;
+}
+h2 {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sea-deep);
+  margin: 0 0 1rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.blurb p { margin: 0 0 1rem; }
+.blurb p:last-child { margin-bottom: 0; }
+
+/* in the box */
+.box ol {
+  margin: 0;
+  padding-left: 1.4rem;
+  list-style: none;
+  counter-reset: leaf;
+}
+.box li {
+  counter-increment: leaf;
+  position: relative;
+  padding: 0.9rem 0 0.9rem 3.2rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.box li:last-child { border-bottom: none; }
+.box li::before {
+  content: counter(leaf, upper-roman);
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
+  color: var(--papyrus);
+  background: var(--sea);
+  border: 1px solid var(--brass);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+.box li::after {
+  content: "";
+  position: absolute;
+  left: 1.55rem;
+  top: 1.6rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--brass-bright);
+  transform: rotate(45deg);
+  box-shadow: 0 0 6px rgba(232, 199, 102, 0.8);
+}
+.box strong { color: var(--sea-deep); }
+
+/* the threshold card */
+.card blockquote.card-line {
+  font-family: "Special Elite", monospace;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--ox);
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem 1.2rem;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 1.65rem, rgba(139, 94, 42, 0.25) 1.7rem),
+    #efe4c6;
+  border: none;
+  border-left: 5px solid var(--brass);
+  border-right: 5px solid var(--brass);
+  box-shadow: 4px 4px 0 rgba(18, 60, 86, 0.18);
+  transform: rotate(-0.5deg);
+}
+
+/* specifications */
+.specs table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+.specs th {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  text-align: left;
+  vertical-align: top;
+  color: var(--sea-deep);
+  width: 12.5rem;
+  padding: 0.55rem 0.9rem 0.55rem 0;
+  white-space: nowrap;
+}
+.specs td {
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+.specs tr:last-child td, .specs tr:last-child th { border-bottom: none; }
+.specs tr { background: rgba(255, 252, 240, 0.35); }
+.specs tr:nth-child(odd) { background: rgba(45, 109, 132, 0.07); }
+
+/* voices kept on file */
+.voice {
+  border-left: 3px solid var(--tide);
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  margin: 0 0 1.3rem;
+}
+.voice:last-child { margin-bottom: 0; }
+.voice p { margin: 0 0 0.3rem; font-style: italic; }
+.voice cite {
+  font-family: "Special Elite", monospace;
+  font-size: 0.8rem;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  color: var(--ox);
+}
+
+/* tide line under the copy */
+.tideline {
+  font-family: "Special Elite", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tide);
+  margin: 1.4rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.tideline .wave {
+  display: inline-block;
+  width: 2.6rem;
+  height: 0.7rem;
+  background: repeating-linear-gradient(90deg, var(--tide) 0 4px, transparent 4px 8px);
+  animation: drift 3.2s linear infinite;
+}
+@keyframes drift {
+  from { background-position-x: 0; }
+  to   { background-position-x: 16px; }
+}
+
+a { color: var(--sea); }
+a:hover { color: var(--ox); text-decoration-style: wavy; }
+
+.colophon {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.4rem 3.4rem;
+  text-align: center;
+  border-top: 3px double var(--sea-deep);
+  font-family: "Special Elite", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--sea);
+}
+.colophon p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  #beam-shape, .tideline .wave { animation: none; }
+}
