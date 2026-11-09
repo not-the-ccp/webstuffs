@@ -1,0 +1,176 @@
+/* The Gelissen Diary — field officer's pocket copy */
+
+:root {
+  --paper: #f4eedd;
+  --paper-dark: #e9e0c8;
+  --ink: #2b2a26;
+  --ink-faint: #5c574b;
+  --red: #8c2f22;
+  --rule: #b9ad8d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8d2bf;
+  background-image: radial-gradient(circle at 30% 10%, #e3ddc9 0%, #cfc8b2 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      rgba(140, 47, 34, 0.07) 30px,
+      rgba(140, 47, 34, 0.07) 31px
+    );
+  border: 1px solid var(--rule);
+  box-shadow: 0 10px 30px rgba(43, 42, 38, 0.25);
+  padding: 3rem 3.25rem 2.5rem 3.75rem;
+  position: relative;
+}
+
+/* red margin line, like a real notebook */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.9rem;
+  width: 1px;
+  background: rgba(140, 47, 34, 0.4);
+}
+
+.masthead { margin-bottom: 2rem; }
+
+.owner {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+.dates {
+  font-style: italic;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.rule {
+  height: 3px;
+  margin-top: 1.25rem;
+  background:
+    linear-gradient(var(--ink), var(--ink)) 0 0 / 100% 1px no-repeat,
+    linear-gradient(var(--ink), var(--ink)) 0 100% / 100% 1px no-repeat;
+}
+
+.entry { margin-bottom: 2.25rem; }
+
+.dateline {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--red);
+  margin: 0 0 0.5rem;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+.entry p { margin: 0 0 1rem; }
+
+.entry.closing .dateline {
+  background: var(--paper-dark);
+  display: inline-block;
+  padding: 0.1rem 0.5rem 0.1rem 0;
+  border: 1px solid var(--rule);
+}
+
+/* the working table */
+.log h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  margin: 2.5rem 0 0.5rem;
+}
+
+.log-note {
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  margin: 0 0 1rem;
+}
+
+.log-note.small { margin-top: 1rem; }
+
+.controls {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.controls label { display: flex; align-items: center; gap: 0.5rem; }
+
+.controls select,
+.controls input {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper-dark);
+  border: 1px solid var(--rule);
+  padding: 0.25rem 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: rgba(255, 255, 250, 0.35);
+}
+
+th, td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+th {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  background: var(--paper-dark);
+}
+
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+tfoot td {
+  border-top: 2px solid var(--ink);
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.total-label { color: var(--ink-faint); }
+
+tr.hidden { display: none; }
+
+.cross {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+
+a { color: var(--red); }
