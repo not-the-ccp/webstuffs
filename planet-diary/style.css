@@ -1,0 +1,158 @@
+:root {
+  --ink: #26221c;
+  --paper: #f6f1e4;
+  --line: #d8cfb8;
+  --accent: #7a3b1d;
+  --night: #2b2f3d;
+  --night-soft: #454a5e;
+  --stamp: #8c2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.65 Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1.5rem;
+  border-bottom: 3px double var(--ink);
+}
+
+.masthead-eyebrow {
+  font: 600 0.72rem/1.4 "Courier New", monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+.masthead h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.masthead-tagline {
+  font-style: italic;
+  color: #5a5347;
+  margin: 0;
+}
+
+.diary {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+}
+
+.entry {
+  margin: 0 0 2.25rem;
+}
+
+.entry h2 {
+  font: 700 0.8rem/1.4 "Courier New", monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--night);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
+  margin: 0 0 0.9rem;
+}
+
+.reading {
+  font: 0.82rem/1.7 "Courier New", monospace;
+  background: #efe7d2;
+  border-left: 4px solid var(--night);
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 1rem;
+}
+
+blockquote.caveat {
+  margin: 1rem 0;
+  padding: 0.9rem 1.2rem;
+  border: 1px dashed var(--stamp);
+  background: #fbf7ec;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--stamp);
+}
+
+a { color: var(--accent); }
+
+.calculator {
+  background: var(--night);
+  color: #efe9da;
+  border-radius: 6px;
+  padding: 1.4rem 1.5rem 1.6rem;
+  margin: 0 0 2.25rem;
+}
+
+.calculator h2 {
+  color: #f4d9a8;
+  border-color: var(--night-soft);
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.calculator p { color: #cfd3de; }
+
+.calculator label {
+  display: block;
+  font: 600 0.85rem/1.5 "Courier New", monospace;
+  margin: 0.9rem 0 0.6rem;
+}
+
+.calculator input {
+  font: 1rem "Courier New", monospace;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--night-soft);
+  background: #20242f;
+  color: #f0ead9;
+  width: 7rem;
+  margin: 0 0.35rem;
+}
+
+.calculator button {
+  font: 700 0.85rem "Courier New", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #f4d9a8;
+  color: var(--night);
+  border: 0;
+  padding: 0.55rem 1.1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.calculator button:hover { background: #e7b566; }
+
+output {
+  display: block;
+  font: 0.95rem/1.6 "Courier New", monospace;
+  background: #1a1d26;
+  border-left: 4px solid #f4d9a8;
+  padding: 0.7rem 0.9rem;
+  margin: 0.9rem 0;
+}
+
+.fineprint {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #9aa0b4;
+  margin-bottom: 0;
+}
+
+.nav-line {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.nav { font: 0.85rem "Courier New", monospace; }
