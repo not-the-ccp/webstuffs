@@ -1,0 +1,271 @@
+/* Serial No. 16/728,441 — The Most Perfect Thing
+   A patent office rendered in shell-white, chalk-blue, and warm candle. */
+
+:root {
+  --shell: #f6f1e4;
+  --shell-deep: #efe6d2;
+  --ink: #243447;
+  --ink-soft: #46586e;
+  --chalk: #5b7d9a;
+  --chalk-faint: #c7d3dd;
+  --wax: #a8452c;
+  --candle: #f4b53f;
+  --membrane: rgba(168, 69, 44, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 60% at 85% -10%, rgba(244, 181, 63, 0.18), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 8% 108%, rgba(91, 125, 154, 0.20), transparent 65%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(36, 52, 71, 0.045) 31px 32px),
+    linear-gradient(160deg, var(--shell) 0%, var(--shell-deep) 100%);
+  line-height: 1.62;
+}
+
+/* ---- the watermark egg, slowly turning, bottom-left ---- */
+.egg-watermark {
+  position: fixed;
+  left: -3rem;
+  bottom: -4rem;
+  width: 17rem;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
+.egg-watermark svg {
+  width: 100%;
+  height: auto;
+  stroke: var(--ink);
+  fill: none;
+  stroke-width: 2.5;
+  animation: slow-turn 40s linear infinite;
+  transform-origin: 100px 130px;
+}
+@keyframes slow-turn {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- patent header ---- */
+.patent-head {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.5rem 0.6rem;
+  text-align: center;
+}
+.head-rule {
+  height: 6px;
+  max-width: 62rem;
+  margin: 0 auto;
+  border-top: 2.5px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.head-line {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.9rem;
+  color: var(--ink-soft);
+}
+.head-table {
+  border-collapse: collapse;
+  margin: 0 auto 1.2rem;
+  font-size: 0.86rem;
+}
+.head-table th {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.28rem 0.9rem 0.28rem 0;
+  color: var(--ink-soft);
+  vertical-align: top;
+}
+.head-table td {
+  padding: 0.28rem 0.9rem 0.28rem 0;
+  border-bottom: 1px dotted var(--chalk);
+}
+.patent-head h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0.6rem auto 0;
+  max-width: 46rem;
+}
+.patent-head h1 .subtitle {
+  display: block;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-top: 0.6rem;
+}
+.class-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--wax);
+  margin: 0.9rem 0 1rem;
+}
+
+/* ---- body ---- */
+.patent-body {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  margin: 1.2rem auto 4rem;
+  padding: 0 1.5rem;
+}
+.pat-sec {
+  border: 1px solid var(--chalk-faint);
+  border-left: 5px solid var(--chalk);
+  background:
+    linear-gradient(90deg, var(--membrane), transparent 22%),
+    rgba(255, 253, 247, 0.72);
+  padding: 1.3rem 1.6rem 1.4rem;
+  margin: 0 0 1.6rem;
+  box-shadow: 0 2px 0 var(--chalk-faint), 0 10px 26px rgba(36, 52, 71, 0.08);
+}
+.pat-sec h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+  color: var(--wax);
+  border-bottom: 1px solid var(--chalk-faint);
+  padding-bottom: 0.5rem;
+}
+.pat-sec p { margin: 0 0 0.95rem; }
+.pat-sec p:last-child { margin-bottom: 0; }
+.pat-sec q {
+  color: var(--wax);
+  font-style: italic;
+}
+
+/* figures list, like a drawing sheet index */
+ul.figs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 2rem;
+  font-size: 0.9rem;
+}
+ul.figs li {
+  break-inside: avoid;
+  padding: 0.55rem 0.6rem;
+  border: 1px dashed var(--chalk);
+  margin-bottom: 0.7rem;
+  background: rgba(199, 211, 221, 0.22);
+}
+ul.figs li strong {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+@media (max-width: 560px) { ul.figs { columns: 1; } }
+
+/* claims */
+ol.claims {
+  margin: 0;
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+}
+ol.claims li {
+  margin-bottom: 0.7rem;
+  padding-left: 0.4rem;
+  border-left: 2px solid transparent;
+}
+ol.claims li:hover {
+  border-left-color: var(--candle);
+  background: linear-gradient(90deg, rgba(244, 181, 63, 0.14), transparent);
+}
+ol.claims li::marker {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--wax);
+  font-weight: 700;
+}
+
+/* footer citations */
+.patent-foot {
+  border-top: 2.5px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 1.1rem 0.2rem 0.4rem;
+  font-size: 0.92rem;
+}
+.patent-foot .foot-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.patent-foot a { color: var(--wax); text-decoration-thickness: 1.5px; }
+.patent-foot .home {
+  margin-top: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ---- the candling light ---- */
+.candle {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 3.2rem;
+  width: 1.1rem;
+  height: 3.4rem;
+  background: linear-gradient(180deg, #f9efdc, #e8d9b4);
+  border-radius: 0.3rem 0.3rem 0.2rem 0.2rem;
+  z-index: 2;
+  box-shadow: 0 0 24px rgba(244, 181, 63, 0.35);
+}
+.flame {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  width: 0.85rem;
+  height: 1.5rem;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 80%, #fff3c4 0%, var(--candle) 55%, #d97a2a 95%);
+  border-radius: 50% 50% 45% 45% / 68% 68% 32% 32%;
+  animation: flicker 1.7s ease-in-out infinite;
+  filter: blur(0.4px);
+}
+@keyframes flicker {
+  0%, 100% { transform: translateX(-50%) scale(1) rotate(-2deg); opacity: 0.95; }
+  25%      { transform: translateX(-52%) scale(1.06, 0.94) rotate(2deg); opacity: 1; }
+  50%      { transform: translateX(-48%) scale(0.94, 1.08) rotate(-1deg); opacity: 0.85; }
+  75%      { transform: translateX(-50%) scale(1.03) rotate(3deg); opacity: 1; }
+}
+.candle-readout {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 2;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+  background: rgba(255, 253, 247, 0.85);
+  border: 1px solid var(--chalk-faint);
+  padding: 0.35rem 0.6rem;
+}
+.candle-readout.lit { color: var(--wax); border-color: var(--candle); }
+
+@media (prefers-reduced-motion: reduce) {
+  .egg-watermark svg, .flame { animation: none; }
+}
