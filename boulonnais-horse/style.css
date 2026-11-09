@@ -1,0 +1,232 @@
+/* Placard style — Salle III, Musée du Cheval Boulonnais */
+
+:root {
+  --plaster: #e8e1d1;
+  --stone: #d9d0ba;
+  --ink: #2b2620;
+  --bronze: #8a6b32;
+  --bronze-deep: #5e4a21;
+  --seal: #7a3327;
+  --paper: #f6f1e4;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--plaster);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* mottled plaster wall behind the placard */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 20% 10%, rgba(138, 107, 50, 0.10), transparent 60%),
+    radial-gradient(50% 60% at 85% 85%, rgba(94, 74, 33, 0.12), transparent 60%),
+    radial-gradient(120% 90% at 50% 50%, var(--stone), var(--plaster) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wall {
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 38, 32, 0.025) 0 2px, transparent 2px 6px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.placard {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 4rem auto 5rem;
+  padding: 2.4rem 2.6rem 2rem;
+  background: var(--paper);
+  border: 3px double var(--bronze);
+  outline: 1px solid var(--bronze-deep);
+  outline-offset: 6px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 18px 40px rgba(43, 38, 32, 0.35);
+}
+
+.placard::before {
+  content: "SALLE III";
+  position: absolute;
+  top: -1.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--seal);
+  color: #f3ead8;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  padding: 0.25rem 0.9rem 0.2rem;
+  border: 1px solid var(--bronze-deep);
+}
+
+/* brass mounting screw in each corner */
+.placard .screw {
+  position: absolute;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d9c58c, #8a6b32 60%, #5e4a21);
+  box-shadow: 0 1px 2px rgba(43, 38, 32, 0.5);
+}
+.screw::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 50%;
+  height: 1.5px;
+  background: #5e4a21;
+}
+.screw.tl { top: 0.6rem; left: 0.6rem; }
+.screw.tr { top: 0.6rem; right: 0.6rem; }
+.screw.bl { bottom: 0.6rem; left: 0.6rem; }
+.screw.br { bottom: 0.6rem; right: 0.6rem; }
+
+.placard-lamp {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.placard-head { text-align: center; }
+
+.registry {
+  margin: 0 0 0.3rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  color: var(--bronze-deep);
+}
+
+.exhibit {
+  margin: 0 0 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--seal);
+  text-transform: uppercase;
+}
+.exhibit .dot { color: var(--bronze); }
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.subtitle {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--bronze-deep);
+}
+
+section {
+  margin-top: 1.7rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(138, 107, 50, 0.45);
+}
+
+p { line-height: 1.65; margin: 0 0 1rem; font-size: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.drop-cap {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.15rem 0.55rem 0 0;
+  color: var(--seal);
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bronze-deep);
+  text-align: center;
+}
+.orn { color: var(--seal); font-size: 0.9rem; padding: 0 0.5rem; }
+
+a { color: var(--bronze-deep); text-decoration-color: rgba(138, 107, 50, 0.5); }
+a:hover { color: var(--seal); }
+
+/* the secretary's transcript, ruled like a minute book */
+.minute {
+  margin: 1.4rem 0 0.2rem;
+  padding: 1rem 1.2rem;
+  background:
+    repeating-linear-gradient(#f6f1e4 0 1.55rem, rgba(138, 107, 50, 0.25) 1.55rem 1.6rem);
+  border-left: 4px solid var(--seal);
+  box-shadow: 0 2px 8px rgba(43, 38, 32, 0.12);
+}
+.minute-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin-bottom: 0.6rem;
+}
+.minute-text {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink);
+}
+.minute-note { font-size: 0.85rem; color: #4a4438; }
+
+.specimen { margin-top: 1.7rem; padding: 1.3rem 0 0; }
+.specimen-title {
+  margin: 0 0 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--seal);
+  text-align: center;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+td {
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px dotted rgba(138, 107, 50, 0.55);
+  vertical-align: top;
+}
+td:first-child {
+  width: 34%;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--bronze-deep);
+  white-space: nowrap;
+}
+
+.placard-foot {
+  margin-top: 1.8rem;
+  padding-top: 1.1rem;
+  border-top: 3px double var(--bronze);
+  text-align: center;
+  font-size: 0.88rem;
+}
+.placard-foot .small { font-size: 0.75rem; font-style: italic; color: #5a5343; }
+
+@media (max-width: 600px) {
+  .placard { margin: 2.5rem 0.8rem; padding: 1.8rem 1.2rem 1.5rem; }
+  h1 { font-size: 2rem; }
+  .registry { font-size: 0.58rem; letter-spacing: 0.18em; }
+  td:first-child { white-space: normal; }
+}
