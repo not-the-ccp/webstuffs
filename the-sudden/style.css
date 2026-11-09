@@ -1,0 +1,418 @@
+/* Bench Log No. 9 — The Sudden. Graphite, walnut, red thread. The bench does not explain itself. */
+
+:root {
+  --graphite: #16181c;
+  --graphite-2: #1f2329;
+  --walnut: #3a2a1d;
+  --walnut-2: #54391f;
+  --paper: #e8e1d0;
+  --paper-2: #d8cdb2;
+  --ink: #17130d;
+  --thread: #a52a1c;
+  --thread-2: #d0442f;
+  --brass: #b98a3e;
+  --brass-2: #e0b45f;
+  --stone: #7d7a72;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background-color: var(--graphite);
+  background-image:
+    radial-gradient(1100px 500px at 50% -80px, rgba(165, 42, 28, 0.22), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.10) 0 2px, transparent 2px 90px),
+    linear-gradient(180deg, var(--graphite) 0%, var(--graphite-2) 45%, #14161a 100%);
+  background-attachment: fixed;
+}
+
+.bench {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 28px 72px;
+}
+
+/* the red thread, drawn across the very top of the bench */
+.thread {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  opacity: 0.9;
+}
+.thread-path {
+  fill: none;
+  stroke: var(--thread-2);
+  stroke-width: 2;
+  stroke-dasharray: 46 22;
+  animation: thread-run 26s linear infinite;
+}
+@keyframes thread-run {
+  to { stroke-dashoffset: -680; }
+}
+
+/* masthead — a workshop plate */
+.head {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(232, 225, 208, 0.05), rgba(232, 225, 208, 0)),
+    repeating-linear-gradient(45deg, rgba(185, 138, 62, 0.05) 0 6px, transparent 6px 14px);
+  border: 1px solid rgba(185, 138, 62, 0.45);
+  outline: 3px double rgba(185, 138, 62, 0.35);
+  outline-offset: 6px;
+  padding: 34px 34px 28px;
+  margin-top: 34px;
+  color: var(--paper);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 0 90px rgba(0, 0, 0, 0.45);
+}
+
+.plate {
+  margin: 0 0 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--brass-2);
+}
+
+.head h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 5.4rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  text-shadow:
+    3px 3px 0 rgba(165, 42, 28, 0.55),
+    6px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+.head .sub {
+  margin: 14px 0 26px;
+  font-style: italic;
+  color: var(--stone);
+  max-width: 46ch;
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  background: rgba(10, 11, 13, 0.55);
+  border: 1px solid rgba(185, 138, 62, 0.4);
+}
+.ledger td {
+  border: 1px solid rgba(185, 138, 62, 0.28);
+  padding: 8px 12px;
+  vertical-align: top;
+}
+.ledger td:first-child {
+  width: 158px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--brass-2);
+  background: rgba(185, 138, 62, 0.08);
+}
+.ledger a { color: var(--paper-2); }
+
+/* log entries — cards of pinned paper */
+.entry {
+  position: relative;
+  margin: 46px 0 0;
+  padding: 30px 34px 26px;
+  background:
+    repeating-linear-gradient(0deg, rgba(23, 19, 13, 0.05) 0 1px, transparent 1px 30px),
+    radial-gradient(140% 90% at 50% 0%, var(--paper) 0%, var(--paper-2) 100%);
+  border: 1px solid #8d7f5c;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(90, 70, 30, 0.14);
+}
+.entry::before {
+  /* the nail */
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f0f0f0, #6f6f6f 55%, #2c2c2c);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+.entry::after {
+  /* the red pin-thread under the nail */
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  margin-left: -1px;
+  background: linear-gradient(180deg, transparent, var(--thread-2));
+}
+
+.stamp-line {
+  margin: 0 0 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--thread);
+  border-bottom: 1px dashed rgba(165, 42, 28, 0.5);
+  padding-bottom: 10px;
+}
+
+.entry p { margin: 0 0 1.15em; }
+.entry p:last-child { margin-bottom: 0; }
+.entry em { font-style: italic; color: #3b2c12; }
+
+.entry a {
+  color: #6b170d;
+  text-decoration: underline;
+  text-decoration-color: rgba(165, 42, 28, 0.55);
+  text-underline-offset: 3px;
+}
+.entry a:hover {
+  background: rgba(165, 42, 28, 0.12);
+  color: var(--thread);
+}
+
+/* kept line, on its own slip of darker paper */
+.line-found {
+  margin: 26px 10px 6px;
+  padding: 22px 28px;
+  background:
+    linear-gradient(100deg, rgba(165, 42, 28, 0.10), transparent 45%),
+    #efe7d2;
+  border-left: 6px solid var(--thread);
+  font-size: 1.18rem;
+  font-style: italic;
+  line-height: 1.7;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* the machine */
+.machine {
+  margin-top: 60px;
+  padding: 26px 26px 22px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 2px, transparent 2px 60px),
+    linear-gradient(180deg, #26221b, #191510);
+  border: 1px solid var(--brass);
+  outline: 2px solid rgba(185, 138, 62, 0.3);
+  outline-offset: 5px;
+  color: var(--paper);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6), inset 0 0 80px rgba(0, 0, 0, 0.5);
+}
+.machine-title {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brass-2);
+}
+.machine-sub {
+  margin: 6px 0 22px;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--stone);
+}
+
+.machine-body {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  gap: 14px;
+  align-items: stretch;
+  min-height: 210px;
+}
+
+.pylon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.pylon-face {
+  position: absolute;
+  inset: 0 0 26px 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 3px, transparent 3px 7px),
+    linear-gradient(180deg, #8f8c84 0%, #6d6a63 60%, #55524b 100%);
+  clip-path: polygon(18% 100%, 18% 12%, 0 10%, 0 4%, 50% 0, 100% 4%, 100% 10%, 82% 12%, 82% 100%);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.5);
+  animation: pylon-breathe 7s ease-in-out infinite;
+}
+.pylon.right .pylon-face { animation-delay: -3.5s; }
+@keyframes pylon-breathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.18); }
+}
+.pylon-base {
+  position: relative;
+  z-index: 1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--paper);
+  background: rgba(15, 13, 10, 0.85);
+  border: 1px solid rgba(185, 138, 62, 0.5);
+  padding: 4px 8px;
+}
+
+.passage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 18px 60px;
+  background:
+    radial-gradient(60% 26px at 50% 100%, rgba(185, 138, 62, 0.25), transparent 70%),
+    repeating-linear-gradient(-45deg, rgba(185, 138, 62, 0.05) 0 8px, transparent 8px 20px);
+  border: 1px solid rgba(125, 122, 114, 0.4);
+}
+.drum-name {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass-2);
+  min-height: 1.6em;
+  transition: opacity 0.25s ease;
+}
+.drum-count {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.gravel {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 14px;
+  height: 34px;
+  background-image:
+    radial-gradient(2px 2px at 12% 40%, #a49a86 60%, transparent 61%),
+    radial-gradient(2px 2px at 31% 70%, #8c8371 60%, transparent 61%),
+    radial-gradient(2px 2px at 54% 30%, #b3a88f 60%, transparent 61%),
+    radial-gradient(2px 2px at 72% 62%, #97907c 60%, transparent 61%),
+    radial-gradient(2px 2px at 89% 38%, #a49a86 60%, transparent 61%);
+  opacity: 0.8;
+}
+.fallen {
+  position: absolute;
+  bottom: 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--paper);
+  background: rgba(15, 13, 10, 0.8);
+  border: 1px solid var(--thread);
+  padding: 3px 8px;
+  animation: fall 1.1s cubic-bezier(0.3, 0, 0.8, 1) forwards;
+}
+@keyframes fall {
+  0% { transform: translateY(-150px) rotate(-16deg); opacity: 0; }
+  55% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-4deg); opacity: 1; }
+}
+
+.machine.sudden .drum-name,
+.machine.sudden .pylon-face,
+.machine.sudden .thread-path { animation-play-state: paused; }
+.machine.sudden .drum-name { color: var(--thread-2); }
+.machine.sudden .machine-title::after {
+  content: " \00b7 THE NEEDLE IS LIFTED";
+  color: var(--thread-2);
+}
+
+.machine-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+.machine-controls button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: linear-gradient(180deg, #3a3327, #221d14);
+  border: 1px solid var(--brass);
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+}
+.machine-controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+.machine-controls button:active { transform: translateY(1px); }
+.machine-controls .trigger {
+  border-color: var(--thread-2);
+  color: #ffd9d2;
+  background: linear-gradient(180deg, #4a150d, #2a0b06);
+}
+.machine-controls .trigger:hover {
+  box-shadow: 0 8px 24px rgba(165, 42, 28, 0.45);
+}
+.reel {
+  margin: 0 0 0 auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.reel span { color: var(--brass-2); }
+
+/* colophon */
+.colophon {
+  margin-top: 56px;
+  text-align: center;
+  color: var(--stone);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.colophon p { margin: 0; }
+.colophon::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 0 auto 18px;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .head, .entry { padding-left: 20px; padding-right: 20px; }
+  .machine-body { grid-template-columns: 54px 1fr 54px; }
+  .reel { margin-left: 0; }
+}
