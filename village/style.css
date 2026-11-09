@@ -1,0 +1,152 @@
+/* Travel Guide, Entry No. 31 — restrained print design */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #2b2a26;
+  --faint: #6e6a5e;
+  --rule: #d8d2c2;
+  --accent: #5d4a36;
+  --wash: #efe9db;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.guide {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.guide-head {
+  text-align: center;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eyebrow {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.5rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.75rem;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--faint);
+  margin: 0 0 1.5rem;
+}
+
+.route-line {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0;
+}
+
+section { margin: 2.75rem 0; }
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 2rem 0 0.75rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+strong { font-weight: bold; }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-color: var(--accent); }
+
+blockquote.book-line {
+  margin: 1.75rem 0;
+  padding: 1.5rem 2rem;
+  background: var(--wash);
+  border-left: 3px solid var(--accent);
+}
+
+blockquote.book-line p {
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0 0 0.75rem;
+}
+
+blockquote.book-line cite {
+  font-style: normal;
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.guide-foot {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+
+.guide-foot p {
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0;
+}
+
+/* Theodolite touch: the book line fades in once, gently */
+blockquote.book-line {
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+blockquote.book-line.read {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  blockquote.book-line { opacity: 1; transform: none; transition: none; }
+}
