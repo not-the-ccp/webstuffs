@@ -1,0 +1,242 @@
+/* Chapter VI — The Truceless War, Vol. II of the Quartermaster's Manual */
+
+:root {
+  --parchment: #f2e9d3;
+  --parchment-deep: #e8dcbd;
+  --ink: #33281a;
+  --ink-soft: #5c4a2f;
+  --red-ochre: #8a3324;
+  --rule: #b09a6d;
+  --stamp-ink: #7c2d1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(138, 51, 36, 0.05), transparent 60%),
+    radial-gradient(ellipse at 85% 90%, rgba(92, 74, 47, 0.08), transparent 55%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.chapter {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.masthead {
+  border-top: 4px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 1.25rem 0 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.series {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.series .rule { display: inline-block; width: 1.5rem; border-top: 1px solid var(--rule); vertical-align: middle; }
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--stamp-ink);
+  color: var(--stamp-ink);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  padding: 0.3rem 0.7rem;
+  transform: rotate(-1.2deg);
+  opacity: 0.85;
+}
+
+.entry { margin-bottom: 2.5rem; }
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+h2::before {
+  content: "§ ";
+  color: var(--red-ochre);
+}
+
+p { margin: 0 0 1rem; }
+
+strong { color: var(--red-ochre); font-weight: 700; }
+
+/* Season table */
+table.seasons {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1rem 0 1.25rem;
+}
+
+table.seasons caption {
+  caption-side: top;
+  font-style: italic;
+  text-align: left;
+  padding-bottom: 0.5rem;
+  color: var(--ink-soft);
+}
+
+table.seasons th,
+table.seasons td {
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.seasons th {
+  background: var(--parchment-deep);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+table.seasons td:first-child {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pay-book calculator */
+.paybook {
+  border: 1px solid var(--ink);
+  background: var(--parchment-deep);
+  padding: 1.25rem;
+  margin: 1rem 0;
+  box-shadow: 4px 4px 0 rgba(51, 40, 26, 0.15);
+}
+
+.paybook form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.3rem;
+}
+
+.field input {
+  width: 100%;
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--ink);
+  background: var(--parchment);
+  color: var(--ink);
+}
+
+.field input:focus {
+  outline: 2px solid var(--red-ochre);
+  outline-offset: 1px;
+}
+
+.paybook-hint {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.paybook-out {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.5rem;
+  border-top: 1px dashed var(--ink);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.paybook-out .line strong {
+  font-variant-numeric: tabular-nums;
+  color: var(--red-ochre);
+}
+
+.paybook-out .verdict {
+  grid-column: 1 / -1;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.4rem;
+}
+
+.paybook-noscript {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--ink);
+  padding-top: 0.75rem;
+}
+
+/* Receipt fragment */
+blockquote.receipt {
+  margin: 1.25rem 0;
+  padding: 1.25rem 1.5rem;
+  background: #f7f0dd;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--red-ochre);
+}
+
+blockquote.receipt p {
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+blockquote.receipt .receipt-note {
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+a { color: var(--red-ochre); }
+
+a:hover { color: var(--ink); }
+
+/* Colophon */
+.colophon {
+  border-top: 4px double var(--ink);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.stamp-line {
+  text-align: center;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  color: var(--stamp-ink);
+}
