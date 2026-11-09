@@ -1,0 +1,351 @@
+/* The Ribat Loaf — Card No. 41. A night over the ribat: indigo to ember,
+   zellige light, rug borders, a fire that is never once stopped. */
+
+:root {
+  --night: #101426;
+  --night-2: #1c2240;
+  --dune: #b5742c;
+  --dune-deep: #7c4314;
+  --ember: #e07b2f;
+  --gold: #c9a34b;
+  --sand: #e8d9b8;
+  --cream: #f3e9d2;
+  --indigo: #39457c;
+  --indigo-deep: #232a52;
+  --brick: #a52a1e;
+  --ink-dim: #a99a80;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--cream);
+  font-family: "Cormorant Garamond", Georgia, "Iowan Old Style", serif;
+  font-size: 1.14rem;
+  line-height: 1.72;
+  background:
+    radial-gradient(1200px 520px at 50% 118%, rgba(224, 123, 47, 0.34), transparent 62%),
+    radial-gradient(900px 420px at 82% -6%, rgba(57, 69, 124, 0.55), transparent 70%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 34%, #2b2418 78%, #3a2a14 100%);
+  background-attachment: fixed;
+}
+
+/* zellige star light, layered */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.10;
+  background:
+    repeating-conic-gradient(from 0deg at 50% 50%, var(--gold) 0deg 6deg, transparent 6deg 30deg),
+    repeating-conic-gradient(from 15deg at 50% 50%, var(--indigo) 0deg 4deg, transparent 4deg 30deg);
+  background-size: 130px 130px, 130px 130px;
+  animation: zellige-drift 90s linear infinite;
+}
+
+@keyframes zellige-drift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 130px 260px, -130px 130px; }
+}
+
+main, header.sleeve, footer.listen { position: relative; z-index: 1; }
+
+/* ---------- berber rug borders ---------- */
+
+.rug {
+  position: fixed;
+  left: 0; right: 0;
+  height: 14px;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--brick) 0 18px, var(--gold) 18px 24px, transparent 24px 30px,
+      var(--indigo) 30px 48px, var(--sand) 48px 51px, var(--dune-deep) 51px 76px),
+    linear-gradient(180deg, rgba(0,0,0,0.55), transparent);
+  border-bottom: 2px solid var(--gold);
+}
+.rug-top { top: 0; }
+.rug-bottom { bottom: 0; transform: scaleY(-1); }
+
+/* ---------- sleeve / header ---------- */
+
+.sleeve {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4.2rem 1.5rem 2.4rem;
+  text-align: center;
+}
+
+.star {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 1.1rem;
+  display: block;
+  animation: star-turn 70s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(201, 163, 75, 0.5));
+}
+
+@keyframes star-turn { to { transform: rotate(360deg); } }
+
+.eyebrow {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.68rem;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+.arabic {
+  font-family: "Amiri", serif;
+  font-size: 2.3rem;
+  color: var(--sand);
+  margin: 0 0 0.4rem;
+  text-shadow: 0 0 22px rgba(224, 123, 47, 0.55);
+}
+
+h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 5.2rem);
+  line-height: 1;
+  margin: 0.2rem 0 1rem;
+  color: var(--cream);
+  letter-spacing: 0.015em;
+  text-shadow: 0 2px 0 rgba(165, 42, 30, 0.9), 0 0 34px rgba(224, 123, 47, 0.4);
+}
+
+.sub {
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: 1.06rem;
+  margin: 0;
+}
+
+/* ---------- sheet ---------- */
+
+.sheet {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.sheet p { margin: 0 0 1.15rem; }
+
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--ember);
+  font-weight: 700;
+  text-shadow: 0 0 18px rgba(224, 123, 47, 0.6);
+}
+
+a { color: var(--gold); text-decoration-color: rgba(201, 163, 75, 0.4); text-underline-offset: 3px; }
+a:hover { color: var(--sand); text-decoration-thickness: 2px; }
+
+h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  color: var(--sand);
+  margin: 2.2rem 0 1rem;
+  text-align: center;
+}
+
+h2::before, h2::after {
+  content: " ✦ ";
+  color: var(--gold);
+  font-size: 0.8em;
+}
+
+/* ---------- bands ---------- */
+
+.band {
+  max-width: 780px;
+  margin: 2.6rem auto;
+  height: 26px;
+  position: relative;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 22px, var(--gold) 22px 24px, transparent 24px 44px);
+  background-size: 44px 2px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+.band::before {
+  content: "❖";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  color: var(--ember);
+  background: inherit;
+  background-color: #241b10;
+  padding: 0 10px;
+  text-shadow: 0 0 12px rgba(224, 123, 47, 0.8);
+  font-size: 1.1rem;
+}
+
+/* ---------- the card ---------- */
+
+.cardboard {
+  margin: 1.6rem auto;
+  max-width: 620px;
+  background:
+    radial-gradient(120% 60% at 88% 6%, rgba(60, 28, 8, 0.9) 0%, rgba(60, 28, 8, 0) 34%),
+    linear-gradient(160deg, #efe3c4 0%, #e5d3a8 55%, #d9c290 100%);
+  color: #3a2c14;
+  padding: 1.8rem 2rem 1.5rem;
+  transform: rotate(-0.6deg);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), inset 0 0 46px rgba(122, 82, 32, 0.35);
+  border: 1px solid #b39a63;
+  position: relative;
+}
+
+.cardboard figcaption {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #7a6234;
+  margin: 0 0 1rem;
+  text-align: center;
+  border-bottom: 1px dashed #a48c55;
+  padding-bottom: 0.7rem;
+}
+
+.cardboard p { margin: 0 0 0.9rem; }
+
+.mangle {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--sand);
+  background: rgba(16, 20, 38, 0.55);
+  border-left: 3px solid var(--ember);
+  padding: 0.8rem 1rem;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.cardboard .mangle {
+  color: #4a3413;
+  background: rgba(122, 82, 32, 0.14);
+  border-left: 3px solid #7c4314;
+  box-shadow: none;
+}
+
+/* the one line the page exists to explain */
+.intro .mangle {
+  text-align: center;
+  font-size: 1.05rem;
+  border-left: none;
+  border-top: 3px double var(--ember);
+  border-bottom: 3px double var(--ember);
+  padding: 1.1rem 1.2rem;
+  margin: 1.6rem 0;
+  animation: card-glow 5s ease-in-out infinite;
+}
+
+@keyframes card-glow {
+  0%, 100% { box-shadow: inset 0 0 26px rgba(0,0,0,0.5), 0 0 0 rgba(224,123,47,0); }
+  50%      { box-shadow: inset 0 0 26px rgba(0,0,0,0.5), 0 0 26px rgba(224,123,47,0.35); }
+}
+
+/* ---------- method ---------- */
+
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+
+.steps li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(201, 163, 75, 0.22);
+}
+
+.stepnum {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--dune);
+  border: 1.5px solid var(--gold);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(224,123,47,0.35), rgba(16,20,38,0.4));
+  text-shadow: 0 0 10px rgba(224, 123, 47, 0.7);
+}
+
+/* ---------- colophon & footer ---------- */
+
+.credits { text-align: center; }
+.credits p { max-width: 620px; margin-left: auto; margin-right: auto; }
+
+.colophon-line {
+  font-family: "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.66rem;
+  color: var(--gold);
+  margin-top: 1.6rem;
+}
+
+footer.listen {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1.4rem 1.5rem 4.5rem;
+  font-size: 0.98rem;
+  color: var(--ink-dim);
+  border-top: 1px solid rgba(201, 163, 75, 0.3);
+}
+footer.listen p { margin: 0; }
+
+/* ---------- session clock ---------- */
+
+.session-clock {
+  font-family: "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 0.62rem;
+  color: var(--ember);
+  text-shadow: 0 0 14px rgba(224, 123, 47, 0.7);
+  animation: clock-pulse 2.8s ease-in-out infinite;
+  margin-bottom: 0.8rem;
+}
+
+@keyframes clock-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* ---------- embers ---------- */
+
+.embers { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
+
+.ember {
+  position: absolute;
+  bottom: -12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd28a 0%, var(--ember) 55%, transparent 75%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star, body::before, .intro .mangle { animation: none; }
+}
