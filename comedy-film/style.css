@@ -1,0 +1,174 @@
+/* Entry No. 412 — Comedy Film, The House Encyclopedia of the Moving Picture */
+
+:root {
+  --paper: #f4efe3;
+  --paper-deep: #ece4d2;
+  --ink: #23201a;
+  --ink-soft: #4c463b;
+  --rule: #b9ac91;
+  --red-ink: #7a2e22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cfba;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.52;
+  font-size: 17px;
+}
+
+.plate {
+  max-width: 1060px;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 18% 8%, rgba(255, 252, 240, 0.55), transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(120, 100, 60, 0.12), transparent 50%);
+  border: 1px solid #b5a888;
+  box-shadow: 0 1px 0 #fff inset, 0 14px 40px rgba(40, 32, 16, 0.35);
+  padding: 2.6rem 3rem 1.6rem;
+  position: relative;
+}
+
+.plate::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.entry-head {
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.house {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+.head-rule {
+  height: 1px;
+  background: var(--ink);
+  margin: 0.35rem 0 0.9rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.headword-rest {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.etym {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0.7rem auto 0;
+  max-width: 40rem;
+}
+
+.sc { font-variant: small-caps; letter-spacing: 0.06em; }
+
+.double-rule {
+  border: none;
+  border-top: 3px double var(--ink);
+  margin: 1rem 0 1.4rem;
+}
+
+.entry {
+  columns: 2;
+  column-gap: 2.6rem;
+  column-rule: 1px solid var(--rule);
+}
+
+.entry section {
+  break-inside: avoid-column;
+  margin-bottom: 1.3rem;
+}
+
+.entry .col { display: block; }
+
+h2 {
+  font-size: 0.85rem;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  text-align: center;
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+}
+
+h2::before, h2::after {
+  content: " \2014 ";
+  color: var(--rule);
+  font-variant: normal;
+}
+
+p { margin: 0 0 0.85rem; text-align: justify; hyphens: auto; }
+
+.lede .dropcap {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.04em 0.12em 0 0;
+  font-weight: 600;
+  color: var(--red-ink);
+}
+
+.capsword {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+.record-line {
+  margin: 0.6rem 0 0.9rem;
+  padding: 0.5rem 0.9rem;
+  border-left: 3px solid var(--red-ink);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--red-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--red-ink); }
+
+.seealso {
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+}
+
+.entry-foot .foot-line {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 1.2rem 0 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .plate { margin: 0; padding: 1.6rem 1.2rem 1rem; }
+  .entry { columns: 1; }
+  h1 { font-size: 2.2rem; }
+  .plate::before { inset: 6px; }
+}
