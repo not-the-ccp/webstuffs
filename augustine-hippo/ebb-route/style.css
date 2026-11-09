@@ -1,0 +1,189 @@
+/* The Ebb Route — itinerary styling, shelf five, red ink */
+
+html { background-color: #000080; }
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  background-color: #000080;
+  background-image:
+    radial-gradient(1px 1px at 22px 34px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 68px 90px, #ffff99 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 120px 48px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 160px 130px, #99ccff 50%, transparent 51%),
+    radial-gradient(1px 1px at 90px 170px, #ffffff 50%, transparent 51%),
+    linear-gradient(180deg, #000033 0%, #000080 100%);
+  background-size: 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px, auto;
+}
+
+/* --- scrolling ticker --- */
+.ticker {
+  background-color: #000000;
+  color: #00ff00;
+  border-bottom: 3px double #c0c0c0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 4px 0;
+}
+.ticker-run {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tick 38s linear infinite;
+}
+@keyframes tick {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* --- the page card, bevelled like a late-90s table --- */
+.page {
+  max-width: 880px;
+  margin: 18px auto 30px;
+  padding: 18px 22px 26px;
+  background-color: #ffffcc;
+  background-image: repeating-linear-gradient(
+    45deg, #ffffcc 0px, #ffffcc 24px, #ffffe0 24px, #ffffe0 26px);
+  border: 4px outset #c0c0c0;
+  box-shadow: 6px 6px 0 #000000;
+}
+
+.routehead {
+  border-bottom: 4px ridge #808080;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+.dept {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #800000;
+  margin: 0 0 6px;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  color: #000080;
+  margin: 0 0 4px;
+  text-shadow: 2px 2px 0 #ffcc00;
+}
+.sub {
+  display: block;
+  font-size: 17px;
+  color: #800000;
+  font-style: italic;
+}
+.when { font-size: 12px; }
+.matter { font-size: 13px; }
+
+/* --- stops --- */
+.stop {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background-color: #ffffff;
+  border: 3px ridge #808080;
+}
+.stop h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  color: #000080;
+  margin: 0 0 8px;
+  border-bottom: 1px dashed #808080;
+  padding-bottom: 6px;
+}
+.badge {
+  display: inline-block;
+  background-color: #800000;
+  color: #ffff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  padding: 2px 8px;
+  border: 2px outset #c0c0c0;
+  margin-right: 8px;
+}
+.clock {
+  float: right;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: #008000;
+  font-weight: normal;
+}
+.stop p { margin: 8px 0; }
+a { color: #0000cc; }
+a:visited { color: #660099; }
+a:hover { color: #ff0000; background-color: #ffff99; }
+
+.sign { margin-top: 10px; font-style: italic; }
+.sig1 { display: block; margin-bottom: 4px; }
+
+/* --- blinking NEW badge, for the house tradition --- */
+.fine { font-size: 11px; color: #404040; }
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+  color: #ff0000;
+  font-weight: bold;
+}
+@keyframes blink { to { visibility: hidden; } }
+
+/* --- bevelled side panels: counter + guest book --- */
+.panel {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background-color: #c0c0c0;
+  border: 4px inset #ffffff;
+}
+.panel h3 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000080;
+  margin: 0 0 8px;
+  border-bottom: 2px dotted #000000;
+}
+.counter {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
+  font-weight: bold;
+  color: #00ff00;
+  background-color: #000000;
+  border: 3px inset #808080;
+  padding: 4px 12px;
+  text-align: center;
+}
+.book { margin: 8px 0 12px; padding-left: 18px; }
+.book li { margin-bottom: 6px; font-size: 12px; }
+
+#gbform { font-size: 12px; }
+#gbform label { display: block; font-weight: bold; margin-top: 6px; color: #000080; }
+#gbform input[type="text"] {
+  width: 92%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  border: 2px inset #ffffff;
+  background-color: #ffffff;
+  padding: 3px;
+}
+#gbform button {
+  margin-top: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 13px;
+  background-color: #c0c0c0;
+  border: 3px outset #ffffff;
+  padding: 4px 14px;
+  cursor: pointer;
+}
+#gbform button:active { border-style: inset; }
+
+@media (max-width: 600px) {
+  .page { margin: 8px; padding: 12px; }
+  h1 { font-size: 26px; }
+}
