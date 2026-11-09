@@ -1,0 +1,188 @@
+/* Case No. 245 — the record at the courthouse, kept in the folder
+   web-safe colours, bevelled panels, starry night above the square */
+
+body {
+  margin: 0;
+  padding: 18px 10px 30px;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: #000033;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.5px),
+    radial-gradient(#ffff99 1px, transparent 1.5px),
+    radial-gradient(#9999ff 1px, transparent 1.5px);
+  background-size: 120px 120px, 200px 160px, 160px 240px;
+  background-position: 0 0, 40px 60px, 90px 20px;
+}
+
+.frame {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.banner {
+  background: #000080;
+  color: #ffff00;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 4px 0;
+  border: 3px outset #6666cc;
+  margin-bottom: 10px;
+}
+
+.panel {
+  background: #000000;
+  border: 4px outset #c0c0c0;
+  padding: 14px 18px;
+}
+
+header p.seal {
+  text-align: center;
+  color: #ffcc00;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 26px;
+  margin: 6px 0;
+  text-shadow: 2px 2px #800000;
+}
+
+p.sub {
+  text-align: center;
+  color: #cccccc;
+  font-size: 13px;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  padding: 6px 4px;
+}
+
+.scrollbar {
+  background: #c0c0c0;
+  color: #000000;
+  border: 2px inset #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 2px 0;
+}
+
+.scrollbar span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollline 28s linear infinite;
+}
+
+@keyframes scrollline {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.record p {
+  line-height: 1.55;
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+.folio {
+  color: #ffff99;
+  font-style: italic;
+  font-size: 13px;
+  border-left: 4px double #000080;
+  background: #000040;
+  padding: 6px 8px;
+}
+
+.spk {
+  color: #ffcc66;
+  font-weight: bold;
+}
+
+.note {
+  color: #99ccff;
+  font-size: 13px;
+  border: 1px dashed #6666cc;
+  padding: 6px 10px;
+}
+
+.entry {
+  color: #ffffff;
+  font-style: italic;
+  border: 2px inset #c0c0c0;
+  background: #1a1a33;
+  padding: 8px 12px;
+}
+
+a { color: #66ccff; }
+a:visited { color: #cc99ff; }
+a:hover { color: #ffff00; }
+
+.guest {
+  border: 3px ridge #6666cc;
+  background: #000022;
+  padding: 8px 12px;
+  margin-top: 16px;
+}
+
+.guest-title {
+  text-align: center;
+  color: #ffff00;
+  font-weight: bold;
+}
+
+.guest input {
+  background: #ffffff;
+  border: 2px inset #c0c0c0;
+}
+
+.guest button {
+  background: #c0c0c0;
+  border: 3px outset #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.guest button:active { border-style: inset; }
+
+.signed { color: #99ff99; font-size: 13px; }
+
+.counterbox {
+  margin-top: 14px;
+  text-align: center;
+  border: 3px groove #6666cc;
+  background: #000000;
+  padding: 8px;
+}
+
+.digits {
+  display: inline-block;
+  background: #000000;
+  color: #33ff33;
+  font-family: "Courier New", monospace;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  border: 2px inset #339933;
+  padding: 2px 10px;
+  margin: 4px 0;
+}
+
+footer {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #cccccc;
+  border-top: 1px solid #666666;
+  padding-top: 8px;
+}
+
+.footline {
+  text-align: center;
+  color: #ffff99;
+  font-size: 12px;
+  margin-top: 10px;
+}
