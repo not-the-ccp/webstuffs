@@ -1,0 +1,189 @@
+/* Catalogue listing sheet — The Dublin Records Archive, Catalogue 214 */
+
+:root {
+  --paper: #f4eee1;
+  --paper-deep: #e9e0cb;
+  --ink: #26221a;
+  --faded: #6b6353;
+  --stamp-red: #a33526;
+  --stamp-rule: #a33526;
+  --tape: rgba(210, 190, 140, 0.45);
+  --rule: #b6ac93;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #2b2620; }
+
+body {
+  margin: 0;
+  padding: 3rem 1rem 5rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 244, 214, 0.06), transparent 60%),
+    #2b2620;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.shelf {
+  position: fixed;
+  left: 0; right: 0; top: 0;
+  height: 10px;
+  background: linear-gradient(#5a4630, #3a2d1e);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.sheet {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.6rem 2.8rem 2.2rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0 2px, transparent 2px 4px),
+    var(--paper);
+  border: 1px solid #c9bfa6;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.4) inset,
+    0 18px 40px rgba(0, 0, 0, 0.55);
+  transform: rotate(-0.35deg);
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  width: 120px;
+  height: 30px;
+  background: var(--tape);
+  border-left: 1px dashed rgba(120, 100, 60, 0.35);
+  border-right: 1px dashed rgba(120, 100, 60, 0.35);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.tape-left { left: 24px; transform: rotate(-5deg); }
+.tape-right { right: 24px; transform: rotate(4deg); }
+
+.masthead { text-align: center; margin-bottom: 1.4rem; }
+
+.office-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.4rem;
+}
+
+.cat-no {
+  font-size: 0.85rem;
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: 2.7rem;
+  margin: 0;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+h1 .pron {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: var(--faded);
+  font-style: italic;
+}
+
+.sub {
+  margin: 0.5rem auto 0;
+  max-width: 34rem;
+  font-size: 0.92rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+.stamp {
+  display: inline-block;
+  margin: 1rem auto 0.2rem;
+  padding: 0.35rem 0.9rem;
+  border: 3px double var(--stamp-red);
+  color: var(--stamp-red);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  opacity: 0.85;
+  text-align: center;
+}
+
+.rule {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 1.5rem 0;
+}
+
+.item { margin-bottom: 1.7rem; }
+
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+.item p { margin: 0 0 0.7rem; font-size: 1rem; }
+
+table.spec {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+table.spec th {
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  padding: 0.35rem 0.8rem 0.35rem 0;
+  vertical-align: top;
+  width: 9rem;
+}
+table.spec td { padding: 0.35rem 0; }
+table.spec tr + tr td,
+table.spec tr + tr th { border-top: 1px dotted var(--rule); }
+
+.survey-line {
+  font-style: italic;
+  border-left: 3px solid var(--stamp-rule);
+  padding-left: 0.8rem;
+  display: inline-block;
+  margin-left: 0.4rem;
+}
+
+.colophon {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--faded);
+}
+.colophon p { margin: 0.25rem 0; }
+
+.stamp-keep {
+  margin-top: 0.6rem;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--stamp-red);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { background: rgba(163, 53, 38, 0.12); }
+
+strong { font-weight: 700; }
