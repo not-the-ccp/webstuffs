@@ -1,0 +1,275 @@
+/* Aldergate & the Ravine — Guidebook Entry No. 7: The Single */
+
+:root {
+  --ink: #1c1a17;
+  --paper: #f4efe4;
+  --neon: #ff5a1f;
+  --b-side: #2b3a4a;
+  --rule: #b9ad97;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.guide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0 2.5rem;
+  position: relative;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  grid-column: 1 / -1;
+  position: relative;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 2.2rem;
+  margin-bottom: 2.2rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 400;
+}
+
+h1::after {
+  content: "·";
+  color: var(--neon);
+}
+
+.standfirst {
+  max-width: 34em;
+  margin: 1rem 0 0;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.rpm {
+  position: absolute;
+  right: 0;
+  top: 0.4rem;
+  text-align: center;
+  border: 3px solid var(--neon);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: grid;
+  place-items: center;
+  transform: rotate(-10deg);
+  background: rgba(255, 90, 31, 0.06);
+}
+
+.rpm span {
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--neon);
+}
+
+.rpm small {
+  font-family: "Courier New", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+}
+
+/* ---------- asymmetric body grid ---------- */
+
+.orientation { grid-column: 1; }
+
+.stop {
+  grid-column: 2;
+  border-left: 1px solid var(--rule);
+  padding-left: 1.6rem;
+  margin-bottom: 2.2rem;
+}
+
+.stop-parcel {
+  grid-column: 1 / -1;
+  border-left: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.8rem 0;
+  margin-bottom: 2.2rem;
+  column-count: 2;
+  column-gap: 2.5rem;
+  column-rule: 1px solid var(--rule);
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 0.8rem;
+}
+
+.stopno {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  padding: 0.15rem 0.5rem;
+  margin-right: 0.6rem;
+  transform: translateY(-2px);
+}
+
+.record-line {
+  margin: 1.2rem 0;
+  padding: 1rem 1.4rem;
+  background: #ece4d0;
+  border-left: 6px solid var(--neon);
+  font-size: 1.15rem;
+  font-style: italic;
+  break-inside: avoid;
+}
+
+.record-line p { margin: 0; }
+
+/* ---------- the disc ---------- */
+
+.disc {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 1.4rem auto 1rem;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle at 50% 50%, #14120f 0 2px, #242019 2px 4px);
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  border: 2px solid var(--ink);
+}
+
+.disc.flipped { transform: rotateY(180deg); }
+
+.disc-face {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: var(--paper);
+  gap: 0.15rem;
+  padding: 0.4rem;
+  backface-visibility: hidden;
+}
+
+.face-a { background: var(--neon); }
+
+.face-b {
+  background: var(--b-side);
+  transform: rotateY(180deg);
+}
+
+.disc-face .label {
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+}
+
+.disc-face em { font-size: 0.95rem; }
+
+.disc-face small { font-size: 0.62rem; opacity: 0.85; }
+
+.spindle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+}
+
+.disc-note {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ---------- practical ---------- */
+
+.practical {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1.6rem;
+}
+
+.practical-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+}
+
+.practical h3 {
+  font-size: 0.85rem;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 1.1rem 0 0.3rem;
+  color: var(--neon);
+}
+
+.practical h3:first-child { margin-top: 0; }
+
+.practical p { margin: 0 0 1rem; }
+
+/* ---------- footer ---------- */
+
+.foot {
+  grid-column: 1 / -1;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.seal-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.5rem 0;
+  margin: 0 0 0.8rem;
+}
+
+.foot-links { margin: 0; font-size: 0.9rem; }
+
+a { color: var(--b-side); }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 760px) {
+  .guide { grid-template-columns: 1fr; }
+  .stop, .stop-parcel, .orientation, .practical { grid-column: 1; }
+  .stop { border-left: 0; border-top: 1px solid var(--rule); padding: 1.4rem 0; }
+  .stop-parcel { column-count: 1; }
+  .practical-grid { grid-template-columns: 1fr; }
+  .rpm { width: 110px; height: 110px; }
+  .rpm span { font-size: 3.2rem; }
+}
