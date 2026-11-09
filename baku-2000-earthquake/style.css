@@ -1,0 +1,386 @@
+/* 2000 Baku Earthquake — Article No. BZ-2511
+   The Caspian Shelf Record: seismograph paper, shelf water, shock rings. */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ece4d0;
+  --ink: #23201a;
+  --ink-soft: #4a4436;
+  --sea: #12405c;
+  --sea-deep: #0a2739;
+  --caspian: #1e6f8c;
+  --caspian-pale: #a8cdd8;
+  --seam: #8c1f12;
+  --seam-soft: #c05a4a;
+  --grid: rgba(30, 111, 140, 0.14);
+  --grid-strong: rgba(30, 111, 140, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% -10%, rgba(18, 64, 92, 0.55), transparent 60%),
+    linear-gradient(180deg, var(--sea-deep) 0%, var(--sea) 22%, #2a5a70 38%, #6d93a3 52%, var(--paper-deep) 66%, var(--paper) 100%);
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* seismograph grid drifting over the sea portion */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    linear-gradient(var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px);
+  background-size: 22px 22px, 22px 22px, 110px 110px, 110px 110px;
+  mask-image: linear-gradient(180deg, black 0%, black 30%, transparent 62%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 30%, transparent 62%);
+  animation: grid-drift 26s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to   { background-position: 0 110px, 110px 0, 0 110px, 110px 0; }
+}
+
+/* ---- shock rings around the epicenter dot ---- */
+.shockwaves {
+  position: fixed;
+  top: -18vh;
+  right: -14vw;
+  width: 60vmin;
+  height: 60vmin;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.epicenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--seam);
+  box-shadow: 0 0 0 6px rgba(140, 31, 18, 0.25), 0 0 30px rgba(192, 90, 74, 0.6);
+  animation: epic-pulse 4s ease-in-out infinite;
+}
+
+@keyframes epic-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 2px solid rgba(168, 205, 216, 0.65);
+  transform: translate(-50%, -50%) scale(0.1);
+  opacity: 0;
+  animation: ring-out 8s linear infinite;
+}
+
+.ring-1 { animation-delay: 0s; }
+.ring-2 { animation-delay: 2s; border-width: 1.5px; }
+.ring-3 { animation-delay: 4s; border-style: dashed; }
+.ring-4 { animation-delay: 6s; border-color: rgba(192, 90, 74, 0.5); }
+
+@keyframes ring-out {
+  0%   { transform: translate(-50%, -50%) scale(0.08); opacity: 0.9; }
+  70%  { opacity: 0.35; }
+  100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+}
+
+/* ---- the paper sheet ---- */
+.paper {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 48px auto 72px;
+  padding: 0 28px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(30, 111, 140, 0.08) 27px 28px),
+    linear-gradient(180deg, #fbf7ea 0%, var(--paper) 30%, var(--paper) 100%);
+  border: 1px solid rgba(35, 32, 26, 0.35);
+  box-shadow:
+    0 30px 60px rgba(10, 39, 57, 0.45),
+    inset 0 0 0 6px rgba(255, 255, 255, 0.35),
+    inset 0 0 90px rgba(140, 31, 18, 0.05);
+}
+
+/* torn-perforation strip along the top of the paper */
+.paper::before {
+  content: "";
+  display: block;
+  height: 14px;
+  margin: 0 -28px 18px;
+  background:
+    radial-gradient(circle at 10px 0, transparent 6px, var(--paper) 6px) 0 0 / 24px 14px repeat-x,
+    linear-gradient(180deg, transparent 0, rgba(35, 32, 26, 0.0) 100%);
+  border-bottom: 1px dashed rgba(35, 32, 26, 0.4);
+}
+
+/* ---- masthead ---- */
+.plate-head {
+  padding: 6px 0 18px;
+  border-bottom: 3px double rgba(35, 32, 26, 0.6);
+  position: relative;
+}
+
+.kicker {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 12px;
+  color: var(--sea);
+  margin: 0 0 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--sea-deep);
+  text-shadow: 2px 2px 0 rgba(168, 205, 216, 0.7);
+}
+
+.subhead {
+  margin: 10px 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+/* seismograph strip */
+.trace-strip {
+  margin-top: 18px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 15px, rgba(18, 64, 92, 0.12) 15px 16px),
+    linear-gradient(180deg, #fdfaf0, #f3ecd8);
+  border: 1px solid rgba(18, 64, 92, 0.4);
+  box-shadow: inset 0 2px 8px rgba(18, 64, 92, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.trace-strip canvas {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+.trace-label {
+  position: absolute;
+  left: 10px;
+  bottom: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--sea);
+  background: rgba(253, 250, 240, 0.85);
+  padding: 1px 6px;
+}
+
+/* ---- infobox ---- */
+.infobox {
+  float: right;
+  width: 290px;
+  margin: 6px 0 18px 26px;
+  background:
+    linear-gradient(160deg, rgba(30, 111, 140, 0.10), rgba(18, 64, 92, 0.16)),
+    #f8f4e6;
+  border: 2px solid var(--sea);
+  box-shadow: 5px 5px 0 rgba(18, 64, 92, 0.25);
+  padding: 14px 16px 10px;
+  font-size: 0.86rem;
+  animation: box-settle 0.9s ease-out both;
+}
+
+@keyframes box-settle {
+  from { transform: translateX(14px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+.infobox h2 {
+  margin: 0 0 8px;
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  color: var(--paper);
+  background: var(--sea);
+  padding: 4px 8px;
+}
+
+.infobox dl {
+  margin: 0;
+}
+
+.infobox dt {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--seam);
+  margin-top: 8px;
+}
+
+.infobox dd {
+  margin: 0 0 2px;
+  color: var(--ink);
+}
+
+/* ---- sections ---- */
+section {
+  margin: 30px 0;
+  clear: none;
+}
+
+.sec {
+  font-size: 1.35rem;
+  color: var(--sea-deep);
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(35, 32, 26, 0.35);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.sec-mark {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  color: var(--paper);
+  background: var(--seam);
+  padding: 2px 9px;
+  box-shadow: 2px 2px 0 rgba(35, 32, 26, 0.3);
+}
+
+p { margin: 0 0 16px; }
+
+.lead {
+  font-size: 1.08rem;
+}
+
+strong { color: var(--sea-deep); }
+
+em {
+  color: var(--seam);
+  background: linear-gradient(180deg, transparent 68%, rgba(192, 90, 74, 0.22) 68%);
+}
+
+/* ---- the events log table ---- */
+.log {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 22px;
+  font-size: 0.92rem;
+  background: #fbf7ea;
+  box-shadow: 4px 4px 0 rgba(30, 111, 140, 0.2);
+}
+
+.log caption {
+  caption-side: top;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sea);
+  padding-bottom: 6px;
+  text-align: left;
+}
+
+.log th {
+  background: var(--sea);
+  color: var(--paper);
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.log td {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(30, 111, 140, 0.25);
+  vertical-align: top;
+}
+
+.log tbody tr:nth-child(odd) { background: rgba(30, 111, 140, 0.06); }
+
+.log tbody tr { animation: row-in 0.6s ease-out both; }
+.log tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.log tbody tr:nth-child(3) { animation-delay: 0.2s; }
+.log tbody tr:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes row-in {
+  from { transform: translateX(-10px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+.log td:first-child {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: var(--seam);
+  white-space: nowrap;
+}
+
+/* ---- links ---- */
+a {
+  color: var(--sea);
+  text-decoration: none;
+  border-bottom: 1px solid var(--caspian-pale);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+a:hover {
+  background: var(--caspian-pale);
+  border-bottom-color: var(--seam);
+}
+
+/* ---- colophon ---- */
+.colophon {
+  margin-top: 40px;
+  padding-top: 14px;
+  border-top: 3px double rgba(35, 32, 26, 0.6);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+/* the night line, set slightly apart */
+section p em { font-style: italic; }
+
+/* ---- responsive ---- */
+@media (max-width: 760px) {
+  .paper { margin: 20px 10px 40px; padding: 0 16px; }
+  .paper::before { margin: 0 -16px 14px; }
+  .infobox { float: none; width: 100%; margin: 6px 0 18px; }
+  .shockwaves { top: -30vh; right: -30vw; }
+  body { font-size: 16.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring, .epicenter, body::before, .infobox, .log tbody tr { animation: none; }
+}
