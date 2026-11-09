@@ -1,0 +1,255 @@
+/* Lot 88 — The 2002 FIFA World Cup, Korea/Japan — auction catalogue styling */
+:root {
+  --ink: #211a12;
+  --faded-ink: #5c4a35;
+  --paper: #f2e8d3;
+  --paper-deep: #e4d2ab;
+  --green: #2e5941;      /* host-green, the leather of the ledger */
+  --red: #8f2323;        /* the hanko, the Fevernova panel */
+  --gold: #9c7a2f;       /* the brass ledger */
+  --navy: #1f3049;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(ellipse at 15% 6%, rgba(46, 89, 65, 0.18), transparent 44%),
+    radial-gradient(ellipse at 85% 94%, rgba(143, 35, 35, 0.14), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(31, 48, 73, 0.05) 0 2px, transparent 2px 28px),
+    repeating-linear-gradient(90deg, rgba(156, 122, 47, 0.05) 0 1px, transparent 1px 10px),
+    linear-gradient(158deg, #f6ecd6 0%, #ead8b0 52%, #dcc494 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* the sale strip */
+.sale-strip {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 0.55em 1.2em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: #efe3c8;
+  text-align: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.3) 0 10px, transparent 10px 20px),
+    linear-gradient(#26332a, #1f3049);
+  border-bottom: 3px double var(--gold);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalogue {
+  max-width: 56em;
+  margin: 0 auto;
+  padding: 2.4em 1.4em 3.4em;
+  background: rgba(246, 236, 214, 0.55);
+  border-left: 1px solid rgba(156, 122, 47, 0.5);
+  border-right: 1px solid rgba(156, 122, 47, 0.5);
+  box-shadow: 0 0 40px rgba(33, 26, 18, 0.12) inset;
+}
+
+.masthead {
+  position: relative;
+  text-align: center;
+  padding: 1em 0 1.6em;
+}
+.firm {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--navy);
+}
+.firm-sub {
+  margin: 0.2em 0 1.6em;
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--faded-ink);
+}
+h1 {
+  margin: 0 0 0.6em;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+.lot-no {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  color: var(--paper);
+  background: var(--green);
+  border: 2px solid var(--gold);
+  padding: 0.35em 1em 0.3em;
+  margin-bottom: 0.9em;
+}
+.hosts { color: var(--red); font-style: italic; }
+.sale-line {
+  margin: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded-ink);
+}
+
+/* the hanko seal */
+.seal {
+  position: absolute;
+  right: 0.4em;
+  top: 0.6em;
+  opacity: 0.9;
+}
+.seal-ring {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3;
+}
+.seal-ring.inner { stroke-width: 1.5; }
+.seal-text {
+  fill: var(--red);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+.seal-num {
+  fill: var(--red);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.rule-double {
+  height: 7px;
+  border-top: 3px double var(--green);
+  border-bottom: 1px solid var(--gold);
+  margin: 0.4em 0 1.8em;
+}
+
+.page { margin-bottom: 2.2em; }
+.folio {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--faded-ink);
+  text-transform: uppercase;
+  margin: 0 0 1em;
+}
+strong { color: var(--navy); }
+
+/* the piece table */
+.lot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.lot-table caption {
+  caption-side: top;
+  font-style: italic;
+  color: var(--faded-ink);
+  text-align: left;
+  padding-bottom: 0.5em;
+}
+.lot-table th, .lot-table td {
+  border: 1px solid rgba(92, 74, 53, 0.45);
+  padding: 0.6em 0.8em;
+  vertical-align: top;
+  text-align: left;
+}
+.lot-table thead th {
+  background: var(--green);
+  color: var(--paper);
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+.lot-table tbody th[scope="row"] {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: var(--red);
+  white-space: nowrap;
+}
+.lot-table tbody tr:nth-child(even) { background: rgba(156, 122, 47, 0.08); }
+
+/* the kept line */
+.kept-line {
+  margin: 1.4em 2.2em;
+  padding: 1em 1.4em;
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--navy);
+  background: rgba(255, 250, 235, 0.7);
+  border-left: 4px solid var(--red);
+  border-right: 1px solid var(--gold);
+  box-shadow: 3px 3px 0 rgba(156, 122, 47, 0.25);
+}
+
+/* the hammer */
+.hammer {
+  margin-top: 1.6em;
+  text-align: center;
+  border: 3px double var(--green);
+  background: linear-gradient(180deg, rgba(46, 89, 65, 0.12), rgba(31, 48, 73, 0.14));
+  padding: 1em 1.2em;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  user-select: none;
+}
+.hammer:hover, .hammer:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(33, 26, 18, 0.2);
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.hammer-hint {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded-ink);
+}
+.hammer-result {
+  display: none;
+  font-size: 1.25rem;
+  color: var(--red);
+  letter-spacing: 0.04em;
+}
+.hammer.sold .hammer-hint { display: none; }
+.hammer.sold .hammer-result {
+  display: inline-block;
+  animation: stamp 0.5s cubic-bezier(0.2, 2.4, 0.4, 1) both;
+}
+@keyframes stamp {
+  0% { transform: scale(2.1) rotate(-9deg); opacity: 0; }
+  70% { transform: scale(0.96) rotate(-2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); }
+}
+
+a { color: var(--green); }
+a:hover, a:focus { color: var(--red); }
+
+.cat-foot {
+  font-size: 0.8rem;
+  color: var(--faded-ink);
+  font-style: italic;
+  text-align: center;
+  padding-top: 0.6em;
+}
+
+@media (max-width: 640px) {
+  .lot-table { font-size: 0.82rem; }
+  .seal { position: static; margin: 1em auto 0; }
+  .kept-line { margin: 1.2em 0.4em; }
+}
