@@ -1,0 +1,111 @@
+/* The Manor Game — rulebook, Brightwell Edition, fourth printing */
+body {
+  margin: 0;
+  background: #c9bfa8;
+  color: #2b2118;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+.manual {
+  max-width: 52rem;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem 3rem;
+  background: #f7f1e1;
+  border: 1px solid #b3a684;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 0 60px rgba(150,120,70,0.12);
+}
+.masthead {
+  text-align: center;
+  border-bottom: 4px double #7a2e1f;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.press {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: #7a2e1f;
+}
+.edition {
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+  color: #5a4a35;
+}
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+  color: #3d2417;
+}
+.subtitle {
+  font-style: italic;
+  margin: 0.5rem 0 1.25rem;
+  color: #5a4a35;
+}
+.lid {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+.lid svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lid-caption {
+  font-size: 0.72rem;
+  color: #6d5c42;
+  margin: 0.4rem 0 0;
+  font-style: italic;
+}
+h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7a2e1f;
+  border-bottom: 1px solid #b3a684;
+  padding-bottom: 0.3rem;
+  margin: 2rem 0 0.9rem;
+}
+section { margin-bottom: 1.75rem; }
+p { margin: 0 0 0.9rem; }
+table.components {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+table.components th,
+table.components td {
+  border: 1px solid #b3a684;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.components th {
+  background: #efe6cf;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+table.components td:nth-child(2) {
+  text-align: center;
+  white-space: nowrap;
+}
+blockquote.calculation {
+  margin: 1rem 1.5rem;
+  padding: 0.9rem 1.2rem;
+  background: #f3ead6;
+  border-left: 5px solid #7a2e1f;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #3d2417;
+}
+.colophon-line {
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #b3a684;
+  font-size: 0.78rem;
+  color: #5a4a35;
+}
+a { color: #7a2e1f; }
+a:hover { color: #a03b28; }
