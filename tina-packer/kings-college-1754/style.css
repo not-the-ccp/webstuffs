@@ -1,0 +1,360 @@
+/* King's College 1754 — The Charter Card · pinned forum thread No. 896 */
+
+:root {
+  --ink: #221c14;
+  --ink-soft: #4a4030;
+  --parchment: #f3e9cf;
+  --parchment-deep: #e9d9b4;
+  --royal: #1e3a5f;
+  --royal-deep: #142740;
+  --crimson: #7c1d1d;
+  --wax: #8a1f1a;
+  --gold: #b8892e;
+  --gold-soft: #d9b96a;
+  --ribbon: #2f5d3a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(184, 137, 46, 0.28), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 15% 100%, rgba(30, 58, 95, 0.18), transparent 65%),
+    radial-gradient(ellipse 70% 40% at 85% 90%, rgba(124, 29, 29, 0.14), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(120, 90, 40, 0.05) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(90deg, rgba(120, 90, 40, 0.04) 0 3px, transparent 3px 7px),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  background-attachment: fixed;
+}
+
+/* wax seals drifting at the page edges */
+.wax {
+  position: fixed;
+  top: -60px;
+  left: -60px;
+  width: 170px;
+  height: 170px;
+  border-radius: 48% 52% 55% 45% / 52% 46% 54% 48%;
+  background:
+    radial-gradient(circle at 38% 34%, #b04036 0 12%, transparent 13%),
+    radial-gradient(circle at 60% 60%, rgba(255, 255, 255, 0.14), transparent 40%),
+    radial-gradient(circle at 50% 50%, var(--wax) 0 55%, #5e130f 56% 100%);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), inset 0 -8px 18px rgba(0, 0, 0, 0.35);
+  opacity: 0.85;
+  animation: waxdrift 26s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+.wax.right { left: auto; right: -70px; top: auto; bottom: -50px; transform: rotate(20deg); animation-delay: -9s; }
+
+@keyframes waxdrift {
+  from { transform: rotate(-14deg) translateY(0); }
+  to   { transform: rotate(-4deg) translateY(26px); }
+}
+
+/* ---------- masthead with the royal charter seal ---------- */
+
+.masthead {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.6rem 1.4rem 1.4rem;
+  text-align: center;
+  position: relative;
+}
+
+.seal {
+  width: 128px;
+  height: 128px;
+  display: block;
+  margin: 0 auto 0.6rem;
+  animation: sealspin 60s linear infinite;
+  filter: drop-shadow(0 4px 10px rgba(20, 39, 64, 0.35));
+}
+@keyframes sealspin { to { transform: rotate(360deg); } }
+
+.seal-ring { fill: none; stroke: var(--royal); stroke-width: 2.5; }
+.seal-ring.inner { stroke: var(--gold); stroke-width: 1; stroke-dasharray: 4 3; }
+.crown { fill: var(--gold); stroke: var(--royal); stroke-width: 1.5; }
+.crown-band { fill: var(--royal); }
+.book { fill: var(--parchment); stroke: var(--royal); stroke-width: 2; }
+.seal-text {
+  font-family: "UnifrakturCook", "Old English Text MT", serif;
+  font-size: 9px;
+  fill: var(--royal);
+  text-anchor: middle;
+  letter-spacing: 0.5px;
+}
+.seal-year {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 12px;
+  fill: var(--crimson);
+  text-anchor: middle;
+}
+
+.board {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 3.6vw, 1.9rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--royal-deep);
+  margin: 0.4rem 0 0.15rem;
+}
+.forum {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  letter-spacing: 0.08em;
+}
+.forum::before, .forum::after { content: " ❦ "; color: var(--gold); }
+
+/* ---------- the thread ---------- */
+
+.thread {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.thread-head {
+  text-align: center;
+  border-top: 3px double var(--royal);
+  border-bottom: 3px double var(--royal);
+  padding: 1.1rem 0.6rem 0.9rem;
+  margin-bottom: 1.6rem;
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0.07), rgba(184, 137, 46, 0.09));
+}
+.thread-crumb {
+  display: inline-block;
+  background: var(--crimson);
+  color: var(--parchment);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.9rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(124, 29, 29, 0.4);
+}
+.thread-head h1 {
+  font-family: "UnifrakturCook", "Old English Text MT", serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  margin: 0.7rem 0 0.3rem;
+  color: var(--royal-deep);
+  text-shadow: 1px 1px 0 var(--gold-soft);
+}
+.thread-meta { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
+
+.post {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)),
+    var(--parchment);
+  border: 1px solid rgba(124, 29, 29, 0.35);
+  border-left: 6px solid var(--crimson);
+  box-shadow: 0 6px 18px rgba(34, 28, 20, 0.18), inset 0 0 40px rgba(184, 137, 46, 0.08);
+  margin-bottom: 1.5rem;
+  padding: 1.1rem 1.25rem;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.post:hover {
+  transform: translateY(-3px) rotate(-0.15deg);
+  box-shadow: 0 12px 26px rgba(34, 28, 20, 0.28), inset 0 0 40px rgba(184, 137, 46, 0.12);
+}
+.post::after {
+  content: "❧";
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.4rem;
+  color: var(--gold);
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+.post.op { border-left-color: var(--royal); background-image: linear-gradient(180deg, rgba(30, 58, 95, 0.06), rgba(255, 255, 255, 0)), none; }
+.post.staff { border-left-color: var(--ribbon); }
+
+.poster { border-right: 1px dashed rgba(74, 64, 48, 0.4); padding-right: 1rem; }
+.avatar {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--parchment);
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.35), transparent 45%),
+    conic-gradient(from 210deg, var(--royal), var(--crimson), var(--gold), var(--royal));
+  border: 3px solid var(--gold);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.name { font-family: "Playfair Display", Georgia, serif; font-weight: 800; font-size: 1.02rem; margin: 0; text-align: center; }
+.rank { font-style: italic; font-size: 0.82rem; color: var(--crimson); margin: 0.15rem 0 0.5rem; text-align: center; }
+.count { font-size: 0.8rem; color: var(--ink-soft); text-align: center; margin: 0; }
+
+.stamp {
+  display: inline-block;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  border: 1px solid currentColor;
+  padding: 0.1rem 0.6rem;
+  transform: rotate(-1.5deg);
+  margin-bottom: 0.6rem;
+}
+.body p { margin: 0 0 0.85rem; }
+.body p:last-child { margin-bottom: 0; }
+.body a {
+  color: var(--royal);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.body a:hover { background: rgba(184, 137, 46, 0.18); color: var(--royal-deep); }
+
+/* the charter card, laid open at its long edge */
+.charter-line {
+  position: relative;
+  margin: 1.1rem 0.4rem;
+  padding: 1.3rem 1.4rem 1.2rem;
+  background:
+    repeating-linear-gradient(90deg, rgba(184, 137, 46, 0.1) 0 1px, transparent 1px 9px),
+    linear-gradient(135deg, #fbf4de 0%, #f0e2ba 55%, #e6d29c 100%);
+  border: 2px solid var(--gold);
+  outline: 1px solid rgba(124, 29, 29, 0.4);
+  outline-offset: 4px;
+  box-shadow: 0 10px 22px rgba(34, 28, 20, 0.3), inset 0 0 30px rgba(184, 137, 46, 0.25);
+  transform: rotate(-0.4deg);
+}
+.charter-line p {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.28rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+.charter-line .card-num {
+  position: absolute;
+  top: -14px;
+  left: 14px;
+  z-index: 3;
+  background: var(--royal);
+  color: var(--parchment);
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--gold);
+  box-shadow: 0 3px 8px rgba(20, 39, 64, 0.45);
+}
+.charter-line::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(124, 29, 29, 0.5);
+  pointer-events: none;
+}
+.charter-line.filed { transform: rotate(0.4deg); }
+.charter-line.filed::after {
+  content: "FILED — ERROR HANDLER'S JURISDICTION";
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  z-index: 3;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  color: var(--crimson);
+  border: 1.5px solid var(--crimson);
+  padding: 0.18rem 0.55rem;
+  transform: rotate(-6deg);
+  background: rgba(251, 244, 222, 0.7);
+}
+.charter-line .stain {
+  position: absolute;
+  width: 44px;
+  height: 40px;
+  border-radius: 50% 46% 54% 50%;
+  background: radial-gradient(circle at 45% 40%, rgba(112, 66, 18, 0.32), rgba(112, 66, 18, 0.12) 55%, transparent 72%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+.charter-line .stain.s1 { top: 8px; left: 10px; transform: rotate(12deg); }
+.charter-line .stain.s2 { bottom: 10px; right: 14px; transform: rotate(-30deg); }
+
+/* the attempt button on the card */
+.attempt {
+  display: block;
+  margin: 1.1rem 0.2rem 0.2rem auto;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: var(--parchment);
+  background: linear-gradient(180deg, var(--crimson), #5e130f);
+  border: 1px solid var(--gold);
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(94, 19, 15, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.attempt:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(94, 19, 15, 0.55); }
+.attempt:active { transform: translateY(1px); }
+.attempt-log {
+  margin: 0.5rem 0.2rem 0 auto;
+  font-size: 0.84rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: right;
+  min-height: 1.3em;
+}
+
+/* scramble flicker while a word is "changed" */
+@keyframes flick {
+  0%, 100% { opacity: 1; }
+  25% { opacity: 0.35; }
+  50% { opacity: 0.9; }
+  75% { opacity: 0.5; }
+}
+.charter-line.flicker p { animation: flick 0.35s steps(2) 3; }
+
+/* thread footer */
+.thread-foot {
+  text-align: center;
+  border-top: 3px double var(--royal);
+  padding-top: 1.1rem;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+.thread-foot p { margin: 0.3rem 0; }
+.foot-links a { color: var(--royal); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.foot-links a:hover { background: rgba(184, 137, 46, 0.18); }
+
+@media (max-width: 640px) {
+  .post { grid-template-columns: 1fr; }
+  .poster { border-right: none; border-bottom: 1px dashed rgba(74, 64, 48, 0.4); padding: 0 0 0.8rem; display: flex; align-items: center; gap: 0.9rem; text-align: left; }
+  .poster .name, .poster .rank, .poster .count { text-align: left; }
+  .avatar { margin: 0; width: 52px; height: 52px; font-size: 1.1rem; }
+  .wax { opacity: 0.4; }
+}
