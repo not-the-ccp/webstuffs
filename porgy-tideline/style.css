@@ -1,0 +1,147 @@
+/* Card No. 7 — the Hwang kitchen card box: harbour-grey paper, wet-stone ink, persimmon seal */
+
+:root {
+  --paper: #f4ede0;
+  --paper-deep: #ece1cd;
+  --ink: #24333d;
+  --stone: #3f5a68;
+  --tide: #7d9aa6;
+  --seal: #c2452d;
+  --soy: #4a2e1d;
+  --rice: #fffaf0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(125, 154, 166, 0.18), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(63, 90, 104, 0.05) 46px 47px),
+    #d9d2c2;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.card {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 2.5rem 2.75rem 2rem;
+  background: var(--paper);
+  border: 1px solid #b8a88a;
+  box-shadow: 0 0 0 6px rgba(255, 250, 240, 0.35), 0 14px 30px rgba(36, 51, 61, 0.25);
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, var(--stone) 0 14px, var(--tide) 14px 20px, transparent 20px 30px);
+  opacity: 0.55;
+}
+.card::before { top: 0; }
+.card::after { bottom: 0; }
+
+.seal {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.5rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: grid;
+  place-items: center;
+  color: var(--rice);
+  background: var(--seal);
+  border-radius: 4px;
+  font-family: "Nanum Myeongjo", "Noto Serif KR", "Malgun Gothic", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.35em;
+  box-shadow: inset 0 0 0 2px rgba(255, 250, 240, 0.55);
+  transform: rotate(3deg);
+}
+
+.masthead { text-align: center; padding-right: 4rem; }
+.kitchen-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+h1 {
+  font-size: 1.9rem;
+  margin: 0.4rem 0 0.2rem;
+  color: var(--soy);
+  line-height: 1.25;
+}
+.sub {
+  margin: 0.2rem 0 0;
+  font-style: italic;
+  color: var(--stone);
+  font-size: 0.95rem;
+}
+
+hr.tide {
+  border: none;
+  height: 3px;
+  margin: 1.6rem -0.5rem;
+  background: repeating-linear-gradient(90deg, var(--tide) 0 22px, transparent 22px 34px);
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--stone);
+  border-bottom: 1px dashed var(--tide);
+  padding-bottom: 0.3rem;
+}
+.korean { font-size: 0.8em; color: var(--tide); letter-spacing: 0.1em; }
+
+.preamble p { margin: 0 0 1rem; }
+.preamble em { color: var(--soy); }
+
+a { color: var(--stone); }
+a:hover { color: var(--seal); }
+
+ul, ol { padding-left: 1.3rem; }
+li { margin-bottom: 0.35rem; }
+.won { font-size: 0.85em; color: var(--tide); }
+
+.basket { list-style: none; padding-left: 0; }
+.basket li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: var(--rice);
+  border: 1px solid #c9b892;
+  border-left: 5px solid var(--tide);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.basket li button:hover { border-left-color: var(--stone); }
+.verdict { display: block; font-size: 0.85em; margin-top: 0.2rem; font-style: italic; }
+.basket li.stays button { border-left-color: #4d7a4f; }
+.basket li.stays .verdict { color: #4d7a4f; }
+.basket li.reported button {
+  border-left-color: var(--seal);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+.basket li.reported .verdict { color: var(--seal); }
+
+.colophon {
+  font-size: 0.8rem;
+  color: var(--stone);
+  text-align: center;
+  border-top: 1px dashed var(--tide);
+  padding-top: 1rem;
+}
