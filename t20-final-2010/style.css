@@ -1,0 +1,187 @@
+/* 2010 Twenty20 Cup Final &mdash; page styles */
+
+main.article {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  font-family: "Noto Serif", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+.masthead .kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: #8a6d3b;
+  margin: 0 0 0.4rem;
+}
+
+.masthead h1 {
+  font-size: 1.6rem;
+  margin: 0 0 0.3rem;
+  line-height: 1.25;
+}
+
+.match-line {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0 0 1.5rem;
+}
+
+.match-line .won {
+  font-weight: bold;
+  color: #1f5c2e;
+}
+
+article p {
+  margin: 0 0 1.1rem;
+}
+
+article a {
+  color: #1f4e79;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 2px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 1.8rem 0 0.7rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+.note {
+  background: #f7f3ea;
+  border-left: 4px solid #8a6d3b;
+  padding: 0.8rem 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.note p {
+  margin: 0;
+}
+
+.scorecard {
+  margin: 1.5rem 0;
+}
+
+.scorecard table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.scorecard caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.scorecard th,
+.scorecard td {
+  border: 1px solid #bbb;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+}
+
+.scorecard th {
+  background: #eef0f2;
+}
+
+.scorecard .num {
+  text-align: right;
+}
+
+.scorecard tr.total td {
+  border-top: 2px solid #444;
+  font-weight: bold;
+}
+
+.scorecard tr.extra td {
+  font-style: italic;
+}
+
+.calculator {
+  background: #eef6ee;
+  border: 1px solid #9ec98c;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.calculator form {
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+.calculator label {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.calculator input {
+  width: 5.5rem;
+  padding: 0.2rem;
+}
+
+.calculator p {
+  margin: 0.4rem 0;
+}
+
+.calculator strong {
+  color: #1f5c2e;
+}
+
+.noscript {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.related {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.related ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related li {
+  margin: 0.35rem 0;
+}
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+selectable {
+  cursor: pointer;
+}
+
+.highlight {
+  background: #fff6d9;
+  outline: 2px solid #8a6d3b;
+}
+
+@media (max-width: 500px) {
+  main.article {
+    padding: 1rem 0.75rem 2rem;
+  }
+  .scorecard .num {
+    padding: 0.2rem 0.3rem;
+  }
+}
