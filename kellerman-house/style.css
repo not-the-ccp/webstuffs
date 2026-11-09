@@ -1,0 +1,244 @@
+/* The Kellerman House — Letter of Apology No. 47.
+   A dark picture-palace marquee over a sheet of aged letter paper:
+   near-black and lamp gold, ledger sepia, and one stain of marquee red. */
+
+:root {
+  --night: #0c0a09;
+  --night-2: #161110;
+  --lamp: #f2c14e;
+  --lamp-dim: #3a2f1e;
+  --paper: #efe3c8;
+  --paper-dim: #e3d2ac;
+  --ink: #1d1611;
+  --ink-soft: #4a3b2c;
+  --blood: #6e1414;
+  --blood-bright: #8f1d1d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--night);
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgba(242, 193, 78, 0.07), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 4px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* ---------- the marquee ---------- */
+
+.marquee {
+  max-width: 860px;
+  margin: 2.5rem auto 0;
+  padding: 0.9rem 1.4rem 1.1rem;
+  background: linear-gradient(180deg, #1c1512 0%, var(--night-2) 60%, #120d0c 100%);
+  border: 3px double var(--lamp-dim);
+  outline: 1px solid #241b16;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(242, 193, 78, 0.06), inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.bulbs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.bulb {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lamp-dim);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.bulb.lit {
+  background: var(--lamp);
+  box-shadow: 0 0 9px 3px rgba(242, 193, 78, 0.45);
+}
+
+.sign {
+  margin: 0.7rem 0 0.8rem;
+  font-family: "IM Fell English", "Old English Text MT", Georgia, serif;
+  color: var(--lamp);
+  text-shadow: 0 0 12px rgba(242, 193, 78, 0.55), 0 0 2px rgba(242, 193, 78, 0.9);
+  letter-spacing: 0.14em;
+}
+
+.sign .word {
+  display: block;
+  font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+  text-transform: uppercase;
+}
+
+.sign .long {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
+  letter-spacing: 0.3em;
+  opacity: 0.85;
+}
+
+.flicker { opacity: 0.35; }
+
+/* ---------- the letter sheet ---------- */
+
+.envelope {
+  max-width: 780px;
+  margin: -0.6rem auto 3.5rem;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 85% 8%, rgba(110, 20, 20, 0.14), transparent 40%),
+    radial-gradient(ellipse at 8% 92%, rgba(74, 59, 44, 0.12), transparent 45%);
+  border: 1px solid #b7a274;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75), inset 0 0 60px rgba(120, 95, 55, 0.18);
+  padding: 2.6rem clamp(1.4rem, 5vw, 3.2rem) 2rem;
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 4px double var(--blood);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+
+.letterhead .firm {
+  margin: 0 0 0.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.letterhead h1 {
+  margin: 0.1rem 0 0.3rem;
+  font-family: "IM Fell English", "Old English Text MT", Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(1.7rem, 5vw, 2.5rem);
+  color: var(--blood);
+  letter-spacing: 0.03em;
+}
+
+.letterhead .address {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.letterhead .no {
+  margin: 0;
+  display: inline-block;
+  border: 1px solid var(--ink-soft);
+  padding: 0.15rem 0.7rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  transform: rotate(-0.6deg);
+}
+
+/* ---------- the body of the letter ---------- */
+
+.letter p { margin: 0 0 1.1rem; text-align: justify; hyphens: auto; }
+
+.letter .salutation {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.95rem;
+  color: var(--blood-bright);
+  text-align: left;
+}
+
+.letter strong { color: var(--blood-bright); font-weight: bold; }
+
+.letter a {
+  color: var(--blood);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(110, 20, 20, 0.45);
+}
+
+.letter a:hover { background: rgba(110, 20, 20, 0.09); }
+
+/* the kept line — set in the ticket man's wire type */
+
+.kept {
+  margin: 1.6rem 0.6rem 1.6rem;
+  padding: 1.2rem 1.4rem 1rem;
+  background: #f4ead2;
+  border: 1px solid var(--ink-soft);
+  outline: 1px dashed rgba(74, 59, 44, 0.5);
+  outline-offset: -7px;
+  box-shadow: 4px 4px 0 rgba(74, 59, 44, 0.15);
+  transform: rotate(-0.35deg);
+}
+
+.kept p {
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink);
+  text-align: left;
+}
+
+.kept .kept-note {
+  margin-top: 0.7rem;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
+.signature {
+  text-align: left;
+  margin-top: 1.6rem;
+}
+
+.signature .hand {
+  display: inline-block;
+  font-family: "IM Fell English", cursive, serif;
+  font-size: 1.7rem;
+  color: var(--blood);
+  transform: rotate(-2deg);
+}
+
+.postscript {
+  border-top: 1px solid rgba(74, 59, 44, 0.4);
+  padding-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 4px double var(--blood);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.colophon .rule {
+  letter-spacing: 0.5em;
+  margin: 0 0 0.5rem;
+  color: var(--blood);
+}
+
+.colophon .footlinks a {
+  color: var(--blood);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--blood);
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .letter p { text-align: left; }
+}
