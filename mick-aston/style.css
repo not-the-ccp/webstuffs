@@ -1,0 +1,245 @@
+/* Safety Data Sheet — Grimsby & Wren Field Supplies Ltd. */
+
+:root {
+  --ink: #1c1a16;
+  --faded: #6b655a;
+  --line: #b7ae97;
+}
+
+body {
+  margin: 0;
+  padding: 28px 12px 64px;
+  background: #c9c2b2;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.025) 0 2px, transparent 2px 5px);
+  font-family: "Courier New", Courier, monospace;
+  color: #1c1a16;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #f7f4ea;
+  border: 1px solid #8d8574;
+  box-shadow: 0 2px 0 #b3ab97, 0 14px 34px rgba(40, 34, 22, 0.35);
+  padding: 34px 42px 26px;
+  position: relative;
+}
+
+/* faint foxing on the paper */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 180px 90px at 8% 4%, rgba(120, 90, 40, 0.10), transparent 70%),
+    radial-gradient(ellipse 140px 120px at 94% 96%, rgba(120, 90, 40, 0.12), transparent 70%),
+    radial-gradient(ellipse 100px 70px at 60% 108%, rgba(110, 80, 30, 0.08), transparent 70%);
+}
+
+/* ---------- header ---------- */
+
+.sds-head {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 8px 24px;
+  align-items: start;
+}
+
+.supplier p { margin: 0 0 3px; }
+.supplier-name {
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.supplier-addr { font-size: 12px; color: #6b655a; }
+
+.sds-kicker {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: #6b655a;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  border-bottom: 4px double #1c1a16;
+  padding-bottom: 6px;
+}
+
+.sds-issued { margin: 6px 0 0; font-size: 12px; color: #6b655a; }
+
+.id-table {
+  grid-column: 1 / -1;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 13px;
+  background: #fbf9f1;
+}
+.id-table th, .id-table td {
+  border: 1px solid #1c1a16;
+  padding: 5px 9px;
+  text-align: left;
+  vertical-align: top;
+}
+.id-table th {
+  width: 130px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  background: #ece7d6;
+}
+
+.rule {
+  border: 0;
+  border-top: 2px solid #1c1a16;
+  border-bottom: 1px solid #1c1a16;
+  height: 4px;
+  margin: 18px 0 6px;
+}
+
+/* ---------- sections ---------- */
+
+.sds-sec {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #b7ae97;
+}
+
+.secno {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 2px solid #1c1a16;
+  transform: rotate(45deg);
+  background: #fbf9f1;
+}
+.secno { font-size: 15px; font-weight: bold; }
+
+.sds-sec h2 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.sds-sec p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.55; }
+.sds-sec p:last-child { margin-bottom: 0; }
+.sds-sec strong { letter-spacing: 0.02em; }
+
+/* ---------- hazard pictograms ---------- */
+
+.pictos { display: flex; gap: 18px; margin: 4px 0 12px; }
+.picto {
+  width: 52px;
+  height: 52px;
+  transform: rotate(45deg);
+  border: 3px solid #b30000;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1px 0 #b30000;
+}
+.picto svg {
+  width: 40px;
+  height: 40px;
+  transform: rotate(-45deg);
+  color: #1c1a16;
+}
+.picto.warn { border-color: #b30000; }
+
+/* ---------- tables ---------- */
+
+.hazard-table, .comp-table, .prop-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-bottom: 8px;
+  background: #fbf9f1;
+}
+.hazard-table td, .comp-table td, .comp-table th, .prop-table td, .prop-table th {
+  border: 1px solid #4a443a;
+  padding: 4px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+.hazard-table .haz-h {
+  width: 74px;
+  font-weight: bold;
+  background: #b30000;
+  color: #fff;
+  text-align: center;
+}
+.hazard-note { font-size: 12.5px; color: #4a443a; }
+.comp-table th, .prop-table th {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  background: #ece7d6;
+}
+
+.sds-rev { font-size: 12px; color: #6b655a; font-style: italic; }
+
+/* ---------- links ---------- */
+
+a { color: #7a1f0c; }
+a:hover { color: #a83217; }
+
+/* ---------- stamp ---------- */
+
+.stamp {
+  position: absolute;
+  top: 168px;
+  right: 40px;
+  width: 118px;
+  height: 118px;
+  transform: rotate(-11deg);
+  border: 3px double #b30000;
+  border-radius: 6px;
+  color: #b30000;
+  display: grid;
+  place-items: center;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.stamp-text {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* ---------- footer ---------- */
+
+.sds-foot {
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 2px solid #1c1a16;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #6b655a;
+  text-transform: uppercase;
+  text-align: center;
+}
+.sds-foot p { margin: 0; }
+
+@media (max-width: 640px) {
+  .sheet { padding: 24px 18px; }
+  .sds-head { grid-template-columns: 1fr; }
+  .sds-sec { grid-template-columns: 1fr; gap: 8px; }
+  .stamp { top: auto; bottom: 120px; right: 16px; }
+}
