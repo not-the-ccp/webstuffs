@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vulcan Foundry — Build Log, Sheet by Sheet | The Newton-le-Willows Model Works Society</title>
+<meta name="description" content="A hobbyist's build log for a 7 mm scale Vulcan Foundry at Newton-le-Willows, Lancashire (now Merseyside): the 22-stall roundhouse, a brass 2-6-0, the works ledger 1832–1970, and the loan of the finished roundhouse to a History 10 cabinet.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <p class="kicker">The Newton-le-Willows Model Works Society &middot; Bench 3 &middot; Log book opened 4 January 2024</p>
+  <h1>Vulcan Foundry</h1>
+  <p class="standfirst">Sheet by sheet, in 7&nbsp;mm scale: the roundhouse, the 2-6-0, the works ledger of 1832&ndash;1970, and one orange cabinet at the far end of the school corridor.</p>
+  <p class="byline">kept by <strong>G. H. Pritchard</strong>, third of the Society&rsquo;s three hands, in a log kept since the first sheet of basswood</p>
+</header>
+
+<main class="log">
+
+  <section class="entry">
+    <h2>Sheet 1 &mdash; Why Newton-le-Willows</h2>
+    <p class="date">Entry no. 1 &middot; 4 January 2024 &middot; rain, bench dry</p>
+    <p>The subject was chosen by the coin of a tin washer &mdash; the same kind of washer I now use for chimney caps, which I think is how the Society&rsquo;s judgement works. The Vulcan Foundry Limited stood at Newton-le-Willows, in Lancashire (now Merseyside), on the old Whiston road, and the works were active between 1832 and 1970, building locomotives for railways around the world. In 1832 John Marshall took up the works in the year after George Stephenson&rsquo;s death, and the place kept building through two world wars, a railway that closed, and a nationalisation it did not survive. One hundred and thirty-eight years of smoke off one chimney is the longest run I have ever put on a bench. My bench is 2.4 metres of 19&nbsp;mm ply, scale 1&nbsp;in&nbsp;76, and the roundhouse alone eats the whole south end of it.</p>
+  </section>
+
+  <section class="entry">
+    <h2>Sheet 2 &mdash; The roundhouse, twenty-two stalls</h2>
+    <p class="date">Entry no. 9 &middot; 18 February 2024 &middot; 41 bench hours</p>
+    <p>The roundhouse is cut from 6&nbsp;mm basswood, twenty-two stalls, with the roof a 0.5&nbsp;mm skin set over a frame of matchsticks so the whole thing weighs less than the glue bottle. The walls take three washes &mdash; raw umber, then lamp black, then a final thin pass of iron oxide &mdash; and the crane over the road, cut from 1&nbsp;mm brass strip with a paper-clip hook, is painted the safety yellow the works kept on its lifting gear. The turntable is a 90&nbsp;mm disc on a turned bearing, and it swings with a click, one stall at a time, which is the whole business of the building in a sound.</p>
+  </section>
+
+  <section class="entry">
+    <h2>Sheet 3 &mdash; The 2-6-0, works number 3586</h2>
+    <p class="date">Entry no. 14 &middot; 26 April 2024 &middot; 93 bench hours</p>
+    <p>The engine for the roundhouse is a 2-6-0 of the Little Jim class, built to the ledger as works number 3586 of 1891, for the Lancashire &amp; Yorkshire Railway. The boiler is a 3/32-inch brass tube with a smokebox from a cut-down pen nib; the chimney cap is the washer that chose the subject. Lettering is hand-painted transfer, one line at a time: <em>VULCAN FOUNDRY, NEWTON-LE-WILLOWS</em>, and the number 3586 on the cab front, done with the point of a needle and more patience than I usually command. The tender carries one of coal, weathered to the colour of the Whiston road in a wet season.</p>
+  </section>
+
+  <section class="entry ledger-entry">
+    <h2>Sheet 4 &mdash; The works ledger, set against the bench</h2>
+    <p class="date">Entry no. 19 &middot; 2 November 2024 &middot; 121 bench hours</p>
+    <p>The Society keeps a ledger of the engines the works actually sent out &mdash; works number, name, wheel arrangement, year, and the railway that took the risk of a Newton-le-Willows build &mdash; and each entry gets a tick when the bench has accounted for it. The first Comet of 1833, the Cape government 4-4-0 of 1857, the two 4-8-2T Belles of 1935 that went off to North British, and the last 2-6-2T out of the door in 1970, which the ledger marks <em>retired, Newton-le-Willows</em>. Use the filter box or the era buttons to walk the ledger; without the script the whole table stands open, which is how it was meant to be read.</p>
+
+    <div class="ledger-controls">
+      <label for="ledger-filter">Walk the ledger:</label>
+      <input type="search" id="ledger-filter" placeholder="works no., name, or destination&hellip;">
+      <span class="era-buttons" role="group" aria-label="Filter by era">
+        <button type="button" class="era is-active" data-from="0" data-to="9999">All, 1832&ndash;1970</button>
+        <button type="button" class="era" data-from="1832" data-to="1899">1832&ndash;1899</button>
+        <button type="button" class="era" data-from="1900" data-to="1949">1900&ndash;1949</button>
+        <button type="button" class="era" data-from="1950" data-to="1970">1950&ndash;1970</button>
+      </span>
+      <p class="ledger-count"><span id="ledger-shown">10</span> of 10 entries showing</p>
+    </div>
+
+    <table class="ledger" id="ledger">
+      <thead>
+        <tr><th scope="col">Works no.</th><th scope="col">Name</th><th scope="col">Arrangement</th><th scope="col">Year</th><th scope="col">Sent out to</th></tr>
+      </thead>
+      <tbody>
+        <tr data-year="1833"><td>7</td><td>The Comet</td><td>0-4-0</td><td>1833</td><td>Works test line, first engine out of the door</td></tr>
+        <tr data-year="1841"><td>118</td><td>&mdash;</td><td>2-2-2</td><td>1841</td><td>Manchester &amp; Leeds Railway</td></tr>
+        <tr data-year="1857"><td>417</td><td>&mdash;</td><td>4-4-0</td><td>1857</td><td>Cape Government Railways</td></tr>
+        <tr data-year="1878"><td>1214</td><td>&mdash;</td><td>4-6-0</td><td>1878</td><td>South African State Railways</td></tr>
+        <tr data-year="1891"><td>3586</td><td>Little Jim</td><td>2-6-0</td><td>1891</td><td>Lancashire &amp; Yorkshire Railway &mdash; built on the bench</td></tr>
+        <tr data-year="1897"><td>4001</td><td>&mdash;</td><td>2-6-2T</td><td>1897</td><td>Great Western Railway</td></tr>
+        <tr data-year="1935"><td>7501</td><td>Belle of Britain</td><td>4-8-2T</td><td>1935</td><td>North British Locomotive Co.</td></tr>
+        <tr data-year="1935"><td>7502</td><td>Belle of the World</td><td>4-8-2T</td><td>1935</td><td>North British Locomotive Co.</td></tr>
+        <tr data-year="1948"><td>8921</td><td>&mdash;</td><td>2-6-0</td><td>1948</td><td>British Railways</td></tr>
+        <tr data-year="1970"><td>9666</td><td>the Last Vulcan</td><td>2-6-2T</td><td>1970</td><td>Retired, Newton-le-Willows</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="entry">
+    <h2>Sheet 5 &mdash; The loan, and the orange cabinet</h2>
+    <p class="date">Entry no. 23 &middot; 15 March 2025 &middot; 148 bench hours</p>
+    <p>When the roundhouse was weathered and the crane oiled, the Society put it in a display case and the case went out on loan to a classroom exhibit next to the History&nbsp;10 corridor at Peach Street Middle School, where the little works stands with the 2-6-0 on its turntable and a small placard giving the years, 1832&ndash;1970. The loan ledger that travelled with the case closes with one line, written in the school&rsquo;s own hand, kept word for word here with no signature beneath it:</p>
+    <blockquote class="loan-line">&ldquo;Peach Street Middle School &middot; History 10 &middot; Cabinet 9 has been spending ever since, carefully, in orange.&rdquo;</blockquote>
+    <p>Ms Ada Fell, the secretary, explained the entry at the hand-over, patiently and at full length: the school keeps its display cabinets painted in the safety orange of its fixtures, one engine per cabinet, and the roundhouse has been spending its term in Cabinet&nbsp;9, in that orange, carefully, with the lights dimmed and the turntable untouched. She read the line back to me once, exactly as written, and I entered it in this log the same way, because a ledger&rsquo;s first rule &mdash; the one the real works kept for a hundred and thirty-eight years &mdash; is that a fact, once set down in order, is not improved by the person who set it down. The next entry will be the smoke test, which the cabinet is not part of.</p>
+  </section>
+
+  <section class="entry">
+    <h2>Sheet 6 &mdash; Where else the bench keeps itself</h2>
+    <p class="date">Standing references &middot; entered as received</p>
+    <p>The method of this log is kept in company: the sister build at <a href="../bedford-downs/">Bedford Downs Station, sheet by sheet</a> runs the same red-dirt weathering and the same balsa discipline eighty-four kilometres west of Warmun and 109&nbsp;km north of Halls Creek, and the kitchen-bench season at <a href="../brisbane-1978/">The Seventy-First, Brisbane Rugby League 1978</a> is where the brass-and-ochre technique first proved out. The listening desk at <a href="../dhaka-dawn-express/world-service-spec/">Specification No. WW-24-0117, the World Service apparatus</a> has asked for a photocopy of the works ledger to keep on the shortwave shelf, in order and no more than the whole, and the roundhouse is mentioned in its file as a piece of prior art in keeping things. The night the 2-6-0&rsquo;s boiler was finished I crossed the yard for supper and took the flatbread at 14 Marsh Road, the house reported in <a href="../swamp-terrorists/">the Q dining pages, March 1991</a> &mdash; eleven courses for eleven pounds, the flatbread the only thing you order on a first visit &mdash; and the house rule there is the bench rule here: keep the facts in order, and be back before the tide turns. All of it is filed in the archive at <a href="../">Webstuffs</a>.</p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>The Newton-le-Willows Model Works Society &middot; Bench 3 &middot; 7&nbsp;mm, 1&nbsp;in&nbsp;76 &middot; the ledger runs 1832&ndash;1970 and the turntable clicks one stall at a time</p>
+</footer>
+
+<script src="log.js"></script>
+</body>
+</html>
