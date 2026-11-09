@@ -1,0 +1,95 @@
+/* Lake Shore Record Pressing — press room diary, styled by hand, 1998 flavour */
+html { background: #000033; }
+body {
+  margin: 0;
+  padding: 28px 12px 48px;
+  background-color: #000033;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.6px),
+    radial-gradient(#99ccff 1px, transparent 1.6px),
+    radial-gradient(#ffcc99 0.6px, transparent 1.2px);
+  background-size: 190px 190px, 270px 270px, 130px 130px;
+  background-position: 0 0, 62px 94px, 33px 41px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
+  color: #e6e6ff;
+}
+.sheet {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #ffffcc;
+  color: #000080;
+  border: 6px outset #c0c0c0;
+  box-shadow: 8px 8px 0 #000066;
+  padding-bottom: 18px;
+}
+header {
+  background: #000080;
+  color: #ffff00;
+  padding: 14px 18px 12px;
+  border-bottom: 4px ridge #c0c0c0;
+}
+.kicker { letter-spacing: 2px; text-transform: uppercase; font-size: 10px; color: #99ccff; margin: 0 0 6px; }
+h1 { font-family: "Comic Sans MS", "Comic Sans", cursive; margin: 0 0 6px; font-size: 26px; color: #ffffff; }
+.dek { font-size: 12px; margin: 0; color: #ccffcc; }
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #000066;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  border-bottom: 3px inset #c0c0c0;
+}
+.marquee span { display: inline-block; padding: 4px 0 4px 100%; animation: press-scroll 26s linear infinite; }
+@keyframes press-scroll { to { transform: translateX(-100%); } }
+main { padding: 16px 18px; }
+.entrybox {
+  border: 3px inset #c0c0c0;
+  background: #fffff0;
+  color: #000000;
+  padding: 14px 16px;
+  margin: 4px 0 16px;
+}
+.entrybox p { line-height: 1.75; margin: 0 0 12px; }
+.entrybox a { color: #cc0000; }
+.entrybox a:visited { color: #660099; }
+.entrybox em { background: #ffff66; padding: 0 2px; }
+.signature { font-style: italic; color: #333366; }
+.counter-box {
+  text-align: center;
+  border: 3px ridge #9999cc;
+  background: #000066;
+  color: #ccffff;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+.counter {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  background: #000000;
+  color: #00ff00;
+  border: 2px inset #c0c0c0;
+  padding: 2px 8px;
+  letter-spacing: 4px;
+  font-size: 15px;
+}
+.guestbook {
+  border: 3px ridge #9999cc;
+  background: #eeeeff;
+  padding: 10px 14px 12px;
+  margin-top: 4px;
+}
+.guestbook h2 { font-size: 15px; margin: 4px 0 10px; text-align: center; color: #000080; }
+.gb-entry { font-size: 12px; line-height: 1.6; margin: 0 0 8px; }
+.gb-sign { font-size: 11px; color: #333366; }
+.gb-sign a { color: #cc0000; }
+.blink { animation: press-blink 1s steps(1) infinite; color: #ff00ff; }
+@keyframes press-blink { 50% { visibility: hidden; } }
+footer.colophon {
+  border-top: 3px double #666699;
+  padding: 10px 20px;
+  font-size: 11px;
+  color: #333366;
+  text-align: center;
+}
