@@ -1,0 +1,175 @@
+/* The Wrotham Bench, No. 7 — printed-matter palette: paper, ink, one sea green, one brass */
+
+:root {
+  --paper: #f6f3ea;
+  --ink: #20261f;
+  --ink-soft: #4c544b;
+  --green: #2e5c4b;
+  --green-deep: #17352c;
+  --cream: #efe9d8;
+  --brass: #96773c;
+  --rule: #d8d2c2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem 1.25rem;
+  border-bottom: 3px double var(--ink);
+  text-align: center;
+}
+
+.firm { margin: 0; font-size: 1.05rem; letter-spacing: 0.06em; }
+.firm-line { margin: 0.35rem 0 0; font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+section { margin-top: 2.75rem; }
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.1rem;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.dek {
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 0;
+}
+
+.price-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 1.25rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.price { margin: 0; font-size: 1.25rem; }
+.price span { font-size: 0.85rem; color: var(--ink-soft); }
+.stock { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+.stock-count { color: var(--green); }
+
+.spec {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.spec caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 0.5rem;
+}
+.spec th {
+  text-align: left;
+  font-weight: normal;
+  width: 7.5rem;
+  vertical-align: top;
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  color: var(--brass);
+  white-space: nowrap;
+}
+.spec td { padding: 0.4rem 0; border-bottom: 1px dotted var(--rule); }
+
+/* The departure board */
+
+.board-line {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  color: var(--cream);
+  background: var(--green-deep);
+  padding: 0.6rem 0.9rem;
+}
+
+.departures {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--green-deep);
+  color: var(--cream);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+.departures th {
+  text-align: left;
+  font-weight: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b9c8bd;
+  padding: 0.5rem 0.9rem;
+  border-bottom: 1px solid rgba(239, 233, 216, 0.35);
+}
+.departures td {
+  padding: 0.42rem 0.9rem;
+  border-bottom: 1px dotted rgba(239, 233, 216, 0.25);
+}
+.departures tbody tr { transition: opacity 0.8s ease; }
+.departures tr.gone { opacity: 0.45; }
+.departures tr.gone td:nth-child(2) { text-decoration: line-through; }
+.departures tr.next td { color: #fff; }
+.state { font-style: italic; color: #b9c8bd; }
+tr.next .state { color: var(--cream); font-style: normal; letter-spacing: 0.1em; }
+
+.board-foot {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.clockline { margin: 1.25rem 0 0; font-size: 0.95rem; color: var(--green-deep); }
+#next-dep { font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+
+a { color: var(--green); }
+a:hover { color: var(--green-deep); }
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 3rem;
+  border-top: 3px double var(--ink);
+  text-align: center;
+}
+.colophon p { margin: 0; font-size: 0.82rem; color: var(--ink-soft); }
