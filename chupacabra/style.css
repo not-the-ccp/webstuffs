@@ -1,0 +1,203 @@
+/* Field notebook: ruled stationery, pencil, one stamp */
+:root {
+  --paper: #f6f1e3;
+  --paper-edge: #e9e1cc;
+  --ink: #2b3a55;
+  --pencil: #4a4a44;
+  --rule: rgba(70, 105, 150, 0.30);
+  --margin: rgba(178, 60, 50, 0.45);
+  --stamp: #a5342a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #23241f;
+  background-image: radial-gradient(circle at 30% 15%, #34362e 0%, #23241f 55%);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--pencil);
+  padding: 3.5rem 1rem 5rem;
+}
+
+.notebook {
+  position: relative;
+  max-width: 42rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.55rem,
+      var(--rule) 1.55rem,
+      var(--rule) calc(1.55rem + 1px)
+    );
+  border: 1px solid #b8ad8f;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.25) inset,
+    0 18px 40px rgba(0,0,0,0.55),
+    0 3px 8px rgba(0,0,0,0.4);
+  padding: 3rem 2.6rem 2.4rem 3.9rem;
+}
+
+/* red margin line of a ledger page */
+.notebook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.1rem;
+  width: 1px;
+  background: var(--margin);
+}
+
+/* worn top edge: two torn sheets behind */
+.notebook::after {
+  content: "";
+  position: absolute;
+  inset: -7px -9px auto auto;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #cfc4a6;
+  background: var(--paper-edge);
+  transform: rotate(0.8deg) translate(6px, 5px);
+  z-index: -1;
+}
+
+.kicker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+  color: #6c6a5e;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.specimen {
+  margin: 0 0 1.1rem;
+  font-style: italic;
+  font-size: 1.02rem;
+}
+
+.observer {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  margin: 0;
+  color: #57564c;
+}
+
+.rule {
+  border-top: 1px solid var(--ink);
+  margin: 1.4rem 0 0.4rem;
+}
+.rule-double {
+  border-top: 3px double var(--ink);
+}
+
+.tab-label {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  border: 1px solid #7c7a6d;
+  padding: 0.35rem 0.7rem;
+  margin: 1.6rem 0 0.4rem;
+  background: #efe8d4;
+  color: #4c4b42;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+}
+
+.entry {
+  margin: 1.7rem 0;
+}
+
+.dateline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 0.55rem;
+}
+
+.entry p {
+  font-size: 1rem;
+  line-height: 1.62rem;
+  margin: 0 0 0.9rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.entry strong { color: var(--ink); font-weight: 600; }
+.entry a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(43, 58, 85, 0.4);
+  text-underline-offset: 3px;
+}
+.entry a:hover { background: rgba(43, 58, 85, 0.08); }
+
+.stamp {
+  position: absolute;
+  top: 2.4rem;
+  right: 1.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--stamp);
+  border: 2px double var(--stamp);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  transform: rotate(-7deg);
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+}
+
+.stamp-end {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #6c6a5e;
+  border-top: 1px dashed rgba(70, 105, 150, 0.5);
+  padding-top: 0.7rem;
+  margin-top: 1.4rem;
+  text-align: left;
+}
+
+/* a faint coffee ring, bottom left */
+.notebook .entry:last-child {
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  left: -60px;
+  bottom: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 10px solid rgba(120, 84, 40, 0.10);
+  box-shadow: inset 0 0 18px rgba(120, 84, 40, 0.08);
+  pointer-events: none;
+}
+
+@media (max-width: 620px) {
+  .notebook { padding: 2.4rem 1.3rem 2rem 2.4rem; }
+  .notebook::before { left: 1.7rem; }
+  h1 { font-size: 2rem; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+}
