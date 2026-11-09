@@ -1,0 +1,207 @@
+/* The Seven Brothers Line — an 1871 printed railway timetable */
+
+:root {
+  --paper: #f1e8d2;
+  --paper-dark: #e6d9bc;
+  --ink: #1d1812;
+  --ink-faded: #4a4234;
+  --rule: #2a2318;
+  --stamp-red: #8c2f22;
+  --thread: #191512;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #2b2620;
+  background-image: radial-gradient(circle at 50% 20%, #3a332a 0%, #241f1a 75%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* the black thread running down the left margin, stitched */
+.thread {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: max(2vw, 14px);
+  width: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--thread) 0 14px,
+    transparent 14px 22px
+  );
+  opacity: 0.75;
+}
+
+.sheet {
+  position: relative;
+  max-width: 62rem;
+  margin: 2.5rem auto 4rem;
+  padding: 2.6rem 2.8rem 2.2rem 4.5rem;
+  background: var(--paper);
+  background-image:
+    linear-gradient(rgba(94, 74, 42, 0.06), rgba(94, 74, 42, 0) 12%),
+    radial-gradient(ellipse at 85% 95%, rgba(94, 74, 42, 0.22), transparent 45%);
+  border: 1px solid #b6a47c;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(120, 94, 52, 0.14);
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 3px;
+  pointer-events: none;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.imprint {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.45rem;
+  color: var(--ink-faded);
+}
+
+.imprint-2 { margin-top: 0.55rem; }
+
+h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.sub {
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--ink-faded);
+}
+
+.sec-head {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 1.8rem 0 0.8rem;
+}
+
+.sec-head::before,
+.sec-head::after {
+  content: " — ";
+  color: var(--ink-faded);
+}
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.timetable th {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--rule);
+  border-top: 1px solid var(--rule);
+  padding: 0.4rem 0.5rem;
+  vertical-align: bottom;
+}
+
+.timetable td {
+  border-bottom: 1px solid rgba(42, 35, 24, 0.4);
+  padding: 0.5rem 0.5rem;
+  vertical-align: top;
+}
+
+.timetable tbody tr:nth-child(even) { background: rgba(94, 74, 42, 0.07); }
+.timetable tr.terminus td { border-bottom: 3px double var(--rule); }
+
+td.stn, th { font-weight: 700; letter-spacing: 0.04em; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.dep { font-weight: 700; }
+td.arr { font-weight: 700; }
+td.rem { font-style: italic; font-size: 0.8rem; color: var(--ink-faded); }
+
+.notes p { margin: 0 0 1rem; font-size: 0.95rem; }
+
+/* the exam slip, sewn into the margin */
+.stub {
+  background: var(--paper-dark);
+  border: 1px solid #a3906a;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.25);
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0 1rem 0.6rem;
+  transform: rotate(-1.2deg);
+}
+
+.stub-head {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--ink-faded);
+}
+
+.slip-line {
+  font-family: "Segoe Script", "Bradley Hand", cursive, serif;
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+.stub-foot {
+  font-size: 0.72rem;
+  font-style: italic;
+  margin: 0;
+  color: var(--ink-faded);
+}
+
+a { color: inherit; }
+a:hover { background: rgba(140, 47, 34, 0.12); }
+
+/* the stationmaster's round stamp */
+.stamp {
+  position: absolute;
+  top: 38%;
+  right: 2.4rem;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 3px double var(--stamp-red);
+  border-radius: 50%;
+  color: var(--stamp-red);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.7;
+  transform: rotate(14deg);
+  opacity: 0.65;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.sheet-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.9rem;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+}
