@@ -1,0 +1,241 @@
+/* Twelve for the Harbour — Studio 2, Road Town. Dark studio, amber lamp, long tide. */
+
+:root {
+  --ink: #191411;
+  --paper: #f2ead9;
+  --lamp: #e8963c;
+  --sea: #274046;
+  --sea-deep: #17292e;
+  --smoke: #6b5f52;
+  --rule: #c9bda4;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--ink); }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 0%, #241c15 0%, var(--ink) 60%),
+    var(--ink);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* the running tape strip across the very top */
+.tape {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 1.2rem;
+  background: var(--sea-deep);
+  border-bottom: 1px dashed var(--rule);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9db3a9;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+/* masthead: oversized, tilted into the grid */
+.masthead {
+  max-width: 1060px;
+  margin: 3.2rem auto 1rem;
+  padding: 0 1.4rem;
+  position: relative;
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lamp);
+  margin: 0 0 0.9rem;
+  max-width: 46ch;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-weight: 400;
+  font-style: italic;
+  max-width: 14ch;
+}
+
+.sub {
+  margin: 1.1rem 0 0;
+  max-width: 52ch;
+  color: #cbbfa8;
+  font-size: 1.02rem;
+}
+
+.stamp {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  transform: rotate(6deg);
+  border: 2px solid var(--lamp);
+  color: var(--lamp);
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0.7rem 0.8rem;
+  opacity: 0.85;
+  max-width: 130px;
+}
+
+/* asymmetric two-column script grid */
+.grid {
+  max-width: 1060px;
+  margin: 2.4rem auto 6rem;
+  padding: 0 1.4rem;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 2.4rem 3rem;
+  align-items: start;
+}
+
+.cast {
+  background: var(--sea-deep);
+  border: 1px solid #33525a;
+  padding: 1.4rem 1.4rem 1.6rem;
+  transform: rotate(-0.7deg);
+  position: sticky;
+  top: 3.4rem;
+}
+
+h2 {
+  font-size: 0.85rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lamp);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1rem;
+  font-weight: 400;
+}
+
+.cast ul {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.cast li {
+  padding: 0.32rem 0;
+  border-bottom: 1px dotted #33525a;
+  font-size: 0.92rem;
+}
+
+.cast .setting {
+  font-size: 0.88rem;
+  color: #b9c4b6;
+}
+
+.scene { margin-bottom: 2.6rem; }
+
+.scene p { margin: 0 0 1.1rem; }
+
+.sfx {
+  font-family: "Courier New", monospace;
+  font-size: 0.86rem;
+  color: #8fa89a;
+  border-left: 3px solid var(--sea);
+  padding-left: 0.9rem;
+  max-width: 62ch;
+}
+
+.line {
+  max-width: 62ch;
+  font-size: 1.04rem;
+}
+
+.who {
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  color: var(--lamp);
+  display: inline-block;
+  min-width: 6.5ch;
+}
+
+a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: var(--lamp);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--lamp); }
+
+/* colophon drops under both columns, skewed */
+.colophon {
+  grid-column: 1 / -1;
+  transform: rotate(0.5deg);
+  border-top: 2px solid var(--rule);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #b9ac92;
+  margin-top: 1rem;
+}
+
+.colophon .nav { margin-top: 0.7rem; }
+.colophon .nav a { margin-right: 0.4rem; }
+
+/* the lamp bar, pinned to the bottom */
+.lampbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #100c0a;
+  border-top: 1px solid #33525a;
+  padding: 0.4rem 1.2rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  z-index: 9;
+}
+
+.lamp {
+  border: 1px solid var(--lamp);
+  color: var(--lamp);
+  padding: 0.1rem 0.7rem;
+  border-radius: 2rem;
+}
+
+.lamp.lit {
+  background: var(--lamp);
+  color: #1a120b;
+  animation: hum 2.2s ease-in-out infinite;
+}
+
+@keyframes hum {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 150, 60, 0); }
+  50% { box-shadow: 0 0 18px 3px rgba(232, 150, 60, 0.45); }
+}
+
+.clock { color: #8fa89a; }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr; }
+  .cast { position: static; transform: none; }
+  .stamp { display: none; }
+  .tape-mark.right { display: none; }
+}
