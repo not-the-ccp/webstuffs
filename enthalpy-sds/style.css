@@ -1,0 +1,272 @@
+/* SDS H-1 — enthalpy sheet, Valence Assay Office */
+
+:root {
+  --ink: #1c2a24;
+  --paper: #f4ead6;
+  --paper-2: #efe0c2;
+  --copper: #b0682f;
+  --amber: #c9a227;
+  --green: #2e5d43;
+  --red: #8a2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 85% -10%, rgba(176, 104, 47, 0.12), transparent 40%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sds {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  position: relative;
+}
+
+.watermark {
+  position: absolute;
+  top: -1rem;
+  right: -2rem;
+  font-size: 26rem;
+  line-height: 1;
+  color: rgba(46, 93, 67, 0.07);
+  pointer-events: none;
+  user-select: none;
+  transform: rotate(6deg);
+}
+
+/* Masthead */
+.masthead {
+  border-top: 6px double var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding: 1.25rem 0 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stamp-line {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+}
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  padding: 0.15rem 0.75rem;
+  transform: rotate(-3deg);
+  font-size: 0.9rem;
+}
+
+.rev { font-size: 0.8rem; font-style: italic; opacity: 0.75; }
+
+.masthead h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin: 0.25rem 0;
+  letter-spacing: 0.02em;
+}
+
+.big-H {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.85em;
+  padding: 0 0.35em 0.06em;
+  transform: rotate(-2deg);
+  border-radius: 4px;
+}
+
+.dek { max-width: 46rem; margin: 0.5rem 0; }
+.supplier { font-size: 0.85rem; opacity: 0.8; margin: 0.75rem 0 0; }
+
+/* Sections — asymmetric grid */
+.section {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--copper);
+  padding-bottom: 0.35rem;
+}
+
+.sec-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  float: left;
+  margin-right: 0.6rem;
+  margin-top: 0.1rem;
+}
+
+.s2 h2 { color: var(--red); border-color: var(--red); }
+.s4 h2 { color: var(--green); border-color: var(--green); }
+.s5 h2 { color: var(--copper); }
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.id-table th {
+  text-align: left;
+  vertical-align: top;
+  width: 11rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid rgba(28, 42, 36, 0.4);
+  background: var(--paper-2);
+}
+
+.id-table td, .data-table td, .data-table th {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid rgba(28, 42, 36, 0.4);
+  text-align: left;
+}
+
+.data-table th { background: var(--ink); color: var(--paper); }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: bold; }
+.data-table tbody tr:nth-child(even) { background: var(--paper-2); }
+
+/* Hazard diamonds */
+.hazard-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.25rem;
+}
+
+.diamond {
+  width: 9.5rem;
+  height: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(45deg);
+  border: 3px solid var(--ink);
+  background: var(--paper-2);
+  box-shadow: 4px 4px 0 rgba(28, 42, 36, 0.25);
+  margin: 1.75rem 1.5rem 1.25rem;
+  font-size: 0.8rem;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.diamond span { transform: rotate(-45deg); }
+.diamond .dia-top { font-size: 1.4rem; }
+.diamond .dia-bot { margin-top: 0.4rem; line-height: 1.2; }
+.diamond.danger { background: var(--red); color: var(--paper); border-color: var(--ink); }
+.diamond.caution { background: var(--amber); color: var(--ink); }
+
+/* 1903 memo */
+.memo {
+  background: var(--paper-2);
+  border: 1px solid var(--copper);
+  border-left: 6px solid var(--copper);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.memo::after {
+  content: "1903";
+  position: absolute;
+  top: -0.8rem;
+  right: 0.75rem;
+  background: var(--copper);
+  color: var(--paper);
+  font-size: 0.7rem;
+  padding: 0.1rem 0.5rem;
+  transform: rotate(2deg);
+  letter-spacing: 0.15em;
+}
+
+.memo-title { margin: 0 0 0.6rem; font-weight: bold; font-size: 0.9rem; letter-spacing: 0.05em; }
+
+.verbatim {
+  margin: 0.75rem 0;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--copper);
+  border-bottom: 1px solid var(--copper);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.memo-source { font-size: 0.8rem; opacity: 0.75; margin: 0.75rem 0 0; }
+
+/* Work bench */
+.work-box {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0 0;
+  max-width: 40rem;
+}
+
+.work-title {
+  margin: 0 0 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.work-box input[type="range"] { width: 100%; accent-color: var(--amber); }
+
+.work-readout {
+  font-variant-numeric: tabular-nums;
+  background: rgba(244, 234, 214, 0.12);
+  padding: 0.6rem 0.8rem;
+  border-left: 4px solid var(--amber);
+  margin: 0.75rem 0;
+}
+
+.work-note { font-size: 0.8rem; opacity: 0.8; margin: 0; }
+
+/* First aid list */
+.aid-list { list-style: none; padding: 0; margin: 0; }
+.aid-list li { padding: 0.5rem 0 0.5rem 1.5rem; position: relative; border-bottom: 1px dotted rgba(28, 42, 36, 0.4); }
+.aid-list li::before { content: "\26A0"; position: absolute; left: 0; color: var(--copper); }
+
+/* Colophon */
+.colophon {
+  border-top: 3px solid var(--ink);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+.rev-line { font-style: italic; opacity: 0.75; }
+
+@media (max-width: 720px) {
+  .section { grid-template-columns: 1fr; gap: 0.5rem; }
+  .watermark { font-size: 14rem; right: -3rem; }
+  .id-table th { display: block; width: auto; }
+  .id-table td { display: block; }
+  .id-table tr { display: block; border-bottom: 2px solid var(--copper); }
+}
