@@ -1,0 +1,245 @@
+/* Laganmore Village School — lined report sheet */
+
+:root {
+  --paper: #f7f2e4;
+  --ink: #26313d;
+  --rule: #9db4d4;
+  --margin: #c86060;
+  --red-pen: #9e2b25;
+  --form-ink: #3a4757;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #6d6a63; }
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 3rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.sheet {
+  position: relative;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 1.6rem 2rem 2.5rem 4.5rem;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(90deg, transparent 3.4rem, var(--margin) 3.4rem, var(--margin) calc(3.4rem + 1px), transparent calc(3.4rem + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px);
+  background-attachment: local;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* dog-eared top-right corner */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 2.2rem 2.2rem 0;
+  border-style: solid;
+  border-color: #6d6a63 #6d6a63 var(--paper) var(--paper);
+  filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.report-head {
+  text-align: center;
+  border-bottom: 3px double var(--form-ink);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.school-name {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.school-address {
+  margin: 0.1rem 0 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--form-ink);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.report-no {
+  margin: 0.3rem 0 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--form-ink);
+}
+
+/* typed form fields */
+.fields {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.fields th, .fields td {
+  border: 1px solid var(--form-ink);
+  padding: 0.3rem 0.55rem;
+}
+
+.fields th {
+  background: #ece4cf;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+  width: 12%;
+}
+
+.fields td { width: 38%; }
+
+/* the rubber stamp */
+.stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 2.4rem;
+  transform: rotate(8deg);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.35;
+  color: var(--red-pen);
+  border: 3px double var(--red-pen);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+}
+
+.section { margin-bottom: 1.4rem; }
+
+.section h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.02rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--form-ink);
+}
+
+.sec-no {
+  display: inline-block;
+  min-width: 1.4em;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--form-ink);
+}
+
+.section p { margin: 0 0 0.6rem; }
+
+section a { color: var(--ink); }
+section a, footer a { text-decoration-color: var(--margin); }
+
+/* the line kept word for word */
+.kept-line {
+  margin: 0.4rem 0 0.6rem;
+  padding: 0.45rem 1rem;
+  border-left: 3px solid var(--margin);
+  background: rgba(200, 96, 96, 0.07);
+  font-style: italic;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92rem;
+  color: var(--form-ink);
+}
+
+/* marks table */
+.marks {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.4rem 0 0.8rem;
+  font-size: 0.86rem;
+}
+
+.marks caption {
+  caption-side: top;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.76rem;
+  color: var(--form-ink);
+  padding-bottom: 0.3rem;
+}
+
+.marks th, .marks td {
+  border: 1px solid var(--form-ink);
+  padding: 0.3rem 0.55rem;
+  text-align: left;
+}
+
+.marks thead th { background: #ece4cf; }
+
+.marks tfoot th, .marks tfoot td {
+  font-weight: 700;
+  background: #e8dfc6;
+}
+
+.marks tbody td:nth-child(2),
+.marks tfoot th:nth-child(2) { text-align: right; white-space: nowrap; }
+
+/* red-pen judgment */
+.judgment {
+  color: var(--red-pen);
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.05rem;
+}
+
+.judgment-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* signature */
+.signature {
+  margin-top: 1.6rem;
+  text-align: right;
+}
+
+.signature-name {
+  display: block;
+  font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS", cursive;
+  font-size: 1.4rem;
+  color: var(--red-pen);
+}
+
+.signature-line {
+  display: block;
+  width: 11rem;
+  margin: 0.15rem 0 0.2rem auto;
+  border-bottom: 1px solid var(--form-ink);
+}
+
+.signature-cap {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--form-ink);
+}
+
+.report-footer {
+  max-width: 840px;
+  margin: 1.2rem auto 0;
+  padding: 0 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: #d8d3c5;
+}
