@@ -1,0 +1,205 @@
+/* The Quiet Practice — liner notes, LP D/2024
+   Palette: sleeve paper cream, vinyl umber, oxblood label, chalk white. */
+
+:root {
+  --paper: #efe6d3;
+  --paper-deep: #e4d7bc;
+  --ink: #2b241c;
+  --umber: #4a3f33;
+  --oxblood: #8c3b2e;
+  --chalk: #f7f1e2;
+  --rule: #b4a483;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1c1a17;
+  background-image: radial-gradient(circle at 30% 20%, #2a261f 0%, #1c1a17 70%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.sleeve {
+  max-width: 780px;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    0deg, transparent 0 3px, rgba(74, 63, 51, 0.03) 3px 4px);
+  border: 1px solid #0e0d0b;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), inset 0 0 60px rgba(74, 63, 51, 0.12);
+  padding: 3rem clamp(1.2rem, 5vw, 3.2rem) 2rem;
+  position: relative;
+}
+
+/* the cut corner of a record sleeve */
+.sleeve::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  border-style: solid;
+  border-width: 0 3.5rem 3.5rem 0;
+  border-color: #1c1a17 #1c1a17 var(--paper-deep) var(--paper);
+}
+
+.sleeve-head { border-bottom: 3px double var(--umber); padding-bottom: 1.1rem; }
+
+.label-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--ink);
+}
+
+h1::after {
+  content: "\2014  \25A0\25A0";
+  color: var(--oxblood);
+  font-size: 0.5em;
+  vertical-align: middle;
+}
+
+.subhead { max-width: 60ch; margin: 0.8rem 0 0; font-style: italic; color: #40372c; }
+
+h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.side-tag {
+  display: inline-block;
+  background: var(--oxblood);
+  color: var(--chalk);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  padding: 0.12rem 0.55rem;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+p { max-width: 68ch; }
+
+/* the disc */
+.disc-figure {
+  margin: 1.6rem auto;
+  max-width: 300px;
+  text-align: center;
+}
+
+.disc { width: 100%; height: auto; }
+
+.disc.spinning { animation: spin 4.2s linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.disc text.disc-text {
+  fill: var(--chalk);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+
+.disc text.disc-text.small { font-size: 9px; fill: #d9c9a8; }
+
+.disc-figure figcaption {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--umber);
+  margin-top: 0.5rem;
+}
+
+/* tracklist */
+.tracklist {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1rem 0 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.86rem;
+}
+
+.tracklist caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--umber);
+  padding-bottom: 0.4rem;
+}
+
+.tracklist th {
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem 0.3rem 0;
+}
+
+.tracklist td { border-bottom: 1px dotted var(--rule); padding: 0.42rem 0.6rem 0.42rem 0; }
+
+.tracklist td.no { width: 2.5rem; color: var(--oxblood); }
+.tracklist td.m { width: 4.5rem; text-align: right; color: #5a4c3b; }
+.tracklist tr:hover td { background: rgba(140, 59, 46, 0.07); }
+
+/* the margin line, kept word for word */
+.sleeve-line {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--paper-deep);
+  border-left: 5px solid var(--oxblood);
+  font-style: italic;
+}
+
+.sleeve-line p { margin: 0; font-size: 1.05rem; }
+
+.sleeve-line footer {
+  margin-top: 0.7rem;
+  font-style: normal;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--umber);
+}
+
+a { color: var(--oxblood); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+.colophon-notes { margin-top: 2rem; }
+
+.sleeve-foot {
+  margin-top: 2.4rem;
+  border-top: 3px double var(--umber);
+  padding-top: 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--umber);
+  text-align: center;
+}
+
+.flip-btn {
+  font: inherit;
+  letter-spacing: inherit;
+  background: none;
+  border: 1px solid var(--oxblood);
+  color: var(--oxblood);
+  padding: 0.25rem 0.8rem;
+  margin-left: 0.6rem;
+  cursor: pointer;
+}
+
+.flip-btn:hover { background: var(--oxblood); color: var(--chalk); }
