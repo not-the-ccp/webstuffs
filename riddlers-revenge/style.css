@@ -1,0 +1,189 @@
+/* Chapter 47 — The Riddler's Revenge · Ride Systems Field Manual, Rev. C */
+:root {
+  --ink: #20242c;
+  --paper: #f4efe3;
+  --paper-deep: #e9e1cd;
+  --riddle-green: #1f6f5c;
+  --riddle-green-dark: #14503f;
+  --riddle-yellow: #d8b93a;
+  --riddle-yellow-dark: #a8891f;
+  --rule: #3a3f4a;
+  --marginalia: #8a2d2d;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #2a2e36; }
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(31,111,92,.06) 34px 35px),
+    #2a2e36;
+}
+
+.plate {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 3px double var(--riddle-green-dark);
+  outline: 1px solid var(--riddle-yellow);
+  outline-offset: 5px;
+  padding: 2.5rem 2.75rem 1.5rem;
+  box-shadow: 0 18px 50px rgba(0,0,0,.5);
+  position: relative;
+}
+
+.plate::before, .plate::after {
+  content: "§ 47";
+  position: absolute;
+  font-family: "Courier New", monospace;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  color: var(--riddle-green-dark);
+  border: 1px solid var(--riddle-green-dark);
+  background: var(--paper-deep);
+  padding: .15rem .5rem;
+}
+.plate::before { top: .6rem; left: .6rem; }
+.plate::after { bottom: .6rem; right: .6rem; transform: rotate(180deg); }
+
+.stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  transform: rotate(6deg);
+  font-family: "Courier New", monospace;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--marginalia);
+  border: 2px solid var(--marginalia);
+  padding: .25rem .55rem;
+  opacity: .75;
+}
+
+.series {
+  font-family: "Courier New", monospace;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--riddle-green-dark);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin: 0 0 .5rem;
+  color: var(--riddle-green-dark);
+}
+
+.sub {
+  font-family: "Courier New", monospace;
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper-deep);
+  border-left: 4px solid var(--riddle-yellow);
+  padding: .5rem .75rem;
+  margin: 0 0 1rem;
+}
+
+.rule {
+  border-top: 2px solid var(--riddle-green-dark);
+  margin: 0 0 1rem;
+}
+.rule span {
+  display: block;
+  text-align: center;
+  color: var(--riddle-yellow-dark);
+  letter-spacing: 1.5em;
+  font-size: .7rem;
+  transform: translateY(-0.55em);
+  background: var(--paper);
+  padding: 0 .5em;
+}
+
+.authority {
+  font-style: italic;
+  font-size: .95rem;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 1.25rem;
+}
+
+.clause { margin: 1.75rem 0; }
+
+h2 {
+  font-family: "Courier New", monospace;
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--riddle-green);
+  border-bottom: 1px solid var(--riddle-green);
+  padding-bottom: .3rem;
+  margin: 0 0 .9rem;
+}
+
+p { line-height: 1.65; margin: 0 0 1rem; }
+
+strong { color: var(--riddle-green-dark); }
+
+table.meas {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: .9rem;
+  background: #fbf7ec;
+}
+table.meas caption {
+  font-family: "Courier New", monospace;
+  font-size: .75rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0 0 .4rem;
+  color: var(--marginalia);
+}
+table.meas th, table.meas td {
+  border: 1px solid var(--rule);
+  padding: .45rem .6rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.meas th {
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: var(--riddle-green-dark);
+  color: var(--paper);
+}
+table.meas tr:nth-child(even) td { background: var(--paper-deep); }
+
+a {
+  color: var(--riddle-green-dark);
+  text-decoration-color: var(--riddle-yellow);
+  text-underline-offset: 3px;
+}
+a:hover { background: var(--riddle-yellow); color: var(--ink); }
+
+.colophon {
+  margin-top: 2.5rem;
+  border-top: 3px double var(--riddle-green-dark);
+  padding-top: .75rem;
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.colophon p { margin: 0 0 .4rem; }
+.footlinks a { font-family: inherit; font-size: inherit; }
+
+@media (max-width: 40rem) {
+  .plate { padding: 2rem 1.25rem 1rem; }
+  h1 { font-size: 1.6rem; }
+}
