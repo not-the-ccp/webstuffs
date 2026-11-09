@@ -1,0 +1,390 @@
+/* Field Notes on Diocletian — imperial field ledger, maximalist plate */
+
+:root {
+  --purpure: #3d0b2e;
+  --purpure-deep: #23061b;
+  --purpure-ink: #170312;
+  --parchment: #f2e4c9;
+  --parchment-dim: #e5d2ac;
+  --gold: #d4a63a;
+  --gold-bright: #f2c65d;
+  --oxblood: #7a1f2b;
+  --marble: #efe6d4;
+  --ink: #2b1420;
+  --falcon: #5c3a1e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "IM Fell English", "Spectral", Georgia, serif;
+  color: var(--ink);
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(212, 166, 58, 0.20), transparent 55%),
+    radial-gradient(ellipse 90% 50% at 85% 110%, rgba(122, 31, 43, 0.22), transparent 60%),
+    repeating-conic-gradient(from 45deg at 50% 50%, rgba(61, 11, 46, 0.028) 0deg 45deg, rgba(212, 166, 58, 0.028) 45deg 90deg),
+    linear-gradient(180deg, var(--purpure-deep) 0%, var(--purpure-ink) 100%);
+  min-height: 100vh;
+}
+
+/* ---- the row of arches, like the basilica ---- */
+.arch-row {
+  display: flex;
+  gap: 6px;
+  padding: 0 4vw;
+  background: linear-gradient(180deg, var(--purpure-ink), rgba(23, 3, 18, 0));
+}
+.arch-row span {
+  flex: 1;
+  height: 34px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--purpure) 90%);
+  border-radius: 100px 100px 0 0 / 34px 34px 0 0;
+  opacity: 0.55;
+  animation: archbreathe 7s ease-in-out infinite;
+}
+.arch-row span:nth-child(odd) { animation-delay: 1.4s; }
+.arch-row span:nth-child(3n) { animation-delay: 2.8s; opacity: 0.4; }
+@keyframes archbreathe {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
+/* ---- the fixed A.U.C. dial on the left rail ---- */
+.era-rail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 88px;
+  padding: 20px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(180deg, var(--purpure-ink), var(--purpure-deep));
+  border-right: 2px solid var(--gold);
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.45);
+  z-index: 40;
+}
+.era-rail-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  writing-mode: vertical-rl;
+  margin: 0;
+  opacity: 0.8;
+}
+.era-year {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 1.9rem;
+  color: var(--gold-bright);
+  margin: 8px 0 0;
+  text-shadow: 0 0 18px rgba(242, 198, 93, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+.era-name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.56rem;
+  line-height: 1.5;
+  color: var(--parchment-dim);
+  text-align: center;
+  margin: 6px 0 0;
+  max-width: 72px;
+}
+.era-static { font-size: 0.6rem; color: var(--parchment-dim); text-align: center; margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .era-rail { display: none; }
+}
+
+/* ---- masthead ---- */
+.masthead {
+  position: relative;
+  text-align: center;
+  padding: 56px 6vw 40px;
+  margin-left: 88px;
+  background:
+    radial-gradient(ellipse 70% 100% at 50% 0%, rgba(212, 166, 58, 0.14), transparent 70%),
+    linear-gradient(180deg, rgba(23, 3, 18, 0.9), rgba(35, 6, 27, 0.55));
+  border-bottom: 3px double var(--gold);
+}
+@media (max-width: 900px) { .masthead { margin-left: 0; } }
+
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+}
+
+.wreath {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 8px;
+  filter: drop-shadow(0 0 14px rgba(212, 166, 58, 0.5));
+}
+.wreath-spin {
+  transform-origin: 50% 50%;
+  animation: spinslow 40s linear infinite;
+}
+@keyframes spinslow {
+  to { transform: rotate(360deg); }
+}
+.wreath-ring {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+.laurel path { fill: var(--gold-bright); }
+.wreath-text {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 20px;
+  fill: var(--parchment);
+  text-anchor: middle;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  letter-spacing: 0.06em;
+  color: var(--parchment);
+  margin: 8px 0 10px;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+h1 .gold {
+  background: linear-gradient(100deg, #8a5a1a 10%, var(--gold-bright) 30%, #fff0c2 50%, var(--gold) 70%, #8a5a1a 90%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: leaf 6s linear infinite;
+}
+@keyframes leaf {
+  to { background-position: -220% 0; }
+}
+
+.subtitle {
+  font-family: "Spectral", serif;
+  font-style: italic;
+  color: var(--parchment-dim);
+  max-width: 620px;
+  margin: 0 auto 20px;
+  font-size: 1.02rem;
+}
+
+.specimen-tag {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--parchment);
+  background: rgba(23, 3, 18, 0.75);
+  border: 1.5px solid var(--gold);
+  border-radius: 4px;
+  padding: 10px 18px;
+  transform: rotate(-1.1deg);
+  box-shadow: 4px 4px 0 rgba(212, 166, 58, 0.35);
+}
+.specimen-tag span { color: var(--gold-bright); }
+
+/* ---- the book ---- */
+.book {
+  margin: 48px auto 64px;
+  max-width: 820px;
+  padding: 0 5vw;
+}
+
+.book section {
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, rgba(122, 31, 43, 0.035) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, var(--marble), var(--parchment-dim));
+  border: 1px solid rgba(92, 58, 30, 0.5);
+  border-left: 10px solid var(--oxblood);
+  border-right: 10px solid var(--oxblood);
+  box-shadow:
+    inset 0 0 40px rgba(92, 58, 30, 0.18),
+    0 18px 40px rgba(0, 0, 0, 0.5);
+  padding: 34px 44px 30px;
+  margin: 0 0 56px;
+  clip-path: none;
+}
+.book section::before {
+  /* pilasters flanking the parchment */
+  content: "";
+  position: absolute;
+  inset: 8px -22px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 10px, rgba(212, 166, 58, 0.10) 10px 12px);
+  pointer-events: none;
+}
+.book section::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 64px;
+  height: 10px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 50% 100%, var(--gold) 0 40%, transparent 41%);
+}
+
+.preamble p.drop {
+  font-size: 1.1rem;
+}
+.preamble p.drop::first-letter {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.8;
+  padding: 6px 10px 0 0;
+  color: var(--oxblood);
+}
+
+.station h2 {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.28rem;
+  letter-spacing: 0.05em;
+  color: var(--purpure);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  margin: 0 0 18px;
+}
+.station-no {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--gold-bright);
+  -webkit-text-stroke: 1px var(--oxblood);
+  margin-right: 12px;
+  text-shadow: 2px 2px 0 var(--oxblood);
+}
+
+p { margin: 0 0 16px; }
+strong { color: var(--oxblood); letter-spacing: 0.02em; }
+
+a {
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+a:hover {
+  background: var(--gold);
+  color: var(--purpure-ink);
+}
+
+blockquote {
+  margin: 26px 8px;
+  padding: 22px 28px;
+  font-family: "Spectral", serif;
+  font-style: italic;
+  font-size: 1.22rem;
+  color: var(--purpure-ink);
+  background:
+    linear-gradient(90deg, rgba(212, 166, 58, 0.25), transparent 12%, transparent 88%, rgba(212, 166, 58, 0.25)),
+    rgba(255, 248, 226, 0.6);
+  border-top: 2px solid var(--oxblood);
+  border-bottom: 2px solid var(--oxblood);
+  position: relative;
+}
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -18px;
+  left: 8px;
+  font-family: "Cinzel", serif;
+  font-size: 3rem;
+  color: var(--gold);
+}
+
+em { color: var(--purpure); }
+
+/* ---- filed beside ---- */
+.filed-beside {
+  margin: 0 auto 40px;
+  max-width: 820px;
+  padding: 0 5vw;
+}
+.filed-beside h2 {
+  font-family: "Cinzel", serif;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(212, 166, 58, 0.5);
+  padding-bottom: 8px;
+}
+.filed-beside p {
+  font-family: "Spectral", serif;
+  font-size: 0.95rem;
+  color: var(--parchment-dim);
+}
+.filed-beside a { color: var(--gold-bright); border-bottom-color: rgba(212, 166, 58, 0.5); }
+.filed-beside a:hover { background: rgba(212, 166, 58, 0.2); color: var(--parchment); }
+
+footer {
+  text-align: center;
+  padding: 24px 8vw 56px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: rgba(242, 198, 93, 0.75);
+  border-top: 1px solid rgba(212, 166, 58, 0.35);
+  margin-left: 88px;
+}
+@media (max-width: 900px) { footer { margin-left: 0; } }
+
+/* ---- the wax stamp, set on click ---- */
+.stamp {
+  position: fixed;
+  right: 6vw;
+  bottom: 8vh;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--oxblood);
+  border: 4px double var(--oxblood);
+  border-radius: 8px;
+  padding: 14px 22px;
+  background: rgba(242, 228, 201, 0.85);
+  transform: rotate(-14deg) scale(2.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.2, 1.6, 0.4, 1), opacity 0.35s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 60;
+}
+.stamp.stamped {
+  opacity: 0.92;
+  transform: rotate(-14deg) scale(1);
+  animation: thump 0.4s ease-out;
+}
+@keyframes thump {
+  0% { transform: rotate(-14deg) scale(2.2); }
+  70% { transform: rotate(-14deg) scale(0.92); }
+  100% { transform: rotate(-14deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wreath-spin, .arch-row span, h1 .gold { animation: none; }
+}
