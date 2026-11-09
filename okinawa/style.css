@@ -1,0 +1,158 @@
+/* Dream Dictionary — Entry 717, Okinawa: aged dictionary leaf, salt-stained */
+:root {
+  --paper: #f3ecd9;
+  --paper-dark: #e9dfc4;
+  --ink: #2c2417;
+  --faded: #6e6045;
+  --rule: #a5946c;
+  --sea: #37544e;
+  --frost: #9db4ae;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #cfc4a6;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+.entry {
+  position: relative;
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  padding: 3rem 3rem 2.2rem;
+  background:
+    radial-gradient(ellipse at 82% 8%, rgba(157, 180, 174, 0.22), transparent 46%),
+    radial-gradient(ellipse at 8% 92%, rgba(63, 52, 30, 0.14), transparent 40%),
+    var(--paper);
+  border: 1px solid #8d7d58;
+  box-shadow: 0 14px 40px rgba(35, 28, 12, 0.35), inset 0 0 90px rgba(110, 96, 69, 0.18);
+}
+.entry::before {
+  /* deckled top edge */
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 7px;
+  background: repeating-linear-gradient(90deg, var(--paper-dark) 0 9px, transparent 9px 15px);
+  opacity: 0.7;
+}
+.series {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.1rem;
+}
+h1 {
+  font-size: 3rem;
+  line-height: 1.02;
+  margin: 0 0 0.4rem;
+  font-variant: small-caps;
+  letter-spacing: 0.01em;
+}
+.pos {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+.plimsoll {
+  border: 0;
+  border-top: 3px double var(--rule);
+  margin: 0 0 1.6rem;
+}
+.stamp {
+  position: absolute;
+  top: 1.4rem; right: 1.6rem;
+  transform: rotate(7deg);
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  color: var(--sea);
+  border: 3px double var(--sea);
+  padding: 0.35rem 0.6rem;
+  opacity: 0.62;
+}
+.definition {
+  font-size: 1.05rem;
+}
+.definition::first-letter {
+  font-size: 2.6em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.04em 0.12em 0 0;
+  color: var(--sea);
+  font-variant: small-caps;
+}
+dfn { font-style: normal; font-weight: bold; }
+h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--sea);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.1rem 0 0.9rem;
+}
+p { margin: 0 0 1.05rem; }
+a { color: var(--sea); text-decoration-color: rgba(55, 84, 78, 0.45); }
+a:hover { background: rgba(157, 180, 174, 0.28); }
+.imagery {
+  list-style: none;
+  margin: 0 0 0.4rem;
+  padding: 0;
+}
+.imagery li {
+  padding: 0.32rem 0 0.32rem 1.5rem;
+  position: relative;
+  border-bottom: 1px dotted var(--rule);
+}
+.imagery li::before {
+  content: "\25A0";
+  position: absolute;
+  left: 0.35rem;
+  color: var(--frost);
+  font-size: 0.7em;
+  top: 0.55rem;
+}
+.dream-report {
+  margin: 0;
+  padding: 1rem 1.3rem;
+  border-left: 4px solid var(--frost);
+  background: rgba(157, 180, 174, 0.14);
+  font-style: italic;
+  font-size: 1.06rem;
+}
+.see-also p { font-size: 0.94rem; margin-bottom: 0.55rem; }
+.sign-off {
+  margin-top: 2.4rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  font-family: "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--faded);
+}
+.fog {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 90px;
+  background: linear-gradient(to bottom, transparent, rgba(243, 236, 217, 0) 30%, rgba(157, 180, 174, 0.35) 70%, transparent);
+  pointer-events: none;
+  animation: drift 26s linear infinite;
+}
+.fog--one { top: 34%; }
+.fog--two { top: 68%; animation-duration: 39s; animation-direction: reverse; opacity: 0.7; }
+@keyframes drift {
+  0%   { transform: translateX(-4%); }
+  50%  { transform: translateX(4%); }
+  100% { transform: translateX(-4%); }
+}
+@media (max-width: 620px) {
+  .entry { margin: 0; padding: 2rem 1.2rem; border-left: 0; border-right: 0; }
+  h1 { font-size: 2.2rem; }
+}
