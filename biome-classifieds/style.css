@@ -1,0 +1,177 @@
+/* The Paramaribo Weekly — Small Ads & Notices, Page B7 */
+
+:root {
+  --paper: #f3ecd9;
+  --ink: #2b2118;
+  --faded: #6d5c49;
+  --rule: #4a3a2a;
+  --stamp: #8a2f22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1d1811;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.45;
+}
+
+.masthead {
+  max-width: 1000px;
+  margin: 2rem auto 0;
+  padding: 0 1.25rem 0.75rem;
+  text-align: center;
+  color: #e9e0c8;
+  border-bottom: 4px double #d8ccb0;
+}
+
+.paper-title {
+  margin: 0;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.paper-title .amp { font-style: italic; font-weight: 400; }
+
+.paper-line {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b7a887;
+}
+
+.paper-date {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: #8f815f;
+}
+
+.sheet {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  padding: 1.25rem 1.25rem 2rem;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 18px 40px rgba(0,0,0,0.55);
+  background-image:
+    radial-gradient(ellipse at 18% 8%, rgba(122,90,44,0.10), transparent 42%),
+    radial-gradient(ellipse at 88% 96%, rgba(122,90,44,0.14), transparent 40%);
+}
+
+.deck {
+  text-align: center;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.notice-kind {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.deck h1 {
+  margin: 0.3rem 0 0.35rem;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.deck-note {
+  margin: 0 auto;
+  max-width: 62ch;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #4c3e2f;
+}
+
+.columns {
+  column-width: 300px;
+  column-gap: 1.4rem;
+  column-rule: 1px solid rgba(74, 58, 42, 0.45);
+}
+
+.ad {
+  break-inside: avoid;
+  margin: 0 0 1.35rem;
+  padding: 0.75rem 0.85rem 0.65rem;
+  border: 1px solid rgba(74, 58, 42, 0.55);
+  background: rgba(255, 252, 240, 0.35);
+  position: relative;
+}
+
+.ad h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.ad-body {
+  margin: 0 0 0.55rem;
+  font-size: 0.84rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.ad-body strong { font-weight: 700; letter-spacing: 0.02em; }
+
+.ref {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.ad.lost { transform: rotate(-0.5deg); border-style: dashed; }
+.ad.lost::after {
+  content: "LOST";
+  position: absolute;
+  top: 0.5rem;
+  right: -0.45rem;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 0.1rem 0.45rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  transform: rotate(8deg);
+  background: rgba(243, 236, 217, 0.85);
+}
+
+.ad.notice {
+  background: transparent;
+  border: none;
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ad.notice .ad-body { text-align: left; }
+
+a { color: #6e3b1d; }
+a:hover { color: var(--stamp); }
+
+.notice-foot {
+  margin-top: 1.5rem;
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--rule);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: #4c3e2f;
+  text-align: center;
+}
+
+.notice-foot p { margin: 0.2rem 0; }
