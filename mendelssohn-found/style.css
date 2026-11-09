@@ -1,0 +1,280 @@
+/* Leipzig Central Lost Property Bureau — Notice 1809/47 */
+
+:root {
+  --vellum: #f3e9d2;
+  --vellum-deep: #e9dcb8;
+  --ink: #241a10;
+  --ink-soft: #4a3a28;
+  --oxblood: #5e1214;
+  --oxblood-deep: #3a0b0d;
+  --gold: #b48a2c;
+  --gold-bright: #d9ae4e;
+  --blue-pencil: #2c4a7a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% -5%, rgba(180, 138, 44, 0.22), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(94, 18, 20, 0.18), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(36, 26, 16, 0.025) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, #efe3c4 0%, #e5d3a7 45%, #dcc794 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* floating engraved border on the window edges */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 10px;
+  border: 3px double var(--gold);
+  outline: 1px solid rgba(94, 18, 20, 0.5);
+  outline-offset: 4px;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.85;
+}
+
+/* drifting dust */
+.dust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(180, 138, 44, 0.5), transparent 60%),
+    radial-gradient(1px 1px at 78% 14%, rgba(180, 138, 44, 0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 64% 68%, rgba(94, 18, 20, 0.35), transparent 60%),
+    radial-gradient(1px 1px at 30% 84%, rgba(180, 138, 44, 0.4), transparent 60%),
+    radial-gradient(1px 1px at 88% 52%, rgba(74, 58, 40, 0.4), transparent 60%);
+  animation: dust-drift 38s linear infinite alternate;
+}
+@keyframes dust-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-18px, 26px, 0); }
+}
+
+/* note rain */
+.note-rain { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.note-rain span {
+  position: absolute;
+  top: -8vh;
+  color: rgba(94, 18, 20, 0.30);
+  font-size: 1.5rem;
+  animation: fall linear infinite;
+  will-change: transform;
+}
+@keyframes fall {
+  to { transform: translateY(115vh) rotate(160deg); }
+}
+
+.sheet {
+  position: relative;
+  z-index: 2;
+  max-width: 62rem;
+  margin: 4rem auto 5rem;
+  background:
+    radial-gradient(ellipse 120% 30% at 50% 0%, rgba(217, 174, 78, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--vellum) 0%, var(--vellum-deep) 100%);
+  border: 1px solid rgba(74, 58, 40, 0.45);
+  box-shadow:
+    0 0 0 6px rgba(243, 233, 210, 0.5),
+    0 0 0 7px rgba(180, 138, 44, 0.55),
+    0 30px 70px rgba(36, 26, 16, 0.45);
+}
+
+/* ————— masthead ————— */
+.masthead {
+  text-align: center;
+  padding: 3rem 2.5rem 1.6rem;
+  border-bottom: 3px double var(--gold);
+  position: relative;
+}
+.masthead::after {
+  content: "\266B"; /* treble clef watermark */
+  position: absolute;
+  right: 1rem;
+  bottom: -1.2rem;
+  font-size: 7rem;
+  color: rgba(94, 18, 20, 0.10);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+.crest { width: 6.4rem; height: 6.4rem; margin: 0 auto 0.4rem; display: block; animation: crest-turn 60s linear infinite; }
+@keyframes crest-turn { to { transform: rotate(360deg); } }
+.crest-ring { fill: none; stroke: var(--oxblood); stroke-width: 2.5; }
+.crest-ring.inner { stroke: var(--gold); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.crest-num { text-anchor: middle; font-family: "Special Elite", monospace; font-size: 15px; fill: var(--oxblood); }
+.crest-year { text-anchor: middle; font-family: "UnifrakturMaguntia", "IM Fell English", serif; font-size: 26px; fill: var(--ink); }
+.crest-sub { text-anchor: middle; font-family: "Special Elite", monospace; font-size: 9px; letter-spacing: 2px; fill: var(--ink-soft); }
+
+.bureau-line {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--oxblood);
+  margin: 0.4rem 0 1rem;
+}
+.masthead h1 {
+  font-family: "UnifrakturMaguntia", "IM Fell English", serif;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 9vw, 5.6rem);
+  margin: 0;
+  color: var(--oxblood-deep);
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 rgba(180, 138, 44, 0.35);
+}
+.masthead h1 .comma { color: var(--gold); }
+.item-title {
+  font-size: 1.35rem;
+  font-style: italic;
+  margin: 0.9rem 0 0.2rem;
+  color: var(--ink);
+}
+.item-title .aka {
+  display: block;
+  font-style: normal;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+.notice-no {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--blue-pencil);
+  margin: 1rem 0 0.8rem;
+}
+.rule {
+  height: 10px;
+  margin: 1rem auto 1.4rem;
+  max-width: 30rem;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 20px);
+  border-top: 1px solid var(--oxblood);
+  border-bottom: 1px solid var(--oxblood);
+}
+
+/* rubber stamp */
+.stamp {
+  display: inline-block;
+  margin: 0 auto 0.4rem;
+  padding: 0.5rem 1.4rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  color: var(--oxblood);
+  border: 3px solid var(--oxblood);
+  border-radius: 6px;
+  transform: rotate(-7deg);
+  opacity: 0;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.15s ease;
+}
+.stamp.stamped {
+  opacity: 0.92;
+  animation: thud 0.35s ease;
+}
+@keyframes thud {
+  0%   { transform: rotate(-7deg) scale(2.1); opacity: 0; }
+  60%  { transform: rotate(-7deg) scale(0.92); opacity: 1; }
+  100% { transform: rotate(-7deg) scale(1); opacity: 0.92; }
+}
+
+/* ————— entries ————— */
+main { padding: 1rem 2.6rem 2rem; }
+.entry { margin: 2.4rem 0; position: relative; }
+.entry-meta {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.2rem;
+}
+.entry h2 {
+  font-family: "Playfair Display", "IM Fell English", serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--oxblood-deep);
+  margin: 0 0 0.7rem;
+  border-bottom: 1px solid rgba(180, 138, 44, 0.6);
+  padding-bottom: 0.3rem;
+}
+.entry p { margin: 0.9rem 0; }
+.entry strong { color: var(--oxblood); }
+.entry em { color: var(--ink-soft); }
+
+/* the pencil-line section looks like a torn lining */
+.ledger-line {
+  background:
+    repeating-linear-gradient(45deg, rgba(44, 74, 122, 0.05) 0 8px, transparent 8px 16px),
+    rgba(44, 74, 122, 0.05);
+  border-left: 4px solid var(--blue-pencil);
+  padding: 1.4rem 1.6rem;
+  margin-left: -0.6rem;
+}
+.ledger-line .entry-meta { color: var(--blue-pencil); }
+.ledger-line h2 { color: var(--blue-pencil); border-bottom-color: rgba(44, 74, 122, 0.5); }
+.bureau-note {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.86rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  border-top: 1px dashed rgba(74, 58, 40, 0.5);
+  padding-top: 0.9rem;
+}
+
+.entry a {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.entry a:hover {
+  background: rgba(180, 138, 44, 0.25);
+  color: var(--oxblood-deep);
+}
+
+/* ————— colophon ————— */
+.colophon {
+  border-top: 3px double var(--gold);
+  padding: 1.4rem 2.6rem 2rem;
+  text-align: center;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.col-line { margin: 0.35rem 0; }
+.colophon .nav { margin-top: 1rem; }
+.colophon a {
+  color: var(--oxblood);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  padding-bottom: 1px;
+}
+.colophon a:hover { color: var(--gold-bright); }
+
+@media (max-width: 560px) {
+  .sheet { margin: 1.4rem auto 3rem; }
+  main { padding: 0.6rem 1.2rem 1.2rem; }
+  .masthead { padding: 2.2rem 1.2rem 1.2rem; }
+  .masthead::after { font-size: 4rem; }
+  body::before { inset: 4px; }
+}
