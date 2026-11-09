@@ -1,0 +1,344 @@
+/* Amos Oz — District Court of Tel Aviv–Jaffa, Cause No. TA-3314/19
+   Verbatim record excerpt. Maximalist courtroom stationery. */
+
+/* Global --------------------------------------------------------------- */
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(700px 700px at 10% 10%, #2a2340 0%, transparent 42%),
+    radial-gradient(800px 800px at 95% 90%, #3d1f2e 0%, transparent 38%),
+    linear-gradient(150deg, #0d0e1a 0%, #16182e 45%, #0d0e1a 100%);
+  color: #1c1408;
+  font-family: "Noto Serif", "Liberation Serif", "Times New Roman", serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Frame and marginal ornaments ---------------------------------------- */
+.ornament {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(138, 109, 43, 0.35) 10px),
+    repeating-linear-gradient(90deg, transparent, transparent 9px, rgba(138, 109, 43, 0.35) 10px);
+  border: 2px solid rgba(138, 109, 43, 0.5);
+  z-index: -1;
+  pointer-events: none;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+.ornament.top {
+  top: -80px;
+  left: -70px;
+  transform: rotate(-8deg);
+}
+.ornament.bottom {
+  bottom: -90px;
+  right: -75px;
+  transform: rotate(6deg);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes drift {
+  from { transform: rotate(var(--r, -8deg)) translate(0, 0); }
+  to   { transform: rotate(var(--r, -8deg)) translate(14px, -14px); }
+}
+.ornament.bottom { --r: 6deg; }
+
+/* Record -------------------------------------------------------------- */
+.record {
+  position: relative;
+  max-width: 860px;
+  margin: 44px auto 60px;
+  padding: 52px 58px 70px;
+  background:
+    linear-gradient(150deg, #faf6e6 0%, #f2e9c6 40%, #eadab0 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 26px, rgba(100, 70, 10, 0.07) 27px);
+  border: 3px double #8a6d2b;
+  outline: 6px solid rgba(138, 109, 43, 0.25);
+  outline-offset: 10px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 2px rgba(250, 238, 200, 0.6) inset;
+  text-align: left;
+}
+.record::before,
+.record::after {
+  position: absolute;
+  content: "✶";
+  font-size: 22px;
+  color: #8a6d2b;
+  opacity: 0.55;
+  z-index: 2;
+}
+.record::before {
+  top: 18px;
+  left: 18px;
+  animation: flicker 10s ease-in-out infinite alternate;
+}
+.record::after {
+  bottom: 18px;
+  right: 18px;
+  animation: flicker 10s ease-in-out infinite alternate-reverse;
+}
+@keyframes flicker {
+  from { opacity: 0.45; transform: scale(1); }
+  to   { opacity: 0.75; transform: scale(1.1); }
+}
+
+/* Caption ------------------------------------------------------------- */
+.court-caption {
+  border-bottom: 4px double #6b4a18;
+  padding-bottom: 24px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.court-line {
+  font-size: 12.5px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: #6b4a18;
+  margin: 0 0 4px;
+  font-weight: bold;
+}
+.cause-line {
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #8a6d2b;
+  margin: 0 0 16px;
+  font-weight: bold;
+}
+.court-caption h1 {
+  font-size: 25px;
+  letter-spacing: 0.4px;
+  color: #7a2018;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+.record-line {
+  font-size: 13px;
+  color: #3a2f1e;
+  margin: 0 0 6px;
+}
+.record-note {
+  font-size: 12.5px;
+  color: #5c4b2e;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Dividers ------------------------------------------------------------ */
+.divider {
+  margin: 34px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #8a6d2b;
+  letter-spacing: 6px;
+  opacity: 0.8;
+}
+
+/* Filed stamp and seal ------------------------------------------------ */
+.stamp {
+  position: fixed;
+  top: 150px;
+  right: -45px;
+  width: 150px;
+  height: 150px;
+  border: 3px solid #9e1b1b;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: transparent;
+  color: #9e1b1b;
+  font: bold 22px "Courier New", Courier, monospace;
+  letter-spacing: 4px;
+  display: grid;
+  place-items: center;
+  transform: rotate(-14deg);
+  opacity: 0.85;
+  box-shadow: 0 0 0 4px rgba(158, 27, 27, 0.15), 0 8px 20px rgba(0, 0, 0, 0.35);
+  animation: stamp-wiggle 5s ease-in-out infinite;
+}
+@keyframes stamp-wiggle {
+  0%, 100% { transform: rotate(-14deg) scale(1); }
+  50% { transform: rotate(-10deg) scale(1.04); }
+}
+.seal-line {
+  text-align: center;
+  margin: 10px 0 24px;
+}
+.seal {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 2.5px double #7a2018;
+  border-radius: 50%;
+  color: #7a2018;
+  font: bold 9px "Courier New", Courier, monospace;
+  letter-spacing: 1.6px;
+  line-height: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 10px #faf6e6, 0 0 0 12px #eadab0;
+  animation: seal-glow 4s ease-in-out infinite alternate;
+}
+@keyframes seal-glow {
+  from { box-shadow: 0 0 0 10px #faf6e6, 0 0 0 12px #eadab0; }
+  to   { box-shadow: 0 0 0 10px #faf6e6, 0 0 0 12px #eadab0, 0 0 18px rgba(122, 32, 24, 0.35); }
+}
+
+/* Sections ------------------------------------------------------------ */
+h2 {
+  font-size: 16px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: #5e2e12;
+  margin: 0 0 12px;
+  padding-left: 10px;
+  border-left: 5px solid #8a6d2b;
+}
+h2.exhibit-title {
+  border-left: 5px solid #7a2018;
+  color: #7a2018;
+}
+p {
+  margin: 0 0 13px;
+  text-align: justify;
+}
+
+/* Appearances --------------------------------------------------------- */
+.appearances p {
+  margin: 0 0 7px;
+  font-size: 14px;
+}
+.role {
+  color: #7a2018;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.name {
+  font-weight: bold;
+  color: #1c1408;
+}
+
+/* Speakers ------------------------------------------------------------ */
+.speaker {
+  font: 13px "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4a2f10;
+  white-space: nowrap;
+}
+
+/* Exhibit ------------------------------------------------------------- */
+.register {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 16px;
+  font-size: 12.5px;
+}
+.register caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 11.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #6b4a18;
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+.register th {
+  background: #5e2e12;
+  color: #faf6e6;
+  text-align: left;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  letter-spacing: 0.8px;
+}
+.register td {
+  border-bottom: 1px solid #d8c495;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+.register tr:nth-child(even) td {
+  background: #f5ecd8;
+}
+
+.verbatim-box {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: #fdf8ec;
+  border: 2px solid #b01010;
+  border-left: 10px solid #b01010;
+  box-shadow: 6px 6px 0 #8a6d2b, inset 0 0 0 1px rgba(176, 16, 16, 0.2);
+}
+.verbatim-kicker {
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: #b01010;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+.verbatim {
+  font-size: 15px;
+  color: #1c1408;
+  font-style: italic;
+  margin: 0;
+}
+.cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1.1s steps(2) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Signature and colophon ---------------------------------------------- */
+.signature {
+  margin-top: 22px;
+  text-align: right;
+  font-size: 13px;
+  font-style: italic;
+  color: #3a2f1e;
+}
+.colophon {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 4px double #6b4a18;
+  font-size: 13px;
+  color: #4a3b1e;
+  text-align: justify;
+}
+.colophon a {
+  color: #7a2018;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1.5px dotted #7a2018;
+}
+.colophon a:hover {
+  color: #4a1010;
+  background: #f3e9c8;
+}
+
+/* Responsive ---------------------------------------------------------- */
+@media (max-width: 600px) {
+  .record { margin: 20px auto; padding: 30px 20px 44px; }
+  .court-caption h1 { font-size: 20px; }
+  .stamp { top: 10px; right: -30px; width: 110px; height: 110px; font-size: 16px; }
+  .ornament { width: 140px; height: 140px; }
+}
