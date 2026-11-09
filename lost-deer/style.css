@@ -1,0 +1,169 @@
+/* Lost & Found Notice BC-63-LF-221 — 21st Street–Queensbridge mezzanine shelf */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000033;
+  background-image:
+    radial-gradient(#c0c0ff 1px, transparent 1px),
+    radial-gradient(#e0e0ff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 60px 60px, 90px 40px, 45px 75px;
+  background-position: 0 0, 30px 20px, 15px 30px;
+  color: #ffffc0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.page {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 22px;
+  border: 8px outset #c0c0c0;
+  background: #000011;
+  box-shadow: 6px 6px 0 #000080;
+}
+.masthead h1 {
+  font-size: 26px;
+  color: #ff00ff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border: 4px ridge #c0c0c0;
+  display: inline-block;
+  padding: 6px 16px;
+  margin: 0 auto 10px;
+}
+.blink {
+  animation: blinker 0.7s infinite alternate;
+}
+@keyframes blinker {
+  from { opacity: 1; }
+  to { opacity: 0.2; }
+}
+.office {
+  text-align: center;
+  color: #c0c0ff;
+  font-size: 13px;
+  margin: 2px 0 8px;
+}
+.ref {
+  text-align: center;
+  color: #e0e0e0;
+  font-size: 12px;
+  margin: 0 0 16px;
+}
+.ticker {
+  background: #000080;
+  color: #ffff00;
+  font-weight: bold;
+  text-align: center;
+  font-size: 13px;
+  padding: 4px 0;
+  border-bottom: 4px outset #c0c0c0;
+  margin: 0 0 14px;
+}
+.shelf-box {
+  border: 4px ridge #c0c0c0;
+  padding: 16px 20px;
+  background: #000022;
+  margin-bottom: 22px;
+}
+.shelf-box h2 {
+  color: #ff00ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #c0c0c0;
+  padding-bottom: 4px;
+}
+table.inventory {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+table.inventory th, table.inventory td {
+  border: 2px outset #c0c0c0;
+  padding: 6px 8px;
+  vertical-align: top;
+  text-align: left;
+}
+table.inventory th {
+  background: #000044;
+  color: #ffff00;
+}
+blockquote.tag {
+  border: 3px outset #ff00ff;
+  background: #000000;
+  color: #ffff00;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 16px;
+  text-align: center;
+}
+.tag-line {
+  text-align: center;
+  font-size: 13px;
+  color: #c0c0c0;
+  margin-top: 0;
+}
+.counter-box, .guestbook-box {
+  border: 4px ridge #c0c0c0;
+  padding: 14px 18px;
+  background: #000022;
+  margin-bottom: 22px;
+}
+.counter-box h2, .guestbook-box h2 {
+  color: #00ff00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+}
+.odometer {
+  display: inline-block;
+  background: #000000;
+  color: #00ff00;
+  border: 3px ridge #00ff00;
+  padding: 2px 8px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.guestbook-form label {
+  display: inline-block;
+  min-width: 150px;
+}
+.guestbook-form input, .guestbook-form textarea {
+  background: #000011;
+  color: #ffffc0;
+  border: 2px ridge #c0c0c0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+.guestbook-form button {
+  background: #000044;
+  color: #ffff00;
+  border: 3px outset #c0c0c0;
+  padding: 4px 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  cursor: pointer;
+}
+.guestbook-form button:active {
+  border-style: inset;
+}
+.guestbook-entries .entry {
+  border-top: 1px solid #202044;
+  padding: 8px 0;
+  font-size: 13px;
+  color: #c0c0ff;
+}
+.shelf-footer {
+  text-align: center;
+  font-size: 11px;
+  color: #8080a0;
+  border-top: 2px solid #c0c0c0;
+  padding-top: 10px;
+  margin-top: 6px;
+}
+a { color: #ff00ff; }
+a:visited { color: #c000c0; }
