@@ -1,0 +1,346 @@
+/* One Hundred and Two — liner notes, CAB-9/102
+   Pressing unit, clock room, Gornje Vukovsko.
+   Ink: vermillion and gold on rice paper, the way the almanacs run. */
+
+:root {
+  --paper: #f4ead2;
+  --paper-deep: #e9dcb8;
+  --ink: #2b1d12;
+  --vermillion: #a8271b;
+  --vermillion-deep: #7c150d;
+  --gold: #b3872f;
+  --gold-bright: #d9a83e;
+  --indigo: #23364d;
+  --night: #101a26;
+  --brown-ink: #5b3a1e;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Songti SC", "SimSun", serif;
+  --kai: "Kaiti SC", "KaiTi", "STKaiti", "Songti SC", "SimSun", serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 85% -5%, rgba(168, 39, 27, 0.10), transparent 60%),
+    radial-gradient(900px 700px at -10% 30%, rgba(35, 54, 77, 0.12), transparent 55%),
+    radial-gradient(700px 500px at 110% 80%, rgba(179, 135, 47, 0.16), transparent 60%),
+    linear-gradient(175deg, #efe3c4 0%, var(--paper) 34%, #ead9b2 68%, #e2cfa2 100%);
+  min-height: 100vh;
+  line-height: 1.62;
+}
+
+/* the laid paper texture */
+.paper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(91, 58, 30, 0.028) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(90deg, rgba(91, 58, 30, 0.02) 0 3px, transparent 3px 8px);
+  mix-blend-mode: multiply;
+}
+
+/* the gold-foil seals, drifting */
+.gold-foil { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.seal {
+  position: absolute;
+  font-family: var(--kai);
+  color: var(--vermillion);
+  border: 3px double var(--vermillion);
+  border-radius: 10px;
+  opacity: 0.16;
+  display: grid;
+  place-items: center;
+  animation: seal-drift 26s ease-in-out infinite alternate;
+}
+.seal-a {
+  top: 6%; right: 4%;
+  width: 150px; height: 150px;
+  font-size: 84px;
+  transform: rotate(4deg);
+}
+.seal-b {
+  bottom: 8%; left: 3%;
+  width: 110px; height: 110px;
+  font-size: 62px;
+  transform: rotate(-6deg);
+  animation-delay: -13s;
+}
+@keyframes seal-drift {
+  from { transform: rotate(-3deg) translateY(0); }
+  to   { transform: rotate(5deg) translateY(18px); }
+}
+
+.liner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ---------- header ---------- */
+
+.liner-head {
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 2rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+}
+.liner-head::after {
+  content: "❖";
+  display: block;
+  color: var(--gold);
+  letter-spacing: 1.4em;
+  padding-left: 1.4em;
+  margin-top: 1.6rem;
+  font-size: 0.8rem;
+}
+
+.pressing-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brown-ink);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-family: var(--kai);
+  font-size: clamp(3rem, 9vw, 5.4rem);
+  line-height: 1.02;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--vermillion-deep);
+  text-shadow: 2px 2px 0 rgba(179, 135, 47, 0.35);
+}
+h1::first-letter { color: var(--vermillion); }
+
+.latin {
+  font-style: italic;
+  color: var(--indigo);
+  margin: 0.4rem 0 1rem;
+  font-size: 1.02rem;
+}
+.catalogue {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--brown-ink);
+  border-top: 1px solid rgba(179, 135, 47, 0.5);
+  border-bottom: 1px solid rgba(179, 135, 47, 0.5);
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  margin: 0;
+}
+
+/* the moon dial */
+.moon {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 1.1rem;
+}
+.moon svg { width: 100%; height: 100%; display: block; }
+.moon-halo {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 6;
+  transform-origin: 60px 60px;
+  animation: halo-spin 60s linear infinite;
+}
+@keyframes halo-spin { to { transform: rotate(360deg); } }
+.moon-face {
+  fill: #f0e0b0;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+}
+.moon-shadow { fill: var(--indigo); opacity: 0.82; transition: transform 1.2s ease; transform-origin: 60px 60px; }
+.moon-label {
+  position: absolute;
+  bottom: -1.6rem;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--indigo);
+}
+
+/* ---------- notes ---------- */
+
+.notes h2 {
+  font-family: var(--kai);
+  color: var(--vermillion-deep);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  margin: 2.6rem 0 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid rgba(168, 39, 27, 0.35);
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+h2 .han {
+  font-size: 1.7rem;
+  color: var(--vermillion);
+  border: 2px solid var(--vermillion);
+  border-radius: 6px;
+  padding: 0.05rem 0.35rem;
+  background: rgba(244, 234, 210, 0.7);
+}
+
+.notes p { margin: 0 0 1.15rem; font-size: 1.02rem; }
+
+.dropcap {
+  float: left;
+  font-family: var(--kai);
+  font-size: 3.6rem;
+  line-height: 0.85;
+  padding: 0.35rem 0.55rem 0 0;
+  color: var(--vermillion);
+  background: linear-gradient(160deg, rgba(179, 135, 47, 0.25), rgba(168, 39, 27, 0.12));
+  border-right: 2px solid var(--gold);
+}
+
+a {
+  color: var(--vermillion);
+  text-decoration: underline;
+  text-decoration-color: rgba(179, 135, 47, 0.7);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--vermillion-deep); background: rgba(217, 168, 62, 0.25); }
+
+/* ---------- track sides ---------- */
+
+.side {
+  margin: 1.6rem 0 2rem;
+  padding: 1.4rem 1.5rem 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(244, 234, 210, 0.85), rgba(233, 220, 184, 0.85)),
+    repeating-linear-gradient(45deg, rgba(179, 135, 47, 0.05) 0 10px, transparent 10px 20px);
+  border: 1px solid rgba(179, 135, 47, 0.55);
+  border-top: 4px solid var(--vermillion);
+  box-shadow: 5px 5px 0 rgba(91, 58, 30, 0.14);
+}
+.side-b { border-top-color: var(--indigo); }
+.side-c { border-top-color: var(--gold); }
+
+.side h3 {
+  font-family: var(--kai);
+  margin: 0 0 0.9rem;
+  font-size: 1.18rem;
+  letter-spacing: 0.08em;
+  color: var(--indigo);
+}
+.side-a h3 { color: var(--vermillion-deep); }
+.side-c h3 { color: var(--brown-ink); }
+
+.side-note {
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--brown-ink);
+  margin: 0 0 0.9rem;
+}
+
+ol.tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: track;
+  columns: 1;
+}
+ol.tracks li {
+  counter-increment: track;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.42rem 0.35rem;
+  border-bottom: 1px dotted rgba(91, 58, 30, 0.4);
+  font-size: 0.95rem;
+}
+ol.tracks li::before {
+  content: counter(track, decimal-leading-zero);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  color: var(--gold);
+  min-width: 1.6em;
+}
+ol.tracks li:hover { background: rgba(168, 39, 27, 0.06); }
+
+.t-han {
+  font-family: var(--kai);
+  color: var(--vermillion);
+  font-size: 1.05em;
+  min-width: 3.4em;
+  display: inline-block;
+}
+
+ol.tracks-24 { columns: 2; column-gap: 2.2rem; }
+ol.tracks-24 li {
+  border-bottom: none;
+  border-left: 1px solid rgba(179, 135, 47, 0.4);
+  padding: 0.3rem 0.4rem 0.3rem 0.55rem;
+}
+@media (max-width: 640px) {
+  ol.tracks-24 { columns: 1; }
+}
+
+/* ---------- footer ---------- */
+
+.liner-foot {
+  margin-top: 3rem;
+  border-top: 3px double var(--gold);
+  padding-top: 1.4rem;
+  text-align: center;
+}
+.foot-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1.4rem;
+  align-items: baseline;
+}
+.foot-stamp {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vermillion-deep);
+  border: 2px solid var(--vermillion);
+  border-radius: 6px;
+  padding: 0.25rem 0.7rem;
+  display: inline-block;
+}
+.foot-times {
+  font-size: 0.82rem;
+  color: var(--brown-ink);
+  font-style: italic;
+}
+#early-count {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--vermillion);
+  display: inline-block;
+  min-width: 1.4em;
+}
+#early-count.tick { animation: tick 0.5s ease; }
+@keyframes tick {
+  0% { transform: translateY(-0.3em); opacity: 0.2; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.foot-links {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--brown-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon-halo, .seal { animation: none; }
+  html { scroll-behavior: auto; }
+}
