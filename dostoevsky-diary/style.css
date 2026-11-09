@@ -1,0 +1,182 @@
+/* Scene Shop Diary, The Armory — a winter notebook on Dostoevsky */
+
+:root {
+  --paper: #f4ecd9;
+  --paper-deep: #ece1c6;
+  --ink: #2c241c;
+  --ink-soft: #5a4d3f;
+  --rule: #b9a988;
+  --stamp: #7c2a1e;      /* the red of a St Petersburg postal mark */
+  --fly: #33415c;        /* house blue, batten twine */
+  --candle: #e9a13b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, #241d15 0%, transparent 60%),
+    #1d1811;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.notebook {
+  max-width: 46rem;
+  margin: 2.5rem auto 3.5rem;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 1.9em, var(--rule) 1.9em calc(1.9em + 1px)),
+    linear-gradient(105deg, var(--paper) 0%, var(--paper) 78%, var(--paper-deep) 100%);
+  background-position: 0 0, 0 0;
+  border: 1px solid #0f0c08;
+  box-shadow: 0 0 0 6px #120e09, 0 26px 60px rgba(0,0,0,.65);
+  padding: 0 3rem 2.5rem 3.4rem;
+  position: relative;
+}
+
+/* the red diary margin line */
+.notebook::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 2.4rem;
+  width: 2px;
+  background: var(--stamp);
+  opacity: .55;
+}
+
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 1.4rem 0 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.mast-top {
+  margin: 0 0 .6rem;
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  letter-spacing: .04em;
+  font-variant: small-caps;
+}
+.mast-sub {
+  margin: .4rem 0 .2rem;
+  font-style: italic;
+  font-size: .9rem;
+  color: var(--ink-soft);
+}
+.mast-rule { margin: .5rem 0 0; color: var(--stamp); letter-spacing: 1em; font-size: .7rem; }
+
+.entry {
+  margin: 0 0 1.6rem;
+  padding: .9rem 0 .2rem .6rem;
+  border-bottom: 1px dashed var(--rule);
+}
+.entry:last-of-type { border-bottom: none; }
+
+.date-line {
+  margin: 0 0 .5rem;
+  font-weight: bold;
+  color: var(--stamp);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .82rem;
+}
+.old-style {
+  font-weight: normal;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  font-size: .8rem;
+}
+.entry p { margin: 0 0 .7rem; }
+.entry a { color: var(--fly); }
+.entry a:hover { color: var(--stamp); }
+
+.found-mark {
+  border-bottom: 2px dotted var(--stamp);
+  font-style: italic;
+}
+
+.found-card {
+  margin: 1.8rem 0 0 1rem;
+  padding: 1rem 1.2rem;
+  background: #efe4c9;
+  border: 1px solid var(--ink);
+  outline: 1px dashed var(--ink-soft);
+  outline-offset: 4px;
+  transform: rotate(-.5deg);
+  box-shadow: 4px 5px 0 rgba(44,36,28,.25);
+}
+.found-head {
+  margin: 0 0 .5rem;
+  font-weight: bold;
+  color: var(--stamp);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .78rem;
+}
+.found-card ul { margin: 0; padding-left: 1.2rem; }
+.found-card li { margin-bottom: .45rem; font-size: .92rem; }
+.found-foot {
+  margin: .6rem 0 0;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+
+.candle {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 5.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flame {
+  width: 10px;
+  height: 20px;
+  background: radial-gradient(circle at 50% 80%, #fff3c9 0%, var(--candle) 55%, #b05c14 100%);
+  border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
+  box-shadow: 0 0 18px 6px rgba(233,161,59,.35);
+  animation: flicker 2.4s ease-in-out infinite;
+}
+.wax {
+  width: 14px;
+  height: 26px;
+  background: #e6d8b8;
+  border: 1px solid #b9a988;
+  border-top: none;
+}
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) rotate(-1deg); opacity: .95; }
+  30%      { transform: scaleY(1.12) rotate(2deg); opacity: 1; }
+  60%      { transform: scaleY(.92) rotate(-3deg); opacity: .85; }
+}
+
+.sign-off {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+  border-top: 3px double var(--ink);
+  padding-top: .9rem;
+}
+
+/* entries settle onto the page like ink, if the script is present */
+.js .entry { opacity: 0; transform: translateY(10px); transition: opacity .9s ease, transform .9s ease; }
+.js .entry.in { opacity: 1; transform: none; }
+
+@media (max-width: 620px) {
+  .notebook { padding: 0 1.4rem 2rem 2.2rem; margin: 1rem auto; }
+  .notebook::before { left: 1.4rem; }
+  .candle { display: none; }
+}
