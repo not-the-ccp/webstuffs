@@ -1,0 +1,308 @@
+/* The Rome Tapes (Roma 1960) — liner notes, Campo Recordi XVII–1960 */
+
+:root {
+  --rosso: #8e1b1b;
+  --rosso-deep: #4f0d0d;
+  --bianco: #f4ead8;
+  --verde: #2e6b3f;
+  --oro: #c9a24b;
+  --nero: #141210;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--bianco);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(201, 162, 75, 0.18), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(46, 107, 63, 0.25), transparent 60%),
+    linear-gradient(160deg, var(--rosso-deep) 0%, var(--rosso) 38%, #6b1313 70%, var(--nero) 100%);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* the tricolore ribbon across the top of the sleeve */
+.tricolore {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  z-index: 50;
+  background: linear-gradient(90deg,
+    var(--verde) 0 33.33%,
+    var(--bianco) 33.33% 66.66%,
+    var(--rosso) 66.66% 100%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.sleeve {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 28px 48px;
+  position: relative;
+}
+
+/* laurel ornaments */
+.sleeve::before,
+.sleeve::after {
+  content: "\1F33F";
+  position: absolute;
+  font-size: 64px;
+  opacity: 0.16;
+  transform: rotate(-18deg);
+  pointer-events: none;
+}
+.sleeve::before { top: 120px; left: -30px; }
+.sleeve::after { bottom: 90px; right: -30px; transform: rotate(162deg); }
+
+/* masthead */
+.mast { text-align: center; margin-bottom: 40px; }
+
+.catalogue {
+  font-family: "Futura", "Trebuchet MS", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.68rem;
+  color: var(--oro);
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-family: "Didot", "Bodoni MT", "Bodoni 72", "Playfair Display", Georgia, serif;
+  font-size: clamp(3rem, 9vw, 5.2rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--bianco);
+  text-shadow:
+    0 0 34px rgba(201, 162, 75, 0.5),
+    3px 3px 0 var(--rosso-deep);
+}
+
+.alias {
+  font-style: italic;
+  color: rgba(244, 234, 216, 0.82);
+  margin-top: 10px;
+  letter-spacing: 0.06em;
+}
+
+/* the disc */
+.disc-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 34px auto 0;
+  cursor: pointer;
+}
+
+.disc {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.55));
+  animation: spin 4s linear infinite;
+  animation-play-state: paused;
+  transition: transform 0.5s ease;
+}
+
+.disc-wrap:hover .disc { transform: scale(1.03); }
+.disc-wrap.playing .disc { animation-play-state: running; }
+
+@keyframes spin {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+.disc-label-a,
+.disc-label-b {
+  fill: var(--bianco);
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+}
+.disc-label-b { fill: var(--oro); font-size: 11px; }
+
+.disc-hint {
+  position: absolute;
+  bottom: -26px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--oro);
+  opacity: 0.8;
+}
+
+/* sections */
+section { margin: 44px 0; }
+
+h2 {
+  font-family: "Futura", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  color: var(--oro);
+  text-align: center;
+  margin: 0 0 22px;
+  position: relative;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  display: inline-block;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--oro));
+  vertical-align: middle;
+  margin: 0 14px;
+}
+h2::after { background: linear-gradient(90deg, var(--oro), transparent); }
+
+.notes p { margin: 0 0 18px; }
+
+.notes strong { color: var(--bianco); letter-spacing: 0.02em; }
+
+.notes a {
+  color: var(--oro);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.notes a:hover {
+  background: rgba(201, 162, 75, 0.18);
+  color: #fff;
+}
+
+.verbatim {
+  display: inline-block;
+  font-style: italic;
+  color: var(--bianco);
+  border-left: 3px solid var(--oro);
+  padding: 2px 10px;
+  background: rgba(20, 18, 16, 0.35);
+}
+
+/* tracklist */
+.tracklist {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  counter-reset: none;
+}
+
+.tracklist li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 9px 14px;
+  border-bottom: 1px dashed rgba(201, 162, 75, 0.35);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.tracklist li:hover {
+  background: rgba(244, 234, 216, 0.07);
+  transform: translateX(6px);
+}
+
+.tracklist li.on {
+  background: linear-gradient(90deg, rgba(201, 162, 75, 0.22), transparent 80%);
+  border-left: 3px solid var(--oro);
+}
+
+.no {
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--verde);
+  background: var(--bianco);
+  color: var(--rosso-deep);
+  padding: 1px 7px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.t { flex: 1 1 auto; letter-spacing: 0.02em; }
+
+.len {
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(244, 234, 216, 0.6);
+  font-variant-numeric: tabular-nums;
+}
+
+.ruler {
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-align: center;
+  color: rgba(244, 234, 216, 0.7);
+  border-top: 2px solid var(--oro);
+  border-bottom: 2px solid var(--oro);
+  padding: 10px 6px;
+  margin: 26px 0 0;
+}
+
+#now-playing { color: var(--oro); }
+
+/* credits */
+.credits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(244, 234, 216, 0.88);
+}
+
+.credits li {
+  padding: 8px 0 8px 26px;
+  position: relative;
+  border-bottom: 1px solid rgba(244, 234, 216, 0.12);
+}
+
+.credits li::before {
+  content: "\25CF";
+  position: absolute;
+  left: 4px;
+  color: var(--oro);
+  font-size: 0.6rem;
+  top: 12px;
+}
+
+.credits a { color: var(--oro); text-decoration: underline; text-underline-offset: 3px; }
+.credits a:hover { color: #fff; }
+
+/* footer */
+.back {
+  text-align: center;
+  margin-top: 52px;
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.back a {
+  color: var(--bianco);
+  text-decoration: none;
+  border-bottom: 1px solid var(--oro);
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+.back a:hover { color: var(--oro); }
+
+@media (max-width: 560px) {
+  .sleeve::before, .sleeve::after { display: none; }
+  body { font-size: 17px; }
+  .t { font-size: 0.95rem; }
+}
