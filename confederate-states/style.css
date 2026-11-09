@@ -1,0 +1,165 @@
+/* Auction catalogue lot &mdash; Appomattox & Clyde Auctioneers, Sale 1865 */
+/* Laid paper, serif matter, rules, stamps, labels, wear. */
+
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 26px;
+  background: #7d6f4f;
+  color: #261c0f;
+  font-family: "Times New Roman", Times, "FreeSerif", serif;
+  font-size: 12.5px;
+  line-height: 1.62;
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent 30px, #b7a87f 31px);
+}
+
+.catalogue {
+  max-width: 760px;
+  margin: 34px auto;
+  padding: 44px 48px 50px;
+  background: #f6f1e1;
+  border: 1.5px solid #6b5a3d;
+  border-top: 4px double #3d2e19;
+  box-shadow: 9px 9px 0 #5c4c2e, 16px 16px 0 rgba(0, 0, 0, 0.10);
+  position: relative;
+  overflow: hidden;
+}
+
+.catalogue .stain {
+  position: absolute;
+  background: rgba(115, 75, 35, 0.12);
+  border-radius: 55% 45% 60% 40% / 48% 52% 48% 52%;
+  pointer-events: none;
+  z-index: 0;
+}
+.catalogue .stain.one { top: 60px; left: -34px; width: 200px; height: 150px; transform: rotate(-9deg); }
+.catalogue .stain.two { bottom: 40px; right: -26px; width: 170px; height: 130px; transform: rotate(12deg); }
+.catalogue .stain.three { top: 38%; left: 34%; width: 90px; height: 70px; transform: rotate(-20deg); opacity: 0.7; }
+
+.house {
+  position: relative; z-index: 1;
+  margin: 0 0 6px;
+  font-size: 9.5px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: #5a4526;
+  border-bottom: 1px solid #9a8658;
+  padding-bottom: 8px;
+}
+
+.lot-banner { position: relative; z-index: 1; }
+.lot-no {
+  margin: 14px 0 4px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #74582c;
+  display: inline-block;
+  border: 1px dotted #74582c;
+  padding: 4px 10px;
+  background: #efe4c8;
+}
+.lot-banner h1 {
+  margin: 8px 0 6px;
+  font-size: 25px;
+  font-weight: normal;
+  letter-spacing: 0.4px;
+  border-bottom: 3px double #3d2e19;
+  padding-bottom: 8px;
+}
+.lot-date {
+  margin: 0;
+  font-size: 10.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #6b5a3d;
+}
+
+.spec { position: relative; z-index: 1; width: 100%; border-collapse: collapse; margin: 22px 0 2px; }
+.spec th {
+  position: relative;
+  margin: 0;
+  font-size: 9.5px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #f6f1e1;
+  background: #3d2e19;
+  padding: 6px 8px;
+  border: 1px solid #3d2e19;
+}
+.spec th::after {
+  content: "";
+  position: absolute; top: 0; left: 100%; width: 1px; height: 100%;
+  background: #6b5a3d;
+}
+.spec td {
+  border-bottom: 1px solid #c9ba94;
+  padding: 5px 8px;
+  vertical-align: top;
+  font-size: 11.5px;
+}
+.spec td.k {
+  font-weight: bold;
+  background: #e9ddc2;
+  color: #4d3b1c;
+  width: 22%;
+}
+.spec td.v { text-align: center; font-variant-numeric: tabular-nums; color: #5a4526; }
+.spec tr:last-child td { border-bottom: none; }
+
+.essay { position: relative; z-index: 1; }
+.essay p {
+  margin: 0 0 14px;
+  text-align: justify;
+  hyphens: auto;
+}
+.essay p.drop::first-letter {
+  float: left;
+  font-size: 44px;
+  line-height: 0.85;
+  padding: 2px 8px 0 0;
+  color: #7a4f2b;
+  border: 1.5px solid #7a4f2b;
+  background: #f6f1e1;
+  margin: 0 7px 3px 0;
+}
+
+.collation { position: relative; z-index: 1; margin: 26px 0 0; padding: 16px 18px 14px; }
+.collation {
+  border: 1px dashed #8a6f3c;
+  background: #efe4d2;
+}
+.collation-note {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #6f3a1b;
+  display: inline-block;
+  border: 1px solid #6f3a1b;
+  padding: 5px 9px;
+  background: #f6f1e1;
+  transform: rotate(-1.5deg);
+}
+.collation p {
+  margin: 0 0 8px;
+  font-size: 11.5px;
+  text-align: justify;
+}
+.collation a { color: #4d3510; text-decoration: underline; }
+
+.sheet-foot { position: relative; z-index: 1; margin-top: 30px; padding-top: 12px; border-top: 1px solid #9a8658; }
+.sheet-foot p {
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #74623e;
+  text-align: center;
+}
+
+a { color: #5c3a1b; text-decoration: underline; }
