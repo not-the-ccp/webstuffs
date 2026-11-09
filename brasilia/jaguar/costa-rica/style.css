@@ -1,0 +1,250 @@
+/* Costa Rica — Notice No. 48 · the register's own brochure */
+:root{
+  --jungle-01:#0b2e1d;
+  --jungle-02:#14492c;
+  --jungle-03:#2e7d46;
+  --leaf:#7fb069;
+  --palm:#c6a94e;
+  --toucan:#e85d1f;
+  --clay:#b0432a;
+  --lagoon:#2fa3a0;
+  --parchment:#f4e8cf;
+  --parchment-2:#ead9b4;
+  --ink:#26190d;
+  --lamp:#ff5722;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:"Archivo",system-ui,sans-serif;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(232,93,31,.35), transparent 60%),
+    linear-gradient(165deg, var(--jungle-01) 0%, var(--jungle-02) 34%, var(--jungle-03) 68%, #6c9b46 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+  padding:0 14px 40px;
+}
+
+/* drifting canopy shadows */
+.canopy{
+  position:fixed;inset:-20%;z-index:0;pointer-events:none;opacity:.5;
+  background:
+    radial-gradient(38% 22% at 18% 12%, rgba(6,26,15,.85), transparent 70%),
+    radial-gradient(30% 18% at 78% 6%, rgba(6,26,15,.8), transparent 70%),
+    radial-gradient(26% 16% at 55% 18%, rgba(6,26,15,.6), transparent 70%),
+    radial-gradient(34% 20% at 90% 28%, rgba(6,26,15,.55), transparent 70%);
+  animation:sway 26s ease-in-out infinite alternate;
+}
+.canopy-2{
+  opacity:.3;filter:blur(6px) hue-rotate(-12deg);
+  animation-duration:38s;animation-direction:alternate-reverse;
+}
+@keyframes sway{
+  from{transform:translateX(-3%) rotate(-.5deg)}
+  to{transform:translateX(3%) rotate(.6deg)}
+}
+
+/* the volcano on the horizon */
+.volcano{
+  position:fixed;left:50%;bottom:0;transform:translateX(-50%);
+  width:140vmin;height:44vmin;z-index:0;pointer-events:none;opacity:.55;
+  background:linear-gradient(180deg, var(--clay) 0%, #6e2c18 55%, var(--jungle-01) 100%);
+  clip-path:polygon(50% 0, 100% 100%, 0 100%);
+  box-shadow:0 -30px 90px rgba(232,93,31,.5);
+}
+
+/* rosette field — the register's own rosettes */
+.rosettes{position:fixed;inset:0;z-index:0;pointer-events:none}
+.rosette{
+  position:absolute;width:var(--s);height:calc(var(--s)*.82);
+  border:calc(var(--s)*.09) solid rgba(198,169,78,.5);
+  border-radius:48% 52% 46% 54% / 58% 44% 56% 42%;
+  transform:rotate(var(--r));
+  animation:rosette-breathe 7s ease-in-out infinite alternate;
+  animation-delay:var(--d);
+}
+.rosette::after{
+  content:"";position:absolute;inset:26%;
+  border:calc(var(--s)*.06) solid rgba(232,93,31,.45);
+  border-radius:52% 48% 55% 45% / 44% 58% 42% 56%;
+}
+@keyframes rosette-breathe{
+  from{transform:rotate(var(--r)) scale(1)}
+  to{transform:rotate(var(--r)) scale(1.12)}
+}
+
+/* masthead */
+.masthead{
+  position:relative;z-index:2;max-width:960px;margin:0 auto;
+  padding:56px 24px 34px;text-align:center;color:var(--parchment);
+}
+.series{
+  font-family:"IM Fell English",serif;font-style:italic;
+  letter-spacing:.14em;text-transform:lowercase;color:var(--palm);
+  margin:0 0 8px;font-size:.95rem;
+}
+.title{
+  font-family:"Shrikhand",cursive;font-weight:400;
+  font-size:clamp(3.2rem, 11vw, 7.5rem);line-height:.95;margin:.1em 0 .15em;
+  color:var(--parchment);
+  text-shadow:
+    4px 4px 0 var(--toucan),
+    8px 8px 0 rgba(232,93,31,.35),
+    0 0 40px rgba(232,93,31,.4);
+  letter-spacing:.01em;
+}
+.tagline{
+  font-family:"IM Fell English",serif;font-size:1.25rem;margin:0;
+  color:var(--leaf);letter-spacing:.28em;text-transform:uppercase;
+}
+.tagline .sub{text-transform:none;letter-spacing:.02em;font-style:italic;color:var(--parchment-2);display:block;margin-top:6px;font-size:1.05rem}
+.stamp{
+  position:absolute;top:26px;right:6px;z-index:3;
+  font-family:"Archivo",sans-serif;font-weight:800;font-size:.8rem;
+  letter-spacing:.4em;color:var(--lamp);border:3px double var(--lamp);
+  padding:10px 14px 8px 18px;transform:rotate(8deg);
+  border-radius:6px;opacity:.9;background:rgba(11,46,29,.35);
+  animation:stamp-in 1.4s ease-out both;
+}
+@keyframes stamp-in{
+  0%{transform:rotate(24deg) scale(2.4);opacity:0}
+  70%{transform:rotate(6deg) scale(.94);opacity:1}
+  100%{transform:rotate(8deg) scale(1);opacity:.9}
+}
+
+/* the dial */
+.dial{
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  margin:26px auto 0;max-width:560px;padding:10px 18px;
+  border:2px solid rgba(198,169,78,.6);border-radius:999px;
+  background:linear-gradient(180deg, rgba(6,26,15,.6), rgba(6,26,15,.25));
+  cursor:pointer;user-select:none;
+}
+.dial:hover{border-color:var(--palm);box-shadow:0 0 24px rgba(232,93,31,.35)}
+.dial-label{font-size:.7rem;letter-spacing:.22em;color:var(--leaf)}
+.dial-value{
+  font-family:"Special Elite","IM Fell English",serif;font-size:1.5rem;color:var(--palm);
+  min-width:4.2ch;text-align:center;text-shadow:0 0 14px rgba(232,93,31,.8);
+}
+
+/* the brochure sheet */
+.brochure{
+  position:relative;z-index:2;max-width:960px;margin:26px auto 0;
+  background:
+    radial-gradient(600px 260px at 12% 0%, rgba(232,93,31,.12), transparent 70%),
+    radial-gradient(520px 300px at 95% 100%, rgba(47,163,160,.16), transparent 70%),
+    linear-gradient(175deg, var(--parchment) 0%, var(--parchment-2) 100%);
+  border-radius:14px;
+  border:1px solid #c9b184;
+  box-shadow:0 30px 60px rgba(0,0,0,.45), inset 0 0 0 6px rgba(255,255,255,.25);
+  padding:38px 44px 30px;
+}
+.brochure::before,.brochure::after{
+  content:"";position:absolute;left:0;right:0;height:14px;
+  background-image:radial-gradient(circle at 7px 7px, transparent 4.5px, var(--jungle-02) 5px, var(--jungle-02) 6px, transparent 6.5px);
+  background-size:20px 14px;background-repeat:repeat-x;
+}
+.brochure::before{top:-14px}
+.brochure::after{bottom:-14px;transform:rotate(180deg)}
+
+.brochure h2{
+  font-family:"Shrikhand",cursive;font-weight:400;font-size:1.55rem;
+  color:var(--clay);margin:34px 0 10px;letter-spacing:.02em;
+  display:flex;align-items:center;gap:12px;
+}
+.brochure h2::after{
+  content:"";flex:1;height:8px;border-radius:99px;
+  background:linear-gradient(90deg, var(--toucan), var(--palm), transparent);
+  opacity:.55;
+}
+.brochure p{font-size:1.02rem;line-height:1.65;margin:0 0 12px}
+.brochure a{color:var(--clay);font-weight:600;text-decoration:underline wavy rgba(232,93,31,.55) 1.5px;text-underline-offset:3px}
+.brochure a:hover{background:rgba(232,93,31,.14)}
+
+.found-note{border-left:5px solid var(--toucan);padding-left:18px;background:linear-gradient(90deg, rgba(232,93,31,.1), transparent 70%);padding:14px 18px;border-radius:0 10px 10px 0}
+.found-note h2{margin-top:0}
+
+.facts p{font-family:"IM Fell English",serif;font-size:1.12rem;line-height:1.7}
+.facts strong{color:var(--clay)}
+
+/* itinerary table */
+.stops{width:100%;border-collapse:collapse;margin:6px 0 4px}
+.stops th.day{
+  font-family:"Shrikhand",cursive;font-weight:400;color:var(--jungle-03);
+  font-size:1.05rem;text-align:left;width:96px;vertical-align:top;padding:10px 10px 10px 0;
+  border-bottom:1px dashed #c9a86a;white-space:nowrap;
+}
+.stops td{
+  vertical-align:top;padding:10px 16px 10px 0;font-size:.98rem;line-height:1.55;
+  border-bottom:1px dashed #c9a86a;background:linear-gradient(180deg, rgba(127,176,105,.12), transparent);
+}
+.stops tr:last-child th,.stops tr:last-child td{border-bottom:none}
+.stops strong{color:var(--clay)}
+.stops em{color:#1c5e55}
+
+/* laminated kiosk card */
+.fieldcard{margin-top:6px}
+.fieldcard-kicker{
+  font-size:.7rem;letter-spacing:.3em;color:#1c5e55;font-weight:800;margin:0 0 10px;
+}
+.laminated{
+  margin:0 0 14px;padding:18px 22px;position:relative;
+  font-family:"IM Fell English",serif;font-style:italic;font-size:1.35rem;line-height:1.5;
+  color:#0f3a2e;background:
+    linear-gradient(105deg, rgba(255,255,255,.55) 0%, transparent 30%),
+    linear-gradient(180deg, #eaf4e2, #d8e8c8);
+  border:2px solid #9dbb8f;border-radius:10px;
+  box-shadow:0 8px 18px rgba(20,73,44,.25), inset 0 0 18px rgba(255,255,255,.6);
+  transform:rotate(-1.1deg);
+}
+.laminated::before{
+  content:"✻";position:absolute;top:8px;left:12px;color:#e85d1f;font-size:1.1rem;
+}
+.laminated::after{
+  content:"✻";position:absolute;bottom:8px;right:12px;color:#2fa3a0;font-size:1.1rem;
+}
+
+.onca h2{color:var(--jungle-03)}
+.onca p{border-top:1px solid #d9c493;padding-top:12px}
+.onca p:first-of-type{border-top:none;padding-top:0}
+
+/* colophon */
+.colophon{
+  margin-top:36px;padding:18px 20px;border-radius:10px;
+  background:linear-gradient(160deg, rgba(11,46,29,.92), rgba(20,73,44,.92));
+  color:var(--parchment);
+  border:1px solid rgba(198,169,78,.5);
+}
+.colophon p{margin:0;font-size:.98rem;line-height:1.7}
+.colophon a{color:var(--palm)}
+.colophon strong{color:var(--palm)}
+
+/* footer lamp */
+.brochure-foot{
+  position:relative;z-index:2;max-width:960px;margin:30px auto 0;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  padding:16px;text-align:center;color:var(--parchment-2);
+  font-family:"IM Fell English",serif;font-style:italic;letter-spacing:.06em;font-size:.95rem;
+}
+.apron-lamp{
+  flex:none;width:16px;height:16px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #ffd0a6, var(--lamp) 65%);
+  box-shadow:0 0 14px 4px rgba(255,87,34,.8), 0 0 40px 10px rgba(255,87,34,.35);
+  animation:lamp-pulse 2.6s ease-in-out infinite;
+}
+@keyframes lamp-pulse{
+  0%,100%{box-shadow:0 0 10px 3px rgba(255,87,34,.7), 0 0 30px 8px rgba(255,87,34,.3)}
+  50%{box-shadow:0 0 18px 6px rgba(255,87,34,.95), 0 0 52px 14px rgba(255,87,34,.45)}
+}
+
+@media (max-width:640px){
+  .brochure{padding:28px 20px 24px}
+  .stops th.day{width:72px;font-size:.9rem}
+  .stamp{right:0;top:14px}
+  .canopy,.canopy-2{opacity:.35}
+}
+@media (prefers-reduced-motion:reduce){
+  .canopy,.canopy-2,.rosette,.apron-lamp,.stamp{animation:none}
+}
