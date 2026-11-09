@@ -1,0 +1,173 @@
+/* The island walk — field card, walking itinerary */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #26221a;
+  --faded: #6d6455;
+  --rule: #b3a88f;
+  --five: #4cb250;
+  --stamp: #9c3b2a;
+  --card: #fbf8ef;
+}
+
+html { background: #d8d2c2; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(40, 32, 12, 0.25);
+  padding: 2.2rem 2.6rem 1.4rem;
+  position: relative;
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(109, 100, 85, 0.35);
+  pointer-events: none;
+}
+
+a { color: #5a3a1c; }
+
+.masthead { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 0.8rem; }
+.mast-small { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faded); margin: 0 0 0.4rem; }
+.masthead h1 { font-size: 1.9rem; letter-spacing: 0.06em; margin: 0; font-variant: small-caps; }
+.mast-tag { font-size: 0.85rem; font-style: italic; color: var(--faded); margin: 0.3rem 0 0; }
+.crumbs { font-size: 0.8rem; color: var(--faded); margin-top: 0.7rem; }
+.crumbs a { color: var(--faded); }
+
+.route-head { display: flex; gap: 1rem; align-items: flex-start; margin: 1.4rem 0 0.4rem; }
+.route-badges { display: flex; flex-direction: column; gap: 0.35rem; }
+.badge {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: #7c7568;
+}
+.badge-five { background: var(--five); }
+.badge-walk { background: #3f5c8b; }
+.badge-mi { background: var(--ink); }
+
+.route-title { font-size: 1.45rem; margin: 0 0 0.25rem; line-height: 1.25; }
+.route-meta {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--faded);
+  margin: 0;
+  border-top: 1px dotted var(--rule);
+  padding-top: 0.4rem;
+}
+
+.brief { margin: 1.2rem 0; }
+.brief p { margin: 0 0 0.9rem; }
+
+.stops { list-style: none; margin: 1.6rem 0 0; padding: 0; }
+.stop {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  padding: 0 0 1.6rem;
+}
+.stop:not(:last-child) .stop-mi::after {
+  content: "";
+  position: absolute;
+  left: 1.28rem;
+  top: 2.9rem;
+  bottom: 0.4rem;
+  border-left: 2px dotted var(--rule);
+}
+.stop-mark { width: 2.6rem; flex: none; text-align: center; }
+.stop-no {
+  display: inline-block;
+  width: 2.1rem;
+  height: 2.1rem;
+  line-height: 2.1rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  background: var(--card);
+}
+.stop-mi {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin-top: 0.3rem;
+}
+.stop-body h3 {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.08rem;
+  letter-spacing: 0.02em;
+}
+.stop-time {
+  font-family: "Courier New", monospace;
+  font-weight: normal;
+  font-size: 0.78rem;
+  color: var(--faded);
+  margin-left: 0.4rem;
+}
+.stop-body p { margin: 0 0 0.7rem; }
+
+.card {
+  margin: 0.9rem 0;
+  padding: 0.9rem 1.1rem 0.7rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  box-shadow: 2px 3px 0 rgba(40, 32, 12, 0.12);
+  transform: rotate(-0.6deg);
+  position: relative;
+}
+.card p {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+}
+.card::after {
+  content: "LEAVE THE CARD";
+  position: absolute;
+  top: 0.55rem;
+  right: 0.7rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--stamp);
+  border: 1.5px solid var(--stamp);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.35rem;
+  transform: rotate(4deg);
+  opacity: 0.75;
+}
+
+.sign {
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  color: var(--faded);
+}
+
+.route-foot {
+  border-top: 3px double var(--rule);
+  margin-top: 1.6rem;
+  padding-top: 0.7rem;
+  font-size: 0.82rem;
+  color: var(--faded);
+}
+.route-foot p { margin: 0; }
+.route-foot a { color: var(--faded); }
