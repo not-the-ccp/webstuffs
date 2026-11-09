@@ -1,0 +1,202 @@
+/* The X5 Express — service-sheet stock, capital yard press */
+
+:root {
+  --paper: #f4efe2;
+  --paper-dim: #e9e2cf;
+  --ink: #23201a;
+  --rule: #3a352b;
+  --blue: #1d4f9c;
+  --red: #a3271f;
+  --faint: #6f6656;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #d8d2c2; }
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 252, 240, 0.6), transparent 70%),
+    #d8d2c2;
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 2rem auto 3rem;
+  background: var(--paper);
+  border: 1px solid #b7ae97;
+  box-shadow: 0 14px 40px rgba(35, 32, 26, 0.35);
+  padding: 2.6rem 3rem 2.2rem;
+  position: relative;
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(58, 53, 43, 0.35);
+  pointer-events: none;
+}
+
+/* Masthead */
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.1rem;
+}
+
+.authority {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 0.7rem;
+  color: var(--faint);
+}
+
+h1 {
+  font-size: 2.9rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.service {
+  font-style: italic;
+  margin: 0.4rem 0 0.9rem;
+  color: var(--faint);
+}
+
+.dateband {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.6rem;
+}
+
+.dateband .dot { color: var(--faint); }
+
+/* Stamps */
+
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  transform: rotate(-2deg);
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+}
+
+.stamp-top {
+  position: absolute;
+  top: 4.4rem;
+  right: 1.6rem;
+}
+
+.stamp-foot {
+  transform: rotate(1.5deg);
+  margin: 0 0 0.9rem;
+}
+
+/* Notes */
+
+.notes h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 1.8rem 0 0.9rem;
+}
+
+.notes p {
+  line-height: 1.62;
+  margin: 0 0 0.9rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.kept {
+  margin: 1.1rem 2.2rem;
+  padding: 0.7rem 0.4rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Timetable */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  background: var(--paper-dim);
+}
+
+th {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 2px solid var(--rule);
+  padding: 0.45rem 0.55rem;
+}
+
+td {
+  padding: 0.4rem 0.55rem;
+  border-bottom: 1px solid rgba(58, 53, 43, 0.4);
+}
+
+tbody tr:nth-child(odd) td { background: rgba(29, 79, 156, 0.05); }
+
+td:first-child {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.col-x { color: var(--blue); font-weight: bold; }
+.col-z { color: var(--red); font-weight: bold; }
+
+tr.origin td {
+  border-top: 2px solid var(--rule);
+  font-weight: bold;
+}
+
+.tablefoot {
+  font-size: 0.72rem;
+  color: var(--faint);
+  font-style: italic;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Colophon */
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--faint);
+  line-height: 1.7;
+}
+
+.colophon p { margin: 0.3rem 0; }
+.colophon .small { font-size: 0.68rem; font-style: italic; }
+
+a { color: var(--blue); }
