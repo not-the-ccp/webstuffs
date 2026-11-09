@@ -1,0 +1,161 @@
+/* In Memoriam — Aachen · The Coopers' Lane Noticeboard, Entry 23B
+   Palette: bath-stone cream, slate ink, thermal-gold, spring water. */
+
+:root {
+  --paper: #f4efe2;
+  --paper-deep: #ece3cd;
+  --ink: #22282e;
+  --ink-soft: #46505a;
+  --gold: #8a6d2f;
+  --gold-bright: #c9a24b;
+  --water: #5f7d84;
+}
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(95, 125, 132, 0.10), transparent 60%),
+    var(--paper);
+}
+
+.mist {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 18% at 20% 88%, rgba(255,255,255,0.5), transparent 70%),
+    radial-gradient(ellipse 50% 14% at 78% 92%, rgba(255,255,255,0.4), transparent 70%);
+  animation: mist-drift 26s ease-in-out infinite alternate;
+  z-index: 0;
+}
+@keyframes mist-drift {
+  from { transform: translateX(-3%); opacity: .8; }
+  to   { transform: translateX(3%);  opacity: 1; }
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.rule-double {
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+  height: 5px;
+  margin: 0.6rem 0;
+}
+
+.masthead { text-align: center; }
+
+.board {
+  font-size: 1.35rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0.2rem 0;
+}
+.board-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+.spring { width: 190px; margin: 0 auto; display: block; }
+
+.lot-banner {
+  margin: 1.6rem auto 1.2rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gold);
+  background: var(--paper-deep);
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 3px 3px 0 rgba(138, 109, 47, 0.25);
+}
+.lot-no {
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lot-of { font-style: italic; color: var(--ink-soft); font-size: 0.9rem; }
+
+.obituary {
+  border: 1px solid var(--ink-soft);
+  outline: 4px double var(--gold-bright);
+  outline-offset: 6px;
+  padding: 2rem 2.2rem;
+  background: rgba(255, 253, 246, 0.6);
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.3rem;
+  text-align: center;
+}
+.dek {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 0.5rem 0.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.orn {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--water);
+  border-bottom: 1px dotted var(--gold);
+  padding-bottom: 0.15rem;
+  margin-top: 1.6rem;
+}
+
+blockquote.note {
+  margin: 1rem 0 1rem 0.5rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--gold-bright);
+  background: var(--paper-deep);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+blockquote.note p { margin: 0 0 0.4rem; }
+blockquote.note .cite { font-size: 0.85rem; color: var(--ink-soft); }
+
+a { color: var(--water); }
+a:hover { color: var(--gold); }
+
+.candle-row {
+  text-align: center;
+  margin-top: 2.2rem;
+}
+.candle {
+  background: none;
+  border: 1px solid var(--gold);
+  padding: 0.7rem 1.4rem 0.5rem;
+  cursor: pointer;
+  font: inherit;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.candle:hover { background: var(--paper-deep); }
+.candle .flame { opacity: 0.25; transition: opacity 0.4s; }
+.candle.lit .flame { opacity: 1; animation: flicker 1.6s ease-in-out infinite; }
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1);   transform-origin: 50% 100%; }
+  50%      { transform: scaleY(0.82); transform-origin: 50% 100%; }
+}
+.candle-word { display: block; margin-top: 0.3rem; }
+.count { font-style: italic; color: var(--ink-soft); margin-top: 0.7rem; }
+
+.foot { margin-top: 2.4rem; text-align: center; color: var(--ink-soft); font-size: 0.9rem; }
