@@ -1,0 +1,313 @@
+/* NC 157 · Thread NC-157 · Old North State Roads Board
+   Maximalist highway theme: asphalt layers, center-line gradients,
+   mile-marker ornaments, caution blinkers, barrel ornaments, shield. */
+
+/* ---- base & roadbed ---- */
+:root {
+  --asphalt: #232323;
+  --gravel: #565656;
+  --shoulder: #7a6a3c;
+  --center: #f7d91a;
+  --edge: #ffffff;
+  --sign: #0f4c1b;
+  --sign-white: #dbeed6;
+  --barrel: #ff6100;
+  --barrel-stripe: #ffffff;
+  --amber: #ffb400;
+  --lane: #fdf6dc;
+  --lane-alt: #f5efe0;
+  --border: #8a6d1b;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--asphalt);
+  background:
+    radial-gradient(circle at 50% -8%, #444, transparent 55%),
+    repeating-linear-gradient(0deg, #2b2b2b, #2b2b2b 70%, #1a1a1a 72%, #1a1a1a);
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", "Bitstream Charter", serif;
+  color: #1a1a1a;
+  line-height: 1.62;
+  min-height: 100vh;
+}
+
+.highway {
+  position: relative;
+  max-width: 920px;
+  margin: 3vh auto;
+  padding: 0;
+  background: var(--lane);
+  border: 14px double var(--border);
+  outline: 6px dashed var(--center);
+  outline-offset: 10px;
+  box-shadow: 0 0 0 4px rgba(0,0,0,.35), 12px 12px 0 0 var(--asphalt);
+  overflow: hidden;
+}
+
+/* ---- decorative shoulder stripes (CSS ornaments) ---- */
+.highway::before,
+.highway::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--shoulder),
+    var(--shoulder) 14px,
+    transparent 14px,
+    transparent 28px
+  );
+  pointer-events: none;
+}
+.highway::before { left: -60px; transform: rotate(180deg); }
+.highway::after { right: -60px; }
+
+/* ---- gantry / overhead sign ---- */
+.gantry {
+  position: relative;
+  z-index: 2;
+  background: repeating-linear-gradient(90deg, #111, #111 16px, #333 16px, #333 32px);
+  border-bottom: 10px solid var(--center);
+  padding: 26px 30px 22px;
+  color: var(--sign-white);
+  box-shadow: inset 0 8px 0 rgba(0,0,0,.5);
+}
+
+.gantry-beam {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 14px;
+  background: #111;
+  border-bottom: 4px solid var(--center);
+}
+
+.sign-face {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 100%;
+}
+
+.shield {
+  width: 116px;
+  height: 116px;
+  flex-shrink: 0;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,.45));
+  animation: shieldWobble 6s ease-in-out infinite;
+}
+
+.sign-copy h1 {
+  margin: 0 0 6px;
+  font-family: Impact, "Arial Black", "Franklin Gothic Heavy", sans-serif;
+  font-size: 34px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--sign-white);
+  text-shadow: 3px 3px 0 var(--sign);
+}
+
+.road-stats {
+  margin: 0;
+  font-size: 13px;
+  font-family: "Courier New", monospace;
+  color: #bfe3bd;
+  letter-spacing: 1.6px;
+  opacity: .95;
+}
+
+/* caution blinker */
+.caution {
+  position: absolute;
+  top: 30px; right: 34px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 4px solid #fff4a3;
+  box-shadow: 0 0 14px var(--amber), inset 0 0 6px rgba(0,0,0,.4);
+  z-index: 3;
+  animation: blink 850ms infinite alternate;
+}
+
+/* orange-and-white construction barrels */
+.barrel {
+  position: absolute;
+  top: 100%; width: 34px; height: 52px;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--barrel) 0, var(--barrel) 11px,
+    var(--barrel-stripe) 11px, var(--barrel-stripe) 22px
+  );
+  border: 2px solid #663300;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 6px 0 rgba(0,0,0,.35);
+  animation: barrelBop 3s ease-in-out infinite;
+}
+.barrel.left { left: -42px; animation-delay: 0s; transform: rotate(-6deg); }
+.barrel.right { right: -42px; animation-delay: 1.2s; transform: rotate(6deg); }
+
+/* ---- thread meta strip ---- */
+.road-meta {
+  position: relative; z-index: 2;
+  display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+  padding: 12px 30px 10px;
+  background: linear-gradient(90deg, #1a2a1a, #0f4c1b 60%, #1a2a1a);
+  color: #eef6ea;
+  border-bottom: 8px double var(--center);
+  font-family: "Courier New", monospace;
+  font-size: 12.5px;
+  letter-spacing: 1.4px;
+}
+.road-meta span { opacity: .92; }
+.odom { font-family: Impact, sans-serif; font-size: 16px; color: var(--center); text-shadow: 0 0 8px rgba(247,217,26,.6); }
+.odom-label { color: #9cc991; }
+
+/* ---- lane & posts ---- */
+.lane {
+  position: relative; z-index: 2;
+  padding: 0;
+}
+
+.post {
+  position: relative;
+  padding: 24px 30px 26px;
+  border-bottom: 5px dashed var(--border);
+  background: var(--lane);
+}
+.post:nth-child(even) { background: var(--lane-alt); }
+.post.post-op { border-top: 8px solid var(--sign); background: #f0e8b8; }
+.post.post-closed { background: #e8dfbc; border-bottom-style: solid; border-bottom-color: #6b5b1a; }
+
+.mile {
+  position: absolute;
+  top: 24px; left: -70px;
+  width: 56px; height: 42px;
+  background: var(--sign);
+  color: #fff;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 17px;
+  letter-spacing: 2.5px;
+  display: flex; align-items: center; justify-content: center;
+  clip-path: polygon(0 12%, 40% 0, 100% 0, 100% 100%, 40% 100%, 0 88%);
+  border: 3px solid var(--center);
+  box-shadow: 3px 3px 0 #111;
+  z-index: 4;
+  animation: mileFade 1.2s ease-out both;
+}
+.mile::after {
+  content: "";
+  position: absolute; bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--sign);
+}
+
+.post-band {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding-left: 74px;
+}
+.post-no {
+  font-family: Impact, sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #6b5b1a;
+  background: #d9c870;
+  padding: 2px 8px;
+  border: 2px solid #4a3c0f;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.poster { font-weight: bold; color: #243a14; }
+.posted { font-size: 12px; color: #5a522a; font-family: "Courier New", monospace; }
+
+.post-body p { margin: 0 0 10px; }
+.post-body p:last-child { margin-bottom: 0; }
+
+/* reflectors between posts (CSS ornaments) */
+.post::before {
+  content: "";
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 14px; height: 4px;
+  background: #c9a227;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #c9a227;
+}
+
+/* ---- exit nav ---- */
+.exit {
+  position: relative; z-index: 2;
+  padding: 16px 30px 30px;
+  background: repeating-linear-gradient(90deg, #111, #111 14px, #222 14px, #222 28px);
+  color: #e8e8e8;
+  border-top: 10px solid var(--center);
+}
+.exit-note {
+  margin: 0 0 8px;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+.exit-note a {
+  color: #ffd166;
+  text-decoration: underline;
+  text-shadow: 1px 1px 0 #000;
+}
+.exit-note a:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+.exit-rule {
+  margin: 0; height: 6px;
+  background: repeating-linear-gradient(90deg, var(--center), var(--center) 6px, transparent 6px, transparent 12px);
+}
+
+/* ---- scrolling route tape ---- */
+.route-tape {
+  position: absolute; top: 100%; left: 0; right: 0;
+  height: 30px;
+  background: #111;
+  color: var(--center);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-top: 4px solid var(--amber);
+  border-bottom: 4px solid var(--amber);
+  animation: routeTape 24s linear infinite;
+}
+.route-tape:hover { animation-play-state: paused; }
+.route-tape span { display: inline-block; padding: 0 30px; }
+
+/* ---- animations ---- */
+@keyframes blink { from { opacity: 1; } to { opacity: .25; } }
+@keyframes barrelBop { 0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); } 50% { transform: rotate(var(--r, 0deg)) translateY(-7px); } }
+.barrel.left { --r: -6deg; }
+.barrel.right { --r: 6deg; }
+@keyframes shieldWobble { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.03) rotate(1.5deg); } }
+@keyframes mileFade { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes routeTape { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- readability safeguards ---- */
+@media (max-width: 620px) {
+  .highway { margin: 1vh auto; border-width: 8px; outline-offset: 6px; }
+  .sign-face { flex-direction: column; align-items: stretch; text-align: center; gap: 10px; }
+  .shield { width: 92px; height: 92px; margin: 0 auto; }
+  .barrel { display: none; }
+  .caution { position: static; display: inline-block; margin: 0 auto 10px; }
+  .mile { position: static; display: block; margin: 0 auto 8px; clip-path: none; border-radius: 8px; width: auto; padding: 2px 14px; }
+  .post-band { padding-left: 0; }
+  .road-meta { font-size: 11px; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; } }
