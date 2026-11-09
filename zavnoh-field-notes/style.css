@@ -1,0 +1,127 @@
+/* Field Notes — Otočac & Plitvice, June 1943 */
+
+:root {
+  --paper: #f6f2e8;
+  --ink: #2b2a25;
+  --faded: #6c6a5f;
+  --line: #d8d2c0;
+  --moss: #7a8b6f;
+  --moss-deep: #55614a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.mast {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 64px 24px 28px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.kicker {
+  margin: 0 0 18px;
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+h1 .sub {
+  display: block;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--faded);
+  margin-top: 8px;
+}
+
+.byline {
+  margin: 20px 0 16px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--faded);
+}
+
+.leaf { width: 96px; margin: 4px auto 0; display: block; }
+
+.folio {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 24px 56px;
+}
+
+.entry {
+  padding: 30px 0 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-of-type { border-bottom: none; }
+
+.entry h2 {
+  margin: 0 0 14px;
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+}
+
+.entry p {
+  margin: 0 0 14px;
+}
+
+.entry p:last-child { margin-bottom: 0; }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+a {
+  color: var(--moss-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 120ms ease;
+}
+
+a:hover { border-bottom-color: var(--moss-deep); }
+
+.drawer h2::before { content: "✳ "; }
+
+.colophon {
+  border-top: 1px solid var(--line);
+  padding: 22px 24px 48px;
+  text-align: center;
+}
+
+.colophon p {
+  margin: 0;
+  font-family: "Gill Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  color: var(--faded);
+}
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  h1 { font-size: 27px; }
+  .mast { padding-top: 44px; }
+}
