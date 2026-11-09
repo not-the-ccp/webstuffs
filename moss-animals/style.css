@@ -1,0 +1,275 @@
+/* Chapter IV — Of the Moss Animal · The Lophophore Book of Manners, Atlantic Reel House Edition */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=UnifrakturCook:wght@700&display=swap');
+
+:root{
+  --ink:#0c1f2e;
+  --deep:#071420;
+  --paper:#f4ead2;
+  --paper-2:#efe0c0;
+  --gold:#c9962b;
+  --gold-bright:#ffd66b;
+  --blue:#1f6f9c;
+  --teal:#2ea8a0;
+  --rose:#b0537a;
+}
+
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--ink);
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-size:1.28rem;
+  line-height:1.62;
+  background:
+    radial-gradient(1200px 600px at 15% -5%, rgba(46,168,160,.35), transparent 60%),
+    radial-gradient(900px 700px at 90% 10%, rgba(31,111,156,.5), transparent 65%),
+    radial-gradient(700px 900px at 10% 90%, rgba(176,83,122,.28), transparent 60%),
+    linear-gradient(178deg, #0b2438 0%, #071420 34%, #04101a 70%, #02090f 100%);
+  background-attachment:fixed;
+}
+
+/* faint current lines over the deep */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(172deg, transparent 0 46px, rgba(155,231,255,.045) 46px 48px),
+    repeating-linear-gradient(8deg, transparent 0 120px, rgba(255,214,107,.03) 120px 122px);
+  animation:drift 46s linear infinite;
+  z-index:0;
+}
+@keyframes drift{
+  from{ background-position:0 0, 0 0; }
+  to{ background-position:-160px 240px, 240px -160px; }
+}
+
+#plankton{
+  position:fixed; inset:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:1;
+  opacity:.8;
+}
+
+/* ---------- the lophophore, floating crown ---------- */
+.lophophore{
+  position:fixed;
+  top:3.2rem; right:3.4rem;
+  width:180px; height:180px;
+  z-index:2;
+  filter:drop-shadow(0 0 18px rgba(255,214,107,.35));
+  animation:bob 9s ease-in-out infinite;
+}
+@keyframes bob{
+  0%,100%{ transform:translateY(0) rotate(-4deg); }
+  50%{ transform:translateY(-14px) rotate(5deg); }
+}
+.lophophore .disc{
+  fill:rgba(255,214,107,.14);
+  stroke:#ffd66b;
+  stroke-width:2;
+}
+.lophophore .t{
+  transform-origin:100px 100px;
+  animation:sway 5.5s ease-in-out infinite;
+}
+.lophophore .t:nth-child(odd){ animation-duration:6.8s; }
+.lophophore .t2{ animation-delay:.3s } .lophophore .t4{ animation-delay:.6s }
+.lophophore .t6{ animation-delay:.9s } .lophophore .t8{ animation-delay:1.2s }
+.lophophore .t10{ animation-delay:1.5s } .lophophore .t12{ animation-delay:1.8s }
+.lophophore .t14{ animation-delay:2.1s } .lophophore .t16{ animation-delay:2.4s }
+.lophophore .t18{ animation-delay:2.7s }
+@keyframes sway{
+  0%,100%{ transform:rotate(0deg); }
+  50%{ transform:rotate(6deg); }
+}
+.lophophore .c{
+  animation:blink 3.2s ease-in-out infinite;
+}
+.lophophore .c2{ animation-delay:.4s } .lophophore .c4{ animation-delay:.8s }
+.lophophore .c6{ animation-delay:1.2s } .lophophore .c8{ animation-delay:1.6s }
+.lophophore .c10{ animation-delay:2s } .lophophore .c12{ animation-delay:2.4s }
+.lophophore .c14{ animation-delay:2.8s }
+@keyframes blink{
+  0%,100%{ opacity:.35 } 50%{ opacity:1 }
+}
+
+/* ---------- the book leaf ---------- */
+.chapter{
+  position:relative;
+  z-index:3;
+  max-width:52rem;
+  margin:4.5rem auto 6rem;
+  padding:3.4rem 3.6rem 2.6rem;
+  background:
+    radial-gradient(420px 220px at 100% 0%, rgba(31,111,156,.10), transparent 70%),
+    radial-gradient(360px 260px at 0% 100%, rgba(201,150,43,.12), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(12,31,46,.03) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-2) 100%);
+  border:3px double var(--gold);
+  outline:1px solid rgba(201,150,43,.5);
+  outline-offset:6px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55),
+    inset 0 0 90px rgba(12,31,46,.10);
+}
+/* corner ornaments */
+.chapter::before, .chapter::after{
+  content:"❧";
+  position:absolute;
+  font-size:2rem;
+  color:var(--gold);
+  line-height:1;
+}
+.chapter::before{ top:.7rem; left:.9rem; }
+.chapter::after{ bottom:.7rem; right:.9rem; transform:rotate(180deg); }
+
+.masthead{ text-align:center; margin-bottom:2.4rem; }
+
+.plate{
+  font-family:'IM Fell English', Georgia, serif;
+  font-size:.95rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin:0 0 1.2rem;
+}
+
+h1{
+  font-family:'UnifrakturCook', 'IM Fell English', serif;
+  font-weight:700;
+  font-size:clamp(2.1rem, 5vw, 3.4rem);
+  line-height:1.14;
+  margin:.4rem 0 1rem;
+  color:var(--ink);
+  text-shadow:2px 2px 0 rgba(255,214,107,.4);
+}
+
+.rule-verse{
+  font-family:'IM Fell English', Georgia, serif;
+  font-style:italic;
+  font-size:1.06rem;
+  color:#3c4f5e;
+  margin:0 auto;
+  max-width:38rem;
+}
+
+.sect{
+  margin:2.2rem 0;
+  padding-top:1.4rem;
+  border-top:1px solid rgba(201,150,43,.45);
+}
+.sect:first-of-type{ border-top:none; padding-top:0; }
+
+h2{
+  font-family:'IM Fell English', Georgia, serif;
+  font-size:1.55rem;
+  color:var(--rose);
+  margin:0 0 .9rem;
+  letter-spacing:.02em;
+}
+h2::before{ content:"☙ "; color:var(--gold); }
+h2::after{ content:" ❧"; color:var(--gold); }
+
+p{ margin:0 0 1.05rem; }
+strong{ color:#8a3f5e; }
+
+a{
+  color:var(--blue);
+  text-decoration:underline;
+  text-decoration-color:rgba(201,150,43,.7);
+  text-underline-offset:3px;
+  transition:background-color .25s ease, color .25s ease;
+}
+a:hover{
+  color:#0c1f2e;
+  background:linear-gradient(transparent 62%, rgba(255,214,107,.65) 62%);
+}
+
+/* rules of manners */
+.rule{
+  display:block;
+  margin:1.3rem 0 .4rem;
+  padding:.9rem 1.2rem .9rem 1rem;
+  border-left:4px solid var(--teal);
+  background:
+    linear-gradient(90deg, rgba(46,168,160,.10), transparent 70%);
+  font-family:'IM Fell English', Georgia, serif;
+  font-style:italic;
+  font-size:1.12rem;
+  color:#123240;
+}
+.rule-num{
+  font-style:normal;
+  font-variant:small-caps;
+  letter-spacing:.08em;
+  color:var(--rose);
+  margin-right:.5rem;
+}
+
+/* the kept line */
+.ledger .kept{
+  margin:1.6rem auto;
+  max-width:40rem;
+  padding:1.4rem 1.8rem;
+  font-family:'IM Fell English', Georgia, serif;
+  font-style:italic;
+  font-size:1.3rem;
+  line-height:1.7;
+  color:#20303d;
+  text-align:center;
+  background:
+    repeating-linear-gradient(0deg, rgba(12,31,46,.045) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, #f7eed6, #f0e2c2);
+  border:1px solid var(--gold);
+  box-shadow:inset 0 0 30px rgba(201,150,43,.18), 0 6px 24px rgba(7,20,32,.35);
+  position:relative;
+}
+.ledger .kept::before, .ledger .kept::after{
+  content:"❦";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  color:var(--gold);
+  font-style:normal;
+}
+.ledger .kept::before{ top:-.78rem; }
+.ledger .kept::after{ bottom:-.82rem; }
+.ledger .kept p{ margin:0; }
+
+/* colophon */
+.colophon{
+  margin-top:2.8rem;
+  padding-top:1.2rem;
+  border-top:3px double var(--gold);
+  text-align:center;
+  font-family:'IM Fell English', Georgia, serif;
+}
+.rule-line{
+  font-size:1rem;
+  letter-spacing:.06em;
+  color:var(--blue);
+  margin:0 0 .6rem;
+}
+.fine{
+  font-size:.95rem;
+  font-style:italic;
+  color:#48586a;
+  margin:0;
+}
+
+@media (max-width:720px){
+  .chapter{ margin:1.2rem 1rem 3rem; padding:2.2rem 1.4rem; }
+  .lophophore{ position:absolute; top:-4.2rem; right:.6rem; width:120px; height:120px; opacity:.85; }
+  body{ font-size:1.15rem; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  body::before, .lophophore, .lophophore .t, .lophophore .c{ animation:none !important; }
+}
