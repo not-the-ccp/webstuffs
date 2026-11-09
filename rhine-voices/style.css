@@ -1,0 +1,367 @@
+/* Station R-1147 — night transmission styling */
+
+:root {
+  --amber: #e8a33d;
+  --amber-dim: #9a6a24;
+  --lamp: #ff5a3c;
+  --ink: #0d0b14;
+  --ink-2: #14111f;
+  --paper: #efe6d2;
+  --paper-dim: #cdbfa2;
+  --river: #2b4a5e;
+  --river-deep: #101c26;
+  --green: #7fb069;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--paper);
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, #2a2140 0%, transparent 55%),
+    radial-gradient(ellipse 90% 50% at 80% 110%, #1c3542 0%, transparent 60%),
+    repeating-linear-gradient(0deg, rgba(232,163,61,0.02) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 45%, var(--river-deep) 100%);
+  background-attachment: fixed;
+  line-height: 1.75;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---- overlays: static & vignette ---- */
+
+.static {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.05;
+  background-image:
+    repeating-radial-gradient(circle at 17% 33%, rgba(255,255,255,0.6) 0 1px, transparent 1px 3px),
+    repeating-radial-gradient(circle at 73% 61%, rgba(255,255,255,0.4) 0 1px, transparent 1px 4px);
+  animation: staticdrift 0.42s steps(3) infinite;
+}
+
+@keyframes staticdrift {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(-6px, 4px); }
+  66%  { transform: translate(5px, -7px); }
+  100% { transform: translate(0, 0); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 41;
+  box-shadow: inset 0 0 22vmax rgba(0, 0, 0, 0.85);
+}
+
+/* ---- masthead ---- */
+
+.masthead {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2.5rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.sigil {
+  width: 108px;
+  height: 108px;
+  display: block;
+  margin: 0 auto 1.2rem;
+  filter: drop-shadow(0 0 14px rgba(232, 163, 61, 0.45));
+  animation: sigilglow 6s ease-in-out infinite;
+}
+
+@keyframes sigilglow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(232,163,61,0.3)); }
+  50%      { filter: drop-shadow(0 0 22px rgba(232,163,61,0.7)); }
+}
+
+.ring {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 2;
+}
+.ring.inner {
+  stroke: var(--amber-dim);
+  stroke-dasharray: 4 5;
+  transform-origin: 60px 60px;
+  animation: ringspin 60s linear infinite;
+}
+@keyframes ringspin { to { transform: rotate(360deg); } }
+
+.star {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 1.5;
+}
+
+.sigil-text {
+  fill: var(--amber);
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.station {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--amber-dim);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  line-height: 1.05;
+  margin: 0 0 0.9rem;
+  color: var(--paper);
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 30px rgba(232, 163, 61, 0.35),
+    0 2px 0 rgba(0, 0, 0, 0.6);
+  font-variant: small-caps;
+}
+
+.dek {
+  font-style: italic;
+  color: var(--paper-dim);
+  max-width: 34rem;
+  margin: 0 auto 1.6rem;
+  font-size: 1.02rem;
+}
+
+/* ---- ON AIR lamp ---- */
+
+.onair {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: var(--lamp);
+  border: 1px solid rgba(255, 90, 60, 0.5);
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem 0.4rem 0.9rem;
+  background: rgba(255, 90, 60, 0.06);
+  animation: onairflicker 4.5s steps(12) infinite;
+}
+
+@keyframes onairflicker {
+  0%, 7%, 9%, 100% { opacity: 1; }
+  8%               { opacity: 0.35; }
+  42%, 44%         { opacity: 1; }
+  43%              { opacity: 0.5; }
+}
+
+.lamp {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--lamp);
+  box-shadow: 0 0 12px 3px rgba(255, 90, 60, 0.7);
+}
+
+/* ---- frequency dial ---- */
+
+.dial {
+  position: relative;
+  height: 2.6rem;
+  margin: 2rem auto 0;
+  max-width: 30rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, #1d1830 0%, #120f1e 55%, #241a10 100%);
+  border: 1px solid rgba(232, 163, 61, 0.4);
+  box-shadow:
+    inset 0 3px 12px rgba(0, 0, 0, 0.8),
+    inset 0 -2px 6px rgba(232, 163, 61, 0.15),
+    0 0 24px rgba(232, 163, 61, 0.12);
+  overflow: hidden;
+}
+
+.tick {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Courier New", monospace;
+  font-size: 0.62rem;
+  color: var(--amber-dim);
+}
+
+.tick::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 0.9rem;
+  margin: 0 auto 0.25rem;
+  background: var(--amber-dim);
+}
+
+.tick.active { color: var(--amber); }
+
+.needle {
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  width: 2px;
+  background: var(--lamp);
+  box-shadow: 0 0 8px 1px rgba(255, 90, 60, 0.9);
+  left: 49%;
+  transition: left 0.35s ease-out;
+}
+
+/* ---- transcript ---- */
+
+.transcript {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+.transcript section {
+  margin: 0 0 2.2rem;
+}
+
+.speaker {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 0.5rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--amber-dim);
+}
+
+.speaker .paren {
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--paper-dim);
+  font-size: 0.78rem;
+}
+
+.line {
+  margin: 0 0 1.1rem;
+  font-size: 1.08rem;
+  color: var(--paper);
+}
+
+.line em { color: var(--amber); font-style: italic; }
+
+.line a {
+  color: var(--amber);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.line a:hover { color: #fff; background: rgba(232, 163, 61, 0.15); }
+
+.cue .sound {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--green);
+  background: rgba(127, 176, 105, 0.06);
+  border: 1px dashed rgba(127, 176, 105, 0.35);
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.cue .sound::before {
+  content: "▸ ";
+  color: var(--green);
+}
+
+/* ---- broadcast strip ---- */
+
+.broadcast-strip {
+  margin: 3rem 0 0;
+  border-top: 1px solid rgba(232, 163, 61, 0.35);
+  border-bottom: 1px solid rgba(232, 163, 61, 0.35);
+  padding: 0.8rem 0.2rem;
+  overflow-x: auto;
+}
+
+.strip-line {
+  display: flex;
+  gap: 2.4rem;
+  white-space: nowrap;
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--amber-dim);
+  margin: 0;
+  animation: stripcrawl 30s linear infinite;
+}
+
+@keyframes stripcrawl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-12rem); }
+}
+
+/* ---- VU meters ---- */
+
+.vu {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 45;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  background: rgba(13, 11, 20, 0.85);
+  border: 1px solid rgba(232, 163, 61, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+}
+
+.vu-meter {
+  width: 0.55rem;
+  height: 3rem;
+  background: #1c1626;
+  border: 1px solid rgba(232, 163, 61, 0.25);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.vu-meter i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(180deg, var(--lamp) 0%, var(--amber) 45%, var(--green) 100%);
+  transition: height 0.18s ease-out;
+}
+
+.vu-label {
+  font-family: "Courier New", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--amber-dim);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 40rem) {
+  .vu { display: none; }
+  .strip-line { animation: none; }
+}
