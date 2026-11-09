@@ -1,0 +1,236 @@
+/* FM-9 Annex 7-K — Error Reference styling */
+
+:root {
+  --paper: #f4f1e8;
+  --ink: #26221c;
+  --err: #a33a2a;
+  --warn: #b07d2b;
+  --ok: #4a6741;
+  --line: #c9c2b2;
+  --mono: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.banner {
+  background: var(--err);
+  color: #f7f3e9;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-align: center;
+  padding: 0.4rem 0.5rem;
+}
+
+.manual {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.masthead .series {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--err);
+  margin: 0 0 0.5rem;
+}
+
+.masthead h1 {
+  font-size: 1.55rem;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+
+.masthead .sub {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: #5a5346;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.4rem 0;
+  margin: 0 0 1rem;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--err);
+}
+
+.led {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--err);
+  box-shadow: 0 0 6px var(--err);
+}
+
+.clause {
+  margin: 1.8rem 0;
+}
+
+.clause h2 {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.25rem;
+}
+
+code {
+  font-family: var(--mono);
+  background: #eae5d7;
+  padding: 0 0.25em;
+}
+
+/* Diagnostic console */
+.console {
+  font-family: var(--mono);
+  background: #20201c;
+  color: #d9d3c2;
+  padding: 0.9rem 1rem 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid var(--err);
+}
+
+.console label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #9c957f;
+  margin-bottom: 0.5rem;
+}
+
+.console input {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  background: #111109;
+  color: #e8e2cf;
+  border: 1px solid #4a4638;
+  padding: 0.5rem 0.6rem;
+}
+
+.console input:focus {
+  outline: 1px dashed var(--warn);
+}
+
+.console output {
+  display: block;
+  min-height: 2.6em;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  color: #c8c2ad;
+}
+
+.console output.hit { color: #b9d0a5; }
+.console output.miss { color: #d89a8c; }
+
+/* Error table */
+.err-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  margin: 1rem 0;
+}
+
+.err-table th {
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  padding: 0.3rem 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.err-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.35rem 0.4rem;
+  vertical-align: top;
+}
+
+.err-table tr { transition: opacity 0.15s; }
+.err-table tr.dimmed { opacity: 0.25; }
+.err-table tr.marked { background: #efe6c8; }
+
+/* Fault write-ups */
+.fault .code {
+  font-family: var(--mono);
+  font-weight: bold;
+  color: var(--err);
+}
+
+.fault .meaning {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+}
+
+.fault .detail {
+  display: block;
+  margin-top: 0.2rem;
+  color: #3d382f;
+}
+
+/* Corrupted line */
+.corrupt {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  background: #eae5d7;
+  border-left: 4px solid var(--warn);
+}
+
+.corrupt code {
+  background: none;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.corrupt footer {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: #6a6350;
+  margin-top: 0.5rem;
+}
+
+/* Footer */
+.tail {
+  margin-top: 2.5rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.tail .see-head {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 0.4rem;
+}
+
+.tail a { color: var(--err); }
+
+.colophon {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: #6a6350;
+}

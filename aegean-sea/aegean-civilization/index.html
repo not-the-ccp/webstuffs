@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aegean Civilization — Error Reference &amp; Recovery Manual, FM-9 Annex 7-K</title>
+<meta name="description" content="FM-9 Annex 7-K, the error reference for Aegean civilization: the Minoan kernel, the Cycladic middleware, the Helladic layers and the Mycenaean runtime — codes AE-0499 through AE-1147, severities, recovery orders, and one corrupted line from the Güllük buoy log.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="banner" aria-hidden="true">ERROR REFERENCE &nbsp;·&nbsp; FM-9 ANNEX 7-K &nbsp;·&nbsp; KEEP AVAILABLE AT ALL STATIONS</div>
+
+<main class="manual">
+  <header class="masthead">
+    <p class="series">FIELD MANUAL FM-9 &nbsp;·&nbsp; Annex 7-K &nbsp;·&nbsp; Series: Waters &amp; Measures</p>
+    <h1>Annex 7-K — Aegean Civilization: Error Reference &amp; Recovery Manual</h1>
+    <p class="sub">Aegean civilization &middot; Bronze Age civilizations of Greece about the Aegean Sea &middot; Minoan kernel &middot; Cycladic middleware &middot; Helladic layers &middot; Mycenaean runtime &middot; c. 3200–1100 BC</p>
+    <div class="tag" aria-hidden="true">
+      <span class="led" role="img" aria-label="red status lamp"></span>
+      <span class="tag-text">STACK STATUS: OFFLINE SINCE c. 1100 BC — REFERENCE ONLY</span>
+    </div>
+  </header>
+
+  <section class="clause" id="scope">
+    <h2>7-K.01 Scope</h2>
+    <p>This annex is the error reference for the older occupants of the water described in <a href="../">Chapter 7 — The Aegean Sea</a>. Under that name the manual's register lists <strong>Aegean civilization</strong>, a general term for the Bronze Age civilizations of Greece around the Aegean Sea, running from the Early Bronze Age to the collapse of the palatial order. The annex covers the stack as a whole: which subsystems it contained, what it shared with its neighbours, how its faults surfaced, and what the recovery orders were. Where a fault is unrecoverable — and two of the seven codes below are — the annex says so plainly and files the record as history.</p>
+    <p>The register is cross-referenced to the field notes already in the manual, particularly <a href="../../gulluk-gulf/">Güllük Gulf — Field Notes</a>, where the same coastline is watched at the human scale, and to the position methods of <a href="../../meridian-log/">FM-9, Chapter 4 — The Geographic Coordinate System</a>, without which no event in this annex could be placed at all.</p>
+  </section>
+
+  <section class="clause" id="subsystems">
+    <h2>7-K.02 Subsystems of the Stack</h2>
+    <p>The register recognizes four subsystems, named as the surveyors named them:</p>
+    <p><strong>Minoan kernel (Crete).</strong> The island kernel at the stack's southern edge, running from about 2700 BC, with its palace complexes at Knossos, Phaistos and Malia, its marine trade, and its own undeciphered script, Linear A. The kernel that carried the whole stack through the Middle Bronze Age.</p>
+    <p><strong>Cycladic middleware (the Cyclades).</strong> The island groups of the central sea — Naxos, Paros, Delos — supplying the stack's marble and its famous white figurines, and running the small-water passages between the mainland and Crete. Quiet, reliable, and the first of the subsystems to be found on the diagnostic path.</p>
+    <p><strong>Helladic layers (the Greek mainland).</strong> The mainland strata, Early, Middle and Late. The late layers, from about 1600 BC, are the ones that matter here: the citadels, the tholos tombs, the warrior economy — the later phases by which the mainland is known as the <strong>Mycenaean civilization</strong>, centred on Mycenae, Tiryns, Pylos and Thebes.</p>
+    <p><strong>Root stratum (the whole water).</strong> The Aegean cultures shared a common origin in the <strong>Early European Farmers</strong> who brought agriculture to Neolithic Greece and before 5000 BC. Everything above — every palace, every figurine, every citadel — was built on that root, and code AE-0499 is issued against it, not because it failed, but because no earlier stratum is available to replace it.</p>
+  </section>
+
+  <section class="clause" id="interfaces">
+    <h2>7-K.03 External Interfaces</h2>
+    <p>During the Bronze Age the stack was not closed. It traded and argued with <strong>Egypt</strong> to the south, where the palaces sent and received on a scale the papyrus record still shows; with the <strong>Hittites</strong> and the Anatolian highlands to the east, through the Dodecanese corridor; and with the small powers of the Levant and Cyprus across the open water. New migrant groups also arrived at the interface, among them the bearers of the <strong>Proto-Greek language</strong>, who in time re-bound the stack's scripts and its speech together (AE-1700) and then, from the mainland, took the runtime over (AE-1600). The cultures showed considerable local variation — one palace culture and another, one island habit and one mainland one — but the interfaces held the pattern together the way a shared harbour holds a fleet.</p>
+  </section>
+
+  <section class="clause" id="console">
+    <h2>7-K.04 Diagnostic Console</h2>
+    <p>Enter a code (for example <code>AE-1700</code>) or a keyword (for example <code>figurine</code>, <code>Hittite</code>, <code>Linear</code>) in the console below. The register filters the table on each keystroke; a full code also prints the fault's severity, first observation, and the standing recovery order. If the console does nothing, the table below it is complete and readable without it.</p>
+    <div class="console" id="console-box">
+      <label for="err-input">REGISTER LOOKUP&nbsp;&gt;</label>
+      <input type="text" id="err-input" autocomplete="off" spellcheck="false" placeholder="AE-1700 or a keyword…">
+      <output id="err-result" aria-live="polite"></output>
+    </div>
+
+    <table class="err-table">
+      <thead>
+        <tr><th scope="col">Code</th><th scope="col">Sev.</th><th scope="col">First observed</th><th scope="col">Subsystem</th><th scope="col">Fault</th></tr>
+      </thead>
+      <tbody>
+        <tr data-code="AE-0499" data-sev="P1 (permanent)" data-when="before 5000 BC" data-sys="Root stratum" data-meaning="EARLY-FARMER ROOT NOT FOUND"><td>AE-0499</td><td>P1</td><td>before 5000 BC</td><td>Root stratum</td><td>EARLY-FARMER ROOT NOT FOUND</td></tr>
+        <tr data-code="AE-3200" data-sev="P3 (cosmetic)" data-when="c. 3200–2000 BC" data-sys="Cycladic middleware" data-meaning="CYCLADIC FIGURINE PARITY MISMATCH"><td>AE-3200</td><td>P3</td><td>c. 3200–2000 BC</td><td>Cycladic middleware</td><td>FIGURINE PARITY MISMATCH</td></tr>
+        <tr data-code="AE-2700" data-sev="P2 (scheduled)" data-when="c. 2700 BC" data-sys="Minoan kernel" data-meaning="KERNEL BOOT, KNOSSOS"><td>AE-2700</td><td>P2</td><td>c. 2700 BC</td><td>Minoan kernel</td><td>KERNEL BOOT, KNOSSOS</td></tr>
+        <tr data-code="AE-1700" data-sev="P2 (scheduled)" data-when="c. 1700–1600 BC" data-sys="Scripts" data-meaning="LINEAR-A REBIND TO LINEAR-B"><td>AE-1700</td><td>P2</td><td>c. 1700–1600 BC</td><td>Scripts</td><td>LINEAR-A REBIND TO LINEAR-B</td></tr>
+        <tr data-code="AE-1600" data-sev="P1 (structural)" data-when="c. 1600 BC" data-sys="Helladic layers" data-meaning="MYCENAEAN RUNTIME TAKEOVER"><td>AE-1600</td><td>P1</td><td>c. 1600 BC</td><td>Helladic layers</td><td>MYCENAEAN RUNTIME TAKEOVER</td></tr>
+        <tr data-code="AE-1530" data-sev="P2 (intermittent)" data-when="c. 1500–1400 BC" data-sys="External interfaces" data-meaning="HITTITE / EGYPT LINK TIMEOUT"><td>AE-1530</td><td>P2</td><td>c. 1500–1400 BC</td><td>External interfaces</td><td>HITTITE / EGYPT LINK TIMEOUT</td></tr>
+        <tr data-code="AE-1147" data-sev="P0 (fatal)" data-when="c. 1200–1100 BC" data-sys="All subsystems" data-meaning="CASCADE COLLAPSE, BRONZE UNDERRUN"><td>AE-1147</td><td>P0</td><td>c. 1200–1100 BC</td><td>All subsystems</td><td>CASCADE COLLAPSE, BRONZE UNDERRUN</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="clause" id="writeups">
+    <h2>7-K.05 Selected Fault Write-ups</h2>
+
+    <p class="fault"><span class="code">AE-0499</span> — <span class="meaning">EARLY-FARMER ROOT NOT FOUND</span>. <span class="detail">Raising the probe below the Neolithic stratum returns nothing: the Early European Farmers who brought agriculture to Greece before 5000 BC are the oldest layer the stack has. Severity P1, permanent; no earlier image is available and none is expected. Recovery order: none. This fault is logged for completeness, the way a sounding of 2,639 m west of Karpathos is logged — to record the bottom, not to avoid it.</span></p>
+
+    <p class="fault"><span class="code">AE-3200</span> — <span class="meaning">FIGURINE PARITY MISMATCH</span>. <span class="detail">Cycladic marble figurines arrive at port in quantities and pairings the receiving ledger cannot reconcile — folded hands, flat faces, more of them than any one workshop on the small islands of the central sea can explain. Severity P3, cosmetic. Recovery order: accept the shipment, note the mismatch, and do not spend the season's survey budget on it. The figurines are what they are; the mismatch is in the counting, not the marble.</span></p>
+
+    <p class="fault"><span class="code">AE-2700</span> — <span class="meaning">KERNEL BOOT, KNOSSOS</span>. <span class="detail">Normal boot sequence for the Minoan kernel from about 2700 BC: palatial administration, marine trade routes to the Levant and the Cyclades, and the first Linear A records at Knossos. Logged once, then not again, because a clean boot is not an error. Severity P2 by convention only. Recovery order: file under the working stack; this entry exists so that later readers do not mistake the boot record for a fault.</span></p>
+
+    <p class="fault"><span class="code">AE-1700</span> — <span class="meaning">LINEAR-A REBIND TO LINEAR-B</span>. <span class="detail">Around 1700–1600 BC the mainland hands re-bound the Cretan script: Linear A's sign inventory was retained and re-pointed to write the <strong>Proto-Greek language</strong>, producing Linear B. The same signs, a different tongue — like the same depth figures read in metres instead of fathoms. Severity P2, scheduled; it is the only rebind in the register that was carried out cleanly and kept. Recovery order: none needed; this is the fault the stack outgrew into.</span></p>
+
+    <p class="fault"><span class="code">AE-1600</span> — <span class="meaning">MYCENAEAN RUNTIME TAKEOVER</span>. <span class="detail">From about 1600 BC the Helladic layers took the runtime over: citadels at Mycenae and Tiryns, the tholos tombs, the palace archive at Pylos, and — within the century — Cretan palaces brought under mainland administration. The kernel survived; the operator changed. Severity P1, structural. Recovery order: accept the new administration and keep the Linear B archives current. The takeover was the last healthy structural change the stack made.</span></p>
+
+    <p class="fault"><span class="code">AE-1530</span> — <span class="meaning">HITTITE / EGYPT LINK TIMEOUT</span>. <span class="detail">Intermittent failures on the long external links in the 15th and 14th centuries BC: the Anatolian and Hittite corridor congested, the Levant unsettled, and the Egyptian exchange running late. The stack kept its own affairs in order while the links were down — the palaces, the harbours and the small passages of the Cyclades were never in doubt. Severity P2, intermittent. Recovery order: retry on the next season's sailing; keep the Dodecanese stations stocked so the corridor can be re-established when it opens.</span></p>
+
+    <p class="fault"><span class="code">AE-1147</span> — <span class="meaning">CASCADE COLLAPSE, BRONZE UNDERRUN</span>. <span class="detail">The fatal fault. From about 1200 BC the interfaces failed together: the long-distance trade dried up, bronze supply underran the demand for it, and the palatial sites took their hits in a cascade — Troy, then the Cretan palaces already gone, then Pylos in the fire that baked its own archives into legibility, then the mainland citadels one by one, down through the first decades of the 12th century BC. Severity P0. The Linear B record stops; the scripts are set down; the water keeps running. Recovery order: none issued. The register closes here, and the annex notes for the record that the sea itself — the subject of <a href="../">Chapter 7</a> — was not in fault; only its civilization was.</span></p>
+  </section>
+
+  <section class="clause" id="corrupt">
+    <h2>7-K.06 One Corrupted Line, Logged Word for Word</h2>
+    <p>The annex carries one non-technical entry, kept exactly as printed on the buoy log of station <strong>Güllük buoy 3</strong>, in the gulf where the same water is watched at human scale in the <a href="../../gulluk-gulf/">Güllük field notes</a>:</p>
+    <blockquote class="corrupt">
+      <p><code>Bottlenose dolphins work the entrance it deepens to pewter.</code></p>
+      <footer>— buoy log, Güllük buoy 3, 14 October, first light</footer>
+    </blockquote>
+    <p>Diagnosis: line-merge fault, buffer 2 of the buoy's printer. Two adjacent report lines were flushed together before the carriage return: the dawn watch's animal report — <em>bottlenose dolphins work the entrance channel at first light</em> — and the water report, which in the gulf's shallows is <em>toward the entrance it deepens to pewter</em>. The printer joined them into a single sentence and ran out of plausibility, which is precisely what a line-merge fault looks like. No fault found in the dolphins; no fault found in the water. Recovery order: reprint the two lines separately, as the field notes already do, and keep this joined line in the register as the annex's one record of the machine talking nonsense about the sea.</p>
+  </section>
+
+  <footer class="tail">
+    <p class="see-head">Filed together:</p>
+    <p><a href="../">The Aegean Sea — Field Manual FM-9, Chapter 7</a> &middot; <a href="../../gulluk-gulf/">Güllük Gulf — Field Notes</a> &middot; <a href="../../meridian-log/">FM-9, Chapter 4 — The Geographic Coordinate System</a> &middot; <a href="../../">Return to Webstuffs</a></p>
+    <p class="colophon">FM-9 Annex 7-K · Aegean Civilization · Error Reference &amp; Recovery Manual. Severities as assigned; the collapse is not disputed.</p>
+  </footer>
+</main>
+
+<script src="aegean-civilization.js"></script>
+</body>
+</html>
