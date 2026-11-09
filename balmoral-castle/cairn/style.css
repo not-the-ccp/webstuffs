@@ -1,0 +1,175 @@
+:root {
+  --paper: #f6f2e9;
+  --ink: #2b2620;
+  --stone: #6e6455;
+  --line: #b3a78f;
+  --seal: #7a2e21;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.placard {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 3rem;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background:
+    linear-gradient(#fbf8f0, #fbf8f0) padding-box;
+}
+
+.placard-head { text-align: center; }
+
+.eyebrow {
+  margin: 0 0 1.4rem;
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+
+.sub {
+  margin: 0.8rem auto 0.4rem;
+  max-width: 30rem;
+  font-size: 0.95rem;
+  color: var(--stone);
+  font-style: italic;
+}
+
+.pron {
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+  color: var(--stone);
+}
+
+.pron span {
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rule {
+  height: 1px;
+  margin: 1.8rem auto;
+  max-width: 7rem;
+  background: var(--line);
+  position: relative;
+}
+
+.rule::after {
+  content: "\25C6";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.6rem;
+  color: var(--stone);
+  background: var(--paper);
+  padding: 0 0.5rem;
+}
+
+section { margin-bottom: 2rem; }
+
+h2 {
+  margin: 0 0 0.7rem;
+  font-size: 0.78rem;
+  font-weight: normal;
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+p { margin: 0 0 1rem; text-align: justify; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+a:hover { text-decoration-color: var(--seal); color: var(--seal); }
+
+.entry-block {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0.5rem;
+  margin: 2.4rem 0;
+}
+
+.entry-label {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--stone);
+}
+
+.entry {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.colophon {
+  font-size: 0.82rem;
+  color: var(--stone);
+  text-align: center;
+}
+
+.placard-foot {
+  margin-top: 2.6rem;
+  text-align: center;
+}
+
+#readButton {
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: none;
+  border: 1px solid var(--line);
+  padding: 0.65rem 1.2rem;
+  cursor: pointer;
+}
+#readButton:hover { color: var(--seal); border-color: var(--seal); }
+
+.stamp {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.35rem 0.8rem;
+  border: 1.5px solid var(--seal);
+  color: var(--seal);
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+#stampClock {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--stone);
+  min-height: 1.2em;
+}
