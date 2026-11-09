@@ -1,0 +1,314 @@
+/* Clairvoyance — Dream Dictionary, Entry 433 · the sitting room */
+
+:root {
+  --ink: #14102b;
+  --deep: #0b0820;
+  --plum: #241a4d;
+  --violet: #4a368f;
+  --gold: #d8a63f;
+  --pale-gold: #f0d9a0;
+  --bone: #efe6d0;
+  --smoke: #b7a8d9;
+  --teal: #57c7b8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--deep);
+  color: var(--bone);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 1.75;
+  font-size: 1.06rem;
+  overflow-x: hidden;
+}
+
+/* ---------- the shroud: layered night behind everything ---------- */
+
+.shroud {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(120, 90, 220, 0.42), transparent 65%),
+    radial-gradient(ellipse 60% 45% at 85% 110%, rgba(216, 166, 63, 0.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 8% 80%, rgba(87, 199, 184, 0.10), transparent 55%),
+    linear-gradient(175deg, #060414 0%, #0b0820 34%, #171138 68%, #0e0a24 100%);
+}
+
+.shroud::after {
+  /* faint concentric seance rings */
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: repeating-radial-gradient(circle at 50% 42%,
+    transparent 0 70px,
+    rgba(216, 166, 63, 0.035) 70px 72px,
+    transparent 72px 150px,
+    rgba(183, 168, 217, 0.04) 150px 152px);
+  animation: rings-turn 140s linear infinite;
+}
+
+@keyframes rings-turn { to { transform: rotate(2deg); } }
+
+.starfield { position: absolute; inset: 0; }
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--pale-gold);
+  opacity: 0;
+  animation: twinkle var(--tw, 5s) ease-in-out var(--td, 0s) infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 0.85; transform: scale(1); }
+}
+
+.veil { position: absolute; inset: 0; mix-blend-mode: screen; }
+.veil--a {
+  background: radial-gradient(ellipse 40% 30% at 30% 30%, rgba(120, 90, 220, 0.18), transparent 70%);
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+.veil--b {
+  background: radial-gradient(ellipse 35% 25% at 72% 62%, rgba(87, 199, 184, 0.12), transparent 70%);
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+@keyframes drift-a { from { transform: translate3d(-3%, 0, 0); } to { transform: translate3d(4%, 5%, 0); } }
+@keyframes drift-b { from { transform: translate3d(3%, 2%, 0); } to { transform: translate3d(-4%, -4%, 0); } }
+
+.eye-bg {
+  position: absolute;
+  left: 50%;
+  top: 4%;
+  width: min(46vw, 420px);
+  transform: translateX(-50%);
+  opacity: 0.14;
+  animation: eye-breathe 9s ease-in-out infinite;
+}
+.eye-outline, .rays { stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.iris-bg { fill: none; stroke: var(--smoke); stroke-width: 1; }
+.pupil-bg { fill: var(--gold); }
+.rays { animation: rays-spin 80s linear infinite; transform-origin: 100px 60px; }
+@keyframes eye-breathe { 0%, 100% { opacity: 0.10; } 50% { opacity: 0.22; } }
+@keyframes rays-spin { to { transform: rotate(360deg); } }
+
+/* ---------- the folio ---------- */
+
+.folio {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 5.5rem 1.6rem 3rem;
+  background: linear-gradient(180deg, rgba(20, 16, 43, 0.82), rgba(14, 10, 36, 0.90) 40%);
+  border-left: 1px solid rgba(216, 166, 63, 0.25);
+  border-right: 1px solid rgba(216, 166, 63, 0.25);
+  box-shadow: 0 0 90px rgba(74, 54, 143, 0.35) inset, 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.masthead { text-align: center; margin-bottom: 2.6rem; }
+.masthead::before, .masthead::after {
+  content: "☙ ❦ ❧";
+  display: block;
+  color: var(--gold);
+  letter-spacing: 1.2em;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 0.9rem 0;
+}
+
+.series {
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 0.72rem;
+  color: var(--smoke);
+  margin: 0 0 0.6rem;
+}
+.series em { color: var(--teal); font-style: italic; }
+
+.ornament { color: var(--gold); width: 180px; margin: 0 auto 0.4rem; display: block; }
+
+h1 {
+  font-size: clamp(3rem, 8vw, 5.2rem);
+  margin: 0.2rem 0 0.4rem;
+  letter-spacing: 0.04em;
+  color: var(--pale-gold);
+  text-shadow:
+    0 0 34px rgba(216, 166, 63, 0.45),
+    0 0 90px rgba(120, 90, 220, 0.5);
+  animation: h1-glow 7s ease-in-out infinite;
+}
+@keyframes h1-glow {
+  0%, 100% { text-shadow: 0 0 28px rgba(216, 166, 63, 0.35), 0 0 80px rgba(120, 90, 220, 0.45); }
+  50% { text-shadow: 0 0 46px rgba(216, 166, 63, 0.65), 0 0 120px rgba(120, 90, 220, 0.65); }
+}
+
+.pron {
+  color: var(--smoke);
+  font-style: italic;
+  font-size: 0.98rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.pron em { color: var(--teal); }
+
+/* ---------- prose ---------- */
+
+section { margin: 2.6rem 0; }
+
+h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+h2::before {
+  content: "";
+  width: 2.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  flex: none;
+}
+h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(216, 166, 63, 0.5), transparent);
+}
+
+p { margin: 0 0 1.15rem; }
+strong { color: var(--pale-gold); }
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(87, 199, 184, 0.55);
+  transition: color 0.25s, border-color 0.25s;
+}
+a:hover { color: var(--pale-gold); border-bottom-color: var(--pale-gold); }
+
+.lede {
+  font-size: 1.16rem;
+  font-style: italic;
+  color: var(--smoke);
+  border-top: 1px solid rgba(216, 166, 63, 0.35);
+  border-bottom: 1px solid rgba(216, 166, 63, 0.35);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 2.2rem;
+  background: linear-gradient(90deg, rgba(74, 54, 143, 0.22), transparent 55%);
+}
+
+/* ---------- the sittings list ---------- */
+
+dl { margin: 0; }
+dt {
+  color: var(--pale-gold);
+  font-size: 1.08rem;
+  margin-top: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+dt::before {
+  content: attr(data-n);
+  font-family: "Times New Roman", serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid rgba(216, 166, 63, 0.6);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+dt.one::before { content: "I"; }
+dt.two::before { content: "II"; }
+dt.three::before { content: "III"; }
+dd {
+  margin: 0.4rem 0 0 2.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(87, 199, 184, 0.35);
+  color: var(--bone);
+}
+
+/* ---------- accounts ---------- */
+
+.acc {
+  display: inline-block;
+  min-width: 1.6rem;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-right: 0.4rem;
+}
+
+/* ---------- the kept sentence ---------- */
+
+.kept {
+  display: block;
+  margin: 1.6rem 0;
+  padding: 1.4rem 1.8rem;
+  font-size: 1.28rem;
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--pale-gold);
+  background:
+    linear-gradient(180deg, rgba(216, 166, 63, 0.08), rgba(216, 166, 63, 0.02)),
+    rgba(11, 8, 32, 0.7);
+  border: 1px solid rgba(216, 166, 63, 0.5);
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 0 40px rgba(216, 166, 63, 0.12), 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.kept::before, .kept::after {
+  font-size: 1.6rem;
+  color: var(--gold);
+  position: absolute;
+}
+.kept::before { content: "\275D"; top: -0.65rem; left: 0.9rem; background: var(--deep); padding: 0 0.35rem; }
+.kept::after { content: "\275E"; bottom: -0.85rem; right: 0.9rem; background: var(--deep); padding: 0 0.35rem; }
+
+/* ---------- colophon & ticker ---------- */
+
+.colophon {
+  margin-top: 3.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px double rgba(216, 166, 63, 0.5);
+  font-size: 0.92rem;
+  color: var(--smoke);
+  text-align: center;
+}
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(216, 166, 63, 0.4);
+  background: rgba(6, 4, 20, 0.85);
+  padding: 0.55rem 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.ticker .run { display: inline-block; animation: tick 44s linear infinite; padding-left: 100%; }
+@keyframes tick { to { transform: translateX(-100%); } }
+
+@media (max-width: 640px) {
+  .folio { padding: 3.2rem 1rem 2rem; border: none; }
+  dd { margin-left: 1rem; }
+  .eye-bg { width: 90vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+}
