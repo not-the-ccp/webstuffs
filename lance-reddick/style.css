@@ -1,0 +1,171 @@
+/* The Reddick Circuit — Westside Tourist Office, Brochure No. 9
+   Palette: midnight ink, marquee gold, screen-gray, harbor fog. */
+
+:root {
+  --ink: #101418;
+  --ink-2: #1a2129;
+  --gold: #d8a435;
+  --gold-dim: #a37b22;
+  --fog: #e9e4d6;
+  --fog-dim: #b8b2a2;
+  --red: #a3341f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink) radial-gradient(ellipse at 50% -10%, #232d38 0%, var(--ink) 60%);
+  color: var(--fog);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* marquee strip */
+.marquee-strip {
+  overflow: hidden;
+  background: #000;
+  border-bottom: 2px solid var(--gold-dim);
+  white-space: nowrap;
+}
+.marquee-inner {
+  display: inline-block;
+  padding: 0.45em 0;
+  color: var(--gold);
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  animation: scroll 40s linear infinite;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--ink-2);
+  border-left: 1px solid #2c3641;
+  border-right: 1px solid #2c3641;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  padding: 0.6em 2em;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  border-bottom: 1px dashed var(--gold-dim);
+  background: #0c0f12;
+}
+.topbar .est { color: var(--fog-dim); }
+
+.masthead {
+  text-align: center;
+  padding: 2.2em 2em 1.4em;
+}
+.masthead h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(216, 164, 53, 0.35);
+}
+.masthead .sub {
+  margin: 0.8em auto 0;
+  max-width: 34em;
+  color: var(--fog-dim);
+  font-style: italic;
+}
+.masthead .rule,
+.foot .rule {
+  border: none;
+  border-top: 3px double var(--gold-dim);
+  width: 70%;
+  margin: 1.2em auto 0;
+}
+
+main { padding: 0 2em 2em; }
+
+.panel {
+  margin: 0 0 2.2em;
+  padding: 1.4em 1.6em;
+  background: linear-gradient(180deg, #1d2530 0%, var(--ink-2) 100%);
+  border: 1px solid #2c3641;
+  border-top: 3px solid var(--gold-dim);
+}
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: "Courier New", monospace;
+}
+.panel p { margin: 0 0 1em; }
+.panel strong { color: var(--fog); }
+.panel a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold-dim);
+}
+.panel a:hover { color: #f0c05a; }
+
+.stop {
+  margin: 1.6em 0 0.4em;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--fog);
+  border-left: 3px solid var(--red);
+  padding-left: 0.7em;
+}
+
+blockquote.legend {
+  margin: 1.2em 0;
+  padding: 0.9em 1.2em;
+  border-left: 4px solid var(--gold);
+  background: #0c0f12;
+  font-style: italic;
+  color: var(--gold);
+}
+
+table.times {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+}
+table.times th, table.times td {
+  padding: 0.5em 0.8em;
+  border: 1px solid #38424e;
+  text-align: left;
+}
+table.times th {
+  background: #0c0f12;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+}
+table.times td:first-child { color: var(--gold); }
+table.times tr:nth-child(even) td { background: rgba(216, 164, 53, 0.05); }
+
+.panel ul { padding-left: 1.2em; margin: 0.5em 0; }
+.panel li { margin-bottom: 0.7em; }
+
+.small { font-size: 0.85rem; color: var(--fog-dim); font-style: italic; }
+
+.foot {
+  text-align: center;
+  padding: 1.4em 2em 2.4em;
+  font-size: 0.85rem;
+  color: var(--fog-dim);
+  border-top: 1px dashed var(--gold-dim);
+}
+.foot .rule { margin-top: 1em; color: var(--gold-dim); font-family: "Courier New", monospace; letter-spacing: 0.18em; }
