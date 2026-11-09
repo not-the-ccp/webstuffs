@@ -1,0 +1,195 @@
+/* Sheet SB-1 · Super Bowl FAQ · Gate Lodge edition */
+
+html { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 20px 14px;
+  background: #f4f1e8;
+  color: #2a2733;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+.sheet {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fffcf6;
+  border: 1.5px solid #a8a292;
+  box-shadow: 7px 7px 0 #c2bbab, 14px 14px 0 rgba(0,0,0,0.07);
+  padding: 30px 26px 24px;
+  position: relative;
+}
+
+.masthead {
+  border-top: 3px double #444;
+  border-bottom: 1px solid #887f6e;
+  padding: 10px 0 14px;
+  margin-bottom: 22px;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #7c5e2e;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 27px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #1a181e;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #5b5660;
+  font-style: italic;
+}
+
+.stamp {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 12px;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #7c5e2e;
+  border: 1.5px solid #7c5e2e;
+  transform: rotate(-2deg);
+  background: #fffdf2;
+}
+
+.intro {
+  text-align: justify;
+  border-left: 4px solid #a8a292;
+  padding-left: 16px;
+  font-size: 14.5px;
+}
+
+.faq { margin-top: 6px; }
+
+.section-head {
+  margin: 0 0 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #7c5e2e;
+  border-bottom: 1px solid #a8a292;
+  padding-bottom: 5px;
+}
+
+.item {
+  margin-bottom: 20px;
+  padding-left: 16px;
+  border-left: 2.5px solid #a8a292;
+  position: relative;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  top: 2px; left: -8px;
+  width: 14px; height: 14px;
+  border: 1.5px solid #a8a292;
+  background: #fffcf6;
+}
+
+.q {
+  margin: 0 0 5px;
+  font-size: 14.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #254a5c;
+  font-weight: bold;
+}
+
+.q::before { content: "Q  "; color: #7c5e2e; margin-right: 4px; }
+
+.a {
+  margin: 0 0 6px;
+  text-align: justify;
+}
+
+.a::before { content: "A  "; color: #7c5e2e; font-weight: bold; margin-right: 4px; }
+
+table.eras {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 4px;
+  font-size: 12.5px;
+}
+
+table.eras caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7c5e2e;
+  padding-bottom: 4px;
+}
+
+table.eras th {
+  text-align: left;
+  border-bottom: 2px solid #444;
+  padding: 5px 8px;
+  color: #1a181e;
+}
+
+table.eras td {
+  border-bottom: 1px solid #d8d0bc;
+  padding: 5px 8px;
+}
+
+blockquote.odd {
+  margin: 10px 0;
+  padding: 11px 16px;
+  background: #efe6d3;
+  border: 1px solid #d8d0bc;
+  font-style: italic;
+  font-size: 14px;
+  position: relative;
+  text-align: justify;
+}
+
+blockquote.odd::before {
+  content: "stapled to the sheet";
+  position: absolute;
+  top: -11px; left: 16px;
+  background: #efe6d3;
+  padding: 0 6px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7c5e2e;
+  border: 1px solid #d8d0bc;
+  border-bottom: none;
+}
+
+a {
+  color: #4a3d2b;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.colophon {
+  margin-top: 30px;
+  padding-top: 14px;
+  border-top: 1px solid #a8a292;
+  font-size: 11px;
+  color: #6e6958;
+  letter-spacing: 0.4px;
+}
+
+@media print {
+  body { background: #fff; }
+  .sheet { box-shadow: none; border: 1px solid #444; }
+}
