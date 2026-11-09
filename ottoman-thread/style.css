@@ -1,0 +1,351 @@
+/* The Drafting Room — Thread No. 249 · The Long Place
+   Iznik palette: cobalt depth, sultan's gold, tulip red, cream paper */
+
+:root {
+  --cobalt: #0b2545;
+  --cobalt-deep: #071a33;
+  --cobalt-mid: #123a63;
+  --teal: #0e5c63;
+  --gold: #c9a227;
+  --gold-soft: #e0c265;
+  --tulip: #a33b2e;
+  --paper: #f6ecd7;
+  --paper-dim: #efe2c4;
+  --ink: #2a2118;
+  --ink-soft: #4a3d2c;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: #efe6d2;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.72;
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 560px at 50% -120px, rgba(201,162,39,0.22), transparent 62%),
+    radial-gradient(760px 520px at 88% 18%, rgba(14,92,99,0.42), transparent 65%),
+    radial-gradient(680px 520px at 8% 62%, rgba(163,59,46,0.20), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(201,162,39,0.045) 0 2px, transparent 2px 16px),
+    repeating-linear-gradient(-45deg, rgba(201,162,39,0.045) 0 2px, transparent 2px 16px),
+    linear-gradient(180deg, var(--cobalt-deep) 0%, var(--cobalt) 34%, #0e2f4d 78%, var(--cobalt-deep) 100%);
+  background-attachment: fixed;
+}
+
+/* ————— crown ornament ————— */
+
+.crown-ornament {
+  display: block;
+  width: 100%;
+  height: 58px;
+  opacity: 0.85;
+  border-bottom: 1px solid rgba(201,162,39,0.35);
+  background: linear-gradient(180deg, rgba(201,162,39,0.10), transparent);
+}
+.crown-ornament svg { display: block; width: 100%; height: 100%; }
+
+/* ————— masthead ————— */
+
+.masthead {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 44px 22px 10px;
+  text-align: center;
+  position: relative;
+}
+
+.mast-rule {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 10px 14px;
+  border: 1px solid rgba(201,162,39,0.5);
+  background: rgba(7,26,51,0.55);
+  font-family: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.crescent {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 6px;
+  animation: crescent-bob 7s ease-in-out infinite;
+  filter: drop-shadow(0 0 14px rgba(201,162,39,0.45));
+}
+.crescent svg { width: 100%; height: 100%; }
+@keyframes crescent-bob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-7px) rotate(4deg); }
+}
+
+.masthead h1 {
+  font-family: "Amiri", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(44px, 7.4vw, 78px);
+  font-weight: 700;
+  margin: 0.05em 0 0.25em;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 0 34px rgba(201,162,39,0.35);
+}
+
+.mast-sub {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 19.5px;
+  font-style: italic;
+  color: #d9cba6;
+}
+.mast-sub strong { color: var(--gold-soft); font-style: normal; }
+
+.thread-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 22px auto 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #cbb87f;
+}
+.thread-meta span {
+  padding: 4px 12px;
+  border: 1px solid rgba(201,162,39,0.4);
+  border-radius: 999px;
+  background: rgba(7,26,51,0.5);
+}
+.thread-meta strong { color: #f2e6c2; }
+
+/* ————— board & posts ————— */
+
+.board {
+  max-width: 860px;
+  margin: 30px auto 60px;
+  padding: 0 18px;
+}
+
+.post {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(201,162,39,0.10), rgba(201,162,39,0.02) 60px),
+    repeating-linear-gradient(0deg, rgba(163,59,46,0.030) 0 1px, transparent 1px 26px),
+    var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+  outline: 3px double rgba(18,58,99,0.55);
+  outline-offset: 4px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45), inset 0 0 60px rgba(163,59,46,0.06);
+  padding: 0 34px 26px;
+  margin: 0 0 10px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.post::before,
+.post::after {
+  content: "❁";
+  position: absolute;
+  color: var(--tulip);
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+}
+.post::before { top: 8px; left: 10px; }
+.post::after { bottom: 8px; right: 10px; }
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 52px rgba(0,0,0,0.55), inset 0 0 60px rgba(163,59,46,0.08);
+}
+
+.post.closing {
+  background:
+    linear-gradient(180deg, rgba(18,58,99,0.14), rgba(201,162,39,0.05) 80px),
+    repeating-linear-gradient(0deg, rgba(18,58,99,0.04) 0 1px, transparent 1px 26px),
+    var(--paper-dim);
+}
+
+/* post header */
+
+.post-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 22px -34px 14px;
+  padding: 14px 34px 12px;
+  background: linear-gradient(90deg, var(--cobalt-mid), var(--cobalt) 70%);
+  border-bottom: 2px solid var(--gold);
+  color: #efe6d2;
+}
+
+.avatar { width: 46px; height: 46px; flex: 0 0 46px; }
+.avatar svg { width: 100%; height: 100%; display: block; }
+
+.who { flex: 1; min-width: 0; }
+.who .name {
+  margin: 0;
+  font-family: "Amiri", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--gold-soft);
+}
+.who .name small {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 15px;
+  color: #c8b98e;
+}
+.who .when {
+  margin: 2px 0 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: #9db3c9;
+}
+
+/* little css candle, one per post */
+
+.candle {
+  position: relative;
+  width: 20px;
+  height: 52px;
+  flex: 0 0 20px;
+  margin-top: 2px;
+}
+.candle .shaft {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 10px;
+  height: 30px;
+  background: linear-gradient(180deg, #f4e7c6, #d8c493);
+  border-radius: 2px;
+}
+.candle .wick {
+  position: absolute;
+  bottom: 28px;
+  left: 9.5px;
+  width: 1px;
+  height: 5px;
+  background: #3a2c1a;
+}
+.candle .flame {
+  position: absolute;
+  bottom: 32px;
+  left: 4px;
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(closest-side at 50% 70%, #fff3c4 0%, #f2c14e 55%, #d96a2b 85%, transparent 100%);
+  border-radius: 50% 50% 45% 45% / 62% 62% 38% 38%;
+  transform-origin: 50% 100%;
+  animation: flicker 1.7s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(242,193,78,0.85));
+}
+@keyframes flicker {
+  0%   { transform: scale(1) rotate(-2deg); opacity: 0.96; }
+  25%  { transform: scale(1.06, 0.94) rotate(2deg); opacity: 1; }
+  50%  { transform: scale(0.94, 1.05) rotate(-3deg); opacity: 0.9; }
+  75%  { transform: scale(1.03) rotate(1.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); opacity: 0.96; }
+}
+.post:hover .candle .flame { animation-duration: 0.9s; }
+
+/* post body */
+
+.post-body p { margin: 0 0 1.05em; }
+.post-body p:last-child { margin-bottom: 0; }
+.post-body strong { color: var(--cobalt-mid); font-weight: 700; }
+.post-body em { color: var(--tulip); }
+.post-body a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(201,162,39,0.8);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.post-body a:hover {
+  background: rgba(201,162,39,0.22);
+  color: var(--cobalt);
+}
+
+.kept {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--tulip);
+  border-bottom: 1px dashed rgba(163,59,46,0.65);
+  padding-bottom: 1px;
+  background: linear-gradient(180deg, transparent 60%, rgba(224,166,59,0.28) 60%);
+  white-space: nowrap;
+}
+
+/* tulip dividers */
+
+.divider {
+  display: flex;
+  justify-content: center;
+  margin: 26px 0;
+  opacity: 0.95;
+}
+.divider svg { width: 200px; height: 24px; }
+
+/* ————— colophon ————— */
+
+.colophon {
+  max-width: 900px;
+  margin: 0 auto 64px;
+  padding: 26px 22px 0;
+  border-top: 2px solid var(--gold);
+  background:
+    repeating-linear-gradient(45deg, rgba(201,162,39,0.05) 0 2px, transparent 2px 14px),
+    linear-gradient(180deg, rgba(7,26,51,0.7), transparent);
+  text-align: center;
+}
+.col-line {
+  margin: 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.col-dates {
+  margin: 10px 0 0;
+  font-family: "Amiri", Georgia, serif;
+  font-size: 20px;
+  color: #e6d8b0;
+  letter-spacing: 0.1em;
+}
+.col-note {
+  margin: 8px 0 0;
+  font-style: italic;
+  font-size: 15px;
+  color: #b7a97f;
+}
+
+/* ————— responsive ————— */
+
+@media (max-width: 620px) {
+  body { font-size: 17.5px; }
+  .post { padding: 0 20px 22px; }
+  .post-head { margin: 20px -20px 12px; padding: 12px 20px 10px; }
+  .candle { display: none; }
+  .thread-meta { gap: 6px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crescent, .candle .flame { animation: none; }
+  html { scroll-behavior: auto; }
+  .post { transition: none; }
+}
