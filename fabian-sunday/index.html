@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fabian Sunday — Family Recipe No. 11 · The Webb–Bivand Kitchens</title>
+<meta name="description" content="Family recipe No. 11 from the Webb–Bivand kitchens: the Fabian Sunday kettle cake, four kettles and one theodolite, with a long preamble on the London School of Economics and the house ledger that keeps it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+
+<header class="card-head">
+  <p class="card-kicker">The Webb&ndash;Bivand Kitchens · Household Papers · Card No. 11</p>
+  <h1>The Fabian Sunday</h1>
+  <p class="card-sub">A kettle cake in four batches, for four founders and everyone they later taught</p>
+  <div class="head-rule" aria-hidden="true"></div>
+</header>
+
+<main>
+  <section class="preamble">
+    <h2>Preamble, which is longer than the recipe</h2>
+
+    <p>My grandmother, Dora Webb, kept two kinds of papers in the same drawer: the family recipe cards, and the letters the school sent home from the London School of Economics and Political Science, commonly known as the London School of Economics, a public research university in the London Borough of Camden that specialises in pure and applied social sciences. The drawer was labelled <em>SOCIAL SCIENCE, APPLIED</em>, and the cake card was in it on account of the four kettles. The school itself was founded in 1895 by Fabian Society members Sidney Webb, Beatrice Webb, Graham Wallas and George Bernard Shaw; it joined the University of London in 1900, and offered its first degree programmes under the auspices of that university in 1901, which was Dora&rsquo;s year, and she came up in the first wave with a notebook of her own and a habit of underlining twice anything that mattered. In 2008 the school began awarding degrees in its own name, and in 2022 it became a university in its own right within the University of London; both events were marked at this table with the cake, because the card says no founding is complete until it has been fed.</p>
+
+    <p>The card reached Bergen in a folded corner of a 1998 letter, addressed to Professor R. S. Bivand, room 2.114, Egmontsveien 51, who sells himself by the half-day for <strong>NOK 2,400</strong> or two bottles of something sensible and a working kettle. The professor wrote back in pencil: <em>the cake is correct; the fourth batch is the applied social science, and the first three are the pure</em>. He also sent a T2 theodolite bearing &mdash; a reading, 1968, brass and glass &mdash; to which the kitchen replied with a Margaux, and the two have corresponded by post ever since. If you want to see what else that counter trades in, the Saturday column of the <a href="../bivand-classifieds/">Bergen Posten classifieds, Ad Column 11</a>, carries his notice, the auction of retired R packages, the lost shapefile with its stubborn wine-price column, and the theodolite itself offered in barter for a lecture on the local Moran statistic, delivered in a kitchen, before the kettle boils, with no slide.</p>
+
+    <p>We fix the date of the cake the same way the coastal survey service fixes a rock: by two bearings and a datum. The kitchen&rsquo;s own field manual for this, Chapter 4, the geographic coordinate system, sets the standing orders &mdash; know the datum, log every entry, and be back before the tide turns &mdash; and is kept on the shelf above the scale; the full chapter, with the jangada fixes off the Maranh&atilde;o coast, is in <a href="../meridian-log/">Field Manual FM-9</a>. The card bears a small table of the house&rsquo;s recorded fixes, and one entry has outlived its century. The kitchen logs its position &mdash; Camden, the borough; the school&rsquo;s gate on the main square; the kettle on the stove &mdash; to the minute, and the ledger that holds them has six rules nailed to it above the range. Five are legible. The sixth survives on the card as a fragment, with no subject to speak for it, and the kitchen has never once supplied one; it is copied here word for word, because it is all that is left and it is enough: <em>No. 4 , keeps the camp road at the foot of the channel.</em> We bake to it the way the skippers steer to a rock: the camp road is the line from the kettle to the table, the channel is the pass between the cold larder and the hot stove, and on every Fabian Sunday someone in this family has kept it, at the foot, since 1901.</p>
+  </section>
+
+  <section class="ingredients">
+    <h2>For four kettles</h2>
+    <ul>
+      <li>4 kettles, one per founder, each filled to the same mark</li>
+      <li>1&frac12; cups flour, plain, no social commentary in the sieve</li>
+      <li>&frac34; cup sugar, or the whole cup if the auction has been kind</li>
+      <li>4 eggs, one for the Webbs, one for Wallas, one for Shaw, one for the kettle</li>
+      <li>60 g butter, at room temperature, the applied batch</li>
+      <li>1 level teaspoon of the house&rsquo;s standing order, &ldquo;be back before the tide turns&rdquo;</li>
+      <li>1 case of Margaux, if the proprietor of 14 Dreggs gate will name it</li>
+      <li>2 bearings to the nearest church tower, for the date fix</li>
+    </ul>
+  </section>
+
+  <section class="method">
+    <h2>Method</h2>
+    <ol>
+      <li>Take two bearings on the church tower and the kettle; log the time, the place, and the datum of the oven.</li>
+      <li>Mix the first three batches pure &mdash; light, dry, unapplied &mdash; and set them on the middle shelf.</li>
+      <li>Set the fourth batch applied: the butter, the sugar, and the whole of the house&rsquo;s attention.</li>
+      <li>Keep the camp road at the foot of the channel. Do not argue with the ledger; the ledger is No. 4.</li>
+      <li>Feed four people, then feed the lecture, then feed the kettle back.</li>
+      <li>Be back at the table before the tide turns. If the Margaux will not be named, pour it anyway.</li>
+    </ol>
+  </section>
+
+  <section class="scale" id="scale">
+    <h2>Scaling the kettles</h2>
+    <p>Every Fabian Sunday this family has set the table for a different number, and the card has a margin note: <em>scale the kettles, never the standing order</em>. Set the number below and the card will measure the batch out for you, the way the professor measures the half-day &mdash; exactly, and in plain numbers.</p>
+    <div class="scale-controls">
+      <label for="guests">Souls at the table</label>
+      <input type="range" id="guests" name="guests" min="1" max="24" step="1" value="4">
+      <output id="guests-out">4</output>
+      <span class="scale-note" id="kettles-out"></span>
+    </div>
+    <table class="scale-table" aria-label="Recipe scaled to the number of souls">
+      <caption>Batch measured for the table</caption>
+      <thead>
+        <tr><th>Ingredient</th><th>For four</th><th>For your table</th></tr>
+      </thead>
+      <tbody id="scale-body">
+        <tr><td>Kettles</td><td>4</td><td class="s">4</td></tr>
+        <tr><td>Flour</td><td>1&frac12; cups</td><td class="s">1.5 cups</td></tr>
+        <tr><td>Sugar</td><td>&frac34; cup</td><td class="s">0.75 cup</td></tr>
+        <tr><td>Eggs</td><td>4</td><td class="s">4</td></tr>
+        <tr><td>Butter (the applied batch)</td><td>60 g</td><td class="s">60 g</td></tr>
+      </tbody>
+    </table>
+    <p class="scale-foot" id="scale-foot">The standing order does not scale. It is kept, whole, at the foot of the channel.</p>
+  </section>
+
+</main>
+
+<footer class="card-foot">
+  <div class="head-rule" aria-hidden="true"></div>
+  <p>Household Papers, Card No. 11 · Camden, London · Egmontsveien 51, Bergen · set by the family, to the minute. <a href="../">Return to Webstuffs</a>.</p>
+</footer>
+
+</div>
+<script src="scale.js"></script>
+</body>
+</html>

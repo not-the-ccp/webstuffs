@@ -1,0 +1,136 @@
+/* The Fabian Sunday — family recipe card, Webb-Bivand household papers */
+
+:root {
+  --paper: #f7f1e3;
+  --ink: #2b2620;
+  --faded: #6d6353;
+  --rule: #b3a486;
+  --accent: #7a2e1d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e0cc;
+  background-image: repeating-linear-gradient(0deg, transparent 0 34px, rgba(179, 164, 134, 0.18) 34px 35px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.card {
+  max-width: 46rem;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 30px rgba(43, 38, 32, 0.25);
+  padding: 2.2rem 2.4rem 1.4rem;
+}
+
+.card-head { text-align: center; }
+
+.card-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--faded);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+.card-sub {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.4rem 0 1rem;
+}
+
+.head-rule {
+  border-top: 3px double var(--rule);
+  margin: 0.8rem 0 1.2rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+p, li { font-size: 1rem; }
+
+.preamble p { margin: 0 0 1rem; }
+
+em { color: var(--faded); }
+
+strong { color: var(--accent); }
+
+a { color: var(--accent); }
+
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.25rem 0; }
+
+/* scaling calculator */
+.scale { margin-top: 1.6rem; }
+
+.scale-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+
+.scale-controls label { font-weight: bold; font-size: 0.9rem; }
+
+input[type="range"] {
+  flex: 1;
+  min-width: 140px;
+  accent-color: var(--accent);
+}
+
+output {
+  font-weight: bold;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.scale-note { font-style: italic; color: var(--faded); font-size: 0.85rem; }
+
+.scale-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  margin: 0.8rem 0;
+}
+
+.scale-table caption {
+  caption-side: bottom;
+  font-size: 0.75rem;
+  color: var(--faded);
+  padding-top: 0.3rem;
+  text-align: left;
+}
+
+.scale-table th,
+.scale-table td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+}
+
+.scale-table th { background: rgba(179, 164, 134, 0.25); font-variant: small-caps; }
+
+.scale-table td.s { font-weight: bold; color: var(--accent); }
+
+.scale-foot { font-style: italic; font-size: 0.85rem; color: var(--faded); }
+
+.card-foot { margin-top: 1.6rem; text-align: center; font-size: 0.85rem; color: var(--faded); }
