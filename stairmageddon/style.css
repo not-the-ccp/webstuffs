@@ -1,0 +1,212 @@
+/* Dunder Mifflin Elevator Line — Timetable No. 19 */
+:root {
+  --paper: #f2ead8;
+  --paper-dark: #e6dcc3;
+  --ink: #26221a;
+  --rule: #8a7a55;
+  --red: #8f2b1e;
+  --green: #3c5a3e;
+  --stamp: #a33b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(138,122,85,.06) 0 2px, transparent 2px 26px),
+    #cfc4a6;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2.5rem 1rem;
+}
+
+.card {
+  max-width: 62rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 3px double var(--ink);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  padding: 2.2rem 2.4rem 1.6rem;
+  box-shadow: 0 10px 28px rgba(38,34,26,.35);
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+/* Masthead */
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: .4rem;
+}
+
+h1 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: .9rem 0 .3rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 46%;
+  border-top: 4px solid var(--red);
+  border-bottom: 1px solid var(--red);
+  height: 6px;
+  margin-top: .5rem;
+}
+
+.mast-sub {
+  font-family: "Courier New", monospace;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: .5rem 0 1.1rem;
+}
+
+.notice {
+  border: 2px solid var(--red);
+  background: var(--paper-dark);
+  padding: .8rem 1rem;
+  font-size: .92rem;
+}
+.notice strong { letter-spacing: .05em; }
+
+/* Timetable */
+.board { margin: 1.6rem 0; }
+
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: .82rem;
+  background: #efe6cf;
+  border: 2px solid var(--ink);
+}
+
+.timetable th {
+  background: var(--ink);
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .68rem;
+  padding: .55rem .7rem;
+  border: 1px solid var(--ink);
+  text-align: left;
+}
+
+.timetable td {
+  border: 1px solid var(--rule);
+  padding: .5rem .7rem;
+  vertical-align: top;
+}
+
+.timetable tbody tr:nth-child(even) { background: rgba(138,122,85,.10); }
+
+.time {
+  font-weight: 700;
+  white-space: nowrap;
+  border-right: 2px solid var(--ink);
+}
+
+tr.late .time { color: var(--red); }
+tr.late td { background: rgba(179,59,42,.07); }
+
+.wide { width: 34%; }
+
+/* Commentary */
+.comments h2 {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: .5rem 0;
+  margin: 2rem 0 1rem;
+}
+
+.comments h3 {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 1rem;
+  margin: 1.4rem 0 .4rem;
+  color: var(--green);
+}
+
+.comments p { margin: .6rem 0; }
+
+blockquote {
+  margin: 1rem 1.4rem;
+  padding: .8rem 1rem;
+  border-left: 4px solid var(--red);
+  background: var(--paper-dark);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--green);
+  text-decoration-color: rgba(60,90,62,.45);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--red); text-decoration-color: var(--red); }
+
+/* Footer */
+.foot {
+  margin-top: 2rem;
+  border-top: 2px solid var(--ink);
+  padding-top: .8rem;
+  font-family: "Courier New", monospace;
+  font-size: .74rem;
+  letter-spacing: .04em;
+}
+.foot-links { margin-top: .35rem; }
+
+/* Delay stamp */
+.stamp {
+  position: absolute;
+  top: 2.4rem;
+  right: 2.2rem;
+  transform: rotate(9deg);
+  border: 3px solid var(--stamp);
+  color: var(--stamp);
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  padding: .35rem .9rem;
+  font-size: 1rem;
+  opacity: .8;
+  pointer-events: none;
+}
+.stamp::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--stamp);
+}
+
+@media (max-width: 560px) {
+  .card { padding: 1.4rem 1.1rem; }
+  .stamp { position: static; display: inline-block; margin-bottom: 1rem; }
+  .timetable { font-size: .72rem; }
+}
