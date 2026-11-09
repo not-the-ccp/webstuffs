@@ -1,0 +1,101 @@
+/* Notice No. 4291 — The Bugesera Sitting · Gatehouse Clerk's Office, Kigali */
+html {
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-size: 100%;
+  line-height: 1.7;
+  color: #201d18;
+  background-color: #faf7f1;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 38rem;
+  padding: 2.6rem 1.4rem;
+}
+
+.notice-head {
+  border-bottom: 1pt solid #b8b2a6;
+  padding-bottom: 1.1rem;
+  margin-bottom: 2.2rem;
+}
+
+.office {
+  font-size: 0.85rem;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+  margin: 0 0 0.4rem 0;
+  color: #6e6658;
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin: 0 0 0.5rem 0;
+  color: #1a1814;
+}
+
+.posted {
+  font-size: 0.85rem;
+  color: #5c564c;
+  margin: 0;
+}
+
+h2 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  margin: 2rem 0 0.7rem 0;
+  color: #756d5f;
+  border-bottom: 1pt solid #d8d2c6;
+  padding-bottom: 0.3rem;
+}
+
+p {
+  margin: 0 0 1.05rem 0;
+  text-align: justify;
+}
+
+.fragment {
+  margin: 1.8rem 0;
+}
+
+.fragment blockquote {
+  margin: 0;
+  padding: 0.9rem 0 0.9rem 1.2rem;
+  border-left: 3pt solid #8c8070;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #343029;
+}
+
+.fragment blockquote p {
+  margin: 0 0 0.5rem 0;
+}
+
+.source {
+  font-size: 0.8rem;
+  font-style: normal;
+  color: #756d5f;
+  margin: 0;
+}
+
+a {
+  color: #4a4438;
+  border-bottom: 1pt dotted #9c9485;
+  text-decoration: none;
+}
+
+.colophon {
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  border-top: 1pt solid #b8b2a6;
+  font-size: 0.8rem;
+  color: #6e6658;
+  letter-spacing: 0.08rem;
+}
+
+@media (max-width: 480px) {
+  body { padding: 1.4rem 1rem; }
+  h1 { font-size: 1.1rem; }
+}
