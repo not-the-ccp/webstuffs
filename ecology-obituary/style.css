@@ -1,0 +1,139 @@
+/* The Paramaribo Weekly — obituary sheet · Ecology */
+html { line-height: 1.3; }
+body {
+  margin: 0;
+  padding: 0;
+  background: #ede6d2;
+  color: #141414;
+  font-family: "Times New Roman", Times, "Noto Serif", Georgia, serif;
+}
+.sheet {
+  position: relative;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 24px 26px 36px;
+  background: #fffdf3;
+  border: 1px solid #8c846e;
+  border-top: 4px double #000;
+  border-bottom: 4px double #000;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+}
+/* tea ring from the pour over the table at the lower room */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 140px;
+  left: 470px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 7px solid rgba(120, 78, 28, 0.13);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 2;
+}
+.masthead {
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.paper-title {
+  font-size: 27px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+  font-weight: bold;
+}
+.paper-title .amp { font-style: italic; letter-spacing: 0; }
+.paper-line {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #333;
+}
+.paper-date {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 3px 0 0;
+  color: #555;
+}
+.deck {
+  border-bottom: 1px solid #000;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.notice-kind {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: #444;
+}
+h1 {
+  font-size: 27px;
+  margin: 0 0 4px;
+  letter-spacing: 1px;
+}
+.full-name {
+  font-size: 13px;
+  font-style: italic;
+  margin: 0 0 6px;
+}
+.dates {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+p {
+  margin: 0 0 13px;
+  text-align: justify;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+p.drop::first-letter {
+  float: left;
+  font-size: 42px;
+  line-height: 0.85;
+  padding: 2px 6px 0 0;
+  font-weight: bold;
+}
+.bequest {
+  border: 1.5px solid #000;
+  background: #fbf6e3;
+  padding: 12px 16px;
+  margin: 18px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+}
+.bequest-head {
+  font-size: 9.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  color: #444;
+  border-bottom: 1px dotted #000;
+  padding-bottom: 5px;
+}
+.bequest-line { margin: 0; }
+.notice-foot {
+  border-top: 1px solid #000;
+  padding-top: 11px;
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+.notice-foot a {
+  color: #000;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .sheet { margin: 16px auto; padding: 16px 16px 28px; }
+  .sheet::before { display: none; }
+  h1 { font-size: 22px; }
+}
