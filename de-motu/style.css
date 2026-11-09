@@ -1,0 +1,170 @@
+/* Lost & Found Notice No. 1684 — aged ledger paper, stamped and ruled */
+
+:root {
+  --paper: #f3ead6;
+  --paper-deep: #e9ddc0;
+  --ink: #2b241a;
+  --faded: #6d5f47;
+  --rule: #a5946f;
+  --band-lost: #8c3b2e;
+  --band-found: #3d5a45;
+  --band-claim: #5a4a72;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #23201b;
+  background-image: radial-gradient(ellipse at 50% 0%, #2e2a23 0%, #1d1a16 75%);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 32px 12px 64px;
+}
+
+.sheet {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(rgba(120, 100, 60, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse at 15% 8%, rgba(255, 252, 240, 0.55), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(120, 95, 50, 0.18), transparent 60%);
+  background-size: 100% 28px, 100% 100%, 100% 100%;
+  border: 1px solid #191510;
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.25), 0 18px 50px rgba(0,0,0,0.55);
+  padding: 44px 48px 36px;
+}
+
+@media (max-width: 620px) { .sheet { padding: 30px 20px 26px; } }
+
+.office { text-align: center; }
+
+.office-rule {
+  letter-spacing: 0.6em;
+  font-size: 0.7rem;
+  color: var(--faded);
+  margin: 0;
+}
+
+.office-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 14px 0 4px;
+}
+
+.dot { color: var(--rule); padding: 0 0.25em; }
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 4px 0 2px;
+  font-weight: 700;
+}
+
+.office-sub {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 12px;
+}
+
+.notice { margin-top: 34px; }
+
+.band {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 6px;
+  margin: 0 0 16px;
+}
+.lost .band { color: var(--band-lost); }
+.found .band { color: var(--band-found); }
+.claim .band { color: var(--band-claim); }
+.band-mark { margin-right: 0.5em; }
+
+p { margin: 0 0 14px; }
+
+.label {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: 1px 8px 2px;
+  margin-right: 0.6em;
+  color: var(--faded);
+  vertical-align: 0.1em;
+}
+
+.ledger-line {
+  margin: 20px 8px 22px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: rgba(255, 253, 245, 0.5);
+}
+.ledger-line p { font-style: italic; font-size: 1.06rem; margin: 0; }
+.ledger-src {
+  font-style: normal !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+  margin-top: 8px !important;
+}
+
+.stamp {
+  position: absolute;
+  top: 60px;
+  right: 46px;
+  transform: rotate(-9deg);
+  border: 3px double var(--band-lost);
+  color: var(--band-lost);
+  text-align: center;
+  padding: 6px 16px 8px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  font-size: 1.3rem;
+  opacity: 0.75;
+  mix-blend-mode: multiply;
+}
+.stamp small {
+  display: block;
+  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.orn-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 38px 0 6px;
+  color: var(--faded);
+}
+.orn-rule { flex: 1; border-top: 1px solid var(--rule); }
+.orbit { width: 40px; height: 40px; }
+
+.foot { margin-top: 18px; text-align: center; }
+.foot-stamp {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 12px;
+}
+.foot-links {
+  font-size: 0.82rem;
+  color: var(--faded);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.foot-links a { color: var(--ink); }
