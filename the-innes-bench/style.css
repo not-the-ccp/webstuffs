@@ -1,0 +1,181 @@
+/* The Innes Bench — newsletter of the Magsaysay Crime Fiction Society */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #2b241a;
+  --cassis: #6d1f2c;
+  --green: #3c5a3e;
+  --rule: #b7a98c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e2d0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 6px double var(--cassis);
+  padding: 2rem 2.25rem 2.5rem;
+  box-shadow: 0 2px 14px rgba(43, 36, 26, 0.18);
+}
+
+.masthead { text-align: center; }
+
+.club-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 0.75rem;
+}
+
+.masthead h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  letter-spacing: 0.04em;
+  color: var(--cassis);
+}
+
+.mast-dek {
+  font-style: italic;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.mast-rule {
+  height: 0;
+  border-top: 3px double var(--ink);
+  margin: 0.75rem 0 1rem;
+}
+
+table.mast-fields, table.votes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 0.5rem 0 1rem;
+}
+
+table.mast-fields th, table.mast-fields td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+}
+
+table.mast-fields th {
+  width: 11%;
+  color: var(--cassis);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+table.votes th, table.votes td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+}
+
+table.votes caption {
+  caption-side: top;
+  font-size: 0.8rem;
+  font-style: italic;
+  padding-bottom: 0.35rem;
+}
+
+table.votes thead th {
+  border-bottom: 2px solid var(--ink);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+section.section { margin: 1.75rem 0; }
+
+section.section h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+.sec-no {
+  color: var(--cassis);
+  font-variant: small-caps;
+  margin-right: 0.5rem;
+}
+
+blockquote.kept-line {
+  margin: 1rem 0;
+  padding: 0.9rem 1.25rem;
+  background: #efe6d3;
+  border-left: 5px solid var(--cassis);
+  font-style: italic;
+}
+
+/* the quiz */
+.quiz { margin: 1rem 0; }
+
+.quiz-score {
+  font-weight: bold;
+  color: var(--cassis);
+}
+
+fieldset.question {
+  border: 1px solid var(--rule);
+  margin: 0.75rem 0;
+  padding: 0.6rem 0.9rem 0.75rem;
+}
+
+fieldset.question legend {
+  font-weight: bold;
+  padding: 0 0.4rem;
+}
+
+fieldset.question button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0.3rem 0;
+  padding: 0.35rem 0.6rem;
+  font: inherit;
+  background: #faf6ea;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+fieldset.question button:hover { background: #efe6d3; }
+
+fieldset.question button[disabled] { cursor: default; opacity: 0.65; }
+fieldset.question button.chosen-right {
+  background: #dce8dc;
+  border-color: var(--green);
+  font-weight: bold;
+  opacity: 1;
+}
+fieldset.question button.chosen-wrong {
+  background: #f2dcdc;
+  border-color: var(--cassis);
+  opacity: 1;
+}
+
+.quiz-key { font-size: 0.9rem; }
+
+.sheet-footer {
+  max-width: 46rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  text-align: center;
+  color: #5a4f3d;
+}
+
+a { color: var(--cassis); }
