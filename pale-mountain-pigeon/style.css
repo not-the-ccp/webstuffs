@@ -1,0 +1,177 @@
+:root {
+  --paper: #f7f3ea;
+  --ink: #26221c;
+  --faint: #6f675a;
+  --rule: #c9bfa8;
+  --red: #8a3b2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+}
+
+.catalogue-head {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.4rem;
+  text-align: center;
+}
+
+.house {
+  margin: 0 0 .4rem;
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.sale-line {
+  margin: 0;
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--faint);
+}
+
+.rule {
+  height: 3px;
+  margin: 1.3rem auto 0;
+  width: 4.5rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.lot {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.lot-id {
+  text-align: center;
+  margin: 2.2rem 0 2.4rem;
+}
+
+.lot-number {
+  margin: 0 0 1rem;
+  font-size: .82rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+h1 {
+  margin: 0 0 .6rem;
+  font-size: 2.1rem;
+  font-weight: normal;
+  line-height: 1.25;
+  letter-spacing: .01em;
+}
+
+.latin {
+  margin: 0;
+  font-size: .92rem;
+  color: var(--faint);
+}
+
+.lot-body p {
+  margin: 0 0 1.35rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.lot-body p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: .82;
+  padding-right: .12em;
+  color: var(--red);
+}
+
+.lot-body a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+
+.lot-body a:hover {
+  border-bottom-color: var(--red);
+  color: var(--red);
+}
+
+.terms {
+  margin: 2.6rem 0 0;
+}
+
+.terms h2 {
+  font-size: .85rem;
+  font-weight: normal;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .5rem;
+  margin: 0 0 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .97rem;
+}
+
+th {
+  text-align: left;
+  vertical-align: top;
+  width: 9rem;
+  padding: .45rem .8rem .45rem 0;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--faint);
+  border-bottom: 1px dotted var(--rule);
+}
+
+td {
+  padding: .45rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.stamp {
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.stamp svg {
+  opacity: .85;
+}
+
+.stamp-text {
+  fill: var(--red);
+  font-family: Georgia, serif;
+}
+
+.stamp-text.small { font-size: 10.5px; letter-spacing: .14em; }
+.stamp-text.big { font-size: 34px; letter-spacing: .08em; }
+
+.stamp-note {
+  margin: .4rem 0 0;
+  font-size: .78rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.colophon {
+  margin-top: 3.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-size: .82rem;
+  font-style: italic;
+  color: var(--faint);
+}
