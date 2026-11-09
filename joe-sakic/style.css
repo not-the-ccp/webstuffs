@@ -1,0 +1,125 @@
+/* The Mountain & Prairie Guidebook — sheet 004127: Joe Sakic, "Burnaby Joe" */
+
+/* The sheet itself: cream stock on a dark board, dog-eared top-right corner */
+html { font-family: ui-serif, "Iowan Old Style", "Sitka Text", Georgia, "Times New Roman", Times, serif; }
+body {
+  margin: 0;
+  padding: 30px 12px;
+  background: #7a582b;
+  color: #26212e;
+  line-height: 1.62;
+}
+.guide {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  background: #f4efdf;
+  border: 12px solid #c8b988;
+  box-shadow: 0 0 0 2px #453010, 16px 16px 0 #a6915e;
+  padding: 44px 38px 56px;
+  transform: rotate(-0.25deg);
+}
+.guide::before {
+  content: "";
+  position: absolute;
+  top: -12px; right: -12px;
+  width: 56px; height: 56px;
+  background: #7a582b;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+/* Header: issuer line, stamp, name */
+.guide-head { border-bottom: 3px double #5c3a10; padding-bottom: 16px; margin-bottom: 26px; }
+.issuer {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7a1f1f;
+  border: 1.6px solid #7a1f1f;
+  background: #fdf6ec;
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 0 0 14px;
+  font-family: ui-monospace, Courier, monospace;
+}
+.issuer::before { content: "STAMP "; }
+h1 {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 6px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.deck {
+  font-size: 13.5px;
+  color: #4a4438;
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+/* Sections and section numbers */
+h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  margin: 30px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #9e8a52;
+  color: #5c3a10;
+}
+.num {
+  display: inline-block;
+  min-width: 22px;
+  background: #7a1f1f;
+  color: #f4efdf;
+  font-variant: normal;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-align: center;
+  padding: 2px 8px;
+  margin-right: 8px;
+  border: 1px solid #55150c;
+}
+p { margin: 0 0 14px; }
+p.drop::first-letter {
+  font-size: 42px;
+  font-weight: 700;
+  color: #7a1f1f;
+  line-height: 0.9;
+  padding-right: 6px;
+  float: left;
+}
+strong { color: #3d2a0e; }
+
+/* Two-column sightseeing pages */
+.two-col { column-gap: 26px; column-rule: 1px solid #c9b88c; }
+@media (min-width: 620px) {
+  .two-col { columns: 2; }
+}
+
+/* Practical box: a ticket label pinned to the page */
+.practical {
+  background: #efe7d3;
+  border: 1px solid #b7a670;
+  border-top: 4px solid #7a1f1f;
+  padding: 16px 18px 12px;
+  margin-top: 30px;
+}
+.tips { display: grid; gap: 10px; }
+.tip::before { content: "\2022 "; color: #7a1f1f; font-weight: 700; }
+.tip strong { font-variant: small-caps; letter-spacing: 0.08em; }
+
+/* Cross-reference links: dotted rule under, like guidebook cross-refs */
+a { color: #7a1f1f; text-decoration: none; border-bottom: 1px dotted #a36b4a; }
+a:hover, a:focus { background: #fdf3de; }
+
+.guide-foot { margin-top: 34px; padding-top: 14px; border-top: 1px solid #c9b88c; font-size: 13px; color: #5a5242; }
+.cross-ref a { border-bottom: 1px dotted #9e8a52; }
+
+/* Wear: creases at print time only */
+@media print {
+  body { background: #fff; padding: 0; }
+  .guide { box-shadow: none; border: none; transform: none; box-sizing: border-box; width: 100%; }
+}
