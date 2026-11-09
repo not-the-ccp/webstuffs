@@ -1,0 +1,138 @@
+/* The Wickham Papers — letter sheet */
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #2b2620;
+  --faint: #6f665a;
+  --rule: #c9bfa9;
+  --seal: #7d3b2c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #e9e2d3;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 42rem;
+  margin: 4rem auto 5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 3.5rem 3.75rem 2.75rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06), 0 14px 40px -18px rgba(43,38,32,.35);
+}
+
+.letterhead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.office {
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.letter-no {
+  margin-top: .5rem;
+  font-size: .74rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-style: italic;
+}
+
+.letter .date {
+  text-align: right;
+  font-style: italic;
+  color: var(--faint);
+  margin-bottom: 1.6rem;
+}
+
+.addressed {
+  font-size: .95rem;
+  line-height: 1.6;
+  color: var(--faint);
+  margin-bottom: 2.2rem;
+  padding-left: 3.25rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--seal);
+  margin: 1rem auto 0;
+}
+
+.letter p { margin-bottom: 1.35rem; }
+
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: .82;
+  padding-right: .12em;
+  color: var(--seal);
+  font-weight: 600;
+}
+
+a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125,59,44,.4);
+}
+
+a:hover { border-bottom-color: var(--seal); }
+
+.closing { margin-top: 2.2rem; font-style: italic; }
+
+.signature {
+  margin-top: .4rem;
+}
+
+.signature .sig-title {
+  font-size: .85rem;
+  color: var(--faint);
+  letter-spacing: .06em;
+}
+
+.p.s. {
+  font-size: .9rem;
+  color: var(--faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 1.1rem;
+}
+
+.colophon {
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-size: .74rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (max-width: 560px) {
+  .sheet { margin: 0; padding: 2.25rem 1.4rem; border-left: 0; border-right: 0; }
+  .addressed { padding-left: 0; }
+}
