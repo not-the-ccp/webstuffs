@@ -1,0 +1,292 @@
+/* The Gatehouse Answers — Archive Room, Shelf D, Broadmoor Hospital, Crowthorne
+   Question and answer register, set on cream wove with barbed wire and candle smoke. */
+
+:root {
+  --ink: #221c14;
+  --ink-soft: #3c3223;
+  --parchment: #f2e8d2;
+  --parchment-deep: #e5d5ae;
+  --rust: #7c2d12;
+  --wax: #6d1a0e;
+  --wax-hi: #a3402a;
+  --wire: #4b4335;
+  --stamp: #8a6d3b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", "IM Fell English", Georgia, serif;
+  color: var(--ink);
+  font-size: 1.19rem;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(255, 244, 214, 0.9), transparent 60%),
+    radial-gradient(ellipse 90% 45% at 12% 105%, rgba(124, 45, 18, 0.16), transparent 65%),
+    radial-gradient(ellipse 90% 45% at 88% 108%, rgba(75, 67, 53, 0.2), transparent 65%),
+    repeating-linear-gradient(45deg, rgba(138, 109, 59, 0.05) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(-45deg, rgba(34, 28, 20, 0.045) 0 2px, transparent 2px 18px),
+    linear-gradient(180deg, #efe3c4 0%, var(--parchment) 22%, #eee0bd 55%, #e2d0a5 100%);
+  min-height: 100vh;
+}
+
+/* drifting dust, kept faint so the text stays readable */
+.dust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(circle 1.4px at 12% 30%, rgba(90, 70, 40, 0.5) 99%, transparent),
+    radial-gradient(circle 1px at 28% 68%, rgba(90, 70, 40, 0.4) 99%, transparent),
+    radial-gradient(circle 1.8px at 44% 18%, rgba(90, 70, 40, 0.35) 99%, transparent),
+    radial-gradient(circle 1.2px at 61% 82%, rgba(90, 70, 40, 0.45) 99%, transparent),
+    radial-gradient(circle 1px at 74% 44%, rgba(90, 70, 40, 0.4) 99%, transparent),
+    radial-gradient(circle 1.6px at 88% 22%, rgba(90, 70, 40, 0.35) 99%, transparent),
+    radial-gradient(circle 1.1px at 95% 74%, rgba(90, 70, 40, 0.4) 99%, transparent);
+  background-size: 700px 700px;
+  animation: drift 90s linear infinite;
+}
+@keyframes drift {
+  from { background-position: 0 0; }
+  to   { background-position: 700px -700px; }
+}
+
+/* crenellated battlements, top and bottom of the sheet */
+.crenal {
+  color: var(--ink);
+  line-height: 0;
+  opacity: 0.92;
+}
+.crenal svg { width: 100%; height: 30px; display: block; }
+.crenal.bottom { transform: rotate(180deg); }
+
+.register {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* the letterhead */
+.letterhead {
+  text-align: center;
+  border: 3px double var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+  padding: 2.4rem 2rem 1.9rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(124, 45, 18, 0.12) 27px 28px),
+    linear-gradient(160deg, rgba(255, 248, 226, 0.85), rgba(229, 213, 174, 0.55));
+  position: relative;
+}
+.letterhead::before,
+.letterhead::after {
+  content: "\2756";
+  position: absolute;
+  top: 0.55rem;
+  font-size: 1.3rem;
+  color: var(--rust);
+  animation: flicker 4s ease-in-out infinite;
+}
+.letterhead::before { left: 0.8rem; }
+.letterhead::after  { right: 0.8rem; animation-delay: 2s; }
+@keyframes flicker {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; text-shadow: 0 0 14px rgba(163, 64, 42, 0.8); }
+}
+
+.office {
+  font-family: "IM Fell English SC", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.34em;
+  margin: 0 0 0.9rem;
+  color: var(--rust);
+}
+
+h1.gothic {
+  font-family: "UnifrakturCook", "IM Fell English", serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7.5vw, 4.2rem);
+  margin: 0;
+  line-height: 1.05;
+  color: var(--ink);
+  text-shadow:
+    2px 2px 0 rgba(124, 45, 18, 0.28),
+    4px 4px 10px rgba(34, 28, 20, 0.25);
+}
+
+.place {
+  font-style: italic;
+  font-size: 1.12rem;
+  margin: 0.7rem 0 0.4rem;
+  color: var(--ink-soft);
+}
+
+.est {
+  font-size: 0.95rem;
+  margin: 0.6rem auto 0;
+  max-width: 34rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.ornament {
+  color: var(--rust);
+  margin: 1.1rem auto 0.4rem;
+  width: 11rem;
+  line-height: 0;
+}
+.ornament svg { width: 100%; height: 26px; }
+
+/* the barbed wire rule */
+.wire {
+  color: var(--wire);
+  margin: 2rem 0;
+  line-height: 0;
+  opacity: 0.85;
+}
+.wire svg { width: 100%; height: 22px; }
+.wire .wireline {
+  stroke-dasharray: 6 10;
+  animation: strum 14s linear infinite;
+}
+@keyframes strum {
+  to { stroke-dashoffset: -640; }
+}
+
+.foreword {
+  font-size: 1.08rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 4px solid var(--rust);
+  border-right: 4px solid var(--rust);
+  background: linear-gradient(90deg, rgba(124, 45, 18, 0.08), transparent 30%, transparent 70%, rgba(124, 45, 18, 0.08));
+}
+
+/* the register itself */
+.faq {
+  margin-top: 1.4rem;
+}
+
+details.q {
+  border: 1px solid rgba(34, 28, 20, 0.55);
+  border-left: 6px solid var(--wax);
+  margin: 0 0 1.15rem;
+  padding: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 25px, rgba(138, 109, 59, 0.09) 25px 26px),
+    linear-gradient(175deg, rgba(255, 249, 231, 0.9), rgba(236, 220, 183, 0.75));
+  box-shadow:
+    3px 3px 0 rgba(34, 28, 20, 0.14),
+    inset 0 0 30px rgba(138, 109, 59, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+details.q:hover {
+  transform: translateX(4px);
+  box-shadow:
+    6px 6px 0 rgba(124, 45, 18, 0.2),
+    inset 0 0 30px rgba(138, 109, 59, 0.16);
+}
+
+details.q summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.95rem 1.2rem 0.95rem 1rem;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.22rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  user-select: none;
+}
+details.q summary::-webkit-details-marker { display: none; }
+details.q summary::after {
+  content: "\271A";
+  margin-left: auto;
+  color: var(--wax);
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+details.q[open] summary::after { transform: rotate(135deg); }
+
+.num {
+  font-family: "IM Fell English SC", serif;
+  color: var(--wax);
+  min-width: 2.2rem;
+  letter-spacing: 0.08em;
+}
+
+.a {
+  padding: 0 1.4rem 1.2rem 3.4rem;
+  border-top: 1px dashed rgba(124, 45, 18, 0.45);
+  padding-top: 0.9rem;
+}
+.a p { margin: 0 0 0.8rem; }
+.a p:last-child { margin-bottom: 0; }
+
+em { font-style: italic; }
+strong { font-weight: 600; color: var(--wax); }
+
+a {
+  color: var(--wax);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+a:hover {
+  color: var(--parchment);
+  background: var(--wax);
+  text-decoration-color: transparent;
+}
+
+/* the wax seal */
+.seal {
+  width: 7rem;
+  margin: 2.6rem auto 0;
+  line-height: 0;
+  animation: stamp 3.2s ease-in-out infinite;
+}
+@keyframes stamp {
+  0%, 88%, 100% { transform: rotate(0deg) scale(1); }
+  92% { transform: rotate(-4deg) scale(1.03); }
+  96% { transform: rotate(3deg) scale(1.01); }
+}
+.seal svg { width: 100%; height: auto; filter: drop-shadow(3px 4px 6px rgba(34, 28, 20, 0.4)); }
+.seal-wax {
+  fill: var(--wax);
+  stroke: var(--wax-hi);
+  stroke-width: 2;
+}
+.seal-ring { fill: none; stroke: #e8b79a; stroke-width: 1.6; opacity: 0.7; }
+.seal-ring.thin { stroke-width: 0.9; opacity: 0.5; }
+.seal-text {
+  fill: #f2d8bf;
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+.seal-text.small { font-size: 10px; }
+
+.colophon {
+  margin-top: 2.4rem;
+  text-align: center;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 3px double var(--ink);
+  padding-top: 1rem;
+}
+
+@media (max-width: 560px) {
+  .a { padding-left: 1.2rem; }
+  .letterhead { padding: 1.8rem 1.1rem 1.5rem; }
+  body { font-size: 1.1rem; }
+}
