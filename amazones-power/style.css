@@ -1,0 +1,151 @@
+/* The Listening Shed — Build Log No. 12
+   Palette: Sahel mudcloth — indigo, ochre, kerosene-lamp amber, limestone paper */
+
+:root {
+  --indigo: #1e2a4a;
+  --indigo-deep: #131b30;
+  --ochre: #c8862a;
+  --ochre-soft: #e0b46a;
+  --amber: #f2c14e;
+  --paper: #f4ead6;
+  --paper-shade: #ecdfc4;
+  --ink: #241f1a;
+  --red: #a33b25;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(200, 134, 42, 0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 64%, rgba(30, 42, 74, 0.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 45% 88%, rgba(200, 134, 42, 0.08) 0 1px, transparent 2px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.log {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+/* Bogolan strip — mud-cloth zigzag band */
+.bogolan {
+  height: 14px;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--indigo) 0 8px,
+      var(--ochre) 8px 16px,
+      var(--paper) 16px 20px,
+      var(--red) 20px 24px);
+  border-top: 3px solid var(--indigo-deep);
+  border-bottom: 3px solid var(--indigo-deep);
+  margin: 0 0 1.75rem;
+}
+footer .bogolan { margin: 1.5rem 0 0.75rem; }
+
+.masthead {
+  border-bottom: 4px double var(--indigo);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.shop {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin: 0 0 0.35rem;
+}
+
+.logno {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--red);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  color: var(--indigo-deep);
+}
+h1 em { color: var(--ochre); font-style: italic; }
+
+.subtitle {
+  font-style: italic;
+  color: #5c5142;
+  margin: 0;
+}
+
+.entry { margin-bottom: 2rem; }
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  border-left: 6px solid var(--ochre);
+  padding-left: 0.6rem;
+  margin: 0 0 0.8rem;
+}
+
+strong { color: var(--indigo-deep); }
+
+blockquote.carton-line {
+  margin: 1.1rem 0;
+  padding: 0.9rem 1.1rem 0.9rem 1.3rem;
+  background: var(--paper-shade);
+  border: 2px dashed var(--ochre);
+  border-left: 8px solid var(--indigo);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--indigo-deep);
+  box-shadow: 3px 3px 0 rgba(30, 42, 74, 0.18);
+}
+blockquote.carton-line p { margin: 0; }
+
+a {
+  color: var(--indigo);
+  text-decoration: underline;
+  text-decoration-color: var(--ochre);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--red); }
+
+.colophon {
+  font-size: 0.9rem;
+  color: #5c5142;
+}
+.colophon p {
+  font-family: "Courier New", Courier, monospace;
+  margin: 0.5rem 0 0;
+}
+
+#bench-light {
+  position: fixed;
+  bottom: 0.9rem;
+  right: 0.9rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 2px solid var(--indigo-deep);
+  box-shadow: 0 0 8px 2px rgba(242, 193, 78, 0.6);
+  animation: glow 3.2s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px 1px rgba(242, 193, 78, 0.45); }
+  50%      { box-shadow: 0 0 12px 4px rgba(242, 193, 78, 0.85); }
+}
+
+@media (max-width: 40rem) {
+  h1 { font-size: 1.6rem; }
+}
