@@ -1,0 +1,135 @@
+/* The 2046 Folio — product page */
+
+:root {
+  --ink: #2b2622;
+  --faded: #6e635a;
+  --ochre: #9a6a2f;
+  --paper: #f7f3ec;
+  --rule: #d8cfc2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+main.product {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.org {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.5rem;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--ochre);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1.25rem;
+}
+
+.price {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.price .stock {
+  font-size: 0.85rem;
+  color: var(--faded);
+  letter-spacing: 0.04em;
+}
+
+section { margin-bottom: 2.5rem; }
+
+h2 {
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  row-gap: 0.7rem;
+  column-gap: 1rem;
+}
+
+dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  padding-top: 0.15rem;
+}
+
+dd { margin: 0; }
+
+.provenance .order {
+  font-size: 0.95rem;
+  color: var(--faded);
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+a { color: var(--ochre); }
+a:hover { color: var(--ink); }
+
+.foot {
+  margin-top: 3rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1.25rem;
+}
+
+.seal-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+
+.foot-links { font-size: 0.88rem; margin: 0; }
+
+@media (max-width: 34rem) {
+  dl { grid-template-columns: 1fr; row-gap: 0.25rem; }
+  dd { margin-bottom: 0.6rem; }
+}
