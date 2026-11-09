@@ -1,0 +1,154 @@
+/* The Pigeonhole Board — retro bulletin-board thread, 2009-era forum chrome */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #c9c3ae url('board-bg.svg') repeat;
+  color: #1d2733;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.board {
+  max-width: 880px;
+  margin: 28px auto 60px;
+  background: #f4f1e6;
+  border: 1px solid #7a7460;
+  box-shadow: 4px 5px 0 rgba(40, 44, 30, 0.28);
+}
+
+.board-head {
+  background: #2c4a72;
+  color: #f6f3e8;
+  padding: 14px 18px 12px;
+  border-bottom: 3px double #10203a;
+}
+
+.crumb {
+  font-size: 11px;
+  color: #c9d4e6;
+  margin: 0 0 6px;
+}
+
+.board-head h1 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.thread-meta {
+  margin: 0;
+  font-size: 11px;
+  color: #dbe2ef;
+}
+
+.thread-meta .pin { color: #f3d27a; }
+
+.user { font-weight: bold; color: #2c4a72; }
+.user.op { color: #8a3b12; }
+.user.mod { color: #1e6b3a; }
+.board-head .user, .legend .user { color: #f6f3e8; }
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 18px;
+  font-size: 10px;
+  color: #4c4a3f;
+  background: #e7e2cf;
+  border-bottom: 1px solid #b8b19a;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b8b19a;
+  margin-right: 4px;
+}
+
+.dot.online { background: #3d8a4e; box-shadow: 0 0 3px #3d8a4e; }
+
+.post {
+  display: flex;
+  border-bottom: 1px solid #b8b19a;
+}
+
+.post.alt { background: #eae6d5; }
+
+.phead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.who {
+  flex: 0 0 128px;
+  padding: 10px 10px 12px;
+  border-right: 1px solid #cfc8ad;
+  background: rgba(44, 74, 114, 0.05);
+}
+
+.who-name { margin: 0 0 4px; font-size: 13px; }
+.who-meta {
+  margin: 0;
+  font-size: 10px;
+  color: #5d5a4c;
+  line-height: 1.45;
+}
+
+.online-mark, .op-mark {
+  margin: 6px 0 0;
+  font-size: 10px;
+  color: #1e6b3a;
+}
+
+.op-mark { color: #8a3b12; }
+
+.what {
+  flex: 1;
+  padding: 10px 16px 14px;
+}
+
+.when {
+  margin: 0 0 8px;
+  font-size: 10px;
+  color: #77725f;
+  border-bottom: 1px dotted #b8b19a;
+  padding-bottom: 5px;
+}
+
+.what p { margin: 0 0 10px; }
+.what p.sig { color: #5d5a4c; font-size: 12px; }
+
+blockquote {
+  margin: 10px 8px;
+  padding: 8px 12px;
+  background: #f8f5ea;
+  border: 1px solid #b8b19a;
+  border-left: 4px solid #2c4a72;
+  font-style: italic;
+  color: #2c4a72;
+}
+
+blockquote p { margin: 0; }
+
+a { color: #8a3b12; }
+a:hover { color: #2c4a72; }
+
+.board-foot {
+  padding: 10px 18px;
+  font-size: 10px;
+  color: #6e6a58;
+  background: #e7e2cf;
+  border-top: 3px double #10203a;
+}
+
+.board-foot p { margin: 0; }
