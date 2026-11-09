@@ -1,0 +1,331 @@
+/* The Long & Winding Road — Restaurant Review · Webstuffs */
+/* Maximalist piano-bar theme: wax red, piano black, tape cream, gold leaf. */
+
+:root {
+  --wax: #9b1c30;
+  --wax-deep: #5a0f1a;
+  --wax-light: #c76a82;
+  --tape: #faf6f0;
+  --tape-old: #efe4d6;
+  --piano: #141010;
+  --ivory: #f2ebe0;
+  --gold: #c9a227;
+  --gold-pale: #e8d48a;
+  --ink: #241814;
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background:
+    radial-gradient(900px 450px at 50% -12%, var(--wax-light), transparent 55%),
+    radial-gradient(700px 300px at 100% 110%, rgba(155, 28, 48, 0.35), transparent 45%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3.2px,
+      rgba(155, 28, 48, 0.07) 3.2px,
+      rgba(155, 28, 48, 0.07) 6.4px
+    ),
+    linear-gradient(180deg, var(--tape) 0%, var(--tape-old) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.hall {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 14rem;
+  position: relative;
+}
+
+/* Wax seal ornament, top of page */
+.ornament {
+  width: 100%;
+  height: 16px;
+  opacity: 0.55;
+  margin-bottom: 1.25rem;
+  overflow: visible;
+}
+
+/* Neon open sign */
+.eyebrow {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.18rem;
+  color: var(--wax);
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  position: relative;
+  padding-left: 3.2rem;
+}
+
+.neon {
+  color: var(--wax);
+  text-shadow: 0 0 7px var(--wax-light), 0 0 14px var(--wax-light);
+  animation: flicker 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 0 0 7px var(--wax-light), 0 0 14px var(--wax-light); opacity: 1; }
+  20%, 22%, 24%, 55% { text-shadow: none; opacity: 0.6; }
+}
+
+/* Scrolling marquee eyebrow */
+.marquee {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0.25rem;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 24s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+h1 {
+  font-family: "Impact", "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: clamp(2.2rem, 9vw, 5.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.28rem;
+  line-height: 1.05;
+  margin: 0 0 0.4rem;
+  color: var(--piano);
+  text-shadow: 3px 3px 0 var(--gold-pale);
+}
+
+.amp {
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  color: var(--wax);
+  text-shadow: none;
+}
+
+.dek {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13.5px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: var(--wax);
+  margin: 0 0 2.25rem;
+  border-top: 2px double var(--wax);
+  border-bottom: 2px double var(--wax);
+  padding: 0.55rem 0;
+}
+
+/* Spinning vinyl, lower right */
+.vinyl {
+  position: fixed;
+  right: 16px;
+  bottom: 48px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 10px double var(--piano);
+  background:
+    radial-gradient(circle at 50% 50%, var(--ivory) 0%, var(--ivory) 28%, transparent 28%, transparent 100%),
+    conic-gradient(
+      var(--tape) 0deg, var(--tape-old) 36deg,
+      var(--tape-old) 36deg, var(--tape) 72deg,
+      var(--tape) 72deg, var(--tape-old) 108deg,
+      var(--tape-old) 108deg, var(--tape) 144deg,
+      var(--tape) 144deg, var(--tape-old) 180deg,
+      var(--tape-old) 180deg, var(--tape) 216deg,
+      var(--tape) 216deg, var(--tape-old) 252deg,
+      var(--tape-old) 252deg, var(--tape) 288deg,
+      var(--tape) 288deg, var(--tape-old) 324deg,
+      var(--tape-old) 324deg, var(--tape) 360deg
+    );
+  box-shadow: 0 0 0 4px var(--wax), 0 18px 30px var(--shadow);
+  z-index: 4;
+  animation: spin 7s linear infinite;
+}
+.vinyl:not(.spinning) { animation-play-state: paused; }
+
+.label {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 46px; height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: var(--wax);
+  border: 2px solid var(--gold);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.spindle {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 14px; height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold-pale);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Jukebox navigation */
+.jukebox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+  border-top: 3px double var(--wax);
+  border-bottom: 3px double var(--wax);
+  padding: 1.1rem 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  background: var(--tape);
+}
+.jukebox ul {
+  display: flex;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.jukebox a {
+  color: var(--wax-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.jukebox a:hover { border-bottom-color: var(--wax); }
+
+.needle {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  border: 2px solid var(--wax);
+  background: var(--piano);
+  color: var(--tape);
+  cursor: pointer;
+  border-radius: 0;
+}
+.needle:hover { background: var(--wax); border-color: var(--gold); color: var(--piano); }
+.needle.down { background: var(--wax); border-color: var(--gold); color: var(--piano); }
+
+/* Piano-key run-out groove along the bottom */
+.hall:after {
+  content: "";
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 16px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--piano) 0,
+    var(--piano) 17px,
+    #fff 17px,
+    #fff 34px
+  );
+  z-index: 5;
+}
+
+/* Courses */
+.menu-strip > section {
+  margin-bottom: 3rem;
+  padding-right: 2.5rem;
+}
+.course h2 {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+  color: var(--wax);
+  margin: 0 0 0.75rem;
+  border-left: 8px solid var(--gold);
+  padding-left: 0.75rem;
+}
+.course--piano h2 { border-color: var(--ivory); color: var(--piano); }
+.course--bass h2 { border-color: var(--ivory); color: var(--piano); }
+.course--guitar h2 { border-color: var(--wax-light); }
+.course--percussion h2 { border-color: var(--gold); }
+.course--coda h2 { border-color: var(--wax-deep); color: var(--wax-deep); }
+
+.drop:first-letter {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 3.2rem;
+  color: var(--wax);
+  line-height: 0.9;
+  padding-right: 0.18rem;
+  float: left;
+  margin: 0.05rem 0.5rem 0 0;
+}
+
+.scrap {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  letter-spacing: 0.05rem;
+  background: var(--wax);
+  color: var(--tape);
+  padding: 1.1rem 1.25rem;
+  margin: 1rem 0;
+  border: 2px dashed var(--gold);
+  box-shadow: 6px 6px 0 var(--piano);
+}
+
+a {
+  color: var(--wax-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--wax-light);
+}
+
+footer.run-out-groove {
+  margin-top: 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 4px double var(--wax);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  color: var(--wax-deep);
+}
+footer.run-out-groove a { color: var(--wax-deep); text-decoration: none; border-bottom: 1px solid var(--wax-light); }
+
+/* Animated floating notes, emitted by the script */
+.floater {
+  position: fixed;
+  pointer-events: none;
+  font-family: "Georgia", serif;
+  color: var(--wax-light);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.35);
+  animation: sway 1.5s ease-in-out forwards;
+  z-index: 6;
+}
+@keyframes sway {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate3d(12px, -160px, 0) rotate(18deg); opacity: 0; }
+}
+
+/* Accessible motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  .marquee span { animation: none; display: inline; padding-left: 0; }
+  .vinyl { animation-play-state: paused; }
+  .neon { animation: none; opacity: 1; text-shadow: 0 0 6px var(--wax-light); }
+  .floater { animation: none; opacity: 0; }
+  .drop:first-letter { float: none; font-size: 1.6rem; display: inline-block; margin: 0 0.3rem 0 0; }
+}
