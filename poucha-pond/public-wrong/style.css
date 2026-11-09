@@ -1,0 +1,155 @@
+/* Chapter 14 — The Crime · Keeper's Field Manual, EFT Series */
+
+:root {
+  --paper: #f2ecdd;
+  --paper-deep: #e9e1cb;
+  --ink: #22262b;
+  --faint: #6d6a5d;
+  --red: #a03424;
+  --rule: #3a3f45;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #1c1a16;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.manual {
+  position: relative;
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 3rem 2.75rem 2.25rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(58, 63, 69, 0.07) 27px 28px),
+    var(--paper);
+  border: 2px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.stamp {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  transform: rotate(-7deg);
+  border: 3px double var(--red);
+  color: var(--red);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  padding: 0.35rem 0.7rem;
+  opacity: 0.85;
+}
+
+.masthead { border-top: 4px double var(--rule); padding-top: 1.1rem; }
+
+.series {
+  margin: 0 0 0.4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--faint);
+}
+
+.chapter-num {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.4em;
+}
+
+h1 {
+  margin: 0.15rem 0 0.6rem;
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.scope {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--faint);
+  line-height: 1.7;
+}
+
+.rule {
+  height: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 1px 0 var(--rule);
+  margin: 1.1rem 0;
+}
+
+.case-line {
+  margin: 0 0 0.2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.contents {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1.2rem;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.contents h2 { margin: 0 0 0.5rem; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.14em; }
+.contents ol { margin: 0; padding-left: 1.4rem; font-family: "Courier New", Courier, monospace; font-size: 0.85rem; }
+.contents li { margin: 0.25rem 0; }
+.toc-n { color: var(--red); margin-right: 0.5rem; white-space: nowrap; }
+
+main section { margin-bottom: 1.7rem; }
+
+main h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sec {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--red);
+  margin-right: 0.55rem;
+}
+
+main p { margin: 0 0 0.9rem; }
+
+.kept {
+  margin: 1rem 0 1.1rem;
+  padding: 0.85rem 1.1rem;
+  border-left: 4px solid var(--red);
+  background: var(--paper-deep);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.orders { padding-left: 1.3rem; margin: 0; }
+.orders li { margin: 0.4rem 0; font-family: "Courier New", Courier, monospace; font-size: 0.9rem; }
+
+.colophon { font-size: 0.8rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.12em; font-family: "Courier New", Courier, monospace; }
+.colophon p { margin: 0.3rem 0; }
+.footlinks a { color: var(--ink); }
+
+a { color: #1f3d5c; }
+a:hover { color: var(--red); }
+
+@media (max-width: 640px) {
+  .manual { margin: 0; padding: 2rem 1.2rem; border-left: none; border-right: none; }
+  h1 { font-size: 2.1rem; }
+  .stamp { top: 0.6rem; right: 0.6rem; font-size: 0.6rem; }
+}
