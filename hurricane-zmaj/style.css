@@ -1,0 +1,115 @@
+/* Court transcript — Vojskopravni Sud, Belgrade, Case No. 214 of 1941 */
+:root {
+  --paper: #f4eee1;
+  --ink: #2a2620;
+  --rule: #b8ab8f;
+  --stamp: #8c3b2e;
+  --accent: #33465c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  max-width: 46rem;
+  padding: 1.5rem 1rem 3rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+.docket { height: 6px; border-bottom: 1px solid var(--rule); }
+.docket b { display: block; height: 2px; margin-top: 2px; background: var(--rule); }
+.bench {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--rule);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.4rem;
+  background: #efe7d4;
+}
+.seal {
+  flex: 0 0 auto;
+  width: 4.6rem; height: 4.6rem;
+  border: 2px solid var(--stamp);
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  font-size: 7px; letter-spacing: 0.08em;
+  color: var(--stamp);
+  transform: rotate(-7deg);
+}
+.seal-word { font-size: 10px; letter-spacing: 0.3em; margin-top: 2px; }
+.gavel { font-size: 1.7rem; color: var(--accent); }
+.court-block { flex: 1; }
+.republic { margin: 0; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--accent); }
+h1 { margin: 0.15rem 0; font-size: 1.35rem; font-weight: 600; }
+.parties { margin: 0.1rem 0; font-style: italic; }
+.versus { font-weight: 700; font-style: normal; }
+.coram { margin: 0.35rem 0 0; font-size: 0.8rem; color: #5c5344; }
+.transcript p { margin: 0.85rem 0; text-align: justify; }
+.speaker {
+  margin: 1.35rem 0 0.2rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--accent);
+}
+.caption { font-size: 0.85rem; color: #5c5344; }
+.stamp {
+  display: inline-block;
+  border: 1.5px solid var(--stamp);
+  color: var(--stamp);
+  padding: 0 0.35em;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  transform: rotate(-3deg);
+  margin-right: 0.4rem;
+}
+.leaf {
+  background: #efe3bd;
+  border-left: 3px solid var(--rule);
+  padding: 0.4rem 0.7rem;
+  display: block;
+  font-style: italic;
+}
+h2 { font-size: 1.05rem; font-variant: small-caps; letter-spacing: 0.05em; border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
+.register-note { font-size: 0.88rem; color: #5c5344; }
+.controls { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; margin: 0.7rem 0 0.2rem; }
+.controls-label { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #5c5344; margin-right: 0.2rem; }
+.ctl {
+  font: inherit; font-size: 0.85rem;
+  background: #e8dfc8;
+  border: 1px solid var(--rule);
+  padding: 0.22rem 0.7rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+.ctl:hover { background: #e0d5b8; }
+.ctl.is-active { background: var(--accent); color: #f4eee1; border-color: var(--accent); }
+#registry-search {
+  font: inherit; font-size: 0.85rem;
+  flex: 1; min-width: 10rem;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: #fbf7ec;
+}
+.tally { font-size: 0.82rem; letter-spacing: 0.04em; color: var(--stamp); margin: 0.4rem 0; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+thead th {
+  text-align: left;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--ink);
+  padding: 0.3rem 0.45rem;
+}
+tbody td { border-bottom: 1px dotted var(--rule); padding: 0.28rem 0.45rem; }
+tbody tr[data-origin="zmaj"] td:nth-child(2) { color: var(--accent); font-weight: 600; }
+tbody tr:hover { background: #eee5cf; }
+.adjournment { font-size: 0.88rem; color: #5c5344; border-top: 1px solid var(--rule); margin-top: 1.6rem; padding-top: 0.7rem; }
+.references { font-size: 0.85rem; margin-top: 1rem; }
+.references li { margin: 0.4rem 0; }
+a { color: var(--accent); }
+.colophon { margin-top: 2rem; border-top: 3px double var(--rule); padding-top: 0.6rem; font-size: 0.78rem; color: #5c5344; text-align: center; }
