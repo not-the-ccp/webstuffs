@@ -1,0 +1,263 @@
+/* Entry 432 — Botany · folio of the sleeping ledger */
+:root {
+  --paper: #eef0e2;
+  --paper-deep: #e2e6cf;
+  --ink: #24291c;
+  --faded: #5f6552;
+  --rule: #9aa07f;
+  --accent: #3d5a2a;
+  --accent-deep: #2c441f;
+  --stamp: #7c1f1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 5%, rgba(255, 255, 250, 0.5), transparent 55%),
+    radial-gradient(ellipse at 95% 90%, rgba(76, 102, 48, 0.14), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 0 1rem 4rem;
+}
+
+/* oversized folio number, drifting behind the header */
+.folio-mark {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  font-size: 11rem;
+  font-weight: bold;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--rule);
+  opacity: 0.5;
+  transform: rotate(4deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.entry-head {
+  max-width: 52rem;
+  margin: 2rem auto 0;
+  padding-bottom: 1.2rem;
+  border-bottom: 3px double var(--rule);
+}
+
+.series {
+  margin: 0 0 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0.2rem 0 0.3rem;
+  font-size: 3.4rem;
+  letter-spacing: 0.05em;
+  text-indent: 4.5rem; /* tucks under the folio mark */
+}
+
+.part-of-speech {
+  margin: 0;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+.cross-ref {
+  font-size: 0.82rem;
+  color: var(--faded);
+  margin: 0.8rem 0 0 4.5rem;
+}
+
+.entry { max-width: 52rem; margin: 0 auto; }
+
+a {
+  color: var(--accent-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+}
+a:hover { background: rgba(61, 90, 42, 0.1); }
+
+h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.4rem 0 0.9rem;
+}
+
+h3 { font-size: 1rem; margin: 0 0 0.4rem; }
+
+.definition p, section p, .report-quote { text-align: justify; }
+
+strong { color: var(--accent-deep); }
+
+/* asymmetric count cards, staggered like tables pulled out */
+.counts {
+  display: grid;
+  grid-template-columns: 5fr 6fr 5fr;
+  gap: 1rem;
+  margin: 1.6rem 0 0.4rem;
+}
+
+.count-card {
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: 0.8rem 1rem;
+  display: block;
+  box-shadow: 2px 3px 0 rgba(70, 80, 45, 0.18);
+}
+
+.count-card.offset {
+  transform: rotate(-1.2deg) translateY(0.9rem);
+  border-color: var(--accent);
+}
+
+.count-num {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  color: var(--accent-deep);
+  margin-bottom: 0.35rem;
+}
+
+.count-cap {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faded);
+  line-height: 1.45;
+  display: block;
+}
+
+/* two-column body with a pinned drawer */
+.two-col {
+  display: grid;
+  grid-template-columns: 7fr 4fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.col-drawer {
+  position: sticky;
+  top: 1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1.1rem;
+  transform: rotate(0.8deg);
+  box-shadow: 2px 3px 0 rgba(70, 80, 45, 0.18);
+}
+
+.levels {
+  margin: 0.3rem 0;
+  padding-left: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.levels li { margin: 0.12rem 0; }
+
+.levels li::marker { color: var(--accent); font-weight: bold; }
+
+.drawer-note {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.5rem 0 0;
+}
+
+/* the head cook's ledger line, kept word for word */
+.ledger-line {
+  margin: 1.2rem 0.4rem;
+  padding: 0.8rem 1.2rem;
+  border-left: 6px solid var(--stamp);
+  background:
+    repeating-linear-gradient(transparent, transparent 1.9em, rgba(124, 31, 26, 0.18) 1.9em, rgba(124, 31, 26, 0.18) calc(1.9em + 1px)),
+    var(--paper-deep);
+  font-size: 1.12rem;
+  font-style: italic;
+  transform: rotate(-0.6deg);
+}
+
+.imagery-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 2rem;
+  font-size: 0.9rem;
+}
+
+.imagery-list li {
+  break-inside: avoid;
+  margin: 0 0 0.55rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.imagery-list li::before {
+  content: "❧";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.report-quote {
+  margin: 0.8rem 0.6rem;
+  padding: 0.8rem 1.2rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+  background: linear-gradient(90deg, rgba(154, 160, 127, 0.14), transparent 75%);
+}
+
+.sign-off {
+  margin: 2.4rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--faded);
+  border-top: 3px double var(--rule);
+  padding-top: 0.9rem;
+}
+
+/* bottom ticker */
+.ticker {
+  margin-top: 2rem;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-deep);
+}
+
+.ticker .run {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.35rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--faded);
+  animation: drift 46s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 42rem) {
+  .folio-mark { font-size: 6.5rem; top: 0.4rem; }
+  h1 { text-indent: 0; font-size: 2.5rem; }
+  .cross-ref { margin-left: 0; }
+  .counts { grid-template-columns: 1fr; }
+  .count-card.offset { transform: rotate(-1.2deg); }
+  .two-col { grid-template-columns: 1fr; }
+  .col-drawer { position: static; }
+  .imagery-list { columns: 1; }
+}
