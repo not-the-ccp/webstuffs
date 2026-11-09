@@ -1,0 +1,171 @@
+/* Indian Camp — liner notes for Transatlantic Transcriptions T.T. No. 4 */
+
+:root {
+  --paper: #efe5cf;
+  --paper-deep: #e5d7b8;
+  --ink: #2c2118;
+  --oxblood: #7a2417;
+  --lake: #23404a;
+  --flame: #b3402a;
+  --faded: #6f5b43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(122, 36, 23, 0.03) 0 2px, transparent 2px 5px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.label-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+  border-bottom: 4px double var(--oxblood);
+}
+
+.disc-wrap { flex: 0 0 15rem; }
+
+.disc {
+  width: 15rem;
+  height: 15rem;
+  animation: spin 14s linear infinite;
+  filter: drop-shadow(0 6px 10px rgba(44, 33, 24, 0.35));
+}
+
+.disc.paused { animation-play-state: paused; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.title-block { flex: 1 1 20rem; }
+
+.imprint {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--oxblood);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.under {
+  font-style: italic;
+  color: var(--lake);
+  margin: 0.4rem 0 0.2rem;
+}
+
+.liner-by {
+  font-size: 0.85rem;
+  color: var(--faded);
+  margin: 0.6rem 0 0;
+}
+
+.notes {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--lake);
+  border-bottom: 1px dashed var(--faded);
+  padding-bottom: 0.3rem;
+  margin-top: 2.2rem;
+}
+
+p { max-width: 46rem; }
+
+.side { border-left: 4px solid var(--flame); padding-left: 1.2rem; }
+
+.tracks {
+  list-style: none;
+  margin: 0.8rem 0;
+  padding: 0;
+  max-width: 46rem;
+}
+
+.tracks li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.55rem 0.4rem;
+  border-bottom: 1px dotted var(--faded);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tracks li:hover { background-color: var(--paper-deep); }
+
+.tracks li .no {
+  font-variant: small-caps;
+  color: var(--flame);
+  font-weight: bold;
+  min-width: 1.2rem;
+}
+
+.tracks li .len {
+  margin-left: auto;
+  color: var(--faded);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tracks li .track-note {
+  display: none;
+  width: 100%;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink);
+  padding: 0.3rem 0 0.3rem 2rem;
+  border-bottom: none;
+}
+
+.tracks li.open { background-color: var(--paper-deep); }
+.tracks li.open .track-note { display: block; }
+
+.colophon {
+  margin-top: 3rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--faded);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(44, 33, 24, 0.15);
+}
+
+.colophon h2 { margin-top: 0; }
+
+a { color: var(--oxblood); }
+a:hover { color: var(--lake); }
+
+.foot {
+  border-top: 4px double var(--oxblood);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+@media (max-width: 40rem) {
+  .label-head { justify-content: center; text-align: center; }
+  h1 { font-size: 2.3rem; }
+}
