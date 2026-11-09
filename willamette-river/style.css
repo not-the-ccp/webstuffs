@@ -1,0 +1,187 @@
+/* Willamette Valley Line NW-4 — timetable leaf, 1911 paper */
+:root {
+  --paper: #f3ead6;
+  --paper-edge: #e6d9bc;
+  --ink: #2b2417;
+  --faded: #6d6249;
+  --rule: #4a3f2c;
+  --north: #1f4e5c;
+  --columbia: #5c2333;
+  --stamp-red: #9e2b1e;
+  --night: #101b2e;
+}
+* { box-sizing: border-box; }
+html { background: #cfc4a8; }
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+.timetable {
+  max-width: 62rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(120, 96, 48, 0.10), transparent 42%),
+    radial-gradient(ellipse at 85% 90%, rgba(92, 35, 51, 0.08), transparent 46%),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-edge) 100%);
+  border: 1px solid #b3a582;
+  box-shadow: 0 2px 0 #b3a582, 0 14px 40px rgba(43, 36, 23, 0.35);
+  padding: 2.2rem 2.4rem 1.6rem;
+  position: relative;
+}
+.timetable::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem;
+  border: 2px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 2px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  align-items: flex-start;
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+.head-mast { flex: 1 1 24rem; }
+.carrier {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: var(--faded);
+}
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.02em;
+}
+.subtitle { margin: 0 0 0.3rem; font-style: italic; color: var(--north); }
+.season { margin: 0; font-size: 0.85rem; color: var(--faded); }
+.head-clock { flex: 0 1 15rem; }
+.gaige-plate {
+  border: 1.5px solid var(--rule);
+  padding: 0.7rem 0.9rem;
+  background: rgba(31, 78, 92, 0.06);
+  display: grid;
+  gap: 0.15rem;
+}
+.gaige-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+.gaige-num {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--columbia);
+}
+.gaige-num .pct { font-size: 1.3rem; }
+.gaige-note { font-size: 0.78rem; color: var(--faded); line-height: 1.35; }
+.stamp {
+  position: absolute;
+  top: 1.6rem;
+  right: 2rem;
+  border: 3px solid var(--stamp-red);
+  color: var(--stamp-red);
+  padding: 0.35rem 0.9rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transform: rotate(-7deg);
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+}
+.stamp span { display: block; font-size: 1.15rem; font-weight: 700; }
+.stamp small { display: block; font-size: 0.6rem; letter-spacing: 0.1em; }
+.stamp--second { top: 4.6rem; right: 3.4rem; transform: rotate(5deg); border-width: 2px; opacity: 0.6; }
+.rule { margin: 0 0 1.6rem; }
+.rule h2, .table-wrap h2, .col h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+.rule p { line-height: 1.65; }
+strong { color: var(--columbia); }
+.table-wrap { margin-bottom: 1.8rem; }
+.table-lead { font-size: 0.9rem; font-style: italic; color: var(--faded); }
+.tt-scroll { overflow-x: auto; }
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: rgba(255, 252, 242, 0.5);
+  border: 1.5px solid var(--rule);
+}
+table.tt caption {
+  caption-side: top;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0 0 0.45rem;
+  color: var(--faded);
+}
+table.tt th, table.tt td {
+  border-bottom: 1px solid rgba(74, 63, 44, 0.45);
+  padding: 0.45rem 0.6rem;
+  vertical-align: top;
+}
+table.tt thead th {
+  border-bottom: 2px solid var(--rule);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+table.tt thead small { display: block; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--faded); }
+th[scope="row"] { text-align: left; font-weight: 700; white-space: nowrap; }
+td.num, th.num {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+td.notes { font-size: 0.82rem; color: var(--faded); line-height: 1.4; }
+.notes-col { width: 34%; }
+.row-ghost td { background: var(--night); color: #e8dcc0; font-size: 0.85rem; line-height: 1.5; }
+.row-ghost th { background: var(--night); color: #e8dcc0; font-family: "Courier New", Courier, monospace; }
+.cap-mark { color: var(--stamp-red); }
+.table-foot { font-size: 0.85rem; color: var(--faded); line-height: 1.55; }
+.commentary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.6rem;
+  border-top: 4px double var(--rule);
+  padding-top: 1.4rem;
+}
+.col p { line-height: 1.62; font-size: 0.95rem; }
+.col a { color: var(--north); }
+.painted-line {
+  margin: 0.9rem 0;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--stamp-red);
+  background: rgba(158, 43, 30, 0.06);
+  font-style: italic;
+}
+.painted-line p { margin: 0; line-height: 1.6; }
+.foot {
+  margin-top: 1.8rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+.foot p { margin: 0.2rem 0; }
+.foot-links a { color: var(--north); }
