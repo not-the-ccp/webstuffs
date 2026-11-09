@@ -1,0 +1,144 @@
+/* A Book of Etiquette for the Keeping of Capitals — Chapter IX, Ankara */
+
+:root {
+  --paper: #f5efe3;
+  --page: #faf6ec;
+  --ink: #241f18;
+  --faint: #6f6555;
+  --rule: #b3a68c;
+  --seal: #7c2d1e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.72;
+}
+
+.leaf {
+  position: fixed;
+  top: -8rem;
+  right: -8rem;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(124, 45, 30, 0.07), rgba(124, 45, 30, 0) 68%);
+  pointer-events: none;
+}
+
+.page {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4rem 1.75rem 3rem;
+  background: var(--page);
+  box-shadow: 0 0 0 1px rgba(179, 166, 140, 0.35), 0 2rem 4rem -2.5rem rgba(36, 31, 24, 0.35);
+}
+
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 0.25rem 0 2rem; }
+.rule-double {
+  height: 5px;
+  border-top: none;
+  border-bottom: 1px solid var(--rule);
+  border-top: 3px double var(--ink);
+  background: none;
+  margin-bottom: 2.25rem;
+}
+
+.chapter-head { text-align: center; margin-bottom: 2.25rem; }
+
+.book-title {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.imprint {
+  margin: 0.4rem 0 1.6rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+h1 .of {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--seal);
+}
+
+.motto {
+  margin: 1.4rem auto 0;
+  max-width: 30rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+main section { margin-bottom: 2.25rem; }
+
+h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.drop { text-indent: -2.4rem; padding-left: 2.4rem; }
+.drop .cap {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.86;
+  padding: 0.12rem 0.45rem 0 0;
+  color: var(--seal);
+  font-weight: 600;
+}
+
+a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(124, 45, 30, 0.35);
+}
+a:hover { border-bottom-color: var(--seal); }
+
+.ledger-line {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 3px double var(--seal);
+  background: rgba(124, 45, 30, 0.045);
+  font-style: italic;
+  font-size: 1.02rem;
+}
+
+.colophon {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--faint);
+  padding-top: 1.75rem;
+}
+.colophon p { margin: 0.3rem 0; }
