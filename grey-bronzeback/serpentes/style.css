@@ -1,0 +1,153 @@
+/* Snake — Letter to the Editor: newspaper letter, paper and bronze */
+
+:root {
+  --paper: #f4f0e8;
+  --ink: #3a352d;
+  --ink-soft: #6b655a;
+  --bronze: #9c7d4e;
+  --bronze-deep: #7a6138;
+  --bronze-soft: #c9b18e;
+  --fern-deep: #555e46;
+  --line: #d9d3c4;
+  --serif: Georgia, "Times New Roman", serif;
+  --mono: "Courier New", Courier, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+
+/* faint letter-press texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(700px 420px at 50% 0%, rgba(156, 125, 78, 0.07), transparent 55%),
+    radial-gradient(900px 500px at 10% 90%, rgba(85, 94, 70, 0.05), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.letter-wrap {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+/* Letterhead, as set in a provincial paper */
+.letterhead {
+  text-align: center;
+  padding: 2.75rem 0 1.5rem;
+  border-bottom: 4px double var(--bronze-deep);
+  margin-bottom: 2rem;
+}
+
+.mast {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--bronze-deep);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 9vw, 4.2rem);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.form {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.7rem 0 1rem;
+  font-size: 1.02rem;
+}
+
+.dateline {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin: 0;
+  border-top: 1px solid var(--line);
+  display: inline-block;
+  padding-top: 0.55rem;
+}
+
+/* The letter body */
+.salute {
+  margin-top: 0;
+  color: var(--bronze-deep);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+.letter p {
+  margin: 0 0 1.1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.letter p:first-of-type::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.09em;
+  color: var(--bronze-deep);
+  font-weight: 700;
+}
+
+.letter a {
+  color: var(--bronze-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--bronze-soft);
+}
+.letter a:hover { color: var(--fern-deep); border-bottom-style: solid; }
+
+.letter em { font-style: italic; }
+.letter strong { font-weight: 700; color: var(--bronze-deep); }
+
+.sign {
+  text-align: right;
+  margin-top: 1.8rem;
+}
+.signature {
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--bronze-deep);
+}
+
+/* Trail of neighbouring logs */
+.letter-trail {
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 3px double var(--line);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+}
+.letter-trail p { margin: 0 0 0.7rem; }
+.letter-trail a {
+  color: var(--bronze-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--bronze-soft);
+}
+.letter-trail a:hover { color: var(--fern-deep); border-bottom-style: solid; }
+
+@media (max-width: 480px) {
+  .letter-wrap { padding: 0.75rem 1rem 2rem; }
+  .letter p { text-align: left; }
+}
