@@ -1,0 +1,347 @@
+/* The Deep Drawer — Placard No. 2 · abyssal museum placard */
+:root {
+  --ink: #d9e8f2;
+  --ink-dim: #8fb0c4;
+  --abyss-1: #020714;
+  --abyss-2: #04122b;
+  --abyss-3: #07203f;
+  --brass: #c8a24a;
+  --brass-dim: #8a6f34;
+  --bio: #59f2d6;
+  --bio-dim: #1e6e63;
+  --card: rgba(6, 22, 44, 0.82);
+  --rule: rgba(89, 242, 214, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--abyss-1);
+  color: var(--ink);
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", "Iowan Old Style", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  overflow-x: hidden;
+}
+
+/* ---------- layered abyss ---------- */
+.abyss {
+  position: fixed; inset: 0; z-index: -3;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(30, 110, 99, 0.35), transparent 60%),
+    radial-gradient(ellipse 90% 50% at 80% 110%, rgba(12, 52, 96, 0.5), transparent 70%),
+    linear-gradient(180deg, var(--abyss-2) 0%, var(--abyss-3) 34%, var(--abyss-2) 68%, var(--abyss-1) 100%);
+}
+
+.abyss-deep {
+  position: fixed; inset: 0; z-index: -2;
+  background:
+    repeating-linear-gradient(180deg,
+      transparent 0px,
+      transparent 46px,
+      rgba(89, 242, 214, 0.025) 47px,
+      transparent 48px),
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      transparent 120px,
+      rgba(200, 162, 74, 0.02) 121px,
+      transparent 122px);
+  animation: depthdrift 60s linear infinite;
+}
+
+@keyframes depthdrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 480px, 480px 0; }
+}
+
+/* marine snow (filled by JS; fallback dots below) */
+.marine-snow { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+.marine-snow i {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(217, 232, 242, 0.5);
+  animation: snowfall linear infinite;
+}
+@keyframes snowfall {
+  from { transform: translateY(-6vh); }
+  to   { transform: translateY(108vh); }
+}
+
+/* ---------- sonar ornament ---------- */
+.sonar {
+  position: fixed;
+  top: -140px; right: -140px;
+  width: 460px; height: 460px;
+  color: var(--bio);
+  z-index: 0;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.sonar .ping {
+  transform-origin: 200px 200px;
+  animation: ping 7s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  stroke-width: 1.2;
+}
+.sonar .ping-b { animation-delay: 2.3s; }
+.sonar .ping-c { animation-delay: 4.6s; }
+@keyframes ping {
+  0%   { transform: scale(0.1); opacity: 0.9; }
+  80%  { opacity: 0.25; }
+  100% { transform: scale(17); opacity: 0; }
+}
+
+/* ---------- the case ---------- */
+.case {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: clamp(1.4rem, 4vw, 3.4rem) clamp(1rem, 3.4vw, 2.6rem) 3rem;
+  background: var(--card);
+  border: 1px solid rgba(200, 162, 74, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(2, 7, 20, 0.9),
+    0 0 0 6px rgba(200, 162, 74, 0.08),
+    0 40px 90px rgba(0, 0, 0, 0.65),
+    inset 0 0 120px rgba(4, 18, 43, 0.9);
+  backdrop-filter: blur(2px);
+}
+
+/* corner brackets, brass */
+.bracket {
+  position: absolute;
+  width: 34px; height: 34px;
+  border: 2px solid var(--brass);
+  opacity: 0.85;
+}
+.bracket.tl { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.bracket.tr { top: -8px; right: -8px; border-left: none; border-bottom: none; }
+.bracket.bl { bottom: -8px; left: -8px; border-right: none; border-top: none; }
+.bracket.br { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+
+/* ---------- header ---------- */
+.placard-head {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.case-no {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+.gallery-line {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1.04;
+  margin: 0.2rem 0 0.8rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-shadow: 0 0 22px rgba(89, 242, 214, 0.35), 0 2px 0 rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  font-variant: small-caps;
+}
+
+h1::before, h1::after {
+  content: "\2014";
+  color: var(--brass-dim);
+  font-variant: normal;
+  padding: 0 0.5em;
+}
+
+.title-sub {
+  margin: 0 auto;
+  max-width: 34rem;
+  color: var(--ink-dim);
+  font-size: 0.98rem;
+  font-style: italic;
+}
+
+.isa { color: var(--ink); font-style: normal; }
+
+/* wax-seal stamps */
+.stamp-row {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.stamp {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  color: var(--brass);
+  border: 1px solid var(--brass-dim);
+  padding: 0.28rem 0.6rem;
+  transform: rotate(-2deg);
+  opacity: 0.85;
+}
+.stamp.small { font-size: 0.58rem; transform: rotate(1.4deg); }
+.stamp:nth-child(3) { transform: rotate(-1.2deg); }
+.stamp:nth-child(4) { transform: rotate(2deg); }
+
+/* ---------- depth gauge ---------- */
+.gauge {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  color: var(--bio-dim);
+  border-bottom: 1px dashed var(--rule);
+  padding: 0.5rem 0.1rem 0.6rem;
+  margin-bottom: 1.8rem;
+}
+.gauge-val {
+  color: var(--bio);
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 10px rgba(89, 242, 214, 0.6);
+}
+
+/* ---------- blocks ---------- */
+.block { margin-bottom: 1.9rem; }
+.block p { margin: 0 0 1em; }
+.block p:last-child { margin-bottom: 0; }
+
+.block-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 0.7rem;
+  font-size: 0.82rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: normal;
+}
+.block-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--brass-dim), transparent);
+}
+.rn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem; height: 1.7rem;
+  border: 1px solid var(--brass-dim);
+  border-radius: 50%;
+  font-size: 0.72rem;
+  color: var(--brass);
+  flex: none;
+  transform: rotate(-6deg);
+}
+
+/* links: engraved brass with bio underline glow */
+a {
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brass-dim);
+  transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+}
+a:hover, a:focus {
+  color: var(--bio);
+  border-bottom-color: var(--bio);
+  text-shadow: 0 0 12px rgba(89, 242, 214, 0.7);
+}
+
+/* ---------- spec card ---------- */
+.spec-card {
+  margin: 2.2rem 0;
+  padding: 1.2rem 1.4rem 1.4rem;
+  background: linear-gradient(180deg, rgba(10, 32, 60, 0.85), rgba(4, 14, 32, 0.9));
+  border: 1px solid rgba(89, 242, 214, 0.3);
+  box-shadow: inset 0 0 40px rgba(4, 18, 43, 0.8), 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+.spec-card h2 {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--bio);
+  font-weight: normal;
+  text-shadow: 0 0 10px rgba(89, 242, 214, 0.5);
+}
+.spec-card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) 1fr;
+  gap: 0.35rem 1.2rem;
+}
+.spec-card dt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+  padding-top: 0.2rem;
+}
+.spec-card dd { margin: 0; font-size: 0.94rem; color: var(--ink); }
+
+/* ---------- footer ---------- */
+.placard-foot {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  margin-top: 0.5rem;
+}
+.placard-foot p {
+  margin: 0;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--ink-dim);
+  text-align: center;
+}
+
+/* nodule field ornament under the footer */
+.placard-foot::after {
+  content: "";
+  display: block;
+  margin: 1.4rem auto 0;
+  width: min(20rem, 70%);
+  height: 26px;
+  background:
+    radial-gradient(circle at 8% 70%, var(--brass-dim) 0 3px, transparent 4px),
+    radial-gradient(circle at 22% 40%, var(--brass) 0 4px, transparent 5px),
+    radial-gradient(circle at 37% 75%, var(--brass-dim) 0 3px, transparent 4px),
+    radial-gradient(circle at 50% 35%, var(--brass) 0 5px, transparent 6px),
+    radial-gradient(circle at 63% 70%, var(--brass-dim) 0 3px, transparent 4px),
+    radial-gradient(circle at 78% 45%, var(--brass) 0 4px, transparent 5px),
+    radial-gradient(circle at 92% 75%, var(--brass-dim) 0 3px, transparent 4px);
+  opacity: 0.8;
+}
+
+@media (max-width: 560px) {
+  .sonar { width: 300px; height: 300px; top: -100px; right: -100px; }
+  .spec-card dl { grid-template-columns: 1fr; gap: 0.1rem; }
+  .spec-card dt { padding-top: 0.6rem; }
+  h1::before, h1::after { content: ""; padding: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sonar .ping, .abyss-deep, .marine-snow i { animation: none; }
+  .marine-snow i { display: none; }
+}
