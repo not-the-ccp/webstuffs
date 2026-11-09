@@ -1,0 +1,170 @@
+/* The Cascadia Table — Newsletter No. 47
+   Palette: rain-slate, cedar green, storm paper, brass */
+
+:root {
+  --rain: #2b3a42;
+  --cedar: #2f4a3c;
+  --pine: #1e3229;
+  --paper: #f2ead6;
+  --paper-deep: #e7dcc0;
+  --brass: #a8842c;
+  --ink: #22282a;
+  --rainline: #5b7382;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(91, 115, 130, 0.05) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, #dfe4df 0%, #cfd8d2 40%, #c3cfc6 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.62;
+}
+
+.letterpress {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  border: 2px solid var(--pine);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  box-shadow: 0 18px 40px rgba(30, 50, 41, 0.35);
+}
+
+.masthead {
+  text-align: center;
+  padding: 2.4rem 2.2rem 1.6rem;
+  background:
+    radial-gradient(ellipse at top, rgba(168, 132, 44, 0.14), transparent 70%),
+    var(--paper-deep);
+  border-bottom: 3px double var(--pine);
+}
+
+.mast-orn {
+  color: var(--brass);
+  letter-spacing: 1.4em;
+  text-indent: 1.4em;
+  margin: 0 0 0.6rem;
+}
+
+.mast-series {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cedar);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--pine);
+  margin: 0.2rem 0 0.4rem;
+}
+
+.mast-dek {
+  font-style: italic;
+  color: var(--rain);
+  margin: 0.3rem 0;
+}
+
+.mast-sub {
+  font-size: 0.9rem;
+  color: var(--brass);
+  margin: 0.8rem 0 0;
+}
+
+.band {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  background: var(--pine);
+  color: var(--paper);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.4rem;
+  border-bottom: 4px solid var(--brass);
+}
+
+.note {
+  padding: 1.6rem 2.2rem 0.4rem;
+}
+
+.note h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--cedar);
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 0.35rem;
+  margin: 0 0 0.9rem;
+  font-size: 1.25rem;
+}
+
+.note p { margin: 0 0 1rem; }
+
+strong { color: var(--pine); }
+em { color: var(--rain); }
+
+.kitchen {
+  background:
+    linear-gradient(180deg, rgba(168, 132, 44, 0.08), transparent 60%),
+    var(--paper);
+  border-left: 6px solid var(--brass);
+  border-right: 6px solid var(--brass);
+  margin: 0.6rem 1.2rem;
+  padding: 1.2rem 1.4rem 0.6rem;
+}
+
+blockquote.verbatim {
+  margin: 1.1rem 0.5rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--paper-deep);
+  border: 1px dashed var(--brass);
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--pine);
+}
+
+.house-list {
+  padding-left: 1.2rem;
+  margin: 0 0 1.4rem;
+}
+
+.house-list li { margin-bottom: 0.55rem; }
+.house-list li::marker { color: var(--brass); }
+
+a {
+  color: var(--cedar);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--brass); }
+
+.colophon {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.4rem 2.2rem 2rem;
+  background: var(--paper-deep);
+  border-top: 3px double var(--pine);
+  font-size: 0.85rem;
+}
+
+.col-orn {
+  color: var(--brass);
+  letter-spacing: 1.4em;
+  text-indent: 1.4em;
+  margin: 0 0 0.6rem;
+}
+
+.col-small { color: var(--rain); font-size: 0.78rem; }
+
+@media (max-width: 40rem) {
+  .note { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .band { justify-content: center; }
+}
