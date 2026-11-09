@@ -1,0 +1,160 @@
+/* I Wanna Go — dining column stylesheet */
+
+:root {
+  --ink: #1d1712;
+  --paper: #f6efe3;
+  --zinc: #2e3436;
+  --brass: #a97b2f;
+  --brass-soft: #d8b878;
+  --card: #fffaf0;
+  --rule: #d9cdb8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 62rem;
+  padding: 2rem 1.25rem 4rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  border-bottom: 4px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #4c4237;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.verdict {
+  margin: 0.6rem 0 0;
+  font-weight: bold;
+}
+
+.verdict span { color: var(--brass); }
+
+.review p { margin: 0 0 1.15rem; }
+.review em { font-style: italic; }
+
+.menu-book {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-top: 6px solid var(--brass);
+}
+
+.menu-book h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.table-note {
+  color: #4c4237;
+  font-size: 0.95rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.filters input[type="search"] {
+  padding: 0.35rem 0.5rem;
+  min-width: 16ch;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font: inherit;
+}
+
+.filters select {
+  padding: 0.35rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.97rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+thead th {
+  background: var(--zinc);
+  color: var(--paper);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+tbody tr:nth-child(even) { background: rgba(169, 123, 47, 0.07); }
+tbody tr.hidden { display: none; }
+tbody td:first-child { font-weight: bold; color: var(--brass); }
+
+.edition-count {
+  font-style: italic;
+  color: #4c4237;
+  font-size: 0.9rem;
+}
+
+.filed-beside {
+  margin-top: 2.5rem;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--brass);
+  background: rgba(169, 123, 47, 0.06);
+}
+
+.filed-beside h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+}
+
+.filed-beside p { margin: 0 0 0.5rem; }
+
+a { color: var(--ink); }
+a:hover { color: var(--brass); }
+
+footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #4c4237;
+}
