@@ -1,0 +1,202 @@
+/* The Porbandar Ledger — The Classified Page */
+
+:root {
+  --paper: #f3ecd9;
+  --paper-deep: #e9e0c6;
+  --ink: #26221a;
+  --ink-soft: #4c4534;
+  --rule: #26221a;
+  --faded: #6f664f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #b7ad93;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.25), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(60,45,20,.28), transparent 55%);
+  font-family: "Times New Roman", "Georgia", "Palatino Linotype", serif;
+  color: var(--ink);
+  padding: 28px 12px 48px;
+}
+
+.sheet {
+  max-width: 1060px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120,100,60,.05) 0 2px, transparent 2px 5px),
+    radial-gradient(ellipse at 70% 20%, rgba(255,252,240,.5), transparent 60%),
+    radial-gradient(ellipse at 15% 85%, rgba(110,85,45,.16), transparent 50%);
+  box-shadow: 0 14px 40px rgba(30,20,5,.5), inset 0 0 60px rgba(110,85,45,.22);
+  padding: 30px 36px 22px;
+  border: 1px solid #8d8264;
+}
+
+.masthead { text-align: center; }
+
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 4px 2px;
+}
+
+.masthead h1 {
+  font-size: clamp(30px, 5.4vw, 52px);
+  letter-spacing: .14em;
+  margin: 14px 0 2px;
+  font-weight: 700;
+  font-variant: small-caps;
+}
+
+.mast-sub {
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin: 2px 0 10px;
+  color: var(--ink-soft);
+}
+
+.rates {
+  font-size: 10px;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 auto;
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.rule-heavy {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 10px 0 14px;
+}
+
+.page-grid {
+  column-count: 3;
+  column-gap: 0;
+  column-rule: 1px solid rgba(38,34,26,.65);
+}
+
+.ad {
+  break-inside: avoid;
+  padding: 10px 12px;
+  margin-bottom: 0;
+}
+
+.ad + .ad { border-top: 1px solid rgba(38,34,26,.55); }
+
+.ad h2 {
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 8px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 5px;
+}
+
+.ad p {
+  font-size: 12.5px;
+  line-height: 1.52;
+  margin: 0 0 9px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.ad p:last-child { margin-bottom: 0; }
+
+.ad p strong { letter-spacing: .03em; }
+
+.ad .sc { font-style: italic; }
+
+/* the obituary runs larger, double-ruled */
+.ad.death {
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  background: var(--paper-deep);
+}
+
+.ad.death h2 { border-bottom: none; }
+
+.ad.death .ad-lede {
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.ad.death .ad-lede::first-letter {
+  font-size: 34px;
+  font-weight: 700;
+  float: left;
+  line-height: .9;
+  padding: 2px 6px 0 0;
+}
+
+/* the errata box, stamped and offset */
+.ad.errata {
+  background: repeating-linear-gradient(45deg, transparent 0 14px, rgba(140,30,20,.05) 14px 28px);
+  position: relative;
+}
+
+.ad.errata h2::after {
+  content: "CORRECTED · NOT REISSUED";
+  display: block;
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  color: #7c2a1c;
+  border: 1.5px solid #7c2a1c;
+  padding: 2px 6px;
+  transform: rotate(-1.4deg);
+  width: max-content;
+  margin: 6px auto 0;
+}
+
+.ad.errata blockquote {
+  margin: 10px 0;
+  padding: 8px 10px;
+  border-left: 2.5px solid #7c2a1c;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  background: rgba(255,255,255,.28);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover { background: rgba(140,30,20,.12); color: #7c2a1c; }
+
+.colophon {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 4px 0 0;
+}
+
+@media (max-width: 860px) {
+  .page-grid { column-count: 2; }
+}
+
+@media (max-width: 560px) {
+  .sheet { padding: 20px 16px; }
+  .page-grid { column-count: 1; column-rule: none; }
+  .ad + .ad { border-top: 1px solid rgba(38,34,26,.55); }
+  .mast-top { flex-direction: column; align-items: center; gap: 2px; }
+}
