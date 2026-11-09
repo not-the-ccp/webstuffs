@@ -1,0 +1,132 @@
+/* Halo Wars — visitor's brochure */
+:root {
+  --paper: #f6f2ea;
+  --ink: #1c2430;
+  --faint: #5b6472;
+  --line: #c9c2b2;
+  --ember: #b4552e;
+  --steel: #33506b;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.wrap {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.masthead { text-align: center; }
+
+.masthead .office {
+  margin: 0 0 1.75rem;
+  font-family: "Gill Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+.tag {
+  max-width: 34rem;
+  margin: 1.1rem auto 0;
+  font-style: italic;
+  color: var(--faint);
+  font-size: 1.02rem;
+}
+
+.ring {
+  display: block;
+  margin: 2.4rem auto 0;
+  width: 240px;
+  height: 120px;
+}
+.ring-line { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.ring-moon { fill: none; stroke: var(--steel); stroke-width: 1.5; }
+.ring-ship { fill: var(--ember); }
+.ring-ship.two { fill: var(--steel); }
+
+main { margin-top: 3.25rem; }
+
+section { margin-bottom: 2.75rem; }
+
+h2 {
+  margin: 0 0 0.9rem;
+  font-family: "Gill Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: var(--line);
+  margin-top: 0.55rem;
+}
+
+p { margin: 0 0 1rem; }
+
+strong { font-weight: 600; }
+
+q { quotes: "\201C" "\201D"; }
+q::before, q::after { color: var(--faint); }
+
+.intro p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--steel);
+}
+
+.practical .cross {
+  border-left: 2px solid var(--line);
+  padding-left: 1rem;
+  color: var(--faint);
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--steel);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease;
+}
+a:hover { border-bottom-color: var(--steel); }
+
+.tail {
+  margin-top: 3.5rem;
+  text-align: center;
+  font-family: "Gill Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.tail hr { border: 0; border-top: 1px solid var(--line); margin: 0 auto 1.4rem; max-width: 12rem; }
+.tail p { margin: 0.4rem 0; }
+.tail .small { letter-spacing: 0.14em; font-size: 0.66rem; }
