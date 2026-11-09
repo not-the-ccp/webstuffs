@@ -1,0 +1,191 @@
+/* GB-1701/0523 — patent office summary sheet */
+
+:root {
+  --paper: #f4eedd;
+  --paper-deep: #ece2c8;
+  --ink: #1c2a3a;
+  --ink-soft: #44536a;
+  --seal: #7a1f1f;
+  --seal-deep: #571414;
+  --rule: #1c2a3a;
+  --wash: #dfe6ea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 3rem 1.25rem 4rem;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(122, 31, 31, 0.06), transparent 34%),
+    radial-gradient(circle at 84% 92%, rgba(28, 42, 58, 0.08), transparent 40%),
+    var(--paper-deep);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  font-size: 1.02rem;
+}
+
+.spec {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 2px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 5px;
+  box-shadow: 14px 14px 0 rgba(28, 42, 58, 0.14);
+  padding: 2.6rem 2.8rem 2.2rem;
+  position: relative;
+}
+
+.masthead { position: relative; }
+
+.office {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: var(--ink-soft);
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+  margin: 0.35rem 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.rule-double {
+  height: 5px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 3px double var(--rule);
+  margin: 0.9rem 0;
+}
+
+.meta-line {
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.2rem 0 0.9rem;
+}
+
+.title-line {
+  font-size: 1.12rem;
+  border-left: 4px solid var(--seal);
+  padding: 0.35rem 0 0.35rem 0.9rem;
+  margin: 1rem 0 1.2rem;
+  background: var(--wash);
+}
+
+.inventor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem 1.1rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.field .label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.field .value { font-size: 0.95rem; }
+
+.status-stamp {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: var(--seal);
+  border: 2px solid var(--seal);
+  padding: 0.05rem 0.5rem;
+  transform: rotate(-3deg);
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.status-stamp.objection { color: var(--seal-deep); border-color: var(--seal-deep); transform: rotate(2.5deg); }
+
+.seal {
+  position: absolute;
+  top: 2rem;
+  right: 2.2rem;
+  opacity: 0.85;
+  transform: rotate(-8deg);
+  cursor: pointer;
+  transition: transform 0.35s ease;
+}
+
+.seal:hover { transform: rotate(-2deg) scale(1.03); }
+
+main section { margin: 1.6rem 0; }
+
+main h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.7rem;
+}
+
+main p { margin: 0 0 0.8rem; }
+
+a { color: var(--seal-deep); }
+a:hover { color: var(--seal); }
+
+.claims {
+  list-style: none;
+  counter-reset: claim;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.claims li {
+  counter-increment: claim;
+  padding: 0.45rem 0 0.45rem 3.2rem;
+  position: relative;
+  border-bottom: 1px dotted rgba(28, 42, 58, 0.4);
+}
+
+.claims li::before {
+  content: "Claim " counter(claim) ".";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--seal);
+  width: 3rem;
+}
+
+.annotation-block {
+  margin: 0.6rem 0;
+  padding: 0.8rem 1.2rem;
+  background: var(--wash);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--seal);
+}
+
+.annotation-block p { margin: 0.3rem 0; }
+.annotation-block .attr { font-size: 0.84rem; font-style: italic; color: var(--ink-soft); }
+
+.colophon { margin-top: 2rem; }
+
+.colophon p {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  font-family: "Courier New", monospace;
+}
+
+@media (max-width: 40rem) {
+  .spec { padding: 1.6rem 1.2rem; outline-offset: 3px; }
+  .inventor { grid-template-columns: 1fr 1fr; }
+  .seal { position: static; display: block; margin: 0 auto 1rem; }
+}
