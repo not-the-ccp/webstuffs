@@ -1,0 +1,157 @@
+/* An Apology to George Abbot — The Church Weather Almanac, Year XLVIII */
+:root {
+  --ink: #33241a;
+  --ink-soft: #5c4632;
+  --oxblood: #6d1f1f;
+  --wax: #7a1e1e;
+  --gold: #a9812f;
+  --parchment: #f3e8cf;
+  --parchment-deep: #e5d4ad;
+  --leaf: #f8f0dd;
+  --line: #b39a63;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 3.5rem 1rem 4rem;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.17rem;
+  line-height: 1.74;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(120, 90, 40, 0.14), transparent 55%),
+    radial-gradient(ellipse at 85% 92%, rgba(109, 31, 31, 0.10), transparent 52%),
+    var(--parchment-deep);
+  min-height: 100vh;
+}
+/* faint ruled-paper lines behind the letter */
+.ruling {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 35px,
+    rgba(179, 154, 99, 0.12) 35px,
+    rgba(179, 154, 99, 0.12) 36px
+  );
+}
+.letter {
+  position: relative;
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--leaf);
+  border: 3px double var(--line);
+  outline: 1px solid rgba(109, 31, 31, 0.25);
+  outline-offset: 6px;
+  box-shadow: 0 18px 44px rgba(51, 36, 26, 0.30);
+  padding: 3rem clamp(1.4rem, 5vw, 3.2rem) 2.4rem;
+}
+.letterhead { text-align: center; margin-bottom: 2rem; }
+.folio {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+}
+.letter-type {
+  font-style: italic;
+  color: var(--oxblood);
+  margin: 0 0 0.6rem;
+}
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--oxblood);
+  margin: 0.2rem 0 0.7rem;
+}
+.address {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0.6rem 0 1rem;
+  line-height: 1.5;
+}
+.rule { margin-top: 0.4rem; }
+.body p { margin: 0 0 1.25rem; }
+.salutation { font-size: 1.25rem; font-style: italic; }
+.drop {
+  float: left;
+  font-size: 4.4rem;
+  line-height: 0.82;
+  padding: 0.12em 0.14em 0 0;
+  color: var(--oxblood);
+  font-weight: 600;
+}
+.body a {
+  color: var(--oxblood);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+.body a:hover { background: rgba(169, 129, 47, 0.16); }
+table.years {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.4rem;
+  font-size: 1.02rem;
+}
+table.years caption {
+  caption-side: top;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+table.years th, table.years td {
+  border: 1px solid var(--line);
+  padding: 0.42rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.years thead th {
+  background: rgba(169, 129, 47, 0.14);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+table.years td.num, table.years th.num { white-space: nowrap; }
+.signoff { margin-top: 2rem; }
+.yours { font-style: italic; }
+.keeper {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--oxblood);
+  border-top: 1px solid var(--line);
+  padding-top: 0.4rem;
+}
+.wax {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.6rem 0 0.4rem;
+}
+.wax svg {
+  filter: drop-shadow(2px 4px 5px rgba(51, 36, 26, 0.35));
+  transform: rotate(-7deg);
+}
+.ps {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--wax);
+  padding-left: 0.9rem;
+  margin-top: 1.4rem;
+}
+.colophon {
+  max-width: 46rem;
+  margin: 2.2rem auto 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.colophon .proverb em { color: var(--oxblood); }
+.colophon p { margin: 0.35rem 0; }
+.colophon a { color: var(--oxblood); text-decoration: underline dotted; text-underline-offset: 3px; }
+.colophon .small { font-style: italic; font-size: 0.85rem; }
