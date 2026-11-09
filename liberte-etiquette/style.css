@@ -1,0 +1,201 @@
+/* Chapter XLII - Of the Obsolescent Warship, and of Liberte
+   A Book of Etiquette - mess-room paper, brass rules, tide-stained edges */
+
+html {
+  background-color: #002633;
+}
+
+body {
+  margin: 0;
+  padding: 24px 12px 40px;
+  background-color: #002633;
+  background-image:
+    radial-gradient(circle at 18% 26%, #ffcc99 1px, transparent 2px),
+    radial-gradient(circle at 82% 12%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 41% 70%, #99cccc 1px, transparent 2px),
+    radial-gradient(circle at 88% 84%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 12% 88%, #ffcc99 1px, transparent 2px);
+  background-size: 260px 260px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #141414;
+}
+
+.frame {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: #f5efdc;
+  border: 6px ridge #8a7b4f;
+  box-shadow: 4px 4px 0 #001118;
+  padding: 18px 22px;
+}
+
+.plaque {
+  text-align: center;
+  border-bottom: 3px double #5c1f00;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.press {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5c1f00;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #3d0d00;
+  letter-spacing: 3px;
+}
+
+h2 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  font-style: italic;
+  color: #00335c;
+}
+
+.rule {
+  margin: 0;
+  color: #8a5a00;
+  letter-spacing: 8px;
+}
+
+.marquee-bar {
+  background-color: #00335c;
+  border: 3px inset #c8c8c8;
+  color: #ffffff;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 4px 0;
+  margin-bottom: 16px;
+}
+
+.chapter-body h3 {
+  background-color: #e0b400;
+  border: 2px outset #fff8e0;
+  padding: 4px 8px;
+  font-size: 15px;
+  color: #3d0d00;
+}
+
+.chapter-body p {
+  line-height: 1.55;
+  text-align: justify;
+}
+
+a {
+  color: #002299;
+}
+
+a:visited {
+  color: #55007a;
+}
+
+blockquote.register-line {
+  margin: 14px 8px;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  border: 3px inset #8a7b4f;
+  font-style: italic;
+}
+
+blockquote.register-line p {
+  margin: 4px 0;
+  text-align: left;
+}
+
+.counter-box,
+.guestbook {
+  margin: 18px 0;
+  padding: 10px 14px;
+  background-color: #d8f0d8;
+  border: 4px ridge #2e7a2e;
+}
+
+.counter-box {
+  text-align: center;
+}
+
+h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #3d0d00;
+}
+
+.odometer {
+  margin: 6px 0;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  letter-spacing: 6px;
+  color: #00ff66;
+  background-color: #000000;
+  border: 3px inset #808080;
+  display: inline-block;
+  padding: 2px 14px;
+}
+
+.counter-note {
+  font-size: 11px;
+  color: #2e5c2e;
+}
+
+.guest-form label {
+  display: block;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.guest-form input {
+  border: 2px inset #c8c8c8;
+  background-color: #ffffff;
+  font-family: "Courier New", monospace;
+}
+
+.guest-form button {
+  background-color: #c8c8c8;
+  border: 3px outset #ffffff;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  padding: 2px 12px;
+}
+
+.guest-form button:active {
+  border-style: inset;
+}
+
+.reply {
+  min-height: 16px;
+  font-style: italic;
+  color: #3d0d00;
+}
+
+.gb-keeper {
+  font-size: 11px;
+  color: #2e5c2e;
+}
+
+.colophon {
+  border-top: 3px double #5c1f00;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.tiny {
+  font-size: 11px;
+  font-style: italic;
+  color: #5c1f00;
+}
+
+.foot {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #998800;
+}
