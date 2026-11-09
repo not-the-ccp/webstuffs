@@ -1,0 +1,287 @@
+/* Local Music From Out There — letter to the editor */
+
+:root {
+  --ink: #1c1a3a;
+  --indigo: #232066;
+  --clay: #c2452d;
+  --amber: #f0a63a;
+  --paper: #f6ecd8;
+  --paper-deep: #efe0c2;
+  --river: #2e6f7a;
+  --thread: #8a5a2b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(240, 166, 58, 0.30), transparent 60%),
+    repeating-radial-gradient(circle at 82% 18%, rgba(246, 236, 216, 0.055) 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(115deg, rgba(240, 166, 58, 0.045) 0 3px, transparent 3px 26px),
+    linear-gradient(180deg, #14122e 0%, var(--indigo) 34%, #35246a 68%, #1a1a3f 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---- globe meridian ornament ---- */
+.meridians {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  color: rgba(246, 236, 216, 0.10);
+}
+.meridians svg { width: 100%; height: 100%; }
+.spin-slow {
+  transform-origin: 600px 150px;
+  animation: turn 90s linear infinite;
+}
+@keyframes turn { to { transform: rotate(360deg); } }
+
+/* ---- masthead ---- */
+.masthead {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4.5rem 1.25rem 1.25rem;
+}
+.kicker {
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--amber);
+  margin: 0 0 0.9rem;
+}
+h1 {
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  margin: 0;
+  color: var(--paper);
+  letter-spacing: 0.01em;
+  text-shadow: 3px 3px 0 var(--clay), 6px 6px 0 rgba(0, 0, 0, 0.35);
+}
+.dek {
+  max-width: 46rem;
+  margin: 1.1rem auto 0;
+  color: rgba(246, 236, 216, 0.82);
+  font-style: italic;
+}
+
+/* bunting flags */
+.bunting {
+  margin: 1.4rem auto 0;
+  max-width: 640px;
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+}
+.flag {
+  width: 19px;
+  height: 30px;
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%);
+  transform-origin: top center;
+  animation: sway 3.4s ease-in-out infinite;
+}
+.flag:nth-child(odd) { animation-delay: -1.7s; }
+.f1 { background: var(--clay); }
+.f2 { background: var(--amber); }
+.f3 { background: var(--river); }
+.f4 { background: #7d4fa0; }
+.f5 { background: var(--paper); }
+@keyframes sway {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+}
+
+/* ---- genre ticker ---- */
+.ticker {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-top: 2px solid var(--clay);
+  border-bottom: 2px solid var(--clay);
+  background: rgba(20, 18, 46, 0.7);
+  margin: 0.5rem 0 2.5rem;
+}
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  padding: 0.45rem 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  animation: slide 40s linear infinite;
+}
+.ticker-track span { padding: 0 0.9rem; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---- the letter ---- */
+.letter {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2.1rem, rgba(138, 90, 43, 0.12) 2.1rem 2.16rem),
+    linear-gradient(160deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid rgba(28, 26, 58, 0.35);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(138, 90, 43, 0.12);
+  padding: 2.6rem 2.6rem 3rem;
+}
+.letter::before,
+.letter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background:
+    radial-gradient(circle at 10px -4px, transparent 10px, var(--paper) 10px) 0 0 / 22px 14px repeat-x;
+  top: -1px;
+  filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.25));
+}
+.letter::after { top: auto; bottom: -1px; transform: scaleY(-1); }
+
+.stamp-line { display: flex; align-items: flex-start; gap: 0.9rem; margin: 0 0 1.4rem; }
+.stamp {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--clay);
+  border: 2px dashed var(--clay);
+  padding: 0.4rem 0.55rem;
+  transform: rotate(-3deg);
+  background: rgba(246, 236, 216, 0.6);
+}
+.postmark {
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  color: rgba(28, 26, 58, 0.6);
+  border: 1.5px solid rgba(28, 26, 58, 0.45);
+  border-radius: 50%;
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  transform: rotate(6deg);
+  line-height: 1.3;
+}
+
+.salutation { font-variant: small-caps; letter-spacing: 0.08em; }
+.letter p { margin: 0 0 1.25rem; }
+.letter strong { color: var(--clay); }
+.letter a { color: var(--river); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.letter a:hover { background: var(--amber); color: var(--ink); }
+
+/* the misfiled recipe line */
+.recipe-line {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1.4rem 1.1rem 2.6rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.55rem, rgba(194, 69, 45, 0.35) 1.55rem 1.6rem),
+    #fbf4e3;
+  border-left: 6px solid var(--clay);
+  box-shadow: inset 0 0 26px rgba(138, 90, 43, 0.18);
+  position: relative;
+}
+.recipe-line::before {
+  content: "MISFILED · WORLD MUSIC";
+  position: absolute;
+  top: -0.85rem;
+  left: 0.8rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--paper);
+  background: var(--indigo);
+  padding: 0.15rem 0.5rem;
+}
+
+.signoff { margin-top: 2.2rem; }
+.signature {
+  display: inline-block;
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.9rem;
+  color: var(--indigo);
+  transform: rotate(-2deg);
+}
+.p.s { font-size: 0.85rem; font-style: italic; color: rgba(28, 26, 58, 0.7); }
+
+/* ---- the cider press calculator ---- */
+.weigher {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+  background: rgba(20, 18, 46, 0.72);
+  border: 1px solid var(--amber);
+  box-shadow: 0 0 0 4px rgba(240, 166, 58, 0.15), 0 18px 44px rgba(0, 0, 0, 0.5);
+  padding: 1.8rem 2rem 2rem;
+}
+.weigher h2 {
+  margin: 0 0 0.6rem;
+  color: var(--amber);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 1.35rem;
+}
+.weigher-copy { margin: 0 0 1.1rem; color: rgba(246, 236, 216, 0.75); font-size: 0.92rem; }
+.weigher form { display: flex; gap: 1rem; flex-wrap: wrap; align-items: end; margin-bottom: 1rem; }
+.weigher label { display: grid; gap: 0.35rem; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--paper); }
+.weigher input {
+  width: 8rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--paper);
+  border: 2px solid var(--clay);
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+}
+.weigher button {
+  padding: 0.5rem 1.1rem;
+  background: var(--clay);
+  color: var(--paper);
+  border: 0;
+  font-family: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.weigher button:hover { background: var(--amber); color: var(--ink); }
+.weigher button:active { transform: translateY(2px); }
+.weigh-result { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem 1.5rem; }
+.weigh-result dt { color: rgba(246, 236, 216, 0.65); font-size: 0.8rem; letter-spacing: 0.05em; }
+.weigh-result dd { margin: 0 0 0.6rem; font-family: "Courier New", monospace; font-size: 1.15rem; color: var(--amber); }
+
+/* ---- colophon ---- */
+.colophon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem 1rem 3rem;
+  color: rgba(246, 236, 216, 0.7);
+  font-size: 0.85rem;
+}
+.colophon a { color: var(--amber); text-underline-offset: 3px; }
+.colophon a:hover { background: var(--amber); color: var(--ink); }
+.colophon .small { margin-top: 0.8rem; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(246, 236, 216, 0.4); }
+
+@media (max-width: 640px) {
+  .letter { padding: 2rem 1.3rem 2.4rem; }
+  .weigh-result { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spin-slow, .ticker-track, .flag { animation: none; }
+}
