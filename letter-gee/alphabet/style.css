@@ -1,0 +1,149 @@
+/* Chapter 12 · Of the Alphabet — shed field manual sheet */
+
+:root {
+  --ink: #232019;
+  --faded: #6d6555;
+  --rule: #c9bfa8;
+  --paper: #f7f3e9;
+  --accent: #7a3b2e;
+}
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.9rem;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--faded);
+  font-size: 1.02rem;
+  margin: 0 0 1.4rem;
+}
+
+.colophon-line {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  margin: 0 0 3rem;
+}
+
+.plate {
+  margin: 0 0 3rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+i, em { font-style: italic; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--accent); }
+
+table.inventory {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0 1.2rem;
+  font-size: 0.95rem;
+}
+
+.inventory caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  padding-bottom: 0.6rem;
+}
+
+.inventory th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.4rem 0.7rem 0.4rem 0;
+}
+
+.inventory td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.55rem 0.7rem 0.55rem 0;
+  vertical-align: top;
+}
+
+.inventory td.mark {
+  font-size: 1.25rem;
+  width: 2.5rem;
+}
+
+.kept {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(122, 59, 46, 0.04);
+  font-size: 1.12rem;
+  font-style: italic;
+}
+
+.attestation {
+  font-size: 0.9rem;
+  color: var(--faded);
+  margin-top: 2.2rem;
+}
+
+.sig {
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.footrule {
+  height: 2px;
+  background: var(--ink);
+  margin-top: 3.5rem;
+}
