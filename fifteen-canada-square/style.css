@@ -1,0 +1,211 @@
+/* The Nocturnal Lexicon — Entry 15.C.S. */
+
+:root {
+  --night: #0b1322;
+  --night-2: #101c30;
+  --paper: #e9e2cf;
+  --ink: #d8d2c0;
+  --gold: #c9a35c;
+  --gold-dim: #8a7440;
+  --glass: #24364f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1px 1px at 12% 18%, rgba(233, 226, 207, .55) 0, transparent 100%),
+    radial-gradient(1px 1px at 68% 9%, rgba(233, 226, 207, .4) 0, transparent 100%),
+    radial-gradient(1.5px 1.5px at 84% 26%, rgba(201, 163, 92, .45) 0, transparent 100%),
+    radial-gradient(1px 1px at 34% 38%, rgba(233, 226, 207, .35) 0, transparent 100%),
+    radial-gradient(1px 1px at 91% 55%, rgba(233, 226, 207, .4) 0, transparent 100%),
+    radial-gradient(ellipse at 50% 120%, #16263f 0%, var(--night) 55%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.entry {
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  padding: 2.5rem 2.75rem 3rem;
+  background: linear-gradient(180deg, var(--night-2) 0%, #0d1626 100%);
+  border: 1px solid var(--gold-dim);
+  box-shadow:
+    0 0 0 5px var(--night),
+    0 0 0 6px rgba(201, 163, 92, .35),
+    0 30px 60px rgba(0, 0, 0, .55);
+}
+
+.masthead { text-align: center; }
+
+.lexicon-line {
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .72rem;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: .04em;
+  color: var(--paper);
+  margin: 0 0 .4rem;
+  font-weight: normal;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--gold);
+  margin: 0 0 .8rem;
+}
+
+.roster {
+  font-size: .85rem;
+  color: #9aa5b8;
+  margin: 0;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--gold-dim);
+  margin: 1.6rem 0;
+}
+.rule + em, em:has(+ .rule) {
+  display: block;
+  text-align: center;
+  color: var(--gold-dim);
+  font-size: .85rem;
+  letter-spacing: .12em;
+  margin: -1.1rem 0 1.6rem;
+}
+
+h2 {
+  font-variant: small-caps;
+  letter-spacing: .1em;
+  color: var(--gold);
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin: 0 0 .8rem;
+  border-bottom: 1px dotted var(--gold-dim);
+  padding-bottom: .3rem;
+}
+
+.entry-para { margin-bottom: 1.8rem; }
+
+.dropcap-para::first-letter,
+.dropcap-para > .dropcap {
+  color: var(--paper);
+}
+.dropcap {
+  font-size: 3.2rem;
+  float: left;
+  line-height: .85;
+  padding: .1rem .55rem .05rem 0;
+  color: var(--gold);
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--gold); text-decoration: underline dotted; text-underline-offset: 3px; }
+a:hover { color: var(--paper); }
+
+blockquote.clipping {
+  margin: 1.2rem 1.5rem;
+  padding: .9rem 1.2rem;
+  border: 1px dashed var(--gold-dim);
+  background: rgba(201, 163, 92, .06);
+  font-style: italic;
+  color: var(--paper);
+  transform: rotate(-.4deg);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+}
+th {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .7rem;
+  color: var(--gold);
+  text-align: left;
+  padding: .35rem .6rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+td {
+  padding: .55rem .6rem;
+  border-bottom: 1px dotted rgba(138, 116, 64, .45);
+  vertical-align: top;
+}
+
+/* The tower */
+.tower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.2rem auto 1.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+.mast {
+  width: 3px;
+  height: 34px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim));
+}
+.floors {
+  display: flex;
+  flex-direction: column-reverse;
+  background: var(--glass);
+  border: 1px solid var(--gold-dim);
+  border-bottom: none;
+  padding: 4px;
+  gap: 3px;
+}
+.floor { display: flex; gap: 3px; }
+.win {
+  width: 14px;
+  height: 9px;
+  background: #101a2c;
+  border: 1px solid rgba(138, 116, 64, .35);
+  transition: background .5s, box-shadow .5s;
+}
+.win.lit {
+  background: var(--gold);
+  box-shadow: 0 0 7px rgba(201, 163, 92, .8);
+}
+.floor.ground .win { height: 13px; }
+.quay {
+  width: 130%;
+  height: 8px;
+  background: linear-gradient(180deg, #1d2c44, #0d1626);
+  border-top: 1px solid var(--gold-dim);
+}
+.tower-caption {
+  font-size: .78rem;
+  color: #9aa5b8;
+  margin: .5rem 0 0;
+  letter-spacing: .08em;
+}
+
+.fin {
+  text-align: center;
+  color: var(--gold-dim);
+  font-style: italic;
+  letter-spacing: .08em;
+  margin-top: 2.2rem;
+}
+
+.colophon {
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(138, 116, 64, .4);
+  font-size: .82rem;
+  color: #9aa5b8;
+}
+.colophon p { margin: 0; }
