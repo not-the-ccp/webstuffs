@@ -1,0 +1,104 @@
+/* The PDII — Build Log · restrained sheet on cold paper */
+
+:root {
+  --paper: #f4f1ea;
+  --ink: #23262b;
+  --faint: #6c7076;
+  --rule: #c9c3b6;
+  --blue: #31465e;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.06rem;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.8rem;
+  color: var(--blue);
+}
+
+.sub {
+  font-style: italic;
+  color: var(--faint);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+section { margin-bottom: 2.4rem; }
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.15rem; }
+
+a { color: var(--blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+.entry {
+  border-left: 2px solid var(--blue);
+  margin: 1.6rem 0 1.6rem 0.4rem;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  font-style: italic;
+  color: var(--blue);
+  font-size: 1.02rem;
+}
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+#fall {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
