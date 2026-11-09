@@ -1,0 +1,169 @@
+/* FM 4-11 — field manual paper */
+:root {
+  --paper: #efe8d6;
+  --paper-dark: #e4dabc;
+  --ink: #26221a;
+  --rule: #8a7d5c;
+  --stamp: #8c1f1a;
+  --accent: #40512c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #6b6353;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.10), transparent 60%),
+    radial-gradient(ellipse at 90% 90%, rgba(0,0,0,.25), transparent 55%);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 2.5rem 1rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(138,125,92,.10) 34px 35px),
+    radial-gradient(ellipse at 85% 6%, rgba(120,90,40,.18), transparent 40%),
+    radial-gradient(ellipse at 8% 96%, rgba(90,70,30,.16), transparent 45%);
+  border: 1px solid #b3a67f;
+  box-shadow: 0 14px 40px rgba(0,0,0,.45), inset 0 0 60px rgba(140,115,60,.14);
+  padding: 2.2rem 2.4rem 1.6rem;
+  position: relative;
+}
+
+/* corner fold + stamp */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  border-width: 0 2.2rem 2.2rem 0;
+  border-style: solid;
+  border-color: #6b6353 var(--paper-dark) transparent;
+}
+
+.stamp {
+  position: absolute;
+  top: 1rem;
+  right: 3.4rem;
+  transform: rotate(-8deg);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: .35rem .6rem;
+  opacity: .75;
+  text-transform: uppercase;
+}
+
+.masthead {
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.fm-line {
+  font-family: "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin: 0 0 .8rem;
+  color: var(--accent);
+}
+
+h1 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.9rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  margin: 0 0 .4rem;
+  line-height: 1.15;
+}
+
+.sub {
+  margin: 0;
+  font-style: italic;
+  font-size: .95rem;
+  color: #4c4534;
+}
+
+.pn {
+  margin: 1.15rem 0 0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+strong { letter-spacing: .02em; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: .9rem 0;
+  font-size: .86rem;
+  font-family: "Courier New", monospace;
+  background: rgba(255,255,255,.25);
+}
+
+caption {
+  caption-side: top;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .3rem .4rem;
+  border-bottom: 2px solid var(--rule);
+}
+
+th, td {
+  border: 1px solid var(--rule);
+  padding: .4rem .5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--paper-dark); text-transform: uppercase; font-size: .74rem; letter-spacing: .08em; }
+
+.warning {
+  margin: 1.3rem 0;
+  border: 2px solid var(--stamp);
+  background: rgba(140,31,26,.05);
+  padding: .8rem 1rem;
+  font-size: .92rem;
+}
+
+.warn-label {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: .3em;
+  color: var(--stamp);
+  margin: 0 0 .4rem;
+}
+
+blockquote.record {
+  margin: .9rem 0;
+  padding: .7rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(64,81,44,.08);
+  font-family: "Courier New", monospace;
+  font-size: .95rem;
+  font-style: italic;
+}
+
+a { color: var(--accent); text-decoration-color: rgba(64,81,44,.4); }
+a:hover { text-decoration-color: var(--accent); }
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 3px double var(--rule);
+  padding-top: .8rem;
+  font-size: .78rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: .06em;
+  color: #5a5138;
+  text-align: center;
+}
