@@ -1,0 +1,213 @@
+/* The Umbrian Almanac of Weathers — Entry No. CXII */
+:root {
+  --paper: #f1e8d2;
+  --paper-edge: #e3d5b4;
+  --ink: #2c2418;
+  --faded: #6b5d45;
+  --rule: #4a3d28;
+  --red: #8a2f1f;
+  --seal: #7a1f14;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #cfc3a4;
+  background-image: radial-gradient(circle at 30% 20%, #d8ccb0 0%, #cfc3a4 55%, #bfb292 100%);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  padding: 2.2rem 0.9rem 3.5rem;
+}
+
+.sheet {
+  max-width: 44rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.05) 0, rgba(0,0,0,0) 60px),
+    repeating-linear-gradient(0deg, rgba(74,61,40,0.025) 0 2px, rgba(0,0,0,0) 2px 4px),
+    var(--paper);
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 2px 4px rgba(60,48,28,0.25), 0 18px 40px rgba(60,48,28,0.35);
+  padding: 2.6rem 2.9rem 2.2rem;
+  position: relative;
+}
+
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem; right: 0.9rem;
+  border-top: 3px double var(--rule);
+}
+.sheet::before { top: 0.55rem; }
+.sheet::after { bottom: 0.55rem; }
+
+.masthead { text-align: center; }
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+h1 {
+  font-size: 2.5rem;
+  margin: 1.1rem 0 0.2rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.subject {
+  margin: 0 0 0.9rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--faded);
+}
+.mast-rule {
+  height: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 2px 0;
+  margin: 0.4rem 0 1rem;
+  outline: 1px solid var(--rule);
+  outline-offset: 2px;
+}
+
+.meta-strip {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 34rem;
+  font-size: 0.8rem;
+  color: var(--faded);
+}
+.meta-strip li {
+  border-bottom: 1px dotted var(--faded);
+  padding: 0.3rem 0;
+}
+.meta-strip strong {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin-right: 0.5rem;
+}
+
+.entry section { margin: 2rem 0; }
+.entry h2 {
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  text-align: center;
+  margin: 0 0 0.9rem;
+  position: relative;
+}
+.entry h2::before, .entry h2::after {
+  content: "—";
+  color: var(--faded);
+  margin: 0 0.6rem;
+}
+.entry p { margin: 0 0 0.9rem; text-align: justify; hyphens: auto; }
+
+table.readings {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+  margin-top: 1rem;
+}
+table.readings th {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  text-align: left;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.35rem 0.45rem;
+}
+table.readings td {
+  border-bottom: 1px dotted var(--faded);
+  padding: 0.35rem 0.45rem;
+  vertical-align: top;
+}
+table.readings td:first-child {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.gauge {
+  min-width: 3.4rem;
+  height: 0.65rem;
+  border: 1px solid var(--faded);
+  background: rgba(255,255,255,0.35);
+  padding: 0;
+  vertical-align: middle;
+}
+.gauge span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--red), #b3552f);
+  transition: width 1.2s ease;
+}
+
+blockquote.ledger-line {
+  margin: 1.2rem 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 3px;
+  font-size: 1.02rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--red);
+  background: rgba(138,47,31,0.05);
+}
+
+a { color: var(--seal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--red); }
+
+.stamp {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 5.4rem;
+  width: 6.2rem;
+  height: 6.2rem;
+  display: grid;
+  place-items: center;
+  transform: rotate(-11deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+.stamp-ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--seal);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px transparent, inset 0 0 0 4px var(--seal);
+}
+.stamp-text {
+  position: relative;
+  width: 78%;
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--seal);
+  font-family: "Courier New", monospace;
+}
+
+.colophon {
+  margin-top: 2.4rem;
+  padding-top: 0.7rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.78rem;
+  color: var(--faded);
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .sheet { padding: 2rem 1.2rem; }
+  h1 { font-size: 1.9rem; }
+  .stamp { position: static; margin: 1.5rem auto 0; transform: rotate(-6deg); }
+}
