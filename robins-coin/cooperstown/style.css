@@ -1,0 +1,202 @@
+/* The Greenbush Valley Correspondent — No. 7
+   Franklin Square Naturalists' Club, letterpress for the bench */
+
+:root {
+  --ink: #212a1c;
+  --ink-soft: #4a5240;
+  --paper: #f2ecd8;
+  --paper-deep: #e6dcbc;
+  --pitch: #1c2e1e;
+  --grass: #2e4a2c;
+  --brass: #a9822a;
+  --brass-bright: #d8b46a;
+  --clay: #8a3b1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.72;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -10%, rgba(216, 180, 106, 0.30), transparent 60%),
+    radial-gradient(ellipse 90% 70% at 85% 110%, rgba(46, 74, 44, 0.32), transparent 65%),
+    var(--paper);
+}
+
+.halo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255, 250, 230, 0.55), transparent 70%);
+}
+
+.letterhead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1rem;
+  text-align: center;
+}
+
+.club-mark {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grass);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 6vw, 3.2rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--pitch);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+h1 .sp { color: var(--brass); font-style: italic; }
+
+.no {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.9rem 0 0;
+}
+
+.mast-orn {
+  width: min(78%, 420px);
+  margin: 1.1rem auto 0.6rem;
+  display: block;
+  color: var(--brass);
+}
+
+.subject {
+  font-size: 0.95rem;
+  color: var(--clay);
+  border-top: 3px double var(--brass);
+  border-bottom: 1px solid var(--brass);
+  padding: 0.55rem 0.2rem;
+  margin-bottom: 0;
+}
+
+.letter {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.5rem 1.25rem 2rem;
+}
+
+.entry {
+  margin: 2.2rem 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(169, 130, 42, 0.45);
+}
+
+.dateline {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grass);
+  margin: 0 0 0.9rem;
+}
+
+.drop::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--brass);
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+.ledger { color: var(--clay); }
+.motto { color: var(--pitch); }
+
+a { color: var(--grass); }
+a:hover { color: var(--clay); }
+
+/* the members' examination */
+.exam .q {
+  margin: 1.4rem 0 0.5rem;
+  font-weight: 600;
+}
+.qn { color: var(--brass); font-variant: small-caps; margin-right: 0.4em; }
+
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.4rem 1.1rem;
+}
+
+.opts button {
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: var(--paper-deep);
+  border: 1px solid rgba(169, 130, 42, 0.6);
+  border-radius: 2px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.opts button:hover { background: var(--brass-bright); }
+
+.opts button.correct {
+  background: var(--grass);
+  border-color: var(--grass);
+  color: var(--paper);
+}
+
+.opts button.wrong {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--paper);
+}
+
+.opts.answered button { cursor: default; }
+.opts.answered button:hover { background: var(--paper-deep); }
+.opts.answered button.correct { background: var(--grass); color: var(--paper); }
+.opts.answered button.wrong { background: var(--clay); color: var(--paper); }
+
+.verdict {
+  min-height: 1.6em;
+  margin: 1.3rem 0 0 1.1rem;
+  font-style: italic;
+  color: var(--pitch);
+  font-size: 1.02rem;
+}
+
+.key {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  border-top: 1px dotted rgba(74, 82, 64, 0.6);
+  padding-top: 0.7rem;
+  margin-top: 1.6rem;
+}
+
+.signed { font-style: italic; color: var(--ink-soft); }
+
+.colophon {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--grass);
+  margin-top: 1.6rem;
+  padding-top: 0.9rem;
+  border-top: 3px double var(--brass);
+}
+
+.ledger-foot {
+  max-width: 46rem;
+  margin: 1rem auto 3rem;
+  padding: 1.5rem 1.25rem 0;
+  text-align: center;
+  color: var(--grass);
+  border-top: 1px solid rgba(169, 130, 42, 0.45);
+}
+
+.foot-coin { width: 84px; margin: 0 auto 0.8rem; display: block; color: var(--brass); }
+.foot-txt { font-size: 15px; font-family: inherit; letter-spacing: 0.12em; fill: var(--brass); }
+.foot-txt.small { font-size: 9px; }
