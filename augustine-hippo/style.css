@@ -1,0 +1,143 @@
+/* Minutes No. 58 — Council of the Hall: a certified minute on paper */
+:root {
+  --paper: #f4eee1;
+  --paper-deep: #ece3cf;
+  --ink: #2b241a;
+  --red: #9c2b1d;
+  --rule: #b4a789;
+  --stamp: #7d8a6a;
+}
+* { box-sizing: border-box; }
+html { background: #d9d2c0; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.5), transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(120,95,50,.18), transparent 50%),
+    var(--paper);
+}
+.hallmark {
+  position: fixed;
+  left: 1.2rem; bottom: -.9rem;
+  font-family: "Bodoni 72", "Didot", "Times New Roman", serif;
+  font-size: 11rem;
+  color: rgba(156, 43, 29, .08);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.folio {
+  max-width: 46rem;
+  margin: 3.2rem auto 5rem;
+  padding: 2.6rem 3rem 2.2rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 18px 40px -18px rgba(60,45,20,.45);
+}
+.head { border-bottom: 3px double var(--rule); padding-bottom: 1.1rem; margin-bottom: 1.4rem; }
+.council {
+  margin: 0 0 .4rem;
+  font-variant: small-caps;
+  letter-spacing: .14em;
+  font-size: .82rem;
+  text-align: center;
+  color: #5c5140;
+}
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Bodoni 72", "Didot", "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 2.15rem;
+  letter-spacing: .01em;
+}
+h1 .tag {
+  display: block;
+  margin-top: .35rem;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--red);
+}
+.where { margin: 1rem 0 0; font-size: .92rem; text-align: center; color: #4a4234; }
+table.attendees { width: 100%; border-collapse: collapse; margin-top: 1.2rem; font-size: .95rem; }
+.attendees th {
+  width: 7.2rem;
+  text-align: left;
+  vertical-align: top;
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  padding: .35rem .8rem .35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.attendees td { padding: .35rem 0; border-bottom: 1px solid var(--rule); }
+.attendees tr:last-child th, .attendees tr:last-child td { border-bottom: none; }
+.item { margin: 1.7rem 0; }
+.item h2 {
+  margin: 0 0 .6rem;
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  font-size: 1.02rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .3rem;
+}
+.item h2 .no {
+  display: inline-block;
+  min-width: 1.5rem;
+  font-family: "Bodoni 72", "Didot", serif;
+  color: var(--red);
+  margin-right: .5rem;
+}
+.item p { margin: 0 0 .8rem; text-align: justify; hyphens: auto; }
+.shelf-line {
+  margin: 1rem .6rem;
+  padding: .8rem 1.1rem;
+  border-left: 3px solid var(--red);
+  background: rgba(156, 43, 29, .05);
+  font-style: italic;
+  text-align: left;
+  font-size: 1rem;
+}
+a { color: #33506e; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+strong { font-weight: 600; }
+.close { margin-top: 1.4rem; font-style: italic; color: #4a4234; }
+.sign { display: flex; justify-content: space-between; margin-top: 2rem; font-variant: small-caps; letter-spacing: .05em; }
+.sign span { border-top: 1px solid var(--ink); padding-top: .2rem; font-size: .9rem; }
+.sealwrap { max-width: 46rem; margin: 1.6rem auto 4rem; text-align: center; }
+.seal {
+  position: relative;
+  width: 5.4rem; height: 5.4rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: var(--red);
+  background: radial-gradient(circle at 38% 32%, #b84a38, var(--red) 60%, #6f1d13);
+  box-shadow: 0 3px 10px -3px rgba(60,15,8,.6), 0 0 0 4px rgba(156,43,29,.18);
+  font-family: "Bodoni 72", "Didot", "Times New Roman", serif;
+  transition: transform .25s ease;
+}
+.seal:hover { transform: rotate(-6deg) scale(1.03); }
+.seal:active { transform: scale(.94); }
+.seal .ring {
+  position: absolute; inset: .45rem;
+  border: 1px solid rgba(255,235,220,.75);
+  border-radius: 50%;
+}
+.seal-line, .seal-name { display: block; font-size: .58rem; letter-spacing: .12em; color: #ffe9dd; }
+.seal-name { font-size: .95rem; margin-top: .1rem; }
+.pron { margin: .8rem 0 0; font-size: .82rem; letter-spacing: .06em; color: #5c5140; }
+.pron.flipped { color: var(--red); font-style: italic; }
+@media (max-width: 620px) {
+  .folio { margin: 1rem .6rem 3rem; padding: 1.6rem 1.2rem; }
+  h1 { font-size: 1.6rem; }
+  .attendees th { width: 5rem; }
+  .hallmark { font-size: 7rem; }
+}
