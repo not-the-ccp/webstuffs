@@ -1,0 +1,178 @@
+/* Catalogue No. 37 — Lot 41, the Central London Railway */
+
+:root {
+  --paper: #f3ead4;
+  --paper-deep: #eaddc0;
+  --ink: #2b2118;
+  --oxblood: #5c1e1a;
+  --gold: #a8842f;
+  --rule: #b09a6d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(92, 30, 26, 0.025) 0 2px, transparent 2px 26px),
+    var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  line-height: 1.62;
+}
+
+.catalogue {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 2.2rem 2.4rem 2rem;
+  background:
+    radial-gradient(ellipse at top, rgba(168, 132, 47, 0.08), transparent 55%),
+    var(--paper);
+  border: 3px double var(--oxblood);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  box-shadow: 0 14px 34px rgba(43, 33, 24, 0.28);
+  position: relative;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.house {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: bold;
+}
+
+.house-sub {
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--ink);
+  font-weight: normal;
+  text-transform: none;
+}
+
+.sale-line {
+  margin: 0.7rem 0 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6d5a3a;
+}
+
+h1 {
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  margin: 0.5rem 0 0.3rem;
+  color: var(--oxblood);
+}
+
+.lot-sub {
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  margin-top: 0.4rem;
+}
+
+.alias {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  color: #6d5a3a;
+}
+
+.tunnel {
+  margin: 1rem 0 1.4rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+}
+
+.tunnel-earth { fill: #cdbb92; }
+.tunnel-bore { fill: #241a12; stroke: #8a6f3c; stroke-width: 3; }
+.coach { fill: #5c1e1a; stroke: #241a12; }
+.coach.lead { fill: #a8842f; }
+.tunnel-label {
+  fill: #5c4a2c;
+  font-size: 11px;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.25rem;
+  margin: 1.7rem 0 0.8rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--oxblood); }
+a:hover { color: var(--gold); }
+
+dl.kv { margin: 0 0 1rem; }
+dl.kv > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.8rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+dl.kv dt {
+  font-weight: bold;
+  color: var(--oxblood);
+  letter-spacing: 0.05em;
+}
+dl.kv dd { margin: 0; }
+
+strong { color: var(--oxblood); }
+
+.catalog-foot {
+  margin-top: 2rem;
+  border-top: 3px double var(--gold);
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.hammer {
+  display: inline-block;
+  margin: 0.6rem 0;
+  padding: 0.55rem 1.4rem;
+  border: 2px solid var(--oxblood);
+  color: var(--oxblood);
+  letter-spacing: 0.3em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  background: var(--paper-deep);
+  transition: transform 0.12s ease, background 0.2s ease;
+}
+
+.hammer:hover { transform: rotate(-1deg); }
+
+.hammer.sold {
+  background: var(--oxblood);
+  color: var(--paper);
+  transform: rotate(-3deg);
+}
+
+.foot-line {
+  margin: 0.4rem 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6d5a3a;
+}
