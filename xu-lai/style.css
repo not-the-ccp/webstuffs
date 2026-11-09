@@ -1,0 +1,120 @@
+/* Field Notes · Plate 17 · Xu Lai — stylesheet for the naturalist's cabinet */
+html {
+  line-height: 1.55;
+}
+body {
+  margin: 0;
+  padding: 26px;
+  background: #f4efe0;
+  color: #251c14;
+  font-family: "Crimson Text", "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+.folio {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 34px 42px 48px;
+  background: #faf5e6;
+  border: 1px solid #c9bd9f;
+  border-top: 4px double #8a7b5e;
+  box-shadow: 0 6px 20px rgba(40, 34, 24, 0.12);
+}
+.field-header {
+  border-bottom: 2px solid #5d5540;
+  padding-bottom: 14px;
+  margin-bottom: 26px;
+}
+.archive-line {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6e634f;
+  margin: 0 0 8px;
+}
+h1 {
+  font-size: 30px;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid #b8ad8e;
+  padding-bottom: 6px;
+}
+.specimen {
+  font-size: 12.5px;
+  color: #4a4234;
+  margin: 0;
+  border: 1px dotted #a69b7d;
+  padding: 6px 10px;
+  display: inline-block;
+  background: #f2ebdc;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #5c6b4d;
+  border: 1px solid #8da082;
+  padding: 1px 8px;
+  margin-right: 8px;
+  background: #eef2e9;
+}
+h2 {
+  font-size: 16.5px;
+  margin: 24px 0 10px;
+  color: #3d3422;
+}
+p {
+  margin: 0 0 13px;
+  text-align: justify;
+}
+.entry {
+  border-left: 3px solid #b4aa86;
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+.verbatim {
+  background: #f3e8d9;
+  border: 1px dashed #bd9f77;
+  padding: 10px 14px;
+  font-style: italic;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: #3d2a1f;
+  text-align: left;
+  margin: 10px 0 12px;
+}
+.seal {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #8e362d;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+a {
+  color: #3e523f;
+  text-decoration: underline #a8b2a5;
+  text-underline-offset: 3px;
+}
+a:visited {
+  color: #5c4a3f;
+}
+.colophon {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid #c9bd9f;
+  font-size: 12px;
+  color: #756a53;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+@media (max-width: 560px) {
+  body {
+    padding: 14px;
+  }
+  .folio {
+    padding: 22px 20px 30px;
+  }
+}
