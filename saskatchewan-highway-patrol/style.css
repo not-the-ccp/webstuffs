@@ -1,0 +1,278 @@
+/* Saskatchewan Highway Patrol — Provincial Answer Desk, winter issue */
+
+:root {
+  --asphalt: #16181d;
+  --asphalt-deep: #0d0f13;
+  --lane: #f2c40d;
+  --lane-dim: #c9a00a;
+  --skytop: #0b1c33;
+  --skybottom: #24405e;
+  --paper: #f4efe3;
+  --ink: #1c1a15;
+  --beacon-red: #ff3b30;
+  --beacon-amber: #ffb020;
+  --blue: #0b2e5b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--paper);
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(255, 176, 32, 0.10), transparent 60%),
+    linear-gradient(180deg, var(--skytop) 0%, var(--skybottom) 120px, var(--asphalt) 121px, var(--asphalt-deep) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- beacons ---------------------------------------------------------- */
+.beacon {
+  position: fixed;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(6px);
+  animation: beacon 2.4s ease-in-out infinite;
+}
+.beacon-left  { left: -70px;  background: radial-gradient(circle, rgba(255, 59, 48, 0.55), transparent 65%); }
+.beacon-right { right: -70px; background: radial-gradient(circle, rgba(255, 176, 32, 0.55), transparent 65%); animation-delay: 1.2s; }
+@keyframes beacon {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}
+
+/* --- snow ------------------------------------------------------------- */
+.sky { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+.snow {
+  position: absolute;
+  top: -12px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  animation: fall var(--d) linear infinite;
+  opacity: 0.85;
+}
+@keyframes fall {
+  0%   { transform: translate(0, -5vh) rotate(0deg); }
+  50%  { transform: translate(18px, 52vh) rotate(180deg); }
+  100% { transform: translate(-14px, 108vh) rotate(360deg); }
+}
+
+/* --- pavement / centreline ------------------------------------------- */
+.pavement {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 34px 22px 60px;
+}
+.centerline {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    180deg,
+    var(--lane) 0 46px,
+    transparent 46px 86px
+  );
+  opacity: 0.16;
+  animation: lane-scroll 3.2s linear infinite;
+  z-index: -1;
+}
+@keyframes lane-scroll {
+  from { background-position-y: 0; }
+  to   { background-position-y: 86px; }
+}
+
+/* --- masthead ---------------------------------------------------------- */
+.masthead { text-align: center; margin-bottom: 30px; }
+.service-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--lane);
+  border-top: 3px solid var(--lane);
+  border-bottom: 3px solid var(--lane);
+  padding: 8px 4px;
+  background: rgba(0, 0, 0, 0.35);
+}
+.sign-wrap { margin: 26px 0 8px; }
+.shield {
+  width: 118px;
+  height: 118px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 14px rgba(242, 196, 13, 0.45));
+  animation: shield-sway 5s ease-in-out infinite;
+}
+@keyframes shield-sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50%      { transform: rotate(2deg); }
+}
+h1 {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: clamp(1.9rem, 5.5vw, 3.1rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin: 12px 0 6px;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.6), 0 0 22px rgba(242, 196, 13, 0.25);
+}
+.sub {
+  font-style: italic;
+  color: #c9c2ad;
+  margin: 0 0 18px;
+}
+.chevron-strip {
+  display: flex;
+  gap: 4px;
+  margin: 14px auto 0;
+  max-width: 520px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.chevron-strip span {
+  flex: 1;
+  height: 18px;
+  background: linear-gradient(135deg, var(--lane) 0 50%, #14161a 50% 100%);
+  transform: skewX(-24deg);
+  animation: chev 1.6s steps(2) infinite;
+}
+.chevron-strip span:nth-child(odd) { animation-delay: 0.8s; }
+@keyframes chev { 50% { filter: brightness(1.8); } }
+
+/* --- intro -------------------------------------------------------------- */
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #e9e3d2;
+  background: rgba(0, 0, 0, 0.30);
+  border-left: 6px solid var(--lane);
+  padding: 16px 18px;
+  margin: 0 0 34px;
+}
+
+/* --- FAQ cards ----------------------------------------------------------- */
+.faq { display: grid; gap: 26px; }
+.qa {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0)),
+    #1d2027;
+  border: 1px solid #343946;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.qa:hover { transform: translateY(-3px); border-color: var(--lane-dim); }
+.q {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(180deg, var(--blue), #08244a);
+  padding: 14px 18px;
+  font-family: "Courier New", monospace;
+  font-size: 1.08rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+  border-bottom: 4px solid var(--lane);
+  cursor: pointer;
+}
+.q em { color: var(--lane); font-style: italic; }
+.plate {
+  flex: 0 0 auto;
+  background: var(--lane);
+  color: var(--ink);
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 4px 9px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.a { padding: 18px 22px 22px; }
+.a p { line-height: 1.78; margin: 0 0 14px; color: #efe9d8; }
+.a p:last-child { margin-bottom: 0; }
+.a strong { color: #fff; }
+.a a {
+  color: var(--lane);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.a a:hover { background: rgba(242, 196, 13, 0.15); }
+.a .a-note {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: #9aa0ae;
+  border-top: 1px dashed #3a4050;
+  padding-top: 10px;
+  margin-top: 16px;
+}
+
+.claim-line {
+  font-family: "Courier New", monospace;
+  background: #0d0f13;
+  color: var(--lane);
+  border: 2px dashed var(--lane-dim);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 4px 0 16px;
+  position: relative;
+}
+.claim-line::before {
+  content: "ANNEX · CLAUSE 2";
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  background: var(--asphalt);
+  padding: 0 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #9aa0ae;
+}
+
+/* --- answer toggle state -------------------------------------------------- */
+.qa.collapsed .a { display: none; }
+.qa .q::after {
+  content: "−";
+  margin-left: auto;
+  font-size: 1.3rem;
+  color: var(--lane);
+  transition: transform 0.2s ease;
+}
+.qa.collapsed .q::after { content: "+"; }
+
+/* --- footer ---------------------------------------------------------------- */
+.tail { margin-top: 46px; text-align: center; }
+.colophon {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #9aa0ae;
+  line-height: 2;
+  border-top: 3px solid var(--lane);
+  padding-top: 14px;
+}
+.colophon a { color: var(--lane); }
+
+@media (max-width: 560px) {
+  .centerline { display: none; }
+  .q { font-size: 0.95rem; }
+}
