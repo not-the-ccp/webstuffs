@@ -1,0 +1,217 @@
+/* An apology letter on league office stationery */
+
+:root {
+  --ink: #1d232b;
+  --faint: #5b6672;
+  --rule: #9aa4b0;
+  --accent: #8d1f2d;
+  --paper: #f7f4ec;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 40px 16px 72px;
+  background:
+    radial-gradient(circle at 20% 10%, #e9e5da 0%, #ddd8cc 60%, #cfc9bb 100%);
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.paper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(29,35,43,0.028) 0 1px, transparent 1px 4px);
+  z-index: 0;
+}
+
+header.letterhead,
+main.letter,
+footer.colophon {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+header.letterhead {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  padding: 28px 44px 18px;
+  box-shadow: 0 2px 14px rgba(40, 40, 30, 0.18);
+}
+
+.office {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+}
+
+.office-sub {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+}
+
+.office-addr {
+  margin: 2px 0 14px;
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+
+.rule {
+  height: 3px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.letterhead-foot {
+  margin: 10px 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+main.letter {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-bottom: none;
+  padding: 40px 52px 36px;
+  position: relative;
+  box-shadow: 0 2px 14px rgba(40, 40, 30, 0.18);
+}
+
+main.letter p {
+  margin: 0 0 18px;
+  font-size: 0.98rem;
+}
+
+address.to {
+  font-style: normal;
+  margin: 18px 0 22px;
+}
+
+address.to p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.date {
+  text-align: right;
+  font-size: 0.88rem;
+  color: var(--faint);
+  margin-bottom: 22px;
+}
+
+.salutation {
+  font-weight: 700;
+}
+
+.stamp {
+  position: absolute;
+  top: 34px;
+  right: 44px;
+  width: 128px;
+  height: 128px;
+  display: grid;
+  place-items: center;
+  transform: rotate(8deg);
+  border: 3px double var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.stamp-ring {
+  position: absolute;
+  top: 8px;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+}
+
+.stamp-ring2 {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+}
+
+.stamp-core {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.signature {
+  font-weight: 700;
+}
+
+.sig-block {
+  margin: 4px 0 24px;
+  font-size: 0.9rem;
+}
+
+.sig-block p { margin: 0; }
+
+.sig-name {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.7rem;
+  color: #23324d;
+  transform: rotate(-2deg);
+}
+
+.postscript {
+  border-top: 1px dashed var(--rule);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.postscript p {
+  font-size: 0.84rem;
+  color: #333c47;
+}
+
+.postscript a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.postscript a:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+footer.colophon {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px double var(--ink);
+  padding: 14px 44px;
+  box-shadow: 0 2px 14px rgba(40, 40, 30, 0.18);
+}
+
+footer.colophon p {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--faint);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  header.letterhead,
+  main.letter,
+  footer.colophon { padding-left: 22px; padding-right: 22px; }
+  .stamp { display: none; }
+}
