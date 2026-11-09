@@ -1,0 +1,179 @@
+/* Minutes of the Council of the Ten Cantons — Session 19, Kupres */
+
+:root {
+  --ink: #1e2a26;
+  --ink-soft: #4a5a53;
+  --paper: #f7f4ec;
+  --panel: #f0ebdf;
+  --rule: #c9c2ae;
+  --accent: #5d4a72;
+  --accent-deep: #40334f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.minutes {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.minutes-head {
+  position: relative;
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.entity {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.office-line {
+  margin: 0.4rem 0 1.6rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+.session-line {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.seal {
+  position: absolute;
+  top: 0.2rem;
+  right: -0.5rem;
+  width: 4.6rem;
+  height: 4.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  transform: rotate(12deg);
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+}
+
+.seal span {
+  font-size: 1.6rem;
+  line-height: 1;
+  font-variant: small-caps;
+}
+
+.seal small {
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 2.4rem;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1rem; }
+
+strong { font-weight: normal; color: var(--accent-deep); font-variant: small-caps; }
+
+blockquote.record-line {
+  margin: 1.6rem 0;
+  padding: 1.2rem 1.6rem;
+  background: var(--panel);
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+}
+
+blockquote.record-line p { margin: 0; }
+
+table.tally {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.92rem;
+}
+
+table.tally th {
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.4rem 0.6rem 0.4rem 0;
+}
+
+table.tally td {
+  border-bottom: 1px dotted var(--rule);
+  padding: 0.6rem;
+  vertical-align: top;
+}
+
+table.tally td:first-child {
+  white-space: nowrap;
+  font-variant: small-caps;
+  color: var(--accent-deep);
+}
+
+.minutes-foot {
+  border-top: 3px double var(--ink);
+  padding-top: 1.4rem;
+  margin-top: 2.8rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.minutes-foot p { margin: 0.3rem 0; }
+
+a {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--accent); }
+
+@media (max-width: 40rem) {
+  .minutes { padding-top: 3rem; }
+  .seal { display: none; }
+}
