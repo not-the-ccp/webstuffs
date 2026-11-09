@@ -1,0 +1,76 @@
+/* Imperium — Rulebook 7 · game manual stylesheet */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 22px;
+  background: #5b3a18;
+  color: #1c1207;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10.5pt;
+  line-height: 1.6;
+}
+.manual {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #efe6cb;
+  border: 4px double #3e2510;
+  padding: 48px 44px 42px;
+  position: relative;
+  box-shadow: 0 0 0 6px #efe6cb, 8px 10px 24px rgba(0,0,0,0.55);
+}
+.manual::before, .manual::after {
+  content: "";
+  position: absolute;
+  width: 13px; height: 13px;
+  top: 44px;
+  background: #b9c0c6;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #efe6cb;
+}
+.manual::before { left: 28px; }
+.manual::after { right: 28px; }
+.staple {
+  position: absolute; top: 14px; left: 50%;
+  width: 18px; height: 34px; transform: translatex(-50%);
+  border: 2px solid #6a4a2e; border-radius: 8px;
+  background: #efe6cb;
+}
+.stamp {
+  position: absolute; top: 22px; right: 26px;
+  width: 88px; height: 88px;
+  border: 2px dashed #8a1f1f;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 8pt; letter-spacing: 2px; text-transform: uppercase;
+  color: #8a1f1f; text-align: center; line-height: 1.35;
+  transform: rotate(-9deg);
+}
+.stamp-top { display: block; padding-top: 30px; }
+.stamp-bottom { display: block; }
+.head { border-bottom: 3px double #3e2510; padding-bottom: 18px; margin-bottom: 26px; }
+.series { font-size: 8pt; letter-spacing: 3px; text-transform: uppercase; color: #6a4a2e; margin: 0 0 10px; }
+h1 { font-size: 17pt; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 1px; }
+.subtitle { font-size: 8.5pt; letter-spacing: 1.5px; margin: 0; color: #4a3318; }
+hr.brass { border: none; border-top: 1px solid #3e2510; margin: 14px 0; }
+h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 2px; margin: 26px 0 10px; border-bottom: 1px solid #6a4a2e; padding-bottom: 4px; }
+h2::before { content: "§ "; color: #8a1f1f; }
+p { margin: 0 0 14px; text-align: justify; }
+strong { letter-spacing: 0.5px; }
+em { font-style: italic; }
+ul.scenarios { margin: 8px 0 16px 0; padding-left: 22px; }
+ul.scenarios li { margin: 6px 0; text-align: left; }
+.image-line {
+  font-size: 8.5pt; letter-spacing: 1px; text-transform: uppercase;
+  border-top: 1px solid #3e2510; border-bottom: 1px solid #3e2510;
+  padding: 8px 0; margin: 22px 0; text-align: center;
+}
+.see-also { margin-top: 30px; padding-top: 14px; border-top: 1px solid #6a4a2e; }
+.see-also h2 { font-size: 8.5pt; margin-bottom: 8px; }
+.see-also p { font-size: 8.5pt; text-align: left; margin: 0 0 6px; }
+a { color: #8a1f1f; text-decoration: underline; }
+a:focus { outline: 2px solid #8a1f1f; }
+.sign-off { font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; margin-top: 34px; padding-top: 12px; border-top: 1px solid #3e2510; text-align: center; color: #6a4a2e; }
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .manual { padding: 30px 20px 26px; }
+}
