@@ -1,0 +1,128 @@
+/* A Letter of Apology — California State Route 76 */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #23211c;
+  --faint: #6f6a5e;
+  --rule: #c9c2b0;
+  --marker: #9a3b2c;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  padding: 4.5rem 1.5rem 5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.letter {
+  max-width: 34rem;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  padding: 3rem 2.75rem 2.25rem;
+}
+
+.letterhead .office {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.letterhead .office-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.letterhead hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.4rem 0;
+}
+
+.letterhead .date {
+  margin: 0;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0.4rem 0 0;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.body p {
+  margin: 0 0 1.4rem;
+}
+
+.dropcap {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.85;
+  padding: 0.18em 0.12em 0 0;
+  color: var(--marker);
+}
+
+a {
+  color: var(--marker);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154, 59, 44, 0.35);
+}
+
+a:hover { border-bottom-color: var(--marker); }
+
+em { font-style: italic; }
+
+.signature .salutation {
+  margin: 2.2rem 0 0.2rem;
+  font-size: 0.9rem;
+  color: var(--faint);
+}
+
+.signature .sign {
+  margin: 0;
+  font-size: 1.35rem;
+  font-style: italic;
+}
+
+.signature .role {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  color: var(--faint);
+  line-height: 1.5;
+}
+
+.signature hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2rem 0 1.1rem;
+}
+
+.colophon {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  color: var(--faint);
+}
+
+@media (max-width: 620px) {
+  body { padding: 2rem 0.9rem 3rem; }
+  .letter { padding: 2rem 1.4rem 1.5rem; }
+}
