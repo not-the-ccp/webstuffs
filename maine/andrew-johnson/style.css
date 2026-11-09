@@ -1,0 +1,199 @@
+/* Sheet No. 42 — Small Ads, The Laconia Ledger, kept at the State Border Answers Desk */
+
+:root {
+  --paper: #f2e9d2;
+  --paper-deep: #e9ddc0;
+  --ink: #2a2118;
+  --ink-soft: #584936;
+  --rule: #4a3d2c;
+  --stamp: #8c3b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #cfc2a4;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 250, 235, 0.35), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(74, 61, 44, 0.02) 0 2px, transparent 2px 4px);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 28px 12px;
+}
+
+.paper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--paper);
+  background-image:
+    linear-gradient(180deg, rgba(90, 73, 54, 0.10), transparent 120px),
+    radial-gradient(ellipse at 85% 95%, rgba(90, 73, 54, 0.12), transparent 40%);
+  border: 1px solid #a4936f;
+  box-shadow: 0 14px 34px rgba(42, 33, 24, 0.35), inset 0 0 60px rgba(90, 73, 54, 0.10);
+  padding: 26px 30px 20px;
+}
+
+/* Masthead */
+.masthead { text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 10px; }
+
+.mast-top {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: 52px;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mast-sub {
+  margin: 8px 0 0;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* The desk's note */
+.intro {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--rule);
+  border-right: 3px solid var(--rule);
+  padding: 10px 14px;
+  margin: 18px 6px 22px;
+  background: var(--paper-deep);
+}
+
+.intro strong { font-style: normal; }
+
+/* Ad columns */
+.cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--rule);
+  border-left: 2px solid var(--rule);
+}
+
+.ad {
+  padding: 12px 14px 14px;
+  border-right: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  min-height: 120px;
+}
+
+.ad:nth-child(odd) { background: rgba(255, 252, 240, 0.35); }
+
+.ad h2 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  text-align: center;
+  font-weight: 700;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+
+.ad p {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.ad p:last-child { margin-bottom: 0; }
+
+.ad .ref {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* The kept card */
+.kept-line {
+  font-family: "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  font-size: 17px;
+  line-height: 1.35;
+  text-align: left;
+  transform: rotate(-0.4deg);
+  padding: 6px 4px 8px;
+  margin: 4px 0 10px;
+  border: 1px dashed var(--stamp);
+  color: #51241a;
+  background: rgba(140, 59, 42, 0.05);
+  box-shadow: 2px 2px 0 rgba(140, 59, 42, 0.15);
+}
+
+.ad-kept h2::after {
+  content: " · kept";
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: var(--stamp);
+}
+
+.ad-tailor {
+  position: relative;
+}
+
+.ad-tailor::after {
+  content: "PARDONED";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 2px 6px;
+  transform: rotate(6deg);
+  opacity: 0.75;
+  font-weight: 700;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover { background: var(--paper-deep); }
+
+/* Colophon */
+.colophon {
+  margin-top: 20px;
+  border-top: 3px double var(--rule);
+  padding-top: 10px;
+  text-align: center;
+}
+
+.col-line {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.col-line a { text-transform: none; letter-spacing: normal; }
+
+@media (max-width: 640px) {
+  .cols { grid-template-columns: 1fr; }
+  h1 { font-size: 38px; }
+  .paper { padding: 20px 16px; }
+}
