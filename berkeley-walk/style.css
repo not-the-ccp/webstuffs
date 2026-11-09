@@ -1,0 +1,143 @@
+/* Berkeley on Foot — a walking tour, printed-route style */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #1e1c18;
+  --faint: #6d6759;
+  --line: #b8b0a0;
+  --gate: #7a2e1d;
+  --campanile: #a56a43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+#tour-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--gate);
+  z-index: 10;
+  transition: width 80ms linear;
+}
+
+.brochure {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 3rem;
+}
+
+.cover { text-align: center; }
+
+.cover-line {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 1.6rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.4rem;
+  color: var(--gate);
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin: 0 0 1.2rem;
+}
+
+.route-meta {
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin: 0;
+}
+
+.route-meta span { color: var(--ink); font-variant: small-caps; }
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 2rem auto;
+  max-width: 14rem;
+  position: relative;
+}
+
+.rule.triple { box-shadow: 0 3px 0 var(--line), 0 6px 0 var(--line); height: 2px; }
+.rule.double { box-shadow: 0 3px 0 var(--line); }
+
+section { margin: 2.6rem 0; }
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.num {
+  display: inline-block;
+  min-width: 1.6em;
+  color: var(--gate);
+  font-variant: small-caps;
+}
+
+.clock {
+  float: right;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--faint);
+  font-style: normal;
+  font-variant: small-caps;
+}
+
+p { margin: 0 0 1.1rem; }
+
+a { color: var(--gate); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--gate); }
+
+em { font-style: italic; }
+
+blockquote.found-line {
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.4rem;
+  border-left: 3px solid var(--campanile);
+  background: #f1ecdf;
+  font-style: italic;
+  font-size: 1.02rem;
+}
+
+.notice h2 { border: none; }
+
+footer.colophon {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin-top: 3rem;
+}
+
+footer.colophon p { margin: 0; }
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .brochure { padding: 3rem 1.25rem 2rem; }
+  h1 { font-size: 2rem; }
+}
