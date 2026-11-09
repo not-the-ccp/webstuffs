@@ -1,0 +1,111 @@
+:root {
+  --paper: #f6f1e7;
+  --ink: #23201a;
+  --faded: #6f6656;
+  --rule: #c9bfa8;
+  --accent: #7a2e2a;
+  --gold: #9a7b3f;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+header.masthead,
+main,
+footer {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.series {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+.players {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+main section {
+  padding: 2.2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: bold; }
+
+a { color: var(--accent); }
+a:hover { color: var(--gold); }
+
+blockquote.kept {
+  margin: 1.4rem 0;
+  padding: 1.2rem 1.6rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: #efe7d5;
+  font-style: italic;
+}
+
+blockquote.kept p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
