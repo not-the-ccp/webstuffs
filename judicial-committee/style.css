@@ -1,0 +1,125 @@
+/* Little George Street Record Office — record folio */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #1c1c1c;
+  background: #faf7ef;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  line-height: 1.65;
+}
+
+.product {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 6rem;
+}
+
+.folio-head {
+  border-bottom: 1px solid #b9b1a3;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hand {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6a5d4d;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #4a4438;
+  margin: 0;
+}
+
+.offer p {
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.sku {
+  color: #6a5d4d;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+table.particulars {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+table.particulars th,
+table.particulars td {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #d8d2c6;
+  vertical-align: top;
+}
+
+table.particulars th {
+  text-align: left;
+  color: #6a5d4d;
+  font-weight: normal;
+  width: 34%;
+}
+
+blockquote.recipe {
+  margin: 1.5rem 0 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid #b9b1a3;
+  font-style: italic;
+  color: #3d3326;
+}
+
+.see-also {
+  border-top: 1px solid #b9b1a3;
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #4a4438;
+}
+
+.see-also a {
+  color: #1c1c1c;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .product {
+    padding: 3rem 1.25rem 4rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+}
