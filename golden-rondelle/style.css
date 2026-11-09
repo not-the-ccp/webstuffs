@@ -1,0 +1,147 @@
+/* Golden Rondelle build log — a garage, a dome, 500 seats */
+
+body {
+  margin: 0;
+  background-color: #000033;
+  color: #ffffff;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* tiled starry background */
+.stars {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background-color: #000033;
+  background-image:
+    radial-gradient(1px 1px at 12px 18px, #ffff99 50%, transparent 51%),
+    radial-gradient(1px 1px at 60px 90px, #ffffff 50%, transparent 51%),
+    radial-gradient(2px 2px at 110px 40px, #cccccc 50%, transparent 51%),
+    radial-gradient(1px 1px at 150px 130px, #ffff99 50%, transparent 51%),
+    radial-gradient(1px 1px at 40px 160px, #ffffff 50%, transparent 51%);
+  background-size: 180px 180px;
+}
+
+.counter-box {
+  width: 260px;
+  margin: 10px auto 0;
+  text-align: center;
+  color: #ffff99;
+  font-size: 11px;
+}
+
+#visits {
+  color: #00ff00;
+  background-color: #000000;
+  border: 2px inset #c0c0c0;
+  padding: 1px 6px;
+  letter-spacing: 3px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.tiny { font-size: 10px; color: #cccccc; }
+
+.page {
+  width: 640px;
+  margin: 12px auto 30px;
+}
+
+/* bevelled 1990s frame */
+.bevel {
+  background-color: #000066;
+  border: 6px outset #c0c0c0;
+  padding: 16px 22px;
+  color: #ffffff;
+}
+
+h1 {
+  color: #ffff00;
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #993300;
+  margin: 4px 0;
+}
+
+.subtitle {
+  text-align: center;
+  color: #99ccff;
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.scroll-wrap {
+  overflow: hidden;
+  border: 2px inset #c0c0c0;
+  background-color: #000000;
+  padding: 3px 0;
+  margin: 8px 0 14px;
+}
+
+.scroll-line {
+  display: inline-block;
+  white-space: nowrap;
+  color: #00ff00;
+  font-size: 11px;
+  animation: scrollleft 18s linear infinite;
+}
+
+@keyframes scrollleft {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+
+h2 {
+  color: #ffcc33;
+  font-size: 15px;
+  border-bottom: 2px ridge #c0c0c0;
+  margin-bottom: 6px;
+}
+
+p { line-height: 1.55; }
+
+strong { color: #ffff99; }
+em { color: #99ccff; }
+
+a { color: #66ffcc; }
+a:visited { color: #cc99ff; }
+a:hover { color: #ffffff; background-color: #993300; }
+
+.blink { animation: blinker 1s step-start infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+.new {
+  background-color: #cc0000;
+  border: 2px outset #ff9999;
+  padding: 3px 8px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.guestbook {
+  margin-top: 18px;
+  border: 3px ridge #996633;
+  background-color: #333300;
+  padding: 8px 12px;
+}
+
+.guestbook h3 {
+  color: #ffcc33;
+  margin-top: 0;
+  font-size: 13px;
+}
+
+.entries {
+  font-style: italic;
+  color: #ffffcc;
+  line-height: 1.7;
+}
+
+.colophon {
+  text-align: center;
+  font-size: 11px;
+  color: #cccccc;
+  border-top: 2px ridge #c0c0c0;
+  padding-top: 8px;
+}
