@@ -1,0 +1,249 @@
+/* The Porch Light — Newsletter No. 47
+   The Franz Josef Correspondents' Circle, Trieste
+   Best viewed at 640x480, with the lamp trimmed. */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000033;
+  background-image:
+    radial-gradient(1px 1px at 23px 37px, #ffffff, transparent),
+    radial-gradient(1px 1px at 91px 121px, #ffffcc, transparent),
+    radial-gradient(2px 2px at 167px 63px, #00ffff, transparent),
+    radial-gradient(1px 1px at 221px 181px, #ffffff, transparent),
+    radial-gradient(1px 1px at 61px 151px, #8080ff, transparent);
+  background-size: 250px 210px;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  color: #000000;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: twinkle 2.4s infinite;
+}
+
+@keyframes twinkle {
+  50% { opacity: 0.15; }
+}
+
+.frame {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  margin: 24px auto 40px auto;
+  background: #c0c0c0;
+  border: 6px ridge #808080;
+  padding: 0 18px 16px 18px;
+}
+
+.banner {
+  background: #000080;
+  color: #ffff00;
+  text-align: center;
+  border-bottom: 4px ridge #808080;
+  padding: 12px 8px 10px 8px;
+  margin: 0 -18px 10px -18px;
+}
+
+.banner .est {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #c0c0c0;
+  margin: 0 0 4px 0;
+}
+
+.banner h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 34px;
+  letter-spacing: 3px;
+  margin: 0 0 6px 0;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+.banner .subtitle {
+  font-size: 12px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.ticker {
+  background: #000000;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  border: 2px inset #808080;
+  padding: 4px 0;
+  margin: 0 0 12px 0;
+}
+
+hr.rainbow {
+  border: 0;
+  height: 4px;
+  margin: 0 0 14px 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff0000 0 18px,
+    #ffff00 18px 36px,
+    #00ff00 36px 54px,
+    #00ffff 54px 72px,
+    #0000ff 72px 90px,
+    #800080 90px 108px
+  );
+}
+
+section {
+  margin: 0 0 16px 0;
+}
+
+h2 {
+  background: #000080;
+  color: #ffffff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  border: 3px outset #c0c0c0;
+  padding: 4px 8px;
+  margin: 0 0 8px 0;
+}
+
+p {
+  line-height: 1.55;
+  margin: 0 0 8px 0;
+}
+
+a { color: #0000ee; }
+a:visited { color: #551a8b; }
+a:hover { color: #ff0000; }
+
+blockquote.register {
+  background: #ffffcc;
+  border: 3px inset #808080;
+  margin: 8px 14px 10px 14px;
+  padding: 8px 14px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.guestbook {
+  background: #e8e8e8;
+  border: 3px ridge #808080;
+  padding: 10px 12px;
+}
+
+.gb-hint {
+  font-size: 11px;
+  color: #000080;
+  font-style: italic;
+}
+
+.guestbook ul {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.guestbook li {
+  border-bottom: 1px dotted #808080;
+  padding: 4px 0;
+  font-size: 12px;
+}
+
+.guestbook form {
+  font-size: 12px;
+}
+
+.guestbook label {
+  display: block;
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.guestbook input {
+  display: block;
+  width: 92%;
+  border: 2px inset #808080;
+  background: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  padding: 3px 4px;
+}
+
+.guestbook button {
+  margin-top: 8px;
+  border: 2px outset #c0c0c0;
+  background: #c0c0c0;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 12px;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+
+.guestbook button:active {
+  border-style: inset;
+}
+
+.thanks {
+  color: #008000;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.blink {
+  color: #ff0000;
+  font-weight: bold;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.counter-box {
+  text-align: center;
+  margin: 14px 0 8px 0;
+  font-size: 11px;
+}
+
+.counter {
+  display: inline-block;
+  background: #000000;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 22px;
+  letter-spacing: 6px;
+  border: 2px inset #808080;
+  padding: 2px 10px;
+  margin: 4px 0;
+}
+
+.counter-note {
+  font-size: 10px;
+  color: #404040;
+  margin: 0;
+}
+
+footer .best {
+  text-align: center;
+  font-size: 11px;
+  color: #000080;
+  margin: 4px 0;
+}
