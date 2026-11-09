@@ -1,0 +1,77 @@
+/* Application No. US-A-1964 1103 — election summary sheet */
+html { font-family: Georgia, "Times New Roman", Times, serif; }
+body { margin: 0; padding: 0; font-size: 16px; color: #1c1c1c; }
+.sheet {
+  max-width: 740px;
+  margin: 30px auto;
+  padding: 30px 36px 36px;
+  background: #fdfaf0;
+  line-height: 1.55;
+  border: 1px solid #8c7f66;
+  box-shadow: 8px 8px 0 #382e20;
+}
+.stamp {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a4a38;
+  border: 1px solid #5a4a38;
+  padding: 2px 10px;
+}
+.cover { border-bottom: 3px solid #1c1c1c; padding-bottom: 18px; margin-bottom: 24px; position: relative; }
+.line { display: flex; justify-content: space-between; gap: 20px; margin: 7px 0; font-size: 0.92em; }
+.mono { font-family: ui-monospace, SF Mono, Consolas, monospace; font-size: 0.8em; }
+.h1-sub { font-weight: normal; font-size: 0.78em; font-style: italic; }
+.rule-thick { height: 3px; background: #1c1c1c; border: none; margin: 13px 0; }
+h1 { font-size: 1.5em; margin: 10px 0 0; line-height: 1.35; font-weight: bold; }
+.block-head { display: flex; align-items: baseline; gap: 9px; margin: 0 0 7px; font-size: 1em; }
+.block-no { font-family: ui-monospace, SF Mono, Consolas, monospace; font-size: 0.8em; color: #6b5a42; }
+.block { margin-bottom: 24px; }
+.claims-list { margin: 7px 0 0 22px; padding: 0; }
+.claims-list li { margin-bottom: 7px; font-size: 0.95em; }
+.office-note { background: #e9e2d2; border-left: 3px solid #8c7f66; padding: 9px 13px; font-size: 0.92em; margin-top: 6px; }
+.tally p { font-size: 0.92em; }
+.tally-wrap { margin-top: 8px; }
+table#certified-return { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-bottom: 6px; }
+table#certified-return caption { caption-side: top; text-align: left; font-size: 0.8em; color: #5a4a38; margin-bottom: 5px; }
+table#certified-return th,
+table#certified-return td { border: 1px solid #bbb3a2; padding: 4px 8px; text-align: left; }
+table#certified-return th { background: #e9e2d2; font-weight: bold; }
+table#certified-return td.num { text-align: center; width: 52px; }
+table#certified-return button.pick {
+  display: none;
+  font-size: 0.72em;
+  padding: 3px 7px;
+  border: 1px solid #6b5a42;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+}
+table#certified-return button.pick.active {
+  background: #1c1c1c;
+  color: #fff;
+  border-color: #1c1c1c;
+}
+.js table#certified-return button.pick { display: inline-block; }
+.js table#certified-return span.certified { display: none; }
+.totals { margin: 8px 0 10px; font-family: ui-monospace, SF Mono, Consolas, monospace; font-size: 0.85em; letter-spacing: 0.2px; }
+.totals b { font-weight: bold; }
+button.reset {
+  display: none;
+  font-size: 0.8em;
+  padding: 5px 12px;
+  border: 1px solid #6b5a42;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.js button.reset { display: inline-block; }
+footer.foot { margin-top: 34px; padding-top: 18px; border-top: 1px solid #8c7f66; font-size: 0.88em; color: #333; }
+.foot-back { margin-top: 8px; }
+@media (max-width: 560px) {
+  .sheet { margin: 12px; padding: 18px 20px; }
+  table#certified-return td.num { width: 44px; }
+}
