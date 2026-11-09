@@ -1,0 +1,418 @@
+/* The Montréal Dining Gazette — Review No. 47, The United Canadas */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Playfair+Display:ital,wght@0,500;0,800;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --parchment: #f3e6c9;
+  --parchment-deep: #e9d5a7;
+  --ink: #241a10;
+  --faded: #5d4c33;
+  --navy: #1e3a5f;
+  --union-red: #9e2b25;
+  --gilt: #b8860b;
+  --gilt-bright: #d9a83a;
+  --smoke: #6b6259;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "Book Antiqua", Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.62;
+  /* layered: union banner stripes, candlelit radials, paper grain, deep field */
+  background:
+    radial-gradient(ellipse 90% 42% at 50% -6%, rgba(217, 168, 58, 0.28), transparent 60%),
+    radial-gradient(ellipse 60% 30% at 12% 108%, rgba(158, 43, 37, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 30% at 88% 104%, rgba(30, 58, 95, 0.16), transparent 70%),
+    repeating-linear-gradient(90deg,
+      rgba(30, 58, 95, 0.05) 0 90px,
+      rgba(158, 43, 37, 0.05) 90px 180px,
+      rgba(184, 134, 11, 0.05) 180px 270px),
+    linear-gradient(175deg, #f0e2bf 0%, #e6d0a0 46%, #d9bd85 100%);
+  background-attachment: fixed;
+}
+
+.gazette {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.4rem 3rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(36, 26, 16, 0.022) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, rgba(255, 249, 232, 0.85), rgba(243, 230, 201, 0.7) 30%, rgba(233, 213, 167, 0.72));
+  border-left: 1px solid rgba(184, 134, 11, 0.55);
+  border-right: 1px solid rgba(184, 134, 11, 0.55);
+  box-shadow:
+    0 0 0 6px rgba(217, 168, 58, 0.10),
+    0 0 0 7px rgba(184, 134, 11, 0.35),
+    0 30px 70px rgba(36, 26, 16, 0.45);
+  position: relative;
+}
+
+/* union ribbon along the top of the sheet */
+.gazette::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 14px;
+  background: repeating-linear-gradient(90deg,
+    var(--union-red) 0 42px,
+    var(--parchment) 42px 48px,
+    var(--navy) 48px 90px,
+    var(--parchment) 90px 96px,
+    var(--gilt) 96px 138px,
+    var(--parchment) 138px 144px);
+  border-bottom: 2px solid var(--gilt);
+  z-index: 2;
+}
+
+/* ===== masthead ===== */
+.masthead {
+  text-align: center;
+  padding: 3.2rem 1rem 1.4rem;
+  border-bottom: 3px double var(--gilt);
+  position: relative;
+}
+
+.masthead .crown {
+  width: 96px;
+  margin: 0 auto 0.6rem;
+  display: block;
+  color: var(--navy);
+  animation: crown-glow 5s ease-in-out infinite;
+}
+
+@keyframes crown-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(217, 168, 58, 0)); }
+  50% { filter: drop-shadow(0 0 9px rgba(217, 168, 58, 0.65)); }
+}
+
+.eyebrow {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--union-red);
+  margin: 0.2rem 0 0.9rem;
+}
+
+.masthead h1 {
+  font-family: "Playfair Display", "IM Fell English", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  line-height: 1.02;
+  margin: 0;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  text-shadow: 2px 2px 0 rgba(217, 168, 58, 0.35);
+}
+
+.masthead .sub {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--faded);
+  margin: 0.55rem 0 0.9rem;
+}
+
+.tagline {
+  font-size: 1.06rem;
+  color: var(--ink);
+  max-width: 34rem;
+  margin: 0 auto 1rem;
+}
+
+.facts {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+  border-top: 1px solid rgba(184, 134, 11, 0.5);
+  border-bottom: 1px solid rgba(184, 134, 11, 0.5);
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+}
+
+/* ===== sections ===== */
+main { padding-top: 1.2rem; }
+
+.section {
+  padding: 1.6rem 0.4rem;
+  border-bottom: 1px dashed rgba(184, 134, 11, 0.55);
+  position: relative;
+}
+
+.section h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--union-red);
+  margin: 0 0 0.9rem;
+  position: relative;
+  padding-left: 2.1rem;
+}
+
+.section h2::before {
+  content: "❦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gilt);
+  font-size: 1.4rem;
+  transform: rotate(-12deg);
+}
+
+.section p { margin: 0 0 1rem; }
+
+.section p:first-of-type::first-letter {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 3.4rem;
+  float: left;
+  line-height: 0.82;
+  padding: 0.12rem 0.45rem 0 0;
+  color: var(--navy);
+  text-shadow: 2px 2px 0 rgba(217, 168, 58, 0.4);
+}
+
+.section a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gilt);
+  text-underline-offset: 3px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.section a:hover {
+  background: rgba(217, 168, 58, 0.28);
+  color: var(--ink);
+}
+
+/* the kept line */
+.kept-line {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 1.3rem 0;
+  padding: 1.2rem 1.6rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(217, 168, 58, 0.18), transparent 70%),
+    linear-gradient(180deg, rgba(30, 58, 95, 0.06), rgba(158, 43, 37, 0.05));
+  border: 1px solid var(--gilt);
+  outline: 4px double rgba(184, 134, 11, 0.4);
+  outline-offset: 4px;
+  text-align: center;
+  position: relative;
+}
+
+.kept-line::before,
+.kept-line::after {
+  content: "✦";
+  position: absolute;
+  color: var(--gilt);
+  font-size: 0.9rem;
+}
+.kept-line::before { top: 0.35rem; left: 0.5rem; }
+.kept-line::after { bottom: 0.35rem; right: 0.5rem; }
+
+/* ===== menu ===== */
+.menu { margin: 1.2rem 0; }
+.menu-room {
+  font-family: "IM Fell English", Georgia, serif;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.course {
+  position: relative;
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 1.1rem 0.9rem 3.2rem;
+  background: linear-gradient(180deg, rgba(255, 249, 232, 0.55), rgba(233, 213, 167, 0.35));
+  border: 1px solid rgba(184, 134, 11, 0.45);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.course:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 0 var(--gilt), 0 8px 18px rgba(36, 26, 16, 0.18);
+}
+
+.course::before {
+  content: "◻";
+  position: absolute;
+  left: 1rem;
+  top: 0.95rem;
+  font-size: 1.2rem;
+  color: var(--faded);
+  transition: color 0.2s ease;
+}
+
+.course .course-no {
+  margin: 0;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--union-red);
+}
+
+.course h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin: 0.1rem 0 0.5rem;
+  color: var(--navy);
+}
+
+.course p { font-size: 1.08rem; margin: 0 0 0.5rem; }
+
+.course .price {
+  position: absolute;
+  right: 1rem;
+  top: 0.9rem;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--gilt);
+  padding-bottom: 0.1rem;
+}
+
+.course.ordered {
+  border-color: var(--union-red);
+  background: linear-gradient(180deg, rgba(158, 43, 37, 0.10), rgba(233, 213, 167, 0.45));
+}
+.course.ordered::before { content: "◼"; color: var(--union-red); }
+.course.ordered .price { color: var(--union-red); }
+
+.bill {
+  margin-top: 1.3rem;
+  padding: 1rem 1.2rem;
+  border-top: 3px double var(--ink);
+  text-align: right;
+}
+.bill-line {
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 1.15rem;
+  margin: 0;
+}
+#billTotal {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--union-red);
+}
+.bill .bill-note {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--faded);
+  margin: 0.2rem 0 0;
+}
+
+/* ===== bells ===== */
+.bells {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.4rem 0 1.4rem;
+}
+
+.bell {
+  width: 46px;
+  height: 58px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+.bell::before {
+  content: "🔔";
+  font-size: 1.9rem;
+  display: block;
+  filter: grayscale(1) brightness(0.55);
+  opacity: 0.45;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.bell.rung::before {
+  filter: grayscale(0.2) sepia(0.6) saturate(2.2) hue-rotate(-18deg);
+  opacity: 1;
+}
+
+.bell:hover::before { opacity: 0.85; }
+
+.bell.swing::before { animation: swing 0.9s ease-in-out; }
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(24deg); }
+  45% { transform: rotate(-18deg); }
+  70% { transform: rotate(9deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ===== colophon & tail ===== */
+.colophon {
+  padding: 1.8rem 0.4rem 0.4rem;
+}
+
+.colophon h2 {
+  font-family: "IM Fell English", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  text-align: center;
+  margin: 0 0 0.8rem;
+}
+
+.tail {
+  margin-top: 1.6rem;
+  border-top: 3px double var(--gilt);
+  padding-top: 0.9rem;
+  text-align: center;
+}
+
+.tail p {
+  margin: 0;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+/* drifting steam behind the header */
+.steam {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(107, 98, 89, 0.35);
+  filter: blur(4px);
+  animation: rise 7s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rise {
+  0% { transform: translate(0, 30px) scale(1); opacity: 0; }
+  15% { opacity: 0.7; }
+  100% { transform: translate(-28px, -150px) scale(3.2); opacity: 0; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 1.1rem; }
+  .course { padding-left: 2.6rem; }
+  .masthead { padding-top: 2.6rem; }
+}
