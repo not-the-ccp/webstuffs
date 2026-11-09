@@ -1,0 +1,149 @@
+:root {
+  --ink: #2a2620;
+  --paper: #f4efe3;
+  --rule: #8a7d64;
+  --accent: #4a5d3a;
+  --faint: #6f6656;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 3.5rem;
+}
+
+.mast {
+  text-align: center;
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  padding: 1rem 0.4rem 0.8rem;
+}
+
+.mast-rule {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.7rem;
+  color: var(--faint);
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4rem;
+}
+
+.column {
+  font-style: italic;
+  margin: 0 0 0.5rem;
+  color: var(--faint);
+}
+
+.smallprint {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--accent);
+}
+
+.foreword p {
+  max-width: 60rem;
+  margin: 0.9rem auto 0;
+  text-align: justify;
+}
+
+.filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin: 1.6rem 0 0.9rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.filterbar button {
+  font: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.filterbar button:hover { background: #e9e1cd; }
+.filterbar button.on { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+.count {
+  align-self: center;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--faint);
+  margin-left: 0.5rem;
+}
+
+table#ads {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.8rem;
+  font-size: 0.94rem;
+}
+
+#ads th {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-bottom: 2px solid var(--rule);
+  padding: 0.5rem 0.55rem;
+  text-align: left;
+}
+
+#ads td {
+  vertical-align: top;
+  padding: 0.7rem 0.55rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+#ads tr.hidden { display: none; }
+
+#ads .no { width: 2.4rem; color: var(--faint); font-variant-numeric: tabular-nums; }
+
+#ads .cls {
+  width: 7.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+#ads .notice { font-weight: 700; }
+#ads .reply { width: 8.5rem; font-style: italic; color: var(--faint); font-size: 0.86rem; }
+#ads a { color: var(--accent); }
+
+.postcol {
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+.sign { margin-top: 1.4rem; font-weight: 700; }
+.postscript { display: block; font-weight: 400; font-style: italic; color: var(--faint); margin-top: 0.3rem; }
