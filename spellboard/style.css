@@ -1,0 +1,302 @@
+/* THE SPELLBOARD — Small Notices of the Fantasy Film Trade */
+
+:root {
+  --ink: #1c1633;
+  --parchment: #f3e9d2;
+  --parchment-deep: #e6d7b4;
+  --violet: #4b2e83;
+  --violet-deep: #2a1746;
+  --brass: #b08428;
+  --brass-bright: #e3b54a;
+  --blood: #8e2f3c;
+  --sea: #2d5f6d;
+  --glow: #ffe9a8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(227, 181, 74, 0.35), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(75, 46, 131, 0.30), transparent 65%),
+    radial-gradient(ellipse 60% 45% at 90% 60%, rgba(45, 95, 109, 0.30), transparent 65%),
+    radial-gradient(ellipse 70% 50% at 50% 110%, rgba(142, 47, 60, 0.28), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(28, 22, 51, 0.05) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, #efe2c4 0%, var(--parchment) 22%, var(--parchment-deep) 70%, #d9c69a 100%);
+  background-attachment: fixed;
+}
+
+/* ---- floating motes --------------------------------------------- */
+
+.motes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+.motes span {
+  position: absolute;
+  bottom: -20px;
+  color: var(--brass-bright);
+  text-shadow: 0 0 8px var(--glow), 0 0 18px rgba(255, 233, 168, 0.6);
+  animation: rise linear infinite;
+  opacity: 0;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) rotate(0deg) scale(0.7); opacity: 0; }
+  8%   { opacity: 0.85; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(-110vh) rotate(320deg) scale(1.15); opacity: 0; }
+}
+
+/* ---- banner strip ------------------------------------------------ */
+
+.banner-strip {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 3px double var(--brass);
+  border-bottom: 3px double var(--brass);
+  background: linear-gradient(180deg, var(--violet-deep), var(--violet));
+  color: var(--brass-bright);
+  font-size: 0.68rem;
+  letter-spacing: 0.42em;
+  padding: 0.4rem 0;
+}
+.banner-strip::before {
+  content: "REPLY PAID · REPLY PAID · REPLY PAID · NO MAGIC CLAIMED · REPLY PAID · NO MAGIC CLAIMED · REPLY PAID · NO MAGIC CLAIMED · REPLY PAID · REPLY PAID · REPLY PAID · NO MAGIC CLAIMED · ";
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 46s linear infinite;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ---- masthead ---------------------------------------------------- */
+
+.masthead {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1.6rem 1rem 1.1rem;
+}
+.masthead .kicker {
+  margin: 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--violet-deep);
+  text-transform: uppercase;
+}
+.masthead .title {
+  margin: 0.35rem 0 0;
+  font-family: "UnifrakturMaguntia", "Old English Text MT", "Luminari", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 11vw, 6.8rem);
+  line-height: 0.95;
+  color: var(--violet-deep);
+  text-shadow:
+    0 1px 0 var(--brass-bright),
+    0 3px 0 rgba(176, 132, 40, 0.55),
+    0 8px 22px rgba(42, 23, 70, 0.45);
+  animation: masthead-glow 5.5s ease-in-out infinite;
+}
+@keyframes masthead-glow {
+  0%, 100% { text-shadow: 0 1px 0 var(--brass-bright), 0 3px 0 rgba(176,132,40,.55), 0 8px 22px rgba(42,23,70,.45); }
+  50%      { text-shadow: 0 1px 0 var(--brass-bright), 0 3px 0 rgba(176,132,40,.55), 0 8px 34px rgba(227,181,74,.75); }
+}
+.masthead .subtitle {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: var(--blood);
+  text-transform: uppercase;
+}
+.masthead .dateline {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--sea);
+}
+.orn-top {
+  width: min(560px, 86vw);
+  height: 34px;
+  color: var(--brass);
+  margin: 0.4rem auto;
+  display: block;
+}
+
+/* ---- board layout ------------------------------------------------ */
+
+.board {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem 2.5rem;
+}
+
+.rule {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--violet-deep);
+  margin: 1.6rem 0 0.9rem;
+}
+.rule::before,
+.rule::after {
+  content: " ✦ ";
+  color: var(--brass);
+}
+.rule::after { content: " ✦ "; }
+
+.lead-notice {
+  border: 2px solid var(--violet-deep);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 240, 0.9), rgba(243, 233, 210, 0.85)),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(75, 46, 131, 0.10) 27px 28px);
+  padding: 1.1rem 1.4rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(42, 23, 70, 0.28), inset 0 0 40px rgba(176, 132, 40, 0.14);
+}
+.lead-notice p { margin: 0.4rem 0 0; }
+.lead-notice a { color: var(--blood); }
+
+/* ---- charter ------------------------------------------------------ */
+
+.charter {
+  position: relative;
+  margin: 1.8rem 0 0.4rem;
+  padding: 1.4rem 1.6rem 1.2rem;
+  color: var(--parchment);
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 0%, rgba(227, 181, 74, 0.22), transparent 60%),
+    linear-gradient(160deg, var(--violet-deep) 0%, #191029 70%);
+  border: 1px solid var(--brass);
+  box-shadow: 0 0 0 4px var(--violet-deep), 0 0 0 5px var(--brass), 0 18px 40px rgba(25, 16, 41, 0.5);
+  text-align: center;
+}
+.charter h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+}
+.charter p { max-width: 62ch; margin: 0.5rem auto; font-size: 0.95rem; }
+.charter .seal {
+  display: inline-block;
+  font-size: 1.7rem;
+  color: var(--brass-bright);
+  text-shadow: 0 0 12px var(--glow);
+  animation: seal-spin 24s linear infinite;
+}
+@keyframes seal-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.charter-line {
+  margin: 1rem auto;
+  max-width: 46ch;
+  padding: 0.8rem 1rem;
+  border-top: 1px dashed var(--brass);
+  border-bottom: 1px dashed var(--brass);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  line-height: 1.4;
+  color: var(--glow);
+  text-shadow: 0 0 14px rgba(255, 233, 168, 0.55);
+}
+
+/* ---- columns & ads ------------------------------------------------- */
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.4rem 1.6rem;
+  margin-top: 0.6rem;
+  column-rule: 1px solid rgba(176, 132, 40, 0.5);
+}
+.col {
+  border-left: 1px solid rgba(176, 132, 40, 0.55);
+  padding-left: 1.2rem;
+}
+.col:first-child { border-left: none; padding-left: 0; }
+
+.ad {
+  position: relative;
+  margin: 0 0 1.1rem;
+  padding: 0.7rem 0.9rem 0.8rem;
+  background: linear-gradient(180deg, rgba(255, 252, 243, 0.92), rgba(240, 228, 200, 0.88));
+  border: 1px solid rgba(75, 46, 131, 0.55);
+  box-shadow: 3px 3px 0 rgba(42, 23, 70, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ad::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 35% 35%, var(--brass-bright), var(--brass) 60%, #6d4d12);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.ad:hover {
+  transform: translateY(-3px) rotate(-0.4deg);
+  box-shadow: 6px 8px 0 rgba(42, 23, 70, 0.4), 0 0 22px rgba(227, 181, 74, 0.55);
+}
+.ad-head {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  color: var(--violet-deep);
+  text-transform: uppercase;
+  border-bottom: 1px dotted var(--brass);
+  padding-bottom: 0.25rem;
+}
+.ad p { margin: 0; font-size: 0.9rem; }
+.ad a { color: var(--blood); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.ad a:hover { color: var(--violet); }
+.price {
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  color: var(--sea);
+  font-style: italic;
+}
+
+/* ---- footer -------------------------------------------------------- */
+
+.board-foot {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1.2rem 1rem 2rem;
+  border-top: 3px double var(--brass);
+  background: linear-gradient(180deg, transparent, rgba(42, 23, 70, 0.14));
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--violet-deep);
+}
+.board-foot p { margin: 0.3rem 0; }
+
+::selection { background: var(--violet); color: var(--glow); }
+
+@media (max-width: 640px) {
+  .col { border-left: none; padding-left: 0; }
+}
