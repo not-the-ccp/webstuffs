@@ -1,0 +1,133 @@
+/* Hibiya Ward Community Office — Lost & Found, Notice No. 216/2016 */
+:root {
+  --paper: #f4efe2;
+  --ink: #2b2620;
+  --faint: #6d6353;
+  --rule: #b9ad93;
+  --red: #a03b2c;
+  --blue: #2f4d7a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #d8d2c2 url("none");
+  background-image: repeating-linear-gradient(
+    45deg, rgba(0,0,0,0.02) 0 2px, transparent 2px 14px);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 2.5rem 1rem 4rem;
+}
+.board { max-width: 760px; margin: 0 auto; }
+.notice {
+  background: var(--paper);
+  border: 1px solid #8f8570;
+  box-shadow: 0 14px 34px rgba(30, 25, 15, 0.35), inset 0 0 60px rgba(120, 100, 60, 0.12);
+  padding: 2.4rem 2.6rem 1.6rem;
+  position: relative;
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0 31px, rgba(90, 75, 45, 0.14) 31px 32px);
+  transform: rotate(-0.3deg);
+}
+.notice::before {
+  /* pin */
+  content: "";
+  position: absolute;
+  top: -10px; left: 50%;
+  width: 16px; height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d9d0bd, #7c7261 70%);
+  box-shadow: 0 4px 5px rgba(0,0,0,0.35);
+}
+.masthead { text-align: center; border-bottom: 3px double var(--ink); padding-bottom: 0.9rem; }
+.office {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.4rem;
+}
+h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  font-variant: small-caps;
+}
+.notice-no {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--faint);
+  margin: 0.5rem 0 0;
+}
+.unclaimed { color: var(--red); font-weight: bold; letter-spacing: 0.12em; }
+.stamp {
+  position: absolute;
+  top: 2.2rem; right: 2rem;
+  border: 3px solid rgba(160, 59, 44, 0.75);
+  color: rgba(160, 59, 44, 0.8);
+  border-radius: 6px;
+  padding: 0.35rem 0.8rem;
+  text-align: center;
+  transform: rotate(8deg);
+  font-family: "Courier New", Courier, monospace;
+}
+.stamp span { display: block; font-size: 1.25rem; font-weight: bold; letter-spacing: 0.3em; }
+.stamp small { display: block; font-size: 0.55rem; letter-spacing: 0.08em; margin-top: 0.2rem; }
+section { margin: 1.4rem 0; }
+h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.7rem;
+}
+.item .item-line { display: flex; gap: 0.7rem; margin: 0.55rem 0; }
+.field {
+  flex: 0 0 9.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  padding-top: 0.15rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.item p { margin: 0.55rem 0; }
+.fragment {
+  margin: 1rem 0 1rem 0.5rem;
+  padding: 0.8rem 1.1rem;
+  border-left: 4px solid var(--blue);
+  background: rgba(47, 77, 122, 0.06);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+}
+.fragment p { margin: 0.2rem 0; }
+.fragment-src { font-size: 0.7rem; color: var(--faint); }
+strong { font-weight: bold; }
+em { font-style: italic; }
+a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--red); }
+.also-kept {
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.9rem;
+  font-size: 0.88rem;
+}
+.foot {
+  border-top: 3px double var(--ink);
+  margin-top: 1.8rem;
+  padding-top: 0.6rem;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+@media (max-width: 560px) {
+  .notice { padding: 1.8rem 1.2rem; transform: none; }
+  .item .item-line { display: block; }
+  .field { display: inline-block; width: auto; margin-bottom: 0.1rem; }
+  .stamp { position: static; display: inline-block; margin-top: 0.8rem; transform: rotate(3deg); }
+}
