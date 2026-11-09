@@ -1,0 +1,147 @@
+/* Skin & Shell — liner notes, RP-47. Cream stock, oxblood ink, one black disc. */
+
+:root {
+  --stock: #f4ecdc;
+  --stock-deep: #e9ddc4;
+  --oxblood: #6e1f1f;
+  --oxblood-dim: #8a3a30;
+  --charcoal: #2b2622;
+  --rule: #b9a678;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #211c18;
+  color: var(--charcoal);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sleeve {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--stock);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 90, 40, 0.05) 0 2px, transparent 2px 5px);
+  border: 1px solid var(--rule);
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.35), 0 18px 40px rgba(0,0,0,0.5);
+  padding: 0 0 1.5rem;
+}
+
+.disc {
+  display: block;
+  margin: 2.2rem auto -1.6rem;
+  width: 12rem;
+  height: 12rem;
+  transform: rotate(0deg);
+}
+
+.vinyl   { fill: #14110f; }
+.groove  { fill: none; stroke: #3d3733; stroke-width: 1; }
+.label   { fill: var(--oxblood); }
+.spindle { fill: var(--stock); }
+.label-text {
+  fill: var(--stock);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-anchor: middle;
+}
+.label-text.small { font-size: 8px; letter-spacing: 0.22em; }
+
+.disc.spinning { animation: turn 2.4s linear infinite; }
+@keyframes turn { to { transform: rotate(360deg); } }
+
+.masthead {
+  text-align: center;
+  padding: 1.6rem 2rem 1.1rem;
+  border-bottom: 3px double var(--oxblood);
+}
+
+.plate {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.7rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  margin: 0.2rem 0 0.5rem;
+  color: var(--charcoal);
+}
+h1 em { color: var(--oxblood); font-style: italic; }
+
+.species-line {
+  font-style: italic;
+  font-size: 0.92rem;
+  color: #5c5148;
+  margin: 0;
+}
+
+main { padding: 0 2.2rem; }
+
+.entry { margin: 1.6rem 0; }
+
+h2 {
+  font-size: 1.05rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+.tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 3px solid var(--oxblood);
+}
+.tracks li {
+  padding: 0.55rem 0 0.55rem 1rem;
+  border-bottom: 1px dotted var(--rule);
+}
+.tracks li:last-child { border-bottom: none; }
+.tracks .no {
+  font-family: "Courier New", monospace;
+  color: var(--oxblood);
+  letter-spacing: 0.1em;
+  margin-right: 0.6rem;
+}
+.tracks strong { color: var(--charcoal); }
+
+.shelf-label {
+  margin: 1rem 0 1rem 1.2rem;
+  padding: 0.8rem 1rem;
+  background: var(--stock-deep);
+  border-left: 4px solid var(--oxblood);
+  font-style: italic;
+  font-size: 1.02rem;
+}
+.shelf-label p { margin: 0; }
+
+a { color: var(--oxblood-dim); }
+a:hover { color: var(--oxblood); }
+
+.colophon {
+  margin: 2rem 2.2rem 0;
+  padding-top: 0.7rem;
+  border-top: 3px double var(--oxblood);
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: #5c5148;
+  text-align: center;
+}
+.colophon p { margin: 0; }
