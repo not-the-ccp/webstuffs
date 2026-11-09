@@ -1,0 +1,69 @@
+/* The House Book of Etiquette · Second Series · Chapter VII · Of the Shield Put Away */
+html { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #2a1810;
+  color: #2a2424;
+  font-family: "Georgia", "Cambria", "Times New Roman", serif;
+  line-height: 1.8;
+  font-size: 17px;
+}
+.book {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 18px;
+  border: 1px solid #8a623f;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  background: #f7f2e7;
+}
+.flag-rail {
+  height: 11px;
+  background: repeating-linear-gradient(90deg, #8a1f1f, #8a1f1f 1px, transparent 1px, transparent 42px);
+}
+.mast {
+  background: #14213d;
+  color: #f3ead6;
+  padding: 32px 26px 24px;
+  border-bottom: 10px solid #c9a227;
+  position: relative;
+}
+.mast .badge {
+  position: absolute; top: 22px; right: 22px;
+  width: 44px; height: 52px;
+  background: #14213d;
+  border: 3px solid #c9a227;
+  border-radius: 52% 52% 44% 44%;
+}
+.mast .badge::after {
+  content: "✦"; position: absolute; left: 50%; top: 42%;
+  transform: translate(-50%, -50%);
+  font-size: 14px; color: #c9a227; opacity: 0.9;
+}
+.imprint { margin: 0 0 10px; font-size: 0.82rem; letter-spacing: 0.22em; text-transform: uppercase; color: #b9c6d6; }
+.chapter-no { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: 0.35em; text-transform: uppercase; color: #e8c97a; }
+h1 { font-size: 2.05rem; margin: 0 0 6px; line-height: 1.25; color: #f3ead6; }
+.amp { color: #c9a227; }
+.sub { margin: 0; font-style: italic; color: #b9c6d6; max-width: 62ch; }
+.orn { text-align: center; color: #c9a227; letter-spacing: 2em; font-size: 1.3rem; opacity: 0.9; }
+main { background: #faf5ea; padding: 24px 26px 10px; border-top: 1px solid #d8cda8; }
+h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.25em; color: #8a1f1f; border-bottom: 1px solid #d8cda8; padding-bottom: 7px; margin: 28px 0 14px; }
+p { margin: 0 0 15px; }
+.dropcap { float: left; font-size: 3.1rem; line-height: 1; color: #8a1f1f; padding: 2px 10px 0 0; }
+.lede .dropcap { background: #c9a227; color: #14213d; border-radius: 2px; padding: 2px 10px; }
+em { color: #5a2e17; }
+aside.card, .cardinal { background: #efe0c8; border-left: 4px solid #c9a227; padding: 12px 16px; margin: 18px 0; font-size: 0.95rem; }
+.cardinal { font-style: italic; border-left-color: #8a1f1f; background: #f6e8da; }
+.companion { margin-top: 26px; font-size: 0.95rem; color: #544a3a; border-top: 1px solid #d8cda8; padding-top: 16px; }
+ol.rules { list-style: none; counter-reset: rule; padding-left: 0; margin: 18px 0 26px; }
+ol.rules li { counter-increment: rule; margin: 0 0 13px; padding-left: 40px; position: relative; }
+ol.rules li::before { content: counter(rule); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; background: #14213d; color: #c9a227; border-radius: 50%; text-align: center; line-height: 24px; font-size: 0.9rem; font-weight: bold; font-family: "Helvetica Neue", Arial, sans-serif; }
+a { color: #14213d; text-decoration: underline; text-decoration-color: #c9a227; }
+.colophon { border-top: 1px solid #c8b99a; padding: 22px 26px 26px; font-size: 0.85rem; color: #6b5e48; text-align: center; }
+.star { display: inline-block; width: 12px; height: 12px; background: #c9a227; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.lamps-low .book { background: #3a2c26; border-color: #5e4a3c; color: #e8dcc8; }
+.lamps-low h1, .lamps-low .mast { color: #f3ead6; }
+.lamps-low .mast { background: #0e1628; }
+.lamps-low h2 { color: #e8c97a; border-bottom-color: #5e4a3c; }
+.lamps-low aside.card, .lamps-low .cardinal { background: #524236; color: #e8dcc8; }
+.lamps-low ol.rules li::before { background: #e8c97a; color: #14213d; }
+.lamps-low a { color: #e8c97a; text-decoration-color: #c9a227; }
