@@ -1,0 +1,108 @@
+/* Clerkenwell Continuation School — Form 3B report sheet */
+:root {
+  --ink: #23211c;
+  --faded: #5b5548;
+  --paper: #f5f0e4;
+  --sheet: #fbf8ef;
+  --rule: #8a7f6a;
+  --granite: #4a4e57;
+  --sea: #2e4a54;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.office {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(74, 78, 87, 0.05) 0%, transparent 18%),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(138, 127, 106, 0.07) 46px 47px);
+}
+
+.report {
+  position: relative;
+  max-width: 46rem;
+  margin: 3rem auto 4rem;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  padding: 2.5rem 3rem 2rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 18px 40px -22px rgba(46, 74, 84, 0.35);
+}
+
+.reporthead { text-align: center; margin-bottom: 1.6rem; }
+.school {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.address { margin: 0.25rem 0 0; font-size: 0.8rem; color: var(--faded); font-style: italic; }
+
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 0.9rem 0; }
+.rule.double { border-top: 3px double var(--rule); }
+
+.formline { text-align: center; margin: 0.3rem 0; font-size: 0.95rem; }
+.formline.small { font-size: 0.82rem; color: var(--faded); }
+
+.grade h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sea);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+.grade p { font-size: 0.98rem; }
+
+.registerline {
+  margin: 1rem 1.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--granite);
+  background: rgba(74, 78, 87, 0.07);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.marks { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.marks th, .marks td { border: 1px solid var(--rule); padding: 0.4rem 0.55rem; text-align: left; }
+.marks thead th { background: rgba(46, 74, 84, 0.1); color: var(--sea); }
+.marks tbody th { background: rgba(138, 127, 106, 0.12); }
+.marks td { text-align: center; }
+.marks td:nth-child(4) { text-align: left; }
+
+.signature-line { font-size: 0.85rem; color: var(--faded); font-style: italic; }
+
+.exam fieldset { border: 1px solid var(--rule); margin: 0.8rem 0; padding: 0.6rem 0.9rem; }
+.exam legend { font-size: 0.92rem; padding: 0 0.4rem; }
+.exam label { display: block; font-size: 0.9rem; padding: 0.15rem 0; }
+
+.submitline { text-align: center; }
+#mark-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  background: var(--sea);
+  color: var(--sheet);
+  border: 1px solid var(--sea);
+  padding: 0.45rem 1.2rem;
+  cursor: pointer;
+}
+#mark-btn:hover { background: var(--granite); border-color: var(--granite); }
+
+.result { min-height: 1.4em; text-align: center; font-style: italic; color: var(--sea); }
+.q.right { border-color: #3c6b4f; }
+.q.wrong { border-color: #8a4a3a; }
+
+.colophon { margin-top: 2rem; font-size: 0.8rem; color: var(--faded); text-align: center; }
+.colophon .nav a { color: var(--sea); }
+a { color: var(--sea); }
+a:hover { color: var(--granite); }
