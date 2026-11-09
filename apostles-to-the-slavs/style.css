@@ -1,0 +1,161 @@
+/* Safety Data Sheet Ω-869 — St. Panteleimon Press: parchment, wax, and gold */
+
+:root {
+  --parchment: #f0e4c8;
+  --parchment-deep: #e4d3ab;
+  --ink: #2b2016;
+  --ink-soft: #4c3a26;
+  --wax: #8c2f22;
+  --wax-deep: #6e1f16;
+  --gold: #a8792b;
+  --gold-soft: #c99a4b;
+  --slate: #40514a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(168, 121, 43, 0.18), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(76, 58, 38, 0.045) 0 2px, transparent 2px 9px),
+    #c8b58c;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Palatino Linotype", serif;
+  line-height: 1.62;
+  padding: 2.2rem 1rem 3rem;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(140, 47, 34, 0.07), transparent 40%),
+    radial-gradient(ellipse at 85% 92%, rgba(64, 81, 74, 0.08), transparent 45%),
+    var(--parchment);
+  border: 3px double var(--ink-soft);
+  outline: 1px solid rgba(43, 32, 22, 0.35);
+  outline-offset: 4px;
+  box-shadow: 0 18px 40px rgba(43, 32, 22, 0.35), inset 0 0 60px rgba(140, 100, 40, 0.12);
+  padding: 2.2rem 2.4rem 1.6rem;
+}
+
+.ribbon {
+  text-align: center;
+  letter-spacing: 1.4rem;
+  color: var(--wax);
+  font-size: 1.05rem;
+  border-bottom: 1px solid rgba(140, 47, 34, 0.4);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.sds-head { text-align: center; }
+
+.press {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.14em;
+  color: var(--wax-deep);
+  text-shadow: 1px 1px 0 rgba(201, 154, 75, 0.45);
+}
+
+.sub { margin: 0.4rem auto 1rem; max-width: 38rem; font-size: 0.98rem; }
+
+.id-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  justify-content: center;
+  border-top: 1px solid rgba(43, 32, 22, 0.4);
+  border-bottom: 1px solid rgba(43, 32, 22, 0.4);
+  padding: 0.55rem 0.4rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+.id-grid dt { font-variant: small-caps; color: var(--wax); }
+.id-grid dd { margin: 0 0 0 0.2rem; }
+
+.ghs-row { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; align-items: center; margin: 0.4rem 0 0.2rem; }
+.ghs {
+  width: 3rem; height: 3rem;
+  display: grid; place-items: center;
+  transform: rotate(45deg);
+  border: 2px solid var(--ink);
+  background: var(--parchment-deep);
+  font-weight: bold; font-size: 0.85rem;
+}
+.ghs span, .ghs { color: var(--ink); }
+.ghs > * { transform: rotate(-45deg); }
+.signal {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-weight: bold;
+  color: #fff;
+  background: var(--wax);
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 var(--wax-deep);
+}
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  border: 1px dashed rgba(140, 47, 34, 0.55);
+  background: rgba(228, 211, 171, 0.5);
+  padding: 0.6rem 0.9rem;
+  margin: 1.4rem 0 1.8rem;
+  font-size: 0.78rem;
+}
+.toc a { color: var(--wax-deep); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+.toc a:hover { color: var(--ink); border-bottom-style: solid; }
+
+main section { margin-bottom: 1.7rem; }
+
+h2 {
+  font-size: 1.12rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  border-left: 0.45rem solid var(--gold);
+  padding-left: 0.6rem;
+  margin: 0 0 0.55rem;
+}
+
+p { margin: 0 0 0.7rem; font-size: 0.96rem; }
+em { color: var(--wax-deep); }
+a { color: var(--wax-deep); }
+a:hover { color: var(--ink); }
+
+.sds-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.sds-table th {
+  font-variant: small-caps;
+  text-align: left;
+  background: var(--parchment-deep);
+  border: 1px solid rgba(43, 32, 22, 0.5);
+  padding: 0.35rem 0.5rem;
+}
+.sds-table td { border: 1px solid rgba(43, 32, 22, 0.3); padding: 0.35rem 0.5rem; vertical-align: top; }
+.sds-table tr:nth-child(even) td { background: rgba(228, 211, 171, 0.4); }
+
+.sds-foot { text-align: center; border-top: 3px double var(--ink-soft); margin-top: 2rem; padding-top: 1rem; }
+.seal {
+  display: inline-grid; place-items: center;
+  width: 3.2rem; height: 3.2rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--wax), var(--wax-deep));
+  color: #f4e2c4;
+  font-size: 1.5rem;
+  box-shadow: 0 3px 8px rgba(110, 31, 22, 0.5), inset 0 0 0 3px rgba(244, 226, 196, 0.25);
+  margin-bottom: 0.6rem;
+}
+.sds-foot p:last-child { font-size: 0.78rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--ink-soft); margin: 0; }
