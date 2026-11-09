@@ -1,0 +1,151 @@
+/* The Cusp Circle — newsletter sheet: cream paper, hand-set type, ink rules */
+
+:root {
+  --paper: #f5efdf;
+  --edge: #e8dfc6;
+  --ink: #2b2620;
+  --faded: #6b6152;
+  --rule: #40382d;
+  --accent: #7c2d12;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 40px 16px 72px;
+  background: var(--edge);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid #c9bd9c;
+  box-shadow: 0 1px 0 #fff inset, 0 12px 30px rgba(60, 50, 30, 0.18);
+  padding: 44px 52px 36px;
+}
+
+.masthead {
+  text-align: center;
+}
+
+.club-line {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant: small-caps;
+}
+
+.sub {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.sub .no {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+hr.heavy {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 18px 0 26px;
+}
+
+section {
+  margin-bottom: 26px;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 5px;
+}
+
+h2::before {
+  content: "❧ ";
+  color: var(--accent);
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul {
+  margin: 0 0 12px;
+  padding-left: 1.3em;
+}
+
+li {
+  margin-bottom: 7px;
+}
+
+li::marker {
+  content: "— ";
+  color: var(--accent);
+}
+
+strong {
+  font-variant: small-caps;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  background: rgba(124, 45, 18, 0.08);
+}
+
+.subject ul {
+  columns: 2;
+  column-gap: 28px;
+}
+
+.subject li {
+  break-inside: avoid;
+  font-size: 0.94rem;
+}
+
+@media (max-width: 620px) {
+  .sheet { padding: 30px 22px; }
+  h1 { font-size: 2.2rem; }
+  .subject ul { columns: 1; }
+}
+
+.colophon {
+  margin-top: 28px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faded);
+  text-align: center;
+}
+
+.colophon p {
+  margin: 0;
+}
