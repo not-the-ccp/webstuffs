@@ -1,0 +1,153 @@
+/* Radio play script extract — carbon-copy transmission script */
+
+* { box-sizing: border-box; }
+
+body {
+  background: #2e2a24;
+  background-image: radial-gradient(ellipse at 50% 0%, #3a342b 0%, #241f1a 70%);
+  margin: 0;
+  padding: 32px 12px 64px;
+  font-family: "Courier New", Courier, "Nimbus Mono PS", monospace;
+  color: #26221c;
+}
+
+.paper {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #efe8d8;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0 2px, transparent 2px 5px),
+    radial-gradient(ellipse at 18% 8%, rgba(120,90,40,0.10), transparent 55%);
+  border: 1px solid #b8ad93;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.55), inset 0 0 60px rgba(120,95,50,0.14);
+  padding: 44px 52px 36px;
+  position: relative;
+}
+
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 7px;
+  background-image: radial-gradient(circle at 7px 3.5px, transparent 4px, #efe8d8 4.5px);
+  background-size: 14px 7px;
+}
+.paper::before { top: 0; }
+.paper::after { bottom: 0; }
+
+.carbon {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(40, 60, 120, 0.55);
+  transform: rotate(1.4deg);
+}
+
+.masthead {
+  border-bottom: 3px double #5a4c34;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.head-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.head-table td.org { text-align: left; vertical-align: top; width: 55%; }
+.head-table td.serial { text-align: right; vertical-align: top; }
+.small { font-size: 12px; color: #5d5340; }
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 16px 0 4px;
+}
+
+.byline { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+
+.stamp {
+  position: absolute;
+  top: 150px;
+  right: 26px;
+  transform: rotate(-11deg);
+  border: 3px solid rgba(150, 40, 30, 0.6);
+  color: rgba(150, 40, 30, 0.68);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.cast h2, .scene h2 { margin: 0; }
+
+.cast {
+  margin: 0 0 26px;
+  padding: 10px 14px;
+  border: 1px solid #8d8060;
+  background: rgba(255,255,255,0.25);
+  font-size: 14px;
+}
+.cast h2 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.cast p { margin: 0; line-height: 1.5; }
+
+.scene { margin-bottom: 30px; }
+.scene-head {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 4px solid #5a4c34;
+  padding-left: 10px;
+  margin: 0 0 14px;
+  line-height: 1.45;
+}
+
+.char {
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 16px 0 2px 34px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.scene p { margin: 0 0 10px; line-height: 1.62; font-size: 15px; }
+
+.sfx {
+  font-style: italic;
+  color: #5d5340;
+  margin-left: 34px;
+}
+
+a {
+  color: #7a2216;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a:hover { background: rgba(122,34,22,0.12); }
+
+.end {
+  margin-top: 22px;
+  padding: 12px 14px;
+  border-top: 3px double #5a4c34;
+  border-bottom: 3px double #5a4c34;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.colophon {
+  margin-top: 28px;
+  font-size: 12px;
+  color: #5d5340;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 620px) {
+  .paper { padding: 34px 20px 28px; }
+  .stamp { top: auto; bottom: 120px; right: 10px; }
+}
