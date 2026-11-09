@@ -1,0 +1,134 @@
+/* Dream Dictionary, Entry 432 — restrained printed style */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #23211c;
+  --faded: #6e6a5e;
+  --rule: #cfc9b8;
+  --blue: #2d4a6e;
+  --green: #3d5a3f;
+  --red: #8a3b30;
+  --yellow: #8a7429;
+}
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: 42em;
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 3.5rem;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.series {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 1.1rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6rem;
+}
+
+.pron {
+  font-size: 0.92rem;
+  color: var(--faded);
+  font-style: italic;
+  margin: 0;
+}
+
+section { margin: 2rem 0; }
+
+h2 {
+  font-size: 0.78rem;
+  font-weight: normal;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faded);
+  text-align: center;
+  margin: 2.5rem 0 1rem;
+}
+
+h2::before, h2::after {
+  content: " — ";
+  color: var(--rule);
+}
+
+.lede {
+  font-size: 1.06rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover { border-bottom-color: var(--blue); }
+
+dl { margin: 0; }
+
+dt {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 0.9rem;
+}
+
+dt.blue { color: var(--blue); }
+dt.green { color: var(--green); }
+dt.red { color: var(--red); }
+dt.yellow { color: var(--yellow); }
+
+dd {
+  margin: 0.15rem 0 0.4rem 0;
+}
+
+.acc {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--faded);
+}
+
+.strong, strong { font-weight: normal; font-variant: small-caps; letter-spacing: 0.04em; }
+
+.kept {
+  display: block;
+  margin: 1rem 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--ink);
+}
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--faded);
+  text-align: center;
+}
