@@ -1,0 +1,167 @@
+/* Card No. 41 — Hearth-Stew for Gate Nights */
+
+:root {
+  --ink: #2c2013;
+  --faded: #6d5a41;
+  --paper: #f4ecdb;
+  --paper-deep: #ece0c6;
+  --ember: #a3402a;
+  --ember-deep: #7c2e1e;
+  --frost: #3d5a6c;
+  --line: #c9b58d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    0deg, rgba(120, 90, 40, 0.04) 0, rgba(120, 90, 40, 0.04) 1px,
+    transparent 1px, transparent 28px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.card {
+  max-width: 760px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+.card-head {
+  border-bottom: 3px double var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.kicker {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--ember-deep);
+}
+
+h1 {
+  margin: 0 0 0.35rem;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  color: var(--ember-deep);
+}
+
+.byline {
+  margin: 0;
+  font-style: italic;
+  color: var(--faded);
+  font-size: 0.95rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--ember-deep);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.preamble p { margin: 0 0 1.1rem; }
+.preamble em { color: var(--ember-deep); }
+.preamble a { color: var(--frost); }
+
+.serves {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0 0 1rem;
+}
+
+.pantry {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  column-count: 2;
+  column-gap: 2rem;
+  font-size: 0.95rem;
+}
+.pantry li { margin-bottom: 0.3rem; break-inside: avoid; }
+
+.method { padding-left: 1.4rem; margin: 0 0 1.25rem; }
+.method li { margin-bottom: 0.7rem; }
+.method strong { color: var(--ember-deep); }
+
+.keeper {
+  font-style: italic;
+  color: var(--faded);
+  border-left: 3px solid var(--ember);
+  padding-left: 0.9rem;
+}
+
+.gates-intro { font-size: 0.97rem; }
+
+.gate-filter { margin: 1rem 0 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.filter-btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--paper-deep);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.filter-btn:hover { background: #e3d4b2; }
+.filter-btn.active {
+  background: var(--ember);
+  border-color: var(--ember-deep);
+  color: #fdf6e8;
+}
+
+.gate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+}
+.gate-table th {
+  text-align: left;
+  background: var(--ember-deep);
+  color: #fdf6e8;
+  padding: 0.5rem 0.6rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+}
+.gate-table td {
+  padding: 0.55rem 0.6rem;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+.gate-table tr:nth-child(even) td { background: rgba(163, 64, 42, 0.05); }
+.gate-table tr[data-plane="cold"] td:first-child { color: var(--frost); font-weight: bold; }
+.gate-table tr[data-plane="hot"] td:first-child { color: var(--ember); font-weight: bold; }
+.gate-table tr[data-plane="quiet"] td:first-child { color: var(--faded); font-weight: bold; }
+
+.gate-count {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--faded);
+  margin-top: 0.5rem;
+}
+
+.card-foot {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--line);
+  font-size: 0.9rem;
+  color: var(--faded);
+}
+.card-foot a { color: var(--frost); }
+
+@media (max-width: 560px) {
+  .pantry { column-count: 1; }
+  .gate-table { font-size: 0.8rem; }
+}
