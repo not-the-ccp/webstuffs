@@ -1,0 +1,231 @@
+/* Entry No. 217 — Espa&ntilde;a: a night over the peninsula, red and gold under a dark Atlantic */
+
+:root {
+  --night: #17101c;
+  --plum: #2a1220;
+  --red: #8c2f22;
+  --red-deep: #5c1f16;
+  --gold: #d9a441;
+  --gold-bright: #f0c667;
+  --paper: #f4e8cf;
+  --ink: #3a2417;
+  --sea: #0e1a2b;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--night); }
+
+body {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.22rem;
+  line-height: 1.62;
+  background:
+    radial-gradient(120% 90% at 50% 115%, rgba(140, 47, 34, 0.55) 0%, rgba(92, 31, 22, 0.35) 34%, rgba(23, 16, 28, 0) 68%),
+    linear-gradient(180deg, #0c1424 0%, var(--night) 34%, var(--plum) 78%, #3a1522 100%);
+  min-height: 100vh;
+}
+
+.night {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(14, 26, 43, 0.5), rgba(23, 16, 28, 0) 40%);
+  z-index: 0;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.stars .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.85; }
+}
+
+.moon {
+  position: fixed;
+  top: 7vh;
+  right: 9vw;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #fdf4dc 0%, #e8d3a0 55%, #caa85e 100%);
+  box-shadow: 0 0 48px 14px rgba(240, 198, 103, 0.28);
+  z-index: 1;
+  animation: moon-drift 40s ease-in-out infinite alternate;
+}
+@keyframes moon-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(16px); }
+}
+
+header.concordance-head,
+main.entry,
+.further { position: relative; z-index: 2; }
+
+.concordance-head {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.plate {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px dashed rgba(217, 164, 65, 0.55);
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  margin: 0 0 2rem;
+  background: rgba(23, 16, 28, 0.55);
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 5rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  margin: 0 0 0.4rem;
+  text-shadow: 0 0 30px rgba(217, 164, 65, 0.35);
+}
+h1 .of {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  font-size: 0.5em;
+  vertical-align: 0.28em;
+}
+
+.pron {
+  font-style: italic;
+  color: #d8c49a;
+  margin: 0.8rem 0 0;
+}
+.pron-label {
+  font-style: normal;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: #3a1208;
+  padding: 0.12rem 0.5rem;
+  margin-right: 0.6rem;
+  border-radius: 2px;
+}
+
+.entry {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.def {
+  border-left: 4px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 2.4rem;
+  background:
+    linear-gradient(90deg, rgba(140, 47, 34, 0.16), rgba(23, 16, 28, 0.25) 50%, rgba(140, 47, 34, 0.16));
+}
+.def p { margin: 0; }
+.drop::first-letter {
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.14em 0 0;
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(217, 164, 65, 0.4);
+  padding-bottom: 0.35rem;
+  margin: 2.6rem 0 1.1rem;
+  font-weight: 600;
+}
+
+p { margin: 0 0 1.15rem; }
+
+a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(240, 198, 103, 0.6);
+}
+a:hover { color: #fff; border-bottom-color: #fff; }
+
+strong { color: var(--gold-bright); font-weight: 600; }
+
+ul.keys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.keys li {
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 1.2rem 0.9rem 1.5rem;
+  border: 1px solid rgba(217, 164, 65, 0.28);
+  border-left: 4px solid var(--red);
+  background: rgba(23, 16, 28, 0.45);
+  border-radius: 2px;
+}
+
+blockquote.card-line {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--gold-bright);
+  border: 1px dashed rgba(240, 198, 103, 0.7);
+  border-top-width: 6px;
+  border-bottom-width: 6px;
+  padding: 1.1rem 1.4rem;
+  margin: 1.4rem 0 1.4rem 1.2rem;
+  background: rgba(244, 232, 207, 0.06);
+  transform: rotate(-0.6deg);
+}
+
+.recipe {
+  font-style: italic;
+  color: #fff;
+  border-bottom: 1px dotted var(--gold);
+}
+
+.further {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+.further p {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: #c9a86a;
+  border-top: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  padding: 0.9rem 0;
+}
+
+@media (max-width: 560px) {
+  .moon { width: 54px; height: 54px; right: 6vw; }
+  .entry, .concordance-head, .further { padding-left: 1.1rem; padding-right: 1.1rem; }
+}
