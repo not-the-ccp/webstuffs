@@ -1,0 +1,204 @@
+/* The Lionheart Ledger — a classified sheet from Westminster, anno 1198 */
+
+:root {
+  --paper: #efe5cf;
+  --paper-deep: #e6d8b8;
+  --ink: #2b2116;
+  --ink-faded: #4a3c2a;
+  --rule: #2b2116;
+  --stamp: #8c2f1b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #241d14;
+  background-image: radial-gradient(ellipse at 50% 0%, #3a2f21 0%, #241d14 70%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.45;
+  padding: 2.5rem 0.75rem;
+}
+
+.sheet {
+  max-width: 60rem;
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg, rgba(120, 90, 40, 0.12) 0%, rgba(120, 90, 40, 0) 8%, rgba(120, 90, 40, 0) 94%, rgba(90, 60, 25, 0.22) 100%),
+    repeating-linear-gradient(0deg, rgba(120, 90, 40, 0.03) 0 2px, transparent 2px 4px),
+    var(--paper);
+  border: 1px solid #17120b;
+  box-shadow:
+    0 0 0 6px rgba(0, 0, 0, 0.25),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 90px rgba(90, 60, 25, 0.28);
+  padding: 2.25rem 2.5rem 1.75rem;
+  position: relative;
+}
+
+/* masthead */
+.masthead { text-align: center; }
+.masthead-rule {
+  height: 4px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 3px double var(--rule);
+  margin: 0.35rem 0;
+}
+.vol {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--ink-faded);
+}
+.masthead h1 {
+  font-family: "Old English Text MT", "UnifrakturMaguntia", Georgia, serif;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  line-height: 1;
+  margin: 0.4rem 0 0.3rem;
+  letter-spacing: 0.02em;
+}
+.tagline {
+  font-size: 0.72rem;
+  font-style: italic;
+  margin: 0 auto 0.5rem;
+  max-width: 46rem;
+  color: var(--ink-faded);
+}
+
+/* banner notice */
+.banner {
+  margin: 1.4rem 0 1.6rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 3px double var(--rule);
+  position: relative;
+  background: var(--paper-deep);
+}
+.banner-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  color: var(--stamp);
+}
+.banner p { margin: 0 0 0.6rem; }
+.banner p:last-child { margin-bottom: 0; }
+
+.stamp {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.9rem;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  line-height: 1.15;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 0.35rem 0.55rem;
+  text-align: center;
+  transform: rotate(7deg);
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+}
+
+/* classified columns */
+.cols {
+  column-count: 3;
+  column-gap: 1.4rem;
+  column-rule: 1px solid rgba(43, 33, 22, 0.55);
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+}
+
+.ad {
+  break-inside: avoid;
+  margin: 0 0 1.15rem;
+  border-bottom: 1px dotted rgba(43, 33, 22, 0.5);
+  padding-bottom: 0.9rem;
+}
+.ad h3 {
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 0.55rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+.ad p {
+  font-size: 0.9rem;
+  margin: 0 0 0.55rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.ad p:last-child { margin-bottom: 0; }
+.ad p::first-letter { font-weight: bold; }
+
+.ad blockquote {
+  margin: 0.6rem 0;
+  padding: 0.55rem 0.7rem;
+  border-left: 3px solid var(--stamp);
+  background: rgba(140, 47, 27, 0.06);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+.ad blockquote p {
+  margin: 0;
+  text-align: left;
+}
+.ad blockquote p::first-letter { font-weight: normal; }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(140, 47, 27, 0.65);
+  text-underline-offset: 2px;
+}
+a:hover { background: rgba(140, 47, 27, 0.12); }
+
+/* rates box */
+.rates {
+  margin: 1.4rem 0 0;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  font-size: 0.85rem;
+  transform: rotate(-0.4deg);
+  box-shadow: 3px 3px 0 rgba(43, 33, 22, 0.25);
+}
+.rates h3 {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.45rem;
+  text-align: center;
+}
+.rates p { margin: 0; text-align: justify; }
+
+/* footer */
+footer {
+  margin-top: 1.5rem;
+  border-top: 3px double var(--rule);
+  padding-top: 0.8rem;
+}
+.advice {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+.colophon {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  color: var(--ink-faded);
+}
+
+@media (max-width: 44rem) {
+  .cols { column-count: 1; }
+  .sheet { padding: 1.5rem 1.1rem; }
+  .stamp { position: static; display: inline-block; margin-bottom: 0.5rem; }
+}
