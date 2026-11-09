@@ -1,0 +1,162 @@
+/* Harrowgate & Voss — Sale No. 47, Lot 7: catalogue sheet */
+
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #ece0c4;
+  --ink: #2b2418;
+  --faint: #6d5f45;
+  --rule: #8a795a;
+  --red: #9c3b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #cfc4a6;
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.frame {
+  max-width: 880px;
+  margin: 28px auto 60px;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 18% 8%, rgba(156, 59, 42, 0.05), transparent 42%),
+    radial-gradient(ellipse at 88% 96%, rgba(80, 60, 30, 0.10), transparent 46%),
+    linear-gradient(var(--paper), var(--paper-deep));
+  border: 1px solid #b3a37e;
+  box-shadow: 0 14px 34px rgba(40, 30, 10, 0.35), inset 0 0 60px rgba(120, 95, 50, 0.12);
+  padding: 34px 42px 30px;
+  position: relative;
+}
+
+/* Masthead */
+table.mast { width: 100%; border-collapse: collapse; }
+.mast td { vertical-align: top; }
+.mast-left .firm {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+.mast-left .firm-sub {
+  margin: 4px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+.mast-right { text-align: right; }
+.mast-right .sale {
+  margin: 0;
+  font-size: 17px;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+.mast-right .sale-sub { margin: 4px 0 0; font-size: 12px; color: var(--faint); }
+
+.ticker {
+  margin: 14px 0 18px;
+  padding: 5px 8px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: center;
+}
+
+/* Lot head */
+.lot-kicker {
+  margin: 0 0 2px;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+}
+.lot-cond {
+  color: var(--faint);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.03em;
+}
+.lot h1 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+.lot-sub {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--faint);
+  font-style: italic;
+  max-width: 62ch;
+}
+
+/* Body grid */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 28px;
+  margin-top: 22px;
+  border-top: 3px double var(--rule);
+  padding-top: 20px;
+}
+.description p { margin: 0 0 14px; text-align: justify; }
+.description a { color: var(--red); }
+ol.appur { margin: 0 0 14px; padding-left: 20px; }
+ol.appur li { margin-bottom: 12px; text-align: justify; }
+
+/* Sidebar */
+.side { border-left: 1px solid var(--rule); padding-left: 20px; }
+.counter-box, .guestbook, .best-bid { margin-bottom: 20px; }
+.box-kicker {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+}
+.counter {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 30px;
+  letter-spacing: 0.18em;
+  border: 1px solid var(--rule);
+  background: rgba(255, 252, 240, 0.55);
+  padding: 6px 10px;
+  text-align: center;
+}
+.box-note { margin: 6px 0 0; font-size: 12px; color: var(--faint); font-style: italic; }
+.gb-line {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 12.5px;
+  color: var(--ink);
+}
+.bid { margin: 0; font-size: 18px; font-variant: small-caps; letter-spacing: 0.04em; }
+
+/* Footer */
+.foot {
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 3px double var(--rule);
+  font-size: 12.5px;
+  color: var(--faint);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .frame { padding: 22px 18px; }
+  .grid { grid-template-columns: 1fr; }
+  .side { border-left: none; border-top: 1px solid var(--rule); padding: 16px 0 0; }
+}
