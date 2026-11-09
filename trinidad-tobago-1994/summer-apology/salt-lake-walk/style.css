@@ -1,0 +1,223 @@
+/* The Salt Lake Walk — Itinerary No. 2002 */
+
+:root {
+  --ink: #16211b;
+  --paper: #f4efe4;
+  --pine: #2e4a33;
+  --rust: #b0781a;
+  --frost: #9db8c4;
+  --card: #e9e1cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* the dark line of the mountains, fixed along the left edge */
+.ridge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 14px;
+  background:
+    linear-gradient(90deg, var(--pine) 0 55%, transparent 55%),
+    linear-gradient(180deg, #3d5a3f, #22382a);
+  z-index: 0;
+}
+
+.ridge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    174deg,
+    transparent 0 22px,
+    rgba(255, 255, 255, 0.16) 22px 26px
+  );
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem 4.5rem;
+}
+
+.masthead {
+  position: relative;
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: 3px double var(--pine);
+  margin-bottom: 2.5rem;
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin: 0 0 1rem;
+}
+
+.title {
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.02em;
+  transform: rotate(-1.2deg);
+  transform-origin: left bottom;
+}
+
+.title::after {
+  content: "2002";
+  display: block;
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  letter-spacing: 0.6em;
+  color: var(--rust);
+  margin-top: 0.8rem;
+  transform: rotate(-1.2deg);
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--pine);
+  margin: 1.4rem 0 0.4rem;
+  max-width: 34ch;
+}
+
+.meta-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--ink);
+  opacity: 0.75;
+  margin: 0;
+}
+
+.place-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  margin: 0 0 2rem;
+}
+
+.lede {
+  font-size: 1.15rem;
+  max-width: 62ch;
+  column-span: all;
+}
+
+/* the tour: two columns, stops staggered */
+.tour {
+  columns: 2;
+  column-gap: 3rem;
+  column-rule: 1px dashed rgba(46, 74, 51, 0.35);
+}
+
+.stop {
+  break-inside: avoid;
+  position: relative;
+  margin: 0 0 2.4rem;
+  padding: 1.4rem 1.2rem 1.2rem 3.2rem;
+  background: var(--card);
+  border-left: 4px solid var(--pine);
+}
+
+.stop:nth-child(even of .stop) {
+  margin-left: 2.2rem;
+  border-left-color: var(--rust);
+  background: #efe7d4;
+}
+
+.stop-no {
+  position: absolute;
+  top: -1.1rem;
+  left: -0.7rem;
+  font-family: "Courier New", monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--paper);
+  background: var(--pine);
+  padding: 0.1rem 0.55rem;
+  transform: rotate(-3deg);
+}
+
+.stop:nth-child(even of .stop) .stop-no {
+  background: var(--rust);
+  transform: rotate(2deg);
+}
+
+.stop-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+  color: var(--pine);
+}
+
+.stop p { margin: 0 0 0.8rem; font-size: 0.98rem; }
+
+/* the chip-stand board, kept word for word */
+.stop em { color: var(--rust); }
+
+.ledger-card {
+  break-inside: avoid;
+  margin: 0 0 2rem;
+  padding: 1.4rem 1.4rem 1rem;
+  background: #1d2b20;
+  color: var(--paper);
+  transform: rotate(1.1deg);
+  box-shadow: 6px 6px 0 rgba(46, 74, 51, 0.25);
+}
+
+.ledger-head {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--frost);
+  margin: 0 0 0.8rem;
+}
+
+.ledger-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.ledger-card li { margin-bottom: 0.35rem; }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 3px double var(--pine);
+  font-size: 0.85rem;
+  font-family: "Courier New", monospace;
+}
+
+.colophon a { color: var(--pine); }
+
+a { color: var(--rust); }
+
+/* scroll-into-view easing for stop links */
+.stop { scroll-margin-top: 2rem; }
+body.smooth .stop { transition: transform 0.25s ease; }
+.stop.is-here { transform: scale(1.012); box-shadow: 0 0 0 2px var(--frost); }
+
+@media (max-width: 760px) {
+  .page { padding: 2rem 1.2rem 3rem 2.2rem; }
+  .tour { columns: 1; }
+  .stop:nth-child(even of .stop) { margin-left: 0; }
+}
