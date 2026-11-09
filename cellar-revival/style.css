@@ -1,0 +1,167 @@
+/* The Cellar Revival — a radio play, dressed for transmission */
+
+:root {
+  --ink: #efe6cf;
+  --paper: #14100c;
+  --panel: #1d1712;
+  --rust: #b4552d;
+  --green: #5f7a3d;
+  --lamp: #d8b23a;
+  --line: #3a2f24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px),
+    radial-gradient(ellipse at 50% 0%, rgba(216,178,58,0.07), transparent 60%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1.5rem;
+  border-bottom: 3px double var(--line);
+}
+
+.onair {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.35em;
+  color: var(--rust);
+  border: 1px solid var(--rust);
+  padding: 0.3rem 0.9rem 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.onair .lamp {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--rust);
+  box-shadow: 0 0 8px 2px rgba(180, 85, 45, 0.7);
+}
+
+.onair.lit .lamp {
+  background: #ff6a3d;
+  box-shadow: 0 0 14px 4px rgba(255, 106, 61, 0.9);
+}
+
+.kicker {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--lamp);
+  text-transform: uppercase;
+  margin: 1.25rem 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.standfirst {
+  font-style: italic;
+  color: #cbbfa3;
+  max-width: 56ch;
+}
+
+.cast {
+  font-size: 0.85rem;
+  color: #a99a7c;
+  font-family: "Courier New", monospace;
+  margin-top: 1rem;
+}
+
+.script {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.scene {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--rust);
+  padding: 1.4rem 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.scene-head {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--lamp);
+  margin: 0 0 1rem;
+}
+
+.sfx {
+  font-style: italic;
+  color: #8fa06a;
+  font-size: 0.92rem;
+  border-left: 2px solid var(--green);
+  padding-left: 0.9rem;
+  margin: 1.1rem 0;
+}
+
+.announcer {
+  color: #d8c99a;
+}
+
+.line { margin: 1rem 0; }
+
+.line strong {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.card {
+  background: #efe4c8;
+  color: #241c12;
+  margin: 1.25rem 0;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid #c9b98a;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+}
+
+.card p {
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.card cite {
+  font-size: 0.75rem;
+  font-style: normal;
+  color: #6b5a3a;
+}
+
+.credits {
+  border-left-color: var(--green);
+  font-size: 0.95rem;
+}
+
+a { color: var(--lamp); }
+
+a:hover { color: #f0cf6b; }
+
+.colophon {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  border-top: 3px double var(--line);
+  font-size: 0.8rem;
+  color: #8f8064;
+  font-style: italic;
+}
