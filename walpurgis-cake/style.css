@@ -1,0 +1,171 @@
+/* Card No. 9 — May Eve, kept in candle and smoke */
+
+:root {
+  --night: #17101f;
+  --smoke: #241a30;
+  --paper: #f4ead6;
+  --paper-edge: #e7d9bb;
+  --ink: #2c2118;
+  --ink-faded: #5c4c3a;
+  --flame: #e8a13c;
+  --flame-deep: #b4552a;
+  --ember: #8f2f22;
+  --hop: #5f6b2f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--night);
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, #6a5a8a 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 12%, #584a78 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 42%, #7a6a9a 50%, transparent 51%),
+    radial-gradient(1px 1px at 34% 8%, #584a78 50%, transparent 51%),
+    radial-gradient(1px 1px at 62% 6%, #6a5a8a 50%, transparent 51%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+/* the hill fire, top of the page */
+.night {
+  position: relative;
+  height: 96px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px;
+  border-bottom: 3px solid var(--ember);
+  background: linear-gradient(to top, var(--smoke), var(--night) 70%);
+}
+.flame {
+  display: inline-block;
+  width: 18px;
+  height: 44px;
+  border-radius: 50% 50% 45% 45%;
+  background: linear-gradient(to top, var(--flame-deep), var(--flame) 70%, #f7d98c);
+  box-shadow: 0 0 22px 6px rgba(232, 161, 60, 0.45);
+  transform-origin: bottom center;
+  animation: flicker 1.3s ease-in-out infinite;
+}
+.f2 { height: 62px; animation-delay: 0.4s; }
+.f3 { height: 38px; animation-delay: 0.8s; }
+.smoke {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  width: 10px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(160, 150, 180, 0.16);
+  filter: blur(6px);
+  animation: rise 3.2s ease-in infinite;
+}
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) rotate(-2deg); }
+  30%      { transform: scaleY(1.12) rotate(2deg); }
+  60%      { transform: scaleY(0.92) rotate(-3deg); }
+}
+@keyframes rise {
+  from { transform: translate(-50%, 0) scale(1); opacity: 0.6; }
+  to   { transform: translate(-50%, -70px) scale(2.2); opacity: 0; }
+}
+
+/* the card */
+.card {
+  max-width: 720px;
+  margin: -34px auto 56px;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    0deg, transparent 0 30px, rgba(180, 150, 100, 0.09) 30px 31px);
+  border: 1px solid var(--paper-edge);
+  outline: 2px dashed rgba(94, 74, 48, 0.4);
+  outline-offset: -10px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  padding: 44px 52px 28px;
+}
+
+.mast { text-align: center; margin-bottom: 26px; }
+.card-no {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--ink-faded);
+  font-size: 0.85rem;
+}
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+  margin: 0.2em 0;
+  color: var(--ink);
+}
+.byline {
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 0.95rem;
+  margin: 0.2em auto 0.6em;
+  max-width: 34em;
+}
+.serves {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  font-variant: small-caps;
+  color: var(--ember);
+  border-top: 1px solid var(--ember);
+  border-bottom: 1px solid var(--ember);
+  padding: 4px 12px;
+}
+
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--ember);
+  border-bottom: 1px dotted var(--hop);
+  padding-bottom: 6px;
+  margin-top: 1.8em;
+}
+
+.preamble p { margin: 0 0 1.1em; text-align: justify; }
+.preamble strong { color: var(--flame-deep); }
+
+ul.ingredients { list-style: none; padding-left: 0; }
+ul.ingredients li {
+  padding: 5px 0 5px 26px;
+  position: relative;
+  border-bottom: 1px dotted rgba(94, 74, 48, 0.35);
+}
+ul.ingredients li::before {
+  content: "\2744"; /* a small hop-sprig marker */
+  position: absolute;
+  left: 2px;
+  color: var(--hop);
+}
+
+ol.steps { padding-left: 1.6em; }
+ol.steps li { margin-bottom: 0.85em; }
+ol.steps li::marker { color: var(--flame-deep); font-weight: bold; }
+
+.filed p { font-size: 0.95rem; color: var(--ink-faded); }
+.filed a { color: var(--ember); }
+.filed a:hover { color: var(--flame-deep); }
+
+a { color: var(--ember); }
+a:hover { color: var(--flame-deep); }
+
+.foot {
+  margin-top: 34px;
+  padding-top: 14px;
+  border-top: 2px solid var(--ember);
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: var(--ink-faded);
+}
+
+@media (max-width: 620px) {
+  .card { padding: 30px 22px; margin: -34px 10px 40px; }
+  h1 { font-size: 1.6rem; }
+}
