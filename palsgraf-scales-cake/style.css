@@ -1,0 +1,184 @@
+/* Palsgraf Scales Cake — a family recipe card */
+
+:root {
+  --paper: #f4ecdb;
+  --paper-deep: #ecdfc4;
+  --ink: #2f2a21;
+  --faded: #6d6250;
+  --rule: #b3a37f;
+  --stamp: #9c3a2c;
+  --copper: #8a5a2b;
+  --tin: #e8e4da;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cfbc;
+  background-image: repeating-linear-gradient(
+    0deg, rgba(0,0,0,0.02) 0 2px, transparent 2px 4px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.card {
+  max-width: 44rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(140,110,60,0.10), transparent 45%),
+    radial-gradient(ellipse at 88% 96%, rgba(140,110,60,0.14), transparent 40%);
+  border: 1px solid #c9b98f;
+  box-shadow: 0 2px 6px rgba(60,45,20,0.25), 0 18px 40px rgba(60,45,20,0.18);
+  padding: 3rem 3.25rem 2.5rem;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed var(--rule);
+  pointer-events: none;
+}
+
+.card-header {
+  text-align: center;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.card-eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4rem;
+}
+
+.card-dek {
+  font-style: italic;
+  color: var(--faded);
+  margin: 0;
+}
+
+.scales {
+  display: block;
+  margin: 1.1rem auto 0;
+  width: 180px;
+  opacity: 0.85;
+}
+
+.preamble p { margin: 0 0 1.2em; }
+
+.card-line {
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--stamp);
+  background:
+    repeating-linear-gradient(
+      180deg, transparent 0 27px, rgba(140,110,60,0.28) 27px 28px);
+  border-left: 3px solid var(--stamp);
+  padding: 0.55rem 1.1rem 0.75rem;
+  margin: 1.6rem 0.5rem;
+  transform: rotate(-0.4deg);
+}
+
+.recipe {
+  border-top: 2px solid var(--ink);
+  padding-top: 1.4rem;
+  margin-top: 2rem;
+}
+
+.recipe h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.recipe h3 {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin: 1.6rem 0 0.8rem;
+}
+
+.recipe-meta p {
+  margin: 0.15rem 0;
+  font-size: 0.95rem;
+}
+
+.recipe-meta strong {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.ingredients {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 2.5rem;
+}
+
+.ingredients li {
+  break-inside: avoid;
+  padding: 0.2rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+
+.instructions {
+  padding-left: 1.6rem;
+  margin: 0;
+}
+
+.instructions li {
+  padding: 0.35rem 0 0.35rem 0.4rem;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.instructions li:last-child { border-bottom: none; }
+
+.instructions li::marker {
+  font-family: "Courier New", monospace;
+  color: var(--copper);
+}
+
+.card-footer {
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.nav-line { margin: 0.45rem 0; color: var(--faded); }
+.nav-line a { color: var(--stamp); }
+a { color: var(--stamp); }
+
+@media (max-width: 560px) {
+  .card { padding: 1.6rem 1.3rem; margin: 1rem auto 2rem; }
+  .ingredients { columns: 1; }
+  h1 { font-size: 2rem; }
+}
