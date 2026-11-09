@@ -1,0 +1,211 @@
+/* The Nine — slow-service plate, Wallachia & Văcărești Valley Railways */
+
+:root {
+  --paper: #f3e9d2;
+  --paper-deep: #e9dbb9;
+  --ink: #2b1d12;
+  --wine: #5c1a1a;
+  --wine-deep: #3d0f0f;
+  --brass: #8a6a2f;
+  --brass-soft: #b8934e;
+  --lamp: #ffd98a;
+  --rule: #6b4a1e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 217, 138, 0.22), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(107, 74, 30, 0.05) 0 2px, transparent 2px 6px),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+.plate {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  border-left: 3px double var(--brass);
+  border-right: 3px double var(--brass);
+  background: rgba(243, 233, 210, 0.6);
+}
+
+/* ---- Marquise ---- */
+.marquise {
+  text-align: center;
+  border: 2px solid var(--wine);
+  outline: 1px solid var(--brass);
+  outline-offset: 4px;
+  padding: 1.4rem 1rem 1.1rem;
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper));
+  box-shadow: inset 0 0 40px rgba(92, 26, 26, 0.12);
+}
+
+.lamp { display: inline-block; color: var(--wine-deep); }
+.lamp svg { width: 96px; height: auto; display: block; margin: 0 auto; }
+.bulb-glow { transition: opacity 1.2s ease; }
+.lamp.lit .bulb-glow { opacity: 0.42; }
+.lamp.lit .bulb { stroke: var(--brass); }
+.lamp-caption {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0.3rem 0 0.9rem;
+}
+
+.line-name {
+  font-size: 0.8rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: 3.4rem;
+  margin: 0;
+  color: var(--wine);
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+  text-shadow: 2px 2px 0 rgba(138, 106, 47, 0.25);
+}
+
+.subtitle {
+  margin: 0.3rem 0 0.7rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.clockline {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wine-deep);
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+  flex: none;
+}
+
+/* ---- Sections ---- */
+.service, .commentary, .legend {
+  margin-top: 2.2rem;
+}
+
+.board-title {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: var(--wine);
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 0.35rem;
+  font-size: 1.35rem;
+}
+
+.timetable-note {
+  font-size: 0.98rem;
+}
+strong { color: var(--wine-deep); }
+
+/* ---- Timetable ---- */
+table.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--paper-deep);
+  border: 2px solid var(--wine);
+  font-size: 0.92rem;
+}
+caption {
+  caption-side: top;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--brass);
+  padding-bottom: 0.4rem;
+}
+th {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  background: var(--wine);
+  color: var(--paper);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  border: 1px solid var(--wine-deep);
+}
+td {
+  padding: 0.5rem 0.6rem;
+  border: 1px dotted var(--rule);
+  vertical-align: top;
+}
+tbody tr:nth-child(odd) { background: rgba(138, 106, 47, 0.08); }
+tbody tr:hover { background: rgba(255, 217, 138, 0.28); }
+td[data-status] { font-style: italic; color: var(--wine-deep); }
+td:first-child { font-weight: bold; color: var(--brass); }
+
+/* ---- Commentary ---- */
+.commentary h3 {
+  margin-top: 1.6rem;
+  color: var(--wine-deep);
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  border-left: 4px solid var(--brass);
+  padding-left: 0.6rem;
+}
+.commentary h5 { margin-left: 0; }
+
+/* ---- Legend ---- */
+blockquote.err-line {
+  margin: 1rem 0;
+  padding: 1rem 1.4rem;
+  background: var(--wine);
+  color: var(--paper);
+  border-left: 6px solid var(--brass);
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.6;
+  box-shadow: 4px 4px 0 rgba(92, 26, 26, 0.2);
+}
+blockquote.err-line p { margin: 0; }
+
+dl.decode {
+  margin: 1.2rem 0 0;
+}
+dl.decode dt {
+  font-weight: bold;
+  color: var(--wine);
+  margin-top: 0.9rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+dl.decode dd {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.95rem;
+}
+
+/* ---- Foot ---- */
+.foot { margin-top: 2.6rem; text-align: center; }
+.foot-rule {
+  height: 4px;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+  margin: 0 auto 1rem;
+  max-width: 220px;
+}
+.foot p { font-size: 0.82rem; color: var(--ink); }
+.foot-nav a {
+  color: var(--wine);
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+.foot-nav a:hover { color: var(--wine-deep); background: rgba(255, 217, 138, 0.4); }
