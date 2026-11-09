@@ -1,0 +1,158 @@
+/* Lot 47 — the Stratford Streak, Winter Auction Sale No. 92 */
+
+:root {
+  --paper: #f4efe3;
+  --ink: #241f19;
+  --faded: #6d6353;
+  --red: #8a1f2b;
+  --blue: #12324a;
+  --rule: #c9bda4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.plate {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+}
+
+.sale-line {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: var(--faded);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+  letter-spacing: 0.08em;
+  margin: 0.2rem 0 0.4rem;
+  color: var(--red);
+}
+
+.lot-title {
+  font-style: italic;
+  font-size: 1.25rem;
+  margin: 0 0 0.6rem;
+}
+
+.sale-meta {
+  font-size: 0.85rem;
+  color: var(--faded);
+  max-width: 52ch;
+  margin: 0 auto 1rem;
+}
+
+.mark { width: 100%; max-width: 340px; }
+.mark-label { font-size: 8px; fill: var(--faded); font-family: inherit; }
+
+.lot {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+section { margin-bottom: 2.5rem; }
+
+h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+.contents { list-style: none; margin: 0; padding: 0; }
+.contents li { padding: 0.55rem 0; border-bottom: 1px dotted var(--rule); }
+.contents .no {
+  display: inline-block;
+  min-width: 2.6em;
+  font-weight: bold;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+}
+
+.filterbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1rem; }
+
+.filter {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+}
+
+.filter[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.filter:hover { border-color: var(--red); color: var(--red); }
+.filter[aria-pressed="true"]:hover { color: var(--paper); }
+
+table.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ledger th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 2px solid var(--ink);
+  padding: 0.4rem 0.3rem;
+}
+
+.ledger td { padding: 0.35rem 0.3rem; border-bottom: 1px dotted var(--rule); }
+.ledger td.n, .ledger th:nth-child(n+3) { text-align: right; font-variant-numeric: tabular-nums; }
+.ledger tfoot td {
+  border-top: 2px solid var(--ink);
+  border-bottom: none;
+  font-weight: bold;
+  background: #ede5d2;
+}
+
+tr.hidden { display: none; }
+
+.fineprint { font-size: 0.78rem; color: var(--faded); }
+
+.chip {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 0 0.35em;
+  font-size: 0.85em;
+  font-variant-numeric: tabular-nums;
+}
+
+.estimate-line { font-size: 1rem; }
+.estimate-line.small { font-size: 0.82rem; color: var(--faded); }
+
+.colophon {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 3px double var(--ink);
+  font-size: 0.78rem;
+  color: var(--faded);
+}
+
+a { color: var(--blue); }
+a:hover { color: var(--red); }
