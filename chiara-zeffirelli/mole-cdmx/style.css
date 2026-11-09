@@ -1,0 +1,192 @@
+/* Card No. 114 — The Zeffirelli–Aguilar kitchen thread.
+   An index card strung on the kitchen thread: cream stock, red margin rule,
+   blue-ink annotations, tape at the corners, one coffee ring, one red pin. */
+
+:root {
+  --paper: #f4ead2;
+  --paper-deep: #eaddbd;
+  --ink: #26221a;
+  --blue: #1f3a6e;
+  --red: #a02c20;
+  --rule: #c46a55;
+  --wall: #3b342c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--wall);
+  background-image:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(255, 235, 190, 0.10), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 90px);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.kitchen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 72px;
+}
+
+/* the card */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle 74px at 86% 63%, rgba(120, 74, 28, 0.16) 0 60px, rgba(120, 74, 28, 0.30) 61px 66px, transparent 67px),
+    linear-gradient(180deg, rgba(255,255,255,0.25), transparent 120px);
+  border: 1px solid #cbb98c;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(150, 110, 50, 0.10);
+  padding: 56px 64px 48px 96px;
+}
+
+/* index-card margin rule: double red line down the left */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 64px;
+  border-left: 2px solid var(--rule);
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 69px;
+  border-left: 1px solid var(--rule);
+}
+
+/* punched holes beside the margin */
+.card .ledger::before {
+  content: "\25CB \25CB \25CB";
+  display: block;
+  position: absolute;
+  left: 34px; top: 60px;
+  writing-mode: vertical-rl;
+  letter-spacing: 22px;
+  font-size: 15px;
+  color: #b3a172;
+}
+
+/* tape corners */
+.tape {
+  position: absolute;
+  width: 92px; height: 30px;
+  background: rgba(250, 244, 214, 0.55);
+  border: 1px solid rgba(160, 140, 90, 0.35);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.18);
+}
+.tape-l { top: -12px; left: 40px; transform: rotate(-6deg); }
+.tape-r { top: -12px; right: 40px; transform: rotate(5deg); }
+
+/* the red pin */
+.pin {
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.5));
+  z-index: 3;
+}
+
+/* header */
+.ledger {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6d5a33;
+  margin: 0 0 14px;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  line-height: 1.05;
+  margin: 0 0 6px;
+  color: #3a2a12;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 180px;
+  margin-top: 10px;
+  border-bottom: 2px solid var(--rule);
+}
+.sub {
+  font-style: italic;
+  font-size: 14px;
+  color: #55452a;
+  margin: 4px 0 10px;
+}
+.serves {
+  font-size: 13px;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #b09b6c;
+}
+.serves strong { color: var(--red); }
+
+/* headings */
+h2 {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  margin: 28px 0 10px;
+  border-bottom: 1px solid #c9b586;
+  padding-bottom: 4px;
+}
+
+/* body */
+p { font-size: 14.5px; line-height: 1.72; margin: 0 0 14px; }
+.cdmx {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: var(--red);
+}
+
+/* the pinned aunt-line, quoted in her hand */
+.pinned {
+  margin: 18px 24px;
+  padding: 14px 20px 14px 26px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--red);
+  font-family: "Segoe Script", "Bradley Hand", cursive;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a3417;
+  transform: rotate(-0.4deg);
+}
+
+/* blue-ink annotations */
+.hand {
+  font-family: "Segoe Script", "Bradley Hand", cursive;
+  color: var(--blue);
+  font-size: 15px;
+}
+
+/* method */
+ol { margin: 0 0 8px; padding-left: 22px; }
+li { font-size: 14px; line-height: 1.65; margin-bottom: 10px; }
+li::marker { color: var(--red); font-weight: bold; }
+
+/* colophon */
+.notes { margin-top: 30px; border-top: 1px solid #b09b6c; padding-top: 14px; }
+.colophon {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #6d5a33;
+}
+a { color: var(--blue); text-decoration: underline dotted; }
+a:hover { color: var(--red); }
+
+@media (max-width: 620px) {
+  .card { padding: 40px 26px 40px 52px; }
+  .card::before { left: 30px; }
+  .card::after { left: 35px; }
+  h1 { font-size: 30px; }
+}
