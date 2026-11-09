@@ -1,0 +1,157 @@
+/* The Academy's Question Register — Jedi Knight card file */
+
+:root {
+  --void: #0b0f14;
+  --panel: #121a22;
+  --panel-deep: #0e141b;
+  --blade: #7dffb0;
+  --blade-dim: #2f8a5d;
+  --ember: #ffb454;
+  --bone: #e8ecf1;
+  --ash: #93a1ae;
+  --seam: #263441;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 70% -10%, rgba(125, 255, 176, 0.07), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(125, 255, 176, 0.035) 46px 47px),
+    var(--void);
+  color: var(--bone);
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.masthead {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--seam);
+}
+
+.holo-band {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.holo-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blade-dim), transparent);
+}
+.holo-text {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  color: var(--blade);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bone);
+  text-shadow: 0 0 18px rgba(125, 255, 176, 0.35);
+  margin: 0 0 0.75rem;
+}
+
+.dek {
+  color: var(--ash);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.register {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.register-note {
+  color: var(--ash);
+  font-style: italic;
+  font-size: 0.92rem;
+  border-left: 2px solid var(--blade-dim);
+  padding-left: 0.9rem;
+}
+
+.qa {
+  margin: 1.75rem 0;
+  background: var(--panel);
+  border: 1px solid var(--seam);
+  border-top: 2px solid var(--blade-dim);
+  box-shadow: 0 0 0 1px rgba(125, 255, 176, 0.04), 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.q {
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  font-family: "Courier New", monospace;
+  font-size: 1.02rem;
+  letter-spacing: 0.03em;
+  color: var(--blade);
+  border-bottom: 1px dashed var(--seam);
+}
+
+.qno {
+  display: inline-block;
+  min-width: 3.4rem;
+  color: var(--ember);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+}
+
+.a { padding: 0.9rem 1.1rem 1.1rem; }
+.a p { margin: 0 0 0.85rem; }
+.a p:last-child { margin-bottom: 0; }
+.a em { color: var(--bone); }
+
+.a a {
+  color: var(--blade);
+  text-decoration: underline;
+  text-decoration-color: var(--blade-dim);
+  text-underline-offset: 3px;
+}
+.a a:hover { color: #b6ffd6; }
+
+blockquote.verbatim {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  background: var(--panel-deep);
+  border: 1px solid var(--seam);
+  border-left: 3px solid var(--ember);
+  font-family: "Courier New", monospace;
+  font-size: 0.88rem;
+  color: var(--bone);
+}
+blockquote.verbatim p { margin: 0; }
+
+.qa.sleeve { border-top-color: var(--ember); }
+.qa.sleeve .q { color: var(--ember); }
+
+.colophon {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  border-top: 1px solid var(--seam);
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+
+/* JS-on touch: cards sweep their top edge like a blade; text is fully readable without it */
+.qa.lit { animation: bladeSweep 0.7s ease-out; }
+@keyframes bladeSweep {
+  0%   { border-top-color: var(--blade); box-shadow: 0 -6px 22px rgba(125, 255, 176, 0.35), 0 10px 24px rgba(0, 0, 0, 0.45); }
+  100% { border-top-color: var(--blade-dim); box-shadow: 0 0 0 1px rgba(125, 255, 176, 0.04), 0 10px 24px rgba(0, 0, 0, 0.45); }
+}
