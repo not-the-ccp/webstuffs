@@ -1,0 +1,201 @@
+/* Nativity Gate Terminus — siege-season timetable */
+:root {
+  --paper: #efe6d2;
+  --ink: #2a2620;
+  --rail-red: #8c1d18;
+  --rail-green: #2f4a3e;
+  --gold: #b98a2f;
+  --faded: #6e6350;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(43, 38, 32, 0.03) 0 1px, transparent 1px 7px),
+    #d8cdb2;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.paper {
+  max-width: 62em;
+  margin: 2rem auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+  box-shadow: 0 12px 30px rgba(43, 38, 32, 0.35);
+  padding: 2.2rem 2.6rem 2.6rem;
+  position: relative;
+}
+
+.masthead {
+  border-bottom: 4px double var(--ink);
+  text-align: center;
+  padding-bottom: 1.1rem;
+  position: relative;
+}
+
+.line-company {
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  color: var(--rail-green);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.season {
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.route-line {
+  margin: 0.9rem auto 0;
+  padding: 0.35rem 0.8rem;
+  border-top: 1px dashed var(--ink);
+  border-bottom: 1px dashed var(--ink);
+  font-size: 0.9rem;
+  position: relative;
+  color: var(--rail-green);
+}
+
+.stop-dot {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--rail-red);
+  margin-right: 0.5em;
+}
+
+.train-dot {
+  position: absolute;
+  bottom: -0.28em;
+  left: 0;
+  width: 0.7em;
+  height: 0.45em;
+  background: var(--ink);
+  border-radius: 0.15em;
+  opacity: 0;
+}
+
+.train-dot.running {
+  opacity: 1;
+  animation: run 39s linear infinite;
+}
+
+@keyframes run {
+  from { left: 0; }
+  to { left: calc(100% - 0.7em); }
+}
+
+.stamp {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.25rem 0.9rem;
+  border: 3px solid var(--rail-red);
+  color: var(--rail-red);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  transform: rotate(-3deg);
+  opacity: 0.85;
+}
+
+table.tt {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tt caption {
+  caption-side: top;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--faded);
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.tt th, .tt td {
+  border: 1px solid var(--ink);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.tt thead th {
+  background: var(--rail-green);
+  color: var(--paper);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+.tt tbody tr:nth-child(even) { background: rgba(43, 38, 32, 0.05); }
+
+.tt td:nth-child(2), .tt td:nth-child(3) {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tt s { color: var(--rail-red); }
+
+tr.terminus td {
+  background: rgba(140, 29, 24, 0.12);
+  border-top: 2px solid var(--rail-red);
+  border-bottom: 2px solid var(--rail-red);
+}
+
+.note-col { font-size: 0.88rem; color: var(--faded); }
+
+.entry { margin: 1.6rem 0; }
+
+.entry h2 {
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.25rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--rail-green);
+}
+
+blockquote.leaf {
+  margin: 1rem 0;
+  padding: 0.8rem 1.1rem;
+  background: #e9dcc0;
+  border-left: 4px solid var(--rail-red);
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+blockquote.leaf p { margin: 0; }
+
+.game-title { font-style: italic; color: var(--rail-red); }
+
+a { color: var(--rail-red); }
+
+a:hover { color: var(--gold); }
+
+.colophon {
+  border-top: 4px double var(--ink);
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--faded);
+}
