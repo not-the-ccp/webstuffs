@@ -1,0 +1,144 @@
+/* The Crossing Diary — mid-Atlantic, survey vessel Meridian */
+
+:root {
+  --paper: #f3ecdd;
+  --ink: #26313a;
+  --faint: #5c6b76;
+  --red: #a33a2a;
+  --sea: #2f5d6e;
+  --rule: #b8ab8f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e7dfcd;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 31px, rgba(95, 110, 120, 0.10) 31px, rgba(95, 110, 120, 0.10) 32px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.diary {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 14px 34px rgba(38, 49, 58, 0.18);
+  padding: 2.6rem 3rem 2.2rem;
+}
+
+.diary-head {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.rule-line {
+  letter-spacing: 0.18em;
+  font-variant: small-caps;
+  color: var(--faint);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0.2rem 0 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.dateline {
+  color: var(--sea);
+  font-style: italic;
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.entry p { margin: 0 0 1.15rem; }
+
+p.drop::first-letter {
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.09em;
+  color: var(--sea);
+}
+
+a { color: var(--sea); }
+a:hover { color: var(--red); }
+
+blockquote {
+  margin: 1.4rem 1.6rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 4px solid var(--red);
+  background: rgba(163, 58, 42, 0.06);
+  font-style: italic;
+  color: #4a2a22;
+}
+
+.meter {
+  margin-top: 2.4rem;
+  border: 1px dashed var(--rule);
+  padding: 1.2rem 1.4rem 1.4rem;
+  background: rgba(47, 93, 110, 0.05);
+}
+
+.meter-head {
+  font-size: 1.15rem;
+  margin: 0 0 0.4rem;
+  color: var(--sea);
+}
+
+.meter-note { margin: 0 0 0.9rem; color: var(--faint); font-size: 0.94rem; }
+
+#open-form { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; }
+
+label { display: block; font-size: 0.92rem; }
+
+input[type="number"] {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  width: 7.5rem;
+  border: 1px solid var(--rule);
+  background: #fbf7ec;
+  color: var(--ink);
+}
+
+button {
+  font: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  padding: 0.42rem 1rem;
+  border: 1px solid var(--sea);
+  background: var(--sea);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+button:hover { background: var(--red); border-color: var(--red); }
+
+output {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--ink);
+}
+
+.diary-foot {
+  margin-top: 2.2rem;
+  border-top: 3px double var(--rule);
+  padding-top: 1rem;
+  font-size: 0.92rem;
+  color: var(--faint);
+}
+
+.colophon { margin: 0.6rem 0 0; font-style: italic; }
+
+@media (max-width: 40rem) {
+  .diary { margin: 0; border-left: none; border-right: none; padding: 1.6rem 1.2rem; }
+}
