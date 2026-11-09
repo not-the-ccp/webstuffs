@@ -1,0 +1,118 @@
+/* Specification WO-1954 0643 — a printed-patent register look */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #26211a;
+  --faded: #6d6353;
+  --rule: #b7ab94;
+  --seal: #8a2b1d;
+  --measure: 42rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.spec {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.masthead {
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.office {
+  margin: 0 0 .35rem;
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--faded);
+}
+
+.appno {
+  margin: 0 0 1.1rem;
+  font-size: .9rem;
+  color: var(--faded);
+  font-style: italic;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: .02em;
+}
+
+.inventors {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--faded);
+}
+
+.block { margin-bottom: 2.25rem; }
+
+h2 {
+  font-size: .85rem;
+  font-weight: normal;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--seal);
+  margin: 0 0 .9rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+p { margin: 0 0 1.1rem; }
+
+a {
+  color: var(--seal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+a:hover { border-bottom-color: var(--seal); }
+
+.claims ol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.claims li {
+  margin-bottom: .85rem;
+  padding-left: .35rem;
+}
+
+.claims li::marker {
+  font-variant-numeric: oldstyle-nums;
+  color: var(--faded);
+}
+
+.foot {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--ink);
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--faded);
+}
+
+.foot p { margin: 0; }
+
+@media (max-width: 40rem) {
+  .spec { padding: 2.5rem 1.25rem 3.5rem; }
+  h1 { font-size: 1.3rem; }
+}
