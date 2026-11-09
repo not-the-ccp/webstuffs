@@ -1,0 +1,263 @@
+/* The Canaries' Tavern — Diners' Desk, Olympiastraße Supplement */
+
+:root {
+  --canary: #ffd21f;
+  --canary-deep: #f5a300;
+  --green: #1e3a12;
+  --green-soft: #2f5a1f;
+  --red: #e23b3b;
+  --paper: #fff8e1;
+  --ink: #241c05;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 210, 31, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(47, 90, 31, 0.25), transparent 50%),
+    repeating-linear-gradient(90deg,
+      var(--green) 0 44px,
+      #274a16 44px 88px),
+    var(--green);
+  background-attachment: fixed;
+}
+
+/* pitch stripes under everything, very faint */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+    rgba(255,255,255,0.03) 0 60px, transparent 60px 120px);
+  z-index: 0;
+}
+
+/* score band */
+.scoreband {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #101010, #2b2b2b);
+  color: #cfe8cf;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.18em;
+  border-bottom: 4px solid var(--canary);
+}
+.scoreband .score {
+  font-size: 1.6rem;
+  color: var(--canary);
+  padding: 0 12px;
+  border: 2px solid var(--canary);
+  border-radius: 4px;
+  background: #0c0c0c;
+}
+.scoreband .round {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #9fbf9f;
+}
+
+/* masthead */
+.masthead {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 26px auto 0;
+  max-width: 900px;
+  padding: 22px 28px;
+  background:
+    linear-gradient(135deg, rgba(255,248,225,0.97), rgba(255,240,190,0.97));
+  border: 3px double var(--green);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55), inset 0 0 0 6px rgba(30,58,18,0.08);
+}
+.masthead::after {
+  content: "★ ★ ★ ★ ★";
+  position: absolute;
+  right: 22px;
+  bottom: 10px;
+  color: var(--canary-deep);
+  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+}
+.canary {
+  width: 110px;
+  height: 110px;
+  flex: 0 0 auto;
+  filter: drop-shadow(3px 4px 0 rgba(30,58,18,0.25));
+  animation: bob 3.4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+.masthead-text .paper {
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--green-soft);
+  font-size: 0.95rem;
+}
+.masthead h1 {
+  margin: 4px 0 6px;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.05;
+  color: var(--green);
+  text-shadow: 2px 2px 0 var(--canary);
+}
+.byline {
+  margin: 0;
+  font-style: italic;
+  color: #5a4a10;
+}
+
+/* main sheet */
+.review {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 26px auto 40px;
+  background: var(--paper);
+  border: 3px solid var(--green);
+  border-radius: 10px;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.6);
+  padding: 34px clamp(20px, 5vw, 56px) 30px;
+  background-image:
+    linear-gradient(rgba(30,58,18,0.05) 1px, transparent 1px);
+  background-size: 100% 34px;
+}
+.review::before, .review::after {
+  content: "";
+  position: absolute;
+  left: 18px; right: 18px;
+  height: 10px;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--canary) 0 14px, var(--green) 14px 28px);
+  border-radius: 6px;
+  opacity: 0.85;
+}
+.review::before { top: 10px; }
+.review::after { bottom: 10px; }
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--green);
+  margin: 34px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--canary);
+  letter-spacing: 0.02em;
+}
+h2::before { content: "⚽ "; }
+section:first-of-type h2 { margin-top: 0; }
+
+p { margin: 0 0 14px; }
+
+a { color: var(--green-soft); font-weight: 600; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { background: var(--canary); color: var(--green); }
+
+/* verdict stamp */
+.verdict-stamp {
+  display: inline-block;
+  transform: rotate(-2deg);
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: rgba(226,59,59,0.06);
+}
+.verdict-word { text-transform: uppercase; }
+
+/* courses */
+.course-list { list-style: none; margin: 0 0 14px; padding: 0; }
+.course-list li {
+  position: relative;
+  padding: 12px 14px 12px 150px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, rgba(255,210,31,0.28), rgba(255,248,225,0) 65%);
+  border-left: 5px solid var(--canary);
+}
+.course-no {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--green-soft);
+  text-transform: uppercase;
+}
+
+/* court caption */
+.caption-card {
+  margin: 18px auto;
+  max-width: 560px;
+  padding: 16px 20px;
+  background: #fdfaf2;
+  border: 2px solid #6b5b2a;
+  box-shadow: 4px 4px 0 rgba(30,58,18,0.25);
+  font-family: "Courier New", monospace;
+  text-align: center;
+  font-size: 0.95rem;
+  transform: rotate(1deg);
+}
+
+/* colophon */
+.colophon {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 2px dashed var(--canary-deep);
+  font-size: 0.85rem;
+  color: #5a4a10;
+  text-align: center;
+}
+.goal-tally {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.goal {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--canary);
+  border: 2px solid var(--green);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.goal.home { background: var(--red); border-color: #7a1d1d; color: #fff; }
+.goal:hover { transform: scale(1.18) rotate(-6deg); }
+
+.also p { font-size: 0.95rem; }
+
+@media (max-width: 620px) {
+  .canary { width: 74px; height: 74px; }
+  .course-list li { padding-left: 14px; padding-top: 30px; }
+}
