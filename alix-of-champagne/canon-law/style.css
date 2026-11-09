@@ -1,0 +1,157 @@
+/* The Book of Canons (Regency Edition) — LMB-1218 liner notes.
+   Parchment and rubric: a chancel room by lamplight, the sea under the room. */
+
+:root {
+  --parchment: #f0e6cf;
+  --parchment-deep: #e6d8b8;
+  --ink: #2b2318;
+  --ink-soft: #4a3d2c;
+  --rubric: #7a1f1f;
+  --sea: #1f3a44;
+  --brass: #8a6d2f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sea);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(138, 109, 47, 0.22), transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(0, 0, 0, 0.08) 38px 39px);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.sleeve {
+  max-width: 760px;
+  margin: 2.5rem auto 4rem;
+  padding: 2.75rem 3rem 2rem;
+  background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(138, 109, 47, 0.12), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(122, 31, 31, 0.07), transparent 50%);
+  border: 3px double var(--brass);
+  outline: 1px solid rgba(43, 35, 24, 0.35);
+  outline-offset: 5px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* The wax seal: press it for the bell. */
+.seal {
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #9c3030, var(--rubric) 65%);
+  border: 2px solid #591515;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 0 0 5px rgba(240, 230, 207, 0.18);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 2;
+}
+.seal-ring {
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(240, 230, 207, 0.55);
+  border-radius: 50%;
+  font-size: 0.42rem;
+  letter-spacing: 0.18em;
+  color: rgba(240, 230, 207, 0.8);
+  display: grid;
+  place-items: center;
+}
+.seal-bell { font-size: 1.6rem; color: rgba(240, 230, 207, 0.9); margin-top: 0.6rem; }
+.seal.ringing .seal-bell { animation: ring 0.9s ease-in-out; }
+@keyframes ring {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-16deg); }
+  45% { transform: rotate(13deg); }
+  70% { transform: rotate(-8deg); }
+}
+
+.masthead { text-align: center; border-bottom: 3px double var(--ink-soft); padding-bottom: 1.2rem; margin-bottom: 1.4rem; }
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rubric);
+  margin: 0 0 0.9rem;
+}
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
+h1 .sub { display: block; font-size: 1.15rem; letter-spacing: 0.3em; color: var(--ink-soft); margin-top: 0.35rem; }
+.credited { margin: 1rem 0 0.25rem; font-style: italic; color: var(--ink-soft); font-size: 0.95rem; }
+.small { font-size: 0.8rem; color: var(--ink-soft); }
+
+.note { margin-bottom: 1.6rem; }
+.note h2 {
+  font-size: 1.02rem;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  color: var(--rubric);
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+.note p { margin: 0 0 0.9rem; }
+a { color: var(--rubric); text-decoration: none; border-bottom: 1px dotted var(--rubric); }
+a:hover { background: rgba(122, 31, 31, 0.08); }
+
+/* Running order as a score: five staff lines under each side. */
+ol.tracks {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0.4rem 0 0 0;
+  border-top: 2px solid var(--ink-soft);
+}
+ol.tracks li {
+  counter-increment: none;
+  padding: 0.55rem 0 0.55rem 0.15rem;
+  position: relative;
+  background-image: repeating-linear-gradient(0deg, transparent 0 13px, rgba(43, 35, 24, 0.14) 13px 14px);
+  border-bottom: 1px solid rgba(138, 109, 47, 0.5);
+}
+ol.tracks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rubric);
+}
+ol.tracks .t { font-variant: small-caps; letter-spacing: 0.05em; color: var(--sea); }
+ol.tracks em { color: var(--ink-soft); }
+ol.tracks span + span, li::after { float: right; color: var(--ink-soft); font-size: 0.85rem; }
+
+.colophon {
+  border-top: 3px double var(--ink-soft);
+  margin-top: 1.8rem;
+  padding-top: 0.9rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.colophon .strings { margin-top: 0.7rem; }
+.strings i {
+  display: inline-block;
+  width: 46px;
+  height: 2px;
+  margin: 0 6px;
+  background: linear-gradient(90deg, transparent, var(--brass) 30%, var(--brass) 70%, transparent);
+}
