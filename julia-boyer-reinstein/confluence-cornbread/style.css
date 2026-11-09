@@ -1,0 +1,130 @@
+/* Ticket No. 7 — Confluence Cornbread · the Reinstein kitchen sheet */
+
+:root {
+  --paper: #f6f1e4;
+  --ink: #2b2419;
+  --green: #3f4a33; /* the Company's gunpowder green, chalky */
+  --green-faint: #5d6b4c;
+  --rule: #8a7f66;
+  --red: #7d3b2c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e2cf;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(63, 74, 51, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(125, 59, 44, 0.05), transparent 40%);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 2.5rem auto 4rem;
+  padding: 2.5rem 2.75rem 2rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 14px 40px rgba(43, 36, 25, 0.18);
+}
+
+.head { text-align: center; }
+
+.house, .sale, .footnote {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+.house { color: var(--green); margin: 0 0 0.25rem; }
+.sale { color: var(--red); margin: 0 0 1.25rem; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.5rem;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+.sub { font-style: italic; margin: 0; color: var(--green-faint); }
+
+.rule-double {
+  border-top: 3px double var(--ink);
+  margin: 1.5rem 0 0;
+}
+
+h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+  margin: 2.25rem 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+.drop::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--green);
+  font-family: Georgia, serif;
+}
+
+a { color: var(--green); text-decoration-color: rgba(63, 74, 51, 0.45); }
+a:hover { color: var(--red); }
+
+.ticket-rule { font-style: italic; color: var(--green-faint); font-size: 0.95rem; }
+
+.ticket { border: 1px dashed var(--rule); padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.28); }
+.ing, .method { margin-top: 1rem; }
+.ing h3, .method h3 { font-variant: small-caps; margin: 0 0 0.5rem; letter-spacing: 0.05em; }
+.ing ul, .method ol { margin: 0; padding-left: 1.25rem; }
+.ing li, .method li { margin-bottom: 0.4rem; }
+
+.calc {
+  border: 1px solid var(--green);
+  background: rgba(63, 74, 51, 0.05);
+  padding: 1.25rem 1.5rem;
+  max-width: 30rem;
+}
+.calc label {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  margin-top: 0.75rem;
+  color: var(--green);
+}
+.calc input {
+  width: 100%;
+  font: inherit;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+}
+.calc button {
+  margin-top: 1rem;
+  font: inherit;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--ink);
+  background: var(--green);
+  color: var(--paper);
+  cursor: pointer;
+}
+.calc button:hover { background: var(--green-faint); }
+.result { margin-top: 1rem; border-top: 1px dashed var(--rule); padding-top: 0.8rem; }
+.damp { font-style: italic; color: var(--red); font-size: 0.92rem; }
+
+.foot { margin-top: 2.5rem; text-align: center; }
+.footnote { color: var(--green-faint); }
