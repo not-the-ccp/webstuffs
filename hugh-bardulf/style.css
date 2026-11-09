@@ -1,0 +1,189 @@
+/* The Dreamer's Glossary — Entry 53 layout: an asymmetric reading sheet,
+   an oversized folio numeral in the left margin, a rotated court stamp,
+   and a ledger column set off as a card. */
+
+:root {
+  --ink: #1d1a16;
+  --parchment: #f3ecdc;
+  --parchment-deep: #e9dfc6;
+  --seal: #7a1f1f;
+  --rule: #b3a37e;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #d8cdb0;
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+.sheet {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 2.2rem 4rem 7.5rem;
+  background: var(--parchment);
+  border-top: 6px double var(--ink);
+  border-bottom: 6px double var(--ink);
+  position: relative;
+}
+
+.folio {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: #5c5138;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+/* Oversized folio numeral, pinned to the left margin, slightly turned. */
+.number-block {
+  position: absolute;
+  left: 0.6rem;
+  top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(-4deg);
+}
+
+.number {
+  font-size: 6.5rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--seal);
+  letter-spacing: -0.06em;
+}
+
+.number-rule {
+  width: 3px;
+  height: 3.2rem;
+  background: var(--seal);
+  margin: 0.6rem 0;
+}
+
+.number-died {
+  writing-mode: vertical-rl;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--seal);
+}
+
+.entry-head h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.05;
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.byline {
+  max-width: 34ch;
+  margin-left: 2.5rem;
+  font-style: italic;
+  color: #4c4330;
+  font-size: 1.02rem;
+}
+
+/* The reading path: two unequal columns, the ledger card pushed down and
+   overlapping the wide column. */
+.entry-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 0 2.4rem;
+  margin-top: 2.2rem;
+}
+
+.entry-grid h2 {
+  font-size: 0.85rem;
+  font-variant: small-caps;
+  letter-spacing: 0.22em;
+  border-top: 3px solid var(--ink);
+  padding-top: 0.35rem;
+  margin: 0 0 0.7rem;
+}
+
+.col-wide { grid-column: 1; }
+
+.col-ledger {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 3.5rem;
+  background: var(--parchment-deep);
+  border: 1px solid var(--rule);
+  padding: 1.1rem 1.2rem 1.3rem;
+  box-shadow: 6px 6px 0 rgba(29, 26, 22, 0.14);
+}
+
+.col-ledger blockquote {
+  margin: 0.8rem 0 1rem -1.4rem;
+  padding: 0.6rem 0 0.6rem 1.2rem;
+  border-left: 4px solid var(--seal);
+  background: var(--parchment);
+  font-style: italic;
+}
+
+.col-ledger blockquote p { margin: 0; }
+
+.col-charge {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 2.2rem;
+  border-top: 1px dashed var(--rule);
+  padding-top: 1.4rem;
+}
+
+.col-cross {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 2.2rem;
+  font-size: 0.94rem;
+}
+
+a { color: var(--seal); text-underline-offset: 3px; }
+a:hover { background: rgba(122, 31, 31, 0.1); }
+
+/* The court stamp, rotated, pressed over the lower left of the sheet. */
+.stamp {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 4.4rem;
+  transform: rotate(-11deg);
+  border: 3px solid var(--seal);
+  color: var(--seal);
+  font-variant: small-caps;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.9rem;
+  opacity: 0.85;
+}
+
+footer {
+  margin-top: 2.6rem;
+  border-top: 3px solid var(--ink);
+  padding-top: 1rem;
+}
+
+.advice { font-size: 1rem; }
+
+.colophon {
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: #5c5138;
+}
+
+@media (max-width: 720px) {
+  .sheet { padding: 2rem 1.4rem 4rem 4.4rem; }
+  .entry-grid { grid-template-columns: 1fr; }
+  .col-wide, .col-ledger, .col-charge, .col-cross { grid-column: 1; grid-row: auto; }
+  .col-ledger { margin-top: 0; }
+  .number { font-size: 4.2rem; }
+  .byline { margin-left: 0; }
+  .stamp { left: auto; right: 0.8rem; bottom: 0.8rem; }
+}
