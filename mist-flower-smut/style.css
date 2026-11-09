@@ -1,0 +1,169 @@
+/* SDS EA-1988-03 — a printed-dossier face for the web */
+
+:root {
+  --paper: #f7f4ec;
+  --ink: #26241f;
+  --faint: #6d6a5e;
+  --moss: #5b6e4a;
+  --moss-deep: #42523a;
+  --line: #c9c4b4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.03rem;
+  line-height: 1.68;
+}
+
+.sheet {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 2.25rem 3rem;
+}
+
+/* masthead */
+.masthead { text-align: center; }
+
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 2.2rem;
+}
+
+.issuer {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  line-height: 1.7;
+}
+
+.sdseal { position: relative; width: 3.4rem; height: 3.4rem; flex: none; }
+.seal-ring {
+  position: absolute; inset: 0;
+  display: block;
+  border: 2px solid var(--moss);
+  border-radius: 50%;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--moss-deep);
+  text-align: center;
+  line-height: 3.4rem;
+}
+.seal-star {
+  position: absolute; inset: 0;
+  text-align: center;
+  line-height: 3.5rem;
+  font-size: 0.9rem;
+  color: var(--moss);
+}
+
+h1 {
+  font-size: 2.35rem;
+  font-weight: normal;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+}
+
+.specimen {
+  font-size: 1.25rem;
+  margin: 0 0 0.6rem;
+}
+.specimen em { color: var(--moss-deep); }
+
+.docmeta {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  margin: 0 0 1.8rem;
+}
+
+/* rules */
+.rule { border-top: 1px solid var(--line); margin: 1.6rem 0 0; }
+.rule.double { border-top: 3px double var(--ink); margin: 2.2rem 0 0.4rem; }
+
+/* body blocks */
+main { margin-top: 1.4rem; }
+
+.block { margin: 2.4rem 0; }
+
+.block h2 {
+  font-size: 0.82rem;
+  font-weight: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.45rem;
+  margin: 0 0 1.1rem;
+}
+
+p { margin: 0 0 1.05rem; }
+
+/* identification tables */
+table.ident {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin: 0 0 0.4rem;
+}
+
+table.ident th, table.ident td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+table.ident th {
+  width: 3.2rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.82rem;
+  color: var(--moss-deep);
+  background: #efeadf;
+}
+
+td strong { letter-spacing: 0.02em; }
+
+.sig {
+  font-style: italic;
+  color: var(--faint);
+  margin-top: 1.6rem;
+}
+
+a {
+  color: var(--moss-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+a:hover { border-bottom-color: var(--moss-deep); }
+
+/* colophon */
+.colophon {
+  margin-top: 3.2rem;
+  border-top: 3px double var(--ink);
+  padding-top: 1.1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+}
+.greenline { color: var(--moss); margin-bottom: 0.6rem; }
+.back { font-size: 0.8rem; }
+
+@media (max-width: 36rem) {
+  .sheet { padding: 2.5rem 1.25rem 2rem; }
+  h1 { font-size: 1.7rem; letter-spacing: 0.18em; }
+  .mast-top { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
