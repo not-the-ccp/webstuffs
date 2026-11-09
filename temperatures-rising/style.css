@@ -1,0 +1,162 @@
+/* Temperatures Rising — encyclopaedia entry */
+html {
+  font-size: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, "Liberation Serif", serif;
+  font-size: 1rem;
+  line-height: 1.62;
+  color: #212121;
+  background: #fafaf5;
+}
+article {
+  max-width: 40rem;
+  margin: 1.5rem auto;
+  padding: 1.25rem 1rem;
+  background: #ffffff;
+  border: 1px solid #c8c8c0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+  color: #6a5c4d;
+  margin: 0 0 0.5rem;
+}
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.35rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+.dek {
+  font-size: 0.88rem;
+  color: #444;
+  margin: 0 0 1.25rem;
+  border-bottom: 1px solid #c8c8c0;
+  padding-bottom: 0.6rem;
+}
+.infobox {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+}
+.infobox caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.05rem;
+  padding: 0.4rem 0.6rem 0;
+  text-align: left;
+}
+.infobox th {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid #d8d8cc;
+  color: #444;
+  font-weight: normal;
+  width: 34%;
+  background: #f5f5ee;
+}
+.infobox td {
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid #d8d8cc;
+  vertical-align: top;
+}
+h2 {
+  font-size: 1.15rem;
+  margin: 1.6rem 0 0.6rem;
+  font-weight: normal;
+  border-bottom: 1px solid #c8c8c0;
+  padding-bottom: 0.25rem;
+}
+p {
+  margin: 0 0 0.9rem;
+  text-align: justify;
+}
+a {
+  color: #1d4e79;
+  text-decoration: underline;
+}
+a:visited {
+  color: #4a3f70;
+}
+.format-roller {
+  margin: 1.4rem 0;
+  padding: 1rem;
+  border: 1px solid #c8c8c0;
+  background: #f5f5ee;
+}
+.format-roller h2 {
+  border: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+.roller-note {
+  font-size: 0.82rem;
+  color: #555;
+  margin: 0 0 0.8rem;
+}
+.roller-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #9a9a8e;
+  padding-bottom: 0.5rem;
+}
+.roller-tab {
+  background: transparent;
+  border: 1px solid #9a9a8e;
+  border-bottom: none;
+  padding: 0.35rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #333;
+}
+.roller-tab:hover {
+  background: #e8e8dc;
+}
+.roller-tab.pressed {
+  background: #ffffff;
+  border-color: #c8c8c0;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: -1px;
+  cursor: default;
+  font-weight: bold;
+}
+.roller-panel {
+  margin: 0;
+  padding: 0;
+}
+.roller-panel p {
+  margin: 0 0 0.6rem;
+  text-align: left;
+}
+.roller-panel ul {
+  margin: 0.2rem 0 0.6rem 1.3rem;
+  padding: 0;
+}
+@media (max-width: 480px) {
+  article {
+    margin: 1rem auto;
+    padding: 0.9rem 0.7rem;
+  }
+  .roller-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  .roller-tab {
+    border: 1px solid #9a9a8e;
+    margin-bottom: 0.3rem;
+  }
+  .roller-tab.pressed {
+    border-bottom: 1px solid #9a9a8e;
+    margin-bottom: 0.3rem;
+  }
+}
