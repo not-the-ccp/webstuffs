@@ -1,0 +1,143 @@
+/* USS Jacob Jones (DD-61) — Room 214 term report sheet */
+
+:root {
+  --navy: #12243e;
+  --deck: #f4efe3;
+  --paper: #faf6ec;
+  --brass: #b08a3e;
+  --ink: #1d2a3a;
+  --rule: #c9bda0;
+  --stamp: #7a1f1f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(18, 36, 62, 0.03) 0 2px, transparent 2px 6px),
+    var(--deck);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.paper {
+  max-width: 46rem;
+  margin: 2.5rem auto;
+  padding: 2.5rem 2.75rem 3rem;
+  background: var(--paper);
+  border: 3px double var(--navy);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  box-shadow: 0 10px 30px rgba(18, 36, 62, 0.18);
+  position: relative;
+}
+
+.sheet-head { border-bottom: none; }
+
+.school {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
+h1::after {
+  content: "DD-61";
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.1em 0.45em;
+  font-size: 1rem;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.15em;
+  color: var(--paper);
+  background: var(--navy);
+  border: 1px solid var(--brass);
+  vertical-align: 0.35em;
+}
+
+.course {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.byline {
+  font-size: 0.88rem;
+  color: #4a5a6e;
+  margin: 0.25rem 0 1rem;
+}
+
+.rule {
+  border: 0;
+  border-top: 2px solid var(--navy);
+  border-bottom: 1px solid var(--rule);
+  height: 3px;
+  margin: 0.5rem 0 1.5rem;
+}
+
+section { margin-bottom: 1.5rem; }
+
+h2 {
+  font-size: 1.05rem;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--navy);
+  border-left: 4px solid var(--brass);
+  padding-left: 0.6rem;
+  margin: 0 0 0.6rem;
+}
+
+p { margin: 0 0 0.9rem; }
+
+a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--brass); }
+
+.references ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+}
+
+.references li { margin-bottom: 0.45rem; }
+
+.grade-stamp {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--stamp);
+  border: 2px solid var(--stamp);
+  padding: 0.35rem 0.5rem;
+  transform: rotate(8deg);
+  opacity: 0.55;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .paper { margin: 1rem 0.75rem; padding: 1.5rem 1.25rem 2rem; }
+  .grade-stamp { display: none; }
+}
