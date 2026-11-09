@@ -1,0 +1,209 @@
+/* Consular Court of Salon-de-Provence — transcript excerpt, 17 June 1563 */
+
+:root {
+  --parchment: #f1e5c8;
+  --parchment-deep: #e8d8b0;
+  --ink: #2a1d12;
+  --ink-faded: #5a4630;
+  --wax: #8c1f1c;
+  --wax-deep: #6e1512;
+  --rule: #a98f62;
+  --verbat-bg: #efe0bd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 250, 230, 0.55), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(120, 90, 40, 0.18), transparent 50%),
+    var(--parchment);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.doth {
+  text-align: center;
+  padding: 2.5rem 1.25rem 1.5rem;
+  border-bottom: 3px double var(--rule);
+  position: relative;
+}
+
+.doth-office {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--ink-faded);
+  margin: 0 0 0.4rem;
+}
+
+.doth-book {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  margin: 0 0 1.2rem;
+}
+
+.doth h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0.5rem 1rem;
+}
+
+.doth h1 .date {
+  display: block;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--wax);
+  margin-top: 0.3rem;
+}
+
+.doth-parties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.6rem 1rem;
+  font-size: 0.95rem;
+  max-width: 46rem;
+  margin: 0.8rem auto 0;
+}
+
+.doth-parties .party-role {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-faded);
+}
+
+.doth-parties .party-against {
+  font-style: italic;
+  color: var(--wax);
+}
+
+.seal {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  border: 3px solid var(--wax);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.25), transparent 60%),
+    var(--wax);
+  color: #f5e9d8;
+  font-family: inherit;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  transform: rotate(-12deg);
+  box-shadow: inset 0 0 0 3px var(--parchment), inset 0 0 0 5px var(--wax-deep), 0 2px 6px rgba(60, 30, 10, 0.35);
+  cursor: pointer;
+  transition: transform 0.35s ease;
+}
+
+.seal:active { transform: rotate(-12deg) scale(0.94); }
+
+.seal.stamped { animation: stamp 0.5s ease; }
+
+@keyframes stamp {
+  0%   { transform: rotate(-12deg) scale(1.25); opacity: 0.4; }
+  60%  { transform: rotate(-12deg) scale(0.96); opacity: 1; }
+  100% { transform: rotate(-12deg) scale(1); }
+}
+
+.record {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 2.5rem;
+}
+
+.folio {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin: 2rem 0 1.2rem;
+}
+
+.folio:first-child { margin-top: 0; }
+
+.line {
+  margin: 0 0 1.15rem;
+  padding: 0.55rem 0.8rem;
+  border-left: 2px solid var(--rule);
+  background: rgba(255, 252, 240, 0.4);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.line.shown { opacity: 1; transform: none; }
+
+.line .spk {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  color: var(--wax);
+}
+
+.verbat {
+  margin: 1.3rem 0.4rem;
+  padding: 1rem 1.2rem;
+  background: var(--verbat-bg);
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--wax);
+  box-shadow: inset 0 0 24px rgba(150, 110, 50, 0.18);
+}
+
+.verbat p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.verbat cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: var(--ink-faded);
+}
+
+.record a {
+  color: var(--wax-deep);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.record a:hover { background: rgba(140, 31, 28, 0.08); }
+
+.colophon {
+  border-top: 3px double var(--rule);
+  text-align: center;
+  padding: 1.2rem 1.2rem 2.2rem;
+  font-size: 0.82rem;
+  color: var(--ink-faded);
+}
+
+.colophon p { margin: 0.3rem 0; }
+
+.colophon a { color: var(--wax-deep); }
+
+@media (prefers-reduced-motion: reduce) {
+  .line { opacity: 1; transform: none; transition: none; }
+  .seal { transition: none; }
+}
