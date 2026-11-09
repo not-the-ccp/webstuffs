@@ -1,0 +1,249 @@
+/* Desk Note 2 — The Set-Piece FAQ. Web-safe, bevelled, starry. 800x600 in spirit. */
+
+:root {
+  --ink: #000000;
+  --paper: #ffffcc;
+  --steel: #c0c0c0;
+  --plum: #663366;
+  --navy: #003366;
+  --gold: #ff9900;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--ink);
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  background-color: #000033;
+  /* tiled star field, the cheap 1998 way */
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1.5px),
+    radial-gradient(#c0c0c0 1px, transparent 1.5px),
+    radial-gradient(#9999ff 1px, transparent 1.5px);
+  background-size: 110px 110px, 70px 70px, 160px 160px;
+  background-position: 0 0, 35px 50px, 90px 20px;
+}
+
+.page {
+  max-width: 860px;
+  margin: 18px auto 40px;
+  background: var(--paper);
+  border: 3px outset var(--steel);
+  box-shadow: 6px 6px 0 #000000;
+}
+
+.top {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 14px 18px 10px;
+  border-bottom: 3px ridge var(--steel);
+}
+
+.kicker {
+  margin: 0 0 4px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #99ccff;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 30px;
+  color: var(--gold);
+  text-shadow: 2px 2px 0 #000000;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.sub {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #ffffff;
+  font-style: italic;
+}
+
+/* the scrolling banner, kept slow and legible */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10px;
+  border: 2px inset var(--steel);
+  background: #000000;
+  color: var(--gold);
+  font-size: 11px;
+  padding: 3px 0;
+}
+
+.marquee-run {
+  display: inline-block;
+  padding-left: 100%;
+  animation: run 26s linear infinite;
+}
+
+@keyframes run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200%); }
+}
+
+.sheet { padding: 4px 18px 10px; }
+
+.q {
+  margin: 16px 0;
+  padding: 10px 12px;
+  background: #fffff0;
+  border: 2px outset var(--steel);
+}
+
+.q h2 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--plum);
+  border-bottom: 1px dashed #999999;
+  padding-bottom: 4px;
+}
+
+.qno {
+  display: inline-block;
+  background: var(--plum);
+  color: #ffffff;
+  border: 2px inset var(--steel);
+  padding: 0 7px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.q p { margin: 8px 0; }
+
+.route {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background: #ffffff;
+  border: 2px inset var(--steel);
+  font-size: 12px;
+}
+
+.route caption {
+  caption-side: top;
+  font-size: 11px;
+  color: var(--plum);
+  padding: 3px 0;
+}
+
+.route th {
+  background: var(--navy);
+  color: #ffffff;
+  border: 2px outset var(--steel);
+  padding: 4px 6px;
+  text-align: left;
+}
+
+.route td {
+  border: 1px solid #999999;
+  padding: 5px 6px;
+  vertical-align: top;
+}
+
+.route tr:nth-child(even) td { background: #eeeecc; }
+
+.td1 {
+  background: var(--gold);
+  font-weight: bold;
+  text-align: center;
+}
+
+a { color: var(--navy); }
+a:hover { color: var(--plum); }
+
+.counter {
+  margin: 14px 0 4px;
+  text-align: center;
+}
+
+.counter-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--plum);
+}
+
+.digit {
+  display: inline-block;
+  min-width: 22px;
+  padding: 3px 4px;
+  margin: 0 2px;
+  background: #000000;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  border: 2px inset #666666;
+}
+
+.guestbook {
+  margin: 16px 0 6px;
+  padding: 10px;
+  background: #ffffff;
+  border: 2px inset var(--steel);
+}
+
+.gb-title {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+.gb-title::after {
+  content: " \2022 UPDATED \2022";
+  animation: blink 1s steps(2, start) infinite;
+  color: #cc0000;
+}
+
+@keyframes blink { to { visibility: hidden; } }
+
+.guestbook input {
+  border: 2px inset var(--steel);
+  background: #fffff0;
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.guestbook button {
+  border: 2px outset var(--steel);
+  background: #ffffcc;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.guestbook button:active { border-style: inset; }
+
+#gblist {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+}
+
+#gblist li { margin: 3px 0; }
+
+#gblist li:last-child::after {
+  content: " \2014 the corner repeats";
+  color: var(--plum);
+  font-style: italic;
+}
+
+.colophon {
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 11px;
+  padding: 10px 18px 14px;
+  border-top: 3px ridge var(--steel);
+}
+
+.colophon p { margin: 4px 0; }
+
+.colophon a { color: #99ccff; }
